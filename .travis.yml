@@ -1,0 +1,10 @@
+language: python - "3.7"
+
+install:
+    - pip install --user travis-sphinx sphinx-rtd-theme
+
+script:
+    travis-sphinx build --source=./source
+
+after_success:
+    travis-sphinx deploy
