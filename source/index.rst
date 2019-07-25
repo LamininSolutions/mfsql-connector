@@ -7,10 +7,9 @@ Welcome to MFSQL Connector's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 2
    :caption: Contents:
 
-
+   data-exchange-and-reporting-connector/index
 
 Indices and tables
 ==================
