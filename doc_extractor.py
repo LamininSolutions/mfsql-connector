@@ -7,8 +7,8 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 TAG = "rST"
-START_TOKEN = "/*" + TAG + "*" * (80 - (len(TAG) + 4)) + "*"
-END_TOKEN   = "**" + TAG + "*" * (80 - (len(TAG) + 4)) + "/"
+START_TOKEN = "/*" + TAG + "**"
+END_TOKEN   = "**" + TAG + "**"
 
 OBJECT_TYPES = {
     "fnMF" : "functions",
