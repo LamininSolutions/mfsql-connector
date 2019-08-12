@@ -8,16 +8,10 @@ Welcome to MFSQL Connector's documentation!
 
 .. toctree::
    :caption: Contents:
+   :maxdepth: 2
 
    functions/index
    procedures/index
    tables/index
    triggers/index
    views/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
