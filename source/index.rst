@@ -9,8 +9,11 @@ Welcome to MFSQL Connector's documentation!
 .. toctree::
    :caption: Contents:
 
-   Introduction/Introduction_Temp
-   data-exchange-and-reporting-connector/index
+   functions/index
+   procedures/index
+   tables/index
+   triggers/index
+   views/index
 
 Indices and tables
 ==================

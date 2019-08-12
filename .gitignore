@@ -1,1 +1,12 @@
 build
+
+source/functions/*.rst
+!source/functions/index.rst
+source/procedures/*.rst
+!source/procedures/index.rst
+source/tables/*.rst
+!source/tables/index.rst
+source/triggers/*.rst
+!source/triggers/index.rst
+source/views/*.rst
+!source/views/index.rst
