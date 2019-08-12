@@ -1,5 +1,5 @@
-MFSQL Connector Procedures
-==========================
+Procedures
+==========
 
 .. toctree::
    :glob:

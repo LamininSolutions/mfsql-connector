@@ -1,5 +1,5 @@
-MFSQL Connector Functions
-=========================
+Functions
+=========
 
 .. toctree::
    :glob:

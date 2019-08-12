@@ -1,5 +1,5 @@
-MFSQL Connector Triggers
-========================
+Triggers
+========
 
 .. toctree::
    :glob:
