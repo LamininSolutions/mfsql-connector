@@ -3,7 +3,7 @@
 import sys, os
 
 if len(sys.argv) < 2:
-    print("usage: {} <input>\n".format(sys.argv[0]), file=sys.stderr)
+    print("usage: {} <input>\n".format(sys.argv[0]))
     sys.exit(1)
 
 TAG = "rST"
