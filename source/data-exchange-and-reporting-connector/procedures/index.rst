@@ -1,7 +1,0 @@
-Procedures
-==========
-
-.. toctree::
-   :glob:
-
-   *
