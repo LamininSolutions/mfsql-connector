@@ -7,7 +7,7 @@ install:
     - pip install travis-sphinx sphinx-rtd-theme
 
 script:
-    - git clone https://github.com/LamininSolutions/MFSQLConnector
+    - git clone https://github.com/LamininSolutions/connector
     - find MFSQLConnector -name '*.sql' -exec python doc_extractor.py {} \;
     - travis-sphinx build --source=./source
 
