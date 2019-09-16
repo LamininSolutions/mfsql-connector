@@ -14,4 +14,3 @@ Welcome to MFSQL Connector's documentation!
    procedures/index
    tables/index
    triggers/index
-   views/index
