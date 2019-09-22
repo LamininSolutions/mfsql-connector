@@ -147,7 +147,3 @@ Step 7: view the results in SQL
 
     SELECT id, name_or_title, MFVersion, FileCount, Single_File, Mfsql_File_Unique_Ref, Process_ID
     FROM dbo.MFDrawing;
-
---------------
-
-
