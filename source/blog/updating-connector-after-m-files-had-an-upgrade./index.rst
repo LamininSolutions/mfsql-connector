@@ -82,16 +82,18 @@ would require and update to the Connector.
 MFSQL Connector will fail to connect to M-Files after the upgrade of
 M-Files on the SQL server with the following error message:
 
-    | A .NET Framework error occurred during execution of user-defined
+.. code:: text
+
+    A .NET Framework error occurred during execution of user-defined
     routine or aggregate "spMFGetUserAccounts":
-    | System.IO.FileLoadException: Could not load file or assembly
+    System.IO.FileLoadException: Could not load file or assembly
     'Interop.MFilesAPI, Version=7.0.0.0, Culture=neutral,
     PublicKeyToken=f1b4733f444f7ad0' or one of its dependencies.
     Assembly in host store has a different signature than assembly in
     GAC. (Exception from HRESULT: 0x80131050) See Microsoft Knowledge
     Base article 949080 for more information.
-    | System.IO.FileLoadException:
-    | at MFilesWrapper.GetUserAccounts(String VaultSettings, String&
+    ystem.IO.FileLoadException:
+    at MFilesWrapper.GetUserAccounts(String VaultSettings, String&
     userAccountsXml)
 
 When MFSQL Connector fail to connect, a email will be send to the MFSQL
