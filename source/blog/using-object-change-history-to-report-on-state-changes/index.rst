@@ -7,9 +7,7 @@ change take place for a specific object.
 Several MFSQL Connector Tables and procedures will come into play:
 
 -  The Class table for the objects (e.g. MFPurchaseInvoice)
-
 -  MFObjectChangeHistory
-
 -  spMFGetHistory
 
 The helper example **04.171.Get workflow state changes using Change
@@ -63,8 +61,8 @@ MFObjectChangeHistory table.
                                 @ColumnNames = 'Workflow_State',
                                 @IsFullHistory = 1
 
-| 
-| The MFObjectChangeHistory table includes the history extracts across
+
+The MFObjectChangeHistory table includes the history extracts across
 all classes and properties. In the illustration below the individual
 changes for each version of the object 361 of class 2 for the property
 39 is an id of the of the property 39. The change has taken place on the
@@ -112,8 +110,7 @@ There are several critical joins to take into account:
             ON [moch].[Property_Value] = [mws].[MFID]
     WHERE mpi.[ObjID] = 361 
 
-| 
-| The result of the above select statement
+The result of the above select statement
 
 |image1|
 
