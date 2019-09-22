@@ -13,7 +13,7 @@ It is simple to use: set the process\_id on the class table to say 6 for
 all the target records; run procedure , spMFCreatePublicSharedLink; and
 access the link in the table MFPublicLink.
 
-| Links can be created in bulk and on demand and can be built into other
+Links can be created in bulk and on demand and can be built into other
 procedures. For instance, the links can be created in the back ground
 and added back as a property on the object. This allows for the link to
 become available for use on the object itself. Another use case is to
