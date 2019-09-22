@@ -25,13 +25,8 @@ but may not be noticed immediately.
 
 The error :
 
-+--------------------------------------+--------------------------------------+
-| Error Message:                       |
-|                                      |
-| Conversion failed when converting    |
-| the nvarchar value 'errordata' to    |
-| data type int.                       |
-+--------------------------------------+--------------------------------------+
+Conversion failed when converting the nvarchar value 'errordata' to
+data type int.
 
 What causes the error: The \_ID column of a single lookup is of datatype
 INT. If the property is changed to a multilookup in the vault and more
