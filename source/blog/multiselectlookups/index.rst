@@ -17,8 +17,8 @@ To find all the multi select lookup properties in SQL:
 
 .. code:: sql
 
-    SELECT Property, valuelist, Class 
-    FROM [dbo].[MFvwMetadataStructure] AS [mfms] 
+    SELECT Property, valuelist, Class
+    FROM [dbo].[MFvwMetadataStructure] AS [mfms]
     WHERE MFDataType = 'MFDatatypeMultiSelectLookup'
 
 When the class is null in the above list, the property has not been used
@@ -32,7 +32,7 @@ used as single lookups. Normally only one item is found in these
 properties. However, nothing prevents adding another item to the
 property.
 
-| Sometimes it is necessary to join two tables based on a multi select
+Sometimes it is necessary to join two tables based on a multi select
 column for reporting or processing purposes. A straight join may have an
 error if any record in the class have multiple items. Consider the
 following:
@@ -43,21 +43,14 @@ When you see this error or expect to have multiple values using a multi
 select column in a join, the Connector function fnMFParseDelimitedString
 can be used to split these strings. Use the following construct:
 
-+--------------------------------------------------------------------------+
-| .. code:: sql                                          |
-|                                                                          |
-|     SELECT mo.[Name_Or_Title] AS account, [mo].[Reference_Contacts], mc. |
-| [Name_Or_Title] AS contact                                               |
-|     FROM [dbo].[MFAccount] AS [mo]                                       |
-|     CROSS APPLY [dbo].[fnMFParseDelimitedString]([mo].[Reference_Contact |
-| s_ID],',') AS [fmpds]                                                    |
-|     INNER JOIN [dbo].[MFContact] AS [mc]                                 |
-|     ON mc.[ObjID] = [fmpds].[ListItem]                                   |
-                                                                          
-+--------------------------------------------------------------------------+
+.. code:: sql
 
-| 
-| The result will show each contact on a separate line.
+    SELECT mo.[name_or_title] AS account, [mo].[reference_contacts], mc.[name_or_title] AS contact
+    FROM   [dbo].[mfaccount] AS [mo]
+           CROSS apply [dbo].[Fnmfparsedelimitedstring]([mo].[reference_contact  s_id], ',') AS [fmpds]
+           INNER JOIN [dbo].[mfcontact] AS [mc] ON mc.[objid] = [fmpds].[listitem]
+
+The result will show each contact on a separate line.
 
 |image2|
 
