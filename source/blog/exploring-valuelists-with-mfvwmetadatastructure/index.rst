@@ -9,8 +9,8 @@ helpful to the developer in this process as it offers exploration
 capabilities that is much easier to use that the M-Files Administration
 Panels.
 
-| 
-| The following listing will show each valuelist, its associated
+
+The following listing will show each valuelist, its associated
 properties, and the classes where it has been used. If the class is
 null, then the property has not been used on a metadata card
 
