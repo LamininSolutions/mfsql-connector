@@ -7,8 +7,13 @@ Welcome to MFSQL Connector's documentation!
 ===========================================
 
 .. toctree::
-   :caption: Contents:
    :maxdepth: 2
+
+   blog/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Components:
 
    functions/index
    procedures/index
