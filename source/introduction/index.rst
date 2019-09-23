@@ -5,4 +5,4 @@ Introduction
    :maxdepth: 1
    :glob:
 
-   */index
+  Introduction to MFSQL Connector
