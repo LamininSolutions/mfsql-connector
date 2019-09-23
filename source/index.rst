@@ -11,7 +11,6 @@ Welcome to MFSQL Connector's documentation!
    :caption: MFSQL Connector Guide:
 
    introducion/index
-   blog/Reporting/index
    blog/index
    
 
