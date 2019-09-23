@@ -1,5 +1,5 @@
-Blog
-====
+Blogs
+=====
 
 .. toctree::
    :maxdepth: 1

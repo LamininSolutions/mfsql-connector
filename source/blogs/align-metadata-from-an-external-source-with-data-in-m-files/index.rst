@@ -10,11 +10,11 @@ improve the efficiency of correlating the data.
 
 Several special MFSQL procedures can be used in this process
 
-#. spMFSyncroniseMetadata to update the metadata
+#. spMFSyncronizeMetadata to update the metadata
 
 #. spMFCreateTable to create the class table in question
 
-#. spMFupdateTable with updatemethod 2 to update the class table with
+#. spMFupdateTable with updatemethod 1 to update the class table with
    the existing data.
 
 #. Create an additional table in SQL as a working table for the external

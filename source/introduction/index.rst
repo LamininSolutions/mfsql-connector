@@ -1,4 +1,6 @@
 Introduction
 ============
 
-Introduction to MFSQL Connector
+
+
+Introduction to MFSQL
