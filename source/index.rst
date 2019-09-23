@@ -8,7 +8,9 @@ Welcome to MFSQL Connector's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Blogs:
 
+   introduction/index
    blog/index
 
 .. toctree::
