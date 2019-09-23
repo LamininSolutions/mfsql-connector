@@ -10,8 +10,9 @@ Welcome to MFSQL Connector's documentation!
    :maxdepth: 2
    :caption: MFSQL Connector Guide:
 
-   introduction/index
+   blog/Reporting/index
    blog/index
+   
 
 .. toctree::
    :maxdepth: 2
