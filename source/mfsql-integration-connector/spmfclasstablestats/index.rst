@@ -1,0 +1,110 @@
+spMFClassTableStats
+===================
+
+| 
+
+| 
+
+The class table stats procedure is used to show an extract of all the
+Class Tables created in the Connector database, the IncludedInApp status
+of the tables in MFClass the number of records in the class table and
+the date and time of the last updated record in the table. The date of
+the most recent MF_Last_Modified is also shown.
+
+The procedure also show a summary of the key status records from the
+process_id column of the tables. The number of records in the following
+categories are shown:
+
+.. container:: table-wrap
+
+   =============== =========================================================================================================================================================================================
+   Column          Description
+   =============== =========================================================================================================================================================================================
+   ClassID         MFID of the class
+   TableName       Name of Class table
+   IncludeInApp    IncludeInApp Flag
+    SQLRecordCount  Totals records in SQL (Note that this is not necessarily the same as the total per M-Files)
+    MFRecordCount  Total records in M-Files. This result is derived from the last time that spMFTableAudit procedure was run to produce a list of the objectversions of all the objects for a specific class
+    MFNotInSQL      Total record in M-Files not yet updated in SQL
+    Deleted         Total for Deleted flag set to 1
+    SyncError       Total Synchronization errors (process_id = 2)
+    Process_ID_1    Total of records with process_id = 1
+    MFError         Total of records with process_id = 3 as MFError
+    SQLError        Total of records with process_id =4 as SQL Error
+    LastModifed     Moist recent  date that SQL updated a record in the table
+    MFLastModified  Moist recent  that an update was made in M-Files on the record
+    SessionID       ID  of the latest spMFTableAudit procedure execution. 
+   =============== =========================================================================================================================================================================================
+
+| 
+
+   The MFRecordCount results of spMFClassTableStats is only accurate
+   based on the last execution of
+   `spMFAuditTable <page31817744.html#Bookmark66>`__ for a particular
+   class table. 
+
+.. container:: table-wrap
+
+   ============== =================================================================================================================================================
+   Type           Description
+   ============== =================================================================================================================================================
+   Procedure Name spMFClassTableStats
+   Inputs         ClassTableName default is nothing. if no table is specified then all class tables will be listed.
+                 
+                  Flag default null
+                 
+                  IncludeOutput default 0.  Set to 1 to output result to temporary table ##spMFClassTableStats
+                 
+                  Debug default 0
+   Outputs        1 = success
+                 
+                  Table result with Class ID, TableName, IncludedInApp flag, Number of Records in table, and date and time of the last updated record in the table.
+   MFSQL Manager  Operations/Review Class Tables
+   ============== =================================================================================================================================================
+
+| 
+
+| 
+
+.. container:: code panel pdl
+
+   .. container:: codeHeader panelHeader pdl
+
+      **Execute Procedure**
+
+   .. container:: codeContent panelContent pdl
+
+      .. code:: sql
+
+         EXEC [dbo].[spMFClassTableStats]
+
+ or to show the result for a specific table
+
+.. container:: code panel pdl
+
+   .. container:: codeHeader panelHeader pdl
+
+      **Execute Procedure**
+
+   .. container:: codeContent panelContent pdl
+
+      .. code:: sql
+
+         EXEC [dbo].[spMFClassTableStats] @ClassTableName = N'YourTablename'
+
+or to insert the report into a temporary table that can be used in
+messaging
+
+.. container:: code panel pdl
+
+   .. container:: codeHeader panelHeader pdl
+
+      **Execute Procedure**
+
+   .. container:: codeContent panelContent pdl
+
+      .. code:: sql
+
+         EXEC [dbo].[spMFClassTableStats] @ClassTableName = N'YourTablename', @IncludeOutput = 1
+
+         SELECT * FROM ##spmfClassTableStats
