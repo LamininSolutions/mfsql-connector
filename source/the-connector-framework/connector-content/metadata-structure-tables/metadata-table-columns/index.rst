@@ -62,7 +62,7 @@ MFClass
 ~~~~~~~
 
 The custom settings for the following columns will be retained when
-`spMFDropandUpdateMetadata <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/36536345/spMFDropAndUpdateMetadata>`__
+:ref:`procedures/spMFDropAndUpdateMetadata`
 are used with the correct parameters:
 
 -  The MFClass table is defines the classes included in the connector.

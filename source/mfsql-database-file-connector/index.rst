@@ -13,31 +13,17 @@ MFSQL Database File Connector
 
 
 
-INSTALLING AND CONFIGURING M-FILES SQL DATABASE FILE CONNECTOR VERSION 1.0
-==========================================================================
-
-| 
-
-LAST UPDATED
-
-Jan 2018
-
-|  
-| M-Files SQL Database Connector is a vault application that adds a
-  connection to files in a SQL Table to an M-Files document vault. The
-  connector allows documents and other files residing in a SQL database
-  to be viewed via the M-Files user interface in a similar manner as
-  other documents and objects in the vault.
+M-Files SQL Database Connector is a vault application that adds a
+connection to files in a SQL Table to an M-Files document vault. The
+connector allows documents and other files residing in a SQL database
+to be viewed via the M-Files user interface in a similar manner as
+other documents and objects in the vault.
 
 Using MFSQL Integration Connector it is now also possible to `export
 files from Database Blobs into
 M-File <page183631882.html#Bookmark3>`__\ s.  This feature can be used
 in conjunction with the Database File Connector.
 
-| 
-| This document provides the instructions for installing and configuring
-  M-Files SQL Database Connector. 
 
-| 
-
-| 
+This document provides the instructions for installing and configuring
+M-Files SQL Database Connector. 
