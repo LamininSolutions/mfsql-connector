@@ -6,4 +6,3 @@ Blogs
    :glob:
 
    */index
-   
