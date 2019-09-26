@@ -9,9 +9,6 @@ Introduction to MFSQL
    functional-overview/index
    practical-tips-and-use-cases/index
 
-Overview
-========
-
 The introduction describes the background and purpose of the tool, elaborate on
 the requirements for using the tool, highlights the assumptions and constraints
 and provides guidance on how to get help.
