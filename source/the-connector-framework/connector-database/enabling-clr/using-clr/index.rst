@@ -1,8 +1,8 @@
 Using CLR
 =========
 
-The Connector make extensive use of the \ **Common Language
-Runtime** ( **CLR**) as part of its architecture. This virtual machine
+The Connector make extensive use of the **Common Language
+Runtime** (**CLR**) as part of its architecture. This virtual machine
 component of Microsoft's .NET framework, manages the execution of .NET
 programs. Without CLR it would be impossible to use T-SQL store
 procedures to interact with M-Files and perform advanced functions in
@@ -23,10 +23,8 @@ The user code runs inside the CLR-hosted environment in SQL Server
 (called CLR integration). The following design goals were applied in the
 Connector:
 
-
-
 Reliability (Safety)
-''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~
 
 User code are not allowed to perform operations that compromise the
 integrity of the Database Engine process, such as popping a message box
@@ -34,10 +32,8 @@ requesting a user response or exiting the process. User code
 doesoverwrite theDatabase Engine memory buffers or internal data
 structures.
 
-
-
 Scalability
-'''''''''''
+~~~~~~~~~~~
 
 SQL Server and the CLR have different internal models for scheduling and
 memory management. SQL Server supports a cooperative, non-pre-emptive
@@ -59,7 +55,7 @@ directly.
 
 
 Performance
-'''''''''''
+~~~~~~~~~~~
 
 The managed user code running in the Database Engine have computational
 performance comparable to the same code run that outside the server. We
@@ -67,10 +63,8 @@ have taken into account that Database access from managed user code is
 not as fast as native Transact-SQL and where appropriate use
 Transact-SQL.
 
-
-
 Type safety verification
-''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Type-safe code is code that accesses memory structures only in
 well-defined ways. For example, given a valid object reference,
@@ -83,10 +77,8 @@ runtime performs a verification phase that examines code to determine
 its type-safety. The managed code in the Connector is verifiably
 type-safe code.
 
-
-
 Application domains
-'''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~
 
 The CLR supports the notion of application domains as execution zones
 within a host process where managed code assemblies can be loaded and
@@ -100,7 +92,7 @@ domain.
 
 
 Code Access Security(CAS)
-'''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The CLR security system provides a way to control what kinds of
 operations managed code can perform by assigning permissions to code.
@@ -119,8 +111,6 @@ permission before accessing the resource. This demand causes the CLR
 security system to trigger a comprehensive check of every unit of code
 (assembly) in the call stack. Only if the entire call chain has
 permission will access to the resource be granted.
-
-
 
 Application of CLR in store procedures
 --------------------------------------
@@ -157,26 +147,24 @@ Among the major benefits of this integration are:
    can leverage the power of the .NET Framework Library, which provides
    an extensive set of classes that can be used to quickly and
    efficiently solve programming problems.
--  **Improved safety and security.** Managed code runs in a common
+-  **Improved safety and security.** Managed code runs in a common
    language run-time environment, hosted by the Database Engine. SQL
    Server leverages this to provide a safer and more secure alternative
    to the extended stored procedures available in earlier versions of
    SQL Server.
--  **Ability to define data types and aggregate functions.** User
+-  **Ability to define data types and aggregate functions.** User
    defined types and user defined aggregates are new managed database
    objects which expand the storage and querying capabilities of SQL
    Server.
 -  **Streamlined development through a standardized
-   environment.** Database development is integrated into future
+   environment.** Database development is integrated into future
    releases of the Microsoft Visual Studio .NET development environment.
    We use the same tools for developing and debugging database objects
    and scripts as the tools that we use to write middle-tier or
    client-tier .NET Framework components and services.
--  **Potential for improved performance and scalability.** In many
+-  **Potential for improved performance and scalability.** In many
    situations, the .NET Framework language compilation and execution
    models deliver improved performance over Transact-SQL.
-
-
 
 Securing the use of CLR
 -----------------------
@@ -196,10 +184,8 @@ The deployment process allow both the installation and the
 upgrade/uninstall of the CLR as a DBA responsibility using standard SQL
 procedures.
 
-
-
 CLR Integration Security
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The security model of the SQL Server integration with CLR manages and
 secures access between different types of CLR and non-CLR objects
@@ -217,12 +203,8 @@ exernal to the database except for data in M-Files. The User-defined
 code runs under the security context of the user-session that invoked
 it, and with the correct privileges for that security context.
 
-.. container:: table-wrap
+**Related Topics**
+------------------
 
-   +-----------------------------------------------------------------------+
-   | **Related Topics**                                                    |
-   +=======================================================================+
-   | `Enabling CLR <page21201034.html#Bookmark73>`__                       |
-   |                                                                       |
-   | `Connector Database <page21201024.html#Bookmark67>`__                 |
-   +-----------------------------------------------------------------------+
+- `Enabling CLR <page21201034.html#Bookmark73>`__
+- `Connector Database <page21201024.html#Bookmark67>`__

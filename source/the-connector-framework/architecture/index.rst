@@ -1,8 +1,6 @@
 Architecture
 ============
 
-| 
-
 In order to expose the M-Files metadata, the Connector imports the data
 from M-Files using the LSConnect Wrapper assembly that wraps the
 interop.MFilesAPI and bi-drectionally update the SQL Server using a
@@ -23,18 +21,8 @@ as the Connector server and M-Files server can be connected.
 SQL vault database. The Connector operates a completely separate and
 independent SQL Database from the internal M-Files SQL Database.
 
-.. container:: table-wrap
+**Related Topics**
+------------------
 
-   =================================================================================================================
-   **Related Topics**
-   =================================================================================================================
-   `The Connector Framework <page21200916.html#Bookmark1>`__
-   
-   `Data Model (restricted, incomplete) <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200930>`__
-   =================================================================================================================
-
-| 
-
-| 
-
-
+- `The Connector Framework <page21200916.html#Bookmark1>`__
+- `Data Model (restricted, incomplete) <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200930>`__

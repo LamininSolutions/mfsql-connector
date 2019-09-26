@@ -9,19 +9,13 @@ within M-Files:
 -  Triggered by a workflow change
 -  Triggered by an event handler
 
-.. container:: confluence-information-macro confluence-information-macro-warning
+The installation and configuration of the context menu changed
+from version 4.3.9.48.  The configuration and setup prior to this
+version is not compatible with the new setup. Special attention is
+required for:
 
-   .. container:: confluence-information-macro-body
-
-      The installation and configuration of the context menu changed
-      from version 4.3.9.48.  The configuration and setup prior to this
-      version is not compatible with the new setup. Special attention is
-      required for:
-
-      #. Configuration of the SQL Connection string
-      #. Access security to the context menu 
-
-| 
+#. Configuration of the SQL Connection string
+#. Access security to the context menu 
 
 The Context Menu requires several additional steps to complete the
 installation. Note that this installation must be done after MFSQL
@@ -51,8 +45,6 @@ the context menu. The individual menu items and procedures to execute is
 part of the deployment of the context as set out in `using the context
 menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__.
 
-
-
 Installation
 ------------
 
@@ -66,16 +58,11 @@ application installations.
 
 Restart the vault after installation of the applications.
 
-
-
 SQL Connection configuration
 ----------------------------
 
 The operations for the context menu is dependent on access to SQL  Check
-the configuration of the `connection
-string. <page686030872.html#Bookmark56>`__
-
-
+the configuration of the `connection string. <page686030872.html#Bookmark56>`__
 
 Context Menu Access
 -------------------
@@ -89,32 +76,22 @@ set in the MFContextMenu table MFUserGroupID column.
 The default installation set 'All internal users' as the user group. 
 This must be reset to a usergroup or users of your choice.
 
-.. container:: confluence-information-macro confluence-information-macro-warning
-
-   .. container:: confluence-information-macro-body
-
-      The 'All internal users' or 'All internal and external users' user
-      groups are not a valid selection as a usergroup for the context
-      menu access.  
-
-
+The 'All internal users' or 'All internal and external users' user
+groups are not a valid selection as a usergroup for the context
+menu access.
 
 Update M-Files client settings
 ------------------------------
 
 #. Log into M-Files to get access to the context menu.
 #. Validate that the following action menu is available in the task
-   bar:  
-
-
+   bar:
 
 Context Menu
 ------------
 
 When testing the MFSQL Connector Context after initial installation the
 following should be displayed:
-
-
 
 Configuration
 -------------
@@ -133,14 +110,8 @@ Menu: <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/U
 #. Update workflow state actions to call state action procedures.
 #. Prepare user messages if required.
 
-| 
+**Related Topics**
 
-.. container:: table-wrap
-
-   ================================================================================================================================
-   **Related Topics**
-   ================================================================================================================================
-   -  `About Context Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085316/Context+Menu>`__
-   -  `Context Menu tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085323/Context+Menu+Tables>`__
-   -  `Context Menu procedures <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085329/Context+Menu+Procedures>`__
-   ================================================================================================================================
+- `About Context Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085316/Context+Menu>`__
+- `Context Menu tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085323/Context+Menu+Tables>`__
+- `Context Menu procedures <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085329/Context+Menu+Procedures>`__

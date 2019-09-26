@@ -1,18 +1,6 @@
 Using the Context Menu
 ======================
 
-.. toctree::
-   :maxdepth: 4
-
-   spmfcontextmenuactionitem/index
-   spmfcontextmenuheadingitem/index
-
-| 
-
-| 
-
-
-
 Installing MFContextMenu
 ------------------------
 
@@ -135,33 +123,27 @@ Adding a group heading for the menu items
 
 Menu item can be grouped together by using a header.  Use the following
 
-.. container:: code panel pdl
+**Execute Procedure**
 
-   .. container:: codeHeader panelHeader pdl
+.. code:: sql
 
-      **Execute Procedure**
-
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
-
-          INSERT INTO [dbo].[MFContextMenu]
-                    ([ActionName]
-                    ,[Action]
-                    ,[ActionType]
-                    ,[Message]
-                    ,[SortOrder]
-                    ,[ParentID]
-          ,UserGroupID)
-              VALUES
-                    ('Group heading 1'
-                    ,null -- fixed value for headings
-                    ,0 -- fixed value for headings
-                    ,null -- fixed value for headings
-                    ,1 -- this is the sort order for the menu groups
-                    ,0 -- fixed value for headings
-          ,111 -- set this to the usergroup ID of that requires access to the menu item
-         )
+    INSERT INTO [dbo].[MFContextMenu]
+              ([ActionName]
+              ,[Action]
+              ,[ActionType]
+              ,[Message]
+              ,[SortOrder]
+              ,[ParentID]
+    ,UserGroupID)
+        VALUES
+              ('Group heading 1'
+              ,null -- fixed value for headings
+              ,0 -- fixed value for headings
+              ,null -- fixed value for headings
+              ,1 -- this is the sort order for the menu groups
+              ,0 -- fixed value for headings
+    ,111 -- set this to the usergroup ID of that requires access to the menu item
+   )
 
 
 
@@ -181,38 +163,30 @@ the background and allow the user to continue with M-Files operations. 
 See the section on Messaging for further guidance on providing feedback
 in different situations.
 
-| 
+**Execute Procedure**
 
-.. container:: code panel pdl
+.. code:: sql
 
-   .. container:: codeHeader panelHeader pdl
+    INSERT INTO [dbo].[MFContextMenu]
+              ([ActionName]
+              ,[Action]
+              ,[ActionType]
+              ,[Message]
+              ,[SortOrder]
+              ,[ParentID]
+       ,[ISAsync]
+    ,UserGroupID)
+        VALUES
+           ('Name of menu item'
+    ,'ProcedureName' -- name of the procedure to be executed, in the case of Action Type 2 the URL of the website is used.
+        ,1 -- one of 1, 2 or 3
+           ,'Message displayed to user on selecting the item'
+    ,1 -- this is the sort order for the menu items in the group
+           ,1 -- this is the record ID of the group heading for this item
+    ,1 -- set to asynchronous
+    ,111 -- set this to the usergroup ID of that requires access to the menu item
 
-      **Execute Procedure**
-
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
-
-          INSERT INTO [dbo].[MFContextMenu]
-                    ([ActionName]
-                    ,[Action]
-                    ,[ActionType]
-                    ,[Message]
-                    ,[SortOrder]
-                    ,[ParentID]
-             ,[ISAsync]
-          ,UserGroupID)
-              VALUES
-                 ('Name of menu item'
-          ,'ProcedureName' -- name of the procedure to be executed, in the case of Action Type 2 the URL of the website is used.
-              ,1 -- one of 1, 2 or 3
-                 ,'Message displayed to user on selecting the item'
-          ,1 -- this is the sort order for the menu items in the group
-                 ,1 -- this is the record ID of the group heading for this item
-          ,1 -- set to asynchronous
-          ,111 -- set this to the usergroup ID of that requires access to the menu item
-
-         )
+   )
 
 
 
@@ -305,374 +279,343 @@ Context Menu installation.
 
 Procedure with no context parameters (action type 1,4)
 
-.. container:: code panel pdl
+**Execute Procedure**
 
-   .. container:: codeHeader panelHeader pdl
+.. code:: sql
 
-      **Execute Procedure**
+    Create PROCEDURE [Custom].[DoCMAction]
+          @ID INT
+        , @OutPut VARCHAR(1000) OUTPUT
+    AS
+          BEGIN
+                BEGIN TRY
 
-   .. container:: codeContent panelContent pdl
+                      SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
 
-      .. code:: sql
+      -- Setting Params
 
-         Create PROCEDURE [Custom].[DoCMAction]
-               @ID INT
-             , @OutPut VARCHAR(1000) OUTPUT
-         AS
-               BEGIN
-                     BEGIN TRY
-                 
-                           SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
-                   
-           -- Setting Params
-                             
-                           DECLARE @ProcessBatch_ID INT
-                                 , @procedureName NVARCHAR(128) = 'custom.DoCMAction'
-                                 , @ProcedureStep NVARCHAR(128)
-                                 , @StartTime DATETIME
-                                 , @Return_Value INT
-           
-                           BEGIN    
-           --Updating MFContextMenu to show that process is still running   
-                                 UPDATE  [dbo].[MFContextMenu]
-                                 SET     [MFContextMenu].[IsProcessRunning] = 1
-                                 WHERE   [MFContextMenu].[ID] = @ID
-          
-          --Logging start of process batch 
-             
-                                 EXEC [dbo].[spMFProcessBatch_Upsert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
-                                   , -- int
-                                     @ProcessType = @procedureName
-                                   , -- nvarchar(50)
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'Started'
-                                   , -- nvarchar(50)
-                                     @debug = 0 -- tinyint
-                                 SET @ProcedureStep = 'Metadata Syncronisation '
-                                 SET @StartTime = GETDATE()
-                                 EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut 
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'In Progress'
-                                   , -- nvarchar(50)
-                                     @StartTime = @StartTime
-                                   , -- datetime
-                                     @MFTableName = NULL
-                                   , -- nvarchar(128)
-                                     @Validation_ID = NULL
-                                   , -- int
-                                     @ColumnName = NULL
-                                   , -- nvarchar(128)
-                                     @ColumnValue = NULL
-                                   , -- nvarchar(256)
-                                     @Update_ID = NULL
-                                   , -- int
-                                     @LogProcedureName = @procedureName
-                                   , -- nvarchar(128)
-                                     @LogProcedureStep = @ProcedureStep
-                                   , -- nvarchar(128)
-                                     @debug = 0 -- tinyint
-                 
-            
-             
-                           END        
-         --- start of custom process for the action, this example updates perform metadata synchronization
-                         
-                           BEGIN
-                            
-                                 EXEC @Return_Value = [dbo].[spMFSynchronizeMetadata]
-                                     @Debug = 0
-                                   , -- smallint
-                                     @ProcessBatch_ID = @ProcessBatch_ID  -- int
-                
-                           END
-         -- set custom message to user
-            
-                           SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
+                      DECLARE @ProcessBatch_ID INT
+                            , @procedureName NVARCHAR(128) = 'custom.DoCMAction'
+                            , @ProcedureStep NVARCHAR(128)
+                            , @StartTime DATETIME
+                            , @Return_Value INT
 
-                           BEGIN
-         -- reset process running in Context Menu
-                                 UPDATE  [dbo].[MFContextMenu]
-                                 SET     [MFContextMenu].[IsProcessRunning] = 0
-                                 WHERE   [MFContextMenu].[ID] = @ID
-         -- logging end of process batch
-                
-                                 EXEC [dbo].[spMFProcessBatch_Upsert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @ProcessType = N'Syncronize metadata'
-                                   , -- nvarchar(50)
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'Completed'
-                                   , -- nvarchar(50)
-                                     @debug = 0 -- tinyint
-                                 SET @ProcedureStep = 'End Metadata syncrhorization'
-                                 SET @StartTime = GETDATE()
-                                 EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'Success'
-                                   , -- nvarchar(50)
-                                     @StartTime = @StartTime
-                                   , -- datetime
-                                     @MFTableName = NULL
-                                   , -- nvarchar(128)
-                                     @Validation_ID = NULL
-                                   , -- int
-                                     @ColumnName = NULL
-                                   , -- nvarchar(128)
-                                     @ColumnValue = NULL
-                                   , -- nvarchar(256)
-                                     @Update_ID = NULL
-                                   , -- int
-                                     @LogProcedureName = @procedureName
-                                   , -- nvarchar(128)
-                                     @LogProcedureStep = @ProcedureStep
-                                   , -- nvarchar(128)
-                                     @debug = 0 -- tinyint
-          
-                 
-                           END
-         -- format message for display in context menu
-                           EXEC [dbo].[spMFResultMessageForUI]
-                             @ClassTable = ''
-                           , -- varchar(100)
-                             @RowCount = 0
-                           , -- int
-                             @Processbatch_ID = @Processbatch_ID
-                           , -- int
-                             @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
-            
-                     END TRY
-                     BEGIN CATCH
-                           SET @OutPut = 'Error:'
-                           SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
-                                                   )
-                     END CATCH
-               END
+                      BEGIN
+      --Updating MFContextMenu to show that process is still running   
+                            UPDATE  [dbo].[MFContextMenu]
+                            SET     [MFContextMenu].[IsProcessRunning] = 1
+                            WHERE   [MFContextMenu].[ID] = @ID
 
-Procedure with  parameters (action type 3)
+     --Logging start of process batch 
 
-.. container:: code panel pdl
+                            EXEC [dbo].[spMFProcessBatch_Upsert]
+                                @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+                              , -- int
+                                @ProcessType = @procedureName
+                              , -- nvarchar(50)
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'Started'
+                              , -- nvarchar(50)
+                                @debug = 0 -- tinyint
+                            SET @ProcedureStep = 'Metadata Syncronisation '
+                            SET @StartTime = GETDATE()
+                            EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut 
+                              , -- nvarchar(4000)
+                                @LogStatus = N'In Progress'
+                              , -- nvarchar(50)
+                                @StartTime = @StartTime
+                              , -- datetime
+                                @MFTableName = NULL
+                              , -- nvarchar(128)
+                                @Validation_ID = NULL
+                              , -- int
+                                @ColumnName = NULL
+                              , -- nvarchar(128)
+                                @ColumnValue = NULL
+                              , -- nvarchar(256)
+                                @Update_ID = NULL
+                              , -- int
+                                @LogProcedureName = @procedureName
+                              , -- nvarchar(128)
+                                @LogProcedureStep = @ProcedureStep
+                              , -- nvarchar(128)
+                                @debug = 0 -- tinyint
+                      END
+    --- start of custom process for the action, this example updates perform metadata synchronization
 
-   .. container:: codeHeader panelHeader pdl
+                      BEGIN
+                            EXEC @Return_Value = [dbo].[spMFSynchronizeMetadata]
+                                @Debug = 0
+                              , -- smallint
+                                @ProcessBatch_ID = @ProcessBatch_ID  -- int
+                      END
+    -- set custom message to user
+                      SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
 
-      **Execute Procedure**
+                      BEGIN
+    -- reset process running in Context Menu
+                            UPDATE  [dbo].[MFContextMenu]
+                            SET     [MFContextMenu].[IsProcessRunning] = 0
+                            WHERE   [MFContextMenu].[ID] = @ID
+    -- logging end of process batch
+                            EXEC [dbo].[spMFProcessBatch_Upsert]
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @ProcessType = N'Syncronize metadata'
+                              , -- nvarchar(50)
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'Completed'
+                              , -- nvarchar(50)
+                                @debug = 0 -- tinyint
+                            SET @ProcedureStep = 'End Metadata syncrhorization'
+                            SET @StartTime = GETDATE()
+                            EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'Success'
+                              , -- nvarchar(50)
+                                @StartTime = @StartTime
+                              , -- datetime
+                                @MFTableName = NULL
+                              , -- nvarchar(128)
+                                @Validation_ID = NULL
+                              , -- int
+                                @ColumnName = NULL
+                              , -- nvarchar(128)
+                                @ColumnValue = NULL
+                              , -- nvarchar(256)
+                                @Update_ID = NULL
+                              , -- int
+                                @LogProcedureName = @procedureName
+                              , -- nvarchar(128)
+                                @LogProcedureStep = @ProcedureStep
+                              , -- nvarchar(128)
+                                @debug = 0 -- tinyint
+                      END
+    -- format message for display in context menu
+                      EXEC [dbo].[spMFResultMessageForUI]
+                        @ClassTable = ''
+                      , -- varchar(100)
+                        @RowCount = 0
+                      , -- int
+                        @Processbatch_ID = @Processbatch_ID
+                      , -- int
+                        @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
+                END TRY
+                BEGIN CATCH
+                      SET @OutPut = 'Error:'
+                      SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
+                                              )
+                END CATCH
+          END
 
-   .. container:: codeContent panelContent pdl
+Procedure with parameters (action type 3)
 
-      .. code:: sql
+.. code:: sql
 
-          
-         CREATE PROCEDURE [Custom].[CMDoObjectAction]
-               @ObjectID INT
-             , @ObjectType INT
-             , @ObjectVer INT
-             , @ID INT
-             , @OutPut VARCHAR(1000) OUTPUT
-          , @ClassID int
-         AS
-               BEGIN
-                     DECLARE @MFClassTable NVARCHAR(128) 
-                     DECLARE @SQLQuery NVARCHAR(MAX)
-                     DECLARE @Params NVARCHAR(MAX)
-                     BEGIN TRY
-                 
-          
-           
-                           SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
-                   
-           -- Setting Params
-                        
-                  BEGIN    
-                                 DECLARE @ProcessBatch_ID INT
-                                       , @procedureName NVARCHAR(128) = 'custom.CMDoObjectAction'
-                                       , @ProcedureStep NVARCHAR(128)
-                                       , @StartTime DATETIME
-                                       , @Return_Value INT
-           --Updating MFContextMenu to show that process is still running    
-                                 UPDATE  [dbo].[MFContextMenu]
-                                 SET     [MFContextMenu].[IsProcessRunning] = 1
-                                 WHERE   [MFContextMenu].[ID] = @ID
-         --Logging start of process batch 
-                                 EXEC [dbo].[spMFProcessBatch_Upsert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
-                                   , -- int
-                                     @ProcessType = @procedureName
-                                   , -- nvarchar(50)
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'Started'
-                                   , -- nvarchar(50)
-                                     @debug = 0 -- tinyint
-                                 SET @ProcedureStep = 'Start custom.DoObjectAction'
-                                 SET @StartTime = GETDATE()
-                                 EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'In Progress'
-                                   , -- nvarchar(50)
-                                     @StartTime = @StartTime
-                                   , -- datetime
-                                     @MFTableName = @MFClassTable
-                                   , -- nvarchar(128)
-                                     @Validation_ID = NULL
-                                   , -- int
-                                     @ColumnName = NULL
-                                   , -- nvarchar(128)
-                                     @ColumnValue = NULL
-                                   , -- nvarchar(256)
-                                     @Update_ID = NULL
-                                   , -- int
-                                     @LogProcedureName = @procedureName
-                                   , -- nvarchar(128)
-                                     @LogProcedureStep = @ProcedureStep
-                                   , -- nvarchar(128)
-                                     @debug = 0 -- tinyint
-             
-                           END     
-                  
-         --- start of custom process for the action, this example updates keywords property on the object
-                         
-                           BEGIN
-                                 DECLARE @Name_or_Title NVARCHAR(100)
-                                 DECLARE @Update_ID INT
-         --get object from M-Files
-         SELECT @MFClassTable = TableName FROM MFClass WHERE MFID = @ClassID
-         IF not EXISTS(SELECT T.TABLE_NAME FROM INFORMATION_SCHEMA.TABLES AS T WHERE T.TABLE_NAME = @MFClassTable)
-         EXEC dbo.spMFCreateTable @ClassName = N'@MFClassTable', -- nvarchar(128)
-             @Debug = 0 ;-- smallint;
-              
-                                 EXEC @Return_Value = [dbo].[spMFUpdateTableWithLastModifiedDate]
-                                     @UpdateMethod = 1
-                                   , -- int
-                                     @Return_LastModified = NULL
-                                   , -- datetime
-                                     @TableName = @MFClassTable
-                                   , -- sysname
-                                     @Update_IDOut = @Update_ID OUTPUT
-                                   , -- int
-                                     @debug = 0
-                                   , -- smallint
-                                     @ProcessBatch_ID = @ProcessBatch_ID -- int
-         --Perform action on/with object
-                  
-                                 SET @Params = N'@Output nvarchar(100), @ObjectID int'
-                                 SET @SQLQuery = N'              
-              
-              UPDATE mot
-              SET process_ID = 1
-              ,Keywords = ''Updated in '' + @OutPut 
-              FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
-                
-                                 EXEC [sys].[sp_executesql]
-                                     @SQLQuery
-                                   , @Params
-                                   , @OutPut = @OutPut
-                                   , @ObjectID = @ObjectID
-         --process update of object into M-Files
-                 
-                                 EXEC [dbo].[spMFUpdateTable]
-                                     @MFTableName = @MFClassTable
-                                   , -- nvarchar(128)
-                                     @UpdateMethod = 0
-                                   , -- int
-                                     @ObjIDs = @ObjectID
-                                   , -- nvarchar(4000)
-                                     @Update_IDOut = @Update_ID OUTPUT
-                                   , -- int
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @Debug = 0 -- smallint
-                
-                           END
-         -- reset process running in Context Menu
-                           UPDATE    [dbo].[MFContextMenu]
-                           SET       [MFContextMenu].[IsProcessRunning] = 0
-                           WHERE     [MFContextMenu].[ID] = @ID
-         -- set custom message to user
-                           SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
-         -- logging end of process batch
-                           EXEC [dbo].[spMFProcessBatch_Upsert]
-                             @ProcessBatch_ID = @ProcessBatch_ID
-                           , -- int
-                             @ProcessType = @procedureName
-                           , -- nvarchar(50)
-                             @LogType = N'Message'
-                           , -- nvarchar(50)
-                             @LogText = @OutPut
-                           , -- nvarchar(4000)
-                             @LogStatus = N'Completed'
-                           , -- nvarchar(50)
-                             @debug = 0 -- tinyint
-                           SET @ProcedureStep = 'End custom.DoObjectAction'
-                           SET @StartTime = GETDATE()
-                           EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                             @ProcessBatch_ID = @ProcessBatch_ID
-                           , -- int
-                             @LogType = N'Message'
-                           , -- nvarchar(50)
-                             @LogText = @OutPut
-                           , -- nvarchar(4000)
-                             @LogStatus = N'Success'
-                           , -- nvarchar(50)
-                             @StartTime = @StartTime
-                           , -- datetime
-                             @MFTableName = @MFClassTable
-                           , -- nvarchar(128)
-                             @Validation_ID = NULL
-                           , -- int
-                             @ColumnName = NULL
-                           , -- nvarchar(128)
-                             @ColumnValue = NULL
-                           , -- nvarchar(256)
-                             @Update_ID = NULL
-                           , -- int
-                             @LogProcedureName = @procedureName
-                           , -- nvarchar(128)
-                             @LogProcedureStep = @ProcedureStep
-                           , -- nvarchar(128)
-                             @debug = 0 -- tinyint
-                 
-         -- format message for display in context menu
-            
-                           EXEC [dbo].[spMFResultMessageForUI]
-                             @ClassTable = @MFClassTable
-                           , -- varchar(100)
-                             @RowCount = 0
-                           , -- int
-                             @Processbatch_ID = @Processbatch_ID
-                           , -- int
-                             @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
+    CREATE PROCEDURE [Custom].[CMDoObjectAction]
+          @ObjectID INT
+        , @ObjectType INT
+        , @ObjectVer INT
+        , @ID INT
+        , @OutPut VARCHAR(1000) OUTPUT
+     , @ClassID int
+    AS
+          BEGIN
+                DECLARE @MFClassTable NVARCHAR(128) 
+                DECLARE @SQLQuery NVARCHAR(MAX)
+                DECLARE @Params NVARCHAR(MAX)
+                BEGIN TRY
 
-                     END TRY
-                     BEGIN CATCH
-                           SET @OutPut = 'Error:'
-                           SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
-                                                   )
-                     END CATCH
-               END
+                      SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
+
+      -- Setting Params
+
+             BEGIN
+                            DECLARE @ProcessBatch_ID INT
+                                  , @procedureName NVARCHAR(128) = 'custom.CMDoObjectAction'
+                                  , @ProcedureStep NVARCHAR(128)
+                                  , @StartTime DATETIME
+                                  , @Return_Value INT
+      --Updating MFContextMenu to show that process is still running    
+                            UPDATE  [dbo].[MFContextMenu]
+                            SET     [MFContextMenu].[IsProcessRunning] = 1
+                            WHERE   [MFContextMenu].[ID] = @ID
+    --Logging start of process batch 
+                            EXEC [dbo].[spMFProcessBatch_Upsert]
+                                @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+                              , -- int
+                                @ProcessType = @procedureName
+                              , -- nvarchar(50)
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'Started'
+                              , -- nvarchar(50)
+                                @debug = 0 -- tinyint
+                            SET @ProcedureStep = 'Start custom.DoObjectAction'
+                            SET @StartTime = GETDATE()
+                            EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'In Progress'
+                              , -- nvarchar(50)
+                                @StartTime = @StartTime
+                              , -- datetime
+                                @MFTableName = @MFClassTable
+                              , -- nvarchar(128)
+                                @Validation_ID = NULL
+                              , -- int
+                                @ColumnName = NULL
+                              , -- nvarchar(128)
+                                @ColumnValue = NULL
+                              , -- nvarchar(256)
+                                @Update_ID = NULL
+                              , -- int
+                                @LogProcedureName = @procedureName
+                              , -- nvarchar(128)
+                                @LogProcedureStep = @ProcedureStep
+                              , -- nvarchar(128)
+                                @debug = 0 -- tinyint
+                      END
+    --- start of custom process for the action, this example updates keywords property on the object
+                      BEGIN
+                            DECLARE @Name_or_Title NVARCHAR(100)
+                            DECLARE @Update_ID INT
+    --get object from M-Files
+    SELECT @MFClassTable = TableName FROM MFClass WHERE MFID = @ClassID
+    IF not EXISTS(SELECT T.TABLE_NAME FROM INFORMATION_SCHEMA.TABLES AS T WHERE T.TABLE_NAME = @MFClassTable)
+    EXEC dbo.spMFCreateTable @ClassName = N'@MFClassTable', -- nvarchar(128)
+        @Debug = 0 ;-- smallint;
+                            EXEC @Return_Value = [dbo].[spMFUpdateTableWithLastModifiedDate]
+                                @UpdateMethod = 1
+                              , -- int
+                                @Return_LastModified = NULL
+                              , -- datetime
+                                @TableName = @MFClassTable
+                              , -- sysname
+                                @Update_IDOut = @Update_ID OUTPUT
+                              , -- int
+                                @debug = 0
+                              , -- smallint
+                                @ProcessBatch_ID = @ProcessBatch_ID -- int
+    --Perform action on/with object
+
+                            SET @Params = N'@Output nvarchar(100), @ObjectID int'
+                            SET @SQLQuery = N'
+
+         UPDATE mot
+         SET process_ID = 1
+         ,Keywords = ''Updated in '' + @OutPut 
+         FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
+
+                            EXEC [sys].[sp_executesql]
+                                @SQLQuery
+                              , @Params
+                              , @OutPut = @OutPut
+                              , @ObjectID = @ObjectID
+    --process update of object into M-Files
+
+                            EXEC [dbo].[spMFUpdateTable]
+                                @MFTableName = @MFClassTable
+                              , -- nvarchar(128)
+                                @UpdateMethod = 0
+                              , -- int
+                                @ObjIDs = @ObjectID
+                              , -- nvarchar(4000)
+                                @Update_IDOut = @Update_ID OUTPUT
+                              , -- int
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @Debug = 0 -- smallint
+
+                      END
+    -- reset process running in Context Menu
+                      UPDATE    [dbo].[MFContextMenu]
+                      SET       [MFContextMenu].[IsProcessRunning] = 0
+                      WHERE     [MFContextMenu].[ID] = @ID
+    -- set custom message to user
+                      SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
+    -- logging end of process batch
+                      EXEC [dbo].[spMFProcessBatch_Upsert]
+                        @ProcessBatch_ID = @ProcessBatch_ID
+                      , -- int
+                        @ProcessType = @procedureName
+                      , -- nvarchar(50)
+                        @LogType = N'Message'
+                      , -- nvarchar(50)
+                        @LogText = @OutPut
+                      , -- nvarchar(4000)
+                        @LogStatus = N'Completed'
+                      , -- nvarchar(50)
+                        @debug = 0 -- tinyint
+                      SET @ProcedureStep = 'End custom.DoObjectAction'
+                      SET @StartTime = GETDATE()
+                      EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                        @ProcessBatch_ID = @ProcessBatch_ID
+                      , -- int
+                        @LogType = N'Message'
+                      , -- nvarchar(50)
+                        @LogText = @OutPut
+                      , -- nvarchar(4000)
+                        @LogStatus = N'Success'
+                      , -- nvarchar(50)
+                        @StartTime = @StartTime
+                      , -- datetime
+                        @MFTableName = @MFClassTable
+                      , -- nvarchar(128)
+                        @Validation_ID = NULL
+                      , -- int
+                        @ColumnName = NULL
+                      , -- nvarchar(128)
+                        @ColumnValue = NULL
+                      , -- nvarchar(256)
+                        @Update_ID = NULL
+                      , -- int
+                        @LogProcedureName = @procedureName
+                      , -- nvarchar(128)
+                        @LogProcedureStep = @ProcedureStep
+                      , -- nvarchar(128)
+                        @debug = 0 -- tinyint
+
+    -- format message for display in context menu
+
+                      EXEC [dbo].[spMFResultMessageForUI]
+                        @ClassTable = @MFClassTable
+                      , -- varchar(100)
+                        @RowCount = 0
+                      , -- int
+                        @Processbatch_ID = @Processbatch_ID
+                      , -- int
+                        @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
+
+                END TRY
+                BEGIN CATCH
+                      SET @OutPut = 'Error:'
+                      SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
+                                              )
+                END CATCH
+          END
 
 
 
@@ -705,221 +648,198 @@ state for the vendor workflow:
    ERP insert process and return the result of the process to
    'custom.StateAction_VendorApproved'
 
-| 
-
 For Action Type 5
 
-.. container:: code panel pdl
+**VB Script for State Action**
 
-   .. container:: codeHeader panelHeader pdl
+.. code:: sql
 
-      **VB Script for State Action**
+    CREATE PROCEDURE [Custom].[CMDoObjectActionForWorkFlowState]
+          @ObjectID INT
+        , @ObjectType INT
+        , @ObjectVer INT
+        , @ID INT
+        , @OutPut VARCHAR(1000) OUTPUT
+     , @ClassID int
+    AS
+          BEGIN
+                DECLARE @MFClassTable NVARCHAR(128) = 'MFOtherDocument'
+                DECLARE @SQLQuery NVARCHAR(MAX)
+                DECLARE @Params NVARCHAR(MAX)
+                BEGIN TRY
 
-   .. container:: codeContent panelContent pdl
+                      SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
+      -- Setting Params
+             BEGIN
+                            DECLARE @ProcessBatch_ID INT
+                                  , @procedureName NVARCHAR(128) = 'custom.CMDoObjectAction'
+                                  , @ProcedureStep NVARCHAR(128)
+                                  , @StartTime DATETIME
+                                  , @Return_Value INT
+      --Updating MFContextMenu to show that process is still running    
+                            UPDATE  [dbo].[MFContextMenu]
+                            SET     [MFContextMenu].[IsProcessRunning] = 1
+                            WHERE   [MFContextMenu].[ID] = @ID
+    --Logging start of process batch 
+                            EXEC [dbo].[spMFProcessBatch_Upsert]
+                                @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+                              , -- int
+                                @ProcessType = @procedureName
+                              , -- nvarchar(50)
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'Started'
+                              , -- nvarchar(50)
+                                @debug = 0 -- tinyint
+                            SET @ProcedureStep = 'Start custom.DoObjectAction'
+                            SET @StartTime = GETDATE()
+                            EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @LogType = N'Message'
+                              , -- nvarchar(50)
+                                @LogText = @OutPut
+                              , -- nvarchar(4000)
+                                @LogStatus = N'In Progress'
+                              , -- nvarchar(50)
+                                @StartTime = @StartTime
+                              , -- datetime
+                                @MFTableName = @MFClassTable
+                              , -- nvarchar(128)
+                                @Validation_ID = NULL
+                              , -- int
+                                @ColumnName = NULL
+                              , -- nvarchar(128)
+                                @ColumnValue = NULL
+                              , -- nvarchar(256)
+                                @Update_ID = NULL
+                              , -- int
+                                @LogProcedureName = @procedureName
+                              , -- nvarchar(128)
+                                @LogProcedureStep = @ProcedureStep
+                              , -- nvarchar(128)
+                                @debug = 0 -- tinyint
+                      END
+         --- start of custom process for the action, this example updates keywords property on the object
+                      BEGIN
+                WAITFOR DELAY '00:01:00';  
+                            DECLARE @Name_or_Title NVARCHAR(100)
+                            DECLARE @Update_ID INT
 
-      .. code:: sql
+          Select @MFClassTable=TableName from MFClass where MFID=@ClassID
 
-          CREATE PROCEDURE [Custom].[CMDoObjectActionForWorkFlowState]
-               @ObjectID INT
-             , @ObjectType INT
-             , @ObjectVer INT
-             , @ID INT
-             , @OutPut VARCHAR(1000) OUTPUT
-          , @ClassID int
-         AS
-               BEGIN
-                     DECLARE @MFClassTable NVARCHAR(128) = 'MFOtherDocument'
-                     DECLARE @SQLQuery NVARCHAR(MAX)
-                     DECLARE @Params NVARCHAR(MAX)
-                     BEGIN TRY
-                 
-          
-           
-                           SET @OutPut = 'Process Start Time: ' + CAST(GETDATE() AS VARCHAR(50)) --- set custom process start message for user
-                   
-           -- Setting Params
-                        
-                  BEGIN    
-                                 DECLARE @ProcessBatch_ID INT
-                                       , @procedureName NVARCHAR(128) = 'custom.CMDoObjectAction'
-                                       , @ProcedureStep NVARCHAR(128)
-                                       , @StartTime DATETIME
-                                       , @Return_Value INT
-           --Updating MFContextMenu to show that process is still running    
-                                 UPDATE  [dbo].[MFContextMenu]
-                                 SET     [MFContextMenu].[IsProcessRunning] = 1
-                                 WHERE   [MFContextMenu].[ID] = @ID
-         --Logging start of process batch 
-                                 EXEC [dbo].[spMFProcessBatch_Upsert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
-                                   , -- int
-                                     @ProcessType = @procedureName
-                                   , -- nvarchar(50)
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'Started'
-                                   , -- nvarchar(50)
-                                     @debug = 0 -- tinyint
-                                 SET @ProcedureStep = 'Start custom.DoObjectAction'
-                                 SET @StartTime = GETDATE()
-                                 EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @LogType = N'Message'
-                                   , -- nvarchar(50)
-                                     @LogText = @OutPut
-                                   , -- nvarchar(4000)
-                                     @LogStatus = N'In Progress'
-                                   , -- nvarchar(50)
-                                     @StartTime = @StartTime
-                                   , -- datetime
-                                     @MFTableName = @MFClassTable
-                                   , -- nvarchar(128)
-                                     @Validation_ID = NULL
-                                   , -- int
-                                     @ColumnName = NULL
-                                   , -- nvarchar(128)
-                                     @ColumnValue = NULL
-                                   , -- nvarchar(256)
-                                     @Update_ID = NULL
-                                   , -- int
-                                     @LogProcedureName = @procedureName
-                                   , -- nvarchar(128)
-                                     @LogProcedureStep = @ProcedureStep
-                                   , -- nvarchar(128)
-                                     @debug = 0 -- tinyint
-             
-                           END     
-                  
-              --- start of custom process for the action, this example updates keywords property on the object
-                         
-                           BEGIN
-                     WAITFOR DELAY '00:01:00';  
-                                 DECLARE @Name_or_Title NVARCHAR(100)
-                                 DECLARE @Update_ID INT
-               
-               Select @MFClassTable=TableName from MFClass where MFID=@ClassID
+          --get object from M-Files
+                             EXEC [dbo].[spMFUpdateTable]
+                                @MFTableName = @MFClassTable
+                              , -- nvarchar(128)
+                                @UpdateMethod = 1
+                              , -- int
+                                @ObjIDs = @ObjectID
+                              , -- nvarchar(4000)
+                                @Update_IDOut = @Update_ID OUTPUT
+                              , -- int
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                                @Debug = 0 -- smallint
+    --Perform action on/with object
 
-               --get object from M-Files
-                               
-                  
-                  
-                     
-                                  EXEC [dbo].[spMFUpdateTable]
-                                     @MFTableName = @MFClassTable
-                                   , -- nvarchar(128)
-                                     @UpdateMethod = 1
-                                   , -- int
-                                     @ObjIDs = @ObjectID
-                                   , -- nvarchar(4000)
-                                     @Update_IDOut = @Update_ID OUTPUT
-                                   , -- int
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @Debug = 0 -- smallint
-         --Perform action on/with object
-                  
-                                 SET @Params = N'@Output nvarchar(100), @ObjectID int'
-                                 SET @SQLQuery = N'              
-              
-              UPDATE mot
-              SET process_ID = 1
-              --,Keywords = ''Updated in '' + @OutPut 
-              FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
-                
-                                 EXEC [sys].[sp_executesql]
-                                     @SQLQuery
-                                   , @Params
-                                   , @OutPut = @OutPut
-                                   , @ObjectID = @ObjectID
-         --process update of object into M-Files
-                
-                                 EXEC [dbo].[spMFUpdateTable]
-                                     @MFTableName = @MFClassTable
-                                   , -- nvarchar(128)
-                                     @UpdateMethod = 0
-                                   , -- int
-                                     @ObjIDs = @ObjectID
-                                   , -- nvarchar(4000)
-                                     @Update_IDOut = @Update_ID OUTPUT
-                                   , -- int
-                                     @ProcessBatch_ID = @ProcessBatch_ID
-                                   , -- int
-                                     @Debug = 0 -- smallint
-                
-                           END
-         -- reset process running in Context Menu
-                           UPDATE    [dbo].[MFContextMenu]
-                           SET       [MFContextMenu].[IsProcessRunning] = 0
-                           WHERE     [MFContextMenu].[ID] = @ID
-         -- set custom message to user
-                           SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
-         -- logging end of process batch
-                           EXEC [dbo].[spMFProcessBatch_Upsert]
-                             @ProcessBatch_ID = @ProcessBatch_ID
-                           , -- int
-                             @ProcessType = @procedureName
-                           , -- nvarchar(50)
-                             @LogType = N'Message'
-                           , -- nvarchar(50)
-                             @LogText = @OutPut
-                           , -- nvarchar(4000)
-                             @LogStatus = N'Completed'
-                           , -- nvarchar(50)
-                             @debug = 0 -- tinyint
-                           SET @ProcedureStep = 'End custom.DoObjectAction'
-                           SET @StartTime = GETDATE()
-                           EXEC [dbo].[spMFProcessBatchDetail_Insert]
-                             @ProcessBatch_ID = @ProcessBatch_ID
-                           , -- int
-                             @LogType = N'Message'
-                           , -- nvarchar(50)
-                             @LogText = @OutPut
-                           , -- nvarchar(4000)
-                             @LogStatus = N'Success'
-                           , -- nvarchar(50)
-                             @StartTime = @StartTime
-                           , -- datetime
-                             @MFTableName = @MFClassTable
-                           , -- nvarchar(128)
-                             @Validation_ID = NULL
-                           , -- int
-                             @ColumnName = NULL
-                           , -- nvarchar(128)
-                             @ColumnValue = NULL
-                           , -- nvarchar(256)
-                             @Update_ID = NULL
-                           , -- int
-                             @LogProcedureName = @procedureName
-                           , -- nvarchar(128)
-                             @LogProcedureStep = @ProcedureStep
-                           , -- nvarchar(128)
-                             @debug = 0 -- tinyint
-                 
-         -- format message for display in context menu
-            
-                           EXEC [dbo].[spMFResultMessageForUI]
-                             @ClassTable = @MFClassTable
-                           , -- varchar(100)
-                             @RowCount = 0
-                           , -- int
-                             @Processbatch_ID = @Processbatch_ID
-                           , -- int
-                             @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
-            
-                     END TRY
-                     BEGIN CATCH
-                           SET @OutPut = 'Error:'
-                           SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
-                                                   )
-                     END CATCH
-               END
+                            SET @Params = N'@Output nvarchar(100), @ObjectID int'
+                            SET @SQLQuery = N'
 
-| 
+         UPDATE mot
+         SET process_ID = 1
+         --,Keywords = ''Updated in '' + @OutPut 
+         FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
 
+                            EXEC [sys].[sp_executesql]
+                                @SQLQuery
+                              , @Params
+                              , @OutPut = @OutPut
+                              , @ObjectID = @ObjectID
+    --process update of object into M-Files
 
+                            EXEC [dbo].[spMFUpdateTable]
+                                @MFTableName = @MFClassTable
+                              , -- nvarchar(128)
+                                @UpdateMethod = 0
+                              , -- int
+                                @ObjIDs = @ObjectID
+                              , -- nvarchar(4000)
+                                @Update_IDOut = @Update_ID OUTPUT
+                              , -- int
+                                @ProcessBatch_ID = @ProcessBatch_ID
+                              , -- int
+                               @Debug = 0 -- smallint
+
+                      END
+    -- reset process running in Context Menu
+                      UPDATE    [dbo].[MFContextMenu]
+                      SET       [MFContextMenu].[IsProcessRunning] = 0
+                      WHERE     [MFContextMenu].[ID] = @ID
+    -- set custom message to user
+                      SET @OutPut = @OutPut + ' Process End Time= ' + CAST(GETDATE() AS VARCHAR(50))
+    -- logging end of process batch
+                      EXEC [dbo].[spMFProcessBatch_Upsert]
+                        @ProcessBatch_ID = @ProcessBatch_ID
+                      , -- int
+                        @ProcessType = @procedureName
+                      , -- nvarchar(50)
+                        @LogType = N'Message'
+                      , -- nvarchar(50)
+                        @LogText = @OutPut
+                      , -- nvarchar(4000)
+                        @LogStatus = N'Completed'
+                      , -- nvarchar(50)
+                        @debug = 0 -- tinyint
+                      SET @ProcedureStep = 'End custom.DoObjectAction'
+                      SET @StartTime = GETDATE()
+                      EXEC [dbo].[spMFProcessBatchDetail_Insert]
+                        @ProcessBatch_ID = @ProcessBatch_ID
+                      , -- int
+                        @LogType = N'Message'
+                      , -- nvarchar(50)
+                        @LogText = @OutPut
+                      , -- nvarchar(4000)
+                        @LogStatus = N'Success'
+                      , -- nvarchar(50)
+                        @StartTime = @StartTime
+                      , -- datetime
+                        @MFTableName = @MFClassTable
+                      , -- nvarchar(128)
+                        @Validation_ID = NULL
+                      , -- int
+                        @ColumnName = NULL
+                      , -- nvarchar(128)
+                        @ColumnValue = NULL
+                      , -- nvarchar(256)
+                        @Update_ID = NULL
+                      , -- int
+                        @LogProcedureName = @procedureName
+                      , -- nvarchar(128)
+                        @LogProcedureStep = @ProcedureStep
+                      , -- nvarchar(128)
+                        @debug = 0 -- tinyint
+
+    -- format message for display in context menu
+
+                      EXEC [dbo].[spMFResultMessageForUI]
+                        @ClassTable = @MFClassTable
+                      , -- varchar(100)
+                        @RowCount = 0
+                      , -- int
+                        @Processbatch_ID = @Processbatch_ID
+                      , -- int
+                        @MessageOUT = @OutPut OUTPUT -- nvarchar(4000)
+
+                END TRY
+                BEGIN CATCH
+                      SET @OutPut = 'Error:'
+                      SET @OutPut = @OutPut + ( SELECT  ERROR_MESSAGE()
+                                              )
+                END CATCH
+          END
 
 Event Handler scripts
 ---------------------
@@ -929,28 +849,22 @@ procedure based on an event handler.  This will require including the
 action script in the event handler with a corresponding record in the
 MFContextMenu table.
 
-.. container:: code panel pdl
+**Event Handler**
 
-   .. container:: codeHeader panelHeader pdl
+.. code:: vbscript
 
-      **Event Handler**
+    Option Explicit
 
-   .. container:: codeContent panelContent pdl
+    Dim ClassID
+    ClassID= Vault.ObjectPropertyoperations.GetProperty(ObjVer, 100).value.GetLookupID
 
-      .. code:: sql
+    Dim strInput
+    strInput = "{""ObjectID""  : "&ObjVer.ID &", ""ObjectType""  : "&ObjVer.Type &", ""Objectver""  : "&ObjVer.Version&",""ClassID""  : "&ClassID&", ""ActionName""  : ""StateAction2"", ""ActionTypeID"": ""5""}"
 
-         Option Explicit
+    Dim strOutput
+    strOutput = Vault.ExtensionMethodOperations.ExecuteVaultExtensionMethod("PerformActionMethod", strInput)
 
-         Dim ClassID
-         ClassID= Vault.ObjectPropertyoperations.GetProperty(ObjVer, 100).value.GetLookupID
-
-         Dim strInput
-         strInput = "{""ObjectID""  : "&ObjVer.ID &", ""ObjectType""  : "&ObjVer.Type &", ""Objectver""  : "&ObjVer.Version&",""ClassID""  : "&ClassID&", ""ActionName""  : ""StateAction2"", ""ActionTypeID"": ""5""}"
-
-         Dim strOutput
-         strOutput = Vault.ExtensionMethodOperations.ExecuteVaultExtensionMethod("PerformActionMethod", strInput)
-
-         'Err.Raise MfScriptCancel, strOutput
+    'Err.Raise MfScriptCancel, strOutput
 
 
 
@@ -967,6 +881,3 @@ section <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/39223308
 
 An example of the result message is illustrated below:
 
-| 
-
-| 

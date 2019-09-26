@@ -12,7 +12,7 @@ The functionality provides for two types of procedures to be executed:
 #. procedure using the object version of the of the M-Files object in
    context as input parameter.
 
-The name of the procedure must be added in the column \ *Action *\ in
+The name of the procedure must be added in the column *Action* in
 MFContextMenu table for the menu item that will be used to execute the
 action.
 
@@ -26,68 +26,50 @@ the this procedure will be return to the user in M-Files.
 Procedure without input parameter (action type 1)
 -------------------------------------------------
 
-| 
+**Execute Procedure**
 
-.. container:: code panel pdl
+.. code:: sql
 
-   .. container:: codeHeader panelHeader pdl
+    CREATE PROCEDURE [contmenu].[procname]
+    @OutPut varchar(1000) Output
+    as
+    Begin
 
-      **Execute Procedure**
-
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
-
-         CREATE PROCEDURE [contmenu].[procname]
-         @OutPut varchar(1000) Output
-         as
-         Begin
-           
-           Begin Try
-            --Call procedure to perform operation and return output message
-            set @OutPut='Operation successful'
-           End Try
-           Begin Catch
-            set @OutPut='Error:'
-            set @OutPut=@OutPut+(select ERROR_MESSAGE())
-           End Catch
-         End
+      Begin Try
+       --Call procedure to perform operation and return output message
+       set @OutPut='Operation successful'
+      End Try
+      Begin Catch
+       set @OutPut='Error:'
+       set @OutPut=@OutPut+(select ERROR_MESSAGE())
+      End Catch
+    End
 
 
 
 Procedure with object version as input parameter (action type 3)
 ----------------------------------------------------------------
 
-.. container:: code panel pdl
+**Execute Procedure**
 
-   .. container:: codeHeader panelHeader pdl
+.. code:: sql
 
-      **Execute Procedure**
-
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
-
-          Create Procedure contmenu.procname
-         @ObjectID int,
-         @ObjectType int,
-         @ObjectVer int,
-         @OutPut varchar(1000) Output
-         as
-         begin
-             
-           Begin Try
-         --Call procedure to perform operation using the object details as input and return output message
-            set @OutPut='Operation successful'   
-           End Try
-           Begin Catch
-            set @OutPut='Error:'
-            set @OutPut=@OutPut+(select ERROR_MESSAGE())
-           End Catch
-
-         End
-
-
+    Create Procedure contmenu.procname
+    @ObjectID int,
+    @ObjectType int,
+    @ObjectVer int,
+    @OutPut varchar(1000) Output
+    as
+    begin
+      Begin Try
+    --Call procedure to perform operation using the object details as input and return output message
+       set @OutPut='Operation successful'   
+      End Try
+      Begin Catch
+       set @OutPut='Error:'
+       set @OutPut=@OutPut+(select ERROR_MESSAGE())
+      End Catch
+    End
 
 Formatting result message for UI
 --------------------------------
@@ -102,27 +84,21 @@ also assumes that the main procedure utilizes the MFProcessBatch table
 to log to outcome of the procedure.
 
 the message returned is the result of the procedure as recorded in the
-MFProcessBatch. 
+MFProcessBatch.
 
-.. container:: confluence-information-macro confluence-information-macro-tip
+Line Breaks in output
+~~~~~~~~~~~~~~~~~~~~~
 
-   Line Breaks in output
+insert '\n' in the string to insert line breaks in the output
+message :
 
-   .. container:: confluence-information-macro-body
+for example:
 
-      insert '\n' in the string to insert line breaks in the output
-      message :
+.. code:: text
 
-      for example:
+    set @OutPut= 'ObjectID='+CAST(@ObjectID as varchar(10))+ '/n' + ' ObjectType='+cast(@ObjectType as varchar(10))+
 
-      ::
+.. code:: text
 
-          set @OutPut= 'ObjectID='+CAST(@ObjectID as varchar(10))+ '/n' + ' ObjectType='+cast(@ObjectType as varchar(10))+
-
-      ::
-
-         + '/n' + ' ObjectVer='+ cast(@ObjectVer as varchar(10))
-
-      ::
-
+   + '/n' + ' ObjectVer='+ cast(@ObjectVer as varchar(10))
 

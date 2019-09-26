@@ -8,29 +8,17 @@ Getting Started
    next-steps-after-installation/index
    upgrades-and-hotfixes/index
 
-.. container:: table-wrap
+Overview
+--------
 
-   =============================================================================================================================================================================
-   Overview
-   =============================================================================================================================================================================
-   This section provide guidance on how to perform a first time installation and to upgrade the tool after the initial installation.
-   
-   The preparation of the environment before first installation is also highlighted in this section.
-   
-   Consult the \ `Introduction - requirements <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200910/Introduction>`__ before commencing with the installation.
-   =============================================================================================================================================================================
+This section provide guidance on how to perform a first time installation and to upgrade the tool after the initial installation.
 
-Content
-~~~~~~~
+The preparation of the environment before first installation is also highlighted in this section.
 
-| 
-
-
+Consult the \ `Introduction - requirements <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200910/Introduction>`__ before commencing with the installation.
 
 Deployment server model
 -----------------------
-
-
 
 Single Server Deployment Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,8 +30,6 @@ The Connect must be deployed in a separate Database on the SQL Server.
 It is not required, but preferred for the Connector Database to be a
 separate SQL instance from the M-Files vault SQL Database in cases where
 the M-Files vault is also deployed as a SQL database.
-
-
 
 Multi Server Deployment Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,13 +50,11 @@ volume usage.
 
 -  SQL Server for special application databases
 
-
-
 M-Files Cloud Deployment Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When the Vault is on M-Files-Cloud and SQL Server is either on premise
-or hosted 
+or hosted
 
 -  M-Files Cloud and SQL Server is connected with a VPN and in the same
    Domain
@@ -82,5 +66,3 @@ the deployment model is the same as a Multi-Server Deployment
 Special considerations apply when SQL Server is not connected with
 M-Files Cloud. Follow the installation instructions specific to this
 model.
-
-| 

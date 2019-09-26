@@ -30,8 +30,8 @@ assemblies included.
 
 `Metadata Structure Tables <page21200936.html#Bookmark6>`__: These
 tables contain the metadata of the vault, settings, and transaction
-logging data. The Connector tables are all prefixed with \ **MF** to
-distinguish them from non Connector tables in the database.\ `Metadata
+logging data. The Connector tables are all prefixed with **MF** to
+distinguish them from non Connector tables in the database. `Metadata
 tables <page21200936.html#Bookmark6>`__: The metadata about metadata
 table contain the information about the structure of M-Files (e.g.
 classes, properties, valuelists etc. ) Connector Table related to this
@@ -64,12 +64,7 @@ controls users interaction with SQL from within M-Files
 Several components are installed in the vault including: content
 package, vault applications and UI extensibility applications.
 
-| 
+**Related Topics**
+------------------
 
-.. container:: table-wrap
-
-   =========================================================
-   **Related Topics**
-   =========================================================
-   `The Connector Framework <page21200916.html#Bookmark1>`__
-   =========================================================
+- `The Connector Framework <page21200916.html#Bookmark1>`__

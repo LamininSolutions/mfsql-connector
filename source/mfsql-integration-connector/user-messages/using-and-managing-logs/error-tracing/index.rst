@@ -9,8 +9,6 @@ Error tracing
 Tracing MFSQL Errors has many different dimensions and investigating an
 error may require several steps.
 
-
-
 Error reporting
 ---------------
 
@@ -28,8 +26,6 @@ Errors becomes visible in different ways:
    logid desc)
 #. exec spmfClassTableStats will show a listing of all class tables and
    if it has errors.
-
-
 
 Errors
 ------
@@ -64,10 +60,6 @@ table. So that you can cross check with MFUpdateHistory table and find
 the record which failed to insert/update.
 
 Errors are reported by email. See below for a sample of an email
-
-| 
-
-
 
 Synchronization errors
 ''''''''''''''''''''''
@@ -104,7 +96,7 @@ the table. option 2: edit the table in SSMS and remove 'is not null'
 from the column of the table. After the values have been added using
 SSMS the column settings can be reset to 'is not null'.
 
-**Unable to establish a correction:**  A .NET Framework error occurred
+**Unable to establish a correction** : A .NET Framework error occurred
 during execution of user-defined routine or aggregate:  
 System.Runtime.InteropServices.COMException: Network problems are
 preventing M-Files from communicating with the server.  The RPC server
@@ -129,18 +121,13 @@ Investigating an error will depend on the nature of the error.  
 -  Get more detail on the actual procedure step that is causing the
    issue by using the MFProcessBatch and MFProcessBatchDetail tables.
 
-| 
+**Related Topics**
+------------------
 
-.. container:: table-wrap
-
-   ===================================================================================================================================================================================
-   **Related Topics**
-   ===================================================================================================================================================================================
-   -  `MFUpdateHistory for logging of class record changes <page21200982.html#Bookmark61>`__
-   -  `Process Logging <page39223306.html#Bookmark56>`__
-   -  `Process Batch log tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/55921730/Process+Batch+log+tables>`__
-   -  `Logging Tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200944/Logging+Tables>`__
-   -  `Using and managing logs <page39223310.html#Bookmark38>`__
-   -  `Class table stats <https://lamininsolutions.atlassian.net/wiki/pages/createpage.action?spaceKey=MFSQL&title=Class+table+stats&linkCreation=true&fromPageId=21200984>`__
-   -  `Resolving Error with unable to insert null value <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/46661646/Resolving++Error+with+unable+to+insert+null+value>`__
-   ===================================================================================================================================================================================
+-  `MFUpdateHistory for logging of class record changes <page21200982.html#Bookmark61>`__
+-  `Process Logging <page39223306.html#Bookmark56>`__
+-  `Process Batch log tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/55921730/Process+Batch+log+tables>`__
+-  `Logging Tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200944/Logging+Tables>`__
+-  `Using and managing logs <page39223310.html#Bookmark38>`__
+-  `Class table stats <https://lamininsolutions.atlassian.net/wiki/pages/createpage.action?spaceKey=MFSQL&title=Class+table+stats&linkCreation=true&fromPageId=21200984>`__
+-  `Resolving Error with unable to insert null value <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/46661646/Resolving++Error+with+unable+to+insert+null+value>`__

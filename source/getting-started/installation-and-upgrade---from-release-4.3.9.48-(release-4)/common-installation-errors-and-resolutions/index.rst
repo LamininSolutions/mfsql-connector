@@ -1,417 +1,119 @@
 Common installation errors and resolutions
 ==========================================
 
-
-
 Release 4
-=========
+---------
 
-The following errors or issues may be experienced during the
-installation process
+The following errors or issues may be experienced during the installation process
 
-.. container:: table-wrap
 
-   +--------+----+---------+----------------------------------------------+
-   | Issue/ | Pr | Resolut | Example                                      |
-   | Error  | ob | ion     |                                              |
-   |        | ab |         |                                              |
-   |        | le |         |                                              |
-   |        | Ca |         |                                              |
-   |        | us |         |                                              |
-   |        | es |         |                                              |
-   |        |    |         |                                              |
-   +========+====+=========+==============================================+
-   | Unable | co | #. Chec | .. container:: content-wrapper               |
-   | to log | rr | k       |                                              |
-   | into   | up |    the  |    |                                         |
-   | M-File | t  |    erro |                                              |
-   | s      | /  | rlog    |                                              |
-   |        | ol |    (see |                                              |
-   | The    | d  |    scre |                                              |
-   | button | co | enshot) |                                              |
-   | is     | nn | #. Dele |                                              |
-   | unresp | ec | te      |                                              |
-   | onsive | ti |    cont |                                              |
-   |        | on | ent     |                                              |
-   |        | re |    of   |                                              |
-   |        | mn |    the  |                                              |
-   |        | an |    c:\u |                                              |
-   |        | t  | sers\[l |                                              |
-   |        | on | oginuse |                                              |
-   |        | se | r]\AppD |                                              |
-   |        | rv | ata\MFS |                                              |
-   |        | er | QL      |                                              |
-   |        |    |    Vaul |                                              |
-   |        | or | t       |                                              |
-   |        | un |    Inst |                                              |
-   |        | ab | all     |                                              |
-   |        | le |    fold |                                              |
-   |        | to | er      |                                              |
-   |        | co | #. chec |                                              |
-   |        | nn | k       |                                              |
-   |        | ec |    the  |                                              |
-   |        | t  |    sett |                                              |
-   |        | to | ings    |                                              |
-   |        | M- |    to   |                                              |
-   |        | Fi |    log  |                                              |
-   |        | le |    into |                                              |
-   |        | s  |    the  |                                              |
-   |        | us |    corr |                                              |
-   |        | in | ect     |                                              |
-   |        | g  |    M-Fi |                                              |
-   |        | th | les     |                                              |
-   |        | e  |    Serv |                                              |
-   |        | lo | er      |                                              |
-   |        | gi |         |                                              |
-   |        | n  |         |                                              |
-   |        | cr |         |                                              |
-   |        | ed |         |                                              |
-   |        | en |         |                                              |
-   |        | ti |         |                                              |
-   |        | al |         |                                              |
-   |        | s  |         |                                              |
-   +--------+----+---------+----------------------------------------------+
-   | Unable | #. | |       | .. container:: content-wrapper               |
-   | to     |  T |         |                                              |
-   | connec | he | Update  |                                              |
-   | t      |    | setting |                                              |
-   | to     |  s | s       |                                              |
-   | vault  | et | using   |                                              |
-   |        | ti | spMFSet |                                              |
-   | Exec   | ng | tingsFo |                                              |
-   | spMFva | s  | rVaultU |                                              |
-   | ultCon |    | pdate   |                                              |
-   | nectio |  f |         |                                              |
-   | nTest  | or | (Exampl |                                              |
-   | error  |    | e       |                                              |
-   |        |  c | script  |                                              |
-   | |      | on | 01.101. |                                              |
-   |        | ne | Updatin |                                              |
-   |        | ct | g       |                                              |
-   |        | in | setting |                                              |
-   |        | g  | s)      |                                              |
-   |        |    |         |                                              |
-   |        |  t |         |                                              |
-   |        | o  |         |                                              |
-   |        |    |         |                                              |
-   |        |  t |         |                                              |
-   |        | he |         |                                              |
-   |        |    |         |                                              |
-   |        |  v |         |                                              |
-   |        | au |         |                                              |
-   |        | lt |         |                                              |
-   |        |    |         |                                              |
-   |        |  i |         |                                              |
-   |        | s  |         |                                              |
-   |        |    |         |                                              |
-   |        |  i |         |                                              |
-   |        | nc |         |                                              |
-   |        | or |         |                                              |
-   |        | re |         |                                              |
-   |        | ct |         |                                              |
-   |        |    |         |                                              |
-   |        |  o |         |                                              |
-   |        | r  |         |                                              |
-   |        |    |         |                                              |
-   |        |  c |         |                                              |
-   |        | ou |         |                                              |
-   |        | ld |         |                                              |
-   |        |    |         |                                              |
-   |        |  n |         |                                              |
-   |        | ot |         |                                              |
-   |        |    |         |                                              |
-   |        |  b |         |                                              |
-   |        | e  |         |                                              |
-   |        |    |         |                                              |
-   |        |  i |         |                                              |
-   |        | ns |         |                                              |
-   |        | ta |         |                                              |
-   |        | ll |         |                                              |
-   |        | ed |         |                                              |
-   |        | #. |         |                                              |
-   |        |    |         |                                              |
-   |        | Th |         |                                              |
-   |        | e  |         |                                              |
-   |        |    |         |                                              |
-   |        |  s |         |                                              |
-   |        | er |         |                                              |
-   |        | ve |         |                                              |
-   |        | r  |         |                                              |
-   |        |    |         |                                              |
-   |        |  s |         |                                              |
-   |        | ec |         |                                              |
-   |        | ur |         |                                              |
-   |        | it |         |                                              |
-   |        | y  |         |                                              |
-   |        |    |         |                                              |
-   |        |  s |         |                                              |
-   |        | et |         |                                              |
-   |        | ti |         |                                              |
-   |        | ng |         |                                              |
-   |        | s  |         |                                              |
-   |        |    |         |                                              |
-   |        |  d |         |                                              |
-   |        | oe |         |                                              |
-   |        | s  |         |                                              |
-   |        |    |         |                                              |
-   |        |  n |         |                                              |
-   |        | ot |         |                                              |
-   |        |    |         |                                              |
-   |        |  a |         |                                              |
-   |        | ll |         |                                              |
-   |        | ow |         |                                              |
-   |        |    |         |                                              |
-   |        |  p |         |                                              |
-   |        | ow |         |                                              |
-   |        | er |         |                                              |
-   |        | sh |         |                                              |
-   |        | el |         |                                              |
-   |        | l  |         |                                              |
-   |        |    |         |                                              |
-   |        |  s |         |                                              |
-   |        | cr |         |                                              |
-   |        | ip |         |                                              |
-   |        | ts |         |                                              |
-   |        | #. |         |                                              |
-   |        |  T |         |                                              |
-   |        | he |         |                                              |
-   |        |    |         |                                              |
-   |        |  M |         |                                              |
-   |        | -F |         |                                              |
-   |        | il |         |                                              |
-   |        | es |         |                                              |
-   |        |    |         |                                              |
-   |        |  p |         |                                              |
-   |        | as |         |                                              |
-   |        | sw |         |                                              |
-   |        | or |         |                                              |
-   |        | d  |         |                                              |
-   |        |    |         |                                              |
-   |        |  c |         |                                              |
-   |        | ha |         |                                              |
-   |        | ng |         |                                              |
-   |        | ed |         |                                              |
-   |        |    |         |                                              |
-   |        | |  |         |                                              |
-   +--------+----+---------+----------------------------------------------+
-   | |      | Th | Install | .. container:: content-wrapper               |
-   |        | e  | the     |                                              |
-   | Exec   | li | license |                                              |
-   | spMFSy | ce | for     |                                              |
-   | ncroni | ns | MFSQL   |                                              |
-   | zeMeta | in | Connect |                                              |
-   | data   | g  | or      |                                              |
-   | produc | is | and log |                                              |
-   | e      | no | into    |                                              |
-   | an     | t  | the     |                                              |
-   | error  | va | vault   |                                              |
-   | /      | li | using a |                                              |
-   | email  | d  | desktop |                                              |
-   |        | /  | client  |                                              |
-   |        | or |         |                                              |
-   |        | ha |         |                                              |
-   |        | s  |         |                                              |
-   |        | no |         |                                              |
-   |        | t  |         |                                              |
-   |        | be |         |                                              |
-   |        | en |         |                                              |
-   |        | ac |         |                                              |
-   |        | ti |         |                                              |
-   |        | va |         |                                              |
-   |        | te |         |                                              |
-   |        | d  |         |                                              |
-   +--------+----+---------+----------------------------------------------+
-   |  login |  T | search  | .. container:: content-wrapper               |
-   | to     | he | for     |                                              |
-   | vault  | co | 'connec |                                              |
-   | using  | nn | tionstr |                                              |
-   | deskto | ec | ing'    |                                              |
-   | p      | ti | in the  |                                              |
-   |        | on | vault   |                                              |
-   | networ | st | and     |                                              |
-   | k      | ri | update  |                                              |
-   | connec | ng | the     |                                              |
-   | tion   | is | connect |                                              |
-   | error  | in | ion     |                                              |
-   |        | va | string. |                                              |
-   | on     | li |         |                                              |
-   | login  | d  |         |                                              |
-   | to the |    | Log     |                                              |
-   | vault  | Th | out.    |                                              |
-   | for    | e  |         |                                              |
-   | the    | SQ | Uninsta |                                              |
-   | first  | L  | ll      |                                              |
-   | time   | li | the     |                                              |
-   |        | ce | MFSQL   |                                              |
-   |        | ns | Connect |                                              |
-   |        | in | or      |                                              |
-   |        | g  | vault   |                                              |
-   |        | ha | applica |                                              |
-   |        | s  | tion    |                                              |
-   |        | no | in      |                                              |
-   |        | t  | M-Files |                                              |
-   |        | ta | ,       |                                              |
-   |        | ke | reinsta |                                              |
-   |        | n  | ll,     |                                              |
-   |        | pl | and     |                                              |
-   |        | ac | re-lice |                                              |
-   |        | e  | nse     |                                              |
-   |        | an |         |                                              |
-   |        | d  | then    |                                              |
-   |        | th |         |                                              |
-   |        | e  | log     |                                              |
-   |        | co | back    |                                              |
-   |        | nn | into    |                                              |
-   |        | ec | vault.  |                                              |
-   |        | to |         |                                              |
-   |        | r  |         |                                              |
-   |        | wi |         |                                              |
-   |        | ll |         |                                              |
-   |        | no |         |                                              |
-   |        | t  |         |                                              |
-   |        | op |         |                                              |
-   |        | er |         |                                              |
-   |        | at |         |                                              |
-   |        | e. |         |                                              |
-   |        |    |         |                                              |
-   |        | |  |         |                                              |
-   +--------+----+---------+----------------------------------------------+
-   |  MFSQL | Th |  search | .. container:: content-wrapper               |
-   | Connec | e  | for     |                                              |
-   | tor    | co | 'connec |                                              |
-   | contex | nn | tionstr |                                              |
-   | t      | ec | ing'    |                                              |
-   | menu   | ti | in the  |                                              |
-   | error  | on | vault   |                                              |
-   |        | st | and     |                                              |
-   | |      | ri | update  |                                              |
-   |        | ng | the     |                                              |
-   |        | is | connect |                                              |
-   |        | in | ion     |                                              |
-   |        | va | string. |                                              |
-   |        | li |         |                                              |
-   |        | d  | log out |                                              |
-   |        |    | and log |                                              |
-   |        |    | back    |                                              |
-   |        |    | into    |                                              |
-   |        |    | vault.  |                                              |
-   +--------+----+---------+----------------------------------------------+
-   |  Email | Wh | Install | .. container:: content-wrapper               |
-   | Profil | en | Databas |                                              |
-   | e      | pr | e       |                                              |
-   | Error  | oc | Mail    |                                              |
-   |        | ed | and set |                                              |
-   | messag | ur | the     |                                              |
-   | e      | es | profile |                                              |
-   | that   | ar | name to |                                              |
-   | profil | e  | 'MailPr |                                              |
-   | e      | ex | ofile'  |                                              |
-   | is     | ec |         |                                              |
-   | invali | ut | Check   |                                              |
-   | d      | ed | MFLog   |                                              |
-   |        |    | table   |                                              |
-   |        | wi | for     |                                              |
-   |        | th | error   |                                              |
-   |        | an | message |                                              |
-   |        | er | s       |                                              |
-   |        | ro |         |                                              |
-   |        | r  |         |                                              |
-   |        | th |         |                                              |
-   |        | e  |         |                                              |
-   |        | me |         |                                              |
-   |        | ss |         |                                              |
-   |        | ag |         |                                              |
-   |        | e  |         |                                              |
-   |        | ap |         |                                              |
-   |        | pe |         |                                              |
-   |        | ar |         |                                              |
-   |        | s  |         |                                              |
-   |        |    |         |                                              |
-   |        | No |         |                                              |
-   |        | te |         |                                              |
-   |        | th |         |                                              |
-   |        | at |         |                                              |
-   |        | th |         |                                              |
-   |        | is |         |                                              |
-   |        | er |         |                                              |
-   |        | ro |         |                                              |
-   |        | r  |         |                                              |
-   |        | al |         |                                              |
-   |        | so |         |                                              |
-   |        | in |         |                                              |
-   |        | di |         |                                              |
-   |        | ca |         |                                              |
-   |        | te |         |                                              |
-   |        | s  |         |                                              |
-   |        | th |         |                                              |
-   |        | at |         |                                              |
-   |        | th |         |                                              |
-   |        | er |         |                                              |
-   |        | e  |         |                                              |
-   |        | wa |         |                                              |
-   |        | s  |         |                                              |
-   |        | an |         |                                              |
-   |        | er |         |                                              |
-   |        | ro |         |                                              |
-   |        | r  |         |                                              |
-   |        |    |         |                                              |
-   |        | |  |         |                                              |
-   +--------+----+---------+----------------------------------------------+
-   |  MFLog |  I |  a)     |  SELECT \* FROM [dbo].[MFLog] AS [ml]        |
-   | show   | nd | check   |                                              |
-   | error  | ic | that    | Proc: spMFSynchronizeLoginAccount Step:      |
-   | for    | at | license | Wrapper - GetLoginAccounts ErrorInfo Invalid |
-   | invali | es | has     | License key.                                 |
-   | d      | th | been    |                                              |
-   | licens | e  | added   | |                                            |
-   | e      | li | to the  |                                              |
-   |        | ce | vault   |                                              |
-   |        | ns | applica |                                              |
-   |        | e  | tion    |                                              |
-   |        | ha |         |                                              |
-   |        | s  | b)      |                                              |
-   |        | an | check   |                                              |
-   |        | is | Configu |                                              |
-   |        | su | rations |                                              |
-   |        | e  | / other |                                              |
-   |        |    | applica |                                              |
-   |        |    | tions   |                                              |
-   |        |    | / MFSQL |                                              |
-   |        |    | Connect |                                              |
-   |        |    | or      |                                              |
-   |        |    | VaultAp |                                              |
-   |        |    | p       |                                              |
-   |        |    | Dashboa |                                              |
-   |        |    | rd      |                                              |
-   |        |    | to see  |                                              |
-   |        |    | if it   |                                              |
-   |        |    | loading |                                              |
-   |        |    | properl |                                              |
-   |        |    | y.      |                                              |
-   |        |    | If it   |                                              |
-   |        |    | iscorre |                                              |
-   |        |    | ct,     |                                              |
-   |        |    | then    |                                              |
-   |        |    | uninsta |                                              |
-   |        |    | ll      |                                              |
-   |        |    | and     |                                              |
-   |        |    | manuall |                                              |
-   |        |    | y       |                                              |
-   |        |    | re-inst |                                              |
-   |        |    | all     |                                              |
-   |        |    | the     |                                              |
-   |        |    | vault   |                                              |
-   |        |    | applica |                                              |
-   |        |    | tion    |                                              |
-   |        |    | from    |                                              |
-   |        |    | the     |                                              |
-   |        |    | install |                                              |
-   |        |    | ation   |                                              |
-   |        |    | files.  |                                              |
-   +--------+----+---------+----------------------------------------------+
+Unable to log into M-Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| 
+Probable causes:
 
-| 
+- Corrupt / old connection remnant on server
+- Unable to connect to M-Files using the login credentials
 
-| 
+Solution:
+
+1. Check the errorlog (see screenshot)
+2. Delete content of the c:\users\[loginuser]\AppData\MFSQL Vault Install folder
+3. check the settings to log into the correct M-Files Server
+
+|img1|
+|img2|
+
+Unable to connect to vault
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+- The settings for connecting to the vault is incorrect or could not be installed
+- The server security settings does not allow powershell scripts
+- The M-Files password changed
+
+Solution:
+
+- Update settings using spMFSettingsForVaultUpdate
+
+|img3|
+
+Exec spMFSyncronizeMetadata produces an error / email
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+- The licensing is not valid / or has not been activated
+
+Solution:
+
+- Install the license for MFSQL Connector and log into the vault using a desktop client
+
+|img4|
+
+Network connection error on login to the vault for the first time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+- The connection string is invalid
+- The SQL licensing has not taken place and the connector will not operate.
+
+Solution:
+
+1. search for 'connectionstring' in the vault and update the connection string.
+2. Log out of vault
+3. Uninstall the MFSQL Connector vault application in M-Files, reinstall, and relicense
+4. Log back into vault
+
+|img5|
+
+MFSQL Connector context menu error
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+- The connection string is invalid
+
+Solution:
+
+1. search for 'connectionstring' in the vault and update the connection string
+2. log out and log back into vault.
+
+|img6|
+
+EmailProfile Error
+~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+- When procedures are executed  with an error the message appears
+- Note that this error also indicates that there was an error 
+
+Solution:
+
+1. Install Database Mail and set the profile name to 'MailProfile' 
+2. Check MFLog table for error messages
+
+|img7|
+
+MFLog shows error for invalid license
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Probable causes:
+
+-  Indicates the license has an issue
+
+Solution:
+
+1. Check that license has been added to the vault application
+2. Check Configurations / other applications / MFSQL Connector VaultApp Dashboard to see if it loading properly.  If it iscorrect, then uninstall and manually re-install the vault application from the installation files.
+
+.. |img1| image:: img_4.jpg
+.. |img2| image:: img_5.jpg
+.. |img3| image:: img_6.jpg
+.. |img4| image:: img_7.jpg
+.. |img5| image:: img_8.jpg
+.. |img6| image:: img_9.jpg
+.. |img7| image:: img_10.jpg

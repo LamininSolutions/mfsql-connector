@@ -24,13 +24,9 @@ documents in M-Files. 
 #. **Show and search for files in M-Files** where the files are located
    in another database using the IML connector capability. 
 
-.. container:: table-wrap
+**Related Topics**
 
-   =====================================================================================================================================================
-   **Related Topics**
-   =====================================================================================================================================================
-   -  `Class Table Columns <page21200940.html#Bookmark24>`__
-   -  `spMFExportFiles <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/57913733/spMFExportFiles>`__
-   -  `MFSQL Database File Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector>`__
-   -  `Database file import into M-Files <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/183631882/Database+file+import+into+M-Files>`__
-   =====================================================================================================================================================
+-  `Class Table Columns <page21200940.html#Bookmark24>`__
+-  `spMFExportFiles <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/57913733/spMFExportFiles>`__
+-  `MFSQL Database File Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector>`__
+-  `Database file import into M-Files <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/183631882/Database+file+import+into+M-Files>`__

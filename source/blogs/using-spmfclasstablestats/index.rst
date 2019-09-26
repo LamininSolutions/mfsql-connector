@@ -62,7 +62,7 @@ As a simple executable without any parameters it will produce a table with for a
 .. code:: sql
 
     EXEC [dbo].[spMFClassTableStats]
-    
+
 --------------------
 
 |image0|
@@ -74,22 +74,22 @@ Add additional tables to be included in the stats, but not included in the proce
 Then execute spMFCreateAllMFTables with @IncludedInApp = 4 and finally execute the stats.
 
 .. code:: sql
-    
+
      UPDATE mc
      SET [mc].[IncludeInApp] = 4
      FROM MFclass mc
      INNER JOIN MFObjectType mo
      ON [mo].[ID] = [mc].[MFObjectType_ID]
      WHERE mo.name = 'Document' AND [mc].[IncludeInApp] IS null
-     
-    EXEC [dbo].[spMFCreateAllMFTables] 4 
-    
-    EXEC [dbo].[spMFClassTableStats]
-     
+
+     EXEC [dbo].[spMFCreateAllMFTables] 4 
+
+     EXEC [dbo].[spMFClassTableStats]
+
 ---------------------
 
 |image1|
- 
+
 #. Using result in another procedure
 
 The result of the procedure can be included in global temporary table ##spMFClassTableStats. Each time the procedure is run the temporary table will be reset.  Set the parameter @IncludeOutput  = 1 to produce the result into the table
@@ -97,17 +97,17 @@ The result of the procedure can be included in global temporary table ##spMFClas
 .. code:: sql
 
     EXEC [dbo].[spMFClassTableStats] @ClassTableName = 'MFCustomer', @IncludeOutput = 1
-    
-    Select * from ##spMFClassTableStats
-    
+
+    SELECT * FROM ##spMFClassTableStats
+
 --------------------
 
 #. Producing a result for all classes 
 
 When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.
 
- |image2|
- 
+|image2|
+
 .. |image0| image:: image0.png
 .. |image1| image:: image1.png
 .. |image2| image:: image2.png

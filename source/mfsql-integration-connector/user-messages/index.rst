@@ -6,10 +6,6 @@ User Messages
 
    using-and-managing-logs/index
    mfusermessages-table/index
-   spmfresultmessageforui/index
-   spmfinsertusermessage/index
-   spmflogprocesssummaryforclasstable/index
-   spmfprocessbatch_email/index
 
 User messages can be generated in a variety of different ways, depending
 on the type of message and user requirements.

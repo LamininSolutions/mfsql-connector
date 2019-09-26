@@ -1,15 +1,6 @@
 Synchronize Methods
 ===================
 
-.. toctree::
-   :maxdepth: 4
-
-   spmfdropandupdatemetadata/index
-   spmfsynchronizemetadata/index
-   spmfsynchronizespecificmetadata/index
-
-
-
 Synchronize metadata for the first time
 ---------------------------------------
 
@@ -33,9 +24,9 @@ i.e.
 Each spMFSynchronize\* procedure will internally call two
 other procedures
 
-               spMFGet\*
+spMFGet\*
 
-               spMFInsert\*
+spMFInsert\*
 
 spMFGet\* procedure will connect to M-Files server and get the metadata
 details in XML format and spMFInsert\* procedure will insert those
@@ -50,43 +41,32 @@ Use `spMFSynchronizeSpecificMetadata <page36536341.html#Bookmark27>`__
 to update a specific type of metadata.  This is particularly useful when
 a small change was made in the vault that need to be pulled through.  
 
-.. container:: confluence-information-macro confluence-information-macro-warning
-
-   Sequence
-
-   .. container:: confluence-information-macro-body
-
-      When changes are made to classes it is very important to perform
-      all the dependent specific synchronizations before doing the class
-      synchronization.
+When changes are made to classes it is very important to perform
+all the dependent specific synchronizations before doing the class
+synchronization.
 
 
 
-Synchronize metadata Tables with new Vault  
---------------------------------------------
+Synchronize metadata Tables with new Vault
+------------------------------------------
 
 In order to synchronize the metadata tables with a new vault, execute
 “spMFDropAndUpdateMetadata”. This procedure will retain the following
 custom settings in the metadata tables. All other column values will
 updated with new vault details.
 
-.. container:: table-wrap
 
-   ================ ====================
-   Table            Customisable columns
-   ================ ====================
-   MFClass          IncludedInApp
-                   
-                    TableName
-   MFProperty       ColumnName
-   MFValuelistItems AppRef
-                   
-                    Owner_AppRef
-   ================ ====================
-
-| 
+================ ====================
+Table            Customisable columns
+================ ====================
+MFClass          IncludedInApp
+                
+                 TableName
+MFProperty       ColumnName
+MFValuelistItems AppRef
+                
+                 Owner_AppRef
+================ ====================
 
 This procedure can also be used to reset all the metadata, but retain
 the custom settings in the Tables.
-
-| 

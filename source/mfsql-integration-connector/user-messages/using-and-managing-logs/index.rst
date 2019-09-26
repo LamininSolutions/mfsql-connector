@@ -7,10 +7,7 @@ Using and managing logs
    error-tracing/index
    logging-execution-of-process-and-procedure-steps/index
    mfupdatehistory-for-logging-of-class-record-changes/index
-   spmfdeletehistory/index
-   spmfupdatehistoryshow/index
    working-with-object-version/index
-   spmflogtablestats/index
 
 Logs improve the tracing and review of the operations of the Connector.
 Different types of logs are used.
