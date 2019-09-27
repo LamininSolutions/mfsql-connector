@@ -9,7 +9,7 @@ Welcome to MFSQL Connector's documentation!
 |image0| Looking for something specific - try search
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: MFSQL Connector Guide:
 
    introduction/index   
