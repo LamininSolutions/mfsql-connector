@@ -11,6 +11,7 @@ Welcome to MFSQL Connector's documentation!
 .. toctree::
    :maxdepth: 1
    :caption: MFSQL Connector Guide:
+   :hidden:
 
    introduction/index   
    getting-started/index
