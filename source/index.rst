@@ -17,7 +17,7 @@ Welcome to MFSQL Connector's documentation!
    mfsql-integration-connector/index
    the-connector-framework/index
    
-   :caption: Blog:
+   :caption: blog:
    
    blogs/index
 
