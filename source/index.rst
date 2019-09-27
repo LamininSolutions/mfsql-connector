@@ -16,6 +16,9 @@ Welcome to MFSQL Connector's documentation!
    mfsql-database-file-connector/index
    mfsql-integration-connector/index
    the-connector-framework/index
+   
+   :caption: Blog:
+   
    blogs/index
 
 .. toctree::
