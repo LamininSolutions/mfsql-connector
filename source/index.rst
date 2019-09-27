@@ -35,6 +35,9 @@ Welcome to MFSQL Connector's documentation!
    tables/index
    triggers/index
 
-Looking for something specific - try search |search_icon|
+Check the sidebar for various topics like 'Getting Started'.
+
+Or if you're looking for something specific - try search |search_icon|
 
 .. |search_icon| image:: search-icon.png
+   :height: 20px
