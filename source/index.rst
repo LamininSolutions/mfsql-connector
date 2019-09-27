@@ -6,9 +6,8 @@
 Welcome to MFSQL Connector's documentation!
 ===========================================
 
-|image0| Looking for something specific - try search
-
 .. toctree::
+   :maxdepth: 2
    :caption: MFSQL Connector Guide:
    :hidden:
 
@@ -20,7 +19,7 @@ Welcome to MFSQL Connector's documentation!
    the-connector-framework/index
    
  .. toctree::
-   :maxdepth: 1 
+   :maxdepth: 2
    :caption: Blog:
    
    blogs/index
@@ -34,4 +33,5 @@ Welcome to MFSQL Connector's documentation!
    tables/index
    triggers/index
 
+|image0| Looking for something specific - try search
 .. |image0| image:: 183-1830798_search-icon-ratio-clip-art.png
