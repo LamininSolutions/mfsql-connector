@@ -9,7 +9,6 @@ Welcome to MFSQL Connector's documentation!
 |image0| Looking for something specific - try search
 
 .. toctree::
-   :maxdepth: 1
    :caption: MFSQL Connector Guide:
    :hidden:
 
