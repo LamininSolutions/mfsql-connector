@@ -35,5 +35,6 @@ Welcome to MFSQL Connector's documentation!
    tables/index
    triggers/index
 
-|image0| Looking for something specific - try search
-.. |image0| image:: 183-1830798_search-icon-ratio-clip-art.png
+Looking for something specific - try search |search_icon|
+
+.. |search_icon| image:: search-icon.png
