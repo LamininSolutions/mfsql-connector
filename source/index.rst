@@ -5,13 +5,13 @@
 
 Welcome to MFSQL Connector's documentation!
 ===========================================
-
+Looking for something specific |image0|
 .. toctree::
    :maxdepth: 2
    :caption: MFSQL Connector Guide:
 
+   introduction/index   
    getting-started/index
-   introduction/index
    mfsql-data-exchange-and-reporting-connector/index
    mfsql-database-file-connector/index
    mfsql-integration-connector/index
@@ -29,3 +29,5 @@ Welcome to MFSQL Connector's documentation!
    procedures/index
    tables/index
    triggers/index
+
+.. |image0| image:: 183-1830798_search-icon-ratio-clip-art.png
