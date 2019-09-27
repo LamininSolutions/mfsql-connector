@@ -19,6 +19,8 @@ Welcome to MFSQL Connector's documentation!
    mfsql-integration-connector/index
    the-connector-framework/index
    
+ .. toctree::
+   :maxdepth: 2 
    :caption: blog:
    
    blogs/index
