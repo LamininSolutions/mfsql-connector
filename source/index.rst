@@ -5,7 +5,9 @@
 
 Welcome to MFSQL Connector's documentation!
 ===========================================
-Looking for something specific |image0|
+
+|image0| Looking for something specific - try search
+
 .. toctree::
    :maxdepth: 2
    :caption: MFSQL Connector Guide:
