@@ -20,7 +20,7 @@ Welcome to MFSQL Connector's documentation!
    the-connector-framework/index
    
  .. toctree::
-   :maxdepth: 2 
+   :maxdepth: 1 
    :caption: Blog:
    
    blogs/index
