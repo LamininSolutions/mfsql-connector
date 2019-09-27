@@ -11,22 +11,24 @@ Welcome to MFSQL Connector's documentation!
    :caption: MFSQL Connector Guide:
    :hidden:
 
-   introduction/index   
+   introduction/index
    getting-started/index
    mfsql-data-exchange-and-reporting-connector/index
    mfsql-database-file-connector/index
    mfsql-integration-connector/index
    the-connector-framework/index
-   
- .. toctree::
+
+.. toctree::
    :maxdepth: 2
    :caption: Blog:
-   
+   :hidden:
+
    blogs/index
 
 .. toctree::
    :maxdepth: 2
    :caption: SQL Components:
+   :hidden:
 
    functions/index
    procedures/index
