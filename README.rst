@@ -14,7 +14,7 @@ Structure
 2. Blogs
 3. Extract from inline documentation in the SQL Scripts
 
-A python procedure strips out the rst section of each SQL script in the Connector repository.  This is combined with the other rst based files and folders in the mfsql-connector repository. The mfsql-connector repository is monitored by Sphinx to convert the rst into html to produce the website.
+A python procedure strips out the rst section of each SQL script in the Connector repository.  This is combined with the other rst based files and folders in the mfsql-connector repository. The mfsql-connector repository is monitored by Sphinx to convert the rst into html to produce the website in the repository lamininsolutions.github.io.  This repository is accessible via doc.lamininsolutions.com
 
 Videos
 ------
