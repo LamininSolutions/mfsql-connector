@@ -1,14 +1,20 @@
 SQL rST Documentation Guide
 ===========================
 
+Documenting MFSQL Connector has moved from Jira Wiki to using Sphinx document generator. It applies StructuredText as markup language and publish the site to github.
+
+http://www.sphinx-doc.org/en/master/
+
+The core structure of the documentation are
+
 Structure
 ---------
 
-1. Name
-2. Parameters
-3. Usage
-4. Examples
-5. Changelog
+1. Sections about MFSQL Connector
+2. Blogs
+3. Extract from inline documentation in the SQL Scripts
+
+A python procedure strips out the rst section of each SQL script in the Connector repository.  This is combined with the other rst based files and folders in the mfsql-connector repository. The mfsql-connector repository is monitored by Sphinx to convert the rst into html to produce the website.
 
 Videos
 ------
