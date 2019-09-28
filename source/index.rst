@@ -17,6 +17,7 @@ Welcome to MFSQL Connector's documentation!
    mfsql-database-file-connector/index
    mfsql-integration-connector/index
    the-connector-framework/index
+   version-control/index
 
 .. toctree::
    :maxdepth: 2
@@ -35,9 +36,20 @@ Welcome to MFSQL Connector's documentation!
    tables/index
    triggers/index
 
-Check the sidebar for various topics like 'Getting Started'.
+.. note::
+    Check the sidebar for various topics like 'Getting Started'.
 
-Or if you're looking for something specific - try search |search_icon|
+    Or if you're looking for something specific - try search |search_icon|
+
+    Email your suggestions to `support <mailto:support@lamininsolutions.com>`__.
+
+.. warning::
+    This edition of the documentation has been transferred from the now redundant Jira based edition. It is still in draft mode and may have broken formatting or links. Kindly contact us if you spot any. 
+
+    Your suggestions for improvement or additions to the documentation is welcome.
+
+
+
 
 .. |search_icon| image:: search-icon.png
    :height: 20px
