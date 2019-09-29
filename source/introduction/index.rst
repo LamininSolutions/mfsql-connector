@@ -36,11 +36,11 @@ and provides guidance on how to get help.
    The detail application of these uses are discussed in the sections
 
    -  `MFSQL Data Exchange and reporting
-      Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200914/MFSQL+Data+Exchange+and+reporting+Connector>`__
+      Connector :ref:`mfsql-data-exchange-and-reporting-connector`
    -  `MFSQL Integration
-      Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/168689685/MFSQL+Integration+Connector>`__
+      Connector :ref:`mfsql-integration-connector`
    -  `MFSQL Database File
-      Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector>`__
+      Connector :ref:`mfsql-database-file-connector`
 
    The Connector is designed as a developer or consultant framework
    rather than an end user application. It is unlikely that a general
