@@ -42,10 +42,12 @@ Detail
  - It is recommended to have separate installations for Development and Production
 
 #. Powershell
+
  - The Advanced installer use powershell as part of the installation on both SQL and M-Files server
  - Use manual install if powershell is not available.
 
 #. SQL Database
+
  - SQL Server 2008, Express, Standard or Enterprise and later
  - All features is not supported in Express such as using agents, performance limitation
  - SQL Server 2012, Express, Standard or Enterprise and later
