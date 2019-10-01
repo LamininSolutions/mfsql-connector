@@ -16,18 +16,23 @@ server.
 
 Detail
 ~~~~~~
+
 #. M-Files Version
+
  - M-Files version 2018 and later
  - M-Files IML (Intelligent Metadata Layer) Core licence is required for the DB File Connector module
 
 #. M-Files User
+
  - The connector requires a dedicated M-Files user with admin rights to the vault.  During installation the M-Files user must have Server Admin rights
  - It is recommended to assign a named user license to the user
 
 #. M-Files Database
- - Firebird and SQL vaults
+
+ - Firebird and SQL vaults allowed
 
 #. M-Files Installation
+
  - Target vault must be pre-existing
  - M-Files client must be installed on SQL Server
  - Powershell must be installed and enabled on the SQL and M-Files serverThe vault settings and application installation can be updated manually if powershell is not enabled
@@ -48,20 +53,25 @@ Detail
  - SQL Server must be installed with `Mixed Mode Authentication <https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/change-server-authentication-mode>`__ during the setup of the instance
 
 #. M-Files to SQL connection
+
  - MFSQL Connector use a ODBC connection to connect to the Database.
  - We recommend the use of  a VPN to connect the M-Files server and SQL server where these servers are not on an intranet. This is particularly relevant for a Cloud Vault.  
 
 #. Size allocation of database
+
  - Database is automatically created with default size and file locations.   The size of the database is not expected to be large or requiring any special requirements except if the M-Files vault is excessively large and the application requires a significant number of Class Tables. A Log Table purging methodology should be implemented to prevent excessive growth of application logs. By default log tables are kept indefinitely.
 
 #. QL Server Configuration
+
  - Database mail is required for SQL error notifications
  - Optional. Error message is available from MFLog table also
 
 #. DotNet Framework
+
  - .Net 4.6.1 or higher on both SQL Server and Web Server
 
 #. Experience level of SQL Development
+
  - Moderate experience with using MS-SQL queries are required
 
 Reserved words
