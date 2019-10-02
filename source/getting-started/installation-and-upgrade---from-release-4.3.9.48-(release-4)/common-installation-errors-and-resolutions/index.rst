@@ -18,11 +18,21 @@ Probable causes:
 Solution:
 
 1. Check the errorlog (see screenshot)
-2. Delete content of the c:\users\[loginuser]\AppData\MFSQL Vault Install folder
+2. Delete content of the c:\_\users\_[loginuser]\_\AppData\_\MFSQL Vault Install folder
+3. Alternatively one can delete the VaultSettings.xml file in the this folder
 3. check the settings to log into the correct M-Files Server
 
 |img1|
+
+Example of error
+
 |img2|
+
+Watch the video
+
+.. raw:: html
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WVsB6MQ6cgg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Unable to connect to vault
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
