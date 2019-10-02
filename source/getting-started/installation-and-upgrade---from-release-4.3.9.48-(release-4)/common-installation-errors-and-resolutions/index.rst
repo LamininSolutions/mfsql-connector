@@ -17,10 +17,10 @@ Probable causes:
 
 Solution:
 
-1. Check the errorlog (see screenshot)
-2. Delete content of the c:\_\users\_[loginuser]\_\AppData\_\MFSQL Vault Install folder
-3. Alternatively one can delete the VaultSettings.xml file in the this folder
-3. check the settings to log into the correct M-Files Server
+ - Check the errorlog (see screenshot)
+ - Delete content of the c:\_\users\_[loginuser]\_\AppData\_\MFSQL Vault Install folder
+ - Alternatively one can delete the VaultSettings.xml file in the this folder
+ - check the settings to log into the correct M-Files Server
 
 |img1|
 
@@ -39,13 +39,13 @@ Unable to connect to vault
 
 Probable causes:
 
-- The settings for connecting to the vault is incorrect or could not be installed
-- The server security settings does not allow powershell scripts
-- The M-Files password changed
+ - The settings for connecting to the vault is incorrect or could not be installed
+ - The server security settings does not allow powershell scripts
+ - The M-Files password changed
 
 Solution:
 
-- Update settings using spMFSettingsForVaultUpdate
+ - Update settings using spMFSettingsForVaultUpdate
 
 |img3|
 
@@ -67,15 +67,15 @@ Network connection error on login to the vault for the first time
 
 Probable causes:
 
-- The connection string is invalid
-- The SQL licensing has not taken place and the connector will not operate.
+ - The connection string is invalid
+ - The SQL licensing has not taken place and the connector will not operate.
 
 Solution:
 
-1. search for 'connectionstring' in the vault and update the connection string.
-2. Log out of vault
-3. Uninstall the MFSQL Connector vault application in M-Files, reinstall, and relicense
-4. Log back into vault
+ - search for 'connectionstring' in the vault and update the connection string.
+ - Log out of vault
+ - Uninstall the MFSQL Connector vault application in M-Files, reinstall, and relicense
+ - Log back into vault
 
 |img5|
 
@@ -88,8 +88,8 @@ Probable causes:
 
 Solution:
 
-1. search for 'connectionstring' in the vault and update the connection string
-2. log out and log back into vault.
+ - search for 'connectionstring' in the vault and update the connection string
+ - log out and log back into vault.
 
 |img6|
 
@@ -103,8 +103,8 @@ Probable causes:
 
 Solution:
 
-1. Install Database Mail and set the profile name to 'MailProfile' 
-2. Check MFLog table for error messages
+ - Install Database Mail and set the profile name to 'MailProfile' 
+ - Check MFLog table for error messages
 
 |img7|
 
@@ -113,12 +113,12 @@ MFLog shows error for invalid license
 
 Probable causes:
 
--  Indicates the license has an issue
+ - Indicates the license has an issue
 
 Solution:
 
-1. Check that license has been added to the vault application
-2. Check Configurations / other applications / MFSQL Connector VaultApp Dashboard to see if it loading properly.  If it iscorrect, then uninstall and manually re-install the vault application from the installation files.
+ - Check that license has been added to the vault application
+ - Check Configurations / other applications / MFSQL Connector VaultApp Dashboard to see if it loading properly.  If it iscorrect, then uninstall and manually re-install the vault application from the installation files.
 
 .. |img1| image:: img_4.jpg
 .. |img2| image:: img_5.jpg
