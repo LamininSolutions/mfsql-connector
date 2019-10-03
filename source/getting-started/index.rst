@@ -15,7 +15,7 @@ This section provide guidance on how to perform a first time installation and to
 
 The preparation of the environment before first installation is also highlighted in this section.
 
-Consult the :ref: requirements `introduction`_ before commencing with the installation.
+Consult the :ref: requirements `/introduction`_ before commencing with the installation.
 
 Deployment server model
 -----------------------
