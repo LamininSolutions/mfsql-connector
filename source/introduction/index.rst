@@ -36,11 +36,12 @@ and provides guidance on how to get help.
    The detail application of these uses are discussed in the sections
 
    -  `MFSQL Data Exchange and reporting
-      Connector :ref:`mfsql-data-exchange-and-reporting-connector`
-   -  `MFSQL Integration
-      Connector :ref:`mfsql-integration-connector`
+      Connector`_ 
+   -  MFSQL Integration 
+      Connector `mfsql-integration-connector`_
    -  `MFSQL Database File
       Connector :ref:`mfsql-database-file-connector`
+   -  `Introduction to MFSQL`_
 
    The Connector is designed as a developer or consultant framework
    rather than an end user application. It is unlikely that a general
@@ -95,3 +96,5 @@ The best way to get our attention is to
 email `support <mailto:support@lamininsolutions.com>`__.
 
 Use this method if you would prefer a direct response.
+
+:ref:`mfsql-data-exchange-and-reporting-connector`
