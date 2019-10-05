@@ -9,24 +9,24 @@ different packages.
 Overview of functional composition of the modules
 -------------------------------------------------
 
-The columns below references the following modules
+The columns below reference the following modules
 
 #. Data Exchange and Reporting Connector
 #. Integration Connector
 #. Database File Connector
 
-============================================  =====  ======  ======
+============================================  ======  ======  ======
 Functional element                            1       2       3
-============================================  =====  ======  ======
-Metadata structure                            |      |        |
+============================================  ======  ======  ======
+Metadata structure                            |       |        |
 ~~~~~~~~~~~~~~~~~~
-Auto create metadata structure tables         |tick| |tick|   |
-Analyse and refresh metadata using SQL        |tick| |tick|   |
-Drop & recreate metadata                      |tick| |tick|   |
-Update names and aliases from SQL             |      |tick|   |
-Insert new valuelist items from SQL           |      |tick|   |
-Update aliases in bulk                        |      |tick|   |
-============================================  =====  ======  ======
+Auto create metadata structure tables         |tick|  |tick|   |
+Analyse and refresh metadata using SQL        |tick|  |tick|   |
+Drop & recreate metadata                      |tick|  |tick|   |
+Update names and aliases from SQL             |       |tick|   |
+Insert new valuelist items from SQL           |       |tick|   |
+Update aliases in bulk                        |       |tick|   |
+============================================  ======  ======  ======
 
  Tables of object types, classes and properties and their relationships
 
