@@ -35,9 +35,9 @@ and provides guidance on how to get help.
 
    The detail application of these uses are discussed in the sections
 
-   -  MFSQL data exchange and reporting connector `mfsql-data-exchange-and-reporting-connector`_ 
-   -  MFSQL Integration Connector `mfsql-integration-connector`_
-   -  `MFSQL Database File Connector `mfsql-database-file-connector`
+   -  MFSQL data exchange and reporting connector 
+   -  MFSQL Integration Connector 
+   -  MFSQL Database File Connector 
 
    The Connector is designed as a developer or consultant framework
    rather than an end user application. It is unlikely that a general
