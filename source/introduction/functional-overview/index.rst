@@ -10,18 +10,18 @@ Overview of functional composition of the modules
 
 
 
-=============================== ======================== ===================== =======================
+======================================== ======================== ===================== =======================
 Functional element              Data Exchange Connector  Integration Connector Database File Connector
-=============================== ======================== ===================== =======================
-Metadata structure              |                        |                     |
+======================================== ======================== ===================== =======================
+Metadata structure                       |                        |                     |
 ~~~~~~~~~~~~~~~~~~
-Auto create metadata structure tables |tick|             |tick|                |
-Analyse and refresh metadata using SQL |tick|            |tick|                |
-Drop & recreate metadata         |tick|                  |tick|                 |
-Update names and aliases from SQL |                       |tick|                |
-Insert new valuelist items from SQL  |                     |tick|                |
-Update aliases in bulk             |                       |tick|                |
-
+Auto create metadata structure tables     |tick|             |tick|                |
+Analyse and refresh metadata using SQL   |tick|            |tick|                |
+Drop & recreate metadata               |tick|                  |tick|                 |
+Update names and aliases from SQL       |                       |tick|                |
+Insert new valuelist items from SQL     |                     |tick|                |
+Update aliases in bulk                  |                       |tick|                |
+======================================= ======================== ===================== =======================
  Tables of object types, classes and properties and their relationships
 
  |tick|
@@ -809,7 +809,7 @@ Upgrade packages
 | 
 
 | 
-=============================== ======================== ===================== =======================
-.. ||tick|| image:: img_1.png
+
+.. |tick| image:: img_1.png
    :class: emoticon emoticon-tick
 
