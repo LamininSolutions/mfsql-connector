@@ -3,6 +3,7 @@ Introduction to MFSQL
 
 .. toctree::
    :maxdepth: 4
+      :hidden:
 
    requirements/index
    mfsql-connector-modules/index
@@ -35,7 +36,9 @@ and provides guidance on how to get help.
 
    The detail application of these uses are discussed in the sections
 
-   -  `mfsql-data-exchange-and-reporting-connector`_ 
+   -  MFSQL data exchange and reporting connector
+   ..ref::
+   `mfsql-data-exchange-and-reporting-connector`_ 
    -  MFSQL Integration 
       Connector `mfsql-integration-connector`_
    -  `MFSQL Database File
@@ -94,6 +97,5 @@ Collaboration and support
 The best way to get our attention is to
 email `support <mailto:support@lamininsolutions.com>`__.
 
-Use this method if you would prefer a direct response.
 
 
