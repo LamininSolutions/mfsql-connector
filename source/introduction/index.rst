@@ -3,7 +3,6 @@ Introduction to MFSQL
 
 .. toctree::
    :maxdepth: 4
-      :hidden:
 
    requirements/index
    mfsql-connector-modules/index
