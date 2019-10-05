@@ -15,7 +15,7 @@ This section provide guidance on how to perform a first time installation and to
 
 The preparation of the environment before first installation is also highlighted in this section.
 
-Consult the `introduction`_ before commencing with the installation.
+Consult the `requirements`_ before commencing with the installation.
 
 Deployment server model
 -----------------------
@@ -67,5 +67,5 @@ Special considerations apply when SQL Server is not connected with
 M-Files Cloud. Follow the installation instructions specific to this
 model.
 
-.. _introduction: :ref:`/procedures/spMFUpdateTable`
+.. _requirements: :ref:`./introduction/requirements`
 
