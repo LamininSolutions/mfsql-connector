@@ -67,5 +67,5 @@ Special considerations apply when SQL Server is not connected with
 M-Files Cloud. Follow the installation instructions specific to this
 model.
 
-.. _requirements: :ref:`./introduction/requirements`
+.. _requirements: :ref:`../introduction/requirements`
 
