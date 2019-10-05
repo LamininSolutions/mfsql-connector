@@ -67,5 +67,5 @@ Special considerations apply when SQL Server is not connected with
 M-Files Cloud. Follow the installation instructions specific to this
 model.
 
-:ref: Introduction 'introduction'
+.. _introduction: https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index.html
 
