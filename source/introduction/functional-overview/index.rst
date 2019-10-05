@@ -3,113 +3,62 @@ Functional Overview
 
 The following is a functional overview of all the different aspects of
 MFSQL Connector by package.   Refer to `Connector
-Modules <page55644043.html#Bookmark12>`__ for more detail about the
+Modules <./mfsql-connector-modules>`_ for more detail about the
 different packages.
 
-The functional composition of the modules changed in release 3.1.5.41
-
-.. container:: table-wrap
-
-   Function
-
-Data Exchange
-
-Connector
-
-Integration Connector
-
- Database File Connector
+Overview of functional composition of the modules
 
 
 
-Metadata structure
+=============================== ======================== ===================== =======================
+Functional element              Data Exchange Connector  Integration Connector Database File Connector
+=============================== ======================== ===================== =======================
+Metadata structure              |                        |                     |
 ~~~~~~~~~~~~~~~~~~
-
-Auto create metadata structure tables
-
-(tick)
-
-(tick)
-
-| 
-
-Analyse and refresh metadata using SQL
-
-(tick)
-
-(tick)
-
-| 
-
-Drop & recreate metadata
-
-(tick)
-
-(tick)
-
-| 
-
-Update names and aliases from SQL
-
-| 
-
-(tick)
-
-| 
-
-Insert new valuelist items from SQL 
-
-| 
-
-(tick)
-
-| 
-
- Update aliases in bulk
-
-| 
-
-(tick)
-
-| 
+Auto create metadata structure tables |tick|             |tick|                |
+Analyse and refresh metadata using SQL |tick|            |tick|                |
+Drop & recreate metadata         |tick|                  |tick|                 |
+Update names and aliases from SQL |                       |tick|                |
+Insert new valuelist items from SQL  |                     |tick|                |
+Update aliases in bulk             |                       |tick|                |
 
  Tables of object types, classes and properties and their relationships
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
  Show login accounts, user accounts with email and other details in SQL
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
  Show workflows and workflow states in SQL
 
- (tick)
+ |tick|
 
-(tick) 
+|tick| 
 
 | 
 
  Show valuelists and valuelist items in SQL
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
  Show complex ownership relationships for valuelists and valuelist items
 
- (tick)
+ |tick|
 
-(tick) 
+|tick| 
 
 | 
 
@@ -117,7 +66,7 @@ Insert new valuelist items from SQL 
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -128,9 +77,9 @@ Class Tables
 
 Create new class tables
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -138,15 +87,15 @@ Drop and re-create all class tables
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Batch update of records
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -154,7 +103,7 @@ Batch update of records
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -162,15 +111,15 @@ Transact update of records
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Update from and to M-Files
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -178,7 +127,7 @@ Update from and to M-Files
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -186,7 +135,7 @@ Update from and to M-Files
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -194,7 +143,7 @@ Update from and to M-Files
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -202,15 +151,15 @@ Update all included in Application tables
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Update using filters
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -218,15 +167,15 @@ Helper procedures to work with update filters
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Insert new records
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -234,7 +183,7 @@ Get object hyperlink to show/open links in M-Files
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -242,31 +191,31 @@ Get object hyperlink to public links
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Change classes and properties
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
 Delete records
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
  Delete adhoc properties in bulk
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
@@ -274,7 +223,7 @@ Delete records
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -282,7 +231,7 @@ Copy objects in M-Files
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -290,7 +239,7 @@ Copy objects in M-Files
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -298,7 +247,7 @@ Search objects
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -306,23 +255,23 @@ Delete adhoc properties
 
 | 
 
-(tick)
+|tick|
 
 | 
 
  Special SQL functions to work with delimited string objects
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
  Special SQL function to remove special characters in naming of objects
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
@@ -330,7 +279,7 @@ Delete adhoc properties
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -340,7 +289,7 @@ Delete adhoc properties
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -348,7 +297,7 @@ Delete adhoc properties
 
 | 
 
-(tick) 
+|tick| 
 
 | 
 
@@ -358,7 +307,7 @@ Delete adhoc properties
 
 | 
 
-(tick)
+|tick|
 
  Evaluate checksum of a file in M-Files to control external file changes
 
@@ -366,7 +315,7 @@ Delete adhoc properties
 
 | 
 
-(tick)
+|tick|
 
  Import files from network folders using SQL.  Use power of SQL to
 perform data cleansing before import.
@@ -375,7 +324,7 @@ perform data cleansing before import.
 
 | 
 
-(tick)
+|tick|
 
  View and search files in Database Blobs in M-Files without transferring
 files (external repository objects)
@@ -384,7 +333,7 @@ files (external repository objects)
 
 | 
 
-(tick) 
+|tick| 
 
  Promote external  repository objects as metadata
 
@@ -392,7 +341,7 @@ files (external repository objects)
 
 | 
 
-(tick)
+|tick|
 
 
 
@@ -403,7 +352,7 @@ Special views to explore full metadata structure
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -411,7 +360,7 @@ Special views to explore full metadata structure
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -419,7 +368,7 @@ Class Table Statistical report
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -427,7 +376,7 @@ Special views to explore complex valuelist item ownership relations
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -435,7 +384,7 @@ Export and views of M-Files event log
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -443,7 +392,7 @@ Export and views of M-Files event log
 
 | 
 
-(tick) 
+|tick| 
 
 | 
 
@@ -451,15 +400,15 @@ Produce process log summary for class tables
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 View Error log
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -467,15 +416,15 @@ Get and create comments of objects
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 View Update History
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -483,7 +432,7 @@ View Process Batch logs
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -491,7 +440,7 @@ View User Messages
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -499,7 +448,7 @@ View Audit History
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -512,7 +461,7 @@ Create valuelist lookup views  with ownership relationships
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -520,7 +469,7 @@ Create  workflow state lookup views
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -528,7 +477,7 @@ Create/Update/Delete valuelist items from SQL
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -539,25 +488,25 @@ Operations in M-Files 
 
 Configurable context menu with items
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
 Access Public/Intranet Website from within M-Files
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
 Execute procedure on object from within M-Files
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -565,7 +514,7 @@ Execute procedure triggered by change of workflow state
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -573,15 +522,15 @@ Execute procedure triggered by change of workflow state
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Show user message
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -589,7 +538,7 @@ Process procedure synchronously with feedback message
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -597,16 +546,16 @@ Process procedure asynchronously (long running procedures)
 
 | 
 
-(tick)
+|tick|
 
 | 
 
  Content package installation add object types, classes, properties,
 user groups, workflows and views used by the connector
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
@@ -619,9 +568,9 @@ Error Handling
 
 Email notification of SQL errors
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -629,15 +578,15 @@ User Messages
 
 | 
 
-(tick)
+|tick|
 
 | 
 
 Error logging
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -645,7 +594,7 @@ Process logging
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -653,7 +602,7 @@ Process logging
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -661,7 +610,7 @@ Process logging
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -670,7 +619,7 @@ processing
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -678,7 +627,7 @@ processing
 
 | 
 
- (tick)
+ |tick|
 
 | 
 
@@ -686,7 +635,7 @@ Perform Class Table audits
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -694,7 +643,7 @@ Delete history logs
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -707,7 +656,7 @@ Using external application user to filter updates
 
 | 
 
-(tick)
+|tick|
 
 | 
 
@@ -716,33 +665,33 @@ Code on Time)
 
 | 
 
-(tick)
+|tick|
 
 | 
 
  Action M-Files Reporting Data Export from SQL
 
- (tick)
+ |tick|
 
- (tick)
+ |tick|
 
 | 
 
  Update metadata on demand, or scheduled with SQL agent to facilitate
 near real time reporting
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
  Include change history of any property of a class table for reporting
 purposes
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 | 
 
@@ -753,101 +702,99 @@ Installation & Upgrade
 
 Installation package 
 
-|(tick)|
+||tick||
 
-|(tick)|
+||tick||
 
-(tick)
+|tick|
 
  Licence control by module
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Installation configures default authentication for SQL
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Auto and manual install of M-Files Content Package
 
-(tick)
+|tick|
 
-(tick) 
+|tick| 
 
-(tick)
+|tick|
 
  Auto and manual install of application packages
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Auto and manual install of Assemblies on SQL server
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Customise default settings 
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Retain custom settings in settings tables when upgrading
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Sample scripts to aid development
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 Install connector for multiple vaults on the same servers
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
  Maintains a control log of all versions of all procedures
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
 Upgrade packages
 
-(tick)
+|tick|
 
-(tick)
+|tick|
 
-(tick)
-
-| 
+|tick|
 
 | 
 
@@ -861,6 +808,8 @@ Upgrade packages
 
 | 
 
-.. |(tick)| image:: img_1.png
+| 
+=============================== ======================== ===================== =======================
+.. ||tick|| image:: img_1.png
    :class: emoticon emoticon-tick
 
