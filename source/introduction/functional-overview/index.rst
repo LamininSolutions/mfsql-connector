@@ -18,8 +18,7 @@ The columns below reference the following modules
 ============================================  ======  ======  ======
 Functional element                            1       2       3
 ============================================  ======  ======  ======
-Metadata structure                            |       |        |
-~~~~~~~~~~~~~~~~~~
+**Metadata structure**                        |       |        |
 Auto create metadata structure tables         |tick|  |tick|   |
 Analyse and refresh metadata using SQL        |tick|  |tick|   |
 Drop & recreate metadata                      |tick|  |tick|   |
