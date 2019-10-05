@@ -91,5 +91,8 @@ Collaboration and support
 The best way to get our attention is to
 email `support <mailto:support@lamininsolutions.com>`__.
 
+.. _`MFSQL data exchange and reporting connector`: ../mfsql-data-exchange-and-reporting-connector
+.. _`MFSQL Integration Connector`
+.. _`MFSQL Database File Connector`
 
 
