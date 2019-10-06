@@ -4,6 +4,7 @@ Getting Started
 .. toctree::
    :maxdepth: 4
 
+   licensing-management/index 
    installation-and-upgrade---from-release-4.3.9.48-(release-4)/index
    next-steps-after-installation/index
    upgrades-and-hotfixes/index

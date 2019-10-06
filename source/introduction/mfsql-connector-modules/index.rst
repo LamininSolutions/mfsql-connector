@@ -4,11 +4,8 @@ MFSQL Connector modules
 .. toctree::
    :maxdepth: 4
 
-   licensing-management/index
-
 MFSQL Connector is available as separate modules with different
-functionality and pricing from Release 3. The module content and
-configuration is reconstituted with Release 4.
+functionality and pricing.
 
 This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
@@ -16,8 +13,8 @@ specific procedure or functional element described in the documentation.
 
 
 
-`MFSQL Connector Data Exchange <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200914/MFSQL+Data+Exchange+and+reporting+Connector>`__
--------------------------------------------------------------------------------------------------------------------------------------------------------
+`MFSQL Connector Data Exchange <MFSQL-Data-Exchange-and-reporting-Connector>`_
+-------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
 data exchange  with no need for extensive development of integrations
@@ -57,12 +54,10 @@ When to use Data Exchange instead of M-Files External Connectors
    Source and target data is similar    SQL based data preparation
    Limited triggers for update process  Alignment of source and target data
    |                                    Batch preparation of data updates
-   |                                     Multiple triggers for data update
+   |                                    Multiple triggers for data update
    ==================================== ====================================================
 
 | 
-
-.. _MFSQLConnectormodules-MFSQLIntegrationConnectorhttps://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/168689685/MFSQL+Integration+Connector:
 
 `MFSQL Integration Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/168689685/MFSQL+Integration+Connector>`__
 --------------------------------------------------------------------------------------------------------------------------------------
