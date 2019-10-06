@@ -1,11 +1,8 @@
 Licensing Management
 ====================
 
-License management changed from Release 3 to Release 4. Release 4 falls
-in line with M-Files latest trend of subscription licensing and adopts
-the licensing method for vault applications. A separate license file
-(.lic file) is issued for a specific type of license. The following
-applies to Release 4 only.
+License management use M-Files licensing method for vault applications. A separate license file
+(.lic file) is issued for a specific type of license. 
 
 .. container:: table-wrap
 

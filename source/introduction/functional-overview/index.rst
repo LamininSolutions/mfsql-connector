@@ -90,25 +90,25 @@ Configurable context menu with items          |tick|  |tick|  |
 Access Website                                |tick|  |tick|  | 
 Execute procedure on object                   |tick|  |tick|  | 
 Execute procedure with workflow trigger       |       |tick|  | 
-Execute procedure event handler trigger       |       |tick|  | 
+Execute procedure event handler trigger       |       |tick|  |
 Show user message                             |tick|  |tick|  | 
-Process procedures synchronously              |       |tick|  | 
+Process procedures synchronously              |       |tick|  |
 Process with feedback message                 |       |tick|  | 
 Process procedure asynchronously              |       |tick|  | 
 **Error Handling**                            |       |       |
-Email notification of SQL errors              |tick|  |tick|  | 
-User Messages                                 |       |tick|  | 
-Error logging                                 |tick|  |tick|  | 
+Email notification of SQL errors              |tick|  |tick|  |
+User Messages                                 |       |tick|  |
+Error logging                                 |tick|  |tick|  |
 Process logging                               |       |tick|  | 
-show user message from SQL in M-Files         |       |tick|  | 
-Formatted emailed process results             |       |tick|  | 
-Show feedback message in M-Files              |       |tick|  | 
-Validate email profile                        |       |tick|  | 
-Perform Class Table audits                    |       |tick|  | 
-Delete history logs                           |       |tick|  | 
+show user message from SQL in M-Files         |       |tick|  |
+Formatted emailed process results             |       |tick|  |
+Show feedback message in M-Files              |       |tick|  |
+Validate email profile                        |       |tick|  |
+Perform Class Table audits                    |       |tick|  |
+Delete history logs                           |       |tick|  |
 *Special Applications*                        |       |       |
 External application user to filter updates   |       |tick|  | 
-Action M-Files Reporting Data Export          |tick|  |tick|  | 
+Action M-Files Reporting Data Export          |tick|  |tick|  |
 Update metadata on demand                     |tick|  |tick|  |
 Update metadata scheduled                     |tick|  |tick|  |
 Change history of any class property          |tick|  |tick|  |
@@ -121,7 +121,7 @@ Customise default settings                    |tick|  |tick|  |tick|
 Retain custom settings when upgrading         |tick|  |tick|  |tick|
 Sample scripts to aid development             |tick|  |tick|  |tick|
 Install connectors for multiple vaults        |tick|  |tick|  |tick|
-Control log of all versions of all procedures |tick|  |tick|  |tick|
+Control log of all versions of     procedures |tick|  |tick|  |tick|
 Upgrade packages                              |tick|  |tick|  |tick|
 ============================================  ======  ======  ======
 
