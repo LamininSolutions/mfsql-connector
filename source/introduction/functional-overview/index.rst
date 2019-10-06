@@ -106,13 +106,13 @@ Show feedback message in M-Files              |       |tick|  |
 Validate email profile                        |       |tick|  |
 Perform Class Table audits                    |       |tick|  |
 Delete history logs                           |       |tick|  |
-*Special Applications*                        |       |       |
+**Special Applications**                      |       |       |
 External application user to filter updates   |       |tick|  | 
 Action M-Files Reporting Data Export          |tick|  |tick|  |
 Update metadata on demand                     |tick|  |tick|  |
 Update metadata scheduled                     |tick|  |tick|  |
 Change history of any class property          |tick|  |tick|  |
-*Installation and ugrade**                    |       |       |
+**Installation and ugrade**                   |       |       |
 Installation package                          |tick|  |tick|  |tick|
 Licence control by module                     |tick|  |tick|  |tick|
 Auto setup of default authentication for SQL  |tick|  |tick|  |tick|
