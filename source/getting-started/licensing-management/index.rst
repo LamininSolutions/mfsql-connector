@@ -7,10 +7,10 @@ License management use M-Files licensing method for vault applications. A separa
 License types
 -------------
 
-#. Trial license 
-	30 days only. 
-	Expires on license end date.
-#. 	Subscription: 
+#. Trial license:
+   - 30 days only. 
+   - Expires on license end date.
+#. Subscription: 
 	1 year maximum.
 	Expires on license end date. 
 	License is issued for a specific M-Files license.
