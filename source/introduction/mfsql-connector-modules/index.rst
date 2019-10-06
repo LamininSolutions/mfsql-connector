@@ -13,7 +13,7 @@ specific procedure or functional element described in the documentation.
 
 
 
-`MFSQL Connector Data Exchange <MFSQL-Data-Exchange-and-reporting-Connector>`_
+`MFSQL Connector Data Exchange <../MFSQL-Data-Exchange-and-reporting-Connector>`_
 -------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
@@ -34,10 +34,10 @@ Examples of usage of this module:
 
 The data Exchange module includes the following:
 
-#. Assemblies
-#. Tables, Procedures and functions to allow exchange of class table
+-  Assemblies
+-  Tables, Procedures and functions to allow exchange of class table
    data between M-Files and SQL 
-#. Context Menu in M-Files to action updates.
+ - Context Menu in M-Files to action updates.
 
 When to use Data Exchange instead of M-Files External Connectors
 
@@ -59,8 +59,8 @@ When to use Data Exchange instead of M-Files External Connectors
 
 | 
 
-`MFSQL Integration Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/168689685/MFSQL+Integration+Connector>`__
---------------------------------------------------------------------------------------------------------------------------------------
+`MFSQL Integration Connector <../MFSQL-Integration-Connector>`_
+----------------------------------------------------------------
 
 This module includes Data Exchange and additional procedures and
 functions to assist the developer to develop extensive integrations and
@@ -78,17 +78,19 @@ Examples of use cases when this module is required:
 
 This Developer module add the following components:
 
-#. Helper and accelerator procedures and functions
-#. ETL module
-#. ASPNET security provider for deployment of membership manager with
+-  Helper and accelerator procedures and functions
+-  ETL module
+-  ASPNET security provider for deployment of membership manager with
    Code On Time
-#. Exporting M-Files Event Log
-#. Integrating M-Files Reporting Tool with the Connector
-#. Error Logging and analysis
-#. Extended Context menu functionality allowing for calling an SQL
+-  Exporting M-Files Event Log
+-  Integrating M-Files Reporting Tool with the Connector
+-  Error Logging and analysis
+-  Extended Context menu functionality allowing for calling an SQL
    Procedure from an action menu in M-Files, or workflow state change,
-   or event handler.  Example uses include:
-
+   or event handler.  
+   
+   Example uses include:
+   
 -  Accessing other intranet (and public) web applications using a menu
    option button in M-Files
 -  Starting a SQL update process such as updating information from a
@@ -98,10 +100,8 @@ This Developer module add the following components:
 -  Automatically call a SQL store procedure to perform complex functions
    when a workflow state change takes place.
 
-.. _MFSQLConnectormodules-MFSQLDatabaseFileConnectorhttps://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector:
-
-`MFSQL Database File Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector>`__
-------------------------------------------------------------------------------------------------------------------------------------------
+`MFSQL Database File Connector <https://../MFSQL-Database-File-Connector>`_
+----------------------------------------------------------------------------
 
 The Database File Connector has two distinct parts:
 
@@ -111,14 +111,9 @@ The Database File Connector has two distinct parts:
    interface in the same manner as other documents and objects in the
    vault.  Note that this feature requires the M-Files IML core license.
 -  Procedures to `export files from Database Blobs into
-   M-File <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/183631882/Database+file+import+into+M-Files>`__\ s. 
+   M-Files <../procedures/spMFExportFiles>`_. 
    This export will transfer both files and associated metadata from the
    external database to M-Files. This feature requires the full MFSQL
    Connector suite, but does not require the IML License. This feature
    can be used in conjunction with the Database File Connector.
 
-| 
-
-| 
-
-| 
