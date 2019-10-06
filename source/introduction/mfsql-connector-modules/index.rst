@@ -11,8 +11,6 @@ This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.
 
-
-
 `MFSQL Connector Data Exchange <../MFSQL-Data-Exchange-and-reporting-Connector>`_
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -37,11 +35,9 @@ The data Exchange module includes the following:
 -  Assemblies
 -  Tables, Procedures and functions to allow exchange of class table
    data between M-Files and SQL 
- - Context Menu in M-Files to action updates.
+- Context Menu in M-Files to action updates.
 
 When to use Data Exchange instead of M-Files External Connectors
-
-.. container:: table-wrap
 
    ==================================== ====================================================
    **M-Files External Data Connectors** **MFSQL Connector: Data Exchange**
@@ -56,8 +52,6 @@ When to use Data Exchange instead of M-Files External Connectors
    |                                    Batch preparation of data updates
    |                                    Multiple triggers for data update
    ==================================== ====================================================
-
-| 
 
 `MFSQL Integration Connector <../MFSQL-Integration-Connector>`_
 ----------------------------------------------------------------------------------------------------------
@@ -116,4 +110,4 @@ The Database File Connector has two distinct parts:
    external database to M-Files. This feature requires the full MFSQL
    Connector suite, but does not require the IML License. This feature
    can be used in conjunction with the Database File Connector.
-
+   
