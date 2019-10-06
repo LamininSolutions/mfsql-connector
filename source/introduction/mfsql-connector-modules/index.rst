@@ -14,7 +14,7 @@ specific procedure or functional element described in the documentation.
 
 
 `MFSQL Connector Data Exchange <../MFSQL-Data-Exchange-and-reporting-Connector>`_
--------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
 data exchange  with no need for extensive development of integrations
@@ -60,7 +60,7 @@ When to use Data Exchange instead of M-Files External Connectors
 | 
 
 `MFSQL Integration Connector <../MFSQL-Integration-Connector>`_
-----------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
 
 This module includes Data Exchange and additional procedures and
 functions to assist the developer to develop extensive integrations and
@@ -101,7 +101,7 @@ This Developer module add the following components:
    when a workflow state change takes place.
 
 `MFSQL Database File Connector <https://../MFSQL-Database-File-Connector>`_
-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 The Database File Connector has two distinct parts:
 
