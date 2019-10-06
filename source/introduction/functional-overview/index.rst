@@ -121,7 +121,7 @@ Customise default settings                    |tick|  |tick|  |tick|
 Retain custom settings when upgrading         |tick|  |tick|  |tick|
 Sample scripts to aid development             |tick|  |tick|  |tick|
 Install connectors for multiple vaults        |tick|  |tick|  |tick|
-Control log of all versions of     procedures |tick|  |tick|  |tick|
+Control log of all versions of procedures     |tick|  |tick|  |tick|
 Upgrade packages                              |tick|  |tick|  |tick|
 ============================================  ======  ======  ======
 
