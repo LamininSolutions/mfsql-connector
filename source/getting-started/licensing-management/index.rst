@@ -12,11 +12,11 @@ License types
    - Expires on license end date.
 - Subscription: 
    - 1 year maximum.
-  Expires on license end date. 
-  License is issued for a specific M-Files license.
-  License is issued for specific modules and is subject to the order of the license.
-  + Only valid with designated M-Files server. 
-  + Separate license files are issued for Database File Connector and MFSQL Connector 
+   - Expires on license end date. 
+   - License is issued for a specific M-Files license.
+   - License is issued for specific modules and is subject to the order of the license.
+   - Only valid with designated M-Files server. 
+   - Separate license files are issued for Database File Connector and MFSQL Connector 
 - NFR license: 
    Issued in terms of reseller agreement.
 
