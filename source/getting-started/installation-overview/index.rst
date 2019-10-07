@@ -10,7 +10,7 @@ This section provide guidance on how to perform a first time installation and to
 
 The preparation of the environment before first installation is also highlighted in this section.
 
-Consult the requirements: `../introduction/requirements`_ before commencing with the installation.
+Consult the requirements: `../introduction/requirements/index`_ before commencing with the installation.
 
 Release 4.3.9.48 introduces a new method of installation building on the
 new licensing methods and Vault applications introduced with the advent
