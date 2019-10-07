@@ -6,7 +6,6 @@ Upgrades and hotfixes
 
    upgrades-and-fixes-and-version-check/index
    upgrades-hotfixes/index
-   configuration-of-connection-string/index
 
 From time to time upgrades and hot fixes will be published.
 

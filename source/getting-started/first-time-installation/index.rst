@@ -8,6 +8,7 @@ First time installation
    standard-new-installation/index
    content-package-installation/index
    installing-the-context-menu/index
+   configuration-of-connection-string/index
    using-agent-for-automated-updates/index
    installing-database-mail/index
    common-installation-errors-and-resolutions/index
