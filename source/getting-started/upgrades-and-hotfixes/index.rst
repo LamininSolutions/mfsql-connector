@@ -5,7 +5,7 @@ Upgrades and hotfixes
    :maxdepth: 4
 
    upgrades-and-fixes-and-version-check/index
-   upgrade-hotfixes/index
+   upgrades-hotfixes/index
    configuration-of-connection-string/index
 
 From time to time upgrades and hot fixes will be published.
