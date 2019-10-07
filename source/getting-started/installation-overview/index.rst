@@ -10,20 +10,15 @@ This section provide guidance on how to perform a first time installation and to
 
 The preparation of the environment before first installation is also highlighted in this section.
 
-Consult the `requirements`_ before commencing with the installation.
-
+Consult the requirements: `..\introduction\requirements`_ before commencing with the installation.
 
 Release 4.3.9.48 introduces a new method of installation building on the
 new licensing methods and Vault applications introduced with the advent
 of the first release of Release 4. 
 
-.. container:: confluence-information-macro confluence-information-macro-warning
-
-   .. container:: confluence-information-macro-body
-
-      Release 4 requires a minimum of version M-Files 2018.   Release 3
-      can upgrade to release 4, however release 4 cannot be downgraded
-      to release 3.
+Release 4 requires a minimum of version M-Files 2018.   Release 3
+can upgrade to release 4, however release 4 cannot be downgraded
+to release 3.
 
 Key features of the installation package
 
@@ -32,8 +27,8 @@ Key features of the installation package
    developer desktop, the M-Files server or the SQL Server. These are
    often the same computer in testing/development scenarios.
 -  The different modules are licensed by installing the license file to
-   the vault applications. Contact us if your license has expired
-   at \ `MFSQL@lamininsolutions.com <https://lamininsolutions.atlassian.net/mailto:MFSQL@lamininsolutions.com>`__
+   the vault applications. `Contact us <mailto:MFSQL@lamininsolutions.com>`__ if your license has expired.
+
 -  The application will only operate with a valid license. Licenses
    expire when the subscription period runs out.
 -  Selecting options in the installation package will install the
@@ -84,17 +79,14 @@ Key features of the installation package
 
 -  The license files (.lic) is be provided separately.  The Trial
    license  is valid for 30 days. Thereafter new license files must be
-   obtained from
-   `MFSQL@lamininsolutions.com <https://lamininsolutions.atlassian.net/mailto:MFSQL@lamininsolutions.com>`__
+   obtained from /MFSQL@lamininsolutions.com
 
 
 
 Download software
 -----------------
 
-`Download from
-here <https://lamininsolutions.com/what-we-do/products/mfsql-connector/download-mfsql-connector/>`__
-
+`Download <https://lamininsolutions.com/main/wp-content/uploads/2019/10/MFSQLConnector_4.4.13.53.zip>_`
 
 
 Deployment server model
