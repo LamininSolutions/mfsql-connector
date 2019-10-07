@@ -62,11 +62,11 @@ document. Refer to the application documentation for further details.
 Getting help
 ------------
 
-The Connector is still evolving and rapidly developing. Hot fixes,
-improvements and new released are ongoing.  The Annual subscription
-entitles you to all hot fixes and improvements to the subscribed
-modules. Your feedback on the use of the functionality and potential
-improvements are welcomed.  The application of the functionality in your
+The Annual subscription entitles you to all hot fixes and improvements to the subscribed
+modules. The best way to get our attention is to
+email `support <mailto:support@lamininsolutions.com>`__.
+
+The application of the functionality in your
 environment, performing upgrades and making use of the power of the
 Connector are not included in the subscription price. These services can
 be provided by you local reseller, supported by us for an additional fee
@@ -75,11 +75,8 @@ depending on the requirements.
 We en-devour to answer questions by email, and if necessary by telephone
 or video conference.
 
-Collaboration and support
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The best way to get our attention is to
-email `support <mailto:support@lamininsolutions.com>`__.
+Your feedback on the use of the functionality and potential
+improvements are welcomed. 
 
 .. _`MFSQL data exchange and reporting connector`: ../mfsql-data-exchange-and-reporting-connector
 .. _`MFSQL Integration Connector`: ../mfsql-integration-connector

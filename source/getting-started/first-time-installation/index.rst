@@ -1,116 +1,18 @@
-Installation and upgrade - From Release 4.3.9.48 (Release 4)
-============================================================
+=======================
+First time installation
+=======================
 
 .. toctree::
    :maxdepth: 4
 
+   standard-new-installation/index
    content-package-installation/index
    installing-the-context-menu/index
    using-agent-for-automated-updates/index
    installing-database-mail/index
    common-installation-errors-and-resolutions/index
-   standard-new-installation/index
    setup-powershell-utilities/index
    install-package-with-logging/index
-
-.. _Installationandupgrade-FromRelease4.3.9.48(Release4)-/*<![CDATA[*/div.rbtoc1569241490273{padding:0px;}div.rbtoc1569241490273ul{list-style:disc;margin-left:0px;}div.rbtoc1569241490273li{margin-left:0px;padding-left:0px;}/*]]>*/#Installationandupgrade-FromR:
-
-.. container:: toc-macro rbtoc1569241490273
-
-   -  ` <#Bookmark57>`__
-   -  `Overview <#Bookmark8>`__
-   -  `Download software <#Bookmark9>`__
-   -  `Quick steps for a new installation. <#Bookmark10>`__
-   -  `Installation scenarios <#Bookmark11>`__
-   -  `DB File Connector Configurator Settings <#Bookmark12>`__
-
-
-
-Overview
---------
-
-Release 4.3.9.48 introduces a new method of installation building on the
-new licensing methods and Vault applications introduced with the advent
-of the first release of Release 4. 
-
-.. container:: confluence-information-macro confluence-information-macro-warning
-
-   .. container:: confluence-information-macro-body
-
-      Release 4 requires a minimum of version M-Files 2018.   Release 3
-      can upgrade to release 4, however release 4 cannot be downgraded
-      to release 3.
-
-Key features of the installation package
-
--  There is only one installation package for all modules. 
--  The same installation file is used to install/transfer files on the
-   developer desktop, the M-Files server or the SQL Server. These are
-   often the same computer in testing/development scenarios.
--  The different modules are licensed by installing the license file to
-   the vault applications. Contact us if your license has expired
-   at \ `MFSQL@lamininsolutions.com <https://lamininsolutions.atlassian.net/mailto:MFSQL@lamininsolutions.com>`__
--  The application will only operate with a valid license. Licenses
-   expire when the subscription period runs out.
--  Selecting options in the installation package will install the
-   content package and vault applications in the M-Files server, and the
-   assemblies and procedures in the database server.
--  The vault application packages and assemblies can also be manually
-   installed. See directions below. 
--  All installation files are installed on the computer as part of the
-   installation. 
--   It is necessary to rerun the installation package for each
-   vault/database installation to install multiple versions on the same
-   computer
--  The installation files are in different folders for easy access. 
-   Some of the destination folders for installation can be changes
-   during the installation process.
-
-   -   Installation files (destination can be changed)
-
-      -  C:\Program Files (x86)\Laminin Solutions\MFSQL Connector
-         Release 4\[Database Name]\Content Package
-      -  C:\Program Files (x86)\Laminin Solutions\\MFSQL Connector
-         Release 4\\[Database Name]\Database Scripts
-      -  C:\Program Files (x86)Laminin Solutions\\MFSQL Connector
-         Release 4\\[Database Name]\Example Scripts
-      -  C:\Program Files (x86)\Laminin Solutions\\MFSQL Connector
-         Release 4\\[Database Name]\Vault Applications
-
-   -  Assemblies  (destination can be changed)
-
-      -  C:\MFSQL\Assemblies
-
-   -  File exchange folders (destination can be changed)
-
-      -  C:\MFSQL\FileExport
-      -  C:\MFSQL\FileImport
-
-   -  Setup Files (fixed)
-
-      -  C:\Users\[user]AppData\Local\MFSQL Vault Install
-
-   -  Installation Log (fixed)
-
-      -  C:\Users\lerouxc\AppData\Local\Temp (MSIXXX.log)
-
-   -  License Update script
-
-      -  C:\Program Files (x86)\Common Files\MFSQLConnector
-
--  The license files (.lic) is be provided separately.  The Trial
-   license  is valid for 30 days. Thereafter new license files must be
-   obtained from
-   `MFSQL@lamininsolutions.com <https://lamininsolutions.atlassian.net/mailto:MFSQL@lamininsolutions.com>`__
-
-
-
-Download software
------------------
-
-`Download from
-here <https://lamininsolutions.com/what-we-do/products/mfsql-connector/download-mfsql-connector/>`__
-
 
 
 Quick steps for a new installation.
