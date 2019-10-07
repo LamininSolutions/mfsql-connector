@@ -5,18 +5,13 @@ Upgrades and hotfixes
    :maxdepth: 4
 
    upgrades-and-fixes-and-version-check/index
-   upgrade-to-version-4.3.9.48-and-later/index
+   upgrade-hotfixes/index
    configuration-of-connection-string/index
 
 From time to time upgrades and hot fixes will be published.
 
 Functionality released in specific releases are highlighted in the
-`Release <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200926/Releases>`__\ s
-section.
-
-Functionality that is being considered for future is highlighted in the
-`Next
-Release <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/29523979/Next+Release>`__
+`Release <version-control>`_ section
 section.
 
 The following procedure must be followed when a new update is made
@@ -24,8 +19,8 @@ available.  Note that the upgrade method of a package is intended to be
 replace the previous package taking into account any migration of the
 standard functionality from a previous to the new version.
 
-It is important to note that :Any customization of procedures / tables
-etc of any of the standard content of the package will be lost.  We
+It is important to note that :Any customization of procedures, tables or other objects
+of any of the standard content of the package will be lost.  We
 recommend that changes are never made to the connector objects.
 Application requirements for adjustments to the standard objects must be
 made through Laminin Solutions.
@@ -41,11 +36,7 @@ available
    -  Installation folder
    -  File and assembly folder
 
-.. container:: confluence-information-macro confluence-information-macro-warning
-
    Restart server
-
-   .. container:: confluence-information-macro-body
 
       Always restart the SQL server after the upgrade to allow M-Files
       to release the API's from the previous version from memory and
