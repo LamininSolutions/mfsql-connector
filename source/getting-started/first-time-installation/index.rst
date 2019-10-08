@@ -19,7 +19,7 @@ First time installation
 Quick steps for a new installation.
 -----------------------------------
 
--   `Prerequisites <http://prerequisits>`__
+-   `Prerequisites <https://doc.lamininsolutions.com/mfsql-connector/introduction.requirements/index.html>`__
 -   M-Files
 
    -  Minimum version 12.0 (M-Files 2018)
@@ -97,15 +97,6 @@ DB File Connector Configurator Settings
 The Database File  Connector must be configured in the M-Files
 Configurator before in becomes operational. Refer to `MFSQL Database
 File
-Connector <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/156401668/MFSQL+Database+File+Connector>`__
+Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html>`__
 for detail.
 
-| 
-
-| 
-
-| 
-
-| 
-
-| 
