@@ -9,6 +9,7 @@ First time installation
    content-package-installation/index
    installing-the-context-menu/index
    configuration-of-connection-string/index
+   database-file-connector-installation/index
    using-agent-for-automated-updates/index
    installing-database-mail/index
    common-installation-errors-and-resolutions/index
@@ -19,7 +20,7 @@ First time installation
 Quick steps for a new installation.
 -----------------------------------
 
--   `Prerequisites <https://doc.lamininsolutions.com/mfsql-connector/introduction.requirements/index.html>`__
+-   `Prerequisites <https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index.html>`__
 -   M-Files
 
    -  Minimum version 12.0 (M-Files 2018)
@@ -69,34 +70,47 @@ Installation scenarios
 Different server configurations could give rise to different
 installation methods.
 
-.. container:: table-wrap
+Separate servers on premise
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+M-Files server and SQL Server is separate servers in the same domain network. This is the recommended and most common scenario for production environments.
 
-   ============================================================================================================================================================================================================================= ============================================================================================================================================================================================ ==========================================================================================================
-   Server Scenario                                                                                                                                                                                                               Comments                                                                                                                                                                                     Installation Method
-   ============================================================================================================================================================================================================================= ============================================================================================================================================================================================ ==========================================================================================================
-    M-Files server and SQL Server is separate servers in the same domain network.                                                                                                                                                 This is the recommended and most common scenario for production environments                                                                                                                 Use the standard Installation method as outlined below
-                                                                                                                                                                                                                                                                                                                                                                                                                             
-   |                                                                                                                                                                                                                                                                                                                                                                                                                         
-    M-Files Server and SQL Server is on the same box (server or workstation)                                                                                                                                                      This is the most common scenario for test and development environments                                                                                                                       Use the standard installation as outlined below and select all the installation options at the same time.
-                                                                                                                                                                                                                                                                                                                                                                                                                             
-   |                                                                                                                                                                                                                                                                                                                                                                                                                         
-    M-Files server and SQL Server is separate servers. The servers are not connected with a common domain. Either or M-Files applications and configuration must be installed manually or SQL Server must be installed manually. This is the scenario for a M-Files Cloud deployment                                                                                                                                           Use the M-Files Cloud installation as outlined below
-                                                                                                                                                                                                                                                                                                                                                                                                                             
-   (e.g. M-Files vault is in the cloud, and SQL server is on premise or separately hosted)                                                                                                                                                                                                                                                                                                                                   
-    M-Files server and SQL Server is separate servers in the same domain network. IT policy requires all SQL scripts to be installed by the DBA and auto installation of scripts are not permitted.                               In some scenarios the SQL scripts must be installed separately using SSMS.  This is often the case in larger organisations where the DBA function is separated from the developer function.  Install on a workstation as outlined below for a Manual Installation.
-    Parts of installation need to be performed manually to update settings or fix errors                                                                                                                                         The following components can be installed manually:                                                                                                                                          Rerun the components using the scripts generated for the specific installation
-                                                                                                                                                                                                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                 Content Package, Vault Applications, SQL main installation scripts                                                                                                                          
-   ============================================================================================================================================================================================================================= ============================================================================================================================================================================================ ==========================================================================================================
+Use the standard Installation method. Install the package on each server selecting the options for the server type. Start with M-Files Server.
+
+Single Server
+~~~~~~~~~~~~~
+ M-Files Server and SQL Server is on the same box (server or workstation). This is the most common scenario for test and development environments.
+
+ Use the standard installation and select all the installation options at the same time.
+
+M-Files server and SQL Server on different domains
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The servers are not connected within a common domain. Consider the following:
+  - Administrative access to install software on the servers
+  - Access from M-Files server to SQL on the SQL server via ODBC
+  - Sysadmin rights on the SQL Server
+
+Manually, or partially manual installation is required when any of the above restrictions apply.
+
+M-Files Cloud installation falls within this scope as administrative access to the M-Files Server is restricted to M-Files support only.
+
+  - **Manual install of M-Files Server**
+    * Install on SQL Server first to get access to installation files
+    * For M-Files Cloud installations: provide M-Files support with the cloud installation instruction.
+    * For other M-Files Server manual installation scenarios: Provide installation files to M-Files Server Administrator. Follow manual installation guide.
 
 
 
-DB File Connector Configurator Settings
----------------------------------------
+Installation of package on SQL Server not allowed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  Use the M-Files Cloud installation as outlined below
 
-The Database File  Connector must be configured in the M-Files
-Configurator before in becomes operational. Refer to `MFSQL Database
-File
-Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html>`__
-for detail.
+(e.g. M-Files vault is in the cloud, and SQL server is on premise or separately hosted)
+ M-Files server and SQL Server is separate servers in the same domain network. IT policy requires all SQL scripts to be installed by the DBA and auto installation of scripts are not permitted.
+ In some scenarios the SQL scripts must be installed separately using SSMS.  This is often the case in larger organisations where the DBA function is separated from the developer function.  Install on a workstation as outlined below for a Manual Installation.
+    
+   Parts of installation need to be performed manually to update settings or fix errors
+   The following components can be installed manually:
+   Rerun the components using the scripts generated for the specific installation
+
+Content Package, Vault Applications, SQL main installation scripts
 
