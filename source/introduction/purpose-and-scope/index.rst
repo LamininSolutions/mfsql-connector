@@ -78,7 +78,7 @@ or video conference.
 Your feedback on the use of the functionality and potential
 improvements are welcomed. 
 
-.. _`MFSQL data exchange and reporting connector`: ../mfsql-data-exchange-and-reporting-connector/index
-.. _`MFSQL Integration Connector`: ../mfsql-integration-connector/index
-.. _`MFSQL Database File Connector`: ../mfsql-database-file-connector/index
+.. _`MFSQL data exchange and reporting connector`: mfsql-data-exchange-and-reporting-connector/index
+.. _`MFSQL Integration Connector`: mfsql-integration-connector/index
+.. _`MFSQL Database File Connector`: mfsql-database-file-connector/index
 
