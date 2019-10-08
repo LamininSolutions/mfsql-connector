@@ -78,7 +78,7 @@ or video conference.
 Your feedback on the use of the functionality and potential
 improvements are welcomed. 
 
-.. _`MFSQL data exchange and reporting connector`: http://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html`
+.. _`MFSQL data exchange and reporting connector`: http://doc.lamininsolutions.com/mfsql-connector/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html`
 .. _`MFSQL Integration Connector`: http://doc.lamininsolutions.com/mfsql-connector/mfsql-connector/mfsql-integration-connector/index.html
-.. _`MFSQL Database File Connector`: http://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector.index.html
+.. _`MFSQL Database File Connector`: http://doc.lamininsolutions.com/mfsql-connector/mfsql-connector/mfsql-database-file-connector.index.html
 
