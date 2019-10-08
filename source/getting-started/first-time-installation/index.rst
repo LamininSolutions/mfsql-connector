@@ -39,6 +39,7 @@ M-Files server and SQL Server on different domains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The servers are not connected within a common domain. Consider the following:
+
   - Administrative access to install software on the servers
   - Access from M-Files server to SQL on the SQL server via ODBC
   - Sysadmin rights on the SQL Server
