@@ -25,13 +25,32 @@ Videos
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/yU1EAeKkTso" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Referencing components
-----------------------
+Links
+-----
+
+Link to procedure/component
 
 .. code:: rst
 
-    :ref:`/procedures/spMFUpdateTable`
+    :doc:`/procedures/spMFUpdateTable`
 
+---
+
+Link to directory
+
+.. code:: rst
+
+    :doc:`/getting-started/licensing-management/index`
+
+---
+
+External link
+
+.. code:: rst
+
+     `External Link Name <https://example.com/external-link>`__
+
+    
 Web-site error check
 --------------------
 https://travis-ci.org/lamininsolutions
