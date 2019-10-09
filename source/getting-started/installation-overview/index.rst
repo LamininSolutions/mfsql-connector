@@ -21,6 +21,7 @@ can upgrade to release 4, however release 4 cannot be downgraded
 to release 3.
 
 Key features of the installation package
+----------------------------------------
 
 -  There is only one installation package for all modules. 
 -  The same installation file is used to install/transfer files on the
@@ -86,7 +87,7 @@ Key features of the installation package
 Download software
 -----------------
 
-`Download <https://lamininsolutions.com/main/wp-content/uploads/2019/10/MFSQLConnector_4.4.13.53.zip>_`
+`Download <https://lamininsolutions.com/main/wp-content/uploads/2019/10/MFSQLConnector_4.4.13.53.zip>`__
 
 
 Deployment server model
