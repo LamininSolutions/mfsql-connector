@@ -35,7 +35,7 @@ Starting with Rel 4, there is only one installation package and the release numb
   - The fourth digit is for SQL changes.  This number will run in series for all packages.
 
 Change Summary (since version 4.3.8.48)
---------------
+---------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
