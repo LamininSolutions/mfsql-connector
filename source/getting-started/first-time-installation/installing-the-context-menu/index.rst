@@ -42,8 +42,7 @@ Application
 
 The installation of the context menu provides the framework to operate
 the context menu. The individual menu items and procedures to execute is
-part of the deployment of the context as set out in using the context
-menu :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`.
+part of the deployment of the context as set out in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`.
 
 Installation
 ------------
@@ -62,7 +61,7 @@ SQL Connection configuration
 ----------------------------
 
 The operations for the context menu is dependent on access to SQL  Check
-the configuration of the `connection string. <page686030872.html#Bookmark56>`__
+the configuration of the :doc:`/getting-started/first-time-install/configuration-of-connection-string`
 
 Context Menu Access
 -------------------
@@ -96,22 +95,11 @@ following should be displayed:
 Configuration
 -------------
 
-The next steps to prepare or `use the Context
-Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__
-are explained in detail in `Use Context
-Menu: <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__
+The next steps to prepare or use the context menu
+are explained in detail in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 
-#. Insert records in MFContextMenu table to control the menu : `Context
-   Menu
-   tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085323/Context+Menu+Tables>`__
-   , Using Context 
-#. Create procedures to control the actions: \ `Context Menu
-   procedures <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085329/Context+Menu+Procedures>`__
+#. Insert records in MFContextMenu table to control the menu 
+#. Create procedures to control the actions: 
 #. Update workflow state actions to call state action procedures.
 #. Prepare user messages if required.
 
-**Related Topics**
-
-- `About Context Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085316/Context+Menu>`__
-- `Context Menu tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085323/Context+Menu+Tables>`__
-- `Context Menu procedures <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/51085329/Context+Menu+Procedures>`__
