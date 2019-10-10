@@ -42,8 +42,8 @@ Application
 
 The installation of the context menu provides the framework to operate
 the context menu. The individual menu items and procedures to execute is
-part of the deployment of the context as set out in `using the context
-menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__.
+part of the deployment of the context as set out in :doc:`using the context
+menu /mfsql-data-exchange-and-reporting-connector/using-the-context-menu`.
 
 Installation
 ------------
