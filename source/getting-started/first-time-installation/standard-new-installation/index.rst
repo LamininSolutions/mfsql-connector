@@ -164,7 +164,7 @@ C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Na
 .. |image0| image:: img_11.png
 .. |image1| image:: img_12.png
 .. |image2| image:: img_13.png
-.. |image3| image:: img_14.png
+.. |image3| image:: img_20.jpg
 .. |image4| image:: img_15.png
 .. |image5| image:: img_16.png
 .. |image6| image:: img_17.png
