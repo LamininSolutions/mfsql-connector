@@ -60,8 +60,7 @@ Restart the vault after installation of the applications.
 SQL Connection configuration
 ----------------------------
 
-The operations for the context menu is dependent on access to SQL  Check
-the configuration of the :doc:`/getting-started/first-time-install/configuration-of-connection-string/index`
+The operations for the context menu is dependent on access to SQL  Check the configuration of the :doc:`/getting-started/first-time-install/configuration-of-connection-string/index`
 
 Context Menu Access
 -------------------
@@ -95,8 +94,7 @@ following should be displayed:
 Configuration
 -------------
 
-The next steps to prepare or use the context menu
-are explained in detail in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
+.. The next steps to prepare or use the context menu are explained in detail in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 
 #. Insert records in MFContextMenu table to control the menu 
 #. Create procedures to control the actions: 
