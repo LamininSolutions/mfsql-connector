@@ -61,7 +61,7 @@ SQL Connection configuration
 ----------------------------
 
 The operations for the context menu is dependent on access to SQL  Check
-the configuration of the :doc:`/getting-started/first-time-install/configuration-of-connection-string`
+the configuration of the :doc:`/getting-started/first-time-install/configuration-of-connection-string/index`
 
 Context Menu Access
 -------------------
