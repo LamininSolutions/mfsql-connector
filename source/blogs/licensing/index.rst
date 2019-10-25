@@ -1,5 +1,5 @@
-Licensing
-=========
+License validity check
+======================
 
 From version 4.4.13.53 the licensing module includes additional
 refinements.
