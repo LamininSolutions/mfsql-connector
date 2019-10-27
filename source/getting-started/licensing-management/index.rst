@@ -8,8 +8,9 @@ Application licenses
 --------------------
 
 Separate license files are required for:
--  MFSQL Connector VaultApp: MFSQL Connector (Data Exchange and Integration)
--  SQLDatabaseConnector: MFSQL Database File Connector
+
+- MFSQL Connector VaultApp: MFSQL Connector (Data Exchange and Integration)
+- SQLDatabaseConnector: MFSQL Database File Connector
 
 License types
 -------------
