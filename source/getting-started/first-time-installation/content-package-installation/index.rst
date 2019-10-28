@@ -12,15 +12,14 @@ The Content package has changed from Release 4.3.9.48.
 Content package
 --------------------------
 
-   Type         Objects                 Aliase                  Use                                                                                                        Deprecated
-Object Type :  MFSQL Connector
- -  Aliase : oMFSQLConfiguration
+Object Type \:  MFSQL Connector
+ -  Aliase \: oMFSQLConfiguration
 Class: User Messages
- -  Aliase : cUserMessages
- -  Purpose : User messages objects
+ -  Aliase \: cUserMessages
+ -  Purpose \: User messages objects
 User messages properties:
- -  MFSQL Count : p.MFSQL_Count : object count
- -  MFSQL User : p.MFSQL_User : user
+ -  MFSQL Count \: p.MFSQL_Count \: object count
+ -  MFSQL User \: p.MFSQL_User \: user
  -  MFSQL Class Table : p.MFSQL_Class_Table : User Message class table
 Other properties
  -  MFSQL Process Batch : p.MFSQL_Process_Batch : Used in User Messages and on class table for the process batch id and relates to the MFProcessBatch Table
