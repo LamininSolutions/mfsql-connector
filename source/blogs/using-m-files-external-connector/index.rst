@@ -1,6 +1,6 @@
 
 Using M-Filed External Connection
-================================
+=================================
 
 M-Files External Connection allows for M-Files to use this standard connector to update external information from SQL using an ODBC connection.
 
