@@ -13,7 +13,8 @@ This blog highlights the scenarios where the standard M-Files External Connectio
 Provide more control over the data synchronization
 --------------------------------------------------
 
-This is by far the most important consideration. MFSQL Connector provides significantly more control of the update process and can:
+This is by far the most important consideration. MFSQL Connector provides significantly more control of the update process and can
+
   -  Update based on data in a remote SQL database
   -  Update only the records that has changed
   -  Update specific records 
@@ -29,13 +30,6 @@ Control control over the update process
   -  First create and get the object id of a related class and then create a dependent object
   -  Update the record based on conditions in other records
   -  Set the external id based on conditions
-
-Transfer all M-Files visible and hidden properties
---------------------------------------------------
-  -  Set the object modified or create by a specific user
-  -  get the values of hidden properties to control the update such as
-       - 
-
 
 Trigger synchronization from a M-Files client
 ---------------------------------------------
