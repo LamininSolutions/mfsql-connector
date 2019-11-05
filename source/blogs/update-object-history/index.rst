@@ -32,19 +32,19 @@ Update object history for all the tables
 There are various scenarios for updating object history:
 
 Automatically schedule and update object history for all related class tables.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------------------------
 
 The procedure spMFUpdateAllIncludedInAppTables includes the updating of history using the spMFUpdateObjectHistory procedure.
 This procedure is often included in an agent for scheduled updates or called by an Context Menu action
 
 Update object history on demand
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Execute the following procedure after the table as outlined above has been updated.
 
 
 Updating history for a specific class table during testing or development.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------------------------
 
 The following sample script demonstrates how to setup and run spMFGetHistory.
 
