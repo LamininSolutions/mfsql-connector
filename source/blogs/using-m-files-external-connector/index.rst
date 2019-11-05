@@ -5,7 +5,7 @@ Using M-Filed External Connection
 M-Files External Connection allows for M-Files to use this standard connector to update external information from SQL using an ODBC connection.
 
 .. warning::
-    M-Files External Connector must be moved from the Object Type of the class object before attemping to update the class using MFSQL Connector.  The update will fail if the external connection has not been removed.
+    M-Files External Connector must be removed from the Object Type of the class object before attemping to update the class using MFSQL Connector.  The update will fail if the external connection has not been removed.
 
 
 This blog highlights the scenarios where the standard M-Files External Connection is likely to not meet your requirements. In these cases MFSQL Connector comes into play to extend the funcitonality of the standard system.
