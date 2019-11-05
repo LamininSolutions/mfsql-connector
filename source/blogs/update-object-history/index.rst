@@ -17,14 +17,62 @@ Records must be added for your specific requirements in this table.  The procedu
 
 .. code:: sql
 
-    INSERT INTO dbo.MFObjectChangeHistoryUpdateControl(
-    MFTableName,
-    ColumnNames)
-    VALUES
-    (N'MFCustomer', N'City'),
-    (N'MFCustomer', N'Country_ID'),
-    (N'MFCustomer', N'State_ID'),
-    (N'MFPurchaseInvoice', N'State_ID');
+   INSERT INTO dbo.MFObjectChangeHistoryUpdateControl(
+   MFTableName,
+   ColumnNames)
+   VALUES
+   (N'MFCustomer', N'City'),
+   N'MFCustomer', N'Country_ID'),
+   N'MFCustomer', N'State_ID'),
+   N'MFPurchaseInvoice', N'State_ID');
 
 Update object history for all the tables
 ========================================
+
+There are various scenarios for updating object history:
+
+Automatically schedule and update object history for all related class tables.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The procedure spMFUpdateAllIncludedInAppTables includes the updating of history using the spMFUpdateObjectHistory procedure.
+This procedure is often included in an agent for scheduled updates or called by an Context Menu action
+
+Update object history on demand
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Execute the following procedure after the table as outlined above has been updated.
+
+
+Updating history for a specific class table during testing or development.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following sample script demonstrates how to setup and run spMFGetHistory.
+
+.. code:: SQL
+
+   UPDATE [MFPurchaseInvoice]
+   SET Process_ID = 5
+
+   DECLARE @RC INT
+   DECLARE @TableName NVARCHAR(128) = 'MFPurchaseInvoice'
+   DECLARE @Process_id INT = 5
+   DECLARE @ColumnNames NVARCHAR(4000) = 'State'
+   DECLARE @IsFullHistory BIT = 1
+   DECLARE @NumberOFDays INT  
+   DECLARE @SearchString NVARCHAR(MAX) = null
+   DECLARE @StartDate DATETIME --= DATEADD(DAY,-1,GETDATE())
+   DECLARE @ProcessBatch_id INT
+   DECLARE @Debug INT = 1
+   DECLARE @Update_ID        INT
+
+   EXEC [dbo].[spMFGetHistory] @MFTableName =  @TableName   -- nvarchar(128)
+                           ,@Process_id = @Process_id    -- int
+                           ,@ColumnNames = @ColumnNames   -- nvarchar(4000)
+                           ,@SearchString = null  -- nvarchar(4000)
+                           ,@IsFullHistory = @IsFullHistory -- bit
+                           ,@NumberOFDays = @NumberOFDays  -- int
+                           ,@StartDate = @StartDate     -- datetime
+                           ,@Update_ID = @Update_ID OUTPUT                         -- int
+                           ,@ProcessBatch_id = @ProcessBatch_id OUTPUT            -- int
+                           ,@Debug = @debug         -- int
+
