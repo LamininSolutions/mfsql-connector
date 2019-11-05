@@ -86,11 +86,9 @@ This routine gets the change history of each property and class and update the r
 
 Below is examples of extracts of the different types of data from this table.
 
-.. code:: SQL
-
 SELECT * FROM [dbo].[MFObjectChangeHistory] AS [moch]
 
--- show list of values including property value
+show list of values including property value
 
 SELECT toh.*,mp.name AS propertyname FROM mfobjectchangehistory toh
 INNER JOIN mfproperty mp
