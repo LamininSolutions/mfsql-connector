@@ -43,6 +43,7 @@ Update object history on demand
 Execute the following procedure after the table as outlined above has been updated.
 
 .. code:: sql
+
    EXEC spMFUpdateObjectChangeHistory @WithClassTableUpdate = 1
    
 Updating history for a specific class table during testing or development.
