@@ -12,11 +12,12 @@ The procedure spMFUpdateObjectChangeHistory and the table MFObjectChangeHistoryC
 
 Insert records in MFObjectChangeHistoryControl
 ----------------------------------------------
+
 Records must be added for your specific requirements in this table.  The procedure will have no impact if no records are found in this table.
 
 .. code:: sql
-   INSERT INTO dbo.MFObjectChangeHistoryUpdateControl
-   (
+
+    INSERT INTO dbo.MFObjectChangeHistoryUpdateControl(
     MFTableName,
     ColumnNames)
     VALUES
