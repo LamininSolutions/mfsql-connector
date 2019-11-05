@@ -175,7 +175,7 @@ Valuelist items
 SELECT moch.id,[moch].[ObjID], moch.MFVersion,  moch.[Property_ID], moch.[Property_Value]
 , mp.name Property, mvl.name AS Valuelist, mvl.[RealObjectType]
 , mvli.name AS Valuelistitem
-  FROM [dbo].[MFObjectChangeHistory] AS [moch]
+FROM [dbo].[MFObjectChangeHistory] AS [moch]
 INNER JOIN [dbo].[MFProperty] AS [mp]
 ON moch.[Property_ID] = mp.[MFID]
 INNER JOIN [dbo].[MFValueList] AS [mvl]
@@ -193,9 +193,9 @@ ON mvli.[MFID] = moch.[Property_Value] AND mfms.[Valuelist_ID] = mvli.[MFValueLi
 creating a valuelist item view for currency
 
 EXEC [dbo].[spMFCreateValueListLookupView] @ValueListName = 'Currency' -- nvarchar(128)
-                                          ,@ViewName = 'vwCurrency'      -- nvarchar(128)
-                                          ,@Schema = 'Custom'        -- nvarchar(20)
-                                          ,@Debug = 0         -- smallint
+,@ViewName = 'vwCurrency'
+,@Schema = 'Custom'
+,@Debug = 0 
 
 SELECT * FROM [dbo].[MFObjectChangeHistory] AS [moch]
 INNER JOIN [dbo].[MFProperty] AS [mp]
