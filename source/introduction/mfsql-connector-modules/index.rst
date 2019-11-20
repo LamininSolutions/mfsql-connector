@@ -11,7 +11,7 @@ This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.
 
-`MFSQL data exchange and reporting connector`
+`MFSQL data exchange and reporting connector`_
 ----------------------------------------------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
@@ -53,7 +53,7 @@ When to use Data Exchange instead of M-Files External Connectors
    |                                    Multiple triggers for data update
    ==================================== ====================================================
 
-`MFSQL Integration Connector <../MFSQL-Integration-Connector>`_
+`MFSQL Integration Connector`_
 ----------------------------------------------------------------------------------------------------------
 
 This module includes Data Exchange and additional procedures and
@@ -94,7 +94,7 @@ This Developer module add the following components:
 -  Automatically call a SQL store procedure to perform complex functions
    when a workflow state change takes place.
 
-`MFSQL Database File Connector <https://../MFSQL-Database-File-Connector>`_
+`MFSQL Database File Connector`_
 -----------------------------------------------------------------------------------------------------
 
 The Database File Connector has two distinct parts:
