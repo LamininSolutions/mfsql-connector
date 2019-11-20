@@ -54,7 +54,7 @@ When to use Data Exchange instead of M-Files External Connectors
    ==================================== ====================================================
 
 `MFSQL Integration Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html`_
-----------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 
 This module includes Data Exchange and additional procedures and
 functions to assist the developer to develop extensive integrations and
@@ -95,7 +95,7 @@ This Developer module add the following components:
    when a workflow state change takes place.
 
 `MFSQL Database File Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html`_
------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------
 
 The Database File Connector has two distinct parts:
 
