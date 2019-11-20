@@ -3,7 +3,7 @@ Functional Overview
 
 The following is a functional overview of all the different aspects of
 MFSQL Connector by package.   Refer to `Connector
-Modules <./mfsql-connector-modules>`_ for more detail about the
+Modules <<https://doc.lamininsolutions.com/mfsql-connector/mfsql-connector-modules/index.html>`_ for more detail about the
 different packages.
 
 Overview of functional composition of the modules

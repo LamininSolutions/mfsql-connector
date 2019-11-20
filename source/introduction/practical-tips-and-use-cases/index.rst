@@ -10,19 +10,19 @@ The blogs can also be accesseed by using the search for any related term, or nav
 
 Using MFSQL Connector
 ~~~~~~~~~~~~~~~~~~~~~
-Licensing
-Manually set MFVersion
-Table relations - view for reporting
-Insert new records from SQL
-Queries for the MFObjectChangeHistory data
-Getting to know MFSQL Connector
-Considerations for deleted records
-Considerations for large volume vault
-Demonstrate new Release 4.3.9.48 functionality
-Exploring Valuelists with MFvwMetadataStructure
-MultiSelectLookups
-Import files into M-Files from explorer
-Export and re-importing files
+-  `Licensing <https://doc.lamininsolutions.com/mfsql-connector/blogs/Licensing/index.html>`_
+-  `Manually set MFVersion <https://doc.lamininsolutions.com/mfsql-connector/blogs/manually-set-mgversion/index.html>`_
+-  `Table relations - view for reporting <https://doc.lamininsolutions.com/mfsql-connector/blogs/table-relations---view-for-reporting/index.html>`_
+-  `Insert new records from SQL <https://doc.lamininsolutions.com/mfsql-connector/blogs/insert-new-records-from-sql/index.html>`_
+-  `Queries for the MFObjectChangeHistory data <https://doc.lamininsolutions.com/mfsql-connector/blogs/queries-for-the-mfobjectchangehistory-data/index.html>`_
+-  `Getting to know MFSQL Connector <https://doc.lamininsolutions.com/mfsql-connector/blogs/getting-to-know-mfsql-connector/index.html>`_
+-  `Considerations for deleted records <https://doc.lamininsolutions.com/mfsql-connector/blogs/considerations-for-deleted-records/index.html>`_
+-  `Considerations for large volume vault <https://doc.lamininsolutions.com/mfsql-connector/blogs/considerations-for-large-volume-vault/index.html>`_
+-  `Demonstrate new Release 4.3.9.48 functionality <https://doc.lamininsolutions.com/mfsql-connector/blogs/demonstrate-new-release-4.3.9.48-functionality/index.html>`_
+-  `Exploring Valuelists with MFvwMetadataStructure <https://doc.lamininsolutions.com/mfsql-connector/blogs/exploring-valuelists-with-mfvwmetadatastructure/index.html>`_
+-  `MultiSelectLookups <https://doc.lamininsolutions.com/mfsql-connector/blogs/multiselectlookups/index.html>`_
+-  `Import files into M-Files from explorer <https://doc.lamininsolutions.com/mfsql-connector/blogs/import-files-into-m-files-from-explorer/index.html>`_
+-  `Export and re-importing files <https://doc.lamininsolutions.com/mfsql-connector/blogs/export-and-re-importing-files/index.html>`_
 
 Reporting
 ~~~~~~~~~
