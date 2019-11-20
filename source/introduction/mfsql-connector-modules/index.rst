@@ -11,7 +11,7 @@ This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.
 
-`MFSQL data exchange and reporting connector`_
+`MFSQL Connector Data Exchange <../MFSQL-Data-Exchange-and-reporting-Connector/index.rst>`_
 ----------------------------------------------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
