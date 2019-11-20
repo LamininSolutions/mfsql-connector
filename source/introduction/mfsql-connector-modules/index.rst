@@ -12,7 +12,7 @@ Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.
 
 `MFSQL Connector Data Exchange <https://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html>`_
-----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 This  module is used where the Connector is deployed to perform only
 data exchange  with no need for extensive development of integrations
