@@ -104,7 +104,7 @@ The Database File Connector has two distinct parts:
    files residing in a SQL database to be viewed via the M-Files user
    interface in the same manner as other documents and objects in the
    vault.  Note that this feature requires the M-Files IML core license.
--  Procedures to `export files from Database Blobs into
+-  Procedures to export files from Database Blobs into
    M-Files :ref:`procedures/spMFExportFiles`_. 
    This export will transfer both files and associated metadata from the
    external database to M-Files. This feature requires the full MFSQL
