@@ -53,7 +53,7 @@ When to use Data Exchange instead of M-Files External Connectors
    |                                    Multiple triggers for data update
    ==================================== ====================================================
 
-`MFSQL Integration Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html`_
+`MFSQL Integration Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html>`_
 --------------------------------------------------------------------------------------------------------------------------
 
 This module includes Data Exchange and additional procedures and
@@ -94,8 +94,8 @@ This Developer module add the following components:
 -  Automatically call a SQL store procedure to perform complex functions
    when a workflow state change takes place.
 
-`MFSQL Database File Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html`_
-----------------------------------------------------------------------------------------------------------------------------
+`MFSQL Database File Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html>`_
+------------------------------------------------------------------------------------------------------------------------------
 
 The Database File Connector has two distinct parts:
 
@@ -105,7 +105,7 @@ The Database File Connector has two distinct parts:
    interface in the same manner as other documents and objects in the
    vault.  Note that this feature requires the M-Files IML core license.
 -  Procedures to `export files from Database Blobs into
-   M-Files <./procedures/spMFExportFiles>`_. 
+   M-Files :ref:`procedures/spMFExportFiles`_. 
    This export will transfer both files and associated metadata from the
    external database to M-Files. This feature requires the full MFSQL
    Connector suite, but does not require the IML License. This feature
