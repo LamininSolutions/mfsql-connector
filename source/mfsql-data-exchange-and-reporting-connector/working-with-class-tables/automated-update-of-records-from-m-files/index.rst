@@ -25,14 +25,14 @@ Using an agent
 
 If the requirement is to refresh the class tables at intervals (for
 instance overnight, or every 2 hours) an agent can be used with
-`spMFUpdateAllIncludedinAppTables <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAllIncludedinAppTables>`_
+`spMFUpdateAllIncludedinAppTables <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAllncludedInAppTables>`_
 
 On Demand in external application
 ---------------------------------
 
 An action button in the external button (e.g. Code on Time action) can
 call spmfUpdateTable with update method 1; alternatively
-`spMFUpdateTablewithLastModifiedDate <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateTablewithLastModifiedDate>`_
+`spMFUpdateTablewithLastModifiedDate <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateTableWithLastModifiedDate>`_
 can be used.
 
 Action from within M-Files using Context Menu

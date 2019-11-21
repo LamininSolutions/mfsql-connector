@@ -5,7 +5,7 @@ Installing MFContextMenu
 ------------------------
 
 Refer to `Installing the Context
-Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625412/Installing+the+Context+Menu>`__
+Menu <https://doc.lamininsolutions.com/mfsql-connector/getting-started/installing-the-context-menu/index.html>`_ 
 to get ready.
 
 The Context Menu provides the ability for an authorised M-Files Desktop
