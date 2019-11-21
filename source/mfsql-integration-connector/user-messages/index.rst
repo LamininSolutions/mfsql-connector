@@ -4,9 +4,6 @@ User Messages
 User messages can be generated in a variety of different ways, depending
 on the type of message and user requirements.
 
-User Messages
--------------
-
 The installation of the content package installs the following
 objects related the user messages:
 
