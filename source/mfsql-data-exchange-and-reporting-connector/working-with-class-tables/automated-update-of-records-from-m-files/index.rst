@@ -15,7 +15,7 @@ The general rule is to always update from M-Files before a record is
 changed in SQL.  This is done by first calling the spMFUpdateTable with
 method 1 for the records that will be updated and then to call
 spMFUpdateTable with update method 0 after the the SQL record is update
-to push to update back to M-Files. The procedure `spMFUpdateMFilesToSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToSQL>`_ 
+to push to update back to M-Files. The procedure `spMFUpdateMFilesToSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToSQL.html>`_ 
 is particularly valuable in this regard.  Depending on the requirement
 and volume of data to be taken into account other update procedures can
 also be used as outline in section Insert Update of Class Records.
@@ -25,14 +25,14 @@ Using an agent
 
 If the requirement is to refresh the class tables at intervals (for
 instance overnight, or every 2 hours) an agent can be used with
-`spMFUpdateAllIncludedinAppTables <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAllIncludedinAppTables>`_
+`spMFUpdateAllIncludedinAppTables <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAllIncludedinAppTables.html>`_
 
 On Demand in external application
 ---------------------------------
 
 An action button in the external button (e.g. Code on Time action) can
 call spmfUpdateTable with update method 1; alternatively
-`spMFUpdateTablewithLastModifiedDate <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateTablewithLastModifiedDate>`_
+`spMFUpdateTablewithLastModifiedDate <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateTablewithLastModifiedDate.html>`_
 can be used.
 
 Action from within M-Files using Context Menu
