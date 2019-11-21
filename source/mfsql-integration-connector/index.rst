@@ -8,7 +8,6 @@ MFSQL Integration Connector
    metadata-search/index
    create-valuelist-items-from-sql/index
    user-messages/index
-   using-and-managing-logs
    lookup-views/index
    change-of-vault/index
    daily-monthly-routines-for-agents/index
