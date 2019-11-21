@@ -19,6 +19,10 @@ The following table contains the settings:
 
 See `utility tables <https://doc.lamininsolutions.com/mfsql-connector/the-connector-framework/connector-content/utility-tables/index.html>`_ section for details about the settings tables
 
+See utility tables :doc:`/the-connector-framework/connector-content/utility-tables/index` section for details about the settings tables
+
+:doc:`/the-connector-framework/connector-content/utility-tables/index`
+
 A deeper understanding of the usage of the settings in the
 connector is required before changing of settings after
 installation.
