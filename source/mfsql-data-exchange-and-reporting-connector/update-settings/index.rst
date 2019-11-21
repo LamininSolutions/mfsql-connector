@@ -17,7 +17,7 @@ The following table contains the settings:
 -  MFSettings: For general database and vault settings
 -  MFVaultSettings: Authentication settings for accessing the vault.
 
-See utility tables :doc:`/the-connector-framework/connector-content/utility-tables/index.html` section for details about the settings tables
+See utility tables :doc:`/the-connector-framework/connector-content/utility-tables/index.html`_ section for details about the settings tables
 
 A deeper understanding of the usage of the settings in the
 connector is required before changing of settings after
