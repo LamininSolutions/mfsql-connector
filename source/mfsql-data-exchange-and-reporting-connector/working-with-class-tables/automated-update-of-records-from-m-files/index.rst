@@ -41,7 +41,7 @@ can be used.
 Action from within M-Files using Context Menu
 ---------------------------------------------
 
-The `M-Files Context Menu <https://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html>_ plug-in
+The `M-Files Context Menu <https://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html>_` plug-in
 allows to call any one of the updating procedures by activating the
 update from within M-Files.  The two options include triggering the
 procedure without any object level parameters and one that allows for
