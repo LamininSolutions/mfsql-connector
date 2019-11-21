@@ -18,5 +18,4 @@ Different types of logs are used.
 -  Logging of system errors.
 -  Logging of the latest ObjectVersion of an object in M-Files
 
-Content
-~~~~~~~
+
