@@ -7,7 +7,6 @@ Using and managing logs
    error-tracing/index
    logging-execution-of-process-and-procedure-steps/index
    mfupdatehistory-for-logging-of-class-record-changes/index
-   working-with-object-version/index
 
 Logs improve the tracing and review of the operations of the Connector.
 Different types of logs are used.
