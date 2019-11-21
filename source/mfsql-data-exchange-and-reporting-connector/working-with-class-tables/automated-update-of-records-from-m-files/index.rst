@@ -15,7 +15,7 @@ The general rule is to always update from M-Files before a record is
 changed in SQL.  This is done by first calling the spMFUpdateTable with
 method 1 for the records that will be updated and then to call
 spMFUpdateTable with update method 0 after the the SQL record is update
-to push to update back to M-Files. The procedure `spMFUpdateMFilesToSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToSQL.html>`_ 
+to push to update back to M-Files. The procedure `spMFUpdateMFilesToMFSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToMFSQL>`_ 
 is particularly valuable in this regard.  Depending on the requirement
 and volume of data to be taken into account other update procedures can
 also be used as outline in section Insert Update of Class Records.
