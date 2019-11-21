@@ -4,18 +4,24 @@ User Messages
 .. toctree::
    :maxdepth: 4
 
-   using-and-managing-logs/index
-   mfusermessages-table/index
-
 User messages can be generated in a variety of different ways, depending
 on the type of message and user requirements.
 
+User Messages
+-------------
 
+The installation of the content package installs the following
+objects related the user messages:
 
-Messages
---------
+-  the User Message Class table with properties 
+-  a view for the user messages
+-  Messages workflow to archive the user messages.
 
+This table contains messages emanating from the MFProcessBatch Table
+intended for user consumption. 
 
+The following standard procedures will generate a message in the
+MFUserMessage table. 
 
 Auto generated
 ~~~~~~~~~~~~~~
@@ -46,8 +52,6 @@ The following messages / notifications are generated automatically:
 #. Content menu actions for synchronous processes will provide user
    feedback on completion of the operation. 
 
-
-
 Optional messages
 ~~~~~~~~~~~~~~~~~
 
@@ -56,42 +60,26 @@ Optional messages
    send a email message with preformatted content on completion
 #. Custom procedures can be configured to send email messages
 
-
-
 Logging
 ~~~~~~~
 
 #. Processes are logged and can be analysed. 
-
-
 
 Setup and triggering messages for MFUserMessage table
 -----------------------------------------------------
 
 The Connector includes a mechanism to generate and trigger user
 messages.  This is built into the `process batch
-logging <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/55921730/Process+Batch+log+tables>`__. 
+logging <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/using-and-managing-logs/index.html>`_ 
 When an entry is made in the MFProcessBatch with a LogType of 'Message' 
 a trigger will update an entry in the
-`MFUserMessages <page55922754.html#Bookmark69>`__ table using
-the \ `spMFResultMessageForUI <page57774875.html#Bookmark70>`__
-procedure.
-
-| 
-
-| 
+MFUserMessages table using the spMFResultMessageForUI procedure.
 
 Example of script to trigger a message in the MFUserMessage table
 
-.. container:: code panel pdl
-
-   .. container:: codeHeader panelHeader pdl
-
       **Execute Procedure**
 
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
+ .. code:: sql
 
           SET @Msg = 'Session: ' + CAST(@SessionIDOut AS VARCHAR(5))   
          IF @UpdateRequired > 0    
@@ -113,11 +101,3 @@ Example of script to trigger a message in the MFUserMessage table
          ,@LogStatus = @LogStatus                                            
          ,@debug = @Debug;
 
-
-
-Setup and send email message
-----------------------------
-
-| 
-
-| 
