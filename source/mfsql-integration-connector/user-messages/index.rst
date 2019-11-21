@@ -1,9 +1,6 @@
 User Messages
 =============
 
-.. toctree::
-   :maxdepth: 4
-
 User messages can be generated in a variety of different ways, depending
 on the type of message and user requirements.
 
