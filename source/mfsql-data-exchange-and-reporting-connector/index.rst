@@ -4,7 +4,6 @@ MFSQL Data Exchange and reporting Connector
 .. toctree::
    :maxdepth: 4
 
-   update-settings/index
    working-with-metadata/index
    working-with-class-tables/index
    using-the-context-menu/index
@@ -42,34 +41,19 @@ external connector and MFSQL Connector procedures at the same time.
 However, it is possible to use external connector for classes and MFSQL
 Connector for classes of a different object type.
 
-================================================================== ================================================================
-**M-Files External Data Connectors**                               **MFSQL Connector: Data Exchange**
-================================================================== ================================================================
-ODBC connection - SQL server and vault must be in the same network Vault & Database in different locations and networks
-ODBC is fundamentally a text based data exchange                   Encrypted data exchange
-Update timing is set on a schedule                                 Update is near immediate and is highly configurable
-Limited data manipulation                                          Extensive ability to prepare and manipulate data to be exchanged
-Simple source data structures                                      Complex data management with conditional criteria
-Limited Valuelist lookups                                          Multiple joins and combinations
-Source and target data is similar                                  SQL based data preparation
-Limited triggers for update process                                Alignment of source and target data
-                                                                   Batch preparation of data updates
-                                                                   Multiple triggers for data update
-================================================================== ================================================================
 
-Related Functional Procedures
------------------------------
+================================================= ================================================================
+**M-Files External Data Connectors**              **MFSQL Connector: Data Exchange**
+================================================= ================================================================
+SQL server and vault must be in the same network  Vault & Database in different locations and networks
+ODBC is fundamentally a text based data exchange  Encrypted data exchange
+Update timing is set on a schedule                Update is near immediate and is highly configurable
+Limited data manipulation                         Extensive ability to prepare and manipulate data to be exchanged
+Simple source data structures                     Complex data management with conditional criteria
+Limited Valuelist lookups                         Multiple joins and combinations
+Source and target data is similar                 SQL based data preparation
+Limited triggers for update process               Alignment of source and target data
+                                                  Batch preparation of data updates
+                                                  Multiple triggers for data update
+================================================= ================================================================
 
-The following procedures and functions are included in data exchange:
-
--  spMFVaultConnectionTest
--  spMFSynchronizeMetadata
--  spMFDropAndUpdateMetadata
--  spMFCreateTable
--  spMFUpdateTable
--  spMFSynchronizeSpecificMetadata
--  spMFClassTableStats
--  spMFDropAllClassTables
--  spMFCreateAllMFTables
--  spMFUpdateAllncludedInAppTables
--  spMFAliasesUpsert

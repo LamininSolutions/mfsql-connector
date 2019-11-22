@@ -9,6 +9,7 @@ Getting Started
    licensing-management/index    
    next-steps-after-installation/index
    upgrades-and-hotfixes/index
+   update-settings/index
 
 Quick steps for a new installation.
 -----------------------------------
