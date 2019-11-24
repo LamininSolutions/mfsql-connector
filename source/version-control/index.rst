@@ -6,13 +6,13 @@ Version Control
 Published
 ---------
 
-Published version: 4.4.13.53 2019-09-27
+Published version: 4.4.14.55 2019-11-23
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.4.13.53  2019-09-27
-Assemblies        4.4.13.0   2019-09-27
+SQL scripts       4.4.14.53  2019-09-27
+Assemblies        4.4.14.0   2019-09-27
 Vault application 4.4.0.0    2019-06-15
 UIX application   4.4.0.0    2019-06-15
 ================= ========== ==========
@@ -38,6 +38,17 @@ Change Summary (since version 4.3.8.48)
 ---------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+
+Versions 4.4.13.54, 4.4.14.55
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Allow for comments to be included as a column in class table - Assembly change
+#. Localisation of date and time for Finish Language
+#. Bug fixing for adding comments
+#. Update example for working with comments
+#. Bug fixing for localisation in spmfTableAudit
+#. Bug fixing for spMFGetHistory
+#. Improve spmfUpdateAssemblies to allow for different M-Files Versions
 
 
 Versions 4.4.12.52, 4.4.13.53
