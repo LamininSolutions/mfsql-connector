@@ -34,14 +34,14 @@ Starting with Rel 4, there is only one installation package and the release numb
   - The third digit is for Assembly changes (note that the assemblies have their own release number series)
   - The fourth digit is for SQL changes.  This number will run in series for all packages.
 
-Change Summary (since version 4.3.8.48)
+Change control summary (from version 4.3.8.48)
 ---------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
 
 Versions 4.4.13.54, 4.4.14.55
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Allow for comments to be included as a column in class table - Assembly change
 #. Localisation of date and time for Finish Language
 #. Bug fixing for adding comments
@@ -49,6 +49,8 @@ Versions 4.4.13.54, 4.4.14.55
 #. Bug fixing for localisation in spmfTableAudit
 #. Bug fixing for spMFGetHistory
 #. Improve spmfUpdateAssemblies to allow for different M-Files Versions
+#. Bug fix in spmfClassTableColumns to fix multilookup column change errors
+#. Bug fix when non standard mail profile is being used
 
 
 Versions 4.4.12.52, 4.4.13.53
