@@ -35,10 +35,9 @@ Starting with Rel 4, there is only one installation package and the release numb
   - The fourth digit is for SQL changes.  This number will run in series for all packages.
 
 Change control summary (from version 4.3.8.48)
----------------------------------------
+----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
-
 
 Versions 4.4.13.54, 4.4.14.55
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,7 +50,7 @@ Versions 4.4.13.54, 4.4.14.55
 #. Improve spmfUpdateAssemblies to allow for different M-Files Versions
 #. Bug fix in spmfClassTableColumns to fix multilookup column change errors
 #. Bug fix when non standard mail profile is being used
-
+#. Bug fix spMFTableAudit delete of redundant records
 
 Versions 4.4.12.52, 4.4.13.53
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
