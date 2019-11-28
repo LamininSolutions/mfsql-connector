@@ -18,7 +18,7 @@ The following types of messages can be used:
 Each of these types of messages requires a configuration and setup
 
 Examples and setup of messaging
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~-----------
 
 Access error message in MFLog
 -----------------------------
