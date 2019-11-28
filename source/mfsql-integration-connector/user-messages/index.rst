@@ -159,16 +159,6 @@ Show process results in context menu action
 The context menu allows for a feedback message on completion of an action selected in the context menu. The message is only produced for synchronous actions. Refer to :doc:`\mfsql-data-exchange-and-reporting-connector\using-the-context-menu\index` for more detail.
 
 
- -  Custom process messages
-~~~~~~~~~~~~~~~~~----------
-
-#. Custom procedures can be setup to send updates to MFUserMessage table
-#. Content menu actions for asynchronous processes can be configured to
-   send a email message with preformatted content on completion
-#. Custom procedures can be configured to send email messages
-
-
-
 .. |image0| image:: 2019-11-28_05-56-09.png
 .. |image1| image:: 2019-11-28_06-42-18.png
 .. |image2| image:: img_1.png
