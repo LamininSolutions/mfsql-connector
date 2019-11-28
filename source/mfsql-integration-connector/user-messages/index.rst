@@ -50,7 +50,7 @@ On each MFSQL SQL Error a message will be sent to the email address.
 Access process logging
 ----------------------
 
-Logging of a range of different events takes place in the background. Refer to :doc:`\mfsql-integration-connector\using-and-managing-logs\index` for more detail
+Logging of a range of different events takes place in the background. Refer to :doc:`/mfsql-integration-connector/using-and-managing-logs/index` for more detail
 
 Adding a process message to an individual object
 ------------------------------------------------
@@ -156,7 +156,7 @@ Example of script to trigger a message in the MFUserMessage table
 Show process results in context menu action
 -------------------------------------------
 
-The context menu allows for a feedback message on completion of an action selected in the context menu. The message is only produced for synchronous actions. Refer to :doc:`\mfsql-data-exchange-and-reporting-connector\using-the-context-menu\index` for more detail.
+The context menu allows for a feedback message on completion of an action selected in the context menu. The message is only produced for synchronous actions. Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index` for more detail.
 
 
 .. |image0| image:: 2019-11-28_05-56-09.png
