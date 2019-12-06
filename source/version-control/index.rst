@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.4.14.55 2019-11-23
+Published version: 4.4.14.55 2019-12-07
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.4.14.53  2019-09-27
+SQL scripts       4.4.14.55  2019-12-07
 Assemblies        4.4.14.0   2019-09-27
 Vault application 4.4.0.0    2019-06-15
 UIX application   4.4.0.0    2019-06-15
@@ -51,6 +51,12 @@ Versions 4.4.13.54, 4.4.14.55
 #. Bug fix in spmfClassTableColumns to fix multilookup column change errors
 #. Bug fix when non standard mail profile is being used
 #. Bug fix spMFTableAudit delete of redundant records
+#. Add MFUserMessagesEnabled to spMFSettingsForDBUpdate
+#. Add MFContextMenuQueue table
+#. Add trigger MFContextMenuQueue_UpdateQueue to trigger spMFUpdateContectMenuQueue
+#. Add procedure spMFUpdateContectMenuQueue to re-process outstanding context menu items
+#. Add logtype *END* to trigger MFProcessBatch_UserMessage to insert messages from spMFUpdateTable
+#. Update spMFUpdateTableInternal and spMFUpdateTable to allow for *_id* in as part of the name of a property
 
 Versions 4.4.12.52, 4.4.13.53
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

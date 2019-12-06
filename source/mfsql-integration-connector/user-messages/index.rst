@@ -18,13 +18,12 @@ The following types of messages can be used:
 Each of these types of messages requires a configuration and setup
 
 Examples and setup of messaging
-~~~~~~~~~~~~~~~~~~~~-----------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Access error message in MFLog
 -----------------------------
 
-System failure messages are logged in the MFLog table and automatically sent by email to the support email
- address specified in MFSettings. The notification is conditional on database mail being setup in the system.
+System failure messages are logged in the MFLog table and automatically sent by email to the support email address specified in MFSettings. The notification is conditional on database mail being setup in the system.
 
 .. code:: sql
 
@@ -59,8 +58,8 @@ In some use cases it is desireable to provide feedback on the meatacard of an ob
 
 Two properties is automatically added to the vault on installation:
 
-#  MFSQL Message
-#  MFSQL Process Batch
+#. MFSQL Message
+#. MFSQL Process Batch
 
 These properties are not automatically added when class table is created.  They can either manually be added to the metadata card or added in SQL to the class table
 
@@ -93,21 +92,21 @@ intended for user consumption. 
 The following core processes will generate a message for the MFUserMessages table.
 
 #. spMFUpdateTable
-   #. spMFAliasInsert
-   #. spMFCreateAllLookups
-   #. spMFDeleteAdHocProperty
-   #. spMFDeleteObjectList
-   #. spMFDropAndUpdateMetadata
-   #. spMFGetHistory
-   #. spMFSynchronizeFilesToMFiles
-   #. spMFSynchronizeMetadata
-   #. spMFTableAudit
-   #. spMFUpdateClassAndProperties
-   #. spMFUpdateMFilestoSQL
+#. spMFAliasInsert
+#. spMFCreateAllLookups
+#. spMFDeleteAdHocProperty
+#. spMFDeleteObjectList
+#. spMFDropAndUpdateMetadata
+#. spMFGetHistory
+#. spMFSynchronizeFilesToMFiles
+#. spMFSynchronizeMetadata
+#. spMFTableAudit
+#. spMFUpdateClassAndProperties
+#. spMFUpdateMFilestoSQL
 
 By default the Connector will not insert user messages.  To enable user messages in the MFUserMessage table the MFSettings table must be updated.
 
-..code:: slq
+.. code:: sql
 
     EXEC dbo.spMFSettingsForDBUpdate @UserMessageEnabled = '1'
 
@@ -127,8 +126,6 @@ a trigger will update an entry in the
 MFUserMessages table using the spMFResultMessageForUI procedure.
 
 Example of script to trigger a message in the MFUserMessage table
-
-      **Execute Procedure**
 
  .. code:: sql
 
