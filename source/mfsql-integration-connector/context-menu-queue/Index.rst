@@ -1,6 +1,6 @@
 
-Context Menu Action Queue
-=========================
+Context Menu Queue
+==================
 
 The functionality to control context menu actions in progress with a queue is added in release 4.4.14.55. This functionality is only available in the integration module.
 
