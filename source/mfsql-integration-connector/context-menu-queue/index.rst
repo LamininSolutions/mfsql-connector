@@ -19,8 +19,19 @@ Release 4.4.14.55 will add new tables and procedures. Use the following script t
 
     select * from sys.objects where name in ('MFContextMenuQueue','spMFUpdateContextMenuQueue')
 
-Custom procedure for processing action
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. warning::
+    The queue processing functionality of the context menu is reliant on using a SQL agent. This feature cannot be deployed with SQL Express editions.
+
+The configuration has the follow key steps
+-  create custom procedure for the action to be performed
+-  configure Context Menu in M-Files to connect with SQL
+-  add rows in the MFContextMenu for the actions
+-  add scripts to the custom procedure for processing the queue
+-  add action script in event handler or workflow action
+-  add agent to process the queue 
+
+Custom procedure for processing update action
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to create a SQL procedure to perform the action to be triggered from M-Files. This could include any operation, but it is likely to be, or include triggering the update of the underlying object from M-Files to SQL. This procedure must include specific elements highligted below.  Example Procedure 90.101.Custom.CMMFiles_UpdateSQL is a complete procedure to update the context object using a trigger in M-Files.
 
@@ -29,21 +40,42 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
 
 .. code:: sql
 
-        INSERT INTO dbo.MFContextMenuQueue
-        (
-            ContextMenu_ID,
-            ObjectID,
-            ObjectType,
-            ObjectVer,
-            ClassID,
-            Status,
-            ProcessBatch_ID,
-            UpdateID,
-            CreatedOn
-        )
-        VALUES
-        (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
-        SET @ContextMenuLog_ID = @@IDENTITY;
+        BEGIN TRAN
+         IF
+        (SELECT COUNT(*)
+            FROM dbo.MFContextMenuQueue AS mcmq
+            WHERE mcmq.ObjectID = @ObjectID
+                  AND mcmq.ObjectType = @ObjectType
+                  AND @ObjectVer = mcmq.ObjectVer
+        ) > 0
+        BEGIN
+            UPDATE mcmq
+            SET mcmq.Status = 1
+            FROM dbo.MFContextMenuQueue AS mcmq
+            WHERE mcmq.ObjectID = @ObjectID
+                  AND mcmq.ObjectType = @ObjectType
+                  AND @ObjectVer = mcmq.ObjectVer;
+        END;
+        ELSE
+        BEGIN
+            INSERT INTO dbo.MFContextMenuQueue
+            (
+                ContextMenu_ID,
+                ObjectID,
+                ObjectType,
+                ObjectVer,
+                ClassID,
+                Status,
+                ProcessBatch_ID,
+                UpdateID,
+                CreatedOn
+            )
+            VALUES
+            (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 1, NULL, NULL, GETDATE());
+            SET @ContextMenuLog_ID = @@IDENTITY;
+        END;
+        COMMIT
+
 
 **check result of update**
 Get the version of the object that has been update.  Place this script snippet just after using MFUpdateTable with updatemethod 1
@@ -154,6 +186,31 @@ Following is an example script for an afterCheckInChanges event handler action. 
    'Err.Raise MfScriptCancel, strOutput
     End If
 
+Event handlers
+~~~~~~~~~~~~~~
+
+Use the AfterCheckinChanges event handler for the updating SQL from M-Files. A separate event handler - AfterCreateNewObject - must be used to catch the creation of new objects if required.  The same procedure can be applied for creation events.
+
+To capture delete object events the event handler - AfterDeletedObject - must be used.  Example 90.107.custom.CMMFiles_Deleted.sql is an example of the procedure to be implemented for Deletions. 
+
+Adding SQL Agent
+~~~~~~~~~~~~~~~~
+
+The final step of the configation is to setup an agent that can trigger the spMFUpdateContextMenuQueue procedure.  This procedure will check for any unprocessed items in the queue and process all the open items.  The frequency of the updates should be considered in the light of the type of operation that is being supported, but is quite feasible to be set to 1 minute intervals.  Be aware that this could have a performance impact. 
+
+Consider having a control procedure to start and stop the agent to avoid it running in the background if updates using the event handler is only occasaional.
+
+Sample code for the step in the SQL agent is below
+
+..code:: sql
+
+    Declare @id int
+    SELECT TOP 1 @id=id FROM MFContextMenuQueue WHERE Status <> 1
+    IF @ID > 0
+    BEGIN
+    EXEC dbo.spMFUpdateContextMenuQueue @id
+    END
+
 Testing
 -------
 On the completion of the configuration, test the setup by making a change to the class object.
@@ -217,6 +274,19 @@ Alternatively use a script to list the properties in sequence.
     WITH
     (propertyId INT, dataType VARCHAR(100), propertyValue VARCHAR(100))
     EXEC sp_xml_removedocument @Hdoc
+
+troubleshooting
+---------------
+
+-  **no entry in MFContextMenuQueue** 
+    -  check that the correct actionname is included in the event handler script
+    -  validate that the insert statement has been included in the custom procedure
+    -  check MFContextMenu table to validate that the event is reaching SQL
+-  **nothing is reaching SQL**
+    -  check cross referencing of MFContextMenu with the event handler scripts and the SQL procedure
+    -  check connnection in the M-Files Configurator
+-  **the queue is not being processed**
+    -  check that the agent is running
 
 |image4|
 
