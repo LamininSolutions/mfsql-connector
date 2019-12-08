@@ -72,8 +72,7 @@ Get the version of the object that has been update.  Place this script snippet j
 Setup MFContextMenu
 ~~~~~~~~~~~~~~~~~~~
 
-To trigger the custom procedure from M-Files an entry is required in the table MFContextMenu. Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
- to create or update this table.
+To trigger the custom procedure from M-Files an entry is required in the table MFContextMenu. Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index` to create or update this table.
  
 Use the following scripts setup a class table and action item in MFContextMenu
 
@@ -206,16 +205,16 @@ The following script wlll allow you to identify the row number of the property b
 
 Alternatively use a script to list the properties in sequence.
 
-..code:: sql
+.. code:: sql
 
     DECLARE @props XML
     DECLARE @Hdoc INT
-    SELECT @props =NewOrUpdatedObjectDetails 
+    SELECT @props =NewOrUpdatedObjectDetails
     FROM dbo.MFUpdateHistory uh 
     WHERE uh.id =1247
     EXEC sp_xml_preparedocument @hdoc OUTPUT ,@props
-    SelECT * FROM OPENXML(  @hdoc ,'/form/Object/properties',1) 
-    WITH 
+    SelECT * FROM OPENXML(  @hdoc ,'/form/Object/properties',1)
+    WITH
     (propertyId INT, dataType VARCHAR(100), propertyValue VARCHAR(100))
     EXEC sp_xml_removedocument @Hdoc
 
