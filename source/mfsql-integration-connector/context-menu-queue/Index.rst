@@ -56,7 +56,7 @@ Get the version of the object that has been update.  Place this script snippet j
     FROM dbo.MFUpdateHistory AS muh
     WHERE muh.Id = @Update_ID;
 
-**update the queue with the result of the operation
+**update the queue with the result of the operation**
 
 .. code:: sql
 
