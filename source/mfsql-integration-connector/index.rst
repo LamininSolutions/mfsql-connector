@@ -5,6 +5,7 @@ MFSQL Integration Connector
    :maxdepth: 4
 
    building-custom-applications-and-integrations/index
+   context-menu-queue/index
    metadata-search/index
    create-valuelist-items-from-sql/index
    user-messages/index
