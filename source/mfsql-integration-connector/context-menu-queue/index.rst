@@ -137,7 +137,7 @@ Actions are triggered in M-Files based on the application of the context menu in
 
 Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu
 
-.. code:: vb
+.. code-block::
 
     Option Explicit
     Dim oProperties : Set oProperties = Vault.ObjectPropertyOperations.GetProperties(ObjVer)
