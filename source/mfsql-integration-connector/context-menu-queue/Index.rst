@@ -29,6 +29,7 @@ The first step is to create a SQL procedure to perform the action to be triggere
 Insert a new row into MFContextMenuQueue before the main process start. Example script snippet
 
 .. code:: sql
+
         INSERT INTO dbo.MFContextMenuQueue
         (
             ContextMenu_ID,
@@ -49,6 +50,7 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
 Get the version of the object that has been update.  Place this script snippet just after using MFUpdateTable with updatemethod 1
 
 .. code:: sql
+
     DECLARE @VersionUpdated INT;
     SELECT @VersionUpdated = muh.NewOrUpdatedObjectDetails.value('(/form/Object/@objVersion)[1]', 'int')
     FROM dbo.MFUpdateHistory AS muh
@@ -57,6 +59,7 @@ Get the version of the object that has been update.  Place this script snippet j
 **update the queue with the result of the operation
 
 .. code:: sql
+
      UPDATE mcl
      SET mcl.UpdateID = @Update_ID,
      mcl.ProcessBatch_ID = @ProcessBatch_ID,
@@ -79,11 +82,13 @@ Use the following scripts setup a class table and action item in MFContextMenu
 using the setup_reporting procedure will perform a number of operations, including adding entries to MFContextMenu
 
 .. code:: sql
+
     exec spMFSetup_reporting 'ClassName'
 
 **add row for action type 5**
 
 .. code:: sql
+
     EXEC dbo.spMFContextMenuActionItem @ActionName = N'Updateprop_EventHandler',       -- nvarchar(100)
                                    @ProcedureName = N'Custom.CMMFILES_UpdateSQL',    -- nvarchar(100)
                                    @Description = N'Volume test',      -- nvarchar(200)
@@ -100,7 +105,8 @@ using the setup_reporting procedure will perform a number of operations, includi
  The following script will list all action types 3 and 5 and show if the related procedure have a Context Menu Queue component.
  
 .. code:: sql
-     SELECT cm.ActionName,
+
+    SELECT cm.ActionName,
        cm.Action,
        cm.ActionType,
        cm.ISAsync,
@@ -133,6 +139,7 @@ Actions are triggered in M-Files based on the application of the context menu in
 Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu
 
 .. code:: vb
+
     Option Explicit
     Dim oProperties : Set oProperties = Vault.ObjectPropertyOperations.GetProperties(ObjVer)
     Dim ClassID
@@ -156,7 +163,8 @@ On the completion of the configuration, test the setup by making a change to the
 MFContectMenuQueue should show the result
 
 .. code:: sql
-     SELECT * FROM dbo.MFContextMenuQueue AS mcmq
+
+    SELECT * FROM dbo.MFContextMenuQueue AS mcmq
 
 |image1|
 
@@ -168,7 +176,8 @@ Status -1 implies that the action has been received from M-Files but after proce
 The following script will show the results for updating a specific property from the underlying log tables.  Note that the propval in this example will report the 8th property in the XML record.  The next script will highlight how to get the row number of the property
 
 .. code:: sql
-    SELECT pb.CreatedOnUTC,
+
+     SELECT pb.CreatedOnUTC,
        pb.Status,
        pb.LogText,
        pbd.ColumnValue,
@@ -189,6 +198,7 @@ The image show all the instances where the specific object has been processed an
 The following script wlll allow you to identify the row number of the property being monitored (as in row 8 in the above example.) Inspect the xml record for one of the updates that has taken place.
 
 .. code:: sql
+
     SELECT NewOrUpdatedObjectDetails
     FROM dbo.MFUpdateHistory uh 
     WHERE uh.id =1247 
@@ -198,16 +208,17 @@ The following script wlll allow you to identify the row number of the property b
 Alternatively use a script to list the properties in sequence.
 
 ..code:: sql
-   DECLARE @props XML
-   DECLARE @Hdoc INT
-   SELECT @props =NewOrUpdatedObjectDetails 
-   FROM dbo.MFUpdateHistory uh 
-   WHERE uh.id =1247
-   EXEC sp_xml_preparedocument @hdoc OUTPUT ,@props
-   SelECT * FROM OPENXML(  @hdoc ,'/form/Object/properties',1) 
-   WITH 
-   propertyId INT, dataType VARCHAR(100), propertyValue VARCHAR(100))
-   EXEC sp_xml_removedocument @Hdoc
+
+    DECLARE @props XML
+    DECLARE @Hdoc INT
+    SELECT @props =NewOrUpdatedObjectDetails 
+    FROM dbo.MFUpdateHistory uh 
+    WHERE uh.id =1247
+    EXEC sp_xml_preparedocument @hdoc OUTPUT ,@props
+    SelECT * FROM OPENXML(  @hdoc ,'/form/Object/properties',1) 
+    WITH 
+    (propertyId INT, dataType VARCHAR(100), propertyValue VARCHAR(100))
+    EXEC sp_xml_removedocument @Hdoc
 
 |image4|
 
