@@ -275,7 +275,7 @@ Alternatively use a script to list the properties in sequence.
     (propertyId INT, dataType VARCHAR(100), propertyValue VARCHAR(100))
     EXEC sp_xml_removedocument @Hdoc
 
-troubleshooting
+Troubleshooting
 ---------------
 
 -  **no entry in MFContextMenuQueue** 
@@ -287,6 +287,10 @@ troubleshooting
     -  check connnection in the M-Files Configurator
 -  **the queue is not being processed**
     -  check that the agent is running
+-  **deletions are not being processed**
+    -  validate the separate event handler, custom procedure and entry in MFContextMenu
+-  **created objects is not being processed**
+    -  a sepearate event handler must point to the same procedure and MFcontextMenu item as the update procedure
 
 |image4|
 
