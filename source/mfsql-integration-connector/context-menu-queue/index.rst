@@ -100,12 +100,12 @@ Get the version of the object that has been update.  Place this script snippet j
                    END
      FROM dbo.MFContextMenuQueue mcl
      WHERE mcl.id = @ContextMenuLog_ID;
- 
+
 Setup MFContextMenu
 ~~~~~~~~~~~~~~~~~~~
 
 To trigger the custom procedure from M-Files an entry is required in the table MFContextMenu. Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index` to create or update this table.
- 
+
 Use the following scripts setup a class table and action item in MFContextMenu
 
 **create class table**
@@ -164,11 +164,11 @@ Example of a valid result
 Setup the action in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult :doc::`/getting-started/first-time-installation/installing-the-context-menu/index` to install the context menu functionality.
+Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult :doc:`/getting-started/first-time-installation/installing-the-context-menu/index` to install the context menu functionality.
 
 Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu
 
-.. code-block::
+.. code:: vbscript
 
     Option Explicit
     Dim oProperties : Set oProperties = Vault.ObjectPropertyOperations.GetProperties(ObjVer)
@@ -202,7 +202,7 @@ Consider having a control procedure to start and stop the agent to avoid it runn
 
 Sample code for the step in the SQL agent is below
 
-..code:: sql
+.. code:: sql
 
     Declare @id int
     SELECT TOP 1 @id=id FROM MFContextMenuQueue WHERE Status <> 1
@@ -232,7 +232,7 @@ The following script will show the results for updating a specific property from
 
 .. code:: sql
 
-     SELECT pb.CreatedOnUTC,
+    SELECT pb.CreatedOnUTC,
        pb.Status,
        pb.LogText,
        pbd.ColumnValue,
@@ -278,19 +278,28 @@ Alternatively use a script to list the properties in sequence.
 Troubleshooting
 ---------------
 
--  **no entry in MFContextMenuQueue** 
-    -  check that the correct actionname is included in the event handler script
-    -  validate that the insert statement has been included in the custom procedure
-    -  check MFContextMenu table to validate that the event is reaching SQL
--  **nothing is reaching SQL**
-    -  check cross referencing of MFContextMenu with the event handler scripts and the SQL procedure
-    -  check connnection in the M-Files Configurator
--  **the queue is not being processed**
-    -  check that the agent is running
--  **deletions are not being processed**
-    -  validate the separate event handler, custom procedure and entry in MFContextMenu
--  **created objects is not being processed**
-    -  a sepearate event handler must point to the same procedure and MFcontextMenu item as the update procedure
+**no entry in MFContextMenuQueue**
+
+-  check that the correct actionname is included in the event handler script
+-  validate that the insert statement has been included in the custom procedure
+-  check MFContextMenu table to validate that the event is reaching SQL
+
+**nothing is reaching SQL**
+
+-  check cross referencing of MFContextMenu with the event handler scripts and the SQL procedure
+-  check connnection in the M-Files Configurator
+
+**the queue is not being processed**
+
+-  check that the agent is running
+
+**deletions are not being processed**
+
+-  validate the separate event handler, custom procedure and entry in MFContextMenu
+
+**created objects is not being processed**
+
+-  a sepearate event handler must point to the same procedure and MFcontextMenu item as the update procedure
 
 |image4|
 
