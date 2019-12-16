@@ -40,21 +40,31 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
 
 .. code:: sql
 
-        BEGIN TRAN
-         IF
-        (SELECT COUNT(*)
+    BEGIN TRY
+
+    SET @SQLQuery = 'UPDATE '+ QUOTENAME(@MFClassTable) + '
+    SET process_id = 0
+    WHERE objid = @ObjectID'
+    EXEC sp_ExecuteSQL @SqlQuery,N'@ObjectID int', @ObjectID
+    SELECT @ContextMenuLog_ID = min(id)
             FROM dbo.MFContextMenuQueue AS mcmq
             WHERE mcmq.ObjectID = @ObjectID
                   AND mcmq.ObjectType = @ObjectType
-                  AND @ObjectVer = mcmq.ObjectVer
-        ) > 0
+                  AND ISNULL(@ObjectVer,0) = ISNULL(mcmq.ObjectVer,0)
+         IF
+       @ContextMenuLog_ID > 0
         BEGIN
             UPDATE mcmq
-            SET mcmq.Status = 1
+            SET mcmq.Status = 0
             FROM dbo.MFContextMenuQueue AS mcmq
             WHERE mcmq.ObjectID = @ObjectID
                   AND mcmq.ObjectType = @ObjectType
                   AND @ObjectVer = mcmq.ObjectVer;
+    DELETE FROM dbo.MFContextMenuQueue
+    WHERE ObjectID = @ObjectID
+                  AND ObjectType = @ObjectType
+    --  AND Objectver <> ISNULL(@ObjectVer,0)
+                  AND id <> @ContextMenuLog_ID		
         END;
         ELSE
         BEGIN
@@ -71,10 +81,13 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
                 CreatedOn
             )
             VALUES
-            (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 1, NULL, NULL, GETDATE());
+            (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
             SET @ContextMenuLog_ID = @@IDENTITY;
         END;
-        COMMIT
+END TRY
+BEGIN CATCH
+RAISERROR('Failed',16,1)
+END catch
 
 
 **check result of update**
@@ -91,15 +104,20 @@ Get the version of the object that has been update.  Place this script snippet j
 
 .. code:: sql
 
-     UPDATE mcl
-     SET mcl.UpdateID = @Update_ID,
-     mcl.ProcessBatch_ID = @ProcessBatch_ID,
-                   mcl.Status = CASE
-                   WHEN @ObjectVer = @VersionUpdated THEN 1
-                   ELSE -1
-                   END
-     FROM dbo.MFContextMenuQueue mcl
-     WHERE mcl.id = @ContextMenuLog_ID;
+    BEGIN tran
+                UPDATE mcl
+                SET mcl.UpdateID = @Update_ID,
+                Objectver = @VersionUpdated,
+                mcl.ProcessBatch_ID = @ProcessBatch_ID,
+                    mcl.Status = CASE
+                                     WHEN ISNULL(@ObjectVer,0) <= @VersionUpdated THEN
+                                         1
+                                     ELSE
+                                         -1
+                                 END
+                FROM dbo.MFContextMenuQueue mcl
+                WHERE mcl.id = @ContextMenuLog_ID;
+     Commit
 
 Setup MFContextMenu
 ~~~~~~~~~~~~~~~~~~~

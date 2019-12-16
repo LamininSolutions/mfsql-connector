@@ -19,12 +19,8 @@ Agents will be installed for each Connector database for the following
 #. MFSQL Delete History
 #. MFSQL Validated M-Files Version
 
-
-
 Update Class Tables
 -------------------
-
-| 
 
 The installation package does not automatically create an agent for
 scheduling the update of the class tables.
@@ -33,29 +29,15 @@ If it is appropriate to update all class tables simultaneously on a
 schedule then use spMFUpdateAllIncludedInAppTables in the agent. 
 Include the following script as a step in the agent.
 
-.. container:: code panel pdl
+.. code:: sql
 
-   .. container:: codeContent panelContent pdl
-
-      .. code:: sql
-
-         EXEC [dbo].[spMFUpdateAllncludedInAppTables] @UpdateMethod = 1
+    EXEC [dbo].[spMFUpdateAllncludedInAppTables] @UpdateMethod = 1
                                                      ,@RemoveDeleted = 1
-
-| 
-
-.. container:: confluence-information-macro confluence-information-macro-warning
-
-   .. container:: confluence-information-macro-body
 
       Consider adding the powershell utility to update the M-Files
       version in combination with the agent when the SQL Server is
       separate from the M-Files server and the M-Files Version is likely
       to get out of sync between the servers.
-
-| 
-
-
 
 Delete History Agent
 --------------------
@@ -69,8 +51,6 @@ the deletion:
 -  MFAuditHistory
 -  MFProcessBatchDetail
 -  MFProcessBatch
-
-
 
 Validate M-Files Version Agent
 ------------------------------
@@ -94,8 +74,6 @@ This procedure performs several functions: 
       -  reinstall the assemblies based on the settings in MFSettings
       -  re-install the CLR procedures.
 
-| 
-
 In is important to note:
 
 -  if the M-Files version on  the M-Files Server is different from the
@@ -117,8 +95,6 @@ Corrective action:
 If updating the M-Files Server and SQL Server is likely to get out of
 sync then de-active the agent and use the powershell utility to update
 the version.
-
-
 
 Staging updates with agents
 ---------------------------
