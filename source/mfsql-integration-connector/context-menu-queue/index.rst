@@ -84,10 +84,10 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
             (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
             SET @ContextMenuLog_ID = @@IDENTITY;
         END;
-END TRY
-BEGIN CATCH
-RAISERROR('Failed',16,1)
-END catch
+        END TRY
+        BEGIN CATCH
+         RAISERROR('Failed',16,1)
+        END catch
 
 
 **check result of update**
