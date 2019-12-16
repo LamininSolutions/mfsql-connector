@@ -46,7 +46,7 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
     SET process_id = 0
     WHERE objid = @ObjectID'
     EXEC sp_ExecuteSQL @SqlQuery,N'@ObjectID int', @ObjectID
-    SELECT @ContextMenuLog_ID = min(id)
+        SELECT @ContextMenuLog_ID = min(id)
             FROM dbo.MFContextMenuQueue AS mcmq
             WHERE mcmq.ObjectID = @ObjectID
                   AND mcmq.ObjectType = @ObjectType
