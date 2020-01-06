@@ -222,8 +222,6 @@ Event handlers
 
 Use the AfterCheckinChanges event handler for the updating SQL from M-Files. A separate event handler - AfterCreateNewObject - must be used to catch the creation of new objects if required.  The same procedure can be applied for creation events.
 
-To capture delete object events the event handler - AfterDeletedObject - must be used.  Example 90.107.custom.CMMFiles_Deleted.sql is an example of the procedure to be implemented for Deletions. 
-
 Adding SQL Agent
 ~~~~~~~~~~~~~~~~
 
