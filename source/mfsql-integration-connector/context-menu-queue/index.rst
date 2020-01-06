@@ -233,9 +233,9 @@ Sample code for the step in the SQL agent is below
 
 .. code:: sql
 
-    Declare @id int
-    SELECT TOP 1 @id=id FROM MFContextMenuQueue WHERE Status <> 1
-    IF @ID > 0
+    Declare @id int, @UpdateCycle int
+    SELECT @id=min(sq.id), @UpdateCycle = MAX(isnull(UpdateCycle,0)) FROM MFContextMenuQueue sq WHERE sq.Status <> 1
+    IF @ID > 0 and @UpdateCycle < 6
     BEGIN
     EXEC dbo.spMFUpdateContextMenuQueue @id
     END
