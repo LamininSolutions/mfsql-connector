@@ -13,7 +13,7 @@ Configuration
 Dependent objects
 ~~~~~~~~~~~~~~~~~
 
-Release 4.4.14.55 will add new tables and procedures. Use the following script to check if it exists.
+Release 4.5.14.56 will add new tables and procedures. Use the following script to check if it exists.
 
 .. code:: sql
 
@@ -23,12 +23,13 @@ Release 4.4.14.55 will add new tables and procedures. Use the following script t
     The queue processing functionality of the context menu is reliant on using a SQL agent. This feature cannot be deployed with SQL Express editions.
 
 The configuration has the follow key steps
--  create custom procedure for the action to be performed
--  configure Context Menu in M-Files to connect with SQL
--  add rows in the MFContextMenu for the actions
--  add scripts to the custom procedure for processing the queue
--  add action script in event handler or workflow action
--  add agent to process the queue 
+
+ -  create custom procedure for the action to be performed
+ -  configure Context Menu in M-Files to connect with SQL
+ -  add rows in the MFContextMenu for the actions
+ -  add scripts to the custom procedure for processing the queue
+ -  add action script in event handler or workflow action
+ -  add agent to process the queue 
 
 Custom procedure for processing update action
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,54 +41,66 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
 
 .. code:: sql
 
-    BEGIN TRY
+    SELECT @MFClassTable = TableName
+        FROM dbo.MFClass
+        WHERE MFID = @ClassID
+              AND IncludeInApp > 0;
 
-    SET @SQLQuery = 'UPDATE '+ QUOTENAME(@MFClassTable) + '
-    SET process_id = 0
-    WHERE objid = @ObjectID'
-    EXEC sp_ExecuteSQL @SqlQuery,N'@ObjectID int', @ObjectID
-        SELECT @ContextMenuLog_ID = min(id)
+        BEGIN TRY
+
+            SET @SQLQuery
+                = N'UPDATE ' + QUOTENAME(@MFClassTable) + N'
+                SET process_id = 0 WHERE objid = @ObjectID';
+            EXEC sys.sp_executesql @SQLQuery, N'@ObjectID int', @ObjectID;
+
+
+            SELECT @ContextMenuLog_ID = MIN(mcmq.id)
             FROM dbo.MFContextMenuQueue AS mcmq
             WHERE mcmq.ObjectID = @ObjectID
                   AND mcmq.ObjectType = @ObjectType
-                  AND ISNULL(@ObjectVer,0) = ISNULL(mcmq.ObjectVer,0)
-         IF
-       @ContextMenuLog_ID > 0
-        BEGIN
-            UPDATE mcmq
-            SET mcmq.Status = 0
-            FROM dbo.MFContextMenuQueue AS mcmq
-            WHERE mcmq.ObjectID = @ObjectID
-                  AND mcmq.ObjectType = @ObjectType
-                  AND @ObjectVer = mcmq.ObjectVer;
-    DELETE FROM dbo.MFContextMenuQueue
-    WHERE ObjectID = @ObjectID
-                  AND ObjectType = @ObjectType
-    --  AND Objectver <> ISNULL(@ObjectVer,0)
-                  AND id <> @ContextMenuLog_ID		
-        END;
-        ELSE
-        BEGIN
-            INSERT INTO dbo.MFContextMenuQueue
-            (
-                ContextMenu_ID,
-                ObjectID,
-                ObjectType,
-                ObjectVer,
-                ClassID,
-                Status,
-                ProcessBatch_ID,
-                UpdateID,
-                CreatedOn
-            )
-            VALUES
-            (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
-            SET @ContextMenuLog_ID = @@IDENTITY;
-        END;
+                  AND ISNULL(@ObjectVer, 0) = ISNULL(mcmq.ObjectVer, 0);
+            IF @ContextMenuLog_ID > 0
+            BEGIN
+                UPDATE mcmq
+                SET mcmq.Status = 0
+                FROM dbo.MFContextMenuQueue AS mcmq
+                WHERE mcmq.ObjectID = @ObjectID
+                      AND mcmq.ObjectType = @ObjectType
+                      AND @ObjectVer = mcmq.ObjectVer;
+
+                DELETE FROM dbo.MFContextMenuQueue
+                WHERE ObjectID = @ObjectID
+                      AND ObjectType = @ObjectType
+                      --  AND Objectver <> ISNULL(@ObjectVer,0)
+                      AND id <> @ContextMenuLog_ID;
+
+            END;
+            ELSE
+            BEGIN
+                INSERT INTO dbo.MFContextMenuQueue
+                (
+                    ContextMenu_ID,
+                    ObjectID,
+                    ObjectType,
+                    ObjectVer,
+                    ClassID,
+                    Status,
+                    ProcessBatch_ID,
+                    UpdateID,
+                    CreatedOn
+                )
+                VALUES
+                (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
+                SET @ContextMenuLog_ID = @@IDENTITY;
+
+
+            END;
+
         END TRY
         BEGIN CATCH
-         RAISERROR('Failed',16,1)
-        END catch
+
+            RAISERROR('Failed', 16, 1);
+        END CATCH;
 
 
 **check result of update**
@@ -104,20 +117,20 @@ Get the version of the object that has been update.  Place this script snippet j
 
 .. code:: sql
 
-    BEGIN tran
+    BEGIN TRAN;
                 UPDATE mcl
                 SET mcl.UpdateID = @Update_ID,
-                Objectver = @VersionUpdated,
-                mcl.ProcessBatch_ID = @ProcessBatch_ID,
+                    mcl.ObjectVer = @VersionUpdated,
+                    mcl.ProcessBatch_ID = @ProcessBatch_ID,
                     mcl.Status = CASE
-                                     WHEN ISNULL(@ObjectVer,0) <= @VersionUpdated THEN
+                                     WHEN ISNULL(@ObjectVer, 0) <= @VersionUpdated THEN
                                          1
                                      ELSE
                                          -1
                                  END
                 FROM dbo.MFContextMenuQueue mcl
                 WHERE mcl.id = @ContextMenuLog_ID;
-     Commit
+                COMMIT;
 
 Setup MFContextMenu
 ~~~~~~~~~~~~~~~~~~~
