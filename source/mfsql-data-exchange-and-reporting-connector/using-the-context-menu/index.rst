@@ -95,14 +95,10 @@ directly from and action script in the workflow state.
 
 These procedures are triggered by adding a script in the workflow state.
 
-| 
-
-
-
 Updating table MFContextMenu
 ----------------------------
 
-The `MFContextMenu <page52625447.html#Bookmark73>`__ table controls the
+The MFContextMenu table controls the
 procedures that will be executed and the type of action that will be
 performed.  Add a record to this table to setup a menu item.
 
@@ -115,8 +111,6 @@ or
 
 -  Use spMFContextMenuHeadingItem to add, update, remove headings
 -  Use spMFContextMenuActionItem to add, update or remove action items
-
-
 
 Adding a group heading for the menu items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
