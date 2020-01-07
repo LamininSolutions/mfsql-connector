@@ -1,1 +1,192 @@
-﻿
+
+===============
+spMFUpdateTable
+===============
+
+Return
+  - 1 = Success
+  - 0 = Partial (some records failed to be inserted)
+  - -1 = Error
+Parameters
+  @MFTableName
+    - Valid Class TableName as a string
+    - Pass the class table name, e.g.: 'MFCustomer'
+  @Updatemethod
+    - 0 = update from SQL to M-Files
+    - 1 = update from M-Files to SQL
+  @User_ID (optional)
+    - Default = 0
+    - User_Id from MX_User_Id column
+    - This is NOT the M-Files user.  It is used to set and apply a user_id for a third party system. An example is where updates from a third party system must be filtered by the third party user (e.g. placing an order)
+  @MFLastModified (optional)
+    - Default = 0
+    - Get objects from M-Files that has been modified in M-files later than this date.
+  @ObjIDs (optional)
+    - Default = null
+    - ObjID's of records (separated by comma) e.g. : '10005,13203'
+    - Restricted to 4000 charactes including the commas
+  @Update_IDOut (optional, output)
+    Output id of the record in MFUpdateHistory logging the update ; Also added to the record in the Update_ID column on the class table
+  @ProcessBatch_ID (optional, output)
+    Referencing the ID of the ProcessBatch logging table
+  @SyncErrorFlag (optional)
+    - Default = 0
+    - This parameter is automatically set by spMFUpdateSynchronizeError when synchronization routine is called.
+  @RetainDeletions (optional)
+    - Default = 0
+    - Set to 1 to keep deleted items in M-Files in the SQL table shown as deleted = 1
+  @Debug (optional)
+    - Default = 0
+    - 1 = Standard Debug Mode
+    - 101 = Advanced Debug Mode
+
+Purpose
+=======
+
+This procedure get and push data between M-Files and SQL based on a number of filters.  It is very likely that this procedure will be built into your application or own procedures as part of the process of creating, updating, inserting records from your application.
+
+When calling this procedure in a query or via another procedure it will perform the update in batch mode on all the rows with a valid process_id.
+
+When the requirements for transactional mode has been met and a record is updated/inserted in the class table with process_id = 1, a trigger will automatically fire spMFUpdateTable to update SQL to M-Files.
+
+A number of procedures is included in the Connector that use this procedure including:
+- spMFUpdateMFilesToSQL
+- spMFUpdateTablewithLastModifiedDate
+- spMFUpdateTableinBatches
+- spMFUpdateAllIncludedInAppTables
+- spMFUpdateItembyItem
+
+Prerequisites
+=============
+
+From M-Files to SQL
+-------------------
+Process_id in class table must be 0. All other rows are ignored.
+
+
+From SQL to M-Files - batch mode
+--------------------------------
+Process_id in class table must be 1 for rows to be updated or added to M-Files. All other rows are ignored.
+
+Warnings
+========
+
+Examples
+========
+
+.. code:: sql
+
+    DECLARE @return_value int
+
+    EXEC    @return_value = [dbo].[spMFUpdateTable]
+            @MFTableName = N'MFCustomerContact',
+            @UpdateMethod = 1,
+            @UserId = NULL,
+            @MFModifiedDate = null,
+            @update_IDOut = null,
+            @ObjIDs = NULL,
+            @ProcessBatch_ID = null,
+            @SyncErrorFlag = 0,
+            @RetainDeletions = 0,
+            @Debug = 0
+
+    SELECT  'Return Value' = @return_value
+
+    GO
+
+Execute the core procedure with all parameters
+
+----
+
+.. code:: sql
+
+    DECLARE @return_value int
+    DECLARE @update_ID INT, @processBatchID int
+
+    EXEC @return_value = [dbo].[spMFUpdateTable]
+         @MFTableName = N'YourTableName', -- nvarchar(128)
+         @UpdateMethod = 1, -- int
+         @Update_IDOut = @update_ID output, -- int
+         @ProcessBatch_ID = @processBatchID output
+
+    SELECT * FROM [dbo].[MFProcessBatchDetail] AS [mpbd] WHERE [mpbd].[ProcessBatch_ID] = @processBatchID
+
+    SELECT  'Return Value' = @return_value
+
+    GO
+
+Update from and to M-Files with all optional parameters set to default.
+
+----
+
+.. code:: sql
+
+    --From M-Files to SQL
+    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFCustomer',
+                                 @UpdateMethod = 1
+    --or
+    EXEC spMFupdateTable 'MFCustomer',1
+
+    --From SQL to M-Files
+    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFCustomer',
+                                 @UpdateMethod = 0
+    --or
+    EXEC spMFupdateTable 'MFCustomer',0
+
+Update from and to M-Files with all optional parameters set to default.
+
+Changelog
+=========
+
+==========  =========  ========================================================
+Date        Author     Description
+----------  ---------  --------------------------------------------------------
+2020-01-06  LC         Resolve issue: variable is null: @RetainDeletions
+2020-01-06  LC         Resolving performance bug when filtering on objids  
+2019-10-01  LC         Allow for rounding where float has long decimals
+2019-09-02  LC         Fix conflict where class table has property with 'Name' as the name V53
+2019-08-24  LC         Fix label of audithistory table inserts
+2019-07-26  LC         Update removing of redundant items form AuditHistory
+2019-07-13  LC         Add working that not all records have been updated
+2019-06-17  LC         UPdate MFaudithistory with changes
+2019-05-19  LC         Terminate early if connection cannot be established
+2019-01-13  LC         Fix bug for uniqueidentifyer type columns (e.g. guid)
+2019-01-03  LC         Fix bug for updating time property
+2018-12-18  LC         Validate that all records have been updated, raise error if not
+2018-12-06  LC         Fix bug t.objid not found
+2018-11-05  LC         Include new parapameter to validate class and property structure
+2018-10-30  LC         Removing cursor method for update method 0 and reducing update time by 100%
+2018-10-24  LC         Resolve bug when objids filter is used with only one object
+2018-10-20  LC         Set Deleted to != 1 instead of = 0 to ensure new records where deleted is not set is taken INSERT
+2018-08-23  LC         Fix bug with presedence = 1
+2018-08-01  LC         Fix deletions of record bug
+2018-08-01  LC         New parameter @RetainDeletions to allow for auto removal of deletions Default = NO
+2018-06-26  LC         Improve reporting of return values
+2018-05-16  LC         Fix conversion of float to nvarchar
+2018-04-04  DEV2       Added Licensing module validation code.
+2017-11-03  DEV2       Added code to check required property has value or not
+2017-10-01  LC         Fix bug with length of fields
+2017-08-23  DEV2       Add exclude null properties from update
+2017-08-22  DEV2       Add sync error correction
+2017-07-06  LC         Add update of filecount column in class table
+2017-07-03  LC         Modify objids filter to include ids not in sql
+2017-06-22  LC         Add ability to modify external_id
+2107-05-12  LC         Set processbatchdetail column detail
+2016-10-10  LC         Change of name of settings table
+2016-09-21  LC         Removed @UserName,@Password,@NetworkAddress and @VaultName parameters and fectch it as comma separated list in @VaultSettings parameter dbo.fnMFVaultSettings() function
+2016-08-22  LC         Change objids to NVARCHAR(4000)
+2016-08-22  LC         Update settings index
+2016-08-20  LC         Add Update_ID as output paramter
+2016-08-18  LC         Add defaults to parameters
+2016-03-10  DEV2       New input variable added (@ObjIDs)
+2016-03-10  DEV2       Input variable @FromCreateDate  changed to @MFModifiedDate
+2016-02-22  LC         Improve debugging information; Remove is_template message when updatemethod = 1
+2015-07-18  DEV2       New parameter add in spMFCreateObjectInternal
+2015-06-30  DEV2       New error Tracing and Return Value as LeRoux instruction
+2015-06-24  DEV2       Skip the object failed to update in M-Files
+2015-04-23  DEV2       Removing Last modified & Last modified by from Update data
+2015-04-16  DEV2       Adding update table details to MFUpdateHistory table
+2015-04-08  DEV2       Deleting property value from M-Files (Task 57)
+2019-12-31	DEV2	   New output parameter add in spMFCreateObjectInternal to return the checkout objects.
+==========  =========  ========================================================
+

@@ -1,1 +1,66 @@
-﻿
+
+===============================
+spMFUpdateAllncludedInAppTables
+===============================
+
+Return
+  - 1 = Success
+  - -1 = Error
+Parameters
+  @UpdateMethod int
+    - Default = 1
+  @RemoveDeleted int
+    - Default = 1
+    - Remove all the deleted objects when this process is run
+  @IsIncremental int
+    - Default = 1 (yes)
+	- Set to 0 to perform a rebuild or initialisation all included in app tables
+  @ProcessBatch\_ID int (optional, output)
+    Referencing the ID of the ProcessBatch logging table
+  @Debug smallint (optional)
+    - Default = 0
+    - 1 = Standard Debug Mode
+    - 101 = Advanced Debug Mode
+
+Purpose
+=======
+
+The purpose of this procedure is to allow for daily processing of all the class table tables with includedinapp = 1.
+
+Updating the Object Change History, based on the entries in MFObjectChangeHistoryControl is also included in this routine.
+
+This procedure can be used for initializing all the tables or to update only the differential. 
+
+Warning
+=======
+
+Setting @IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish. 
+
+The procedure will automatically default to using 200 000 records as refault for each class table.  
+
+Examples
+========
+
+.. code:: sql
+
+    DECLARE @Return int
+    EXEC @Return = spMFUpdateAllncludedInAppTables 2, 0
+    SELECT @return
+
+Changelog
+=========
+
+==========  =========  ========================================================
+Date        Author     Description
+----------  ---------  --------------------------------------------------------
+2019-12-10  LC         Functionality extended to intialise all tables
+2019-11-04  LC         Include spMFUpdateObjectChangeHistory in this routine
+2019-08-30  JC         Added documentation
+2018-11-18  LC         Remove duplicat process
+2017-08-28  LC         Convert proc to include logging and process batch control
+2017-06-09  LC         Change to use spmfupdateMfilestoSQL method
+2017-06-09  LC         Set default of updatemethod to 1
+2016-09-09  LC         Add return value
+2015-07-14  DEV2       Debug mode added
+==========  =========  ========================================================
+
