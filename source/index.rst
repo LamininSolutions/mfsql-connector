@@ -34,6 +34,7 @@ Welcome to MFSQL Connector's documentation!
 
    procedures/index
    tables/index
+   functions/index
 
 
 .. note::
