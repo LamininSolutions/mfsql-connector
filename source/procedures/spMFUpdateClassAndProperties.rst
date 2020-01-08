@@ -17,7 +17,7 @@ Parameters
     - New class ID
   @ColumnNames nvarchar(1000) (optional)
     - Default = NULL
-    - New property IDâ€™s(separated by comma) both MFID or property or columnName can be used.
+    - New property ID’s(separated by comma) both MFID or property or columnName can be used.
   @ColumnValues nvarchar(1000) (optional)
     Value of the properties(separated by comma) Use # the separate the ids in case of a multilookup
   @Update\_IDOUT int (output)

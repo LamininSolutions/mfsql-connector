@@ -1,4 +1,3 @@
-
 ==========================
 spMFUpdateContextMenuQueue
 ==========================
@@ -13,15 +12,14 @@ Parameters
 Purpose
 =======
 
-This procedure is called by the trigger tMFContextMenuQueue_UpdateQueue on the table MFContextMenuQueue.  The entry into MFContextMenu is inserted by adding a row in the MFContextMenuQueue as part of the custom procedure to process action type 5 context menu actions in M-Files
+MFContextMenuQueue is part of the queue processing procedures to process action type 5 context menu actions in M-Files. This particular procedure is designed to reprocess events that has not processed on the first attempt.
 
 Additional Info
 ===============
 
-When triggered this procedure will update the row in the queue that has not been updated successfully.
+It is indented for a SQL agent to trigger this procedure frequently to check for and process unprocessed queue items.
 
-Warnings
-========
+When triggered this procedure will update the oldest row in the queue that has not been updated successfully. Each time it performed an attempted update the update cycle is incremented. The agent can then be tuned to stop after a number of cycles. It is set to 5 cycles by default
 
 Examples
 ========
@@ -36,6 +34,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-01-07  LC         Add routine to clean up the queue
 2019-12-06  LC         Create procedure
 ==========  =========  ========================================================
 
