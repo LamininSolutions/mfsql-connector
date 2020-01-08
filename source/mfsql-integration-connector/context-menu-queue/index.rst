@@ -41,66 +41,82 @@ Insert a new row into MFContextMenuQueue before the main process start. Example 
 
 .. code:: sql
 
-    SELECT @MFClassTable = TableName
-        FROM dbo.MFClass
-        WHERE MFID = @ClassID
-              AND IncludeInApp > 0;
+    -- Get the class table name
 
-        BEGIN TRY
+    SELECT @MFTableName = TableName
+    FROM dbo.MFClass
+    WHERE MFID = @ClassID
+      AND IncludeInApp > 0;
 
-            SET @SQLQuery
-                = N'UPDATE ' + QUOTENAME(@MFClassTable) + N'
-                SET process_id = 0 WHERE objid = @ObjectID';
-            EXEC sys.sp_executesql @SQLQuery, N'@ObjectID int', @ObjectID;
+    --Insert rows in MFContextMenuQueue to capture action from MF
 
+    BEGIN TRY
 
-            SELECT @ContextMenuLog_ID = MIN(mcmq.id)
-            FROM dbo.MFContextMenuQueue AS mcmq
-            WHERE mcmq.ObjectID = @ObjectID
-                  AND mcmq.ObjectType = @ObjectType
-                  AND ISNULL(@ObjectVer, 0) = ISNULL(mcmq.ObjectVer, 0);
-            IF @ContextMenuLog_ID > 0
-            BEGIN
-                UPDATE mcmq
-                SET mcmq.Status = 0
-                FROM dbo.MFContextMenuQueue AS mcmq
-                WHERE mcmq.ObjectID = @ObjectID
-                      AND mcmq.ObjectType = @ObjectType
-                      AND @ObjectVer = mcmq.ObjectVer;
+    DECLARE @updateCycle INT
 
-                DELETE FROM dbo.MFContextMenuQueue
-                WHERE ObjectID = @ObjectID
-                      AND ObjectType = @ObjectType
-                      --  AND Objectver <> ISNULL(@ObjectVer,0)
-                      AND id <> @ContextMenuLog_ID;
-
-            END;
-            ELSE
-            BEGIN
-                INSERT INTO dbo.MFContextMenuQueue
-                (
-                    ContextMenu_ID,
-                    ObjectID,
-                    ObjectType,
-                    ObjectVer,
-                    ClassID,
-                    Status,
-                    ProcessBatch_ID,
-                    UpdateID,
-                    CreatedOn
-                )
-                VALUES
-                (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, NULL, NULL, GETDATE());
-                SET @ContextMenuLog_ID = @@IDENTITY;
+    SET @SQLQuery = N'UPDATE ' + QUOTENAME(@MFTableName) + N'
+    SET process_id = 0
+    WHERE objid = @ObjectID';
+    EXEC sys.sp_executesql @SQLQuery, N'@ObjectID int', @ObjectID;
 
 
-            END;
+    SELECT @ContextMenuLog_ID = MIN(mcmq.id)
+    FROM dbo.MFContextMenuQueue AS mcmq
+    WHERE mcmq.ObjectID = @ObjectID
+          AND mcmq.ObjectType = @ObjectType;
+    IF @ContextMenuLog_ID > 0
 
-        END TRY
-        BEGIN CATCH
+    SELECT @updateCycle = UpdateCycle FROM dbo.MFContextMenuQueue AS mcmq WHERE id = @ContextMenuLog_ID
 
-            RAISERROR('Failed', 16, 1);
-        END CATCH;
+    BEGIN
+        UPDATE mcmq
+        SET mcmq.Status = 0, @updateCycle = @updateCycle + 1
+        FROM dbo.MFContextMenuQueue AS mcmq
+        WHERE mcmq.ObjectID = @ObjectID
+              AND mcmq.ObjectType = @ObjectType
+              AND @ObjectVer <= mcmq.ObjectVer;
+
+        DELETE FROM dbo.MFContextMenuQueue
+        WHERE ObjectID = @ObjectID
+              AND ObjectType = @ObjectType
+              AND ObjectVer <> ISNULL(@ObjectVer, 0)
+              AND id <> @ContextMenuLog_ID;
+
+    END;
+    ELSE
+    BEGIN
+        INSERT INTO dbo.MFContextMenuQueue
+        (
+            ContextMenu_ID,
+            ObjectID,
+            ObjectType,
+            ObjectVer,
+            ClassID,
+            Status,
+            UpdateCycle,
+            ProcessBatch_ID,
+            UpdateID,
+            CreatedOn
+        )
+        VALUES
+        (@ID, @ObjectID, @ObjectType, @ObjectVer, @ClassID, 0, 1, @ProcessBatch_ID, NULL, @StartTime);
+        SET @ContextMenuLog_ID = @@IDENTITY;
+
+
+    END;
+
+    END TRY
+    BEGIN CATCH
+
+    SET @DebugText = N'FAILED ';
+    SET @DefaultDebugText = @DefaultDebugText + @DebugText;
+
+    IF @Debug > 0
+    BEGIN
+        RAISERROR(@DefaultDebugText, 16, 1, @ProcedureName, @ProcedureStep);
+    END;
+
+    END CATCH;
 
 
 **check result of update**
@@ -108,29 +124,29 @@ Get the version of the object that has been update.  Place this script snippet j
 
 .. code:: sql
 
+    --validate that update has taken place
     DECLARE @VersionUpdated INT;
     SELECT @VersionUpdated = muh.NewOrUpdatedObjectDetails.value('(/form/Object/@objVersion)[1]', 'int')
     FROM dbo.MFUpdateHistory AS muh
     WHERE muh.Id = @Update_ID;
 
-**update the queue with the result of the operation**
-
-.. code:: sql
-
+    --update queue with result
     BEGIN TRAN;
-                UPDATE mcl
-                SET mcl.UpdateID = @Update_ID,
-                    mcl.ObjectVer = @VersionUpdated,
-                    mcl.ProcessBatch_ID = @ProcessBatch_ID,
-                    mcl.Status = CASE
-                                     WHEN ISNULL(@ObjectVer, 0) <= @VersionUpdated THEN
-                                         1
-                                     ELSE
-                                         -1
-                                 END
-                FROM dbo.MFContextMenuQueue mcl
-                WHERE mcl.id = @ContextMenuLog_ID;
-                COMMIT;
+    UPDATE mcl
+    SET mcl.UpdateID = @Update_ID,
+        mcl.ObjectVer = @VersionUpdated,
+        mcl.ProcessBatch_ID = @ProcessBatch_ID,
+    mcl.updateCycle = mcl.UpdateCycle + 1
+    mcl.Status = CASE
+                         WHEN ISNULL(@ObjectVer, 0) <= @VersionUpdated THEN
+                             1
+                         ELSE
+                             -1
+                     END
+    FROM dbo.MFContextMenuQueue mcl
+    WHERE mcl.id = @ContextMenuLog_ID;
+    COMMIT;
+
 
 Setup MFContextMenu
 ~~~~~~~~~~~~~~~~~~~
@@ -225,7 +241,9 @@ Use the AfterCheckinChanges event handler for the updating SQL from M-Files. A s
 Adding SQL Agent
 ~~~~~~~~~~~~~~~~
 
-The final step of the configation is to setup an agent that can trigger the spMFUpdateContextMenuQueue procedure.  This procedure will check for any unprocessed items in the queue and process all the open items.  The frequency of the updates should be considered in the light of the type of operation that is being supported, but is quite feasible to be set to 1 minute intervals.  Be aware that this could have a performance impact. 
+The final step of the configation is to setup an agent that can trigger the spMFUpdateContextMenuQueue procedure.  This procedure will check for any unprocessed items in the queue and process all the open items.  The frequency of the updates should be considered in the light of the type of operation that is being supported, but is quite feasible to be set to 1 minute intervals.  Be aware that this could have a performance impact.
+
+Every time the SQL agent runs it will process the oldest unprocessed queue item and will retry the item 5 times. This is controlled by the agent step and checking the update cycle. 
 
 Consider having a control procedure to start and stop the agent to avoid it running in the background if updates using the event handler is only occasaional.
 
