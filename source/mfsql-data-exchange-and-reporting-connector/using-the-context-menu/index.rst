@@ -25,16 +25,15 @@ user to perform the following functions:
    Another example is to make a copy of the object, especially where the
    object has a number of related objects that also should be copied and
    comply with specific requirements.
-#. Execute a SQL procedure on the change of workflow state.  This option
+#. Execute a SQL procedure on the change of workflow state or event handler.  This option
    allows for executing either a procedure without a input parameter, or
    a procedure that takes the object id and class as of the object in
    scope as input parameters.  This method is particularly relevant
    where the procedure must be triggered automatically when the user
-   performed a function in M-Files.
+   performed a function in M-Files.   
 
 Visibility of the Context Menu is controlled by the 'Context Menu User
-group'.  'All internal users' group are added to this user group by
-default.
+group'.  'All internal users' group is not a valid option. A specific user, or usergroup must be added as members of this group to allow users the access the menu
 
 The availability of individual menu action items can be controller by
 adding the user group MFID in the MFContextMenu Table.  By default all
