@@ -33,7 +33,7 @@ user to perform the following functions:
    performed a function in M-Files.   
 
 Visibility of the Context Menu is controlled by the 'Context Menu User
-group'.  'All internal users' group is not a valid option. A specific user, or usergroup must be added as members of this group to allow users the access the menu
+group'.  'All internal users' group is not a valid option. A specific user, or usergroup must be added as members of this group to allow users to access the menu
 
 The availability of individual menu action items can be controller by
 adding the user group MFID in the MFContextMenu Table.  By default all
