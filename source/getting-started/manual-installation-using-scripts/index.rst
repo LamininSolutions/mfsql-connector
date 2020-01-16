@@ -16,13 +16,13 @@ Key steps
 
       -  The following installation files are relevant for the manual installation
 
-        -  C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Content Package
-        -  C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Database Scripts
-        -  C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Vault Applications
+        -  C:\\Program Files (x86)\\Laminin Solutions\\MFSQL Connector Release 4\\[Database Name]\\Content Package
+        -  C:\\Program Files (x86)\\Laminin Solutions\\MFSQL Connector Release 4\\[Database Name]\Database Scripts
+        -  C:\\Program Files (x86)\\Laminin Solutions\\MFSQL Connector Release 4\\[Database Name]\\Vault Applications
 
     -  Assemblies  (destination can be changed)
 
-        -  C:\MFSQL\Assemblies
+        -  C:\\MFSQL\\Assemblies
 
   - **Manual install of M-Files Server**
   
