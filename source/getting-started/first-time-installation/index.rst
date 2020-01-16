@@ -48,14 +48,5 @@ Manually, or partially manual installation is required when any of the above res
 
 M-Files Cloud installation falls within this scope as administrative access to the M-Files Server is restricted to M-Files support only.
 
-To perform any manual install it is required to first get access to the installation files. Follow the manual installation guide for this step.
-
-  - **Manual install of M-Files Server**
-    - For M-Files Cloud installations: provide M-Files support with the cloud installation instruction.
-    - For other M-Files Server manual installation scenarios: Provide installation files to M-Files Server Administrator. Follow manual installation guide.
-  - **manual install of SQL Server**
-    - Copy Assemblies to SQL Server
-    - Install M-Files desktop on SQL Server
-    - Run SQL Scripts in installation folders in sequence. 
-
+Refer to the next section for manual installation.
 

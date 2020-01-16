@@ -42,9 +42,6 @@ been synchronized.
 
 
 If not already done, then update all the metadata by using the following procedure
-----------------------------------------------------------------------------------
-
-
 
 Update metadata
 ---------------

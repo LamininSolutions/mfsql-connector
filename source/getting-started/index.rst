@@ -6,7 +6,8 @@ Getting Started
 
    installation-overview/index
    first-time-installation/index
-   licensing-management/index    
+   manual-installation-using-scripts/index
+   licensing-management/index
    next-steps-after-installation/index
    upgrades-and-hotfixes/index
    update-settings/index
