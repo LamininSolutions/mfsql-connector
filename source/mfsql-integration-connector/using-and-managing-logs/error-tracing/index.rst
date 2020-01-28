@@ -81,27 +81,24 @@ From version 3.1.2.38 functionality is included to allow for automatic
 correction of synchronization errors.  This feature is explained in
 detail in Correcting Synchronization Errors.
 
-
-
 Common Errors
 -------------
 
-**Failed to insert ObjID** :
+**Failed to insert ObjID**
 
- Error message :Cannot insert the value NULL
-into column 'Name of Column', table 'Nme of Table'; column does not
+Error message :Cannot insert the value NULL into column *Name of Column*, table *Name of Table*; column does not
 allow nulls. INSERT fails. Cause for error. It is likely that a change
 was made in M-Files changing a property to required and where there are
 missing values in for the property in M-Files. 
 
 Corrective action.
-option 1. Add the missing values in M-Files and retry the updating of
+-  option 1. Add the missing values in M-Files and retry the updating of
 the table. 
-option 2: edit the table in SSMS and remove 'is not null'
+-  option 2: edit the table in SSMS and remove 'is not null'
 from the column of the table. After the values have been added using
 SSMS the column settings can be reset to 'is not null'.
 
-**Unable to establish a correction** : 
+**Unable to establish a correction**  
 
 A .NET Framework error occurred
 during execution of user-defined routine or aggregate:  
@@ -114,8 +111,6 @@ connection timed out which could related to the connection between the
 SQL server and M-Files server.  It usually is sufficient to try again. 
 if this issue persists then it requires deeper investigation. contact
 support.
-
-
 
 Error back tracking
 -------------------
