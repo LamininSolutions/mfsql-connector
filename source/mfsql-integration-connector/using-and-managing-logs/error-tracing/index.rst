@@ -62,7 +62,7 @@ the record which failed to insert/update.
 Errors are reported by email. See below for a sample of an email
 
 Synchronization errors
-''''''''''''''''''''''
+----------------------
 
 A syncronisation error will result where object version in SQL is
 incompatible with the object version in M-Files. These errors can
@@ -84,23 +84,32 @@ detail in Correcting Synchronization Errors.
 
 
 Common Errors
-'''''''''''''
+-------------
 
-**Failed to insert ObjID** : Error message :Cannot insert the value NULL
+**Failed to insert ObjID** :
+
+ Error message :Cannot insert the value NULL
 into column 'Name of Column', table 'Nme of Table'; column does not
 allow nulls. INSERT fails. Cause for error. It is likely that a change
 was made in M-Files changing a property to required and where there are
-missing values in for the property in M-Files. Corrective action. a)
+missing values in for the property in M-Files. 
+
+Corrective action.
 option 1. Add the missing values in M-Files and retry the updating of
-the table. option 2: edit the table in SSMS and remove 'is not null'
+the table. 
+option 2: edit the table in SSMS and remove 'is not null'
 from the column of the table. After the values have been added using
 SSMS the column settings can be reset to 'is not null'.
 
-**Unable to establish a correction** : A .NET Framework error occurred
+**Unable to establish a correction** : 
+
+A .NET Framework error occurred
 during execution of user-defined routine or aggregate:  
 System.Runtime.InteropServices.COMException: Network problems are
 preventing M-Files from communicating with the server.  The RPC server
-is unavailable.   This error sometimes happen if establishing a
+is unavailable.   
+
+This error sometimes happen if establishing a
 connection timed out which could related to the connection between the
 SQL server and M-Files server.  It usually is sufficient to try again. 
 if this issue persists then it requires deeper investigation. contact
@@ -121,13 +130,36 @@ Investigating an error will depend on the nature of the error.  
 -  Get more detail on the actual procedure step that is causing the
    issue by using the MFProcessBatch and MFProcessBatchDetail tables.
 
+The following script show the quick steps to follow to isolate an error
+
+.. code:: sql
+
+	--details of last errors
+	Select top 10 CreateDate,ErrorMessage, spName, ProcedureStep, * from mflog order by logid desc
+
+	--unprocessed errors in class tables (result should show none)
+	Select * from ClassTableName where Process_ID <> 0
+
+	--is flag for processes running OK: IsProcess running shouled be 0, date show last time it was called 
+	select * from MFContextMenu
+
+	--if is IsProcessRunning = 1 and the procedure has not been called in the last 30 minutes then reset this flag
+	update MFContextMenu
+	set IsProcessRunning = 0
+	where IsProcessRunning = 1
+
+	--check outcome of processes
+	Select * from MFProcessBatch order by ProcessBatch_ID desc
+
+	--inspect details of a particular process
+	Select * from MFProcessBatchDetail
+	where ProcessBatch_ID = 1335 -- use result from previous script to get the number
+
 **Related Topics**
 ------------------
 
--  `MFUpdateHistory for logging of class record changes <page21200982.html#Bookmark61>`__
--  `Process Logging <page39223306.html#Bookmark56>`__
--  `Process Batch log tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/55921730/Process+Batch+log+tables>`__
--  `Logging Tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200944/Logging+Tables>`__
--  `Using and managing logs <page39223310.html#Bookmark38>`__
--  `Class table stats <https://lamininsolutions.atlassian.net/wiki/pages/createpage.action?spaceKey=MFSQL&title=Class+table+stats&linkCreation=true&fromPageId=21200984>`__
--  `Resolving Error with unable to insert null value <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/46661646/Resolving++Error+with+unable+to+insert+null+value>`__
+-  :doc:`/mfsql-integration-connector/using-and-managing-logs/mfupdatehistory-for-logging-of-class-record-changes/index`
+-  :doc:`/the-connector-framework/connector-content/logging-tables/process-batch-log-tables/index`
+-  :doc:`/the-connector-framework/connector-content/logging-tables/index`
+-  :doc:`/mfsql-integration-connector/using-and-managing-logs/index`
+-  :doc:`/blogs/using-spmfclasstablestats/index`
