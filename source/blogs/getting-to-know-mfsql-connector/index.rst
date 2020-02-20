@@ -127,7 +127,7 @@ Advanced topics procedures and examples
  - **Create multiple class tables & update tables** : spMFCreateTable, spMFUpdateTable, fnMFParseDelimitedString : *01.102.QuickStartup for multiple class tables*
  - **Tracking processing** : MFUpdateHistory, MFAuditHistory, MFProcessBatchDetail, MFProcessBatch : *02.115.using updatetable filters - Objid, 05.100.understanding updatehistory logging tables*
  - **Processing performance report** : MFProcessBatch, MFProcessBatchDetail : *20.101.Processing PerformanceAnalysis*
- - **Manage logging** : MFUpdateHistory, spMFUpdateHistoryShow, spMFClassTableStats, spMFLogTableStats : *01.132.Deleting objects in M-Files, 02.115.using updatetable filters - Objid, 05.100.Delete history logging tables, 15.101.Using user messaging
+ - **Manage logging** : MFUpdateHistory, spMFUpdateHistoryShow, spMFClassTableStats, spMFLogTableStats : *01.132.Deleting objects in M-Files, 02.115.using updatetable filters Objid, 05.100.Delete history logging tables, 15.101.Using user messaging*
  - **Managing logging tables** : spMFDeleteHistory : *05.100.understanding uhistory tables*
  - **Using user messages** : MFUserMessages, MFProcessBatch, spMFInsertUserMessage, spMFProcessBatch\_EMail, spMFResultMessageForUI : *15.101.Using user messaging*
 
