@@ -42,6 +42,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-02-20  LC         Add set IsnameUpdate = 1 when update take place
 2020-01-10  LC         Improve documentation, add debubbing
 2019-08-30  JC         Added documentation
 2018-04-04  DEV2       Added Licensing module validation code

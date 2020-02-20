@@ -28,7 +28,7 @@ Used by other procedures.
 Warnings
 ========
 
-This procedure returns to M-Files Version on the M-Files Server and not the SQL Server
+This procedure returns to M-Files Version on the SQL Server
 When the procedure to update the assemblies fail, the CLR will have been deleted with reinstatement. When this happens the MFiles version must be updated manually in MFSettings table.
 
 Examples
@@ -53,6 +53,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-02-10  LC         New CLR procedure to get MFVersion from local machine
 2019-09-17  LC         Update documentation
 2019-09-17  LC         Improve error trapping, add MFlog msg
 2019-09-17  LC         Add condition to deal with scenario where CLR has been deleted

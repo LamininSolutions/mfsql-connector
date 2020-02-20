@@ -73,6 +73,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-01-24  LC         Fix multitext column showing false error
 2019-11-18  LC         Fix bug on column width for multi lookup properties
 2019-08-30  JC         Added documentation
 2019-08-29  LC         Add predefined or automatic column
