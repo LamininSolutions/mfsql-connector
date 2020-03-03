@@ -30,7 +30,7 @@ New SQL server - Option 1: New install
 Using this option will provide an opportunity to refresh the MFSQL Connector database and get rid of all redundant objects
 
 New SQL server - Option 2: Restore database
---------------------------------------
+-------------------------------------------
 
  - Restore old database into new SQL server
  - Rerun installation package to reset all the connection settings and update the Assemblies
