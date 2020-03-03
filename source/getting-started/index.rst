@@ -31,18 +31,15 @@ Quick steps for a new installation.
 
 -  SQL
 
-   -  Microsoft SQL Server version 2012, 2014, 2016, 2017 Express,
-      Standard, Enterprise editions.  (Note that procedures dependent on
-      SSIS or Agents  will only operate in Standard or Enterprise)
+   -  Microsoft SQL Server version 2012, 2014, 2016, 2017, 2019 Express , Standard, or Enterprise editions.  (Note that procedures dependent on SSIS or SQL agents will only operate in Standard or Enterprise)
 
--  The same version of M-Files Client is installed on both the SQL
-   Server and M-Files Server
 -  Always start with installation on the M-Files Server, and then the
    SQL Server for standard installations or upgrades
 -  Follow the manual installation instructions for performing the SQL
    server installation without running the installation package
 -  Follow the Cloud installation instructions for performing an
    installation for M-Files Cloud
+-  Follow the WEB API instructions for installing a web service between M-Files and SQL Server  
 -  Follow the workstation installation instruction for installing the
    installation files only. This method is used to get access to the
    installation files for manual installation of certain parts of the

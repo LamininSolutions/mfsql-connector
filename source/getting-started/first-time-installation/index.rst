@@ -9,6 +9,7 @@ First time installation
    content-package-installation/index
    installing-the-context-menu/index
    configuration-of-connection-string/index
+   install-webapi/index
    database-file-connector-installation/index
    using-agent-for-automated-updates/index
    installing-database-mail/index
@@ -42,6 +43,7 @@ The servers are not connected within a common domain. Consider the following:
 
   - Administrative access to install software on the servers
   - Access from M-Files server to SQL on the SQL server via ODBC
+  - Access from M-Files server to SQL on the sql server via Web API
   - Sysadmin rights on the SQL Server
 
 Manually, or partially manual installation is required when any of the above restrictions apply.

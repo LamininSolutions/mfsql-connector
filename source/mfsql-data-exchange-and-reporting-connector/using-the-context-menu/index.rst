@@ -11,35 +11,33 @@ to get ready.
 The Context Menu provides the ability for an authorised M-Files Desktop
 user to perform the following functions:
 
-#. Open Web Page.  This is particularly useful if the user is required
+#. **Open Web Page**  This is particularly useful if the user is required
    to access a Web Application. Instead of opening another browser, the
    user has a single window to open to go to the solution's Web
    Applications.
-#. Execute a SQL procedure.  This option allows the user the start an
+#. **Execute a SQL procedure**.  This option allows the user the start an
    action that is built into the SQL application.  An example is to pull
    information from a third party system or perform a match between
    M-Files and the external application.
-#. Execute a SQL procedure for a specific object.  This option allows
+#. **Execute a SQL procedure for a specific object**.  This option allows
    for the user to perform and operation for the selected object. An
    example is to push an update of the specific item into the Connector.
    Another example is to make a copy of the object, especially where the
    object has a number of related objects that also should be copied and
    comply with specific requirements.
-#. Execute a SQL procedure on the change of workflow state or event handler.  This option
+#. **On the change of workflow state or event handler**.  This option
    allows for executing either a procedure without a input parameter, or
    a procedure that takes the object id and class as of the object in
    scope as input parameters.  This method is particularly relevant
    where the procedure must be triggered automatically when the user
    performed a function in M-Files.   
 
-Visibility of the Context Menu is controlled by the 'Context Menu User
-group'.  'All internal users' group is not a valid option. A specific user, or usergroup must be added as members of this group to allow users to access the menu
+Visibility of the Context Menu is controlled by the 'ContextMenu' User
+group.  
 
 The availability of individual menu action items can be controller by
 adding the user group MFID in the MFContextMenu Table.  By default all
-menu items is set to the Context Menu user group. 
-
-
+menu items is set to the ContextMenu user group. 
 
 Menu and Menu items
 -------------------
@@ -49,12 +47,8 @@ The menu consists of:
 #. The action button to open the menu
 #. The menu items on display
 
-
-
 Action Buttons
 ~~~~~~~~~~~~~~
-
-
 
 Using an action 1 or 2
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -67,8 +61,6 @@ depends on preparation of the Context Menu as outlined above. 
 
 Action 3 menu items will not be displayed.
 
-
-
 Using the context sensitive action 3
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -80,8 +72,6 @@ include the actions that is setup for option 3 (context sensitive
 actions).
 
 Only action 3 items will be displayed.
-
-
 
 Workflow State Actions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -181,8 +171,6 @@ in different situations.
 
    )
 
-
-
 Context Menu security
 ---------------------
 
@@ -194,8 +182,6 @@ Context menu security has two dimensions:
    MFContextMenu will restrict access to the individual menu item to the
    members of the group.
 
-
-
 ContextMenu user group
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -204,8 +190,6 @@ during the installation routine for the replication content package.  By
 all internal users is added to this group by default. Individual users
 and/or user groups can be added.  Remove the default group when
 restricting access to a limited set of users.
-
-
 
 Using MFvwUserGroup to get UserGroupID 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

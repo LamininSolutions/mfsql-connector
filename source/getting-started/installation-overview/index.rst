@@ -88,11 +88,10 @@ Download software
 -----------------
 
 Latest release
-`Version 4.4.13.54 <https://lamininsolutions.com/main/wp-content/uploads/2019/11/MFSQLConnector_4.4.13.54.zip>`__
+`Version 4.6.15.56 <https://lamininsolutions.com/download/MFSQL-Connector-4-6-15-56>`__
 
 Previous
-`Version 4.4.13.53 <https://lamininsolutions.com/main/wp-content/uploads/2019/10/MFSQLConnector_4.4.13.53.zip>`__
-
+`Version 4.4.13.54 <https://lamininsolutions.com/download/MFSQL-Connector-4-4-14-55>`__
 
 Deployment server model
 -----------------------

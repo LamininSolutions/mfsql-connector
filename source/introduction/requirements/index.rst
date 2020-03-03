@@ -11,7 +11,7 @@ Summary
 M-Files: Version 2018 or later; On premise or Cloud; 1 Named User
 dedicated to MFSQL Connector; M-Files desktop on server
 
-SQL: MS SQL 2012 to 2017; (Express or Standard); M-Files Desktop on
+SQL: MS SQL 2012 to 2019; (Express or Standard); M-Files Desktop on
 server.
 
 Detail
@@ -35,7 +35,7 @@ Detail
 
  - Target vault must be pre-existing
  - M-Files client must be installed on SQL Server
- - Powershell must be installed and enabled on the SQL and M-Files serverThe vault settings and application installation can be updated manually if powershell is not enabled
+ - Powershell must be installed and enabled on the SQL and M-Files server. The vault settings and application installation can be updated manually if powershell is not enabled
  - M-Files desktop client must be installed on M-Files Server
  - Each Vault requires a dedicated database
  - In it recommended to use a database naming conversion to link the database with the vault
@@ -48,16 +48,14 @@ Detail
 
 **SQL Database**
 
- - SQL Server 2008, Express, Standard or Enterprise and later
- - All features is not supported in Express such as using agents, performance limitation
  - SQL Server 2012, Express, Standard or Enterprise and later
  - All features is not supported in Express such as using agents, performance limitation
  - SQL Server must be installed with `Mixed Mode Authentication <https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/change-server-authentication-mode>`__ during the setup of the instance
 
 **M-Files to SQL connection**
 
- - MFSQL Connector use a ODBC connection to connect to the Database.
- - We recommend the use of  a VPN to connect the M-Files server and SQL server where these servers are not on an intranet. This is particularly relevant for a Cloud Vault.  
+ - MFSQL Connector use a ODBC connection or a web service to connect from M-Files to the SQL database.
+ - We recommend to use the web service where the M-Files and SQL Server are not in the same network. 
 
 **Size allocation of database**
 
@@ -96,8 +94,6 @@ alternatively, rename the customer property to 'StateID'
 
 Class Table Names cannot be the same as any of the default list of
 tables created during installation (Such as MFProcess) 
-
-
 
 Assumptions and constraints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

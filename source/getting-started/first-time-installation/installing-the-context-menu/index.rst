@@ -38,17 +38,17 @@ Application
 
 -  ContextMenuVaultApp - version 3.2.1.42 and later
 -  MFSQLContextMenuUIX - MFSQL Connector Vault App
-   (ContextMenyVaultApp.zip) - version 3.2.1.50 and later
+
+The installation and application of the Web API is optional. The Web API allows for the communication between M-Files and SQL server to be entirely secure web services based without the need for using ODBC. This is specifically targeted for installations where the M-Files server is not in the same network as the SQL server, such as M-Files in the cloud. 
 
 The installation of the context menu provides the framework to operate
 the context menu. The individual menu items and procedures to execute is
-part of the deployment of the context as set out in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`.
+described in the deployment of the context as set out in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`.
 
 Installation
 ------------
 
-The installation folder contains the content package and vault
-applications required by the Context Menu.
+The installation folder contains the content package and vault applications required by the Context Menu.
 
 The installation package will automatically install these components,
 however, these components can be installed manually.  Follow the M-Files
@@ -60,7 +60,7 @@ Restart the vault after installation of the applications.
 SQL Connection configuration
 ----------------------------
 
-The operations for the context menu is dependent on access to SQL  Check the configuration of the :doc:`/getting-started/first-time-installation/configuration-of-connection-string/index`
+The operations for the context menu is dependent on access to SQL using either an ODBC connection or a Web API connection. Check the configuration of the :doc:`/getting-started/first-time-installation/configuration-of-connection-string/index`
 
 Context Menu Access
 -------------------
@@ -71,12 +71,8 @@ users or usergroups specified in the ContextMenu Usergroup.
 Individual actions are shown in the context menu for users / user groups
 set in the MFContextMenu table MFUserGroupID column.
 
-The default installation set 'All internal users' as the user group. 
-This must be reset to a usergroup or users of your choice.
-
-The 'All internal users' or 'All internal and external users' user
-groups are not a valid selection as a usergroup for the context
-menu access.
+The default installation set 'ContextMenu' as the user group. 
+The users or usergroups for this group must be set for the context menu to be accessible.
 
 Update M-Files client settings
 ------------------------------

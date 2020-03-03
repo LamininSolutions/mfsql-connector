@@ -25,7 +25,7 @@ Select **Configuration** tab. Then select the **ConnectionString**
 **Nothing is showing**
 
 Nothing will show if the installation is for a release prior to
-4.3.9.48
+4.3.9.48 or when the user is not system administrator
 
 Update the Servername, Username Password and databasename. 
 
@@ -40,6 +40,7 @@ Update the Servername, Username Password and databasename. 
    Configurator.
 -  The database is the MFSQL Connector database for the specific vault
    created during first installation of the Connector.
+-  The APIURL (from version 4.6.15.56) is only applicable when the Web API is used.  Leave blank if WEB API is not used. Refer to WEBAPI instructions to compile the API Url
 
 Take vault offline and back online to activate the connection string.
 

@@ -89,5 +89,3 @@ Working with Database files
 -  `Importing files from a database <https://doc.lamininsolutions.com/mfsql-connector/blogs/importing-files-from-a-database/index.html>`_
 
 
-
-
