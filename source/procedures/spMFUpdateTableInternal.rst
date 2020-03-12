@@ -38,6 +38,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-02-20  LC         Change assembly to system.culture time
 2019-11-18  LC         Update time format to address localisation
 2019-08-30  JC         Added documentation
 2019-04-01  LC         Add process_id = 0 as condition

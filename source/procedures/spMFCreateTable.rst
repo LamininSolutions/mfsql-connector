@@ -145,5 +145,6 @@ Date        Author     Description
 2019-09-20  LC         allow for ID at end of name of a lookup property
 2019-10-14  LC         Resolve multilookup table data type incorrectly set
 2019-12-01  LC         Resolve where duplicate columns exist and removal of ID
+2020-03-11  LC         Add check license
 ==========  =========  ========================================================
 

@@ -36,16 +36,31 @@ Warning
 
 Setting @IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish. 
 
-The procedure will automatically default to using 200 000 records as refault for each class table.  
+The procedure will automatically default to using 200 000 records as default for each new class table.  
 
 Examples
 ========
 
 .. code:: sql
 
-    DECLARE @Return int
-    EXEC @Return = spMFUpdateAllncludedInAppTables 2, 0
-    SELECT @return
+    --example for incremental updates (to be included in agent for daily update)
+    DECLARE @ProcessBatch_ID INT;
+    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1, 
+                                         @RemoveDeleted = 1,  
+                                         @IsIncremental = 1,    
+                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT, 
+                                         @Debug = 0
+                                         
+.. code:: sql
+
+    --example for initating all table - use only when small class tables are involved
+    DECLARE @ProcessBatch_ID INT;
+    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1, 
+                                         @RemoveDeleted = 1,  
+                                         @IsIncremental = 0,    
+                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT, 
+                                         @Debug = 0
+
 
 Changelog
 =========
@@ -53,6 +68,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-06  LC         Include spMFUpdateChangeHistory through spMFUpdateMfilestoSQL
+2020-03-06  LC         Exclude MFUserMessages
 2019-12-10  LC         Functionality extended to intialise all tables
 2019-11-04  LC         Include spMFUpdateObjectChangeHistory in this routine
 2019-08-30  JC         Added documentation

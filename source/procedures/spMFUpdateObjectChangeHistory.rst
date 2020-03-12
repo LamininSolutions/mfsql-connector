@@ -7,8 +7,16 @@ Return
   - 1 = Success
   - -1 = Error
 
+  @MFTableName nvarchar(200)
+  Class table name to be updated
+  If null then all class tables in MFObjectChangeHistoryUpdateControl table is included.
+
   @WithClassTableUpdate int
   - Default = 1 (yes)  
+
+  @Objids nvarchar(4000)
+  - comma delimited list of objids to be included 
+  - if null then all objids for the class is included
 
   @Debug (optional)
     - Default = 0
@@ -18,7 +26,7 @@ Return
 Purpose
 =======
 
-To process change history for multiple class table and property combinations 
+To process change history for a single or all class tables and property combinations 
 
 Additional Info
 ===============
@@ -29,7 +37,7 @@ The routine is designed to get the last updated date for the property and the cl
 
 Delete the records for the class and the property to reset the records in the table MFObjectChangeHistory or to force updates prior to the last update date
 
-This procedure is included in spMFUpdateAllIncludedInAppTables routine.  This allows for scheduling only the latter procedure in an agent to ensure that all the updates in the App is included.  
+This procedure is included in spMFUpdateMFilesToSQL and spMFUpdateAllIncludedInAppTables routines.  This allows for scheduling these procedures in an agent or another procedure to ensure that all the updates in the App is included.  
 
 spMFUpdateObjectChangeHistory can be run on its own, either by calling it using the Context menu Actions, or any other method.
 
@@ -63,11 +71,24 @@ Examples
 		N'State_ID'  
 		)
 
-----
+----updating a class table for specific objids
 
 .. code:: sql
 
-    exec spMFUpdateObjectChangeHistory @WithClassTableUpdate = 1, @Debug = 1
+    exec spMFUpdateObjectChangeHistory @MFTableName = 'MFCustomer', @WithClassTableUpdate = 1, @ObjIDs = '1,2,3', @Debug = 0
+
+----updating all class tables (including updating the class table)
+
+.. code:: sql
+
+    exec spMFUpdateObjectChangeHistory @MFTableName = null, @WithClassTableUpdate = 1, @ObjIDs = null, @Debug = 0
+
+    or
+
+    exec spMFUpdateObjectChangeHistory 
+    @WithClassTableUpdate = 0, 
+    @Debug = 0
+
     
 Changelog
 =========
@@ -75,6 +96,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-06  LC         Add MFTableName and objids - run per table
 2019-11-04  LC         Create procedure
 
 ==========  =========  ========================================================

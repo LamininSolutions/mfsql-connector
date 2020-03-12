@@ -127,6 +127,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-12  LC         Revise datetime formatting
 2019-09-25  LC         Include fnMFTextToDate to set datetime - dealing with localisation
 2019-09-19  LC         Resolve dropping of temp table
 2019-09-05  LC         Reset defaults

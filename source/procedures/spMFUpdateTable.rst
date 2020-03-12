@@ -141,6 +141,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-09  LC         Resolve issue with timestamp format for finish formatting
+2020-02-27  LC         Resolve issue with open XML_Docs
 2020-01-06  LC         Resolve issue: variable is null: @RetainDeletions
 2020-01-06  LC         Resolving performance bug when filtering on objids  
 2019-10-01  LC         Allow for rounding where float has long decimals

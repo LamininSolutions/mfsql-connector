@@ -96,6 +96,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-06  LC         Add updating of object history
 2020-02-14  LC         Resolve skipped audit items where class missing items
 2019-12-10  LC         Add a parameter to set the maximum number of objects in class
 2019-09-27  LC         Set withstats for audit batches = 0 
