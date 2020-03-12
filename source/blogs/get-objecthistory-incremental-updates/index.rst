@@ -229,13 +229,13 @@ workflow
 Workflow State
 
 .. code:: sql
+
     SELECT name, mfid FROM [dbo].[MFWorkflowState] AS [mw]
     INNER JOIN [dbo].[MFObjectChangeHistory] AS [moch]
     ON moch.[Property_Value] = mw.[MFID]
     WHERE [moch].[Property_ID] = 39
 
 Valuelist items
-
 
 .. code:: sql
 
@@ -267,8 +267,8 @@ Using a valuelist item view
 
 creating a valuelist item view for currency
 
-
 .. code:: sql
+
     EXEC [dbo].[spMFCreateValueListLookupView] @ValueListName = 'Currency' 
                                               ,@ViewName = 'vwCurrency'
                                               ,@Schema = 'Custom' 
@@ -277,6 +277,7 @@ creating a valuelist item view for currency
 Using the created valuelist view
 
 .. code:: sql
+
     SELECT * FROM [dbo].[MFObjectChangeHistory] AS [moch]
     INNER JOIN [dbo].[MFProperty] AS [mp]
     ON moch.[Property_ID] = mp.mfid
@@ -287,6 +288,7 @@ Working with a multi lookup valuelist
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: sql
+
     SELECT * FROM [dbo].[MFObjectChangeHistory] AS [moch]
     CROSS APPLY [dbo].[fnMFParseDelimitedString]([moch].[Property_Value],',') AS [fmpds]
     INNER JOIN [dbo].[MFvwMetadataStructure] AS [mfms]
@@ -299,6 +301,7 @@ Working with real object type Property Values (class table lookups)
 
 
 .. code:: sql
+
     SELECT * FROM [dbo].[MFObjectChangeHistory] AS [moch]
     INNER JOIN [dbo].[MFvwMetadataStructure] AS [mfms]
     ON [mfms].[Property_MFID] = moch.[Property_ID] AND moch.[Class_ID] = mfms.[class_MFID]
