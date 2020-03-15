@@ -1,6 +1,6 @@
 
 Get Incremental Updates for Object History
-=========================================
+===========================================
 
 Version 4.6.16.57 introduces several changes to the core procedures to enhance get object history, especially combining history updates with the class table updates.
 
