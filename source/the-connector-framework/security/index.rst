@@ -7,16 +7,18 @@ Security
    schemas/index
 
 The Connector requires several aspects of authentication to be
-considered and deployed.
+considered and deployed. Security for accessing M-Files from SQL and accessing SQL from M-Files are different.
 
-The Connector uses both Specific Windows and M-Files authentication
-to validate the user.  We recommend the use of a dedicated M-Files
-user with a distinct name and a named user license.  The name of the
+Credentials for accessing M-Files from SQL
+------------------------------------------
+
+SQL use a standard M-Files Connection to login to M-Files.
+
+The Connector allows for both Specific Windows and M-Files authentication
+as a user.  We recommend the use of a dedicated M-Files authentication 
+user with a distinct name such as *MFSQL* or *MFSQLConnect* as a named user license.  The name of the
 user will appear on all objects in M-Files that is updated or
-created. A M-Files user 'MFSQLConnect' is automatically created as a
-user when the content package is installed to improve visibility of
-which modifications in M-Files is performed by the connector.  This
-user can be removed if it is not used as the Connector user.
+created.
 
 Assign administrator permissions in the vault to the user.  
 
@@ -25,35 +27,34 @@ server-administrator in M-Files for the duration of the
 installation into the M-Files vault.  The installation of the
 vault applications will fail if the user does not have this
 required permissions.  The permissions of the installation user
-can be downgraded to a vault administrator only when the
+can be downgraded to a vault administrator when the
 installation is complete.
 
-From release 4 the installation package will allow you to connect to
-M-Files and the vault and apply these credentials for the
-Connector.  MFVaultSettings will be automatically updatedwith the
-credentials used during installation. The connection settings can be
+The M-Files user is automatically configured in the database on installation of the package.  These details are maintained in the table MFVaultSettings. Re-running the installation package will automatically update the
+credentials. The connection settings can also be
 changed  in the **MFVaultSettings** table using the
-spmfSettingsForVaultUpdate procedure or by rerunning the installation
-package.
+spmfSettingsForVaultUpdate procedure.
+
+The password is stored in the MFVaultSettings table in encrypted format.
+
+Credentials for accessing SQL from M-Files
+------------------------------------------
+
+On installation the package automatically configure the authentication for acc
 
 It is required for the SQL server to be installed with mixed mode
 authentication to operate.
 
-SQL server operations takes place from different angles.
+The Context Menu functionality of the Connector uses an ODBC connection string for access to SQL operations from
+M-Files to SQL. A webservices API method is available for Cloud installation
 
--  Using SSMS to perform operations
--  Operations performs using the context menu and actions in M-Files
--  Using SSIS
--  Accessing third party databases
-
-The Connector use an ODBC connection string for SQL operations from
-M-Files to SQL.
+The connection method is configured in the M-Files Admin Configurator as part of the installation process. The password used in the configurator need to be reset in SQL before the connection from M-Files to SQL will be operational. 
 
 The installation package automatically install and assign permissions
-for SQL.  The SQL authentication login 'MFSQLConnect' is created and
-assumes the permissions assigned to the db_MFSQLConnect role.  
+for the SQL operations.  An SQL authentication login 'MFSQLConnect' is created and
+assumes the permissions assigned to the db_MFSQLConnect role in the database.
 
-Any other user (including windows authentication users) can be added
+Another user (including windows authentication users) can be added
 to the db_MFSQLConnect role to allow specific users to perform
 Connector tasks.
 
@@ -62,25 +63,12 @@ associated with the db_MFSQLConnect role for the schemas: dbo, Setup,
 custom, ContMenu.  Alter permission is applied to dbo and Custom
 schema.
 
-M-Files access the SQL database using a ODBC connection.  The
-connection string is automatically installed in M-Files as part of
-the content package installation.  The functionality to access SQL
-from M-Files is only available in on-premise installations.  It is
-not available in cloud installations.
-
-Encryption of password in MFSettings
+Encryption of password in MFVaultSettings
+-----------------------------------------
 
 The M-Files user credentials used for the Connector is stored in
-encrypted format using Microsoft cryptographic services. Cryptography
-helps protect data from being viewed, provides ways to detect whether
-data has been modified, and helps provide a secure means of
-communication over otherwise nonsecure channels. For example, data can
-be encrypted by using a cryptographic algorithm, transmitted in an
-encrypted state, and later decrypted by the intended party. If a third
-party intercepts the encrypted data, it will be difficult to decipher.
-
-The Connector use **Secret-key encryption (symmetric
-cryptography).** Secret-key encryption algorithms use a single secret
+encrypted format using Microsoft cryptographic services. The  **Secret-key encryption (symmetric
+cryptography).** is used. Secret-key encryption algorithms use a single secret
 key to encrypt and decrypt data.
 
 Two procedures are provided with the Connector to encrypt and decrypt
