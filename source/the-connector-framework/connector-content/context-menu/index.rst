@@ -25,23 +25,11 @@ This capabilities allows for the following key features
 #. Add script in workflow state action that will execute a store
    procedure in SQL
 
-Refer to \ `how to install and
-setup <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625412/Installing+the+Context+Menu>`__
+Refer to :doc:`/getting-started/first-time-installation/installing-the-context-menu/index'
 the Context menu
 
-Refer to `using the Context
-Menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__
-
-.. container:: confluence-information-macro confluence-information-macro-note
-
-   .. container:: confluence-information-macro-body
+Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 
       Note that the Context Menu is installed and operates as a separate
       module of the Connector and requires the installation of the Data
       Exchange module to operate.
-
-| 
-
-| 
-
-| 
