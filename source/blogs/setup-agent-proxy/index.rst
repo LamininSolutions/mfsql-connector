@@ -12,7 +12,7 @@ Consult your DBA and Domain Security expects before configuring the SQL Server s
 
 When using the context menu with elevated security it would be necessary to setup an Agent Proxy account and assign MFSQLConnect to the proxy.  There are several steps to follow for configuring an agent with a proxy account.
 
-A prerequisit for this section is to configure :doc:`/getting-started/first-time-installation/installing-the-content-menu/index`  and create a procedure which will call the agent. Script Example **70.104.Example - Start Job Wait - Agent** show how to setup a calling procedure.
+A prerequisit for this section is to configure :doc:`/getting-started/first-time-installation/installing-the-context-menu/index`  and create a procedure which will call the agent. Script Example **70.104.Example - Start Job Wait - Agent** show how to setup a calling procedure.
  
 Service account
 ---------------
