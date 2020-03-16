@@ -25,7 +25,7 @@ This capabilities allows for the following key features
 #. Add script in workflow state action that will execute a store
    procedure in SQL
 
-Refer to :doc:`/getting-started/first-time-installation/installing-the-context-menu/index'
+Refer to :doc:`/getting-started/first-time-installation/installing-the-context-menu/index`
 the Context menu
 
 Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
