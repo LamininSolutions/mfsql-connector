@@ -170,24 +170,22 @@ table.
 Getting object version detail in batches
 ----------------------------------------
 
-The procedure
-`spMFTableAudit <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/686030990/Get+Object+version+with+spMFTableAudit>`__\ has
+The procedure :doc:`/procedures/spMFTableAudit.html` has
 been in operation for some time. This procedure extracts the object
 version (object id, version, object guid and object type).
 
-Using the
-`spMFTableAuditInBatches <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/685899953/Using+spMFTableAuditinBatches+for+large+class+tables>`__
+Using the :doc:`/procedures/spMFTableAuditInBatches.html
 will allow you to execute the spmfTableAudit procedure in batches. This
 is used in cases where the number of objects in the class table exceeds
 100 000.
 
 .. code:: sql
 
-    EXEC [dbo].[spMFTableAuditinBatches] @MFTableName = 'MFCustomer' -- nvarchar(100)
-                                        ,@FromObjid = 120   -- int
-                                        ,@ToObjid = 130     -- int
-                                        ,@WithStats = 1   -- bit
-                                        ,@Debug = 0       -- int
+    EXEC [dbo].[spMFTableAuditinBatches] @MFTableName = 'MFCustomer' 
+                                        ,@FromObjid = 120  
+                                        ,@ToObjid = 130  
+                                        ,@WithStats = 1 
+                                        ,@Debug = 0  
 
 The following is an example of the result if the option to show stats is
 selected. It took 9 seconds to process 15 items starting from objid 120.
@@ -197,9 +195,8 @@ selected. It took 9 seconds to process 15 items starting from objid 120.
 Exporting of files
 ------------------
 
-`Exporting files
-f <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/57913733/spMFExportFiles+for+exporting+files+to+SQL>`__\ rom
-M-Files using the Connector has been available for some time. The
+`Exporting files with :doc:`/procedures/spMFExportFiles.html` from
+M-Files has been available for some time. The
 primary use of this functionality is to get a file from M-Files and be
 able to attach it to a database email, and therefore send bulk emails
 with attachments.
@@ -218,8 +215,7 @@ change of version of the underlying object and the name change there
 does not replicate through to SQL. This is particularly relevant where
 the state column in the class table is used in reporting.
 
-The procedure
-`spmfSynchronizeWorkFlowSateColumnChange <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/640614411/spMFSynchronizeWorkflowStateColumnChange+to+update+workflow+state+changes>`__\ will
+The procedure :doc:`/procedures/spMFSynchronizeWorkFlowSateColumnChange.html` will
 run through the class tables and update all state name changes.
 
 Related script to demonstrate function: 01.201.Resetting workflow state
@@ -228,9 +224,8 @@ names on all class tables
 Property and column usage in SQL
 --------------------------------
 
-The procedure `spMFClassTableColumns
-w <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/687374389/spMFClassTableColumns+for+analysis+property+usage>`__\ orks
-through all the properties and related columns for class tables and
+The procedure :doc:`/procedures/spMFClassTableColumns.html`
+works through all the properties and related columns for class tables and
 provide a report on the usage of properties in the Connector. This
 report is particularly powerful in complex and vaults with multiple
 integration points.
@@ -239,11 +234,11 @@ The result of the procedures is saved a temporary table. This table can
 be used in subsequent processes detect potential anomalies and trigger
 corrective action.
 
-`spMFDropAndUpdateTable <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/36536345/spMFDropAndUpdateMetadata>`__
+:doc:`/procedures/spMFDropAndUpdateTable.html`
 is improved to detect inconsistencies with column usage and
 automatically update the metadata
 
-`spMFUpdateTable <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/31817730/spMFUpdatetable+Class+Table+Records>`__
+:doc:`/procedures/spMFUpdateTable.html`
 is improved to validate columns and automatically execute updating of
 the metadata if the metadata has changes since the last update. Note
 that this check could increase the run time for spMFUpdateTable
@@ -252,8 +247,7 @@ significantly when executed just after a metadata change in the vault.
 Get object version for specific object or objects
 -------------------------------------------------
 
-The
-`spMFTableAudit <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/686030990/Get+Object+version+with+spMFTableAudit>`__\ and
+The :doc;`/procedures/spMFTableAudit.html`
 associated MFTableAuditHistory has been redesigned. The
 MFTableAuditHistory table is changed to only show the latest result and
 no longer inserts new records for every processing cycle. This
@@ -267,8 +261,7 @@ particularly relevant for large tables.
 Performance improvements for spMFUpdateMFilestoSQL
 --------------------------------------------------
 
-The
-`spMFUpdateMFilestoSQL <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/31817730/spMFUpdatetable+Class+Table+Records>`__
+The :doc:`/procedures/spMFUpdateMFilestoSQL`
 has been around for some time to update large tables from M-Files to
 SQL. Several changes have been made to this table to improve
 performance.
@@ -330,8 +323,6 @@ Validation of M-Files version and upgrade
 -----------------------------------------
 
 This release introduces the ability to automate the upgrade of MFSQL
-Connector on the change of M-Files Version. See `separate
-blog <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/blog/2018/11/22/610795521>`__
-for more detail on the topic.
+Connector on the change of M-Files Version. See :doc:`/blogs/updating-connector-after-m-files-had-an-upgrade/index` for more detail on the topic.
 
 .. |image0| image:: img_1.png

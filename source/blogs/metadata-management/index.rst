@@ -35,6 +35,9 @@ Anomolies and errors with columns can be identified using the error columns in t
 
 The result also show the different types of columns that is used on a class.
 
+Related blogs:
+ -  
+
 Updating aliases
 ~~~~~~~~~~~~~~~~
 
