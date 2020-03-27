@@ -12,7 +12,7 @@ Metadata Structure
 Exploring the metadata structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A large part of the structure of the metadata is replicated in SQL.  The tables outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` is all tied together with the view MFvwMetadataStructure. The blog :doc:`/blogs/exploring-valuelists-with-mfvwmetadatastructure/index` illustrates how to use this view.
+A large part of the structure of the metadata is replicated in SQL.  The tables, outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` , is tied together with the view MFvwMetadataStructure. The blog :doc:`/blogs/exploring-valuelists-with-mfvwmetadatastructure/index` illustrates how to use this view.
 
 This view provides a unique insight into the metadata structure.  Some related questions include:
  -  The classes where a valuelist used 
