@@ -32,24 +32,28 @@ Additional Info
 
 The procedure also show a summary of the key status records from the process_id column of the tables. The number of records in the following categories are shown:
 
-==============  ===============================================================
-Column          Description
---------------  ---------------------------------------------------------------
-ClassID         MFID of the class
-TableName       Name of Class table
-IncludeInApp    IncludeInApp Flag
-SQLRecordCount  Totals records in SQL (Note that this is not necessarily the same as the total per M-Files)
-MFRecordCount   Total records in M-Files including deleted objects. This result is derived from the last time that spMFTableAudit procedure was run to produce a list of the objectversions of all the objects for a specific class. 
-MFNotInSQL      Total record in M-Files not yet updated in SQL. This excludes deleted objects in M-Files which are recorded in MFAuditTable with statusflag = 6
-Deleted         Total for Deleted flag set to 1 plus deleted in M-Files and not in class table
-SyncError       Total Synchronization errors (process_id = 2)
-Process_ID_not_0    Total of records with process_id <> 0 this includes the errors and show records that will be excluded from an @updatemethod = 1 routine
-MFError         Total of records with process_id = 3 as MFError
-SQLError        Total of records with process_id =4 as SQL Error
-LastModifed     Most recent date that SQL updated a record in the table
-MFLastModified  Most recent that an update was made in M-Files on the record
-SessionID       ID  of the latest spMFTableAudit procedure execution.
-==============  ===============================================================
+=================  =====================================================================================================
+Column             Description
+-----------------  -----------------------------------------------------------------------------------------------------
+ClassID            MFID of the class
+TableName          Name of Class table
+IncludeInApp       IncludeInApp Flag
+SQLRecordCount     Totals records in SQL (Note that this is not necessarily the same as the total per M-Files)
+MFRecordCount      Total records in M-Files including deleted objects. 
+                   This result is derived from the last time that spMFTableAudit procedure was run to produce a list
+                   of the objectversions of all the objects for a specific class. 
+MFNotInSQL         Total record in M-Files not yet updated in SQL. This excludes deleted objects in M-Files which are
+                   recorded in MFAuditTable with statusflag = 6
+Deleted            Total for Deleted flag set to 1 plus deleted in M-Files and not in class table
+SyncError          Total Synchronization errors (process_id = 2)
+Process_ID_not_0   Total of records with process_id <> 0 this includes the errors and show records that will be
+                   excluded from an @updatemethod = 1 routine
+MFError            Total of records with process_id = 3 as MFError
+SQLError           Total of records with process_id =4 as SQL Error
+LastModifed        Most recent date that SQL updated a record in the table
+MFLastModified     Most recent that an update was made in M-Files on the record
+SessionID          ID  of the latest spMFTableAudit procedure execution.
+=================  =====================================================================================================
 
 Warnings
 ========

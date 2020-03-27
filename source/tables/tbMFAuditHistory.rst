@@ -35,7 +35,7 @@ Indexes
 idx\_AuditHistory\_ObjType\_ObjID
   - ObjectType
   - ObjID
-idx\_AuditHistory\_Class\_Flag
+idx\_AuditHistory\_Class\_Objid
   - Class
   - ObjID
 
@@ -60,6 +60,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-18  LC         Change name of index Class_Objid
 2019-09-07  JC         Added documentation
 ==========  =========  ========================================================
 

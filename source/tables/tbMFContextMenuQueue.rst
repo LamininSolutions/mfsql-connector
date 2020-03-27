@@ -17,6 +17,13 @@ Additional Info
 Indexes
 =======
 
+idx\_ContextMenuQueue\_ObjType\_ObjID
+  - ObjectType
+  - ObjID
+idx\_ContextMenuQueue\_Class\_Objid
+  - Class
+  - ObjID
+
 Foreign Keys
 ============
 
@@ -45,14 +52,13 @@ Examples
     INNER JOIN dbo.MFObjectType AS mot
     ON mot.MFID = mcmq.ObjectType
 
-
-
 Changelog
 =========
 
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-18  LC         Add indexes
 2019-12-06  LC         Create Table
 ==========  =========  ========================================================
 

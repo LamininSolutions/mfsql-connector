@@ -146,5 +146,7 @@ Date        Author     Description
 2019-10-14  LC         Resolve multilookup table data type incorrectly set
 2019-12-01  LC         Resolve where duplicate columns exist and removal of ID
 2020-03-11  LC         Add check license
+2020-03-18  LC         Add non clustered unique index for objid
+2020-03-27  LC         Add MFSetting to allow optional create of indexes
 ==========  =========  ========================================================
 
