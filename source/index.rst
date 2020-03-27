@@ -31,11 +31,10 @@ Welcome to MFSQL Connector's documentation!
    :caption: SQL Components:
    :hidden:
 
-
    procedures/index
    tables/index
    functions/index
-
+   views/index
 
 .. note::
     Check the sidebar for various topics like 'Getting Started'.
