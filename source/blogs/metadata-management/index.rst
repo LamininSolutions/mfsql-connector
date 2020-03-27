@@ -12,7 +12,7 @@ Metadata Structure
 Exploring the metadata structure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A large part of the structure of the metadata is replicated in SQL.  The tables, outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` , is tied together with the view MFvwMetadataStructure. The blog :doc:`/blogs/exploring-valuelists-with-mfvwmetadatastructure/index` illustrates how to use this view.
+A large part of the structure of the metadata is replicated in SQL.  The tables, outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` , is tied together with the view :doc:`/views/MFvwMetadataStructure.html` The blog :doc:`/blogs/exploring-valuelists-with-mfvwmetadatastructure/index` illustrates how to use this view.
 
 This view provides a unique insight into the metadata structure.  Some related questions include:
  -  The classes where a valuelist used 
@@ -20,12 +20,25 @@ This view provides a unique insight into the metadata structure.  Some related q
  -  The classes where another class is referenced
  -  Which class table to create when a certain property or valuelist need to be updated or reviews
  -  Show all the properties set on the metadata card for a specific class
- 
+  
 Exploring class tables and their columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The following procedures and views allow digger deeper into the application of the structure in the class tables.
+
+ -  :doc:`/views/MFvwClassTableColumns.html`
+ -  :doc:`/procedures/spMFClassTableColumns.html`
+
+These methods unique identify where properties are used as adhoc properties on an class.
+
+Anomolies and errors with columns can be identified using the error columns in the result set.
+
+The result also show the different types of columns that is used on a class.
+
 Updating aliases
 ~~~~~~~~~~~~~~~~
+
+
 
 Discovery
 
