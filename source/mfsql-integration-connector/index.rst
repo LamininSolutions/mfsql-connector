@@ -4,6 +4,7 @@ MFSQL Integration Connector
 .. toctree::
    :maxdepth: 4
 
+   exploring-metadata/index
    building-custom-applications-and-integrations/index
    property-and-column-usage/index
    metadata-search/index

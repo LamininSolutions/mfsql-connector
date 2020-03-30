@@ -121,7 +121,8 @@ these in the filter of the statement.
 |Public link accessed              |PublicLink        |
 |File downloaded via public link   |FileAccess        |
 |File downloaded                   |FileAccess        |
-+----------------------------------|------------------+
++----------------------------------+------------------+
+
 
 Example of extract based on the statement above
 

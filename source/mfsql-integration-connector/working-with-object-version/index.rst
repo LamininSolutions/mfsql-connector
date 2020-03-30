@@ -21,7 +21,7 @@ There are two primary procedures for using this functionality
 Procedures that automatically update MFAuditHistory include:
 
 -  :doc:`/procedures/spMFUpdateItemByItem`
--  :doc:`/procedures/spMFUpdateMFilesToSQL'
+-  :doc:`/procedures/spMFUpdateMFilesToMFSQL`
 -  :doc:`/procedures/spMFClassTableStats`
 
 Getting object version detail in batches
@@ -63,6 +63,6 @@ object and allow then to only update objects that have changed. This is
 particularly relevant for large tables.
 
 
-refer to :doc:`/tables/MFAuditHistory` table for more information on the audit log entries.
+refer to :doc:`/tables/tbMFAuditHistory` table for more information on the audit log entries.
 
 .. |image0| image:: img_1.png

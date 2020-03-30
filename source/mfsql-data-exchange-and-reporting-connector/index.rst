@@ -8,6 +8,7 @@ MFSQL Data Exchange and reporting Connector
    working-with-class-tables/index
    m-files-event-log/index
    using-the-context-menu/index
+   reporting/index
 
 This  module is used where the Connector is deployed to perform data
 exchange only with no need for extensive development of integrations and

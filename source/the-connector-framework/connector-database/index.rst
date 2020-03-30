@@ -12,7 +12,8 @@ The Connector requires a SQL Server database that has a one to one relationship 
 The database is automatically installed by the installation package. This database is completely separate from the M-Files own databases (either SQL or Firebird)
 
 .. warning::
-The connector should NEVER be installed into the M-Files Vault SQL database. Contact support if the deployment waa accidentally pointed to the vault database.
+
+    The connector should NEVER be installed into the M-Files Vault SQL database. Contact support if the deployment waa accidentally pointed to the vault database.
 
 The Database will exclusively be used for the Connector and only contain one vault. Name the database to include easy reference to both connector and Vault.  We Recommend the naming convention 'MFSQL_VaultName'
 
