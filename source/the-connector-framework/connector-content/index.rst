@@ -27,7 +27,7 @@ distinguish them from non Connector tables in the database. The Metadata tables 
 -  :doc:`/the-connector-framework/connector-content/logging-tables` reference processing logs and unclude: MFLog; UpdateHistory; ProcessLog
 -  :doc:`/the-connector-framework/connector-content/class-tables` represent the data in the vault such as Customers, Contacts and any other class in the vault. Class tables are not created by default, but created when the data that is required for the specific    application has been determined. The Class Tables therefore represent the metadata of the specific classes of objects that the application will interact with.
 
-:doc:`/the-connector-framework/connector-content/procedures-and-functions' are T-SQL procedures and functions to perform operations on the tables and the use the assemblies.
+:doc:`/the-connector-framework/connector-content/procedures-and-functions` are T-SQL procedures and functions to perform operations on the tables and the use the assemblies.
 
 :doc:`/the-connector-framework/connector-content/context-menu` controls users interaction with SQL from within M-Files
 
