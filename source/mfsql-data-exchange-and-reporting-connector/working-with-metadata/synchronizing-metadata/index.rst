@@ -136,8 +136,8 @@ The standard method of updating metadata from M-Files to SQL is to use
 this procedure.  Note that this procedure will also record the update in
 MFProcessBatch and MFProcessBatchDetail logging tables.
 
-:doc:`/procedures/spMFSynchronizeMetadata'
-:doc:`/procedures/spMFDropAndUpdateMetadata'
+:doc:`/procedures/spMFSynchronizeMetadata`
+:doc:`/procedures/spMFDropAndUpdateMetadata`
 
 Use this procedure when a specific type of metadata is required to be
 updated, or before the metadata must be updated from SQL to M-Files and a metadata change has taken place.
