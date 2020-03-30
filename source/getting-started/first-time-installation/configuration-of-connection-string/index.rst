@@ -45,3 +45,4 @@ Update the Servername, Username Password and databasename. 
 Take vault offline and back online to activate the connection string.
 
 Select **Dashboard** tab to validate the connection.
+

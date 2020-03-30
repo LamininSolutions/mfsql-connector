@@ -15,103 +15,54 @@ version and therefore requires updating.
 
 There are two primary procedures for using this functionality
 
--  `spMFTableAudit <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/686030990/spMFTableAudit>`__
--  `spMFTableAuditInBatches <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/685899953/spMFTableAuditinBatches>`__
+-  :doc:`/procedures/spMFTableAudit`
+-  :doc:`/procedures/spMFTableAuditInBatches`
 
 Procedures that automatically update MFAuditHistory include:
 
--  `spMFUpdateItemByItem <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/31817730/spMFUpdatetable+Class+Table+Records>`__
--  `spMFUpdateMFilesToSQL <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/31817730/spMFUpdatetable+Class+Table+Records>`__
--  `spMFClassTableStats <page22478933.html#Bookmark27>`__
+-  :doc:`/procedures/spMFUpdateItemByItem`
+-  :doc:`/procedures/spMFUpdateMFilesToSQL'
+-  :doc:`/procedures/spMFClassTableStats`
+
+Getting object version detail in batches
+----------------------------------------
+
+The procedure :doc:`/procedures/spMFTableAudit` has
+been in operation for some time. This procedure extracts the object
+version (object id, version, object guid and object type).
+
+Using the :doc:`/procedures/spMFTableAuditInBatches`
+will allow you to execute the spmfTableAudit procedure in batches. This
+is used in cases where the number of objects in the class table exceeds
+100 000.
+
+.. code:: sql
+
+    EXEC [dbo].[spMFTableAuditinBatches] @MFTableName = 'MFCustomer' 
+                                        ,@FromObjid = 120  
+                                        ,@ToObjid = 130  
+                                        ,@WithStats = 1 
+                                        ,@Debug = 0  
 
 
+|image0|
 
-MFAuditHistory table
---------------------
 
-The Audit History table include the following records.
+Get object version for specific object or objects
+-------------------------------------------------
 
-.. container:: table-wrap
+The :doc;`/procedures/spMFAuditTable`
+associated MFTableAuditHistory has been redesigned. The
+MFTableAuditHistory table is changed to only show the latest result and
+no longer inserts new records for every processing cycle. This
+improvement had a major performance improvement on some processing.
 
-   +--------+-------------------------------------------------------------+
-   | Column | Description                                                 |
-   +========+=============================================================+
-   | ID     | identity int for records in the table                       |
-   +--------+-------------------------------------------------------------+
-   | RecID  | the id of the record in the class table. if null then the   |
-   |        | record was not yet in the table when the session was        |
-   |        | processed                                                   |
-   +--------+-------------------------------------------------------------+
-   | Sessio | sequential number for the session. Each update for a        |
-   | nID    | specific class is regarded as a session. The latest session |
-   |        | for a class represents the status of the records when the   |
-   |        | audit history was last updated.                             |
-   +--------+-------------------------------------------------------------+
-   | TranDa | date that the session was processed                         |
-   | te     |                                                             |
-   +--------+-------------------------------------------------------------+
-   | Object | MFID of the ObjectType of the class                         |
-   | Type   |                                                             |
-   +--------+-------------------------------------------------------------+
-   | Class  | MFID of the Class                                           |
-   +--------+-------------------------------------------------------------+
-   | Objid  | Objid of the record from the Objver of the object in        |
-   |        | M-Files                                                     |
-   +--------+-------------------------------------------------------------+
-   | MFVers | the version from the Objver when the object was processed   |
-   | ion    |                                                             |
-   +--------+-------------------------------------------------------------+
-   | Status | 0 - the record MFversion in M-Files and SQL is identical    |
-   | Flag   |                                                             |
-   |        | 1 - the record MFversion in M-Files is higher than SQL.     |
-   |        | This indicates a need for updating from Mfiles to SQL       |
-   |        | (Updatemethod 1)                                            |
-   |        |                                                             |
-   |        | 2 - the SQL version is later than the M-Files version       |
-   |        | (usually signalling a syncronisation error)                 |
-   |        |                                                             |
-   |        | 3 - the record in SQL is flagged as deleted in SQL and does |
-   |        | not exist in M-Files                                        |
-   |        |                                                             |
-   |        | 4 - the record is not in M-Files and the record flag in SQL |
-   |        | is not deleted. This usually indicate that the routine for  |
-   |        | deleting records have not yet been processed.               |
-   |        |                                                             |
-   |        | 5 - when there is no record in SQL for an objver in         |
-   |        | M-Files. This usually indicate that the records was created |
-   |        | in M-Files and that the update routine has not yet been     |
-   |        | run. This may indicate a need for updating from Mfiles to   |
-   |        | SQL (Updatemethod 1)                                        |
-   |        |                                                             |
-   |        | Note that all templates in M-Files will also show as        |
-   |        | statusflag 5 as templates are not inserted into SQL.        |
-   |        | Execute spmfUpdateTable to move the template objects to     |
-   |        | statusflag 6.                                               |
-   |        |                                                             |
-   |        | Also note that records showing persistly up as statusflag   |
-   |        | 5, even after updating from M-Files could indicate that the |
-   |        | Connector cannot access the record. A few examples of why   |
-   |        | this happens have been identified:                          |
-   |        |                                                             |
-   |        | -  The text in a Multi-line property exceeds 4000           |
-   |        |    characters                                               |
-   |        | -  The object in m-files is a document collection.          |
-   |        |                                                             |
-   |        | 6- the Record is a template. This status flag is update by  |
-   |        | spmfUpdateTable.                                            |
-   |        |                                                             |
-   |        | 7 - The record in SQL is marked as deleted but the record   |
-   |        | exist in M-Files (likely to have been undeleted.            |
-   +--------+-------------------------------------------------------------+
-   | Status | Description of status                                       |
-   | Name   |                                                             |
-   +--------+-------------------------------------------------------------+
-   | Update | this is the update status of spmfupdatetable when           |
-   | Flag   | spmfupdateitembyitem is processed                           |
-   +--------+-------------------------------------------------------------+
+It is now possible to use this procedure for specific objects or range
+of objects. It is therefor possible to determine the update status of an
+object and allow then to only update objects that have changed. This is
+particularly relevant for large tables.
 
-Note that the records in this table is not automatically deleted. It is
-recommended that agent is used to delete old records in the table if
-they are no longer required.
 
-| 
+refer to :doc:`/tables/MFAuditHistory` table for more information on the audit log entries.
+
+.. |image0| image:: img_1.png

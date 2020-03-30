@@ -58,7 +58,7 @@ SessionID          ID  of the latest spMFTableAudit procedure execution.
 Warnings
 ========
 
-The MFRecordCount results of spMFClassTableStats is only accurate based on the last execution of spMFAuditTable for a particular class table.
+The MFRecordCount results of spMFClassTableStats is only accurate based on the last execution of spMFTableAudit for a particular class table.
 
 Examples
 ========

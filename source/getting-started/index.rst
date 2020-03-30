@@ -11,11 +11,12 @@ Getting Started
    next-steps-after-installation/index
    upgrades-and-hotfixes/index
    update-settings/index
+   database-mail/index
 
 Quick steps for a new installation.
 -----------------------------------
 
--   `Prerequisites <https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index.html>`__
+-   Check out the prerequisites :doc:`<https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index`
 -   M-Files
 
    -  Minimum version 12.0 (M-Files 2018)

@@ -1,10 +1,77 @@
 Synchronizing Metadata
 ======================
 
-.. toctree::
-   :maxdepth: 4
+Synchronizasion Methods
+-----------------------
 
-   synchronize-methods/index
+Synchronize metadata for the first time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to synchronize the metadata tables with M-File server execute
+the procedure :doc:`/procedures/spMFSynchronizeMetadata`.This
+procedure will internally call all required procedures
+
+i.e.
+
+-  ·        \ **spMFSynchronizeLoginAccount**
+-  ·        \ **spMFSynchronizeUserAccount**
+-  ·        \ **spMFSynchronizeObjectType**
+-  ·        \ **spMFSynchronizeProperties**
+-  ·        \ **spMFSynchronizeValueList**
+-  ·        \ **spMFSynchronizeValueListItems**
+-  ·        \ **spMFSynchronizeWorkflow**
+-  ·        \ **spMFSynchronizeWorkflowsStates**
+-  ·        \ **spMFSynchronizeClasses**
+
+Each spMFSynchronize\* procedure will internally call two
+other procedures
+
+spMFGet\*
+
+spMFInsert\*
+
+spMFGet\* procedure will connect to M-Files server and get the metadata
+details in XML format and spMFInsert\* procedure will insert those
+details into the respective metadata tables.
+
+Synchronize specific metadata
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use `spMFSynchronizeSpecificMetadata <page36536341.html#Bookmark27>`__
+to update a specific type of metadata.  This is particularly useful when
+a small change was made in the vault that need to be pulled through.  
+
+When changes are made to classes it is very important to perform
+all the dependent specific synchronizations before doing the class
+synchronization.
+
+Synchronize metadata Tables with new Vault
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to synchronize the metadata tables with a new vault, execute
+“spMFDropAndUpdateMetadata”. This procedure will retain the following
+custom settings in the metadata tables. All other column values will
+updated with new vault details.
+
+
+================ ====================
+Table            Customisable columns
+================ ====================
+MFClass          IncludedInApp
+                
+                 TableName
+MFProperty       ColumnName
+MFValuelistItems AppRef
+                
+                 Owner_AppRef
+================ ====================
+
+This procedure can also be used to reset all the metadata, but retain
+the custom settings in the Tables.
+
+
+Why synchronising the metadata
+------------------------------
 
 The vault structure is captured in metadata baseline tables such as
 classes, object types etc.  Synchronizing the metadata updates the
@@ -61,13 +128,6 @@ the refresh.
 Refer to the 'Change of Vault' section in a case where the metadata in
 the Connector are ported from one vault to another.
 
-Metadata synchronization procedures
------------------------------------
-
-There are a number of store procedures  used for metadata
-synchronization. Only three of these procedures are designed to be used
-by the developer. The other procedures are all called by  these
-procedures
 
 Refresh all metadata:
 ~~~~~~~~~~~~~~~~~~~~~
@@ -76,12 +136,11 @@ The standard method of updating metadata from M-Files to SQL is to use
 this procedure.  Note that this procedure will also record the update in
 MFProcessBatch and MFProcessBatchDetail logging tables.
 
-`spMFSynchronizeMetadata <page36536335.html#Bookmark26>`__
+:doc:`/procedures/spMFSynchronizeMetadata'
+:doc:`/procedures/spMFDropAndUpdateMetadata'
 
-spMFDropAndUpdateMetadata
-
-Use this procedure when on a specific type of metadata is required to be
-updated, or if the metadata must be updated from SQL to M-Files
+Use this procedure when a specific type of metadata is required to be
+updated, or before the metadata must be updated from SQL to M-Files and a metadata change has taken place.
 
 Metadata errors
 ---------------
@@ -93,7 +152,3 @@ installation.
 
 #. Unable to update record in SQL because null values are not allowed. 
 #. No connection to the vault.
-
-**Related Topics**
-
-`Metadata Synchronization methods <page22478891.html#Bookmark21>`__

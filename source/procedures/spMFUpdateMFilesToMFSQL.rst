@@ -113,7 +113,7 @@ Date        Author     Description
 2017-12-25  LC         Change BatchProcessDetail log text for lastupdatedate
 2017-06-29  AC         Change LogStatusDetail to 'Completed' from 'Complete'
 2017-06-08  AC         Incorrect LogTypeDetail value
-2017-06-08  AC         ProcessBatch_ID not passed into spMFAuditTable
+2017-06-08  AC         ProcessBatch_ID not passed into spMFTableAudit
 2016-08-11  AC         Create Procedure
 ==========  =========  ========================================================
 

@@ -267,31 +267,6 @@ to value to blank in M-Files and refresh again.
 
 |image5|
 
-Property and Column usage and errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The new spMFClassTableColumn procedure produces a temporary table with
-details on the usage and errors in the Class Tables. This procedure is
-useful for advanced management of columns and validating the integrity
-of the custom application.
-
-.. code:: sql
-
-    EXEC [dbo].[spMFClassTableColumns]
-    SELECT * FROM ##spMFClassTableColumns
-
-The rich set of data include:
-
--  ColumnType showing if the property is in use; defined on the metadata
-   card; adhoc property; or a M-Files system property
-
--  Both SQL datatypes and M-Files datatypes is shown
-
--  Columns at the end of the table show error statuses for Datatype
-   errors, Missing columns, Missing Tables, or if a table is not longer
-   in use.
-
-|image6|
 
 .. |image0| image:: img_1.jpg
 .. |image1| image:: img_2.jpg
@@ -299,4 +274,4 @@ The rich set of data include:
 .. |image3| image:: img_4.jpg
 .. |image4| image:: img_5.jpg
 .. |image5| image:: img_6.jpg
-.. |image6| image:: img_7.jpg
+

@@ -43,13 +43,5 @@ Welcome to MFSQL Connector's documentation!
 
     Email your suggestions to `support <mailto:support@lamininsolutions.com>`__.
 
-.. warning::
-    This edition of the documentation has been transferred from the now redundant Jira based edition. It is still in draft mode and may have broken formatting or links. Kindly contact us if you spot any. 
-
-    Your suggestions for improvement or additions to the documentation is welcome.
-
-
-
-
 .. |search_icon| image:: search-icon.png
    :height: 20px

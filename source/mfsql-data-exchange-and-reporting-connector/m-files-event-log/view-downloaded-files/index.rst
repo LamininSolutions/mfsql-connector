@@ -114,35 +114,24 @@ depending on the type of event.
 Various categories and types apply to file download operations. Include
 these in the filter of the statement.
 
-Type
-
-Category
-
-Public link created
-
-PublicLink
-
-Public link accessed
-
-PublicLink
-
-File downloaded via public link
-
-FileAccess
-
-File downloaded
-
-FileAccess
++----------------------------------+------------------+
+|Type                              |Category          |
++==================================+==================+
+|Public link created               |PublicLink        |
+|Public link accessed              |PublicLink        |
+|File downloaded via public link   |FileAccess        |
+|File downloaded                   |FileAccess        |
++----------------------------------|------------------+
 
 Example of extract based on the statement above
 
 |image2|
 
-| 
 
 |image3|
 
-| 
+
+
 
 .. |image0| image:: img_1.jpg
 .. |image1| image:: img_2.jpg

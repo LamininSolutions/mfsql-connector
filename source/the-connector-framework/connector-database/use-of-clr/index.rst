@@ -14,7 +14,23 @@ external services. T-SQL stored procedures and CLR stored procedures are
 deployed in the Connectors to complement each other - each solving a
 specific set of challenges that the other is not particularly good at.
 
+CLR integration feature is off by default in SQL Server, and must be enabled in order to use objects that are implemented using CLR integration. The Connector use CLR as described in Using CLR section.  To enable CLR integration, the \ **clr
+enabled** option of the \ **sp_configure** stored procedure is set in
+the installation scripts.  The following is included in the script
+script.update_Assembly.sql.
 
+TRUSTWORTHY will be set ON in order to create assembly with
+PERMISSION_SET = UNSAFE.
+
+sp_configure'show advanced options', 1; GO RECONFIGURE; GO
+sp_configure'clr enabled', 1; GO RECONFIGURE; GO
+
+CLR integration can be disabled by setting the clr enabled option to 0.
+When CLR integration is disabled, SQL Server stops executing all CLR
+routines and unloads all application domains. The Connector will not
+function if CLR is disabled.
+
+Learn more on the use of CLR in the Connector in the following sections
 
 Architecture of CLR Integration
 -------------------------------
@@ -52,8 +68,6 @@ is not compromised by user code calling application programming
 interfaces (APIs) for threading, memory, and synchronization primitives
 directly.
 
-
-
 Performance
 ~~~~~~~~~~~
 
@@ -88,8 +102,6 @@ variables and data members and the ability to call code dynamically.
 Application domains are also the mechanism for loading and unloading
 code. Code are unloaded from memory only by unloading the application
 domain.
-
-
 
 Code Access Security(CAS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,8 +145,6 @@ debugging and profiling support. Using CLR integration allowed the
 Connector to be integrated with stored procedures and can use triggers,
 user-defined types, user-defined functions (scalar and table-valued),
 and user-defined aggregate functions to perform its functions.
-
-
 
 Benefits of using CLR
 ---------------------
@@ -202,9 +212,3 @@ managed code does not gain access to user data or other user code
 exernal to the database except for data in M-Files. The User-defined
 code runs under the security context of the user-session that invoked
 it, and with the correct privileges for that security context.
-
-**Related Topics**
-------------------
-
-- `Enabling CLR <page21201034.html#Bookmark73>`__
-- `Connector Database <page21201024.html#Bookmark67>`__

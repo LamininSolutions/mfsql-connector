@@ -1,5 +1,10 @@
+
+Set-up and working with Connector Database
+==========================================
+
+
 Backup and restore of Connector
-===============================
+-------------------------------
 
 The MFSQL Connector database should be backed up regularly as part of
 daily maintenance routines.
@@ -18,16 +23,13 @@ The installation files and some procedures are uniquely compiled during
 installation for each database and cannot be re-used to create or update
 a database with a different name.
 
-.. container:: confluence-information-macro confluence-information-macro-warning
 
-   changing name of database
+Changing name of database
+-------------------------
 
-   .. container:: confluence-information-macro-body
 
-      Changing the name of the Connector database by restoring and
-      backup to a new name is not advisable.  We recommend to reinstall
-      the connector using the installation software to a new database
-      and to migrate any custom scripts and procedures to the new
-      database.
+Changing the name of the Connector database by restoring and backup to a new name is not advisable.  We recommend to reinstall the connector using the installation software to a new database and to migrate any custom scripts and procedures to the new database.
 
-| 
+
+
+   

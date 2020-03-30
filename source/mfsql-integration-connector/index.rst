@@ -5,10 +5,13 @@ MFSQL Integration Connector
    :maxdepth: 4
 
    building-custom-applications-and-integrations/index
+   property-and-column-usage/index
    metadata-search/index
    create-valuelist-items-from-sql/index
    user-messages/index
    lookup-views/index
+   working-with-files/index
+   working-with-aliases/index
    change-of-vault/index
    daily-monthly-routines-for-agents/index
    tips-and-tricks-on-using-the-connector/index
