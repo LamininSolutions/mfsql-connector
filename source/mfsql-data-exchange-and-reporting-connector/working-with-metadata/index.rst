@@ -3,6 +3,8 @@ Working with Metadata
 
 .. toctree::
    :maxdepth: 4
+   
+   synchronizing-metadata
 
 Metadata synchronization procedures
 -----------------------------------
