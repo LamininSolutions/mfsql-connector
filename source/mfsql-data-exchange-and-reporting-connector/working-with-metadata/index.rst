@@ -4,7 +4,7 @@ Working with Metadata
 .. toctree::
    :maxdepth: 4
    
-   synchronizing-metadata
+   synchronizing-metadata/index
 
 Metadata synchronization procedures
 -----------------------------------
