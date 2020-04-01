@@ -2,7 +2,7 @@ Introduction to MFSQL
 =====================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    purpose-and-scope/index
    requirements/index

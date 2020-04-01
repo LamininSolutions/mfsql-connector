@@ -62,7 +62,3 @@ already available in the database.
     @account_name = 'MFSQL Connector',
     @sequence_number =1 ;
 
-**Related Topics**
-
--  M\ `FLog Table <page21200944.html#Bookmark40>`__
--  `MFUpdateHistory for logging of class record changes <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200982/MFUpdateHistory+for+logging+of+class+record+changes>`__

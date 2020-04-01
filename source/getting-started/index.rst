@@ -2,7 +2,7 @@ Getting Started
 ===============
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    installation-overview/index
    first-time-installation/index
