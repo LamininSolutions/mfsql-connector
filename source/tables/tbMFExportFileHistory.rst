@@ -53,5 +53,9 @@ Changelog
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
 2019-09-07  JC         Added documentation
+2018-06-29  LC         Add Column for MultiDocFolder
+2018-09-27  LC         Add script to alter column if missing
+2019-02-22  LC         Increase size of column for filename
+2017-06-15  LC         Created table
 ==========  =========  ========================================================
 

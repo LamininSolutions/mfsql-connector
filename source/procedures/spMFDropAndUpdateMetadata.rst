@@ -24,8 +24,6 @@ Parameters
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
-
 
 Purpose
 =======

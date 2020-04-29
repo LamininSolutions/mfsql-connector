@@ -3,23 +3,27 @@
 MFObjectTypeToClassObject
 =========================
 
+Description:Object Type to Class Object Table 
+This is a special table for indexing all the class tables included in app accross all object types.
+This table is updated using the spMFObjectTypeUpdateClassIndex procedure
+
 Columns
 =======
 
 ID int (not null)
-  fixme description
+  ID
 ObjectType\_ID int (primarykey, not null)
-  fixme description
+  Object_Type
 Class\_ID int (primarykey, not null)
-  fixme description
+  Class
 Object\_MFID int (primarykey, not null)
-  fixme description
+  Object
 Object\_LastModifiedBy varchar(100)
-  fixme description
+  Table last modified by
 Object\_LastModified datetime
-  fixme description
+  Table last modified
 Object\_Deleted bit
-  fixme description
+  is Object deleted
 
 Used By
 =======

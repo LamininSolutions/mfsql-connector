@@ -31,7 +31,6 @@ Used By
 
 - spMFCreatePublicSharedLink
 
-
 Changelog
 =========
 
@@ -39,5 +38,6 @@ Changelog
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
 2019-09-07  JC         Added documentation
+2016-04-10  LC         Create table
 ==========  =========  ========================================================
 

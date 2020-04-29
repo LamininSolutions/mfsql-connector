@@ -51,5 +51,7 @@ Changelog
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
 2019-09-07  JC         Added documentation
+2017-08-22  LC         Add MFID as a column to the table
+2016-02-20  LC         Create table
 ==========  =========  ========================================================
 

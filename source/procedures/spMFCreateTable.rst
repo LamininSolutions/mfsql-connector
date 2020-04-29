@@ -148,5 +148,6 @@ Date        Author     Description
 2020-03-11  LC         Add check license
 2020-03-18  LC         Add non clustered unique index for objid
 2020-03-27  LC         Add MFSetting to allow optional create of indexes
+2020-04-22  LC         Improve naming of constraints
 ==========  =========  ========================================================
 

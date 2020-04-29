@@ -8,33 +8,19 @@ Return
   - -1 = Error
 Parameters
   @Doc nvarchar(max)
-    fixme description
+    input XML
   @isFullUpdate bit
-    fixme description
+    When set to 1 is update of all properties
   @Output nvarchar(50) (output)
-    fixme description
+    return message
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
-
 
 Purpose
 =======
 
-Insert Property details into MFProperty table.
-
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
+Insert Property details into MFProperty table. This procedure is used as part of the metadata structure update and is not used on its own.
 
 Changelog
 =========

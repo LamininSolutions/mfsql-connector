@@ -91,6 +91,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-04-16  LC         Add with nolock option
 2020-03-06  LC         Remove statusflag 6 from notinSQL
 2020-03-06  LC         Change deleted to include deleted from audit table
 2020-03-06  LC         Change Column to show process_id not 0

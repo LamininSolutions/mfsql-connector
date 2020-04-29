@@ -46,6 +46,9 @@ idx\_AuditHistory\_ObjType\_ObjID
 idx\_AuditHistory\_Class\_Objid
   - Class
   - ObjID
+idx\_AuditHistory\_Class\_StatusFlag
+  - Class
+  - StatusFlag
 
 Used By
 =======
@@ -74,7 +77,9 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-04-16  LC         Add index Class_StatusFlag
 2020-03-18  LC         Change name of index Class_Objid
 2019-09-07  JC         Added documentation
+2016-05-01  DEV2       Create Table 
 ==========  =========  ========================================================
 
