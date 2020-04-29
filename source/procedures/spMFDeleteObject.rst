@@ -11,6 +11,7 @@ Return
   - 4 = Failure object does not exist
   - 5 =	Failure object version does not exist
   - 6 =	Failure destroy latest object version not allowed
+
 Parameters
   @ObjectTypeId int
     OBJECT Type MFID from MFObjectType
@@ -30,7 +31,7 @@ Purpose
 
 An object can be deleted from M-Files using the ClassTable by using the spMFDeleteObject procedure. Is it optional to delete or destroy the object in M-Files.
 
-The procedure can also be used to destroy a specific version of an object.  This is particularly useful when old or outdataed versions must be removed from the vault.
+The procedure can also be used to destroy a specific version of an object.  This is particularly useful when old or outdataed versions must be removed from the system.
 
 Additional Information
 ======================
