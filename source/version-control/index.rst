@@ -6,14 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.4.14.55 2019-12-07
+Published version: 4.7.18.58 2020-04-30
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.4.14.55  2019-12-07
-Assemblies        4.4.14.0   2019-09-27
-Vault application 4.4.0.0    2019-06-15
+SQL scripts       4.7.18.58  2020-05-06
+Assemblies        4.7.18.0   2020-05-06
+Vault application 4.7.0.0    2020-04-30
 UIX application   4.4.0.0    2019-06-15
 ================= ========== ==========
 
@@ -38,6 +38,33 @@ Change control summary (from version 4.3.8.48)
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+Versions 4.4.14.56 to 4.7.18.58
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. spMFUpdateObjectChangeHistory - improve Object change history processing
+#. spMFupdateMFilesToMFSQL - bug fixes and improvements
+#. spMFUpdateAllIncludeInAppTables - improvements for Object change updates
+#. spMFClassTableStats - resolve bug
+#. spMFUpdateMFilesToMFSQL - add optional running of spMFUpdateChangeHistory
+#. MFSettings - add new setting for indexes
+#. spMFCreateTable - add optional create of indexes
+#. add indexes to tables, including class tables to improve performance
+#. resolve finish localisation bugs
+#. spMFSynchronizeFilestoMFiles - improve synchronization of files
+#. fnMFExcelObjectHyperlink - add new function for excel based hyperlinks
+#. spMFImportBlobFilesToMFiles - improve importing of Blobs, include assembly changes
+#. spMFUpdateTable_ObjIDs_GetGroupList - resolve issue with #objidlist not exist
+#. spMFSynchronizeProperties - resolve bug with synchronisation
+#. spMFUpdateMfilesToMFSQL - Set max objects
+#. Reset naming of constraints on standard tables
+#. MFSQLConnectorVaultApp - improve high volume context menu action updates
+#. MFSQLConnectorVaultApp - add Web Services to as alternative to ODBC connection 
+#. MFSQLConnectorVaultApp - improve error reporting
+#. Update documentation on various procedures, tables and functions
+#. Assemblies - improve error and debug messaging
+#. spMFTableAudit - improvements and bug fixes
+#. spMFsettingsForDBUpdate - improve messaging
+
 
 Versions 4.4.13.54, 4.4.14.55
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
