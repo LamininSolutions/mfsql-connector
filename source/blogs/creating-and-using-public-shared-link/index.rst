@@ -13,6 +13,64 @@ It is simple to use: set the process\_id on the class table to say 6 for
 all the target records; run procedure , spMFCreatePublicSharedLink; and
 access the link in the table MFPublicLink.
 
+Pre-requisits
+-------------
+
+M-Files must be setup for Web services and have the url in the M-Files Web setting in the vault properties.
+
+The following two settings must be exist and be correct in MFSettings table:
+ -  ServerURL
+ -  VaultGUID
+ 
+Use the following script to setup or change these settings.
+
+.. code:: sql
+
+    DECLARE @GUID NVARCHAR(100);
+    DECLARE @WebURL NVARCHAR(100);
+
+    SET @GUID = N'{5981E340-C62F-4DB0-8E22-684AD012E5F6}'; --replace this with the GUID, including the curley brackets
+    SET @WebURL = N'http://lsuk-app03.lsusa.local'; --replace with your web url 
+
+    IF EXISTS (SELECT * FROM dbo.MFSettings WHERE Name = 'VaultGUID')
+     BEGIN
+     EXEC dbo.spMFSettingsForVaultUpdate @VaultGUID = @GUID;
+     END;
+     ELSE
+    BEGIN
+    INSERT dbo.MFSettings
+    (
+        source_key,
+        Name,
+        Description,
+        Value,
+        Enabled
+    )
+    VALUES
+    (N'MF_Default', N'VaultGUID', N'GUID of vault', @GUID, 1);
+    END;
+
+    IF EXISTS (SELECT * FROM dbo.MFSettings WHERE Name = 'ServerURL')
+    BEGIN
+    EXEC dbo.spMFSettingsForVaultUpdate @ServerURL = @WebURL;
+    END;
+    ELSE
+    BEGIN
+    INSERT dbo.MFSettings
+    (
+        source_key,
+        Name,
+        Description,
+        Value,
+        Enabled
+    )
+    VALUES
+    (N'MF_Default', N'ServerURL', N'Web URL for M-Files', @WebURL, 1);
+    END;
+
+Step by step guide
+------------------
+
 Links can be created in bulk and on demand and can be built into other
 procedures. For instance, the links can be created in the back ground
 and added back as a property on the object. This allows for the link to
