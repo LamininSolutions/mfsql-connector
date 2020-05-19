@@ -71,6 +71,8 @@ Process_id in class table must be 1 for rows to be updated or added to M-Files. 
 Warnings
 ========
 
+When using a filter (e.g. for a single object) to update the table with Update method 1 and the filter object process_id is not 0 then the filter will automatically revert to updating all records. Take care to pass valid filters before passing them into the procedure call.
+
 Examples
 ========
 
@@ -141,6 +143,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-05-12  LC         Set last modified user to MFSQL
+2020-04-20  LC         exclude last modified and and MF user to be modified
 2020-03-09  LC         Resolve issue with timestamp format for finish formatting
 2020-02-27  LC         Resolve issue with open XML_Docs
 2020-01-06  LC         Resolve issue: variable is null: @RetainDeletions

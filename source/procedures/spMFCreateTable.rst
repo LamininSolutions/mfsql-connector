@@ -149,5 +149,6 @@ Date        Author     Description
 2020-03-18  LC         Add non clustered unique index for objid
 2020-03-27  LC         Add MFSetting to allow optional create of indexes
 2020-04-22  LC         Improve naming of constraints
+2020-05-12  LC         Add index on Update_ID to improve performance
 ==========  =========  ========================================================
 
