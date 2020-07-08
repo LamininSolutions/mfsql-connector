@@ -6,14 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.7.18.58 2020-04-30
+Published version: 4.7.20.60 2020-07-02
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.7.18.58  2020-05-06
-Assemblies        4.7.18.0   2020-05-06
-Vault application 4.7.0.0    2020-04-30
+SQL scripts       4.7.20.60  2020-06-23
+Assemblies        4.7.20.0   2020-06-23
+Vault application 4.7.0.1    2020-04-30
 UIX application   4.4.0.0    2019-06-15
 ================= ========== ==========
 
@@ -34,10 +34,34 @@ Starting with Rel 4, there is only one installation package and the release numb
   - The third digit is for Assembly changes (note that the assemblies have their own release number series)
   - The fourth digit is for SQL changes.  This number will run in series for all packages.
 
-Change control summary (from version 4.3.8.48)
+Change control summary 
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+Version 4.7.19.59 to 4.7.20.60
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Update naming of constraints on tables
+#. spMFUpdateMFilesToMFSQL - set maximum objids default to 200000
+#. spMFDeleteObject - update documentation for object version deletions
+#. spMFCreateTable - add index to Update_ID to improve performance
+#. spMFUpdateTable - fix bug for setting last modified user
+#. spMFUpdateTable - Revome xml_document when transaction failed
+#. spMFGetMFilesAssemblyVersion - fix logic and update MFVersion
+#. spMFConnectionTest - add new procedure to perform simple vault connection test
+#. spMFUpdateAllIncludeInAppTables - add exit if unable to connect to vault
+#. spMFUpdateTableInternal - fix bug with localisation error on workflow
+#. spMFCheckLicenseStatus - set module to 1 when null or 0
+#. spMFImportBlobFilestoMFiles - rewrite import of blob functionality
+#. spMFUpdateExplorerFileToMFiles - remove eroneous debugging
+#. spMFExportFiles - fix bug with updating file_id into MFExportFileHistory
+#. MFilesEvents - fix bug on updating indexes
+#. MFvwMetadataStructure - improve view for not showing document objecttype in error
+#. MFilesWrapper assembly - improve error messages
+#. MFilesWrapper assembly - add new method for vault connection test
+#. MFilesWrapper assembly - remove ability to modify last modified date
+#. General update of procedure documentation
+
 
 Versions 4.4.14.56 to 4.7.18.58
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -64,7 +88,6 @@ Versions 4.4.14.56 to 4.7.18.58
 #. Assemblies - improve error and debug messaging
 #. spMFTableAudit - improvements and bug fixes
 #. spMFsettingsForDBUpdate - improve messaging
-
 
 Versions 4.4.13.54, 4.4.14.55
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
