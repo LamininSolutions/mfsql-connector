@@ -43,8 +43,7 @@ The table columns are the following:
  - ObjectType\_ID: MFID of the ObjectType
  - Class\_ID: MFID of the Class
  - Objid: Objid of the class object
- - MFVersion: Version of the object where the value changed for the property in column Property\_ID. Only versions matching the filters on the spMFGetHistory procedure is fetched. Widening the filters may restrict the MFVersions returned.
-Narrowing the filters will not remove the rows previously fetched for
+ - MFVersion: Version of the object where the value changed for the property in column Property\_ID. Only versions matching the filters on the spMFGetHistory procedure is fetched. Widening the filters may restrict the MFVersions returned. Narrowing the filters will not remove the rows previously fetched for
 the object.
  - LastModifiedUtc: The 'CheckInTimeStamp' of the specific version for the object. The timestamp is shown in Universal Time.
  - MFLastModifiedBy\_ID: MFID of the user. User information is on MFUserAccount or MFLoginAccount.
