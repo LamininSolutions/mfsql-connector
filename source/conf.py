@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'MFSQL Connector'
-copyright = '2019, Laminin Solutions Ltd'
+copyright = '2020, Laminin Solutions Ltd'
 author = 'Laminin Solutions Ltd'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '4.7.20.60'
 
 
 # -- General configuration ---------------------------------------------------
@@ -35,7 +35,7 @@ extensions = [
 ]
 autosectionlabel_prefix_document = True
 html_show_sourcelink = False
-
+html_favicon = 'MFSQL-Favicon.ico'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
