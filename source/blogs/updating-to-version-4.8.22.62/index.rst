@@ -30,17 +30,15 @@ g) To delete and object in M-Files from SQL, the procedure spMFDeleteObjectList 
 
 To switch from not showing deletions to deletions, it would be necessary to re-run a full update of the class table.
 
-   DECLARE @MFLastUpdateDate SMALLDATETIME,
-        @Update_IDOut        INT,
-        @ProcessBatch_ID      INT;
+DECLARE @MFLastUpdateDate SMALLDATETIME,
+@Update_IDOut        INT,
+@ProcessBatch_ID      INT;
     
-    EXEC dbo.spMFUpdateMFilesToMFSQL @MFTableName = 'ClassTable',
-        @MFLastUpdateDate = @MFLastUpdateDate OUTPUT,
-        @UpdateTypeID = 0,
-        @MaxObjects = 100000,
-	    @RetainDeletions = 1,
-        @Update_IDOut = @Update_IDOut OUTPUT,
-        @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
-        @debug = 0
-
-
+EXEC dbo.spMFUpdateMFilesToMFSQL @MFTableName = 'ClassTable',
+@MFLastUpdateDate = @MFLastUpdateDate OUTPUT,
+@UpdateTypeID = 0,
+@MaxObjects = 100000,
+@RetainDeletions = 1,
+@Update_IDOut = @Update_IDOut OUTPUT,
+ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
+@debug = 0
