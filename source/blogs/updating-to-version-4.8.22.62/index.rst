@@ -38,7 +38,6 @@ To switch from not showing deletions to deletions, it would be necessary to re-r
         @MFLastUpdateDate = @MFLastUpdateDate OUTPUT,
         @UpdateTypeID = 0,
         @MaxObjects = 100000,
-    --    @WithObjectHistory = ?,
 	    @RetainDeletions = 1,
         @Update_IDOut = @Update_IDOut OUTPUT,
         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
