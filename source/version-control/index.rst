@@ -6,15 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.7.20.60 2020-07-02
+Published version: 4.8.22.62 2020-08-25
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.7.20.60  2020-06-23
-Assemblies        4.7.20.0   2020-06-23
-Vault application 4.7.0.1    2020-04-30
-UIX application   4.4.0.0    2019-06-15
+SQL scripts       4.8.22.62  2020-08-23
+Assemblies        4.8.22.0   2020-08-23
+Vault application 4.8.0.0    2020-07-17
 ================= ========== ==========
 
 Installed releases
@@ -38,6 +37,15 @@ Change control summary
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+Version 4.8.21.61 and 4.8.22.62
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Significant changes in assemblies and multiple procedures to update MFSQL Connector to allign with Microsoft security advisory: If any of the updates related to the VCE-2020-1147 : .NET Framework, SharePoint Server, and Visual Studio Remote Code Execution Vulnerability advisory have been applied to the SQL Server, your M-Files to SQL updates will stop working until you have upgraded to the new version.
+#. Replace Deleted bit column with Property 27 DataTime datatype.  Adjust multiple procedures where this change have an impact
+#. Add RetainDeletions option on spMFUpdateMFilesToMFSQL, spmfUpdateAllIncludedInAppTables and spmfUpdateTableInBatches
+#. Resolve bug with deleted objects in assembly
+#. Remove procedure spMFGetDeletedObjects
+#. Replace random default max objid default with getting count of object versions in spMFUpdateMFilesToMFSQL
 
 Version 4.7.19.59 to 4.7.20.60
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,7 +3,7 @@ Considerations for deleted records
 
 M-Files users can delete, destroy and undelete a record. MFSQL Connector
 will remove deleted objects from the class table (or optionally retain
-the record with a deleted flag) and reinstate the record in the class
+the record showing the date of the deletion in the deleted column) and reinstate the record in the class
 table if it has been undeleted. It is also possible to delete or destroy
 records in M-Files in bulk from MFSQL Connector. This is particularly
 useful when a large number of records must be deleted in M-Files.
@@ -17,70 +17,55 @@ When a record is deleted in M-Files and a table is updated from M-Files
 to SQL using spMFupdateTable with no filters, the deleted or destroyed
 record will automatically be removed from the class table.
 
-Setting the @RetainDeletions controls if spMFUpdateTable remove the
+Each class table will include property 27 (Deleted) as a column with datatype datetime. If this column is null the record is not deleted. The date in this column reflects the date of the deletion of the object.
+
+Setting the @RetainDeletions parameter for spMFUpdateTable controls the removal of the
 deleted records from the class table. Setting this flag to 0 will retain
-the deleted records in the table. This is particularly useful when the
+the deleted records in the table. The default of the procedure is set to 0. This is particularly useful when the
 deletions must be included in a report, or be updated in a third party
 system.
 
 When a record is undeleted in M-Files, spMFUpdateTable with no filters
 will reinstate the record in the class table.
 
-Using spMFUpdateTable on large class tables will have performance
-issues. In these cases spMFUpdateMFilestoSQL must be used.
+Setting @RetainDeletions flag to 1 will retain the deleted records in the class table and show the date of the deletion to indicate that the record was deleted.
 
-spMFUpdateMFilesToSQL
+It is important to note that deleted object is processed into the class table when an update takes place.  If the setting is to remove deleted objects then the object is subsequently deleted from the table as part of the update routine.  This has a direct impact on the use of custom unique indexes or keys on the class table where SQL is checking for duplicates and one of the objects was deleted. In this case an error will be thrown in SQL for duplicate check, even if the deleted object is removed from the table subsequent to the updating.  It is advisable to destroy the object in <-Files when removing duplicate objects from a class table where a duplicate check is done with SQL constraints.
+
+
+Using spMFUpdateTable on large class tables will have performance
+issues. In these cases spMFUpdateMFilestoMFSQL must be used. The option to retain deletions is available on this procedure also.
+
+spMFUpdateMFilesToMFSQL
 ---------------------
 
-spMFUpdateMFilestoSQL is used to update large class tables and should be
+spMFUpdateMFilestoMFSQL is used to update large class tables and should be
 used as a default for building updates into custom procedures.
 
 When a record is deleted or destroyed in M-Files, this procedure will
 first get the object versions since the last class table update, and
 then only update the changed records, including deletions.
 
-spMFUpdateMFilesToSQL will identify an undeleted records also, however,
+spMFUpdateMFilesToMFSQL will identify an undeleted records also, however,
 with large tables this could take considerably longer as it will have to
 process through the entire dataset to determine if a object has been
 undeleted and missing in the class table.
 
-spMFGetDeletedObjects
----------------------
+MFAuditHistory
+--------------
 
-Use spMFGetDeletedObjects to mark deleted items in the class table
-without removing them or processing a full update routine. A switch can
-be used to remove the item from the class table at the same time. This
-is particularly applicable where a deleted object need to be processed
-into a third party system, or when there is need for reporting on
-deleted objects.
+The MFAuditHistory table is autmatically maintained when the update routines (spMFUpdateMFilesToMFSSQL, spmfUpdateTable) are processed.
 
-This procedure will not return a result for destroyed objects. Use
-spMFTableAudit to identify objects no longer in existence.
+This table show deleted objects with a statusflag of 4.
 
-spMFGetDeletedObjectsInternal
------------------------------
+spmfTableAudit updates MFAuditHistory.
 
-spMFGetDeletedObjects use the internal procedure
-spMFGetDeletedObjectsInternal to fetch the deleted objects for a class
-from M-Files. This procedure can be used independently from a class
-table to identify records deleted in M-Files. It returns a list of
-deleted objects which can be processed further for reporting, comparison
-or any further analysis that may be required.
+spMFGetObjectVers
+-----------------
 
-Destroyed objects is not returned with this procedure. A destroyed
-object cease to exist.
+This procedure returns the object version of an object, including if the object is deleted.
 
-Following is an example of getting the output in XML format.
+spMFObjectTypeUpdateClassIndex
+------------------------------
 
-.. code:: sql
-
-    DECLARE @outputXML NVARCHAR(MAX);
-    DECLARE @VaultSettings NVARCHAR(200) = [dbo].[FnMFVaultSettings]()
-
-    EXEC [dbo].[spMFGetDeletedObjectsInternal] @VaultSettings = @VaultSettings    -- nvarchar(4000)
-                                              ,@ClassID = 22       -- int
-                                              ,@LastModifiedDate = null -- datetime
-                                              ,@outputXML = @outputXML OUTPUT                            -- nvarchar(max)
-    SELECT CAST(@OUTPUTxml AS xml)
-
-
+This procedure gets all the object versions in the vault and include the deleted objects. The result is in table MFObjectTypeToClassObject.
