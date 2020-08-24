@@ -13,7 +13,7 @@ From version 4.8.22.62 the class table will include the property 27 'Deleted' as
 On updating to version 4.8.22.62 or later from a prior version, it is necessary to run an update to remove the old 'Deleted' column and add the new 'Property 27' column.  The deleted records will be shown as deleted after the next full update of the records in the class.
 The update must be run manually as the first action after the upgrade.  They update is in the installation files.  There may be occasions where your application has custom constraints, statistics that will interfere with this update.  When the update show an error then manually delete the custom dependencies.  The update can be run multiple times until no further errors are reported.
 
-C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[DatabaseName]\Database Scripts\V4.8.22.62\05_Updates_V4.8.22.62.sql
+C:\Program Files (x86)\\Laminin Solutions\MFSQL Connector Release 4\\[DatabaseName]\\Database Scripts\\V4.8.22.62\\05_Updates_V4.8.22.62.sql
 
 In cases where custom views or procedures includes conditions to include or exclude records based on the deletion status, you will have to make manual changes to the code.
 The best method is to search on the term 'Deleted'.  Replace the condition deleted = 0 with deleted is null; and deleted = 1 with deleted is not null.
