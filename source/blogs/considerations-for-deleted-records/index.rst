@@ -37,7 +37,7 @@ Using spMFUpdateTable on large class tables will have performance
 issues. In these cases spMFUpdateMFilestoMFSQL must be used. The option to retain deletions is available on this procedure also.
 
 spMFUpdateMFilesToMFSQL
----------------------
+-----------------------
 
 spMFUpdateMFilestoMFSQL is used to update large class tables and should be
 used as a default for building updates into custom procedures.
