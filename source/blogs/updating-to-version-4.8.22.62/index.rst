@@ -20,8 +20,10 @@ Prior to version 4.8.22.62 deleted objects are indicated in column 'Deleted' wit
 From version 4.8.22.62 the class table will include the property 27 'Deleted' as a datetime column. Note that the column will reflect the name of the property in the localised language.  When the column is null, the object is not deleted. The datetime in the column reflects the deletion time.
 
 On updating to version 4.8.22.62 or later from a prior version, it is necessary to run an update to remove the old 'Deleted' column and add the new 'Property 27' column.  The deleted records will be shown as deleted after the next full update of the records in the class.
-The update must be run manually as the first action after the upgrade.  The
- update is in the installation files.  There may be occasions where your application has custom constraints, statistics that will interfere with this update.  When the update show an error then manually delete the custom dependencies.  The update can be run multiple times until no further errors are reported.
+
+The update must be run manually as the first action after the upgrade.  The update is in the installation files.  
+
+There may be occasions where your application has custom constraints, statistics that will interfere with this update.  When the update show an error then manually delete the custom dependencies.  The update can be run multiple times until no further errors are reported.
  
 To switch from not showing deletions to deletions, it would be necessary to re-run a full update of the class table using the spmfUpdateMfilesToMFSQL procedure with @RetainDeletions = 1
 
