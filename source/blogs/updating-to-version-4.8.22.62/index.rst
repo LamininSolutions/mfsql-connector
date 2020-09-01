@@ -9,6 +9,8 @@ C:\Program Files (x86)\\Laminin Solutions\MFSQL Connector Release 4\\[DatabaseNa
 
 This routine has only to be run once for each MFSQL Connector database.
 
+An error with 'Invalid column name 'Deleted' is a good indication to run the above update to reset the 'Deleted' columns.
+
 Version 4.8.21.61 and 4.8.22.62 has extensive changes in response to the Microsoft Advisory in July 2020 on Framework changes. These changes include logical changes in processing the updates and a fundamental change to the treatment of deleted objects.
 
 Updates in 4.8.22.62
