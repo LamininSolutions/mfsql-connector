@@ -43,6 +43,7 @@ Get installed version of M-Files in SQL Server
     Select @IsUpdateAssembly as IsUpdateRequired, @MFilesVersion as InstalledVersion
 
 ------
+
 Get M-files version installed in Connector
 
 .. code:: sql
@@ -52,6 +53,7 @@ Get M-files version installed in Connector
    where name = 'MFVersion'
 
 ------
+
 Manually update the version in the Connector. Set the parameter to current installed version on the SQL server.
 
 .. code:: sql

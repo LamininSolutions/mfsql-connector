@@ -10,7 +10,7 @@ Methods to update MFSQL Connector
 
   #. Automatic Update
   
-The Connector checks to validate if M-Files has upgraded by running the procedure `spMFCheckAndUpdateAssemblyVersion <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFCheckAndUpdateAssemblyVersion>`_.  This procedure can be run manually using `spMFUpdateAssemblies <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAssemblies>`_, using a `SQL agent https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/using-agent-for-automated-updates/index.html>`_ , or using a `powershell utility https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/setup-powershell-utilities/`_.  Use the powershell utility for SQL Express installations.
+The Connector checks to validate if M-Files has upgraded by running the procedure `spMFCheckAndUpdateAssemblyVersion <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFCheckAndUpdateAssemblyVersion>`_.  This procedure can be run manually using `spMFUpdateAssemblies <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAssemblies>`_, using a `SQL agent <https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/using-agent-for-automated-updates/index.html>`_ , or using a `powershell utility <https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/setup-powershell-utilities/>`_.  Use the powershell utility for SQL Express installations.
 
 Refer to the blog
 around setting up MFSQL Connector to detect changes in the M-Files
