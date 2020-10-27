@@ -1,21 +1,65 @@
-Updating Connector after M-Files had an upgrade.
-================================================
+M-Files Upgrade
+================
 
-M-Files perform regular upgrades of the core software. MFSQL Connector
-requires reloading of the assemblies into SQL after a version change of
-M-Files.
+M-Files automatically upgrades to keep the M-Files software up to date. 
 
-The requirement to update is usually evident from a error message
-reporting a failure to connect to M-Files. Running
-spMFVaultConnectionTest will fail. However, from version 4.3.9.48
-running spMFVaultConnectionTest will automatically detect a version
-change and update MFSQL Connector assemblies with the latest M-Files
-Release API’s.
+MFSQL Connector must response to the upgrade of M-Files on the SQL Server. MFSQL Connector requires M-Files Desktop on the SQL Server where MFSQL Connector is deployed. When M-Files upgrades on the SQL Server it moves the location of the MFilesAPI to the new installed version. MFSQL Connector must therefore be updated to repoint the MFileAPI in the CLR Assemblies to the new location.
 
-There are different methods to perform the upgrade depending on the
-version. In all cases, the upgrade can be performed by re-installing the
-Connector with the same installation package. Alternatively, the
-following methods can be used.
+Methods to update MFSQL Connector
+---------------------------------
+  #. Automatic Update
+The Connector checks to validate if M-Files has upgraded by running the procedure `spMFCheckAndUpdateAssemblyVersion <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFCheckAndUpdateAssemblyVersion>`_.  This procedure can be run manually using `spMFUpdateAssemblies <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAssemblies>`_, using a `SQL agent https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/using-agent-for-automated-updates/index.html>`_ , or using a `powershell utility https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/setup-powershell-utilities/`_.  Use the powershell utility for SQL Express installations.
+
+Refer to the blog
+around setting up MFSQL Connector to detect changes in the M-Files
+Version.
+
+Sometimes it is necessary to intervene. It is likely to be triggered by
+an error or email notification with an error referring to an issue with
+the Interop.MFilesAPI assembly similar to
+
+    A .NET Framework error occurred during execution of user-defined
+    routine or aggregate "spMFGetMetadataStructureVersionIDInternal":
+    System.IO.FileLoadException: Could not load file or assembly
+    'Interop.MFilesAPI, Version=7.0.0.0, Culture=neutral,
+    PublicKeyToken=f1b4733f444f7ad0' or one of its dependencies.
+    Assembly in host store has a different signature than assembly in
+    GAC. (Exception from HRESULT: 0x80131050) See Microsoft Knowledge
+    Base article 949080 for more information.
+    System.IO.FileLoadException: at
+    LSConnect.MFiles.MFilesAccess..ctor(String VaultSettings) at
+    MFilesWrapper.GetMFilesAccessNew(String VaultSettings) at
+    MFilesWrapper.GetMetadataStructureVersionID(String VaultSettings,
+    String& Result) .
+
+To fix, follow these steps:
+
+#. Check the M-Files Desktop version on the SQL Server.
+
+#. Check the version in MFSettings
+
+#. Update MFSettings to the version on the SQL Server if the installed
+   version is different from MFSettings
+
+#. Update the Assemblies
+
+.. code:: sql
+
+
+    DECLARE @MFVersion NVARCHAR(100) = '' -- example '19.9.8028.5'
+    BEGIN
+
+    UPDATE ms
+    SET value = @MFVersion
+    FROM mfSettings ms WHERE name = 'MFVersion'
+
+    EXEC [dbo].[spMFUpdateAssemblies]
+
+    END
+
+    GO
+
+
 
 Version 4.3.9.48 and later
 --------------------------
@@ -60,15 +104,6 @@ Assemblies changed from this version:
       server use the powershell utility, combined with
       spMFUpdateAssemblies to automatically check for and update the
       assemblies.
-
-   #. See section Setup Agents and Setup Powershell utilities to
-
-      #. Setup `powershell
-         utility <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/686620697/Setup+powershell+utilities>`__
-
-      #. To modify `the
-         agent <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/686587922/Using+Agent+for+automated+updates>`__\ to
-         include the required steps
 
 Avoid running other MFSQL connector update other scheduled routines
 during the same time as as the agent.
