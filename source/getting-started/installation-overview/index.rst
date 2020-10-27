@@ -87,7 +87,7 @@ Key features of the installation package
 Download software
 -----------------
 
-The latest published release is available from the `Laminin Solutions website https://lamininsolutions.com/download-mfsql-connector/`_
+The latest published release is available from the `Laminin Solutions website <https://lamininsolutions.com/download-mfsql-connector/>`_
 
 Deployment server model
 -----------------------
