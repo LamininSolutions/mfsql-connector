@@ -28,24 +28,35 @@ Used by other procedures.
 Warnings
 ========
 
-This procedure returns to M-Files Version on the SQL Server
+This procedure returns the M-Files Version on the SQL Server
 When the procedure to update the assemblies fail, the CLR will have been deleted with reinstatement. When this happens the MFiles version must be updated manually in MFSettings table.
 
 Examples
 ========
 
+Get installed version of M-Files in SQL Server
+
 .. code:: sql
 
-    Declare @rt int, @MFilesVersion nvarchar(25)
-    Exec @rt = spMFGetMFilesAssemblyVersion @MFilesVersion = @MFilesVersion output
-    Select @rt, @MFilesVersion
+    Declare @IsUpdateAssembly int, @MFilesVersion nvarchar(25)
+    Exec spMFGetMFilesAssemblyVersion @IsUpdateAssembly = @IsUpdateAssembly output, @MFilesVersion = @MFilesVersion output
+    Select @IsUpdateAssembly as IsUpdateRequired, @MFilesVersion as InstalledVersion
 
-    Select * from MFsettings where name = 'MFVersion'
+------
+Get M-files version installed in Connector
 
-    UPDATE [dbo].[MFSettings]
-    SET value = '19.8.8114.8' WHERE name = 'MFVersion'
+.. code:: sql
 
-    Exec spMFUpdateAssemblies
+   Select *
+   from MFsettings
+   where name = 'MFVersion'
+
+------
+Manually update the version in the Connector. Set the parameter to current installed version on the SQL server.
+
+.. code:: sql
+
+    Exec spMFUpdateAssemblies @MFilesVersion = '20.9.9430.4'
 
 Changelog
 =========
@@ -53,7 +64,9 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
-2020-06-29  LC         Review logic the check and update MFVersion
+2020-10-27  LC         Show error when CLR is not found
+2020-10-27  LC         Improve error messages
+2020-06-29  LC         Review logic to check and update MFVersion
 2020-02-10  LC         New CLR procedure to get MFVersion from local machine
 2019-09-17  LC         Update documentation
 2019-09-17  LC         Improve error trapping, add MFlog msg

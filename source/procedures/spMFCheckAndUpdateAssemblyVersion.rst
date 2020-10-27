@@ -20,12 +20,9 @@ The purpose of this procedure is to check  M-Files Version and update the assemb
 Additional Info
 ===============
 
-This procedure is used in the Agent to automatically update the assemblies
+This procedure is normally used in a SQL Agent or powershell utility to schedule to check at least once day.  It can also be run manually at any time, especially after a M-Files upgrade on the SQL server.
 
-Prerequisites
-=============
-
-M-Files version on SQL Server is the same as M-Files Server
+Take into account the time diffence between M-Files automatically upgrading and the scheduled time for the job as any procedures using the assemblies in this time gap will is likely to fail.
 
 Warnings
 ========
@@ -36,7 +33,7 @@ Examples
 ========
 .. code:: sql
 
-    EXEC spMFCheckAndUpdateAssemblyVersion
+    EXEC spMFCheckAndUpdateAssemblyVersion @debug = 1
 
 Changelog
 =========
@@ -44,6 +41,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-10-27  LC         Improve error message
 2019-08-30  JC         Added documentation
 2019-07-25  LC         Add more debug and error trapping, fix issue to prevent update
 2019-05-19  LC         Fix bug - insert null value in MFsettings not allowed
