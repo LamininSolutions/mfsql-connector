@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.8.22.62 2020-08-25
+Published version: 4.8.24.65 2020-10-27
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.8.22.62  2020-08-23
+SQL scripts       4.8.24.65  2020-10-27
 Assemblies        4.8.22.0   2020-08-23
 Vault application 4.8.0.0    2020-07-17
 ================= ========== ==========
@@ -38,7 +38,31 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
-Version 4.8.21.61 and 4.8.22.62
+
+
+4.8.24.65
+~~~~~~~~~
+
+#. spMFDeleteObjectList is redesigned to move away from single object deletions to multiple object deletions to improve performance and the number of M-Files logins
+#. spMFDeleteObjectVersionList is introduced to allow for bulk deletions of selected object versions
+#. Assemblies is updated to include additional methods for deletions in bulk
+#. spMFGetHistory and MFObjectChangeHistory is modified to support spmfDeleteObjectVersionList
+#. spMFCheckandUpdateAssemblyVersions is improved with more robust error checking
+#. spMFGetMFilesAssemblyVersion is improved with additional error management
+#. spMFUpdateAssemblies is improved with additional comments when executed manually
+#. Updates to the M-Files Web App to implement setting of encryption key for the cloud
+#. spMFUpdatetableInternal to set datetime conversion to ANSII (method 102)
+#. spMFDropandUpdateTable to fix updating of changes to lookup columns
+#. spMFupdatetable to fix bug with localisation of class_id
+#. spMFUpdateTable to change column name 'Value' to avoid conflict with a similar property name
+#. spMFCheckLicenseStatus to change the datatype of license date to date
+#. spMFUpdateTableInBatches to set updatetable objids to include unmatched versions; fix batch size calculation and fix null count for set operation
+#. remove setting objid as a unique index
+#. spMFUpdateMfilestoMFSQL to fix bug with update full set
+#. spMFclassTableColumns to set single lookup column to error when not int
+
+ 
+Version 4.8.21.61 to 4.8.23.64
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Significant changes in assemblies and multiple procedures to update MFSQL Connector to allign with Microsoft security advisory: If any of the updates related to the VCE-2020-1147 : .NET Framework, SharePoint Server, and Visual Studio Remote Code Execution Vulnerability advisory have been applied to the SQL Server, your M-Files to SQL updates will stop working until you have upgraded to the new version.
 #. Replace Deleted bit column with Property 27 DataTime datatype.  Adjust multiple procedures where this change have an impact
@@ -159,24 +183,4 @@ Version 4.3.8.48
 #. Add RealObjectType as a column in MFvwMetadataStructure
 #. Add ability to process result in subsequent procedure for spMFSearchObject
 #. Include connection string for context menu functionality in named value storage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
