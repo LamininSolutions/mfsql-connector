@@ -21,13 +21,7 @@ Examples
 
 .. code:: sql
 
-  Select * from MFvwObjectTypeSummary order by class
-
-----
-
-.. code:: sql
-
-    
+   Select * from MFvwObjectTypeSummary order by class
 
 Changelog
 =========

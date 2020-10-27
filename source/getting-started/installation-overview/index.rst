@@ -87,11 +87,7 @@ Key features of the installation package
 Download software
 -----------------
 
-Latest release
-`Version 4.6.15.56 <https://lamininsolutions.com/download/MFSQL-Connector-4-6-15-56>`__
-
-Previous
-`Version 4.4.13.54 <https://lamininsolutions.com/download/MFSQL-Connector-4-4-14-55>`__
+The latest published release is available from the `Laminin Solutions website https://lamininsolutions.com/download-mfsql-connector/`_
 
 Deployment server model
 -----------------------

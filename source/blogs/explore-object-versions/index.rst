@@ -51,15 +51,16 @@ Using spMFGetHistory procedure could run for a considerable time and potentially
 The following parameters can be used to get all history versions for objects in a class. Use this with care as is.
 
 .. code:: sql
+
     --get all history versions for all properties and objects in class
-	EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
+    EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
     @Process_id = 0,
     @ColumnNames = null,
     @SearchString = null,
     @IsFullHistory = 1,
     @NumberOFDays = null,
     @StartDate = null
-	
+
 When *@ColumnNames* is set to null, or the columnname is not valid then all the properties for the selected range will be returned.
 
 The above procedure has produced 343 history records in MFObjectChangeHistory from 14 objects. This is a factor of 1 to 24.5.
@@ -67,29 +68,33 @@ The above procedure has produced 343 history records in MFObjectChangeHistory fr
 We recommend to first explore the MFVersion column for the targeted class table and set the process_id for objects to get further history. 
 
 .. code:: sql
+
     -- show number of objects to be included
     select sum(MFVersion), Count(*) from MFCustomer where mfversion > 100	
-	--update process_id
-	Update mc
-	Set Process_id = 5 
-	from MFCustomer mc
-	Where mfversion > 10	
-	
+    --update process_id
+    Update mc
+    Set Process_id = 5 
+    from MFCustomer mc
+    Where mfversion > 10
+
 Use spMFGetHistory to get the object history for each of these objects.  The result is in MFObjectchangeHistory.  The following illustrates getting the history for a subset of objects in the class table
 
 .. code:: sql
+
     --Remove the previous result set from MFObjectChangeHistory
     DELETE FROM dbo.MFObjectChangeHistory 
     WHERE class_id = 78 AND ObjectType_ID = 136
 
 .. code:: sql
+
     --set process_id to explore a single object
-  	Update mc
-	Set Process_id = 5 
-	from MFCustomer mc
-	Where objid = 141	
-	
+    Update mc
+    Set Process_id = 5 
+    from MFCustomer mc
+    Where objid = 141	
+    
 .. code:: sql
+
    EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
     @Process_id = 5,
     @ColumnNames = null,
@@ -109,8 +114,9 @@ Further filters can be used to restrict the result to only the changes required 
  - The Search is not operational. We recommend to use SQL to search for changes with a specific value by first getting all the changes for the desired property and then to filter the result in SQL.
  
 .. code:: sql
+
     -- example toget all the changes where the name_or_title has changed
-	EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
+    EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
     @Process_id = 0,
     @ColumnNames = 'Name_or_Title',
     @SearchString = null,
@@ -118,20 +124,13 @@ Further filters can be used to restrict the result to only the changes required 
     @NumberOFDays = null,
     @StartDate = null
 
-.. code:: sql	
-	-- example to get only the workflow_state changes for specific objects
+.. code:: sql
+
+    -- example to get only the workflow_state changes for specific objects
     EXEC dbo.spMFGetHistory @MFTableName = 'MFCustomer',
-	@Process_id = 5,
-	@ColumnNames = 'Workflow_State_id',
-	@SearchString = null,
-	@IsFullHistory = 1,
-	@NumberOFDays = null,
-	@StartDate = null
-
-
-
-
-	
-
-
+    @Process_id = 5,
+    @ColumnNames = 'Workflow_State_id',
+    @SearchString = null,
+    @IsFullHistory = 1,
+    @NumberOFDays = null,@StartDate = null
 
