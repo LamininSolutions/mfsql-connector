@@ -38,6 +38,15 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-10-22  LC         set datetime conversion to 102 (ansi)
+2020-10-22  LC         Required workflow check is only performed on updated objects
+2020-09-23  LC         Remove rows from other classes for table update
+2020-09-04  LC         split merge into parts per advice
+2020-09-04  LC         move updating of audit history to smpfupdatetable
+2020-08-26  LC         revise error checking for required workflows
+2020-08-18  LC         replace column deleted flag with property 27 (deleted) datetime
+2020-07-27  LC         Update to handle new status for deleted and checked out     
+2020-06-20  LC         Fix bug with localisation error on workflow
 2020-02-20  LC         Change assembly to system.culture time
 2019-11-18  LC         Update time format to address localisation
 2019-08-30  JC         Added documentation

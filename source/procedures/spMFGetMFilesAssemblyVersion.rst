@@ -53,6 +53,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-06-29  LC         Review logic the check and update MFVersion
 2020-02-10  LC         New CLR procedure to get MFVersion from local machine
 2019-09-17  LC         Update documentation
 2019-09-17  LC         Improve error trapping, add MFlog msg

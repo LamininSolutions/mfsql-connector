@@ -43,8 +43,6 @@ Additional Info
 
 At the same time spMFTableAudit will set the deleted flag for all the records in the Class Table that is deleted in M-Files.  This is particularly relevant when this procedure is used in conjunction with the spMFUpdateTable procedure with the filter MFLastModified set.
 
-See also spMFTableAuditInBatches for large scale class tables.
-
 Examples
 ========
 
@@ -81,6 +79,9 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-08  LC         Update to include status code 5 object does not exist
+2020-09-04  LC         Add update locking and commit to improve performance
+2020-08-22  LC         update to take into account new deleted column
 2019-12-10  LC         Fix bug for the removal of records from class table
 2019-10-31  LC         Fix bug - change Class_id to Class in delete object section 
 2019-09-12  LC         Fix bug - remove deleted objects from table

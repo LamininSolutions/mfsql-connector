@@ -63,6 +63,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-06-19  LC         Set module to 1 when null or 0
 2019-10-25  LC         Improve messaging, resolve license check bug
 2019-09-21  LC         Parameterise overide to check license on new license install
 2019-09-20  LC         Parameterise email notification, send only 1 email a day

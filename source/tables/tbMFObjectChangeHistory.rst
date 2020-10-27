@@ -27,6 +27,9 @@ Property\_Value nvarchar(300)
   - Interpreting and relating to this value will depend on the type of property.
 CreatedOn datetime
   Timestamp when row was created
+Process_id  int
+  default = null
+  This column is used to process change history deletions
 
 Additional Info
 ===============
@@ -49,6 +52,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-10-11  LC         Add column for process_id
 2019-09-07  JC         Added documentation
 2017-02-10  DevTeam2   Create Table
 ==========  =========  ========================================================

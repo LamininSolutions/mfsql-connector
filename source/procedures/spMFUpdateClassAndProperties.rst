@@ -70,6 +70,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Update to taken account of deleted column
 2019-08-30  JC         Added documentation
 2018-04-22  AC         Resolve issue with failed conversion
 2018-04-04  DEV2       Added License module validation code.

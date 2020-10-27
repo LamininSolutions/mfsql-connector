@@ -77,6 +77,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-02  LC         Add unique index objectype, class, objid
 2020-04-16  LC         Add index Class_StatusFlag
 2020-03-18  LC         Change name of index Class_Objid
 2019-09-07  JC         Added documentation

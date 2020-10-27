@@ -24,44 +24,36 @@ Parameters
 Purpose
 =======
 
-Procedure to delete a series of objects
+Procedure to delete a series of object versions from a list
+
+This procedure is mainly used to remove unwanted versions of objects, especially in scenarios where these versions where created by repetitive integrations.
 
 Prerequisites
 =============
 
 Set process_id of objects to be deleted in the class table prior to running the delete procedure.
 
+This procedure use the table MFObjectChangeHistory as source.  Explore and determine the versions to be deteled using the spmfGetHistory procedure and then to update the Process_id on MFObjectChangeHistory to 1 for the object versions to be included in the deletion.
+
 Examples
 ========
 
 .. code:: sql
 
-    --check items before commencing
-    SELECT id, objid, deleted, [Process_ID], *
-    FROM   [MFCustomer]
+    --check items before setting process_id
+    SELECT mc.id, mch.id, mc.objid, mch.MFversion, mc.MFVersion, mch.[Process_ID], mch.property_id, mch.property_Value, mch.LastModifiedUTC
+    FROM   [MFCustomer] mc
+    inner join MFObjectChangeHistory mch
+    on mc.objid = mch.objid and mc.class_id = mch.class_id
+    order by lastModifiedUTC
+
     --set process_id object to be deleted 
-    UPDATE [MFCustomer]
+    UPDATE MFObjectChangeHistory
     SET	   [Process_ID] = 5
     WHERE  [ID] = 13
 
     --CHECK MFILES BEFORE DELETING TO SHOW DIFF
 
-    --to delete
-    EXEC [spMFDeleteObjectList] 'MFCustomer'
-						  , 5
-						  , 0
-
-    --or
-
-    EXEC [spMFDeleteObjectList] @tableName = 'MFCustomer'
-						  , @Process_ID = 5
-						  , @DeleteWithDestroy = 0
-
-    -- to destroy
-
-    EXEC [spMFDeleteObjectList] 'MFCustomer'
-						  , 5
-						  , 1
 
 Changelog
 =========
@@ -69,10 +61,6 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
-2020-10-06  LC         Modified to process delete operation in batch
-2020-08-22  LC         deleted records in class table will be removed 
-2018-04-9   lc         Delete object from class table after deletion.
-2018-6-26   LC         Improve return value
-2018-8-2    LC         Suppress SQL error when nothing deleted
+2020-10-06  LC         Add new procedure
 ==========  =========  ========================================================
 

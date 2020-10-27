@@ -92,6 +92,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Update code for deleted column change
+2020-05-26  LC         Update fileid into table
 2019-08-30  JC         Added documentation
 2018-12-03  LC         Bug 'String or binary data truncated' in file name
 2018-06-28  LC         Set return success = 1

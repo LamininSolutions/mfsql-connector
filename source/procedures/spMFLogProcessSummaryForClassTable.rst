@@ -108,6 +108,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Update to include new deleted column
+2020-08-02  LC         Update spmfclasstablestats column name
 2019-08-30  JC         Added documentation
 ==========  =========  ========================================================
 

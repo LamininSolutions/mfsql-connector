@@ -8,19 +8,18 @@ Return
   - -1 = Error
 Parameters
   @TableName nvarchar(100)
-    fixme description
+    Class table name
   @dtModifiedDate datetime
-    fixme description
+    Date from for object versions and deletions
   @MFIDs nvarchar(4000)
-    fixme description
+    comma delimited string of objids 
   @outPutXML nvarchar(max) (output)
-    fixme description
+    object versions of filtered objects
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
 
 
 Purpose
@@ -28,24 +27,40 @@ Purpose
 
 To get all the object versions of the class table as XML.
 
-Additional Info
-===============
+Deleted objects and current objects are combined in the @OutputXML if MFIDs are used as a parameter
+When Last modified date are used then the @outputXML will include the objects changed later than the date specified 
+and the @DeletedOutputXML will include the objects that was deleted since the date lastmodified date.
 
-Prerequisites
-=============
+Warning
+=======
 
-Warnings
-========
+Either objids or lastmodified date must be specified. The procedure cannot be used with both filters as null.
 
 Examples
 ========
 
+.. code:: sql
+
+    DECLARE @outPutXML    NVARCHAR(MAX),
+    @DeletedoutPutXML    NVARCHAR(MAX),
+    @ProcessBatch_ID3 INT;
+
+    EXEC dbo.spMFGetObjectvers @TableName = MFLarge_volume,
+    @dtModifiedDate = '2020-08-01',
+    @MFIDs = null,
+    @outPutXML = @outPutXML OUTPUT,
+    @ProcessBatch_ID = @ProcessBatch_ID3 OUTPUT,
+    @Debug = 101
+
+    SELECT CAST(@outPutXML AS XML)
+    
 Changelog
 =========
 
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-25  LC         Add return XML for deleted records
 2019-12-12  LC         Improve text in MFProcessBatchDetail
 2019-09-04  LC         Add connection test
 2019-08-30  JC         Added documentation

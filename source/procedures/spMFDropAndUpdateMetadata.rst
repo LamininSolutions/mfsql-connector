@@ -109,6 +109,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-08  LC         Add fixing column errors in datatype 9
 2019-08-30  JC         Added documentation
 2019-08-27  LC         If exist table then drop, avoid sql error when table not exist
 2019-08-06  LC         Change of metadata return value, remove if statement

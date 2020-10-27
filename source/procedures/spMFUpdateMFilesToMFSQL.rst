@@ -96,6 +96,10 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-04  LC         Resolve bug with full update 
+2020-08-23  LC         replace get max objid with index update
+2020-08-23  LC         Add parameter to retain deletions, default set to NO.
+2020-08-22  LC         Elliminate use of get deleted records
 2020-04-23  LC         Set maxobjects
 2020-03-06  LC         Add updating of object history
 2020-02-14  LC         Resolve skipped audit items where class missing items

@@ -68,6 +68,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-06-24  LC         Add additional debugging
+2020-06-06  LC         Add exit if unable to connect to vault
 2020-03-06  LC         Include spMFUpdateChangeHistory through spMFUpdateMfilestoSQL
 2020-03-06  LC         Exclude MFUserMessages
 2019-12-10  LC         Functionality extended to intialise all tables

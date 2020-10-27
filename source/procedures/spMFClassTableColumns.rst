@@ -73,6 +73,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-08  LC         Set single lookup column to error when not int
 2020-01-24  LC         Fix multitext column showing false error
 2019-11-18  LC         Fix bug on column width for multi lookup properties
 2019-08-30  JC         Added documentation

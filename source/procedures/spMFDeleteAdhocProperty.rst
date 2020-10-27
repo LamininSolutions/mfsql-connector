@@ -64,6 +64,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Update code for deleted column change
 2019-08-30  JC         Added documentation
 2018-04-25  LC         Fix bug to pick up both ID column and label column when deleting columns
 2019-03-10  LC         Fix bug on not deleting the data in column

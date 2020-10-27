@@ -11,6 +11,8 @@ The purpose of the Web API is to provide an alternative method of connecting M-F
 
 The transaction calls from M-Files to SQL does not include any metadata. It only instructs SQL to perform a store procedure which will in turn use standard M-Files connections protocols to exchange the metadata between M-Files and SQL.
 
+This method is dependent on installing MFSQL Connector version 4.8.22.62 or later in the MFSQL Server.  The Vault Application should be 4.8.0.0 or later.
+
 This section describes the installation of the Web API.
 
 Architecture
@@ -21,7 +23,9 @@ When a context menu call is made through the MFSQLConnectorVaultApp application,
 -  Menu action to call a store procedure or another web link
 -  Menu action for a specific object to pass through the context of the object and call a store procedure
 -  Workflow action to pass through the context of the object and call a store procedure
--  Event handler action to pass through the context of the object and call a store procedure
+-  Event handler action to pass through the context of the object and call a store procedure.
+
+The Web API requires a IIS 7 or later Web Server to be installed on.  This Web Server must have ODBC access to the SQL Server where MFSQL Connector is installed.
 
 Configurator
 ------------
@@ -39,7 +43,10 @@ When the url is correct and is pointing to a valid website which can access the 
 Website
 -------
 
-The website to receive web services calls from M-Files is provided as part of the installation packages. Note that each website is configured for a specific MFSQL Connector database. Simply copy to website and deploy it as in a IIS web server.
+The website to receive web services calls from M-Files, is provided as a separate installation package available on request to support@lamininsolutions.com. Note that each website is configured for a specific MFSQL Connector database and a separate instance must be installed in IIS for each vault to be connected to the specific vault MFSQL Database.
+
+Install the package on the Web Server.
+Simply copy to website and deploy it as in a IIS web server.
 
 Location of the website source
 |Image4|

@@ -44,6 +44,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Deleted column change to localisation
+2020-07-08  LC         Add Valuelist Table name to columns
 2020-03-27  LC         Add documentation for the view
 ==========  =========  ========================================================
 

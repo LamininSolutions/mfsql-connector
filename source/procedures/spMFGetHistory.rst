@@ -45,7 +45,7 @@ Process_id is reset to 0 after completion of the processing.
 
 Use Cases(s)
 
-- Show coimments made on object
+- Show comments made on object
 - Show a state was entered and exited
 - Show when a property was changed
 - Discovery reports for changes to certain properties
@@ -127,6 +127,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-06-25  LC         added exception if invalid column is used
 2020-03-12  LC         Revise datetime formatting
 2019-09-25  LC         Include fnMFTextToDate to set datetime - dealing with localisation
 2019-09-19  LC         Resolve dropping of temp table

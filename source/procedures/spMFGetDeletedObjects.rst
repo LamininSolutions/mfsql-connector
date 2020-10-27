@@ -27,18 +27,7 @@ Purpose
 
 Identify and optionally remove deleted objects in M-Files in class table.
 
-Examples
-========
-
-.. code:: sql
-
-    DECLARE @ProcessBatch_ID INT;
-
-    EXEC [dbo].[spMFGetDeletedObjects] @MFTableName = 'MFCustomer'            -- nvarchar(200)
-                                  ,@LastModifiedDate = '2018-01-01'           -- datetime
-                                  ,@RemoveDeleted = 1                         -- bit
-                                  ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT -- int
-                                  ,@Debug = 101                               -- smallint
+Note this procedure is now redundant and replace with the improvements to spmfUpdateTable and including the Deleted property 27 in the dataset from M-Files by default.
 
 
 Changelog
@@ -47,6 +36,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-08-22  LC         Remove procedure
 2019-07-04  LC         Create Procedure
 2019-08-30  JC         Added documentation
 2019-09-03  LC         Set LastModifiedDate default to 2000-01-01

@@ -96,6 +96,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-06-26  LC         added additional exception management
 2020-05-06  LC         Validate the column in control table
 2020-03-06  LC         Add MFTableName and objids - run per table
 2019-11-04  LC         Create procedure

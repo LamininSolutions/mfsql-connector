@@ -25,6 +25,9 @@ Parameters
     - Default = 1 (true)
     - When true a log will be produced in the SSMS message window to show the progress
     - Set to 0 to suppress the messages.
+  @RetainDeletions BIT
+    - Default = 0 (no)
+    - Set to 1 to retain the deleted records in the class table
   @ProcessBatch_ID (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug (optional)
@@ -75,12 +78,31 @@ Update MF to SQL : class table initialisation (note the setting with @WithtableA
                                          ,@WithStats = 1
                                          ,@Debug = 0;
 
+-----
+
+Update MF to SQL : Retain the deleted objects in the class table
+
+.. code:: sql
+
+    EXEC [dbo].[spMFUpdateTableinBatches] @MFTableName = 'YourTable'
+                                         ,@UpdateMethod = 1
+                                         ,@WithTableAudit = 1
+                                         ,@FromObjid = 1
+                                         ,@ToObjid = 1000
+                                         ,@WithStats = 1
+                                         ,@RetainDeletions = 1
+                                         ,@Debug = 0;
+
 Changelog
 =========
 
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-24  LC         Set updatetable objids to include unmatched versions
+2020-09-23  LC         Fix batch size calculation
+2020-09-04  LC         Fix null count or set operation
+2020-08-23  LC         Add parameter to retain deletions, default set to NO
 2019-12-18  LC         include status flag 6 from AuditTable
 2019-06-22  LC         substantially rebuilt to improve efficiencies
 2019-08-05  LC         resolve issue with catching last object if new and only one object exist

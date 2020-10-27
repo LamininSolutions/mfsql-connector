@@ -39,6 +39,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-09-08  Lc         resolve number of objids in batch
 2020-04-08  LC         Resolve issue with #objidlist not exist 
 2019-08-30  JC         Added documentation
 2017-06-08  AC         Change default size of @ObjIds_FieldLenth 

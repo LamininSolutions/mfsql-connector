@@ -34,7 +34,7 @@ Parameters
     - This parameter is automatically set by spMFUpdateSynchronizeError when synchronization routine is called.
   @RetainDeletions (optional)
     - Default = 0
-    - Set to 1 to keep deleted items in M-Files in the SQL table shown as deleted = 1
+    - Set to 1 to keep deleted items in M-Files in the SQL table shown as "deleted" or the label of property 27 with the date time of the deletion.
   @Debug (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -72,6 +72,10 @@ Warnings
 ========
 
 When using a filter (e.g. for a single object) to update the table with Update method 1 and the filter object process_id is not 0 then the filter will automatically revert to updating all records. Take care to pass valid filters before passing them into the procedure call.
+
+This procedure will not remove destroyed objects from the class table.  Use spMFUpdateMFilestoMFSQL identify and remove destroyed object.
+
+Deleted objects in M-Files will automatically be removed from the class table unless @RetainDeletions is set to 1.
 
 Examples
 ========
@@ -143,6 +147,14 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-10-20  LC         Fix locationlisation for class_id 
+2020-09-21  LC         Change column name Value to avoid conflict with property
+2020-08-25  LC         Fix debugging and log messaging
+2020-08-27  LC         Rework logic to deal with deleted objects
+2020-08-29  LC         Update treatment of required workflow errors
+2020-08-22  LC         Replace boolean column Deleted with property 27
+2020-07-27  LC         Add handling of delete and check out status
+2020-06-13  LC         Remove xml_document when transaction failed
 2020-05-12  LC         Set last modified user to MFSQL
 2020-04-20  LC         exclude last modified and and MF user to be modified
 2020-03-09  LC         Resolve issue with timestamp format for finish formatting
