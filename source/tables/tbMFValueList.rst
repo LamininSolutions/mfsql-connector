@@ -9,9 +9,9 @@ Columns
 ID int (primarykey, not null)
   SQL Primary Key
 Name varchar(100)
-  fixme description
+  Name of the valuelist from M-Files
 Alias nvarchar(100)
-  fixme description
+  Alias from M-Files
 MFID int
   M-Files ID
 OwnerID int
@@ -23,7 +23,15 @@ CreatedOn datetime (not null)
 Deleted bit (not null)
   Is deleted
 RealObjectType bit
-  fixme description
+  set to 1 if valuelist is an full object type with classes and properties
+
+Additional Info
+===============
+
+The column **OwnerID** references the Owner Valuelist MFID or ObjectType MFID in the case of real ObjectTypes. For
+example: 'State' is owned by 'Workflow'.
+
+-1 indicates no owner
 
 Indexes
 =======
@@ -35,27 +43,12 @@ udx\_MFValueList\_MFID
   - Name
   - MFID
 
-Used By
-=======
+USAGE
+=====
 
-- MFProperty
-- MFValueListItems
-- MFvwMetadataStructure
-- MFvwUserGroup
-- spMFClassTableColumns
-- spMFCreateAllLookups
-- spMFCreateValueListLookupView
-- spMFDropAndUpdateMetadata
-- spMFInsertProperty
-- spMFInsertValueList
-- spMFInsertValueListItems
-- spmfSynchronizeLookupColumnChange
-- spMFSynchronizeProperties
-- spMFSynchronizeSpecificMetadata
-- spMFSynchronizeValueList
-- spMFSynchronizeValueListItems
-- spMFSynchronizeValueListItemsToMFiles
+.. code:: sql
 
+   Select * from MFValueList  
 
 Changelog
 =========

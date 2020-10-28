@@ -1,21 +1,7 @@
 Connector Content
 =================
 
-.. toctree::
-   :maxdepth: 4
-
-   assemblies/index
-   metadata-structure-tables/index
-   class-tables/index
-   utility-tables/index
-   logging-tables/index
-   procedures-and-functions/index
-   m-files-installation/index
-   context-menu/index
-   supporting-applications/index
-
 The Connector components supplied as part of the deployment package include:
-----------------------------------------------------------------------------
 
 The :doc:`/the-connector-framework/connector-content/assemblies/index` are proprietary programs (.dll) to enable the interaction between M-Files and SQL. The main purpose of the assemblies is to wrap the standard M-Files API's into code classes that allows data to be extracted from M-Files into SQL
 tables and also to update M-Files from the SQL Tables. There are four

@@ -4,101 +4,33 @@ Metadata Structure Tables
 .. toctree::
    :maxdepth: 4
 
-   metadata-table-columns/index
-   mfclass/index
-   mfvaluelist-and-mfvaluelistitems/index
-   mfworkflow-and-mfworkflowstate/index
-   mfloginaccount-and-mfuseraccount/index
 
-The following tables relating to the metadata structure are part of the
-Connector. The tables are created as part of the installation. These
-tables are populated with the metadata syncronisation procedures.
+MFSQL Connector maintains a large portion of the data definitions of the metadata structure of the vault. It also includes additional columns not defined in M-Files. The tables are created as part of the installation and populated with the metadata syncronisation procedures.
 
-These tables include several extensions of the standard M-Files Metadata
-that is useful in special applications. These extensions are detailed in
-the next section.
+The tables relate to the object types, classes, properties, valuelists and workflows in the vault. It also include tables for the login accounts and users.
 
-.. container:: table-responsive
+The following additional columns are created on these tables to complement the M-Files data definitions
 
-   | 
+=========== ==============================================================
+Column      Description
+=========== ==============================================================
+ID          SQL Identity column that represents the SQL - ID of the object
+MFID        M-Files id if the object
+Alias       The M-Files Alias
+Modified on Date that the item was last modified in SQL
+Created on  Date that the items was created in SQL
+Deleted     Item is set to 1 by the Connector if it was deleted in M-Files
+=========== ==============================================================
 
-   .. container:: table-wrap
+These tables include several extensions of the standard M-Files Metadata that is useful in special applications. 
 
-      SQL Connector Tables
+The columns and their usage for the metadata tables are outlined in the following sections
+-  :doc:`/tables/tbMFClass/'
+-  :doc:`/tables/tbMFProperty/`
+-  :doc:`/tables/tbMFClassProperty/`
+-  :doc:`/tables/tbMFObjectType/`
+-  :doc:`/tables/tbMFWorkflow/`
+-  :doc:`/tables/tbMFWorkflowState/`
+-  :doc:`/tables/tbMFUserAccount/`
+-  :doc:`/tables/tbMFLoginAccount/`
 
-MFClass
-
-| Used to store detail of the class object in M-Files. This table must
-  be distinguished from the 'Class Tables' in the Connector. The MFClass
-  table has special columns to extend the application of the class
-  object. The 'Class Tables', on the other hand is a collective term
-  referring to all the tables created by the connector representing a
-  record for each object in a particular class such as Customers. The
-  column 'IncludedInApp' show the class tables that is marked for
-  inclusion in special applications. 
-| The MFClass Table relates to properties through the MFClassProperty,
-  to MFObjectType and to MFWorkflow.
-| The Class Table Names are defined in this table.
-
-MFProperty
-
-| Used to store the Property details in M-Files.This table has
-  additional columns to extend their use. 
-| The property table relates to MFValuelist and to MFClass through
-  MFClassProperty. The datatype of the property is shown in column
-  'MFdataType_id. The Datatype ID relates to the MFDataType Table.
-| The column names of the Class Tables are defined in this table. The
-  column 'PredefinedOrAutomatic' show if the property has any special
-  rules associated with it.
-
-MFClassProperty
-
-Used to index the relationship of Properties with Classes. The
-'Required' column show if the property is required on the class.
-
-MFLoginAccount
-
-Used to store the login accounts in M-Files. It  shows the login
-accounts for all users in vaults that the MFSQL Connector User have
-access to .
-
-MFObjectType
-
-Used to store the Object types in M-Files.
-
-MFObjectTypeToClass
-
-Reference table to map Class Tables to ObjectTypes.
-
-MFUserAccount
-
-Used to store the User Account details in M-Files. The table relates to
-the MFLoginAccount.
-
-MFValueList
-
-| Used to store the Value List details in M-Files. 
-| The table is related to MFValuelistItems and MFProperty. The column
-  'OwnerID' show the MFID of the object that owns the valuelist. This
-  could be a class or workflow.
-
-MFValueListItems
-
-| Used to store the Value list items details in M-Files. 
-| The table relates to MFvaluelist. The column 'OnwerID' show the MFID
-  of the objects that owns the item. This is another ValuelistItem.
-| The column 'App_Ref' is predefined unique value for each Valuelist
-  item in the vault. This value allows for rapid referencing of a item
-  without using joined tables to get to the MFID of the valuelist item.
-  In the same way the column 'Owner_AppRef' references the owner with a
-  unique id.
-
-MFWorkflow
-
-Used to store the work flow details in M-Files. This table relates to
-MFWorkflowState.
-
-MFWorkflowState
-
-Used to store the work flow item details in M-Files. This table relates
-to MFWorkflow.
