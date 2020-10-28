@@ -11,12 +11,7 @@ objects and updates between M-Files and SQL.  This is useful when errors
 or omissions need to be investigated.
 
 This table can also be used to determine which objects had a change of
-version and therefore requires updating.
-
-There are two primary procedures for using this functionality
-
--  :doc:`/procedures/spMFTableAudit`
--  :doc:`/procedures/spMFTableAuditInBatches`
+version and therefore requires updating using the doc:`/procedures/spMFTableAudit` procedure
 
 Procedures that automatically update MFAuditHistory include:
 

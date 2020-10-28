@@ -28,12 +28,6 @@ and then select Configurations.
 modify at least the following settings:
 
 
-
-SETTING VALUE DESCRIPTION
--------------------------
-
-
-
 General Settings
 ~~~~~~~~~~~~~~~~
 
@@ -54,7 +48,6 @@ under External Views
 -  Anonymous: This option is not available for Database connections.
 
 
-
 Permissions
 ~~~~~~~~~~~
 
@@ -62,7 +55,6 @@ Permissions
 -  M-Files NACL: Use the dropdown to select full control for all
    internal users, or an ACL group to restrict the users who should have
    access.
-
 
 
 Automatic Association
@@ -107,10 +99,5 @@ Search Index
 
 The search index set the criteria for updating the search.  No change is
 necessary in standard use cases.
-
-Continue to Configuring `Connector-Specific
-Settings <page156401672.html#Bookmark12>`__
-
-| 
 
 
