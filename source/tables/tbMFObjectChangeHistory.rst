@@ -44,11 +44,11 @@ Used By
 =======
 
 Procedures
-- :doc:`/procedures/spMFGetHistory/'
-- :doc:`/procedures/spMFUpdateObjectChangeHistory`
+- :doc:`/procedures/spMFGetHistory/`
+- :doc:`/procedures/spMFUpdateObjectChangeHistory/`
 
 Views
-- :doc:`/views/MFvwObjectChangeHistory`
+- :doc:`/views/MFvwObjectChangeHistory/`
 
 Changelog
 =========
