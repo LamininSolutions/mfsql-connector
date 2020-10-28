@@ -21,7 +21,7 @@ can upgrade to release 4, however release 4 cannot be downgraded
 to release 3.
 
 Key features of the installation packages
-----------------------------------------
+-----------------------------------------
 
 -  MFSQL Connector installation package has two packages for installation: the main application and a separate package for the deployment of the Web API.
 -  The main installation package is used to install/transfer files on the
