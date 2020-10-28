@@ -10,7 +10,7 @@ This section provide guidance on how to perform a first time installation and to
 
 The preparation of the environment before first installation is also highlighted in this section.
 
-Consult the `requirements`_ before commencing with the installation.
+Consult the `requirements <https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index>`_ before commencing with the installation.
 
 Release 4.3.9.48 introduces a new method of installation building on the
 new licensing methods and Vault applications introduced with the advent
@@ -20,13 +20,14 @@ Release 4 requires a minimum of version M-Files 2018.   Release 3
 can upgrade to release 4, however release 4 cannot be downgraded
 to release 3.
 
-Key features of the installation package
+Key features of the installation packages
 ----------------------------------------
 
--  There is only one installation package for all modules. 
--  The same installation file is used to install/transfer files on the
+-  MFSQL Connector installation package has two packages for installation: the main application and a separate package for the deployment of the Web API.
+-  The main installation package is used to install/transfer files on the
    developer desktop, the M-Files server or the SQL Server. These are
    often the same computer in testing/development scenarios.
+   The installation of the Web API is only used for M-Files Cloud deployments of MFSQL Connector when the context menu functionality is required.
 -  The different modules are licensed by installing the license file to
    the vault applications. `Contact us <mailto:MFSQL@lamininsolutions.com>`__ if your license has expired.
 
@@ -78,10 +79,9 @@ Key features of the installation package
 
       -  C:\Program Files (x86)\Common Files\MFSQLConnector
 
--  The license files (.lic) is be provided separately.  The Trial
-   license  is valid for 30 days. Thereafter new license files must be
-   obtained from /MFSQL@lamininsolutions.com
-
+-  The license files (.lic) is provided separately.  The Trial
+   license is valid for 30 days. Thereafter new license files must be
+   obtained from `support <mailto:MFSQL@lamininsolutions.com>`__
 
 
 Download software
@@ -139,5 +139,3 @@ Special considerations apply when SQL Server is not connected with
 M-Files Cloud. Follow the installation instructions specific to this
 model.
 
-
-.. _`requirements`: ../introduction/requirements/index

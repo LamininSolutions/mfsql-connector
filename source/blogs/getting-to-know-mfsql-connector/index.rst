@@ -86,7 +86,7 @@ Topics procedures and related examples for integration and data management
  - **Updating large volume from SQL to M-Files** : spMFUpdateMFilesToMFSQL, spMFUpdateTableinBatches : *03.150 Update large volume from SQL to MF, 03.151.using spmfupdatetableInbatches for batch updates, 03.153.Comparing procedures for large volume updating*
  - **Get object history for large volumes** : spMFGetHistory, MFObjectChangeHistory : *04.175.Getting History in high volume situations*
  - **Updating multi lookup columns** : fnMFMultiLookupUpsert : *03.155.Using multilookup upsert*
- - **Get Object Versions** : spMFTableAudit, spMFTableAuditinBatches, MFAuditHistory, spMFGetObjectvers : *03.152. using spMFTableAuditInBatches to get objversions in batches, 03.153.Comparing procedures for large volume updating*
+ - **Get Object Versions** : spMFTableAudit, MFAuditHistory, spMFGetObjectvers : *03.152. using spMFTableAuditInBatches to get objversions in batches, 03.153.Comparing procedures for large volume updating*
  - **Setup and using auto correction for sync errors** : MFclass, MFUpdateTable : *15.104.using auto correction of synchronization errors, 15.106.Example of SyncPrecedence 0 (SQL takes precedence), 15.107.Example of SyncPrecedence 1 (MF takes precedence)*
  - **Get Public shared link** : spMFCreatePublicSharedLink, MFPublicLink : *04.150.Create public shared link*
  - **Add comments** : spMFAddCommentForObjects : *04.160.Adding comments to object*
