@@ -26,23 +26,6 @@ The procedure :doc:`/procedures/spMFTableAudit` has
 been in operation for some time. This procedure extracts the object
 version (object id, version, object guid and object type).
 
-Using the :doc:`/procedures/spMFTableAuditInBatches`
-will allow you to execute the spmfTableAudit procedure in batches. This
-is used in cases where the number of objects in the class table exceeds
-100 000.
-
-.. code:: sql
-
-    EXEC [dbo].[spMFTableAuditinBatches] @MFTableName = 'MFCustomer' 
-                                        ,@FromObjid = 120  
-                                        ,@ToObjid = 130  
-                                        ,@WithStats = 1 
-                                        ,@Debug = 0  
-
-
-|image0|
-
-
 Get object version for specific object or objects
 -------------------------------------------------
 
@@ -60,4 +43,3 @@ particularly relevant for large tables.
 
 refer to :doc:`/tables/tbMFAuditHistory` table for more information on the audit log entries.
 
-.. |image0| image:: img_1.png

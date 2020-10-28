@@ -57,6 +57,7 @@ Each procedure, table or function contains there own change control section. See
 #. spMFUpdateTable to change column name 'Value' to avoid conflict with a similar property name
 #. spMFCheckLicenseStatus to change the datatype of license date to date
 #. spMFUpdateTableInBatches to set updatetable objids to include unmatched versions; fix batch size calculation and fix null count for set operation
+#. spMFTableAuditInBatches is removed. The functionality is incorporated in spmfTableAudit
 #. remove setting objid as a unique index
 #. spMFUpdateMfilestoMFSQL to fix bug with update full set
 #. spMFclassTableColumns to set single lookup column to error when not int
