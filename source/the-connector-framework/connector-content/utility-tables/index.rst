@@ -1,7 +1,8 @@
 Utility Tables
 ==============
 
-A number of special tables is included in the Connector:
+A number of special tables is included in the Connector. The use and columns of these tables are described in the following sections
+
 
 MFDataType
 
