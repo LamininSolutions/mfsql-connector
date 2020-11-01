@@ -70,6 +70,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-10-30  LC         Add missing parameter for create object internal
+2020-10-30  LC         Fix bug with class id
 2020-08-22  LC         Update to taken account of deleted column
 2019-08-30  JC         Added documentation
 2018-04-22  AC         Resolve issue with failed conversion

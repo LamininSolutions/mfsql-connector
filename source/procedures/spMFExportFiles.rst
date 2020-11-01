@@ -92,6 +92,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-11-01  LC         Fix bug with misplaced as in code
 2020-08-22  LC         Update code for deleted column change
 2020-05-26  LC         Update fileid into table
 2019-08-30  JC         Added documentation
