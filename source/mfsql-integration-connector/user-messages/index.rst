@@ -101,7 +101,6 @@ The following core processes will generate a message for the MFUserMessages tabl
 #. spMFSynchronizeFilesToMFiles
 #. spMFSynchronizeMetadata
 #. spMFTableAudit
-#. spMFUpdateClassAndProperties
 #. spMFUpdateMFilestoSQL
 
 By default the Connector will not insert user messages.  To enable user messages in the MFUserMessage table the MFSettings table must be updated.

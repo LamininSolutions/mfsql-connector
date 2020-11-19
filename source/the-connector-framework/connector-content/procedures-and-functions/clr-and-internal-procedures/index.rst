@@ -51,7 +51,6 @@ suggestions for improvement can be raised with MFSQL Connector Support.
       spMFSynchronizeValueListItems               Used to synchronize MFValueListItems table with M-Files
       spMFSynchronizeWorkflow                     Used to synchronize MFWorkflow table with M-Files
       spMFSynchronizeWorkflowsStates              Used to synchronize MFWorkflowState table with M-Files
-      spMFUpdateClassAndProperties                Used to update class and properties of an object into M-Files
       spMFUpdateTableInternal                     Used to insert/update object details in MF Class table
       spMFUpdateClass                             Used to update class metadata table
       spMFLogError_EMail                          Used to send exception details as email

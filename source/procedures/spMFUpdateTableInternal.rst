@@ -38,6 +38,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-11-07  LC         Resolve issue with duplicate columns and multilookup datatype
 2020-10-22  LC         set datetime conversion to 102 (ansi)
 2020-10-22  LC         Required workflow check is only performed on updated objects
 2020-09-23  LC         Remove rows from other classes for table update

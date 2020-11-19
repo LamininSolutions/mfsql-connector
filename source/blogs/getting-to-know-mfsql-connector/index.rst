@@ -102,7 +102,6 @@ Topics procedures and related examples for integration and data management
  - **Send bulk emails with attachements** : advanced metadata synchronization, spMFSynchronizeSpecificMetadata, spMFDropAndUpdateMetadata, MFvwMetadataStructure : *01.105.MetadataStructureChanges, 01.110.Metadata Update Development - Practical example*
  - **Setup unique indexes** : spMFCreateTable : *01.110.Metadata Update Development - Practical example*
  - **Removing ad hoc columns** : spMFDeleteAdhocProperty : *02.250.Add hoc columns*
- - **changing class, updating specific properties** : spMFUpdateClassAndProperties : *02.251.Change Class and properties*
  - **Working with agents, Get agent process status, Daily update agent** : *30.101.SQL Agent Job Status view, 30.102.adding daily update agent job, 30.103.adding agent job for use with wait status, 30.104.adding agent job to run wait status*
  - **Working with Context Menu** : custom.DoCMObjectAction, custom.DoCMAction, custom.CMDoObjectActionForWorkflowState, DoCMAsyncAction : *90.101.script.CreateDemoMenuitems, 90.102.custom.DoCMObjectAction, 90.103.custom.DoCMAction, 90.104.custom.CMDoObjectActionForWorkFlowState, 90.105.custom.DoCMAsyncAction*
  - **Sample custom procedures** : *70.100.Example - Sync Procesure, 70.101 Example - Sync Process - Test wLogging, 70.102.Example - Sync Process - Test, 70.103.Example - Sync Process - Check Progress, 70.104.Example - Start Job Wait - Agent,80.100.Template - custom procedure*
