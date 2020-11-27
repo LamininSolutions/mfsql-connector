@@ -151,5 +151,6 @@ Date        Author     Description
 2020-04-22  LC         Improve naming of constraints
 2020-05-12  LC         Add index on Update_ID to improve performance
 2020-08-18  LC         replace deleted column flag with property 27 (deleted)
+2020-11-21  LC         Fix bug with unique index on objid
 ==========  =========  ========================================================
 

@@ -147,6 +147,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-11-28  LC         Resolve issue when fail message
+2020-11-24  LC         New functionality to deal with changing of classes
 2020-10-20  LC         Fix locationlisation for class_id 
 2020-09-21  LC         Change column name Value to avoid conflict with property
 2020-08-25  LC         Fix debugging and log messaging
