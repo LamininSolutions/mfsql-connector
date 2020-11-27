@@ -81,7 +81,7 @@ Use :doc:`/procedures/spMFSynchronizeSpecificMetadata`
 to update a specific type of metadata.
 
 Synchronize metadata Tables after the initial synchronisation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When synchronising metadata during development use :doc:`/procedures/spMFDropAndUpdateMetadata`. This procedure allows for a number of special parameters to control different aspects of the synchronization
 

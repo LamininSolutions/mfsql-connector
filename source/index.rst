@@ -12,6 +12,7 @@ Welcome to MFSQL Connector's documentation!
    :hidden:
 
    introduction/index
+   FAQ/index
    getting-started/index
    mfsql-data-exchange-and-reporting-connector/index
    mfsql-database-file-connector/index

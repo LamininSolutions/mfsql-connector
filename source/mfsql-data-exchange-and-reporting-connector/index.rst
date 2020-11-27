@@ -2,7 +2,7 @@ MFSQL Data Exchange and reporting Connector
 ===========================================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    working-with-metadata/index
    working-with-class-tables/index
@@ -58,4 +58,3 @@ Limited triggers for update process               Alignment of source and target
                                                   Batch preparation of data updates
                                                   Multiple triggers for data update
 ================================================= ================================================================
-
