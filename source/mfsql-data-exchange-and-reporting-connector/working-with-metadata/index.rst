@@ -6,7 +6,7 @@ Why synchronising the metadata
 
 The vault structure is captured in metadata baseline tables such as classes, object types etc.  Synchronizing the metadata updates the metadata structure of the specific vault into these inter related tables. These tables are use by MFSQL Connector to process against a replica structure of the vault. Note the following special considerations.
 
-Refer to :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` for more details on the structure tables 
+Refer to :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` for more details on the structure tables
 All ValueListItems are contained in a single table. The column AppRef
 contains a unique reference that can be used in applications to access a
 ValuelistItem without reference to the valuelist. The AppRef consists of
@@ -78,10 +78,10 @@ Synchronize specific metadata
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use :doc:`/procedures/spMFSynchronizeSpecificMetadata`
-to update a specific type of metadata. 
+to update a specific type of metadata.
 
 Synchronize metadata Tables after the initial synchronisation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When synchronising metadata during development use :doc:`/procedures/spMFDropAndUpdateMetadata`. This procedure allows for a number of special parameters to control different aspects of the synchronization
 
