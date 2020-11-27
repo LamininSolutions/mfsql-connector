@@ -19,7 +19,7 @@ Vault application 4.8.0.0    2020-07-17
 Installed releases
 ------------------
 
-  - Get the latest release installed in your database : SELECT * FROM dbo.MFDeploymentDetail 
+  - Get the latest release installed in your database : SELECT * FROM dbo.MFDeploymentDetail
   - Get the latest release installed for a specific object:  SELECT * FROM setup.MFSQLObjectsControl WHERE Name = 'ObjectName'
   - View the Release of the package Installation File:  Right click on installation file / Select Properties / Select Details tab
 
@@ -33,12 +33,19 @@ Starting with Rel 4, there is only one installation package and the release numb
   - The third digit is for Assembly changes (note that the assemblies have their own release number series)
   - The fourth digit is for SQL changes.  This number will run in series for all packages.
 
-Change control summary 
+Change control summary
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
+4.8.24.66
+~~~~~~~~~
 
+#. spMFUpdateTable is extended to include support for changing of a class.  The record will be updated and the new class table will automatically be refreshed for the object.
+#. spMFUpdateTableInternal Fix datetime formatting on updating class table
+#. spMFCreateTable fix bug on setting of objid value. unique index on non null values only.
+#. spMFUpdateTable improve messaging when partial failure of update
+#. MFSettings and MFVaultSettings fix incorrect setting of password when installing a new database
 
 4.8.24.65
 ~~~~~~~~~
@@ -62,7 +69,7 @@ Each procedure, table or function contains there own change control section. See
 #. spMFUpdateMfilestoMFSQL to fix bug with update full set
 #. spMFclassTableColumns to set single lookup column to error when not int
 
- 
+
 Version 4.8.21.61 to 4.8.23.64
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Significant changes in assemblies and multiple procedures to update MFSQL Connector to allign with Microsoft security advisory: If any of the updates related to the VCE-2020-1147 : .NET Framework, SharePoint Server, and Visual Studio Remote Code Execution Vulnerability advisory have been applied to the SQL Server, your M-Files to SQL updates will stop working until you have upgraded to the new version.
@@ -115,7 +122,7 @@ Versions 4.4.14.56 to 4.7.18.58
 #. spMFUpdateMfilesToMFSQL - Set max objects
 #. Reset naming of constraints on standard tables
 #. MFSQLConnectorVaultApp - improve high volume context menu action updates
-#. MFSQLConnectorVaultApp - add Web Services to as alternative to ODBC connection 
+#. MFSQLConnectorVaultApp - add Web Services to as alternative to ODBC connection
 #. MFSQLConnectorVaultApp - improve error reporting
 #. Update documentation on various procedures, tables and functions
 #. Assemblies - improve error and debug messaging
@@ -159,7 +166,7 @@ Version 4.3.9.49 - 4.4.11.51
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Add functionality to get all deleted objects in and object type from M-Files
 #. Upgrade to latest release of VAF framework
-#. Improve large scale updates 
+#. Improve large scale updates
 #. Improve automatic updating of MFVersion on upgrading of M-Files
 #. Improve error trapping and logging
 
@@ -184,4 +191,3 @@ Version 4.3.8.48
 #. Add RealObjectType as a column in MFvwMetadataStructure
 #. Add ability to process result in subsequent procedure for spMFSearchObject
 #. Include connection string for context menu functionality in named value storage
-
