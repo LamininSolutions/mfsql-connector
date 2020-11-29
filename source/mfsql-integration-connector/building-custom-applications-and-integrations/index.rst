@@ -47,7 +47,7 @@ Use the Connector hyperlink function in a view  to generate the URL.  On the C
 the grid with the item Command Name set to Navigate and the Command
 Argument is set the \\_blank:{ColumnNameofURL}
 
-:doc:`functions/fnMFObjectHyperlink`
+hyperlink `<https://doc.lamininsolutions.com/mfsql-connector/functions/fnMFObjectHyperlink.html>`
 
 Transaction based update
 ~~~~~~~~~~~~~~~~~~~~~~~~
