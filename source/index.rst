@@ -8,17 +8,24 @@ Welcome to MFSQL Connector's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: FAQ:
+   :hidden:
+
+  faq/index
+
+.. toctree::
+   :maxdepth: 2
    :caption: MFSQL Connector Guide:
    :hidden:
 
    introduction/index
-   faq/index
    getting-started/index
    mfsql-data-exchange-and-reporting-connector/index
    mfsql-database-file-connector/index
    mfsql-integration-connector/index
    the-connector-framework/index
    version-control/index
+
 
 .. toctree::
    :maxdepth: 2
