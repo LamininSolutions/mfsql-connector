@@ -43,7 +43,7 @@ Update in M-Files
 ~~~~~~~~~~~~~~~~~
 
 Use CoT listing as read only and provide a link to the item in M-Files.
-Use the Connector function `functions/fnMFObjectHyperlink` in a view  to
+Use the Connector function :doc:`functions/fnMFObjectHyperlink` in a view  to
 generate the URL.  On the CoT Controller of the view add a action on
 the grid with the item Command Name set to Navigate and the Command
 Argument is set the \\_blank:{ColumnNameofURL}
