@@ -7,7 +7,7 @@ Welcome to MFSQL Connector's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: FAQ:
    :hidden:
 
@@ -25,7 +25,6 @@ Welcome to MFSQL Connector's documentation!
    mfsql-integration-connector/index
    the-connector-framework/index
    version-control/index
-
 
 .. toctree::
    :maxdepth: 2
