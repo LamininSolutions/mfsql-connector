@@ -7,11 +7,11 @@ Welcome to MFSQL Connector's documentation!
 ===========================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: FAQ:
    :hidden:
 
-  faq/index
+   faq/index
 
 .. toctree::
    :maxdepth: 2
