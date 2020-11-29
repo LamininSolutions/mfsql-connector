@@ -7,4 +7,4 @@ MFSQL Connector is a developer platform of tools and capabilities to connect M-F
 Related
 -------
 
-Introduction/purpose-and-scope/index
+introduction/purpose-and-scope/index

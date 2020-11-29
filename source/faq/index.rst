@@ -8,4 +8,4 @@ The collection of frequently asked questions about MFSQL Connector
    :caption: FAQ:
    :hidden:
 
-faq/sections/index
+   faq/sections/index
