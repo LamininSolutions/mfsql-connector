@@ -147,6 +147,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-11-28  LC         Improve collection of property ids
 2020-11-28  LC         Resolve issue when fail message
 2020-11-24  LC         New functionality to deal with changing of classes
 2020-10-20  LC         Fix locationlisation for class_id 

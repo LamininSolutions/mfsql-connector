@@ -7,7 +7,9 @@ The Connector Framework
    architecture/index
    connector-content/index
    connector-database/index
+   licensing/index
    security/index
+
 
 Overview
 --------
