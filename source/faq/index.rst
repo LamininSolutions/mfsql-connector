@@ -30,7 +30,24 @@ The M-Files Cloud vault can interact with MFSQL Connector database on premise or
 From the MFSQL database to M-Files is a HTTPS secure connection. Optionally, action SQL operations from M-Files using webservices.
 
 What can the Connector do with the Metadata in M-Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MFSQL Connector allows for working with M-Files metadata by executing SQL procedures and exploring the underlying tables in SQL.  It provides full CRUD (Create, Read, Update and Delete) bi-directionally between an M-Files vault and the Connector Database.
 :doc:`/blogs/metadata-management`
+
+Can the Connector remove redundant object versions from an object history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The connector allows for the removal of specific object versions from the object history in M-Files.  :doc:`/procedures/spmfdeleteobjectversionlist`
+
+Can the connector change or update the display id of an object in M-Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The column ''External_ID'' in the class table represents the display_id of the object. This column can be updated from SQL to M-Files. This is particularly useful when a external system made changes to the unique identifyer of an object and these changes need to be update into M-Files.
+
+What file operations can be performed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+:doc:`/blogs/importing-files-into-m-files-from-explorer`
+:doc:`/blogs/importing-files-from-database`
+:doc:`/procedures/spmfexportfiles`

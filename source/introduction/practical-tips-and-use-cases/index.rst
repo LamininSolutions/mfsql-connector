@@ -2,7 +2,7 @@ Practical tips and Use Cases
 ============================
 
 The best way to illustrate the use MFSQL Connector is by reviewing
-existing use cases.  The use cases are illustrated as blogs on different topics. 
+existing use cases.  The use cases are illustrated as blogs on different topics.
 
 These use cases are not a comprehensive list, but rather a taste of what can be done.
 
@@ -22,7 +22,6 @@ Using MFSQL Connector
 -  `Exploring Valuelists with MFvwMetadataStructure <https://doc.lamininsolutions.com/mfsql-connector/blogs/exploring-valuelists-with-mfvwmetadatastructure/index.html>`_
 -  `MultiSelectLookups <https://doc.lamininsolutions.com/mfsql-connector/blogs/multiselectlookups/index.html>`_
 -  `Import files into M-Files from explorer <https://doc.lamininsolutions.com/mfsql-connector/blogs/import-files-into-m-files-from-explorer/index.html>`_
--  `Export and re-importing files <https://doc.lamininsolutions.com/mfsql-connector/blogs/export-and-re-importing-files/index.html>`_
 
 Reporting
 ~~~~~~~~~
@@ -44,7 +43,6 @@ Reporting
 
 Metadata management
 ~~~~~~~~~~~~~~~~~~~
--  `Export and re-importing files <https://doc.lamininsolutions.com/mfsql-connector/blogs/export-and-re-importing-files/index.html>`_
 -  `Updating only records that changed <https://doc.lamininsolutions.com/mfsql-connector/blogs/updating-only-records-that-changed/index.html>`_
 -  `Deleting duplicate objects <https://doc.lamininsolutions.com/mfsql-connector/blogs/deleting-duplicate-objects/index.html>`_
 -  `Moving documents from one class to another <https://doc.lamininsolutions.com/mfsql-connector/blogs/moving-documents-from-one-class-to-another/index.html>`_
@@ -53,7 +51,7 @@ Metadata management
 -  `Align metadata from an external source with data in M-Files <https://doc.lamininsolutions.com/mfsql-connector/blogs/align-metadata-from-an-external-source-with-data-in-m-files/index.html>`_
 -  `Moving metadata from text properties to Valuelist items <https://doc.lamininsolutions.com/mfsql-connector/blogs/moving-metadata-from-text-properties-to-valuelist-items/index.html>`_
 
-Integration with third party applications 
+Integration with third party applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -  `Insert new records from SQL <https://doc.lamininsolutions.com/mfsql-connector/blogs/insert-new-records-from-sql/index.html>`_
 -  `Getting to know MFSQL Connector <https://doc.lamininsolutions.com/mfsql-connector/blogs/getting-to-know-mfsql-connector/index.html>`_
@@ -71,7 +69,7 @@ Integration with third party applications
 -  `Integration with test equipment <https://doc.lamininsolutions.com/mfsql-connector/blogs/integration-with-test-equipment/index.html>`_
 -  `Integration with SAGE 50 <https://doc.lamininsolutions.com/mfsql-connector/blogs/integration-with-sage-50/index.html>`_
 
-Building extended applications 
+Building extended applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -  `Building applications around M-Files <https://doc.lamininsolutions.com/mfsql-connector/blogs/building-applications-around-m-files/index.html>`_
 -  `Create a scheduled pull from M-Files using SQL Server Agent <https://doc.lamininsolutions.com/mfsql-connector/blogs/create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html>`_
@@ -87,5 +85,3 @@ Building extended applications
 Working with Database files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -  `Importing files from a database <https://doc.lamininsolutions.com/mfsql-connector/blogs/importing-files-from-a-database/index.html>`_
-
-

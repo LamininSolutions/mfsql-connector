@@ -60,9 +60,12 @@ Class table metadata operations
 The primary objective of the Connector is to allow for full CRUD (Create, Read, Update and Delete)
  operations on the class table metadata. This is the same is the properties on the classes in M-Files.
 
- Bulk Delete
+Create and update from SQL to M-Files with :doc:`/procedures/spmfupdatetable` with updatemethod 0.
+Read from M-Files :doc:`/procedures/spmfupdatetable` with updatemethod 1.
+Delete or destroy from SQL into M-Files with :doc:`/procedures/spmfdeleteobjectlist`
+Move objects from one class to another with :doc:`/procedures/spmfupdatetable` with updatemethod 0.
 
-Move from one class to another
+
 
 Removing redundant properties
 
