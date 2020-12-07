@@ -2,20 +2,25 @@
 Using spMFClassTableStats
 =========================
 
-This procedure is useful to the SQL developer for
+The :doc:`/blogs/spmfclasstablestats` procedure is useful to the SQL developer for
 -  getting information about a class table or class tables
 -  using the result in other procedures such as error trapping or class table stats
 
-This procedure will perform a table audit on all the tables included in the filter. The procedure will update the object versions of the class table in the MFAuditHistory table. This could take a considerable time to run through if M-Files have a large number of objects.  The view vwMFAuditSummary will provide a summary result of the MFAuditHistory table. 
+This procedure will perform a table audit on all the tables included in the filter. The procedure will update the object versions of the class table in the MFAuditHistory table. This could take a considerable time to run through if M-Files have a large number of objects.
 
-The Columns
+.. warning::
+    Running this procedure could take some time to complete the full table audit.
+
+The procedure also has a switch to show the results without performing the table audit procedure.
+
+Explaining Columns
 -----------
 
 - ClassID = MFID of the class
 - TableName = Name of class table
 - IncludedInApp = show value from MFClass table
 - SQLRecordCount = Count of records of the specific class table
-- MFRecordCount = Count of records for the class from the MFAuditHistory table.  
+- MFRecordCount = Count of records for the class from the MFAuditHistory table.
 - MFNotInSQL = Count of difference between class table and audit. Use vwMFAuditSummary and MFAuditHistory to track the difference.
 - Deleted = count of deleted column in class table - Deleted in M-files, not yet removed.
 - SyncError = count of process_id = 2 in class table - records where a synchronisation error was prodcued in the last run
@@ -42,20 +47,23 @@ If MFNotInSQL is not null it may signal one or more of the following
 - the class table is out of date and requires an update. use spMFUpdateTable to update the class table.
 - the object version exist without a record. Incomplete object in M-Files.
 
+Exploring the audit history
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The view :doc:`/views/vwMFAuditSummary' will provide a summary result of the :doc:`/tables/MFAuditHistory` table.
+
 Producing the result
 --------------------
 
-#. Listing for a specific table
+Explore :doc:`/procedures/spmfclasstablestats` for more details on the options and switches.
 
 Specifying the class table when the procedure is executed will process the result for a single table.
 
 .. code:: sql
 
     EXEC [dbo].[spMFClassTableStats] 'MFCustomer'
-    
---------------------
 
-#. Simple list
+Simple list
 
 As a simple executable without any parameters it will produce a table with for all class tables where IncludedInApp is not null.
 
@@ -63,15 +71,19 @@ As a simple executable without any parameters it will produce a table with for a
 
     EXEC [dbo].[spMFClassTableStats]
 
---------------------
+Show the current status of the MFAuditHistory and class tables without performing a full table audit.
+
+    .. code:: sql
+
+        EXEC [dbo].[spMFClassTableStats] @Withaudit = 0
 
 |image0|
 
-#. Extending to include more tables
+Grouping tables for use with class table stats.  This is particularly useful when there are several subsets of applications in the connector and one want to have a quick overview of a particular subset.
 
-Add additional tables to be included in the stats, but not included in the processing of class table updates. Set the includedInApp column to any integer above 2.  In this example it is set to 4 for all classes in the object type 'Document'
+Another use case is to Add additional tables to be included in the stats, but not included in the processing of class table updates. Set the includedInApp column to any integer above 2.
 
-Then execute spMFCreateAllMFTables with @IncludedInApp = 4 and finally execute the stats.
+In the following example the additional tables column IncludedInApp in the MFClass table is set to 4 for all classes in the object type 'Document' and finally execute the stats.
 
 .. code:: sql
 
@@ -82,11 +94,7 @@ Then execute spMFCreateAllMFTables with @IncludedInApp = 4 and finally execute t
      ON [mo].[ID] = [mc].[MFObjectType_ID]
      WHERE mo.name = 'Document' AND [mc].[IncludeInApp] IS null
 
-     EXEC [dbo].[spMFCreateAllMFTables] 4 
-
      EXEC [dbo].[spMFClassTableStats]
-
----------------------
 
 |image1|
 
@@ -100,9 +108,7 @@ The result of the procedure can be included in global temporary table ##spMFClas
 
     SELECT * FROM ##spMFClassTableStats
 
---------------------
-
-#. Producing a result for all classes 
+#. Producing a result for all classes
 
 When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.
 

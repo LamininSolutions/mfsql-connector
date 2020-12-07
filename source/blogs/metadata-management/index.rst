@@ -14,47 +14,55 @@ Exploring the metadata structure
 
 A large part of the structure of the metadata is replicated in SQL.  The tables, outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` , is tied together with the view :doc:`/views/MFvwMetadataStructure` The section :doc:`/mfsql-integration-connector/exploring-metadata/index` illustrates how to use this view.
 
-This view provides a unique insight into the metadata structure.  Some related questions include:
- -  The classes where a valuelist used 
+The view :doc:`/views/MFvwMetadataStructure` provides a unique insight into the metadata structure.  Some example questions using this view include:
+ -  On which classes are valuelist used
  -  The names of all the properties that refers to a valuelist
  -  The classes where another class is referenced
- -  Which class table to create when a certain property or valuelist need to be updated or reviews
- -  Show all the properties set on the metadata card for a specific class
-  
-Exploring class tables and their columns
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ -  Show all the classes used for a specific property
+ -  Show all the properties on the metadata card for a specific class
 
-The following procedures and views allow digger deeper into the application of the structure in the class tables.
+Table Column discovery
+~~~~~~~~~~~~~~~~~~
+
+Explore the class tables and their column definition and related it to the properties and their datatypes with the following procedures and views:
 
  -  :doc:`/views/MFvwClassTableColumns`
  -  :doc:`/procedures/spMFClassTableColumns`
 
 These methods unique identify where properties are used as adhoc properties on an class.
 
-Anomolies and errors with columns can be identified using the error columns in the result set.
+Anomalies and errors with columns can be identified using the error columns in the result set.
 
 The result also show the different types of columns that is used on a class.
 
-Related blogs:
- -  
+:doc:`/procedures/spMFClassTableColumns` is specifically geared towards trapping column errors.  Review the notes on this procedure for more detail on the different use cases.
 
-Updating aliases
-~~~~~~~~~~~~~~~~
+Metadata structure manipulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The Connector allows for a range of operations to work with the metadata structure
+
+aliases
+Reset multi file document type to single file
+
+Class table operations
+----------------------
+
+Class table status
+~~~~~~~~~~~~~~~~~~
+
+:doc:`/bogs/using-spmfclasstablestats` allows for an overview status of the operations of class tables.  It shows the number of records in M-files and in the class table and any outstanding processing
 
 
+Class table metadata operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Discovery
+The primary objective of the Connector is to allow for full CRUD (Create, Read, Update and Delete)
+ operations on the class table metadata. This is the same is the properties on the classes in M-Files.
 
-Class Metadata
---------------
-
-Class table re-alignment
-
-Bulk Delete
+ Bulk Delete
 
 Move from one class to another
-
-Reset multi file document type to single file
 
 Removing redundant properties
 
@@ -64,7 +72,7 @@ Changing the datatype of a property
 	text to valuelist
 	re-align valuelist items
 	multi-lookup to single lookup
-	
+
 Deleting duplicate objects
 
 Deleting history object versions
@@ -90,6 +98,3 @@ Valuelists
 ----------
 
 Updating valuelist items
-
-
-

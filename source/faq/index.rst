@@ -28,3 +28,9 @@ Is it compatible with M-Files Cloud
 
 The M-Files Cloud vault can interact with MFSQL Connector database on premise or in another cloud.
 From the MFSQL database to M-Files is a HTTPS secure connection. Optionally, action SQL operations from M-Files using webservices.
+
+What can the Connector do with the Metadata in M-Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MFSQL Connector allows for working with M-Files metadata by executing SQL procedures and exploring the underlying tables in SQL.  It provides full CRUD (Create, Read, Update and Delete) bi-directionally between an M-Files vault and the Connector Database.
+:doc:`/blogs/metadata-management`
