@@ -33,12 +33,12 @@ What can the Connector do with the Metadata in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MFSQL Connector allows for working with M-Files metadata by executing SQL procedures and exploring the underlying tables in SQL.  It provides full CRUD (Create, Read, Update and Delete) bi-directionally between an M-Files vault and the Connector Database.
-:doc:`/blogs/metadata-management`
+:doc:`/blogs/metadata-management/index`
 
 Can the Connector remove redundant object versions from an object history
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The connector allows for the removal of specific object versions from the object history in M-Files.  :doc:`/procedures/spmfdeleteobjectversionlist`
+The connector allows for the removal of specific object versions from the object history in M-Files.  :doc:`/procedures/spMFDeleteObjectVersionList`
 
 Can the connector change or update the display id of an object in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,6 +48,6 @@ The column ''External_ID'' in the class table represents the display_id of the o
 What file operations can be performed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:doc:`/blogs/importing-files-into-m-files-from-explorer`
-:doc:`/blogs/importing-files-from-database`
-:doc:`/procedures/spmfexportfiles`
+:doc:`/blogs/import-files-into-m-files-from-explorer/index`
+:doc:`/blogs/importing-files-from-a-database/index`
+:doc:`/procedures/spMFExportFiles`

@@ -1,7 +1,7 @@
 
-====================
-spMFDeleteObjectList
-====================
+===========================
+spMFDeleteObjectVersionList
+===========================
 
 Return
   - 1 = Success

@@ -6,7 +6,7 @@ existing use cases.  The use cases are illustrated as blogs on different topics
 
 These use cases are not a comprehensive list, but rather a taste of what can be done.
 
-The blogs can also be accesseed by using the search for any related term, or navigate to the blog section of this guide.
+The blogs can also be accessed by using the search for any related term, or navigate to the blog section of this guide.
 
 Using MFSQL Connector
 ~~~~~~~~~~~~~~~~~~~~~

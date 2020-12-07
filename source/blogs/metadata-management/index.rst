@@ -22,7 +22,7 @@ The view :doc:`/views/MFvwMetadataStructure` provides a unique insight into the 
  -  Show all the properties on the metadata card for a specific class
 
 Table Column discovery
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 Explore the class tables and their column definition and related it to the properties and their datatypes with the following procedures and views:
 
@@ -44,6 +44,7 @@ The Connector allows for a range of operations to work with the metadata structu
 
 aliases
 Reset multi file document type to single file
+Updating valuelist items
 
 Class table operations
 ----------------------
@@ -51,7 +52,7 @@ Class table operations
 Class table status
 ~~~~~~~~~~~~~~~~~~
 
-:doc:`/bogs/using-spmfclasstablestats` allows for an overview status of the operations of class tables.  It shows the number of records in M-files and in the class table and any outstanding processing
+:doc:`/blogs/using-spmfclasstablestats/index` allows for an overview status of the operations of class tables.  It shows the number of records in M-files and in the class table and any outstanding processing
 
 
 Class table metadata operations
@@ -60,10 +61,22 @@ Class table metadata operations
 The primary objective of the Connector is to allow for full CRUD (Create, Read, Update and Delete)
  operations on the class table metadata. This is the same is the properties on the classes in M-Files.
 
-Create and update from SQL to M-Files with :doc:`/procedures/spmfupdatetable` with updatemethod 0.
-Read from M-Files :doc:`/procedures/spmfupdatetable` with updatemethod 1.
-Delete or destroy from SQL into M-Files with :doc:`/procedures/spmfdeleteobjectlist`
-Move objects from one class to another with :doc:`/procedures/spmfupdatetable` with updatemethod 0.
+Create and update from SQL to M-Files with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
+
+Read from M-Files :doc:`/procedures/spMFUpdateTable` with updatemethod 1.
+
+Delete or destroy from SQL into M-Files with :doc:`/procedures/spMFDeleteObjectList`
+
+Move objects from one class to another with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
+
+Read deleted records from M-Files by using :doc:`/procedures/spMFUpdateTable` with updatemethod 1 and setting the flag "RetainDeletions" to 0
+
+
+Metadata change history operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The object change history for specific properties can be read and deleted.
+
 
 
 
@@ -82,22 +95,4 @@ Deleting history object versions
 
 Mark for archiving
 
-Realign the display ID (external ID)
-
 Removing comments
-
-Get deleted objects
-
-Files
------
-
-Relocating files to a different object
-
-Exporting files
-
-Importing files
-
-Valuelists
-----------
-
-Updating valuelist items

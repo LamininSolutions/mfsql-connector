@@ -8,20 +8,20 @@ Return
   - 0 = Error
 Parameters
   @InternalprocedureName
-    - Procedure to be checked
+    - Procedure to be checked. Default is set to check for a module 1 procedure.
   @ProcedureName
-    Procedure from where the check is performed
+    Procedure from where the check is performed. Default is set to 'Test'
   @ProcedureStep
-    Procedure step for checking the license
+    Procedure step for checking the license. Default is set to 'Validate Connection'
   @ExpiryNotification
-    Default to 30
+    Default set to 30
     Sets the number of days prior to the license expiry for triggering notification
   @IsLicenseUpdate
     Default = 0
     Set to 1 to force a license update, especially after installing a new license file
   @Debug (optional)
     - Default = 0
-    - 1 = Standard Debug Mode
+    - 1 = Standard Debug Mode. Will show additional licensing information.
 
 Purpose
 =======
@@ -36,26 +36,28 @@ The license will be checked on the M-Files server once a day.  The validity is b
 Examples
 ========
 
-Check the license for a procedure
+Check the license for a specific procedure
 
 .. code:: sql
 
-    EXEC [dbo].[spMFCheckLicenseStatus] @InternalProcedureName = 'spMFGetclass' -- nvarchar(500)
-                                   ,@ProcedureName = 'test'        -- nvarchar(500)
-                                   ,@ProcedureStep = 'test'         -- sysname
+    DECLARE @rt int
+    EXEC @rt = [dbo].[spMFCheckLicenseStatus] @Debug = 0
+    Select @rt
+
+    --or, for more detail feedback
+
+     DECLARE @rt int
+    EXEC @rt = [dbo].[spMFCheckLicenseStatus] @Debug = 1
+    Select @rt
 
 ----
 
-Force the checking of the  license against the server
+Updating the license after installing the renewal in the vault application.  
 
 .. code:: sql
 
-    EXEC [dbo].[spMFCheckLicenseStatus] @InternalProcedureName = 'spMFGetclass' -- nvarchar(500)
-                                   ,@ProcedureName = 'test'        -- nvarchar(500)
-                                   ,@ProcedureStep = 'test'         -- sysname
-                                   ,@ExpiryNotification = 30    -- int
-                                   ,@IsLicenseUpdate = 1
-                                   ,@Debug = 1                 -- int
+    EXEC [dbo].[spMFCheckLicenseStatus] @IsLicenseUpdate = 1
+                                   ,@Debug = 1 
 
 Changelog
 =========
@@ -63,6 +65,9 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-05  LC         Rework core logic and introduce new supporting procedure
+2020-12-03  LC         Improve error messages when license is invalid
+2020-12-03  LC         Set additional defaults
 2020-06-19  LC         Set module to 1 when null or 0
 2019-10-25  LC         Improve messaging, resolve license check bug
 2019-09-21  LC         Parameterise overide to check license on new license install

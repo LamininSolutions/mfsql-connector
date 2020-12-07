@@ -7,12 +7,8 @@ objects for use in different scenarios
 It can be used to create various forms of desktop and web hyperlinks.
 The link can be formatted to be html friendly.
 
-For `public
-hyperlinks <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/blog/2018/11/30/612073473/Creating+and+using+public+shared+link>`__.
-
 The function
-`fnMFObjectHyperlink <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/33521674/Create+hyperlinks+to+object>`__
-is based on a specific class table and use the objid and guid columns of
+::doc`\functions\fnMFObjectHyperlink` is based on a specific class table and use the objid and guid columns of
 the object as input. It also use a switch to determine the type of
 hyperlink.
 
@@ -54,4 +50,3 @@ Switches:
 
     --web (option 2)
     select [mc].[name_or_Title] AS Account, [dbo].[fnMFObjectHyperlink]('MFAccount',mc.[objid],mc.[guid],2) from [dbo].[MFAccount] AS mc
-

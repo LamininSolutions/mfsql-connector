@@ -15,6 +15,9 @@ Parameters
   @WithReset int (optional)
     - Default = 0
     - 1 = deleted object will be removed, sync error reset to 0, error 3 records deleted.
+  @WithAudit int
+    - Default = 0
+    - 1 = will include running spmftableaudit and updating info from MF
   @IncludeOutput int (optional)
     set to 1 to output result to a table ##spMFClassTableStats
   @Debug smallint (optional)
@@ -85,12 +88,24 @@ To insert the report into a temporary table that can be used in messaging.
         @ClassTableName = N'YourTablename'
        ,@IncludeOutput = 1
 
+----
+
+To include updating object information from M-files.
+
+.. code:: sql
+
+   EXEC [dbo].[spMFClassTableStats]
+        @ClassTableName = N'YourTablename'
+       ,@IncludeOutput = 1
+       ,@WithAudit = 1
+
 Changelog
 =========
 
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-10  LC         add new parameter to allow for a quick run without table audit
 2020-09-04  LC         rebase MFObjectTotal to include checkedout
 2020-08-22  LC         Update code for new deleted column
 2020-04-16  LC         Add with nolock option

@@ -69,6 +69,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-03  LC         Fix bug when object is destroyed
 2020-10-06  LC         Modified to process delete operation in batch
 2020-08-22  LC         deleted records in class table will be removed 
 2018-04-9   lc         Delete object from class table after deletion.

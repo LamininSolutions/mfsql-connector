@@ -8,6 +8,15 @@ Return
   - 0 = Partial (some records failed to be inserted)
   - -1 = Error
 Parameters
+  @ErrorsOnly bit
+    returns a summary of properties with errors
+    default is set to 1
+  @IsSilent bit
+    if set to 1 then no result will be shown
+    default is set to 0 (no)
+  @MFTableName 
+    Result is shown for only specific table
+    Default is all tables are shown
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -17,6 +26,8 @@ Purpose
 =======
 
 This special procedure analyses the M-Files classes and show types of columns and any potential anomalies between the metadata structure and the columns for the table in SQL.
+
+The result is useful in trouble shooting.  It is also used internally during the synchronize metadata routines to trap errors.
 
 Additional Info
 ===============
@@ -61,11 +72,37 @@ The following design considerations are supported by this result set:
 Examples
 ========
 
+Without setting any parameters and using defaults. This will only return a result for columns with errors
+
 .. code:: sql
 
     EXEC [dbo].[spMFClassTableColumns] 
-    --review result
-    SELECT * FROM ##spMFClassTableColumns
+
+Set @ErrorsOnly to No. This will return a the full result
+
+.. code:: sql
+
+    EXEC [dbo].[spMFClassTableColumns] @ErrorsOnly = 0
+
+Set @ErrorsOnly to No and a specific table. This will return a the full result for a specific table
+
+.. code:: sql
+
+    EXEC [dbo].[spMFClassTableColumns] @ErrorsOnly = 0, @mftableName = 'MFCustomer'
+
+When using the procedure in other routines then set @IsSilent to yes to suppress the result. The global temporary table can then be used in the result
+
+.. code:: sql
+
+    EXEC [dbo].[spMFClassTableColumns] @IsSilent = 1
+    SELECT * FROM ##spMFClassTableColumns where property_MFID = 27 
+
+The view can also be used to review the class table columns.  Note this view is only up to date after the procedure was executed.
+
+.. code:: sql
+
+    EXEC [dbo].[spMFClassTableColumns] @IsSilent = 1
+    Select * from MFvwClassTableColumns
 
 Changelog
 =========
@@ -73,6 +110,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-10  LC         update result to improve usage of the procedure
+2020-12-10  LC         add new parameters to aid trouble shooting
 2020-09-08  LC         Set single lookup column to error when not int
 2020-01-24  LC         Fix multitext column showing false error
 2019-11-18  LC         Fix bug on column width for multi lookup properties
