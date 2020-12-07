@@ -48,6 +48,6 @@ The column ''External_ID'' in the class table represents the display_id of the o
 What file operations can be performed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:doc:`/blogs/import-files-into-m-files-from-explorer/index`
-:doc:`/blogs/importing-files-from-a-database/index`
-:doc:`/procedures/spMFExportFiles`
+ -  :doc:`/blogs/import-files-into-m-files-from-explorer/index`
+ -  :doc:`/blogs/importing-files-from-a-database/index`
+ -  :doc:`/procedures/spMFExportFiles`
