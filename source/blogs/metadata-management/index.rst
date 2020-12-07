@@ -15,6 +15,7 @@ Exploring the metadata structure
 A large part of the structure of the metadata is replicated in SQL.  The tables, outlined in :doc:`/the-connector-framework/connector-content/metadata-structure-tables/index` , is tied together with the view :doc:`/views/MFvwMetadataStructure` The section :doc:`/mfsql-integration-connector/exploring-metadata/index` illustrates how to use this view.
 
 The view :doc:`/views/MFvwMetadataStructure` provides a unique insight into the metadata structure.  Some example questions using this view include:
+
  -  On which classes are valuelist used
  -  The names of all the properties that refers to a valuelist
  -  The classes where another class is referenced
@@ -29,11 +30,7 @@ Explore the class tables and their column definition and related it to the prope
  -  :doc:`/views/MFvwClassTableColumns`
  -  :doc:`/procedures/spMFClassTableColumns`
 
-These methods unique identify where properties are used as adhoc properties on an class.
-
-Anomalies and errors with columns can be identified using the error columns in the result set.
-
-The result also show the different types of columns that is used on a class.
+These methods unique identify where properties are used as adhoc properties on an class. Anomalies and errors with columns can be identified using the error columns in the result set. The result also show the different types of columns that is used on a class.
 
 :doc:`/procedures/spMFClassTableColumns` is specifically geared towards trapping column errors.  Review the notes on this procedure for more detail on the different use cases.
 
@@ -54,23 +51,16 @@ Class table status
 
 :doc:`/blogs/using-spmfclasstablestats/index` allows for an overview status of the operations of class tables.  It shows the number of records in M-files and in the class table and any outstanding processing
 
-
 Class table metadata operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The primary objective of the Connector is to allow for full CRUD (Create, Read, Update and Delete)
- operations on the class table metadata. This is the same is the properties on the classes in M-Files.
+The primary objective of the Connector is to allow for full CRUD (Create, Read, Update and Delete) operations on the class table metadata. This is the same is the properties on the classes in M-Files.
 
-Create and update from SQL to M-Files with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
-
-Read from M-Files :doc:`/procedures/spMFUpdateTable` with updatemethod 1.
-
-Delete or destroy from SQL into M-Files with :doc:`/procedures/spMFDeleteObjectList`
-
-Move objects from one class to another with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
-
-Read deleted records from M-Files by using :doc:`/procedures/spMFUpdateTable` with updatemethod 1 and setting the flag "RetainDeletions" to 0
-
+ -  Create and update from SQL to M-Files with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
+ -  Read from M-Files :doc:`/procedures/spMFUpdateTable` with updatemethod 1.
+ -  Delete or destroy from SQL into M-Files with :doc:`/procedures/spMFDeleteObjectList`
+ -  Move objects from one class to another with :doc:`/procedures/spMFUpdateTable` with updatemethod 0.
+ -  Read deleted records from M-Files by using :doc:`/procedures/spMFUpdateTable` with updatemethod 1 and setting the flag ''RetainDeletions'' to 0
 
 Metadata change history operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
