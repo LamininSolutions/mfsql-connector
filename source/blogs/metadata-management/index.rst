@@ -65,24 +65,4 @@ The primary objective of the Connector is to allow for full CRUD (Create, Read, 
 Metadata change history operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The object change history for specific properties can be read and deleted.
-
-
-
-
-Removing redundant properties
-
-Move files from one object type to another
-
-Changing the datatype of a property
-	text to valuelist
-	re-align valuelist items
-	multi-lookup to single lookup
-
-Deleting duplicate objects
-
-Deleting history object versions
-
-Mark for archiving
-
-Removing comments
+The object change history for specific properties can be read and deleted. The most common use case for access the object change history is to report on state changes :doc:`blogs/using-object-change-history-to-report-on-state-changes/index`
