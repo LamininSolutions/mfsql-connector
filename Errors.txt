@@ -1,2 +1,0 @@
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFGetLicense.rst:16: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\metadata-management\index.rst:70: WARNING: unknown document: blogs/using-object-change-history-to-report-on-state-changes/index[39;49;00m

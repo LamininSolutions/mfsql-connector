@@ -13,7 +13,7 @@ Parameters
   @ExpiryDate datetime output
     output expiry date
     null of not exist
-   @CheckStatus int output
+  @CheckStatus int output
     output precheck status
   @Status nvarchar(100) output
     output text for status
