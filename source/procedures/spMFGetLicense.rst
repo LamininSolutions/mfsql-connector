@@ -6,6 +6,7 @@ spMFGetLicense
 Return
   - 1 = Success
   - -1 = Error
+
 Parameters
   @ModuleID nvarchar(10)
    input module to check

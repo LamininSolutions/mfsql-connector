@@ -55,7 +55,7 @@ Detail
 **M-Files to SQL connection**
 
  - MFSQL Connector use a ODBC connection or a web service to connect from M-Files to the SQL database.
- - We recommend to use the web service where the M-Files and SQL Server are not in the same network. 
+ - We recommend to use the web service where the M-Files and SQL Server are not in the same network.
 
 **Size allocation of database**
 
@@ -94,6 +94,14 @@ alternatively, rename the customer property to 'StateID'
 
 Class Table Names cannot be the same as any of the default list of
 tables created during installation (Such as MFProcess) 
+
+Reserved characters
+~~~~~~~~~~~~~~~~~~~
+
+MFSQL Connector will not perform properly when the following characters are used in M-Files in Metadata
+
+ - comma in a class table name
+ - hidden hex characters such as HEX 0x01 , 0x19 , 0x14 , 0x19
 
 Assumptions and constraints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

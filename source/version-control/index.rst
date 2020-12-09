@@ -6,13 +6,13 @@ Version Control
 Published
 ---------
 
-Published version: 4.8.24.65 2020-10-27
+Published version: 4.8.25.66 2020-12-15
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.8.24.65  2020-10-27
-Assemblies        4.8.22.0   2020-08-23
+SQL scripts       4.8.25.66  2020-12-08
+Assemblies        4.8.25.0   2020-12-08
 Vault application 4.8.0.0    2020-07-17
 ================= ========== ==========
 
@@ -46,6 +46,12 @@ Each procedure, table or function contains there own change control section. See
 #. spMFCreateTable fix bug on setting of objid value. unique index on non null values only.
 #. spMFUpdateTable improve messaging when partial failure of update
 #. MFSettings and MFVaultSettings fix incorrect setting of password when installing a new database
+#. asseblies was updated for improvements on the status reports when using object delete
+#. spMFDeleteObject, spMFDeleteObjectList, spMFDeleteObjectVersionList update to improve status and bug with destroy
+#. spMFGetLicense is a new helper procedure for spMFCheckLicenseStatus
+#. spMFCheckLicenseStatus updated for efficiency and improved error trapping
+#. spMFClassTableStats has new switches to improve usability and efficiency
+#. spMFClassTableCoumns has new swithces to improve usability and efficiency
 
 4.8.24.65
 ~~~~~~~~~

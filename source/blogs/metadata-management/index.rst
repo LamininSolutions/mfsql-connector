@@ -42,6 +42,8 @@ The Connector allows for a range of operations to work with the metadata structu
 aliases
 Reset multi file document type to single file
 Updating valuelist items
+updating metadata structure with different filters and operations
+updating class and property names
 
 Class table operations
 ----------------------
