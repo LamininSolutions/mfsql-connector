@@ -69,6 +69,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-08  LC         Reset mfversion to -1 when deleting and destroying
 2020-12-03  LC         Fix bug when object is destroyed
 2020-10-06  LC         Modified to process delete operation in batch
 2020-08-22  LC         deleted records in class table will be removed 
