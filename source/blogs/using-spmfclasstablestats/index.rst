@@ -50,7 +50,7 @@ If MFNotInSQL is not null it may signal one or more of the following
 Exploring the audit history
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The view :doc:`/views/vwMFAuditSummary' will provide a summary result of the :doc:`/tables/tbMFAuditHistory` table.
+The view :doc:`/views/MFvwAuditSummary' will provide a summary result of the :doc:`/tables/tbMFAuditHistory` table.
 
 Producing the result
 --------------------
