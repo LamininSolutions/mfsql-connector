@@ -80,18 +80,18 @@ The website files for manual installation is available in the installation folde
 
 The following elements must be modified in the web.config file to allow the API to connect with a specific vault and database.
 
-.... code-block:: xml_document
+..code-block:: xml_document
 
       <connectionStrings>
-        <add name="Constr" connectionString="Data Source=AMRUTAVPC;Initial Catalog=MFSQLRelease56;Persist Security Info=True;User ID=MFSQLConnect;Password=Connector01" providerName="System.Data.SqlClient" />
+      <add name="Constr" connectionString="Data Source=AMRUTAVPC;Initial Catalog=MFSQLRelease56;Persist Security Info=True;User ID=MFSQLConnect;Password=Connector01" providerName="System.Data.SqlClient" />
       </connectionStrings>
       <appSettings>
-        <add key="Username" value="Laminin" />
-        <add key="Password" value="Solution" />
+      <add key="Username" value="Laminin" />
+      <add key="Password" value="Solution" />
       </appSettings>
 
 The connection string must point to the Connector database for the vault.  The default user name and password for accessing the Connector should be used.  If a different user and or password is used, then this entry must be adapted to respond to a change in settings in SQL.
-The connectionstring Username and password should exist in the MFSQL Connector database.  By default the ''MFSQLConnect'' SQL Authentication user is installed during the installation of the Connector.  Reference :doc:`https://doc.lamininsolutions.com/mfsql-connector/the-connector-framework/security/index.html#credentials-for-accessing-sql-from-m-files` for more detail.
+The connectionstring Username and password should exist in the MFSQL Connector database.  By default the ''MFSQLConnect'' SQL Authentication user is installed during the installation of the Connector.  Reference :doc:`/the-connector-framework/security/index` for more detail.
 
 The ''appSettings'' username and password is used to encrypt the web connection between M-Files and the Web Server.  The same username and password must be used in the configuration of M-Files.
 
@@ -124,7 +124,7 @@ The best test to validate that the Web API is executing a call from M-Files to t
 
 Follow the :doc:`/getting-started/first-time-installation/installing-the-context-menu/index` instruction to prepare an action to execute.
 
-The table :doc:`/tables/MFContextMenu/` will show the date and time when the action was received and executed from M-Files.
+The table :doc:`/tables/tbMFContextMenu` will show the date and time when the action was received and executed from M-Files.
 
 Error trapping
 --------------
