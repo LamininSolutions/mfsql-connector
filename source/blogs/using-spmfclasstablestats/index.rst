@@ -55,7 +55,7 @@ The view :doc:`/views/MFvwAuditSummary` will provide a summary result of the :do
 Producing the result
 --------------------
 
-Explore :doc:`/procedures/spmfclasstablestats` for more details on the options and switches.
+Explore :doc:`/procedures/spMFClassTableStats` for more details on the options and switches.
 
 Specifying the class table when the procedure is executed will process the result for a single table.
 
