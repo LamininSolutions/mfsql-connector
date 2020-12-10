@@ -2,7 +2,7 @@
 Using spMFClassTableStats
 =========================
 
-The :doc:`/blogs/spmfclasstablestats` procedure is useful to the SQL developer for
+The :doc:`/procedures/spMFClassTableStats` procedure is useful to the SQL developer for
 -  getting information about a class table or class tables
 -  using the result in other procedures such as error trapping or class table stats
 
