@@ -14,7 +14,7 @@ This procedure will perform a table audit on all the tables included in the filt
 The procedure also has a switch to show the results without performing the table audit procedure.
 
 Explaining Columns
------------
+------------------
 
 - ClassID = MFID of the class
 - TableName = Name of class table
