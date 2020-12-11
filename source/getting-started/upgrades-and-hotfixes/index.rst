@@ -25,7 +25,7 @@ Connector upgrades will differ depending on what is driving the upgrade.
 
 ..note::
 
-There is no need to update the Connector if the M-Files version changes on the user desktop or M-Files server, where the M-Files server is not the same as the SQL server.
+   There is no need to update the Connector if the M-Files version changes on the user desktop or M-Files server, where the M-Files server is not the same as the SQL server.
 
 Preparation for upgrading
 -------------------------
