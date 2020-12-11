@@ -19,8 +19,10 @@ The following select statement will show the required properties of a specific c
 .... code-block:: SQL
 
       SELECT mfms.TableName,
-        mfms.ColumnName
+      mfms.ColumnName
       FROM dbo.MFvwMetadataStructure AS mfms
       WHERE mfms.Required = 1
-          AND mfms.Property_MFID > 100
+      AND mfms.Property_MFID > 100
       ORDER BY mfms.Class;
+
+      
