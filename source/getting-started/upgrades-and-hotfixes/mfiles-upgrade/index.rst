@@ -14,7 +14,7 @@ The Connector checks to validate if M-Files has upgraded by running the procedur
 
 #. Manual update
 
-Set the parameter to the current version of M-Files on the SQL Server then exexute.
+Set the parameter to the current version of M-Files on the SQL Server then execute.
 
 .. code:: sql
 

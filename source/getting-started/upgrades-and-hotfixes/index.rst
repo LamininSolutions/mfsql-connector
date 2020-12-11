@@ -9,7 +9,7 @@ Upgrades and hotfixes
 
 M-Files and MFSQL Connector regularly publish upgrades and hot fixes.
 
-Connector functionality released in specific releases are highlighted in :doc:`\version-control`. The change control of each procedure is documented as a section in the procedure documentation.
+Connector functionality released in specific releases are highlighted in :doc:`\version-control\index`. The change control of each procedure is documented as a section in the procedure documentation.
 
 Types of Upgrades
 -----------------
@@ -72,7 +72,7 @@ When the second segment has changed, the package must be applied to both SQL Ser
 (e.g. 4.7.22.48 to 4.8.23.50)
 
 Take special care when the current version is prior to 4.8.22.62.  Additional steps may include:
-- :doc:`\getting-started\upgrades-and-hotfixes\updating-to-version-4.8.22.62`
+- :doc:`\getting-started\upgrades-and-hotfixes\updating-to-version-4.8.22.62\index`
 - contact us when upgrading from releases prior to 4.4.7.40
 
 Version Check
