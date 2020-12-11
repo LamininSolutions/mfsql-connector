@@ -8,33 +8,19 @@ Return
   - -1 = Error
 Parameters
   @Doc nvarchar(max)
-    fixme description
+    XML data
   @isFullUpdate bit
-    fixme description
+    flag from calling procedure
   @Output int (output)
-    fixme description
+    output status
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
-
 
 Purpose
 =======
 
-To insert Class property details into MFClassProperty table.
-
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
+To insert Class property details into MFClassProperty table.  This is procedure is used internally only
 
 Changelog
 =========
