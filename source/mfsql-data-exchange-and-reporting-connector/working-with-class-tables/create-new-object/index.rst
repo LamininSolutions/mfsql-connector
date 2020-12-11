@@ -1,7 +1,7 @@
 Create new object
 =================
 
-A new class object (e.g. Customer) can be created using the Connector with :doc:`\procedures\spMFCreateTable`
+A new class object (e.g. Customer) can be created using the Connector with :doc:`/procedures/spMFCreateTable`
 
 Insert a new record in a class table and ensure that the minimum requirements for columns are met.
 
@@ -24,5 +24,3 @@ The following select statement will show the required properties of a specific c
       WHERE mfms.Required = 1
       AND mfms.Property_MFID > 100
       ORDER BY mfms.Class;
-
-      
