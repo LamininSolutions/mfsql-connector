@@ -5,7 +5,7 @@ Upgrades and hotfixes
    :maxdepth: 4
 
    mfiles-upgrade/index
-   updating-to-version-4.8.22.62
+   updating-to-version-4.8.22.62/index
 
 M-Files and MFSQL Connector regularly publish upgrades and hot fixes.
 
