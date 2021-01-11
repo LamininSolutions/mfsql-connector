@@ -23,6 +23,20 @@ What is the top 5 use cases
 #. Remove objects and object versions
 #. Reprocess complex data to align it with M-Files properties and structure
 
+What is the rules for licensing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Each M-Files Server requires a separate MFSQL Connector license
+#. The license is issued for the specific M-Files Serial nr and for the subscription period (a year)
+#. The number of M-Files user licenses (named and concurrent) on the M-Files server determines the MFSQL licensing bracket (e.g. 1-49; 50 – 200 etc). Read only licenses are excluded in the count.
+#. The usage of specific functions and features in MFSQL Connector (as outlined in the functional overview) determines the module (e.g. data exchange, integration or database file connector)
+#. The number of vaults on the M-Files server is not restricted.
+#. Separate M-Files servers that is used for replication, backup or any other vaults, are not taken into account as long as no MFSQL Connector connection to the vaults on these separate servers is used.
+#. The number of users assigned to the vaults (irrespective if the vaults are using MFSQL Connector or not) are not relevant.
+#. The number of SQL servers connected to the M-Files Server is not restricted
+#. One MFSQL Connector license for a separate M-Files Server and serial nr, exclusively used for testing and prototyping,  is included at no additional cost.
+
+
 Is it compatible with M-Files Cloud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

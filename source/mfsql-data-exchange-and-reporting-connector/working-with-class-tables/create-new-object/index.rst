@@ -1,7 +1,7 @@
-Create new object
-=================
+Create new class table
+======================
 
-A new class object (e.g. Customer) can be created using the Connector with :doc:`/procedures/spMFCreateTable`
+A new class table for a class object (e.g. Customer) can be created using the Connector with :doc:`/procedures/spMFCreateTable`
 
 Insert a new record in a class table and ensure that the minimum requirements for columns are met.
 
@@ -16,7 +16,7 @@ Dependencies        If the property has scripting, automation or concatenation t
 
 The following select statement will show the required properties of a specific class
 
-.... code-block:: SQL
+..code:: SQL
 
       SELECT mfms.TableName,
       mfms.ColumnName

@@ -38,7 +38,16 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
-4.8.24.66
+4.8.26.67
+~~~~~~~~~
+
+#. Fix bug in spMFUpdateExplorerFileToMFiles when importing files
+#. Fix datetime error in the assemblies for importing files using spMFUpdateExplorerFileToMFiles
+#. Enhance functionality of spMFClassTableColumns
+#. Expand the columns returned in vwMFMetadataStructure
+#. Improve error message when license expired using spMFCheckLicenseStatus
+
+4.8.25.66
 ~~~~~~~~~
 
 #. spMFUpdateTable is extended to include support for changing of a class.  The record will be updated and the new class table will automatically be refreshed for the object.

@@ -65,15 +65,15 @@ the updated object
     DECLARE @SQLID INT = 1
 
 
-     EXEC [dbo].[spMFUpdateExplorerFileToMFiles] 
+     EXEC [dbo].[spMFUpdateExplorerFileToMFiles]
      @FileName = @FileName
-     ,@FileLocation = @FileLocation 
-     ,@SQLID = @SQLID                         
-     ,@ProcessBatch_id = @ProcessBatch_id OUTPUT      
-     ,@Debug = 0      
+     ,@FileLocation = @FileLocation
+     ,@SQLID = @SQLID
+     ,@ProcessBatch_id = @ProcessBatch_id OUTPUT
+     ,@Debug = 0
      ,@IsFileDelete = 0
-                         
-    SELECT * from [dbo].[MFFileImport] AS [mfi]  
+
+    SELECT * from [dbo].[MFFileImport] AS [mfi]
 
 In some cases the name of the file and location of the file is derived
 from another database.
@@ -94,13 +94,65 @@ Exporting of files
 ------------------
 
 Exporting files with :doc:`/procedures/spMFExportFiles` from
-M-Files has been available for some time. The
-primary use of this functionality is to get a file from M-Files and be
-able to attach it to a database email, and therefore send bulk emails
+M-Files allows for extracting files, and information about the files from M-Files into explorer and SQL.  An object in M-Files, including its properties, could have none or multiple files each with its own properties. This capability allows for access these files and properties.
+
+The functionality is designed to address different types of use cases.
+
+Some of these use cases include:
+
+ - Get a file from M-Files and attach it to a database email, and therefore send bulk emails
 with attachments.
+ - Move files from one object type to another.
+ - Move objects from a non document Object type class  to a document type class.  This is particularly useful because one cannot change the class of a non-document object type to a document type class in the user interface.
+- Get all the files related to a specific project, customer or event in explorer.
+- Compare the versions of files on a checksum level with the same files outside of M-Files. (this use case stems from the need to legally prove that the files in M-Files did not change when compared with the originating files in explorer)
+- Export files from M-Files when M-Files are no longer used.
 
-The functionality has been enhanced to allow for multi-file document
-objects and to include the file object id in MFExportFileHistory.
+In principal this capability centers around matching metadata of objects in a class with the files in the object and making the information related to the objects, and the actual files available outside M-Files.  The related information in SQL is in the class table and :doc:`/tables/tbMFExportFileHistory`.  The files, if downloaded, is in explorer in the folders specified in the parameters.  Some of the use cases will require additional custom procedures or steps to complete the functional process of the use case. The output of this exporting procedure is however a fundamental building block in the process.
 
-Related script to demonstrate function: 06.102.Exporting files from
-M-Files
+Example of preparing to export of Files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example use the Sales Invoice class
+
+Step 1 - create class table, review setup for export destinations.  The Root folder is set in the MFSettings table.  The base folder for the class is set in the MFClass table
+
+.. code:: sql
+
+    EXEC spmfcreatetable 'Sales Invoice' --create table
+    EXEC spmfupdatetable 'MFSalesInvoice',1  --update table
+
+    SELECT * FROM mfsalesinvoice ---review objects in table
+
+    Update mc  -- update Class table to set a custom folder for sales invoices
+    SET FileExportFolder = 'SalesInvoices'
+    FROM MFclass mc WHERE tablename = 'MFSalesInvoice'
+
+   SELECT * FROM mfsettings WHERE name = 'RootFolder'  -- review Root folder: all files will be exported to C:\MFSQL\FileExport\ on the SQL server
+
+Step 2 - Select the objects to be included in the export.  this could be for a single row, or the whole table.  Note that the column FileCount show if the object have none, or multiple files.  The Column Single_File indicate if the object is a multi document object or not.
+
+.. code:: sql
+
+    UPDATE MFSalesInvoice --mark records for files to be exported by setting the process_id column
+    SET process_Id = 5 WHERE filecount > 0  --use filters to select the appropriate records.
+
+Step 3 - determine the settings for the parameters.  Refer to :doc:`\procedures\spMFExportFiles` for more detail about the parameters
+
+.. code:: sql
+
+     DECLARE @ProcessBatch_ID INT;
+     EXEC [dbo].[spMFExportFiles] @TableName = 'MFSalesInvoice',
+                             @PathProperty_L1 = null,
+                             @PathProperty_L2 = null,
+                             @PathProperty_L3 = null,
+                             @IncludeDocID = 0,
+                             @Process_id = 5,
+                             @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
+                             @Debug = 0
+
+Step 4 - Review the result. :doc:`\tables\tbMFExportFileHistory`  show the output of the process. If @IsDownload = 1 then the files should be in the explorer folders
+
+.. code:: sql
+
+     SELECT * FROM [dbo].[MFExportFileHistory] AS [mefh]

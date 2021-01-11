@@ -6,4 +6,4 @@ Connector as the framework of choice to develop integration between
 M-Files and other applications.
 
 `MFSQL Connector Integration
-Whitepaper <https://cloud.lamininsolutions.com/SharedLinks.aspx?accesskey=d070e83284dfecb661ae6d3129ef6fac4276bfc8aff2624305ad02fd148c9dec&VaultGUID=312E44F6-AE4B-4F5E-8784-9527260A5743>`__
+Whitepaper <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=b3c82a6e77c5e461da11dbb3fbb853606243baf52ce6289412a16f7ca1f4ede6&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>`__
