@@ -1,11 +1,11 @@
-
 ===============
 spMFExportFiles
 ===============
 
 Return
-  - 1 = Success
-  - -1 = Error
+   1 = Success
+   -1 = Error
+
 Parameters
   @TableName nvarchar(128)
    - Name of class table

@@ -7,119 +7,25 @@ Columns
 =======
 
 ID int (primarykey, not null)
-  fixme description
+  SQL id
 Name varchar(100)
-  fixme description
+  Name of Object Type
 Alias nvarchar(100)
-  fixme description
+  Aliase of object type
 MFID int (not null)
-  fixme description
+  M-Files id
 ModifiedOn datetime (not null)
-  fixme description
+  last modified in SQL
 CreatedOn datetime (not null)
-  fixme description
+  created in SQL
 Deleted bit (not null)
-  fixme description
+  set to 1 when object is deleted in MF
 
 Indexes
 =======
 
 TUC\_MFObjectType\_MFID
   - MFID
-
-Used By
-=======
-
-- MFClass
-- MFvwMetadataStructure
-- MFvwObjectTypeSummary
-- spMFAddCommentForObjects
-- spMFCreatePublicSharedLink
-- spMFDeleteAdhocProperty
-- spMFDeleteObjectList
-- spMFDropAndUpdateMetadata
-- spMFExportFiles
-- spMFGetDeletedObjects
-- spMFGetHistory
-- spMFInsertClass
-- spMFInsertObjectType
-- spMFObjectTypeUpdateClassIndex
-- spMFSynchronizeFilesToMFiles
-- spMFSynchronizeObjectType
-- spMFTableAudit
-- spMFUpdateClassAndProperties
-- spMFUpdateExplorerFileToMFiles
-- spMFUpdateHistoryShow
-- spMFUpdateItemByItem
-- spMFUpdateTable
-- fnMFObjectHyperlink
-
-
-Changelog
-=========
-
-==========  =========  ========================================================
-Date        Author     Description
-----------  ---------  --------------------------------------------------------
-2019-09-07  JC         Added documentation
-==========  =========  ========================================================
-
-
-============
-MFObjectType
-============
-
-Columns
-=======
-
-ID int (primarykey, not null)
-  fixme description
-Name varchar(100)
-  fixme description
-Alias nvarchar(100)
-  fixme description
-MFID int (not null)
-  fixme description
-ModifiedOn datetime (not null)
-  fixme description
-CreatedOn datetime (not null)
-  fixme description
-Deleted bit (not null)
-  fixme description
-
-Indexes
-=======
-
-TUC\_MFObjectType\_MFID
-  - MFID
-
-Used By
-=======
-
-- MFClass
-- MFvwMetadataStructure
-- MFvwObjectTypeSummary
-- spMFAddCommentForObjects
-- spMFCreatePublicSharedLink
-- spMFDeleteAdhocProperty
-- spMFDeleteObjectList
-- spMFDropAndUpdateMetadata
-- spMFExportFiles
-- spMFGetDeletedObjects
-- spMFGetHistory
-- spMFInsertClass
-- spMFInsertObjectType
-- spMFObjectTypeUpdateClassIndex
-- spMFSynchronizeFilesToMFiles
-- spMFSynchronizeObjectType
-- spMFTableAudit
-- spMFUpdateClassAndProperties
-- spMFUpdateExplorerFileToMFiles
-- spMFUpdateHistoryShow
-- spMFUpdateItemByItem
-- spMFUpdateTable
-- fnMFObjectHyperlink
-
 
 Changelog
 =========

@@ -1,6 +1,5 @@
 [31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFExportFiles.rst:59: WARNING: Unexpected indentation.[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst:70: WARNING: duplicate label tables/tbmfobjecttype:mfobjecttype, other instance in E:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst:73: WARNING: duplicate label tables/tbmfobjecttype:columns, other instance in E:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst:91: WARNING: duplicate label tables/tbmfobjecttype:indexes, other instance in E:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst:97: WARNING: duplicate label tables/tbmfobjecttype:used by, other instance in E:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst:125: WARNING: duplicate label tables/tbmfobjecttype:changelog, other instance in E:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFObjectType.rst[39;49;00m
+[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\index.rst:3: WARNING: Title underline too short.
+
+Tables
+=====[39;49;00m
