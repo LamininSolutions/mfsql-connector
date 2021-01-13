@@ -40,6 +40,8 @@ This functionality will:
 - The object must pre-exist in the class table. The class table metadata will be applied to object when adding the file. This procedure will add a new object from the class table, or update an existing object in M-Files using the class table metadata.
 - The source file will optionally be deleted from the source folder.
 
+The procedure will not automatically change a multifile document to a single file document. To set an object to a single file object the column 'Single_File' can be set to 1 after the file has been added.
+
 Warnings
 ========
 
@@ -73,6 +75,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-31  LC         Improve error handling in procedure
+2020-12-31  LC         Update datetime handling in mffileexport
 2019-08-30  JC         Added documentation
 ==========  =========  ========================================================
 

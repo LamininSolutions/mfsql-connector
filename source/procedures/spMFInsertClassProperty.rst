@@ -28,6 +28,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-23  LC         Add class as a property 100
 2019-08-30  JC         Added documentation
 2017-09-11  LC         Resolve issue with constraints
 2015-04-07  DEV2       Resolved synchronization issue (Bug 55)

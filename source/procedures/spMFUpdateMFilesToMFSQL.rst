@@ -96,6 +96,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-07  LC         Include override to recheck any class objects not in Audit
 2020-09-04  LC         Resolve bug with full update 
 2020-08-23  LC         replace get max objid with index update
 2020-08-23  LC         Add parameter to retain deletions, default set to NO.

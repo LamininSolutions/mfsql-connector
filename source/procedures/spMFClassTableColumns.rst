@@ -110,6 +110,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-12-31  LC         rework logic to show column types
 2020-12-10  LC         update result to improve usage of the procedure
 2020-12-10  LC         add new parameters to aid trouble shooting
 2020-09-08  LC         Set single lookup column to error when not int

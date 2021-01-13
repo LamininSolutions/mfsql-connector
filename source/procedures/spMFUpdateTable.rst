@@ -75,6 +75,8 @@ When using a filter (e.g. for a single object) to update the table with Update m
 
 This procedure will not remove destroyed objects from the class table.  Use spMFUpdateMFilestoMFSQL identify and remove destroyed object.
 
+Deleted objects will only be removed if they are included in the filter 'Objids'.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.
+
 Deleted objects in M-Files will automatically be removed from the class table unless @RetainDeletions is set to 1.
 
 Examples

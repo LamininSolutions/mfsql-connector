@@ -65,6 +65,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-06  LC         Debug module 2 license
+2020-12-31  LC         update message for license expired
 2020-12-05  LC         Rework core logic and introduce new supporting procedure
 2020-12-03  LC         Improve error messages when license is invalid
 2020-12-03  LC         Set additional defaults

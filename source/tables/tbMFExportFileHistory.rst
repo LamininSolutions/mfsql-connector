@@ -20,7 +20,7 @@ SubFolder\_2 nvarchar(100)
 SubFolder\_3 nvarchar(100)
   This parameter is set in the spMFExportFiles procedure
 MultiDocFolder nvarchar(100)
-  fixme description
+  Name or title of metadata
 FileName nvarchar(256)
   M-Files filename of the file
 ClassID int
@@ -38,7 +38,11 @@ FileCount int
 Created datetime
   The date and time of the export of the file
 FileObjectID int
-  fixme description
+  ID of the file
+FileExtension nvarchar(10)
+  Extension of the file
+FileSize int
+  Size of file
 
 Used By
 =======
@@ -52,6 +56,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-04  LC         Add file size and file ext to table
 2019-09-07  JC         Added documentation
 2018-06-29  LC         Add Column for MultiDocFolder
 2018-09-27  LC         Add script to alter column if missing

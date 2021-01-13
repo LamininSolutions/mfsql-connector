@@ -136,7 +136,7 @@ Step 2 - Select the objects to be included in the export.  this could be for a s
     UPDATE MFSalesInvoice --mark records for files to be exported by setting the process_id column
     SET process_Id = 5 WHERE filecount > 0  --use filters to select the appropriate records.
 
-Step 3 - determine the settings for the parameters.  Refer to :doc:`\procedures\spMFExportFiles` for more detail about the parameters
+Step 3 - determine the settings for the parameters.  Refer to :doc:`/procedures/spMFExportFiles` for more detail about the parameters
 
 .. code:: sql
 
@@ -150,7 +150,7 @@ Step 3 - determine the settings for the parameters.  Refer to :doc:`\procedures\
                              @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
                              @Debug = 0
 
-Step 4 - Review the result. :doc:`\tables\tbMFExportFileHistory`  show the output of the process. If @IsDownload = 1 then the files should be in the explorer folders
+Step 4 - Review the result. :doc:`/tables/tbMFExportFileHistory`  show the output of the process. If @IsDownload = 1 then the files should be in the explorer folders
 
 .. code:: sql
 
