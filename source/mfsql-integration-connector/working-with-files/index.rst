@@ -100,10 +100,9 @@ The functionality is designed to address different types of use cases.
 
 Some of these use cases include:
 
- - Get a file from M-Files and attach it to a database email, and therefore send bulk emails
-with attachments.
- - Move files from one object type to another.
- - Move objects from a non document Object type class  to a document type class.  This is particularly useful because one cannot change the class of a non-document object type to a document type class in the user interface.
+- Get a file from M-Files and attach it to a database email, and therefore send bulk emails with attachments.
+- Move files from one object type to another.
+- Move objects from a non document Object type class  to a document type class.  This is particularly useful because one cannot change the class of a non-document object type to a document type class in the user interface.
 - Get all the files related to a specific project, customer or event in explorer.
 - Compare the versions of files on a checksum level with the same files outside of M-Files. (this use case stems from the need to legally prove that the files in M-Files did not change when compared with the originating files in explorer)
 - Export files from M-Files when M-Files are no longer used.
