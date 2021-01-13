@@ -1,3 +1,4 @@
+[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFCreateValueListLookupView.rst:19: WARNING: Block quote ends without a blank line; unexpected unindent.[39;49;00m
 [31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFExportFiles.rst:59: WARNING: Unexpected indentation.[39;49;00m
 [31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\index.rst:3: WARNING: Title underline too short.
 

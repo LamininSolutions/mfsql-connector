@@ -1,6 +1,6 @@
 
-Views
-=====
+Procedures
+==========
 
 .. toctree::
    :maxdepth: 1
