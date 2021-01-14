@@ -9,7 +9,7 @@ install:
 script:
     - git clone https://github.com/LamininSolutions/connector
     - find connector -name '*.sql' -exec python doc_extractor.py {} \;
-    - travis-sphinx build --source=./source -v
+    - travis-sphinx build --source=./source 
 
 after_success:
     travis-sphinx deploy
