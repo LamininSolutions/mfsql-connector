@@ -38,6 +38,7 @@ The next routine is to add new valuelistitems if they do not already exist. The 
 Note using the ID of the valuelist table by setting a parameter from the lookup table.  The only values that is required to be populated in the MFvaluelistItem table is the name, valuelist id and process_id.  repeat this routine for each valuelist used in the source table.
 
 .. code:: sql
+
     DECLARE @Valuelist_ID INT
     SELECT TOP 1 @Valuelist_id = vc.ID_ValueList FROM Custom.vwCountry AS vc
 
