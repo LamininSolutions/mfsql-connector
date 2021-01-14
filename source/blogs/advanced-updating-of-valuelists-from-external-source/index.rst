@@ -66,6 +66,7 @@ Step 3: use the new mfid of the valuelist items
 Join the lookup table with the source table to get the mfid of the new valuelist item to insert the new record in the class table.
 
 .. code:: sql
+
     INSERT INTO dbo.MFCustomer
     (Country_ID,
     Customer_Name,
