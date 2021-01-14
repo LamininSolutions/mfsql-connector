@@ -13,7 +13,7 @@ Step 1: Create easy to use lookups for the valuelists.
 
 Valuelists in M-Files is in the :doc:`/tables/tbMFValueList` table and the valuelist items are all in the :doc:`/tables/tbMFValueListItems` table.  Selecting the valuelist items for a specific valuelist requires a join between these two table based on the valuelist_id.
 
-However, we recommend to create a individual view for each valuelist that would be used in your application. The :doc:`/procedures/spMFCreateValuelistLookupView` is a very handy tool to rapidly create these lookups.
+However, we recommend to create a individual view for each valuelist that would be used in your application. The :doc:`/procedures/spMFCreateValueListLookupView` is a very handy tool to rapidly create these lookups.
 
 .. code:: sql
 
