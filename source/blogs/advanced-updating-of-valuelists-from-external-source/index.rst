@@ -34,7 +34,7 @@ Start with updating the valuelist items from M-Files to the database.  This is o
     @ItemName = 'Country', -- reference the name of the valuelist
     @Debug = 0
 
-The next routine is to add new valuelistitems if they do not already exist. The following example filter for missing items and update :doc:`/tables/tbMFValuelistItems`, setting the process_id to 1.
+The next routine is to add new valuelistitems if they do not already exist. The following example filter for missing items and update :doc:`/tables/tbMFValueListItems`, setting the process_id to 1.
 Note using the ID of the valuelist table by setting a parameter from the lookup table.  The only values that is required to be populated in the MFvaluelistItem table is the name, valuelist id and process_id.  repeat this routine for each valuelist used in the source table.
 
 .. code:: sql
