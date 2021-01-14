@@ -15,9 +15,9 @@ Parameters
     Default = 'dbo'
     We recommend to set it as 'custom'
   @Debug SMALLINT = 0
-     - Default = 0
-    - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
+   - Default = 0
+   - 1 = Standard Debug Mode
+   - 101 = Advanced Debug Mode
 
 Purpose
 =======
@@ -51,7 +51,7 @@ Deleted items are not being pulled into the table when synchronising the valueli
 Examples
 ========
 
-.. code::sql
+.. code:: sql
 
     EXEC dbo.spMFCreateValueListLookupView @ValueListName = 'Country',
     @ViewName = 'vwCountry',
