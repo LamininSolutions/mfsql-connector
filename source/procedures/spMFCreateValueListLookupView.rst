@@ -51,13 +51,13 @@ Deleted items are not being pulled into the table when synchronising the valueli
 Examples
 ========
 
-.. code:: sql
+.. code::sql
 
     EXEC dbo.spMFCreateValueListLookupView @ValueListName = 'Country',
     @ViewName = 'vwCountry',
     @Schema = 'custom',
     @Debug = 0
-    
+
 Changelog
 =========
 
