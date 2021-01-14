@@ -1,6 +1,6 @@
 
 Tables
-=====
+======
 
 .. toctree::
    :maxdepth: 1
