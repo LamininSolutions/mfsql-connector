@@ -53,7 +53,8 @@ Note using the ID of the valuelist table by setting a parameter from the lookup 
     ON vc.Name_ValueListItems = mc.Country
     WHERE vc.mfid_ValuelistItems IS null and mc.Country is not null
 
-The final part of the entire process is to update the valuelist item table to M-Files using :doc:`/procedures/spMFSynchronizeValueListItemsToMFiles`
+The final part of the entire process is to update the valuelist item table to M-Files using :doc:`/procedures/spMFSynchronizeValueListItemsToMfiles`
+
 This procedure will create the new items in M-Files for all the new valuelist items with a process_id = 1.
 
 .. code:: sql
