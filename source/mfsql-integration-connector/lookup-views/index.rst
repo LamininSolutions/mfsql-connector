@@ -29,7 +29,7 @@ The short method:
       INNER JOIN custom.vwCountry vc
       ON mc.Country = vc.Name_ValueListItems
 
-:doc:`\procedures\spMFCreateValueListLookupView` is used to create a lookup for a specific valuelist.
+:doc:`/procedures/spMFCreateValueListLookupView` is used to create a lookup for a specific valuelist.
 
 .. code:: sql
 
@@ -38,7 +38,7 @@ The short method:
       @Schema = 'custom',
       @Debug = 0
 
-:doc:`\procedures\spMFCreateWorkflowStateLookupView` is used to create a lookup for a specific workflow.
+:doc:`/procedures/spMFCreateWorkflowStateLookupView` is used to create a lookup for a specific workflow.
 
 .. code:: sql
 
