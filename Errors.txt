@@ -1,6 +1,2 @@
-[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFExportFiles.rst:59: WARNING: Unexpected indentation.[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\advanced-updating-of-valuelists-from-external-source\index.rst:14: WARNING: unknown document: /tables/tbMFValuelist[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\advanced-updating-of-valuelists-from-external-source\index.rst:14: WARNING: unknown document: /tables/tbMFValuelistItems[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\advanced-updating-of-valuelists-from-external-source\index.rst:16: WARNING: unknown document: /procedures/spMFCreateValuelistLookups[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\advanced-updating-of-valuelists-from-external-source\index.rst:37: WARNING: unknown document: /tables/tbMFValuelistItems[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\blogs\advanced-updating-of-valuelists-from-external-source\index.rst:56: WARNING: unknown document: /procedures/spMFSynchronizeValueListItemsToMFiles[39;49;00m
+[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFConvertTableToHtml.rst:10: WARNING: Unexpected indentation.[39;49;00m
+[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFPrepareTemplatedEmail.rst:10: WARNING: Unexpected indentation.[39;49;00m
