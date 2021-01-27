@@ -11,6 +11,7 @@ MFSQL Integration Connector
    create-valuelist-items-from-sql/index
    user-messages/index
    lookup-views/index
+   send-bulk-email/index
    working-with-files/index
    working-with-aliases/index
    change-of-vault/index

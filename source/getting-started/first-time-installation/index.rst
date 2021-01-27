@@ -12,7 +12,6 @@ First time installation
    install-webapi/index
    database-file-connector-installation/index
    using-agent-for-automated-updates/index
-   installing-database-mail/index
    common-installation-errors-and-resolutions/index
    setup-powershell-utilities/index
    install-package-with-logging/index
@@ -51,4 +50,3 @@ Manually, or partially manual installation is required when any of the above res
 M-Files Cloud installation falls within this scope as administrative access to the M-Files Server is restricted to M-Files support only.
 
 Refer to the next section for manual installation.
-
