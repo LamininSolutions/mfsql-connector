@@ -34,15 +34,15 @@ create a lookup for the ValueList
 Design the email template format by adding a row and columns in :doc:`/tables/tbMFEmailTemplate` for the elements of the email for a each email template.  We recommend to prepare the email body in notepad or another scripting tool using html formatting and test the email body using a browser.
 
 The various sections of the email are then inserted into the table using the following sample insert statement. Replace the sample date with your specific data. Take into account:
-- each template must have a unique name
-- each row represent a specific template
-- each template has a one to one correlation with the valuelist item in 'Channel'. The valuelist item is added in the channel column
-- fromEmail and CCemail can include multiple addressed delimited by ';'
-- The head, greeting, mainbody, signature and footer must be include html tags
-- Three placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}
-- if the {head} placeholder is included then the default CSS from MFSettings will be used
-- additional placeholders can be customised by addding a placeholder in the table and modifying custom.ChannelEmail to replace the text for each email.
-- the email can include a table. The select statement for the table is handled in the custom.DoChannelEmail procedure.
+ - each template must have a unique name
+ - each row represent a specific template
+ - each template has a one to one correlation with the valuelist item in 'Channel'. The valuelist item is added in the channel column
+ - fromEmail and CCemail can include multiple addressed delimited by ';'
+ - The head, greeting, mainbody, signature and footer must be include html tags
+ - Three placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}
+ - if the {head} placeholder is included then the default CSS from MFSettings will be used
+ - additional placeholders can be customised by addding a placeholder in the table and modifying custom.ChannelEmail to replace the text for each email.
+ - the email can include a table. The select statement for the table is handled in the custom.DoChannelEmail procedure.
 
 .. code:: sql
 
