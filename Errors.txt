@@ -1,2 +1,0 @@
-[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFConvertTableToHtml.rst:10: WARNING: Unexpected indentation.[39;49;00m
-[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\procedures\spMFPrepareTemplatedEmail.rst:10: WARNING: Unexpected indentation.[39;49;00m
