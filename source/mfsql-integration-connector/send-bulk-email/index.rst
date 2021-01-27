@@ -9,12 +9,12 @@ Components
 ----------
 
 The capability has the following Components:
- -  doc::`/tables/tbMFEmailLog` to track the sending of email
- -  doc::`/tables/tbMFEmailTemplate` for defining each template
- -  doc::`/procedures/spMFSendHTMLBodyEmail` to send one email, the parameters define the content of the email. The send process is recorded in MFEmailLog.
- -  doc::`/procedures/spMFConvertTableToHTML` to convert a select statement output to HTML format
- -  doc::`/procedures/spMFprepareTemplatedEmail` to compile the body of the email based on the template and call
- -  doc::`/procedures/spMFSendHTMLBodyEmail` to sent email out.
+ -  :doc:`/tables/tbMFEmailLog` to track the sending of email
+ -  :doc:`/tables/tbMFEmailTemplate` for defining each template
+ -  :doc:`/procedures/spMFSendHTMLBodyEmail` to send one email, the parameters define the content of the email. The send process is recorded in MFEmailLog.
+ -  :doc:`/procedures/spMFConvertTableToHTML` to convert a select statement output to HTML format
+ -  :doc:`/procedures/spMFprepareTemplatedEmail` to compile the body of the email based on the template and call
+ -  :doc:`/procedures/spMFSendHTMLBodyEmail` to sent email out.
 
 Configuration
 -------------
@@ -31,7 +31,7 @@ create a lookup for the ValueList
      select * from custom.vwChannel
 
 
-Design the email template format by adding a row and columns in doc::`/tables/tbMFEmailTemplate` for the elements of the email for a each email template.  We recommend to prepare the email body in notepad or another scripting tool using html formatting and test the email body using a browser.
+Design the email template format by adding a row and columns in :doc:`/tables/tbMFEmailTemplate` for the elements of the email for a each email template.  We recommend to prepare the email body in notepad or another scripting tool using html formatting and test the email body using a browser.
 
 The various sections of the email are then inserted into the table using the following sample insert statement. Replace the sample date with your specific data. Take into account:
 - each template must have a unique name
@@ -194,13 +194,13 @@ Take care when testing the procedure to not send test emails to all the recipien
 
  To send to all recipients
 
- .. code:: sql
+.. code:: sql
 
       exec custom.DoChannelEmail @EmailTemplate_ID = 1, @TestOnly = 0, @Debug = 0
 
  show the processing log
 
- .. code:: sql
+.. code:: sql
 
       Select * from MFEmailLog
 
@@ -209,5 +209,3 @@ The custom procedure is designed to block the sending of repeat emails for the s
 .. code:: sql
 
      delete from custom.emaillog where document_id = 212326
-
- 
