@@ -12,7 +12,7 @@ The capability has the following Components:
  -  :doc:`/tables/tbMFEmaillog` to track the sending of email
  -  :doc:`/tables/tbMFEmailTemplate` for defining each template
  -  :doc:`/procedures/spMFSendHTMLBodyEmail` to send one email, the parameters define the content of the email. The send process is recorded in MFEmailLog.
- -  :doc:`/procedures/spMFConvertTableToHTML` to convert a select statement output to HTML format
+ -  :doc:`/procedures/spMFConvertTableToHtml` to convert a select statement output to HTML format
  -  :doc:`/procedures/spMFprepareTemplatedEmail` to compile the body of the email based on the template and call
  -  :doc:`/procedures/spMFSendHTMLBodyEmail` to sent email out.
 
