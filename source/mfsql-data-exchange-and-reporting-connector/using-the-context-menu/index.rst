@@ -4,8 +4,7 @@ Using the Context Menu
 Installing MFContextMenu
 ------------------------
 
-Refer to `Installing the Context
-Menu <https://doc.lamininsolutions.com/mfsql-connector/getting-started/installing-the-context-menu/index.html>`_ 
+Refer to ::doc`/getting-started/installing-the-context-menu/index`
 to get ready.
 
 The Context Menu provides the ability for an authorised M-Files Desktop
@@ -30,10 +29,10 @@ user to perform the following functions:
    a procedure that takes the object id and class as of the object in
    scope as input parameters.  This method is particularly relevant
    where the procedure must be triggered automatically when the user
-   performed a function in M-Files.   
+   performed a function in M-Files.
 
 Visibility of the Context Menu is controlled by the 'ContextMenu' User
-group.  
+group. 
 
 The availability of individual menu action items can be controller by
 adding the user group MFID in the MFContextMenu Table.  By default all
@@ -212,21 +211,21 @@ ISAsync column to 1 for Asynchronous.
    Action type Action Type description                                                    Behaviour                                                                                                                         Show Setup Required
    =========== ========================================================================== ================================================================================================================================= ==== ==============================================================================================================================
    1           execute procedure (no input parameters)                                    Calls the procedure in ActionType.  Procedure will run asynchronously.                                                                 Create procedure with name in ActionType for the menu
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user
    2           show URL                                                                   Opens URL in the default browser in new window outside of the scope of M-Files security context                                        use URL as the ActionType in MFContextMenu
    3           execute procedure with input parameters                                    Calls the procedure with class and objid of the selected item as parameters. Procedure will run asynchronously.                        Create procedure with two parameters and with name in ActionType for the menu
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user
    4           execute procedure from a workflow action with no input parameters required Calls the procedure from a workflow state action                                                                                       Create procedure with name in ActionType for the menu
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Add script (sample below) in the workflow state action
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user
    5           execute procedure from a workflow action with input parameters required    Calls the procedure from a workflow state action and passing the object version details back to the procedure as input parameters      Create procedure with name in ActionType for the menu
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Add script (sample below) in the workflow state action
-                                                                                                                                                                                                                                
+
                                                                                                                                                                                                                                  Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user
    =========== ========================================================================== ================================================================================================================================= ==== ==============================================================================================================================
 
@@ -278,12 +277,12 @@ Procedure with no context parameters (action type 1,4)
                             , @Return_Value INT
 
                       BEGIN
-      --Updating MFContextMenu to show that process is still running   
+      --Updating MFContextMenu to show that process is still running
                             UPDATE  [dbo].[MFContextMenu]
                             SET     [MFContextMenu].[IsProcessRunning] = 1
                             WHERE   [MFContextMenu].[ID] = @ID
 
-     --Logging start of process batch 
+     --Logging start of process batch
 
                             EXEC [dbo].[spMFProcessBatch_Upsert]
                                 @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
@@ -304,7 +303,7 @@ Procedure with no context parameters (action type 1,4)
                               , -- int
                                 @LogType = N'Message'
                               , -- nvarchar(50)
-                                @LogText = @OutPut 
+                                @LogText = @OutPut
                               , -- nvarchar(4000)
                                 @LogStatus = N'In Progress'
                               , -- nvarchar(50)
@@ -414,7 +413,7 @@ Procedure with parameters (action type 3)
      , @ClassID int
     AS
           BEGIN
-                DECLARE @MFClassTable NVARCHAR(128) 
+                DECLARE @MFClassTable NVARCHAR(128)
                 DECLARE @SQLQuery NVARCHAR(MAX)
                 DECLARE @Params NVARCHAR(MAX)
                 BEGIN TRY
@@ -429,11 +428,11 @@ Procedure with parameters (action type 3)
                                   , @ProcedureStep NVARCHAR(128)
                                   , @StartTime DATETIME
                                   , @Return_Value INT
-      --Updating MFContextMenu to show that process is still running    
+      --Updating MFContextMenu to show that process is still running
                             UPDATE  [dbo].[MFContextMenu]
                             SET     [MFContextMenu].[IsProcessRunning] = 1
                             WHERE   [MFContextMenu].[ID] = @ID
-    --Logging start of process batch 
+    --Logging start of process batch
                             EXEC [dbo].[spMFProcessBatch_Upsert]
                                 @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
                               , -- int
@@ -503,7 +502,7 @@ Procedure with parameters (action type 3)
 
          UPDATE mot
          SET process_ID = 1
-         ,Keywords = ''Updated in '' + @OutPut 
+         ,Keywords = ''Updated in '' + @OutPut
          FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
 
                             EXEC [sys].[sp_executesql]
@@ -653,11 +652,11 @@ For Action Type 5
                                   , @ProcedureStep NVARCHAR(128)
                                   , @StartTime DATETIME
                                   , @Return_Value INT
-      --Updating MFContextMenu to show that process is still running    
+      --Updating MFContextMenu to show that process is still running
                             UPDATE  [dbo].[MFContextMenu]
                             SET     [MFContextMenu].[IsProcessRunning] = 1
                             WHERE   [MFContextMenu].[ID] = @ID
-    --Logging start of process batch 
+    --Logging start of process batch
                             EXEC [dbo].[spMFProcessBatch_Upsert]
                                 @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
                               , -- int
@@ -701,7 +700,7 @@ For Action Type 5
                       END
          --- start of custom process for the action, this example updates keywords property on the object
                       BEGIN
-                WAITFOR DELAY '00:01:00';  
+                WAITFOR DELAY '00:01:00';
                             DECLARE @Name_or_Title NVARCHAR(100)
                             DECLARE @Update_ID INT
 
@@ -727,7 +726,7 @@ For Action Type 5
 
          UPDATE mot
          SET process_ID = 1
-         --,Keywords = ''Updated in '' + @OutPut 
+         --,Keywords = ''Updated in '' + @OutPut
          FROM ' + @MFClassTable + ' mot WHERE [objid] = @ObjectID '
 
                             EXEC [sys].[sp_executesql]
@@ -857,4 +856,3 @@ incorporate logging as outline in the `logging
 section <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/39223308/Logging+execution+of+Process+and+Procedure+Steps>`__.
 
 An example of the result message is illustrated below:
-

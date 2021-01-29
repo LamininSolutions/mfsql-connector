@@ -5,6 +5,9 @@ Version 4.9.25.67 introduced a structured approach to send bulk emails using ema
 
 This section describe how to the setup, configuration and execution of sending emails to recipients using a email template and sending it through SQL Database mail fits together.  This feature goes beyond the scope of standard M-Files notifications.  It allows for using different templates for different notifications, including place holders and the ability to include a tables. Any recipients can be included, not only users in M-Files.
 
+Example of notification with a table
+|Image0|
+
 Components
 ----------
 
@@ -242,3 +245,5 @@ The final step is to stage the event that will trigger the notification.  This w
  - Process notifications daily in bulk based on the conditional value in a property or valuelist item. This is likely to use an agent to call the custom procedure.
  - Process the notification when the object changes in M-Files. This is likely to involve the deployment of the context menu functionality
  - Execute the procedure in SSMS. This is likely to apply where the sending of emails is not systemised and repetitive.
+
+ .. |image0| image:: img_1.png
