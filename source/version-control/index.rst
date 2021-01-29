@@ -46,6 +46,10 @@ Each procedure, table or function contains there own change control section. See
 #. Enhance functionality of spMFClassTableColumns
 #. Expand the columns returned in vwMFMetadataStructure
 #. Improve error message when license expired using spMFCheckLicenseStatus
+#. Enhance functionality of spMFExportFiles to export files in batches. This significantly improves performance.
+#. Extent functionality of spMFExportFiles to allow for getting file related metadata without downloading the file.
+#. Deploy several new tables and procedures to handle sending bulk emails using email templates. This include MFEmailLog, MFEmailTemplate, spMFsendHTMLBodyEmail, spMFConvertTabletoHtml and spMFPrepareTemplatedEmail.
+
 
 4.8.25.66
 ~~~~~~~~~
