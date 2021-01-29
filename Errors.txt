@@ -1,3 +1,0 @@
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\mfsql-integration-connector\send-bulk-email\index.rst:12: WARNING: unknown document: /tables/tbMFEmailLog[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\mfsql-integration-connector\send-bulk-email\index.rst:15: WARNING: unknown document: /procedures/spMFConvertTableToHTML[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\mfsql-integration-connector\send-bulk-email\index.rst:16: WARNING: unknown document: /procedures/spMFprepareTemplatedEmail[39;49;00m
