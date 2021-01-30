@@ -69,13 +69,13 @@ Send bulk notification emails using templates |       |tick|   |
 **Files**                                     |       |        |
 Export files from M-Files to Folders          |       |tick|   |
 Send bulk emails with attachments             |       |tick|   |
-Import files from Database Blobs              |       |    |   |tick|
-Checksum of a file in M-Files                 |tick|  |    |   |tick|
+Import files from Database Blobs              |       |        |tick|
+Checksum of a file in M-Files                 |tick|  |        |tick|
 Import files from network folders             |       |tick|   |tick|
 Get file size                                 |       |tick|   |
 Get data on files without downloading file    |       |tick|   |
-View and search files in Blobs in M-Files     |       |    |   |tick| 
-Promote external Blobs as metadata            |       |    |   |tick|
+View and search files in Blobs in M-Files     |       |        |tick| 
+Promote external Blobs as metadata            |       |        |tick|
 **Views and Reporting**                       |       |        |
 Explore full metadata structure               |       |tick|   |
 Create views for related lookups in bulk      |       |tick|   |
