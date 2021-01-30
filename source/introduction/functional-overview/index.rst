@@ -15,9 +15,9 @@ The columns below reference the following modules
 #. Integration Connector
 #. Database File Connector
 
-============================================  ======  ======  ======
-Functional element                            1       2       3
-============================================  ======  ======  ======
+============================================  ======  ======   ======
+Functional element                            1       2        3
+============================================  ======  ======   ======
 **Metadata structure**                        |       |        |
 Auto create metadata structure tables         |tick|  |tick|   |
 Analyse and refresh metadata using SQL        |tick|  |tick|   |
@@ -69,18 +69,18 @@ Send bulk notification emails using templates |       |tick|   |
 **Files**                                     |       |        |
 Export files from M-Files to Folders          |       |tick|   |
 Send bulk emails with attachments             |       |tick|   |
-Import files from Database Blobs              |       |       |tick|
-Checksum of a file in M-Files                 |       |tick|  |tick|
-Import files from network folders             |       |tick|  |tick|
+Import files from Database Blobs              |       |    |   |tick|
+Checksum of a file in M-Files                 |tick|  |    |   |tick|
+Import files from network folders             |       |tick|   |tick|
 Get file size                                 |       |tick|   |
 Get data on files without downloading file    |       |tick|   |
-View and search files in Blobs in M-Files     |       |       |tick| 
-Promote external Blobs as metadata            |       |       |tick|
-**Views and Reporting**                       |       |        |
+View and search files in Blobs in M-Files     |       |    |   |tick| 
+Promote external Blobs as metadata            |       |    |   |tick|
+**Views and Reporting**                       |       |       |
 Explore full metadata structure               |       |tick|  |
 Create views for related lookups in bulk      |       |tick|  |
 Class Table Statistical report                |       |tick|  |
-Explore use of columns and errors             |       |tick|   |
+Explore use of columns and errors             |       |tick|  |
 Explore valuelist item ownership relations    |       |tick|  |
 Export and views of M-Files event log         |       |tick|  |
 Export object history from M-Files            |       |tick|  |
@@ -105,12 +105,12 @@ Show user message                             |tick|  |tick|  |
 Process procedures synchronously              |       |tick|  |
 Process with feedback message                 |       |tick|  |
 Process procedure asynchronously              |       |tick|  |
-Using SQL actions with WebAPI in cloud vault  |       |tick|   |
+Using SQL actions with WebAPI in cloud vault  |       |tick|  |
 **Error Handling**                            |       |       |
 Email notification of SQL errors              |tick|  |tick|  |
 User Messages                                 |       |tick|  |
 Error logging                                 |tick|  |tick|  |
-Email sent log                                |       |tick|   |
+Email sent log                                |       |tick|  |
 Process logging                               |       |tick|  |
 show user message from SQL in M-Files         |       |tick|  |
 Formatted emailed process results             |       |tick|  |
