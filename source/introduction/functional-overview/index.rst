@@ -76,65 +76,65 @@ Get file size                                 |       |tick|   |
 Get data on files without downloading file    |       |tick|   |
 View and search files in Blobs in M-Files     |       |    |   |tick| 
 Promote external Blobs as metadata            |       |    |   |tick|
-**Views and Reporting**                       |       |       |
-Explore full metadata structure               |       |tick|  |
-Create views for related lookups in bulk      |       |tick|  |
-Class Table Statistical report                |       |tick|  |
-Explore use of columns and errors             |       |tick|  |
-Explore valuelist item ownership relations    |       |tick|  |
-Export and views of M-Files event log         |       |tick|  |
-Export object history from M-Files            |       |tick|  |
-Produce process log summary for class tables  |       |tick|  |
-View Error log                                |tick|  |tick|  |
-Get and create comments of objects            |       |tick|  |
-View Update History                           |tick|  |tick|  |
-View Process Batch logs                       |       |tick|  |
-View User Messages                            |       |tick|  |
-View Audit History                            |       |tick|  |
-**Valuelists and valuelist items**            |       |       |
-Create valuelist lookup views                 |       |tick|  |
-Create  workflow state lookup views           |       |tick|  |
-Create, update, delete valuelist items        |       |tick|  |
-**Operations in M-Files**                     |       |       |
-Configurable context menu with items          |tick|  |tick|  |
-Access Website                                |tick|  |tick|  |
-Execute procedure on object                   |tick|  |tick|  |
-Execute procedure with workflow trigger       |       |tick|  |
-Execute procedure event handler trigger       |       |tick|  |
-Show user message                             |tick|  |tick|  |
-Process procedures synchronously              |       |tick|  |
-Process with feedback message                 |       |tick|  |
-Process procedure asynchronously              |       |tick|  |
-Using SQL actions with WebAPI in cloud vault  |       |tick|  |
-**Error Handling**                            |       |       |
-Email notification of SQL errors              |tick|  |tick|  |
-User Messages                                 |       |tick|  |
-Error logging                                 |tick|  |tick|  |
-Email sent log                                |       |tick|  |
-Process logging                               |       |tick|  |
-show user message from SQL in M-Files         |       |tick|  |
-Formatted emailed process results             |       |tick|  |
-Show feedback message in M-Files              |       |tick|  |
-Validate email profile                        |       |tick|  |
-Perform Class Table audits                    |       |tick|  |
-Delete history logs                           |       |tick|  |
-**Special Applications**                      |       |       |
-External application user to filter updates   |       |tick|  |
-Action M-Files Reporting Data Export          |tick|  |tick|  |
-Update metadata on demand                     |tick|  |tick|  |
-Update metadata scheduled                     |tick|  |tick|  |
-Change history of any class property          |tick|  |tick|  |
-**Installation and upgrade**                  |       |       |
-Installation package                          |tick|  |tick|  |tick|
-License control by module                     |tick|  |tick|  |tick|
-Auto setup of default authentication for SQL  |tick|  |tick|  |tick|
-Auto and manual install                       |tick|  |tick|  |tick|
-Customize default settings                    |tick|  |tick|  |tick|
-Retain custom settings when upgrading         |tick|  |tick|  |tick|
-Sample scripts to aid development             |tick|  |tick|  |tick|
-Install connectors for multiple vaults        |tick|  |tick|  |tick|
-Control log of all versions of procedures     |tick|  |tick|  |tick|
-Upgrade packages                              |tick|  |tick|  |tick|
-============================================  ======  ======  ======
+**Views and Reporting**                       |       |        |
+Explore full metadata structure               |       |tick|   |
+Create views for related lookups in bulk      |       |tick|   |
+Class Table Statistical report                |       |tick|   |
+Explore use of columns and errors             |       |tick|   |
+Explore valuelist item ownership relations    |       |tick|   |
+Export and views of M-Files event log         |       |tick|   |
+Export object history from M-Files            |       |tick|   |
+Produce process log summary for class tables  |       |tick|   |
+View Error log                                |tick|  |tick|   |
+Get and create comments of objects            |       |tick|   |
+View Update History                           |tick|  |tick|   |
+View Process Batch logs                       |       |tick|   |
+View User Messages                            |       |tick|   |
+View Audit History                            |       |tick|   |
+**Valuelists and valuelist items**            |       |        |
+Create valuelist lookup views                 |       |tick|   |
+Create  workflow state lookup views           |       |tick|   |
+Create, update, delete valuelist items        |       |tick|   |
+**Operations in M-Files**                     |       |        |
+Configurable context menu with items          |tick|  |tick|   |
+Access Website                                |tick|  |tick|   |
+Execute procedure on object                   |tick|  |tick|   |
+Execute procedure with workflow trigger       |       |tick|   |
+Execute procedure event handler trigger       |       |tick|   |
+Show user message                             |tick|  |tick|   |
+Process procedures synchronously              |       |tick|   |
+Process with feedback message                 |       |tick|   |
+Process procedure asynchronously              |       |tick|   |
+Using SQL actions with WebAPI in cloud vault  |       |tick|   |
+**Error Handling**                            |       |        |
+Email notification of SQL errors              |tick|  |tick|   |
+User Messages                                 |       |tick|   |
+Error logging                                 |tick|  |tick|   |
+Email sent log                                |       |tick|   |
+Process logging                               |       |tick|   |
+show user message from SQL in M-Files         |       |tick|   |
+Formatted emailed process results             |       |tick|   |
+Show feedback message in M-Files              |       |tick|   |
+Validate email profile                        |       |tick|   |
+Perform Class Table audits                    |       |tick|   |
+Delete history logs                           |       |tick|   |
+**Special Applications**                      |       |        |
+External application user to filter updates   |       |tick|   |
+Action M-Files Reporting Data Export          |tick|  |tick|   |
+Update metadata on demand                     |tick|  |tick|   |
+Update metadata scheduled                     |tick|  |tick|   |
+Change history of any class property          |tick|  |tick|   |
+**Installation and upgrade**                  |       |        |
+Installation package                          |tick|  |tick|   |tick|
+License control by module                     |tick|  |tick|   |tick|
+Auto setup of default authentication for SQL  |tick|  |tick|   |tick|
+Auto and manual install                       |tick|  |tick|   |tick|
+Customize default settings                    |tick|  |tick|   |tick|
+Retain custom settings when upgrading         |tick|  |tick|   |tick|
+Sample scripts to aid development             |tick|  |tick|   |tick|
+Install connectors for multiple vaults        |tick|  |tick|   |tick|
+Control log of all versions of procedures     |tick|  |tick|   |tick|
+Upgrade packages                              |tick|  |tick|   |tick|
+============================================  ======  ======   ======
 
 .. |tick| image:: img_1.png
