@@ -52,6 +52,8 @@ The various sections of the email are then inserted into the table using the fol
  - each row represent a specific template
  - each template has a one to one correlation with the valuelist item in 'Channel'. The valuelist item is added in the channel column
  - fromEmail and CCemail can include multiple addressed delimited by ';'
+ - Add the subject for the email.
+ - Add the Email Profile to be used for the template. If null or invalid the default EmailProfile in MFSettings will be used.
  - The head, greeting, mainbody, signature and footer must be include html tags
  - Three placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}
  - if the {head} placeholder is included then the default CSS from MFSettings will be used
@@ -72,6 +74,7 @@ Insert a record in MFEmailTemplate for each template.
       FromEmail,
       CCEmail,
       Subject,
+      EmailProfile,
       Head_HTML,
       Greeting_HTML,
       MainBody_HTML,
@@ -84,6 +87,7 @@ Insert a record in MFEmailTemplate for each template.
       'noreply@lamininsolutions.com',
       'support@lamininsolutions.com',
       'Test',
+      Null,
       '{Head}',
       '<BR><p>Dear {FirstName}</p>',
       '<BR><p>this is test email<BR></p>',

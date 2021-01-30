@@ -51,7 +51,7 @@ Welcome to MFSQL Connector's documentation!
     Email your suggestions to `support <mailto:support@lamininsolutions.com>`__.
 
 
-Last Updated: 10 Dec 2020
+Last Updated: 31 Jan 2021
 
 
 .. |search_icon| image:: search-icon.png
