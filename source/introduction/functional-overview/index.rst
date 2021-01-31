@@ -47,7 +47,7 @@ Update all included in Application tables     |       |tick|   |
 Update using filters                          |tick|  |tick|   |
 Helper procedures for update filters          |       |tick|   |
 Insert new records                            |tick|  |tick|   |
-Hyperlinks to show/open links in M-Files      |       |tick|   |
+Hyperlinks to show and links in M-Files       |       |tick|   |
 Format Hyperlinks for use in excel            |       |tick|   |
 Get object hyperlink to public links          |       |tick|   |
 Change classes and properties                 |tick|  |tick|   |
@@ -65,7 +65,8 @@ Include table in notification                 |       |tick|   |
 Send html formatted email                     |       |tick|   |
 Remove special characters in naming           |tick|  |tick|   |
 Insert update multi lookup values             |       |tick|   |
-Send bulk notification emails using templates |       |tick|   |
+Send bulk notifications using templates       |       |tick|   |
+**Files**                                     |       |        |
 **Files**                                     |       |        |
 Export files from M-Files to Folders          |       |tick|   |
 Send bulk emails with attachments             |       |tick|   |
