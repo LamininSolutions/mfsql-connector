@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Send Bulk Email &mdash; MFSQL Connector 4.8.24.65 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working with files" href="../working-with-files/index.html" />
+    <link rel="prev" title="Lookup Views" href="../lookup-views/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Send Bulk Email</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#components">Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-case">Use case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#email-template">Email Template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#insert-template">Insert Template</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-procedure-for-processing">Custom procedure for processing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#staging">Staging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-and-managing-logs/index.html">Using and managing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+      <li>Send Bulk Email</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="send-bulk-email">
+<h1>Send Bulk Email<a class="headerlink" href="#send-bulk-email" title="Permalink to this headline">¶</a></h1>
+<p>Version 4.9.25.67 introduced a structured approach to send bulk emails using email templates. This allows to use data from M-Files to orchestrate sending out automatic or on demand emails using msdb database mail.</p>
+<p>This section describe how to the setup, configuration and execution of sending emails to recipients using a email template and sending it through SQL Database mail fits together.  This feature goes beyond the scope of standard M-Files notifications.  It allows for using different templates for different notifications, including place holders and the ability to include a tables. Any recipients can be included, not only users in M-Files.</p>
+<p>Example of notification with a table
+<img alt="image0" src="../../_images/img_114.png" /></p>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>The capability has the following Components:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../../tables/tbMFEmaillog.html"><span class="doc">MFEmailLog</span></a> to track the sending of email</p></li>
+<li><p><a class="reference internal" href="../../tables/tbMFEmailTemplate.html"><span class="doc">MFEmailTemplate</span></a> for defining each template</p></li>
+<li><p><a class="reference internal" href="../../procedures/spMFSendHTMLBodyEmail.html"><span class="doc">spMFSendHTMLBodyEmail</span></a> to send one email, the parameters define the content of the email. The send process is recorded in MFEmailLog.</p></li>
+<li><p><a class="reference internal" href="../../procedures/spMFConvertTableToHtml.html"><span class="doc">spMFConvertTableToHtml</span></a> to convert a select statement output to HTML format</p></li>
+<li><p><a class="reference internal" href="../../procedures/spMFPrepareTemplatedEmail.html"><span class="doc">spMFPrepareTemplatedEmail</span></a> to compile the body of the email based on the template and call</p></li>
+<li><p><a class="reference internal" href="../../procedures/spMFSendHTMLBodyEmail.html"><span class="doc">spMFSendHTMLBodyEmail</span></a> to sent email out.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="use-case">
+<h2>Use case<a class="headerlink" href="#use-case" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>This feature has may potential use cases, including, but not limited to</dt><dd><ul class="simple">
+<li><p>Send notification to all customers / suppliers</p></li>
+<li><p>Send notification to a specific customer when the order was approved</p></li>
+<li><p>Send notification to the supervisor when all the steps in a process is completed, including a table with delay times</p></li>
+<li><p>Send invoice link (public link) to customer on completion of the invoice</p></li>
+</ul>
+<p>The code examples below is based on a use case of sending an email to customer on confirmation of recording a phone confirmation of approval.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>The following steps is required to prepare the environment</dt><dd><ul class="simple">
+<li><p>Create class tables for objects that would have the recipient email address and the triggering event to so send the emails</p></li>
+<li><p>Configure the triggering event in M-Files. This may be the value of a certain property or lookup, a workflow state, or a event handler such as on check in.  Triggering the event may involve the use of <a class="reference internal" href="../../the-connector-framework/connector-content/context-menu/index.html"><span class="doc">Context Menu</span></a> functionality.   It would be helpful to create a custom lookup with <a class="reference internal" href="../../procedures/spMFCreateValueListLookupView.html"><span class="doc">spMFCreateValueListLookupView</span></a> if a valuelist is used.</p></li>
+<li><p>Design the <a class="reference internal" href="#email-template">Email Template</a></p></li>
+<li><p><a class="reference internal" href="#insert-template">Insert Template</a> into configuration table</p></li>
+<li><p>Prepare a <a class="reference internal" href="#custom-procedure-for-processing">Custom procedure for processing</a></p></li>
+<li><p><a class="reference internal" href="#testing">Testing</a> the procedure</p></li>
+<li><p><a class="reference internal" href="#staging">Staging</a> the notification using the trigger</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="email-template">
+<h3>Email Template<a class="headerlink" href="#email-template" title="Permalink to this headline">¶</a></h3>
+<p>Design the email template format by adding a row and columns in <a class="reference internal" href="../../tables/tbMFEmailTemplate.html"><span class="doc">MFEmailTemplate</span></a> for the elements of the email for a each email template.  We recommend to prepare the email body in notepad or another scripting tool using html formatting and test the email body using a browser.</p>
+<dl class="simple">
+<dt>The various sections of the email are then inserted into the table using the following sample insert statement. Replace the sample date with your specific data. Take into account:</dt><dd><ul class="simple">
+<li><p>each template must have a unique name</p></li>
+<li><p>each row represent a specific template</p></li>
+<li><p>each template has a one to one correlation with the valuelist item in ‘Channel’. The valuelist item is added in the channel column</p></li>
+<li><p>fromEmail and CCemail can include multiple addressed delimited by ‘;’</p></li>
+<li><p>Add the subject for the email.</p></li>
+<li><p>Add the Email Profile to be used for the template. If null or invalid the default EmailProfile in MFSettings will be used.</p></li>
+<li><p>The head, greeting, mainbody, signature and footer must be include html tags</p></li>
+<li><p>Three placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}</p></li>
+<li><p>if the {head} placeholder is included then the default CSS from MFSettings will be used</p></li>
+<li><p>additional placeholders can be customised by addding a placeholder in the table and modifying custom.ChannelEmail to replace the text for each email.</p></li>
+<li><p>the email can include a table. The select statement for the table is handled in the custom.DoChannelEmail procedure.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="insert-template">
+<h3>Insert Template<a class="headerlink" href="#insert-template" title="Permalink to this headline">¶</a></h3>
+<p>Insert a record in MFEmailTemplate for each template.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">MFEmailTemplate</span>
+<span class="p">(</span>
+<span class="n">Template_Name</span><span class="p">,</span>
+<span class="n">Channel</span><span class="p">,</span>
+<span class="n">FromEmail</span><span class="p">,</span>
+<span class="n">CCEmail</span><span class="p">,</span>
+<span class="n">Subject</span><span class="p">,</span>
+<span class="n">EmailProfile</span><span class="p">,</span>
+<span class="n">Head_HTML</span><span class="p">,</span>
+<span class="n">Greeting_HTML</span><span class="p">,</span>
+<span class="n">MainBody_HTML</span><span class="p">,</span>
+<span class="n">Signature_HTML</span><span class="p">,</span>
+<span class="n">Footer_HTML</span>
+<span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="p">(</span>  <span class="s1">&#39;DemoEmail&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Telefone&#39;</span><span class="p">,</span>
+<span class="s1">&#39;noreply@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Test&#39;</span><span class="p">,</span>
+<span class="k">Null</span><span class="p">,</span>
+<span class="s1">&#39;{Head}&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;Dear {FirstName}&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;this is test email&lt;BR&gt;&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;BR&gt;&lt;p&gt;From {User}&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;Produced by MFSQL Mailing system&lt;/p&gt;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To review table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFEmailTemplate</span> <span class="k">AS</span> <span class="n">et</span>
+</pre></div>
+</div>
+<p>To remove a template</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">MFEmailTemplate</span> <span class="k">where</span> <span class="n">template_Name</span> <span class="o">=</span> <span class="s1">&#39;DemoEmail&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-procedure-for-processing">
+<h3>Custom procedure for processing<a class="headerlink" href="#custom-procedure-for-processing" title="Permalink to this headline">¶</a></h3>
+<p>The components is tied together with a custom procedure to stage and process the individual objects to be used in the email.</p>
+<dl class="simple">
+<dt>The elements of the custom procedure is likely to include the following:</dt><dd><ul class="simple">
+<li><p>Parameters to include: EmailTemplate_ID, TestEmail, Debug.  If the custom procedure is used with the Context menu then it should include additional parameters described in <a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a></p></li>
+<li><p>Refresh dependent class table to ensure that the latest object information is used.  If Context Menu with object sensitivity is used then the refresh can be minimised by only updating the underlying object.</p></li>
+<li><p>Variables to include : Trigger element, RecipientEmail, object id, looping id</p></li>
+<li><p>Temporary table to stage the objects to be include in the notification</p></li>
+<li><p>Sub process to get value of trigger element (e.g. Channel in the example)</p></li>
+<li><p>Sub process to insert values into temporary table</p></li>
+<li><p>Looping process to send email to each object in temp table with <a class="reference internal" href="../../procedures/spMFPrepareTemplatedEmail.html"><span class="doc">spMFPrepareTemplatedEmail</span></a></p></li>
+</ul>
+</dd>
+</dl>
+<p>Following is an example of a custom procedure.</p>
+<blockquote>
+<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="n">PROC</span> <span class="n">Custom</span><span class="p">.</span><span class="n">DoChannelEmail</span>
+<span class="p">(</span><span class="o">@</span><span class="n">EmailTemplate_ID</span> <span class="nb">INT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">TestEmail</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;support@lamininsolutions.com&#39;</span> <span class="p">,</span>
+<span class="o">@</span><span class="n">debug</span> <span class="nb">SMALLINT</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">SET</span> <span class="n">NOCOUNT</span> <span class="k">ON</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ChannelID</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">RecipientEmail</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Doc_objid</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">id</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">ChannelID</span> <span class="o">=</span> <span class="n">MFID_ValuelistItems</span>
+<span class="k">FROM</span> <span class="n">Custom</span><span class="p">.</span><span class="n">vwChannel</span>               <span class="k">c</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Custom</span><span class="p">.</span><span class="n">EmailTemplate</span> <span class="n">t</span>
+        <span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">channel</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">name_ValuelistItems</span>
+<span class="k">WHERE</span> <span class="n">t</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span><span class="p">;</span>
+
+<span class="k">IF</span>
+<span class="p">(</span>
+    <span class="k">SELECT</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">&#39;tempdb..#Emaillist&#39;</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+    <span class="k">DROP</span> <span class="k">TABLE</span> <span class="o">#</span><span class="n">Emaillist</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">#</span><span class="n">Emaillist</span>
+<span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span> <span class="k">IDENTITY</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">doc_objid</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">RecipientEmail</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="o">#</span><span class="n">Emaillist</span>
+<span class="p">(</span>
+    <span class="n">doc_objid</span><span class="p">,</span>
+    <span class="n">RecipientEmail</span>
+<span class="p">)</span>
+<span class="k">SELECT</span> <span class="n">md</span><span class="p">.</span><span class="n">objid</span><span class="p">,</span>
+    <span class="n">Tenant_Email</span>
+<span class="k">FROM</span> <span class="n">MFMembershipDocs</span>                                         <span class="n">md</span>
+    <span class="k">CROSS</span> <span class="n">APPLY</span> <span class="n">dbo</span><span class="p">.</span><span class="n">fnMFParseDelimitedString</span><span class="p">(</span><span class="n">Tenants_ID</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="n">fn</span>
+    <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFtenant</span>  <span class="n">mt</span>
+        <span class="k">ON</span> <span class="n">fn</span><span class="p">.</span><span class="n">ListItem</span> <span class="o">=</span> <span class="n">mt</span><span class="p">.</span><span class="n">objid</span>
+    <span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">MFEmailLog</span> <span class="n">el</span>
+        <span class="k">ON</span> <span class="n">md</span><span class="p">.</span><span class="n">objid</span> <span class="o">=</span> <span class="n">el</span><span class="p">.</span><span class="n">document_ID</span>
+<span class="k">WHERE</span> <span class="n">md</span><span class="p">.</span><span class="n">Channel_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ChannelID</span>
+      <span class="k">AND</span> <span class="k">ISNULL</span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">Template_ID</span><span class="p">,</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span><span class="p">)</span> <span class="o">=</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span>
+      <span class="k">AND</span> <span class="n">el</span><span class="p">.</span><span class="n">ID</span> <span class="k">IS</span> <span class="k">NULL</span>
+      <span class="k">AND</span> <span class="n">mt</span><span class="p">.</span><span class="n">Tenant_Email</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">id</span> <span class="o">=</span> <span class="k">MIN</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="o">#</span><span class="n">Emaillist</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="o">@</span><span class="n">debug</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">SELECT</span> <span class="o">*</span>
+    <span class="k">FROM</span> <span class="o">#</span><span class="n">Emaillist</span><span class="p">;</span>
+
+<span class="n">WHILE</span> <span class="o">@</span><span class="n">id</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="k">BEGIN</span>
+    <span class="k">SELECT</span> <span class="o">@</span><span class="n">RecipientEmail</span> <span class="o">=</span> <span class="n">RecipientEmail</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">Doc_objid</span>         <span class="o">=</span> <span class="n">doc_objid</span>
+    <span class="k">FROM</span> <span class="o">#</span><span class="n">Emaillist</span>
+    <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="o">@</span><span class="n">id</span><span class="p">;</span>
+
+    <span class="k">IF</span> <span class="o">@</span><span class="n">debug</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="k">SELECT</span> <span class="n">Recipient</span> <span class="o">=</span> <span class="o">@</span><span class="n">RecipientEmail</span><span class="p">,</span>
+            <span class="n">Document_ID</span>  <span class="o">=</span> <span class="o">@</span><span class="n">Doc_objid</span><span class="p">;</span>
+
+    <span class="k">IF</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">SELECT</span> <span class="o">@</span><span class="n">RecipientEmail</span> <span class="o">=</span> <span class="o">@</span><span class="n">TestEmail</span><span class="p">;</span>
+
+    <span class="k">EXEC</span> <span class="n">spMFprepareTemplatedEmail</span> <span class="o">@</span><span class="n">RecipientEmail</span> <span class="o">=</span> <span class="o">@</span><span class="n">RecipientEmail</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">Document_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Doc_objid</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IncludeTable</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">Template_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="o">@</span><span class="n">debug</span><span class="p">;</span>
+
+    <span class="k">SELECT</span> <span class="o">@</span><span class="n">id</span> <span class="o">=</span>
+    <span class="p">(</span>
+        <span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">FROM</span> <span class="o">#</span><span class="n">Emaillist</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="o">@</span><span class="n">id</span>
+    <span class="p">);</span>
+
+    <span class="k">IF</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">SELECT</span> <span class="o">@</span><span class="n">id</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="o">@</span><span class="n">debug</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">SELECT</span> <span class="o">*</span>
+    <span class="k">FROM</span> <span class="n">MFEmailLog</span>
+    <span class="k">WHERE</span> <span class="n">document_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">document_id</span><span class="p">;</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Take care when testing the procedure to not send test emails to all the recipients.  Use the TestOnly parameter to test and debug the custom procedure. This will block sending emails to all the recipients and only send one email to the TestEmail in the procedure.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>    <span class="k">exec</span> <span class="n">custom</span><span class="p">.</span><span class="n">DoChannelEmail</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">To</span> <span class="n">send</span> <span class="k">to</span> <span class="k">all</span> <span class="n">recipients</span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>     <span class="k">exec</span> <span class="n">custom</span><span class="p">.</span><span class="n">DoChannelEmail</span> <span class="o">@</span><span class="n">EmailTemplate_ID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">show</span> <span class="n">the</span> <span class="n">processing</span> <span class="n">log</span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFEmailLog</span>
+</pre></div>
+</div>
+<p>The custom procedure is designed to block the sending of repeat emails for the same template to the same recipient.  It may be necessary to release this block and resend an email to a recipient. Delete the row in MFEmailog to this end.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span> <span class="k">from</span> <span class="n">custom</span><span class="p">.</span><span class="n">emaillog</span> <span class="k">where</span> <span class="n">document_id</span> <span class="o">=</span> <span class="mi">212326</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="staging">
+<h3>Staging<a class="headerlink" href="#staging" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>The final step is to stage the event that will trigger the notification.  This would depend on the use case but could include:</dt><dd><ul class="simple">
+<li><p>Process notifications daily in bulk based on the conditional value in a property or valuelist item. This is likely to use an agent to call the custom procedure.</p></li>
+<li><p>Process the notification when the object changes in M-Files. This is likely to involve the deployment of the context menu functionality</p></li>
+<li><p>Execute the procedure in SSMS. This is likely to apply where the sending of emails is not systemised and repetitive.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../working-with-files/index.html" class="btn btn-neutral float-right" title="Working with files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../lookup-views/index.html" class="btn btn-neutral float-left" title="Lookup Views" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Laminin Solutions Ltd.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
