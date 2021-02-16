@@ -60,6 +60,8 @@ Redundant table
 
 The listing will identify the columns added to the table related to Additional properties.
 
+It will also identify properties that is not used in any class tables, which is handy when trying to remove redundant properties from the vault.
+
 The procedure combines the data from various dimensions including:
 
 - MFProperty + MFClass + MFClassProperty for the M-Files property and class usage
@@ -110,6 +112,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-31  LC         update to allow for multi language default columns
 2020-12-31  LC         rework logic to show column types
 2020-12-10  LC         update result to improve usage of the procedure
 2020-12-10  LC         add new parameters to aid trouble shooting

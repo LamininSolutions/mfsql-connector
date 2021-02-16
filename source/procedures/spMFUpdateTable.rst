@@ -149,6 +149,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-31  LC         Fix bug on insert new into audithistory
 2020-11-28  LC         Improve collection of property ids
 2020-11-28  LC         Resolve issue when fail message
 2020-11-24  LC         New functionality to deal with changing of classes

@@ -9,19 +9,19 @@ Return
 Parameters
    @Body 
      Body must be in HTML format
-   ,@MessageTitle 
+   @MessageTitle 
      Subject of email
-   ,@FromEmail 
+   @FromEmail 
      email address for sender
-   ,@ToEmail 
+   @ToEmail 
      email address of recipient. Delimited with ';' if multiples
-   ,@CCEmail 
+   @CCEmail 
      email address of CC recipients. Delimited with ';' if multiples 
-   ,@Mailitem_ID  output
+   @Mailitem_ID  output
      msdb database mail id
-   ,@ProcessBatch_ID 
+   @ProcessBatch_ID 
      will record processing in MFProcessBatch
-   ,@Debug 
+   @Debug 
        Default = 0
        1 = Standard Debug Mode
 
@@ -70,6 +70,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-01-29  LC         Updated to allow for setting profile in MFEmailTemplate
 2021-01-26  LC         Create procedure
 ==========  =========  ========================================================
 

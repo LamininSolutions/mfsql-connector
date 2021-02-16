@@ -11,8 +11,8 @@ Published version: 4.9.26.67 2021-01-31
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.26.67  2021-01-31
-Assemblies        4.9.26.0   2021-01-31
+SQL scripts       4.9.26.67  2021-02-16
+Assemblies        4.9.26.0   2021-02-16
 Vault application 4.9.0.0    2021-01-31
 ================= ========== ==========
 
@@ -52,11 +52,13 @@ Each procedure, table or function contains there own change control section. See
 #. Replace spMFGetFilesInternal with spMFGetFilesListInternal. Update assemblies with corresponding code
 #. Deploy several new tables and procedures to handle sending bulk emails using email templates. This include MFEmailLog, MFEmailTemplate, spMFsendHTMLBodyEmail, spMFConvertTabletoHtml and spMFPrepareTemplatedEmail.
 #. spMFUpdateMFilesToMFSQL Include override to recheck any class objects not in Audit
-#. spMFRemoveAdditionalProperties replaces to previous procedure to update ad hoc properties
+#. spMFRemoveAdditionalProperties replaces the previous procedure to update ad hoc properties
 #. By default add class property 100 in the MFClassProperty Table with spMFInsertClassProperty
 #. Set default schema for class tables in spMFCreateTable to dbo
 #. Fix bug with checking module 2 license in spMFGetLicense
 #. Provide for using different profiles for different email templates, updating spMFValidateEmailProfile
+#. Fix bug in spMFUpdateTable on insert new object into audithistory
+#. Remove duplicate routine for creating MFUserMessages
 
 
 
