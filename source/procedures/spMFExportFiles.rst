@@ -5,33 +5,34 @@ spMFExportFiles
 Return
    1 = Success
    -1 = Error
+
 Parameters
   @TableName nvarchar(128)
-  - Name of class table
+    - Name of class table
   @PathProperty\_L1 nvarchar(128) (optional)
-  - Default = NULL
-  - Optional property column for 1st level path.  
+    - Default = NULL
+    - Optional property column for 1st level path.  
   @PathProperty\_L2 nvarchar(128) (optional)
-  - Default = NULL
-  - Optional column for 2nd level path
+    - Default = NULL
+    - Optional column for 2nd level path
   @PathProperty\_L3 nvarchar(128) (optional)
-  - Default = NULL
-  - Optional column for 3rd level path
+    - Default = NULL
+    - Optional column for 3rd level path
   @IsDownload bit
-  - Default = 1 (yes)
-  - When set to 0 the file data will be updated in the table but the file is not downloaded.
+    - Default = 1 (yes)
+    - When set to 0 the file data will be updated in the table but the file is not downloaded.
   @IncludeDocID bit (optional)
-  - Default = 1
-  - File name include Document id.
+    - Default = 1
+    - File name include Document id.
   @Process\_id int (optional)
-  - Default = 1
-  - process Id for records to be included
+    - Default = 1
+    - process Id for records to be included
   @ProcessBatch\_ID int (optional, output)
-  - Default = NULL
-  - Referencing the ID of the ProcessBatch logging table
+    - Default = NULL
+    - Referencing the ID of the ProcessBatch logging table
   @Debug int (optional)
-  - Default = 0
-  - 1 = Standard Debug Mode
+    - Default = 0
+    - 1 = Standard Debug Mode
 
 Purpose
 =======
@@ -46,22 +47,24 @@ The main use case for this procedure is to allow access to the files as attachme
 All Object Types with Files can be included in an export.  Each class export is performed separately.
 
 The destination folder in explorer is defined as:
-- The Root folder or UNC path is defined in MFSettings with name "RootFolder".  The user executing the script must have permission the read and write to this folder.  On installation this folder is automatically set to c:\MFSQL\FileExport.  
-- The next layer defines the root folder for the class.  This folder is defined in MFClass by changing the value of the column "FileExportFolder" for the specific class in MFClass. This layer is to set the 'What is being exported' e.g. SalesInvoices.  If the value in "FileExportFolder" for the class is null then the files will be saved to the root folder.
-- Three layers of property related folders can be defined as parameters by setting the PathPropertyL1 to L3 to valid columns on the class table.  These parameters are all optional.  L1 must have a value for L2 to and L3 to be specified.
-- Multi document objects will show the name of the object as the name of the folder for the files in the multi file object.
-- Filename (with or without object id)
+  - The Root folder or UNC path is defined in MFSettings with name "RootFolder".  The user executing the script must have permission the read and write to this folder.  On installation this folder is automatically set to c:\MFSQL\FileExport.  
+  - The next layer defines the root folder for the class.  This folder is defined in MFClass by changing the value of the column "FileExportFolder" for the specific class in MFClass. This layer is to set the 'What is being exported' e.g. SalesInvoices.  If the value in "FileExportFolder" for the class is null then the files will be saved to the root folder.
+  - Three layers of property related folders can be defined as parameters by setting the PathPropertyL1 to L3 to valid columns on the class table.  These parameters are all optional.  L1 must have a value for L2 to and L3 to be specified.
+  - Multi document objects will show the name of the object as the name of the folder for the files in the multi file object.
+  - Filename (with or without object id)
 
-For example : 
-D:\MFSQLExport\SalesInvoices\ABC Engineering\Service Invoices\2009\ABC Engineering Inv 2324\INV2345.pdf
-D:\MFSQLExport\SalesInvoices\ABC Engineering\Service Invoices\2009\ABC Engineering Inv 2324\Supplements.pdf
--  Root = D:\MFSQLExport (defined in MFSettings)
--  Class = SalesInvoices (Defined in MFclass)
--  Property 1 = Customer
--  Property 2 = Document_type (type of invoice)
--  Property 3 = Financial_year (Property showing financial year)
--  MultiFile Object = Name_or_title
--  Filename with object id
+For example the folders will be
+  -  D:\MFSQLExport\SalesInvoices\ABC Engineering\Service Invoices\2009\ABC Engineering Inv 2324\INV2345.pdf
+  -  D:\MFSQLExport\SalesInvoices\ABC Engineering\Service Invoices\2009\ABC Engineering Inv 2324\Supplements.pdf
+
+The folder Definition comes from
+  -  Root = D:\MFSQLExport (defined in MFSettings)
+  -  Class = SalesInvoices (Defined in MFclass)
+  -  Property 1 = Customer
+  -  Property 2 = Document_type (type of invoice)
+  -  Property 3 = Financial_year (Property showing financial year)
+  -  MultiFile Object = Name_or_title
+  -  Filename with object id
 
 Each Path Property is the column values for the object. Level 3 is nested in Level 2 is nested in Level 1. E.g. CustomerABC\ProjectABC\InvoiceMonth.
 
