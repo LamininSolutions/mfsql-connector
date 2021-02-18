@@ -50,7 +50,8 @@ Each procedure, table or function contains there own change control section. See
 #. Extent functionality of spMFExportFiles to allow for getting file related metadata without downloading the file.
 #. Add additional columns to MFExportFileHistory for file size and file extension
 #. Replace spMFGetFilesInternal with spMFGetFilesListInternal. Update assemblies with corresponding code
-#. Deploy several new tables and procedures to handle sending bulk emails using email templates. This include MFEmailLog, MFEmailTemplate, spMFsendHTMLBodyEmail, spMFConvertTabletoHtml and spMFPrepareTemplatedEmail.
+#. Deploy several new tables and procedures to handle sending bulk emails using email templates. This include MFEmailLog, MFEmailTemplate, spMFsendHTMLBodyEmail, and spMFConvertTabletoHtml .
+#. Add 90.107.Custom.DoAccountConfirmationEmail as an example custom procedure for bulk email setup
 #. spMFUpdateMFilesToMFSQL Include override to recheck any class objects not in Audit
 #. spMFRemoveAdditionalProperties replaces the previous procedure to update ad hoc properties
 #. By default add class property 100 in the MFClassProperty Table with spMFInsertClassProperty

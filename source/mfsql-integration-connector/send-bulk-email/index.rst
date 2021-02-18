@@ -1,7 +1,7 @@
 Send Bulk Email
 ===============
 
-Version 4.9.25.67 introduced a structured approach to send bulk emails using email templates. This allows to use data from M-Files to orchestrate sending out automatic or on demand emails using msdb database mail.
+Version 4.9.26.67 introduced a structured approach to send bulk emails using email templates. This allows to use data from M-Files to orchestrate sending out automatic or on demand emails using msdb database mail.
 
 This section describe how to the setup, configuration and execution of sending emails to recipients using a email template and sending it through SQL Database mail fits together.  This feature goes beyond the scope of standard M-Files notifications.  It allows for using different templates for different notifications, including place holders and the ability to include a tables. Any recipients can be included, not only users in M-Files.
 
@@ -14,28 +14,27 @@ Components
 The capability has the following Components:
  -  :doc:`/tables/tbMFEmaillog` to track the sending of email
  -  :doc:`/tables/tbMFEmailTemplate` for defining each template
- -  :doc:`/procedures/spMFSendHTMLBodyEmail` to send one email, the parameters define the content of the email. The send process is recorded in MFEmailLog.
  -  :doc:`/procedures/spMFConvertTableToHtml` to convert a select statement output to HTML format
- -  :doc:`/procedures/spMFPrepareTemplatedEmail` to compile the body of the email based on the template and call
  -  :doc:`/procedures/spMFSendHTMLBodyEmail` to sent email out.
 
 Use case
 --------
 
-This feature has may potential use cases, including, but not limited to
+This feature has many potential use cases, including, but not limited to
   - Send notification to all customers / suppliers
   - Send notification to a specific customer when the order was approved
   - Send notification to the supervisor when all the steps in a process is completed, including a table with delay times
   - Send invoice link (public link) to customer on completion of the invoice
+  - Send notification to the controller when a new account is created in ERP when an opportunity is won. (this example is modelled in the MFSQL Sales Demo)
 
-  The code examples below is based on a use case of sending an email to customer on confirmation of recording a phone confirmation of approval.
+  The code examples below is based on a use case of sending an email to the controller when a new account was created by M-Files in ERP
 
 Configuration
 -------------
 
 The following steps is required to prepare the environment
- - Create class tables for objects that would have the recipient email address and the triggering event to so send the emails
- - Configure the triggering event in M-Files. This may be the value of a certain property or lookup, a workflow state, or a event handler such as on check in.  Triggering the event may involve the use of :doc:`/the-connector-framework/connector-content/context-menu/index` functionality.   It would be helpful to create a custom lookup with :doc:`/procedures/spMFCreateValueListLookupView` if a valuelist is used.
+ - Create class tables for objects that would have the recipient email address and the triggering event to send the emails.  The trigger will be on the opportunity class when a certain state is reached. The account class will also be used.
+ - Configure the triggering event in M-Files. This may be the value of a certain property or lookup, a workflow state, or a event handler such as on check in.  Triggering the event may involve the use of :doc:`/the-connector-framework/connector-content/context-menu/index` functionality.   It would be helpful to create a custom lookup with :doc:`/procedures/spMFCreateValueListLookupView` if a valuelist is used. In the configuration example, then the state is 'won' on the opportunity, it would send and email to the controller with the details of the new opportunity and account that was created in ERP.
  - Design the `Email Template`_
  - `Insert Template`_ into configuration table
  - Prepare a `Custom procedure for processing`_
@@ -52,13 +51,15 @@ The various sections of the email are then inserted into the table using the fol
  - each row represent a specific template
  - each template has a one to one correlation with the valuelist item in 'Channel'. The valuelist item is added in the channel column
  - fromEmail and CCemail can include multiple addressed delimited by ';'
+ - add the select statement for the table to be included as the tablescript column.  Note that this script must include an insert into ##report. The script should have the format 'Select col1, col2 into ##report from table where objid = @Document_ID'
  - Add the subject for the email.
  - Add the Email Profile to be used for the template. If null or invalid the default EmailProfile in MFSettings will be used.
  - The head, greeting, mainbody, signature and footer must be include html tags
- - Three placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}
+ - Three placeholders can be used optionally. firstname, user and head. {head}, {firstname], {user}. Note that placeholders are case sensitive.
  - if the {head} placeholder is included then the default CSS from MFSettings will be used
- - additional placeholders can be customised by addding a placeholder in the table and modifying custom.ChannelEmail to replace the text for each email.
- - the email can include a table. The select statement for the table is handled in the custom.DoChannelEmail procedure.
+ - use the {table} placeholder to position the table (if required) in the body.
+ - additional placeholders can be customised by addding a placeholder in the table and modifying the custom procedure to replace the text for each email.
+ - the email can include a table. The select statement for the table is included in the Email template.
 
 Insert Template
 ~~~~~~~~~~~~~~~
@@ -73,6 +74,7 @@ Insert a record in MFEmailTemplate for each template.
       Channel,
       FromEmail,
       CCEmail,
+      TableScript,
       Subject,
       EmailProfile,
       Head_HTML,
@@ -86,12 +88,13 @@ Insert a record in MFEmailTemplate for each template.
       'Telefone',
       'noreply@lamininsolutions.com',
       'support@lamininsolutions.com',
+      'Select * from MFclass where mfid = @Objid',
       'Test',
       Null,
       '{Head}',
-      '<BR><p>Dear {FirstName}</p>',
-      '<BR><p>this is test email<BR></p>',
-      '<BR><BR><p>From {User}</p>',
+      '<BR><p>Dear {firstName}</p>',
+      '<BR><p>this is test email<BR>{table}</p>',
+      '<BR><BR><p>From {user}</p>',
       '<BR><p>Produced by MFSQL Mailing system</p>'
       )
 
@@ -110,110 +113,27 @@ To remove a template
 Custom procedure for processing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The components is tied together with a custom procedure to stage and process the individual objects to be used in the email.
+The components is tied together with a custom procedure to stage and process the individual objects to be used in the email. This custom procedure will handle:
+ - refresh dependent class table
+ - get the template configuration from MFEmailTemplate
+ - replace the place placeholders
+ - get the table to be added in the email (optional)
+ - loop through all the recipients
+ - insert the table using spMFConvertTableToHtml
+ - compile the email
+ - send the email using spMFSendHTMLBodyEmail
+ - updating MFemailLog
+ - Error trapping, debugging and logging
 
 The elements of the custom procedure is likely to include the following:
- - Parameters to include: EmailTemplate_ID, TestEmail, Debug.  If the custom procedure is used with the Context menu then it should include additional parameters described in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
+ - Parameters to include: Template_ID, TestEmail, IncludeTable,  Debug.  If the custom procedure is used with the Context menu then it should include additional parameters described in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
  - Refresh dependent class table to ensure that the latest object information is used.  If Context Menu with object sensitivity is used then the refresh can be minimised by only updating the underlying object.
  - Variables to include : Trigger element, RecipientEmail, object id, looping id
- - Temporary table to stage the objects to be include in the notification
- - Sub process to get value of trigger element (e.g. Channel in the example)
+ - Temporary table ##report is created by the tablescript based on the ObjidID parameter
+ - Sub process to get value of trigger element (e.g. EmailChannel in the example)
  - Sub process to insert values into temporary table
- - Looping process to send email to each object in temp table with :doc:`/procedures/spMFPrepareTemplatedEmail`
 
-Following is an example of a custom procedure.
-
- .. code:: sql
-
-     CREATE PROC Custom.DoChannelEmail
-     (@EmailTemplate_ID INT,
-     @TestEmail NVARCHAR(256) = N'support@lamininsolutions.com' ,
-     @debug SMALLINT = 0 )
-     AS
-     SET NOCOUNT ON;
-     DECLARE @ChannelID INT;
-     DECLARE @RecipientEmail NVARCHAR(256);
-     DECLARE @Doc_objid INT;
-     DECLARE @id INT;
-
-     SELECT @ChannelID = MFID_ValuelistItems
-     FROM Custom.vwChannel               c
-         INNER JOIN Custom.EmailTemplate t
-             ON t.channel = c.name_ValuelistItems
-     WHERE t.ID = @EmailTemplate_ID;
-
-     IF
-     (
-         SELECT OBJECT_ID('tempdb..#Emaillist')
-     ) IS NOT NULL
-         DROP TABLE #Emaillist;
-
-     CREATE TABLE #Emaillist
-     (
-         id INT IDENTITY PRIMARY KEY,
-         doc_objid INT,
-         RecipientEmail NVARCHAR(256)
-     );
-
-     INSERT INTO #Emaillist
-     (
-         doc_objid,
-         RecipientEmail
-     )
-     SELECT md.objid,
-         Tenant_Email
-     FROM MFMembershipDocs                                         md
-         CROSS APPLY dbo.fnMFParseDelimitedString(Tenants_ID, ',') fn
-         INNER JOIN MFtenant  mt
-             ON fn.ListItem = mt.objid
-         LEFT JOIN MFEmailLog el
-             ON md.objid = el.document_ID
-     WHERE md.Channel_ID = @ChannelID
-           AND ISNULL(el.Template_ID, @EmailTemplate_ID) = @EmailTemplate_ID
-           AND el.ID IS NULL
-           AND mt.Tenant_Email IS NOT NULL;
-
-     SELECT @id = MIN(id)
-     FROM #Emaillist;
-
-     IF @debug > 0
-         SELECT *
-         FROM #Emaillist;
-
-     WHILE @id IS NOT NULL
-     BEGIN
-         SELECT @RecipientEmail = RecipientEmail,
-             @Doc_objid         = doc_objid
-         FROM #Emaillist
-         WHERE id = @id;
-
-         IF @debug > 0
-             SELECT Recipient = @RecipientEmail,
-                 Document_ID  = @Doc_objid;
-
-         IF @TestOnly = 1
-             SELECT @RecipientEmail = @TestEmail;
-
-         EXEC spMFprepareTemplatedEmail @RecipientEmail = @RecipientEmail,
-             @Document_ID = @Doc_objid,
-             @IncludeTable = 0,
-             @Template_ID = @EmailTemplate_ID,
-             @debug = @debug;
-
-         SELECT @id =
-         (
-             SELECT MIN(id) FROM #Emaillist WHERE id > @id
-         );
-
-         IF @TestOnly = 1
-             SELECT @id = NULL;
-     END;
-
-     IF @debug > 0
-         SELECT *
-         FROM MFEmailLog
-         WHERE document_ID = @document_id;
-     GO
+An example of a custom procedure is available in the example scripts :  C:\\Program Files (x86)\\Laminin Solutions\\MFSQL Connector Release 4\\[Your database]\\Example Scripts\\90.107.Custom.DoAccountConfirmationEmail.sql
 
 Testing
 ~~~~~~~
@@ -222,13 +142,13 @@ Take care when testing the procedure to not send test emails to all the recipien
 
 .. code:: sql
 
-     exec custom.DoChannelEmail @EmailTemplate_ID = 1, @TestOnly = 1, @Debug = 1
+          exec Custom.DoAccountConfirmationEmail @Template_ID = 8, @TestOnly = 1,@Objid = 94, @IncludeTable = 1, @Debug = 1
 
  To send to all recipients
 
 .. code:: sql
 
-      exec custom.DoChannelEmail @EmailTemplate_ID = 1, @TestOnly = 0, @Debug = 0
+           exec Custom.DoAccountConfirmationEmail @Template_ID = 8, @TestOnly = 0,@Objid = 94, @IncludeTable = 1
 
  show the processing log
 
