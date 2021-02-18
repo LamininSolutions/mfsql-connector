@@ -2,7 +2,7 @@ Licensing Management
 ====================
 
 License management use M-Files licensing method for vault applications. A separate license file
-(.lic file) is issued for a specific type of license. 
+(.lic file) is issued for a specific type of license.
 
 Application licenses
 --------------------
@@ -16,16 +16,16 @@ License types
 -------------
 
 - Trial license:
-   - 30 days only. 
+   - 30 days only.
    - Expires on license end date.
-- Subscription: 
+- Subscription:
    - 1 year maximum.
-   - Expires on license end date. 
+   - Expires on license end date.
    - License is issued for a specific M-Files license.
    - License is issued for specific modules and is subject to the order of the license.
-   - Only valid with designated M-Files server. 
-   - Separate license files are issued for Database File Connector and MFSQL Connector 
-- NFR license: 
+   - Only valid with designated M-Files server.
+   - Separate license files are issued for Database File Connector and MFSQL Connector
+- NFR license:
    Issued in terms of reseller agreement.
 
 Installing the license
@@ -34,7 +34,8 @@ Installing the license
 The license file is installed using M-Files Admin.  Using the Applications window in M-Files Admin for the target vault, select the appropriate application for the license to be installed.
 |Image0|
 
-Click on License and browse to the license file.  Validate the license details and accept. 
+Click on License and browse to the license file.  Validate the license details and accept.
+|Image1|
 
 Expiry notification
 -------------------
@@ -46,5 +47,20 @@ Release 4.4.13.53 introduced a email notification when the license expires withi
 
    The will expiry on the license end date.  Renew the license before the expiry date.
 
+Check license validity
+----------------------
+
+To troubleshoot a license issue, start with manually checking the license validity with :doc:`/procedures/spMFChecklicenseStatus`
+
+.. code:: sql
+
+    EXEC dbo.spMFCheckLicenseStatus
+    @Debug = 1
+
+The result should look similar to the image below. If not, then email your result to support@lamininsolutions.com
+|Image2|
+
 
 .. |image0| image:: img_35.png
+.. |image1| image:: img_1.png
+.. |image2| image:: img_2.png
