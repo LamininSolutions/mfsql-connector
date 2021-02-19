@@ -26,18 +26,18 @@ TableScript NVARCHAR(MAX)
  - Select statement for the table columns
  - Default null
 Subject NVARCHAR(256) NULL
- - Subject of email.
+ - Subject of email. 
 EmailProfile nvarchar(128) null
  - custom email profile.  if left blank the default profile in MFSettings will be used
-Head_HTML NVARCHAR(max) NULL
+Head_HTML NVARCHAR(max) NULL 
  - DEFAULT('<head></head>')
 Greeting_HTML NVARCHAR(128) NULL
  - DEFAULT('<p></p>')
-MainBody_HTML NVARCHAR(max) NULL
+MainBody_HTML NVARCHAR(max) NULL 
  - DEFAULT('<p></p>')
 Signature_HTML nvarchar(256) NULL
  - DEFAULT('<p></p>')
-Footer_HTML nvarchar(256) NULL
+Footer_HTML nvarchar(256) NULL 
  - DEFAULT('<p></p>')
 
 The head, greeting, mainbody, signature and footer must include html tags
@@ -45,9 +45,11 @@ The head, greeting, mainbody, signature and footer must include html tags
 Additional Info
 ===============
 
-The tablescript to produce the table for inclusion in the email (optional)
-Email body consists of:
+The tablescript to produce the table for inclusion in the email (optional) should copy with two requirements
+  - insert result into ##Report e.g. select * into ##Report from table
+  - the where clause to include @objid for e.g. where objid = @objid
 
+Email body consists of the following
  - Greeting : Dear Sir  or Dear John
  - Main body : standard text of the email
  - Signature : From Customer care or From Peter
@@ -118,3 +120,4 @@ Date        Author     Description
 ----------  ---------  --------------------------------------------------------
 2021-01-26  LC         Table designed
 ==========  =========  ========================================================
+
