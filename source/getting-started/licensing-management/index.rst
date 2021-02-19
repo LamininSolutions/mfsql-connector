@@ -50,7 +50,7 @@ Release 4.4.13.53 introduced a email notification when the license expires withi
 Check license validity
 ----------------------
 
-To troubleshoot a license issue, start with manually checking the license validity with :doc:`/procedures/spMFChecklicenseStatus`
+To troubleshoot a license issue, start with manually checking the license validity with :doc:`/procedures/spMFCheckLicenseStatus`
 
 .. code:: sql
 
