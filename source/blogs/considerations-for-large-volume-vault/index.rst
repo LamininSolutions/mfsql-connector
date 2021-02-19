@@ -51,7 +51,7 @@ progress of processing in SSMS.
 
 .. code:: sql
 
-    exec spMFUpdateTableinBatches 
+    exec spMFUpdateTableinBatches
     @MFtableName = 'MFLargeClassTable'
     ,@UpdateMethod =1
     ,@WithTableAudit = 1
@@ -81,9 +81,9 @@ table updates.
 
 .. code:: sql
 
-    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFLarge_Volume' -- nvarchar(200)
-                                ,@UpdateMethod = 1               -- int                       
-                                ,@ObjIDs = '80184,80313'         -- nvarchar(max)
+    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFLarge_Volume'
+    ,@UpdateMethod = 1
+    ,@ObjIDs = '80184,80313'
 
 spMFUpdateTableWithLastModifiedDate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -100,12 +100,12 @@ identified with this procedure.
            ,@Update_IDOut        INT
            ,@ProcessBatch_ID1    INT;
 
-    EXEC [dbo].[spMFUpdateTableWithLastModifiedDate] @UpdateMethod = 1                                  -- int
-                                                    ,@Return_LastModified = @Return_LastModified OUTPUT -- datetime
-                                                    ,@TableName = 'MFLarge_Volume'                      -- sysname
-                                                    ,@Update_IDOut = @Update_IDOut OUTPUT               -- int
-                                                    ,@ProcessBatch_ID = @ProcessBatch_ID1 OUTPUT        -- int
-                                                    ,@debug = 0;                                        -- smallint
+    EXEC [dbo].[spMFUpdateTableWithLastModifiedDate] @UpdateMethod = 1
+    ,@Return_LastModified = @Return_LastModified OUTPUT
+    ,@TableName = 'MFLarge_Volume'
+    ,@Update_IDOut = @Update_IDOut OUTPUT
+    ,@ProcessBatch_ID = @ProcessBatch_ID1 OUTPUT
+    ,@debug = 0;
     GO
 
 Our Benchmark show the update of a single record change in M-Files to
@@ -125,15 +125,14 @@ datasets between M-Files and SQL to determine which records had changed.
            ,@Update_IDOut     INT
            ,@ProcessBatch_ID  INT;
 
-    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'MFLarge_volume'  -- nvarchar(128)
-                                        ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT          -- smalldatetime
-                                        ,@UpdateTypeID = 1 -- tinyint
-                                        ,@Update_IDOut = @Update_IDOut OUTPUT                  -- int
-                                        ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT            -- int
-                                        ,@debug = 0      -- tinyint
+    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'MFLarge_volume'
+    ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT
+    ,@UpdateTypeID = 1 -- tinyint
+    ,@Update_IDOut = @Update_IDOut OUTPUT
+    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+    ,@debug = 0
 
 A single record that has changed takes approx 4 seconds to update in a class table with 545 000 objects.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Update from SQL to M-Files
 --------------------------
@@ -191,17 +190,17 @@ object versions that changed from a certain date.
     SELECT @MFModifiedDate = MAX([mlv].[MF_Last_Modified]) FROM [dbo].[MFLarge_volume] AS [mlv]
     SELECT @MFModifiedDate = ISNULL(@MFModifiedDate,'2000-01-01')
 
-    EXEC [dbo].[spMFTableAudit] @MFTableName = 'MFLarge_Volume'    -- nvarchar(128)
-                               ,@MFModifiedDate = @MFModifiedDate -- datetime
-                                ,@SessionIDOut = @SessionIDOut OUTPUT                    -- int
-                               ,@NewObjectXml = @NewObjectXml OUTPUT                    -- nvarchar(max)
-                               ,@DeletedInSQL = @DeletedInSQL OUTPUT                    -- int
-                               ,@UpdateRequired = @UpdateRequired OUTPUT                -- bit
-                               ,@OutofSync = @OutofSync OUTPUT                          -- int
-                               ,@ProcessErrors = @ProcessErrors OUTPUT                  -- int
-                               ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT              -- int
-                               ,@Debug = 0        -- smallint          
-             
+    EXEC [dbo].[spMFTableAudit] @MFTableName = 'MFLarge_Volume'
+    ,@MFModifiedDate = @MFModifiedDate
+    ,@SessionIDOut = @SessionIDOut OUTPUT
+    ,@NewObjectXml = @NewObjectXml OUTPUT
+    ,@DeletedInSQL = @DeletedInSQL OUTPUT
+    ,@UpdateRequired = @UpdateRequired OUTPUT
+    ,@OutofSync = @OutofSync OUTPUT
+    ,@ProcessErrors = @ProcessErrors OUTPUT
+    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+    ,@Debug = 0
+
 
 Use the view MFvwAuditSummary to provide a quick overview of the result
 
@@ -222,24 +221,22 @@ since the last update.
 
 .. code:: sql
 
-     GO
-     
-     DECLARE @outPutXML       NVARCHAR(MAX)
+    DECLARE @outPutXML       NVARCHAR(MAX)
             ,@ProcessBatch_ID INT;
-     
-     DECLARE @lastmodified DATETIME 
-     DECLARE @Idoc int
-     SELECT @lastmodified = MAX([mbs].[MF_Last_Modified]) FROM [dbo].[MFBasic_singleprop] AS [mbs]
 
-     EXEC [dbo].[spMFGetObjectvers] @TableName = 'MFlarge_Volume'     -- nvarchar(100)
-                                   ,@dtModifiedDate = @lastmodified -- datetime
-                                   ,@MFIDs = '550000'         -- nvarchar(4000)
-                                   ,@outPutXML = @outPutXML OUTPUT                          -- nvarchar(max)
-                                   ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT              -- int
-                                   ,@Debug = 0         -- smallint
-     
+    DECLARE @lastmodified DATETIME
+    DECLARE @Idoc int
+    SELECT @lastmodified = MAX([mbs].[MF_Last_Modified]) FROM [dbo].[MFBasic_singleprop] AS [mbs]
 
-     
+    EXEC [dbo].[spMFGetObjectvers] @TableName = 'MFlarge_Volume'
+    ,@dtModifiedDate = @lastmodified
+    ,@MFIDs = '550000'
+    ,@outPutXML = @outPutXML OUTPUT
+    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+    ,@Debug = 0
+
+
+
     EXEC [sys].[sp_xml_preparedocument] @Idoc OUTPUT, @outPutXML;
 
         WITH [cte]
@@ -255,10 +252,10 @@ since the last update.
                    ,[MFVersion] INT './@version'
                    ,[GUID] NVARCHAR(100) './@objectGUID'
                    ,[ObjectType_ID] INT './@objectType'
-                ) [xmlfile]) 
-       SELECT * FROM cte           
-     
-      EXEC [sys].[sp_xml_removedocument] @Idoc;  
+                ) [xmlfile])
+       SELECT * FROM cte
+
+      EXEC [sys].[sp_xml_removedocument] @Idoc;
 
 Benchmarks with large volume test results.
 ------------------------------------------
@@ -268,163 +265,41 @@ Standard Edition with 8GB memory. The tests where done one after the
 other and not concurrently. No additional vault applications (such as
 compliance kit, metadata configuration validation etc) are running.
 
-| 
-
-**Operation**
-
-**Scenario**
-
-**Record count**
-
-**Benchmark**
-
-spMFUpdateTable
-
-No special filters
-
-Initialization of table - class table is empty at start.
-
-records in M-Files but not in Class Table
-
-545640
-
-Fails
-
-This procedure should not be used without filters for large volume
-updates
-
-spMFUpdateTableInBatches
-
-@WithTableAudit = 0
-
-@ToObjid = 550000
-
-Initiazation table with empty class table and table audit not processed
-in advance
-
-records in M-Files but not in Class Table
-
-545640
-
-all items updated in SQL
-
-Average processing time per batch 24 seconds
-
-total time 6:07:10
-
-spMFUpdateTableWithLastModifiedDate
-
-Change one record in M-Files
-
-Class table was updated before change
-
-545640
-
-00:00:05
-
-spMFUpdateTable
-
-@Objids = ‘00184,80143’
-
-Change two records in M-Files
-
-The latest version of two records are update in SQL
-
-545640
-
-2 records updated
-
-00:00:09
-
-spMFUpdateTable
-
-@UpdateMethod - 0
-
-Changing records in SQL and updating the records into M-Files
-
-545 636
-
-6 records changed
-
-00:00:39
-
-spMFUpdateMfilestoSQL
-
-@UpdateTypeID = 1
-
-(incremental update)
-
-Change one record in M-Files and update SQL
-
-However, in this case another record was changed previously. This has
-been identified because the procedure get all changed Object Versions
-before it processes the record.
-
-90% of the run time relates to spMFTableAudit for records changed after
-the last class update.
-
-545 640 in class table
-
-records updated: 1
-
-00:00:04
-
-spMFTableAudit
-
-@MFModifiedDate = max of lastmodified in class table
-
-Change one record in MF
-
-545 640 in class table
-
-records updated: 2
-
-00:00:05
-
-spMFTableAudit
-
-@MFModifiedDate = null
-
-Full refresh of audit history
-
-11358 in M-Files class
-
-00:00:16
-
-spMFUpdateTableInBatches
-
-@updatemethod = 0
-
-set process\_id for 11490 records to 1
-
-11490 records to update
-
-00:29:32
-
-spMFTableAudit
-
-@MFModifiedDate = null
-
-Full refresh of audit history
-
-545 640
-
-records updated: 545 640 in MFAuditHistory
-
-00:35:35
-
-00:49:20
-
-00:49:34
-
-spMFGetObjectVer
-
-@MFIDs = ‘a single object’
-
-Get the version status of a single object
-
-545 640
-
-00:00:07
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| Operation                                                                  | Scenario                                                                  | Record count | Benchmark                |
++============================================================================+===========================================================================+==============+==========================+
+| spMFUpdateTable                                                            | No special filters                                                        | 545640       | Fails                    |
+| This procedure should not be used without filters for large volume updates | Initialization of table records in M-Files but not in Class Table         |              |                          |
+|                                                                            | class table is empty at start                                             |              |                          |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateTableInBatches                                                   |                                                                           | 545640       | all items updated in SQL |
+| @WithTableAudit = 0                                                        | Initialization table with empty class table and table audit not processed |              | 6:07:10                  |
+| @ToObjid = 550000                                                          | in advance records in M-Files but not in Class Table                      |              | Ave 24 sec per batch     |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateTableWithLastModifiedDate                                        | Change one record in M-Files                                              | 545640       | 00:00:05                 |
+|                                                                            | Class table was updated before change                                     |              |                          |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateTable                                                            | Change two records in M-Files                                             | 545640       | 2 records updated        |
+| @Objids = ‘00184,80143’                                                    | The latest version of two records are update in SQL                       |              | 00:00:09                 |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateTable                                                            | Changing records in SQL and updating the records into M-Files             | 545 636      | 6 records changed        |
+| @UpdateMethod - 0                                                          |                                                                           |              | 00:00:39                 |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateMfilestoSQL                                                      | Change one record in M-Files and update SQL                               | 545 640      | records updated: 1       |
+| @UpdateTypeID = 1                                                          | However, in this case another record was changed previously. This has     | 1 update     | 00:00:04                 |
+| (incremental update)                                                       | been identified because the procedure get all changed Object Versions     |              |                          |
+|                                                                            | before it processes the record.                                           |              |                          |
+|                                                                            | 90% of the run time relates to spMFTableAudit for records changed after   |              |                          |
+|                                                                            | the last class update.                                                    |              |                          |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFTableAudit                                                             | Change one record in MF                                                   | 545 640      | records updated: 2       |
+| @MFModifiedDate = max of lastmodified in class table                       |                                                                           | 2 update     | 00:00:05                 |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFUpdateTableInBatches                                                   | set process\_id for 11490 records to 1                                    | 545 640      | 00:29:32                 |
+| @updatemethod = 0                                                          | 11490 records to update                                                   | 11490 update |                          |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
+| spMFTableAudit                                                             | Full refresh of audit history                                             | 545 640      | records updated: 545 640 |
+| @MFModifiedDate = null                                                     |                                                                           |              | 00:35:35                 |
++----------------------------------------------------------------------------+---------------------------------------------------------------------------+--------------+--------------------------+
 
 .. |image0| image:: img_1.png

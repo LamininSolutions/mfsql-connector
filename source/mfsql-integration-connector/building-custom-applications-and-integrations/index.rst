@@ -47,7 +47,7 @@ Use the Connector hyperlink function in a view  to generate the URL.  On the C
 the grid with the item Command Name set to Navigate and the Command
 Argument is set the \\_blank:{ColumnNameofURL}
 
-hyperlink `<https://doc.lamininsolutions.com/mfsql-connector/functions/fnMFObjectHyperlink.html>`
+hyperlink :doc:`/functions/fnMFObjectHyperlink`
 
 Transaction based update
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -70,7 +70,7 @@ Batched based update with low volume of updates at any one point in time
 Set the class table column IncludeInApp = 1.  In CoT:  Using the Field
 property window for process_id; Set the Code Value = 1.. Add an action
 on the Controller : Command Name = SQL.  Add the standard procedure call
-for updating records `<  https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateTable.html>` in the script section.
+for updating records :doc:`/procedures/spMFUpdateTable` in the script section.
 
 Batched based update for many records
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
