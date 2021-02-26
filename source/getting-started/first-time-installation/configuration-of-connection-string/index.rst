@@ -24,8 +24,7 @@ Select **Configuration** tab. Then select the **ConnectionString**
 
 **Nothing is showing**
 
-Nothing will show if the installation is for a release prior to
-4.3.9.48 or when the user is not system administrator
+Nothing will show when the user is not system administrator
 
 Update the Servername, Username Password and databasename. 
 
@@ -45,4 +44,3 @@ Update the Servername, Username Password and databasename. 
 Take vault offline and back online to activate the connection string.
 
 Select **Dashboard** tab to validate the connection.
-
