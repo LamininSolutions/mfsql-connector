@@ -1,11 +1,7 @@
 Common installation errors and resolutions
 ==========================================
 
-Release 4
----------
-
 The following errors or issues may be experienced during the installation process
-
 
 Unable to log into M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,11 +95,11 @@ EmailProfile Error
 Probable causes:
 
 - When procedures are executed  with an error the message appears
-- Note that this error also indicates that there was an error 
+- Note that this error also indicates that there was an error
 
 Solution:
 
- - Install Database Mail and set the profile name to 'MailProfile' 
+ - Install Database Mail and set the profile name to 'MailProfile'
  - Check MFLog table for error messages
 
 |img7|

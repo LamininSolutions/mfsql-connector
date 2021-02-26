@@ -54,6 +54,17 @@ Can the Connector remove redundant object versions from an object history
 
 The connector allows for the removal of specific object versions from the object history in M-Files.  :doc:`/procedures/spMFDeleteObjectVersionList`
 
+How to get support
+~~~~~~~~~~~~~~~~~~
+
+To get support send an email to `support <mailto:support@lamininsolutions.com>`__ and include the following:
+ -  screenshot of the error
+ -  details of the actual error from the MFlog table.  Copy and past the result of the query below to your email to show the full text
+
+ .. code SQL
+
+     SELECT TOP 5 ErrorMessage, CreateDate FROM MFlog ORDER BY logid desc
+
 Can the connector change or update the display id of an object in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

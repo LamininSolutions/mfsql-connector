@@ -13,7 +13,7 @@ The following types of messages can be used:
  -  Get process messages in M-Files
  -  Add custom message in the MFUserMessage table
  -  Show process results in context menu action
- -  Pocess custom messages by email
+ -  Process custom messages by email
 
 Each of these types of messages requires a configuration and setup
 
@@ -35,7 +35,7 @@ Get error messages to email
 ---------------------------
 
 Step 1: Install and setup databasemail on the server. Note the default mailprofile is set to 'MailProfile', however this can be changed.
-Step 2: Update MFSettings with mail profile and email address of recipients, separated by ';'. 
+Step 2: Update MFSettings with mail profile and email address of recipients, separated by ';'.
 
 .. code:: sql
 
@@ -112,14 +112,14 @@ By default the Connector will not insert user messages.  To enable user messages
 Example of process message in M-Files
 |Image2|
 
-The messages can be access with the User Messages view that is automatically added. 
+The messages can be access with the User Messages view that is automatically added.
 
 Add custom message in the MFUserMessage table
 ---------------------------------------------
 
 The Connector includes a mechanism to generate and trigger user
 messages.  This is built into the `process batch
-logging <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/using-and-managing-logs/index.html>`_ 
+logging <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/using-and-managing-logs/index.html>`_
 When an entry is made in the MFProcessBatch with a LogType of 'Message' 
 a trigger will update an entry in the
 MFUserMessages table using the spMFResultMessageForUI procedure.
@@ -154,8 +154,27 @@ Show process results in context menu action
 
 The context menu allows for a feedback message on completion of an action selected in the context menu. The message is only produced for synchronous actions. Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index` for more detail.
 
+Process custom messages by Email
+--------------------------------
+
+custom email messages can be sent as part of the processing of a procedure.
+This functionality make use of the :doc:`/tables/tbMFProcessBatch` and :doc:`/tables/tbMFProcessBatchDetail` logs.  The process batch and process batch detail is generated using :doc:`/procedures/spMFProcessBatch_Upsert` and :doc:`/procedures/spMFProcessBatchDetail_insert`
+The results in these logs can be processed as a email message with :doc:`/procedures/spMFProcessBatch_Email`
+
+There are two types of emails:
+ # Summary email
+   The summary email is based on the Process Batch row entry.
+
+|image4|
+
+ # Detail email
+   The detail email is based on the Process Batch Detail of the process batch.
+
+|image5|
 
 .. |image0| image:: 2019-11-28_05-56-09.png
 .. |image1| image:: 2019-11-28_06-42-18.png
 .. |image2| image:: img_1.jpg
 .. |image3| image:: 2019-11-28_09-04-11.png
+.. |image4| image:: 2021-02-26_11-20-36.png
+.. |image5| image:: 2021-02-26_11-21-40.png
