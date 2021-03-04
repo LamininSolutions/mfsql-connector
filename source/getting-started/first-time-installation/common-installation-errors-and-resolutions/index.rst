@@ -3,6 +3,33 @@ Common installation errors and resolutions
 
 The following errors or issues may be experienced during the installation process
 
+VaultConnectionTest fails
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Unable to make a connection with error: Could not find procedure ‘dbo.spMFDecrypt’
+
+|image1|
+
+This error arise when a upgrade or installation could not find the M-Files installation version or the procedure spMFUpdateAssemblies was executed without specifying the parameter but could not find the assembly folders.
+
+|image2|
+
+The error will happen when the CLR procedures are missing. Inspecting the listing of procedures in SSMS explorer will show that the CLR procedures are missing.
+Listing with CLR procedures.  The CLR procedures have a ‘lock’ icon as shown below.
+
+|image4|
+
+Listing where CLR procedures are missing
+
+|image3|
+
+Run the procedure spMFUpdateAssemblies with the parameter specifying the correct M-Files version
+
+|image5|
+
+The results should not show any errors.  If it still showing an error then refer to the section on trapping connection errors.
+
+
 Unable to log into M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -13,7 +40,7 @@ Probable causes:
 
 Solution:
 
- - Check the errorlog (see screenshot)
+ - Check the error log (see screenshot)
  - Delete content of the c:\_\users\_[loginuser]\_\AppData\_\MFSQL Vault Install folder
  - Alternatively one can delete the VaultSettings.xml file in the this folder
  - check the settings to log into the correct M-Files Server
@@ -116,6 +143,11 @@ Solution:
  - Check that license has been added to the vault application
  - Check Configurations / other applications / MFSQL Connector VaultApp Dashboard to see if it loading properly.  If it iscorrect, then uninstall and manually re-install the vault application from the installation files.
 
+.. |image1| image:: 2021-03-04_03-58-59.png
+.. |image2| image:: 2021-03-04_04-00-31.png
+.. |image3| image:: 2021-03-04_04-01-11.png
+.. |image4| image:: 2021-03-04_04-02-31.png
+.. |image5| image:: 2021-03-04_04-04-10.png
 .. |img1| image:: img_4.jpg
 .. |img2| image:: img_5.jpg
 .. |img3| image:: img_6.jpg
