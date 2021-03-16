@@ -45,6 +45,7 @@ Each procedure, table or function contains there own change control section. See
 #. Add columns checkedOut and RequiredWorkflowError in spMFClassTableStats
 #. Add detail in table in email messaging in spMFProcessBatch_Email and spMFResultMessageForUI
 #. Fix bug in assemblies to return local server MFVersion, ensuring that spMFGetMFilesAssemblyVersion returns to correct value for spMFCheckandUpdateAssemblyVersions
+#. Fix bug with spMFCreatePublicSharedLink
 
 4.8.26.67
 ~~~~~~~~~

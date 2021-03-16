@@ -143,6 +143,22 @@ Solution:
  - Check that license has been added to the vault application
  - Check Configurations / other applications / MFSQL Connector VaultApp Dashboard to see if it loading properly.  If it iscorrect, then uninstall and manually re-install the vault application from the installation files.
 
+No such interface supported
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sometimes after an upgrade errors appear with 'No such interface supported' in the error description. It is likely that the error will also refer to an older version of M-Files.
+
+An example is below:
+A .NET Framework error occurred during execution of user-defined routine or aggregate "spMFCreatePublicSharedLinkInternal": System.Runtime.InteropServices.COMException: No such interface supported. CoVaultObjectOperations.cpp, 2462, No such interface supported. (0x80004002) Helper.cpp, 745, No such interface supported. (0x80004002) (M-Files 21.1.9827.4) (0028) System.Runtime.InteropServices.COMException: at LSConnect.MFiles.MFilesAccess.GetPublicLink(Int32 ObjectID, Int32 pDay, Int32 pMonth, Int32 pYear) at MFilesWrapper.GetPublicSharedLink(String VaultSettings, String XML, String& OutputXml) .
+
+Probable cause:
+
+One of the applications that is using the M-Files API's has loaded the previous version into memory.  The upgrade will not automatically release these older versions. However, MFSQL Connector cannot find the previous version.
+
+Solution:
+
+Restart the SQL server service.  If this does not resolve the issue, restart the SQL server.
+
 .. |image1| image:: 2021-03-04_03-58-59.png
 .. |image2| image:: 2021-03-04_04-00-31.png
 .. |image3| image:: 2021-03-04_04-01-11.png
