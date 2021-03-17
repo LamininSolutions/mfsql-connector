@@ -159,7 +159,7 @@ Process custom messages by Email
 
 custom email messages can be sent as part of the processing of a procedure.
 This functionality make use of the :doc:`/tables/tbMFProcessBatch` and :doc:`/tables/tbMFProcessBatchDetail` logs.  The process batch and process batch detail is generated using :doc:`/procedures/spMFProcessBatch_Upsert` and :doc:`/procedures/spMFProcessBatchDetail_Insert`
-The results in these logs can be processed as a email message with :doc:`/procedures/spMFProcessBatch_Email`
+The results in these logs can be processed as a email message with spMFProcessBatch_Email
 
 There are two types of emails:
  # Summary email
