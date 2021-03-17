@@ -42,10 +42,25 @@ Each procedure, table or function contains there own change control section. See
 ~~~~~~~~~
 
 #. Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats
-#. Add columns checkedOut and RequiredWorkflowError in spMFClassTableStats
+#. Add columns checkedOut, templates, MFNotInSQL and RequiredWorkflowError in spMFClassTableStats
+#. Fix calculation of deleted records in spMFClassTableStats
+#. Remove deletion of audit table from spMFClassTableStats
 #. Add detail in table in email messaging in spMFProcessBatch_Email and spMFResultMessageForUI
 #. Fix bug in assemblies to return local server MFVersion, ensuring that spMFGetMFilesAssemblyVersion returns to correct value for spMFCheckandUpdateAssemblyVersions
 #. Fix bug with spMFCreatePublicSharedLink
+#. Fix bug with updating multiple columns with spMFGetHistory
+#. Remove object from class table when class is changed to another object in the same object type with spMFUpdateTable
+#. Set default schema for MFModule in spMFCheckLicenseStatus
+#. Fix objlist error when both class and audit objid is null in spMFUpdateMfilesToMFSQL
+#. Include statusflag = 1 into spMFUpdateMFilesToMFSQL with incremental update
+#. Resolve issue with duplicate objids for same class in spMFUpdateMFilesToMFSQL - related to collections
+#. Fix  spMFUpdateChangeHistory when control table MFObjectChangeHistoryControl is empty when running spMFUpdateMfilesToMFSQL
+#. The number of objects in a batch is set to 500 in spMFUpdateTable_ObjIDs_GetGroupList
+#. Improve debugging in spMFUpdateObjectChangeHistory
+#. Set updateflag to 1 in spMFObjectTypeUpdateClassIndex to support audit history control
+#. Remove resetting of audit history in spMFUpdateAllncludedInAppTables
+#. Prevent spMFUpdateObjectChangeHistory to run if for a class without entries in control table
+
 
 4.8.26.67
 ~~~~~~~~~
