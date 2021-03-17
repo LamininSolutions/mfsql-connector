@@ -39,6 +39,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-10  LC         set default field length to 3900
 2020-12-11  LC         fix bug related to number of objids in list
 2020-09-08  Lc         resolve number of objids in batch
 2020-04-08  LC         Resolve issue with #objidlist not exist 

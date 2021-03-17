@@ -38,6 +38,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-02  LC         Remove check for required workflows, check is included in spMFClassTableStats
 2020-11-07  LC         Resolve issue with duplicate columns and multilookup datatype
 2020-10-22  LC         set datetime conversion to 102 (ansi)
 2020-10-22  LC         Required workflow check is only performed on updated objects

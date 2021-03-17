@@ -75,10 +75,13 @@ When using a filter (e.g. for a single object) to update the table with Update m
 
 This procedure will not remove destroyed objects from the class table.  Use spMFUpdateMFilestoMFSQL identify and remove destroyed object.
 
+This procedure will not remove objects from the class table where the class of the object was changed in M-Files.  Use spMFUpdateMFilestoMFSQL to identify and remove these objects from the class table.
+
 Deleted objects will only be removed if they are included in the filter 'Objids'.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.
 
 Deleted objects in M-Files will automatically be removed from the class table unless @RetainDeletions is set to 1.
 
+The valid range of real datatype properties for uploading from SQL to M-Files is -1,79E27 and 1,79E27
 Examples
 ========
 
@@ -149,6 +152,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-15  LC         fix changing of class in the same object type in MF
+2021-03-11  LC         update maximum valid number range to between -1,79E27 and 1,79E27
 2021-01-31  LC         Fix bug on insert new into audithistory
 2020-11-28  LC         Improve collection of property ids
 2020-11-28  LC         Resolve issue when fail message
@@ -167,6 +172,7 @@ Date        Author     Description
 2020-02-27  LC         Resolve issue with open XML_Docs
 2020-01-06  LC         Resolve issue: variable is null: @RetainDeletions
 2020-01-06  LC         Resolving performance bug when filtering on objids  
+2019-12-31	DEV2	   New output parameter add in spMFCreateObjectInternal to return the checkout objects.
 2019-10-01  LC         Allow for rounding where float has long decimals
 2019-09-02  LC         Fix conflict where class table has property with 'Name' as the name V53
 2019-08-24  LC         Fix label of audithistory table inserts
@@ -211,6 +217,5 @@ Date        Author     Description
 2015-04-23  DEV2       Removing Last modified & Last modified by from Update data
 2015-04-16  DEV2       Adding update table details to MFUpdateHistory table
 2015-04-08  DEV2       Deleting property value from M-Files (Task 57)
-2019-12-31	DEV2	   New output parameter add in spMFCreateObjectInternal to return the checkout objects.
 ==========  =========  ========================================================
 

@@ -41,6 +41,7 @@ Additional Info
 ===============
 
 When the history table is updated it will only report the versions that the property was changed. If the property included in the filter did not change, then to specific version will not be recorded in the table.
+
 Process_id is reset to 0 after completion of the processing.
 
 Use Cases(s)
@@ -50,6 +51,8 @@ Use Cases(s)
 - Show when a property was changed
 - Discovery reports for changes to certain properties
 
+Using a search criteria is not yet active.
+
 Prerequisites
 =============
 
@@ -58,9 +61,12 @@ Set process_id in the class table to 5 for all the records to be included
 Warnings
 ========
 
+The columnname must match the property in the ColumnName column of MFProperty
+
 Note that the same filter will apply to all the columns included in the run.  Split the get procedure into different runs if different filters must be applied to different columns.
 
 Producing on the history for all objects in a large table could take a considerable time to complete. Use the filters to limit restrict the number of records to fetch from M-Files to optimise the search time.
+
 
 Examples
 ========
@@ -127,6 +133,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-12  LC         resolve bug to update multiple columns
 2020-06-25  LC         added exception if invalid column is used
 2020-03-12  LC         Revise datetime formatting
 2019-09-25  LC         Include fnMFTextToDate to set datetime - dealing with localisation

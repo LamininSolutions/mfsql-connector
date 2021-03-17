@@ -96,6 +96,11 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-17  LC         include audit statusflag =1 into incremental update
+2021-03-17  LC         resolve issue where objid for exist for class in two objecttypes
+2021-03-16  LC         Remove object where class has changed from audit table
+2021-03-11  LC         fix objlist error when both class and audit objid is null
+2021-03-10  LC         fix updatechangehistory when control table empty
 2021-01-07  LC         Include override to recheck any class objects not in Audit
 2020-09-04  LC         Resolve bug with full update 
 2020-08-23  LC         replace get max objid with index update

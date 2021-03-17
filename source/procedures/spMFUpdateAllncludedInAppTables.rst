@@ -68,6 +68,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-17  LC         remove step to reset audit history to null if full 
+2021-03-17  LC         set history update flag to not update if control is empty
 2020-06-24  LC         Add additional debugging
 2020-06-06  LC         Add exit if unable to connect to vault
 2020-03-06  LC         Include spMFUpdateChangeHistory through spMFUpdateMfilestoSQL

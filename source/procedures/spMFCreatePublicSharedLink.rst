@@ -45,11 +45,11 @@ Examples
 .. code:: sql
 
     EXEC dbo.spMFCreatePublicSharedLink
-         @TableName = 'ClassTableName', -- varchar(250)
-         @ExpiryDate = '2017-05-21',    -- datetime
-         @ClassID = nul,                -- int
-         @ObjectID = ,                  -- int
-         @ProcessID = 0                 -- int
+         @TableName = 'ClassTableName', 
+         @ExpiryDate = '2017-05-21',    
+         @ClassID = null,               
+         @ObjectID = null ,                  
+         @ProcessID = 0                 
 
 Changelog
 =========
@@ -57,6 +57,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2020-03-04  LC         fix bug and add debugging
 2020-08-22  LC         update for new deleted column
 2019-08-30  JC         Added documentation
 2018-04-04  DEV2       Added Licensing module validation code

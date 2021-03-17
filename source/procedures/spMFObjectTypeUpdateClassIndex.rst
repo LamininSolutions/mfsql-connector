@@ -47,5 +47,6 @@ Date        Author     Description
 2018-13-21  LC         add feature to get reference of all objects in Vault
 2020-08-13  LC         update assemblies to set date formats to local culture
 2020-08-22  LC         update to take account of new deleted column
+2021-03-17  LC         Set updatestatus = 1 when not matched
 ==========  =========  ========================================================
 

@@ -22,7 +22,9 @@ Parameters
 Purpose
 =======
 
-This is a special procedure that is useful when there are data errors in M-Files and it is necessary to determine which specific records are not being able to be processed.
+This procedure is useful when forcing an update of objects from M-Files to SQL, even if the version have not changed.  This is particular handly when changes in M-Files has taken place that did not trigger a object version change such as changes to objects and valuelist labels and external repository changes.
+
+This is also useful when there are data errors in M-Files and it is necessary to determine which specific records are not being able to be processed.
 
 Additional Info
 ===============
@@ -38,11 +40,13 @@ Examples
     DECLARE @TableName VARCHAR(100) = 'MFCustomer'
     DECLARE @Debug SMALLINT
     DECLARE @SessionIDOut INT
+    Declare @SingelItems bit = 1
 
     -- TODO: Set parameter values here.
     EXECUTE @RC = [dbo].[spMFUpdateItemByItem]
                         @TableName
                        ,@Debug
+                       ,@singleitems
                        ,@SessionIDOut OUTPUT
     SELECT @SessionIDOut
 
@@ -52,6 +56,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-09  LC         Update documentation
 2020-08-28  LC         Set getobjver to date 2000-01-01
 2020-08-22  LC         Update for new deleted column
 2019-08-30  JC         Added documentation
