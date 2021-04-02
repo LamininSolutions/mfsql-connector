@@ -42,9 +42,13 @@ Each procedure, table or function contains there own change control section. See
 ~~~~~~~~~
 
 #. Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats
-#. Add columns checkedOut, templates, MFNotInSQL and RequiredWorkflowError in spMFClassTableStats
+#. Add columns checkedOut, templates, MFNotInSQL, collections, and RequiredWorkflowError in spMFClassTableStats
+#. Add error report to email in spMFClassTableStats
 #. Fix calculation of deleted records in spMFClassTableStats
 #. Remove deletion of audit table from spMFClassTableStats
+#. Update MFvwAuditSummary to include collections
+#. Update spMFAuditTable to set statusflag for collections
+#. Update spMFUpdateAllIncludeInAppTables to include error report with spMFClassTableStats
 #. Add detail in table in email messaging in spMFProcessBatch_Email and spMFResultMessageForUI
 #. Fix bug in assemblies to return local server MFVersion, ensuring that spMFGetMFilesAssemblyVersion returns to correct value for spMFCheckandUpdateAssemblyVersions
 #. Fix bug with spMFCreatePublicSharedLink
@@ -60,6 +64,9 @@ Each procedure, table or function contains there own change control section. See
 #. Set updateflag to 1 in spMFObjectTypeUpdateClassIndex to support audit history control
 #. Remove resetting of audit history in spMFUpdateAllncludedInAppTables
 #. Prevent spMFUpdateObjectChangeHistory to run if for a class without entries in control table
+#. Set spMFUpdateAssemblies to accept other than sa as the default master owner
+#. Fix bug with spMFUpdateItembyItem and improve logic for batch processing
+
 
 
 4.8.26.67
