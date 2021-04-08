@@ -42,7 +42,7 @@ Each procedure, table or function contains there own change control section. See
 ~~~~~~~~~
 
 #. Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats
-#. Add columns checkedOut, templates, MFNotInSQL, collections, and RequiredWorkflowError in spMFClassTableStats
+#. Add columns checkedOut, templates, MFNotInSQL, collections, Missingtables, and RequiredWorkflowError in spMFClassTableStats
 #. Add error report to email in spMFClassTableStats
 #. Fix calculation of deleted records in spMFClassTableStats
 #. Remove deletion of audit table from spMFClassTableStats
@@ -66,6 +66,8 @@ Each procedure, table or function contains there own change control section. See
 #. Prevent spMFUpdateObjectChangeHistory to run if for a class without entries in control table
 #. Set spMFUpdateAssemblies to accept other than sa as the default master owner
 #. Fix bug with spMFUpdateItembyItem and improve logic for batch processing
+#. Fix bug with installation package resetting MFSettings
+#. Add connection test to spMFGetLicense to validate a connection before license check
 
 
 
