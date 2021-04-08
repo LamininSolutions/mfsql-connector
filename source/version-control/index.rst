@@ -6,13 +6,13 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.26.67 2021-01-31
+Published version: 4.9.27.68 2021-04-08
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.26.67  2021-02-16
-Assemblies        4.9.26.0   2021-02-16
+SQL scripts       4.9.27.68  2021-04-08
+Assemblies        4.9.27.0   2021-04-08
 Vault application 4.9.0.0    2021-01-31
 ================= ========== ==========
 
