@@ -6,13 +6,13 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.68 2021-04-08
+Published version: 4.9.27.68 2021-04-14
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.68  2021-04-08
-Assemblies        4.9.27.0   2021-04-08
+SQL scripts       4.9.27.68  2021-04-14
+Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.0    2021-01-31
 ================= ========== ==========
 
@@ -68,8 +68,7 @@ Each procedure, table or function contains there own change control section. See
 #. Fix bug with spMFUpdateItembyItem and improve logic for batch processing
 #. Fix bug with installation package resetting MFSettings
 #. Add connection test to spMFGetLicense to validate a connection before license check
-
-
+#. Fix timestamp datatype bug in assemblies,  and spMFUpdateTableInternal
 
 4.8.26.67
 ~~~~~~~~~
