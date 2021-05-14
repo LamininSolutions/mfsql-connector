@@ -2,82 +2,65 @@
 Using spMFClassTableStats
 =========================
 
-The :doc:`/procedures/spMFClassTableStats` procedure is useful to the SQL developer for
+The :doc:`/procedures/spMFClassTableStats` procedure is useful for
 -  getting information about a class table or class tables
 -  using the result in other procedures such as error trapping or class table stats
 
-This procedure will perform a table audit on all the tables included in the filter. The procedure will update the object versions of the class table in the MFAuditHistory table. This could take a considerable time to run through if M-Files have a large number of objects.
+Running this procedure will produce a global temporary table of the same name ##spMFClassTableStats.  There are a number of parameters to refine the processing.  Executing without specifying any parameters will use the defaults
+-  include all class tables where IncludedInApp is not null
+-  report the current state of the AuditHistory without updating the this table
+-  report the current state of the class tables without resetting the tables
+-  show the temporary table as an output
+-  not send the output in a table to the support email address
+
+.. code:: sql
+
+    EXEC [dbo].[spMFClassTableStats]
+
+However, using the parameters the procedure could also
+-  run the procedure for a single table (useful when this procedure is used in custom procedures)
+-  reset the class tables. This is useful during development.  It will delete the class table, recreate it, and repopulate it.  Do not use this switch for resetting large tables.
+-  suppress to output and only create the temporary table when using this procedure in custom procedures
+-  Select parameter @WithAudit to perform a table audit on all the tables included in the filter. The procedure will update the object versions of the class table in the MFAuditHistory table. This could take a considerable time to run through if M-Files have a large number of objects.
 
 .. warning::
-    Running this procedure could take some time to complete the full table audit.
+    Running this procedure could take some time to complete when the reset or @withAudit parameters are set.
 
-The procedure also has a switch to show the results without performing the table audit procedure.
+Refer to :doc:`/procedures/spMFClassTableStats` procedure for more details about the columns.
 
-Explaining Columns
-------------------
+Interpreting the result
+-----------------------
 
-- ClassID = MFID of the class
-- TableName = Name of class table
-- IncludedInApp = show value from MFClass table
-- SQLRecordCount = Count of records of the specific class table
-- MFRecordCount = Count of records for the class from the MFAuditHistory table.
-- MFNotInSQL = Count of difference between class table and audit. Use vwMFAuditSummary and MFAuditHistory to track the difference.
-- Deleted = count of deleted column in class table - Deleted in M-files, not yet removed.
-- SyncError = count of process_id = 2 in class table - records where a synchronisation error was prodcued in the last run
-- Process_ID_1 = count of process_id = 1 in class table - records not yet updated into M-Files
-- MFError = count of process_id = 3 in class table - records where a M-Files error was produced during the last run
-- SQLError = count of process_id = 4 in class table - records where a SQL error was produced during the last run
-- LastModified = maximum date in the lastmodified column in class table - the last time of an update in the class table
-- MFLastModified = maximum date in the MF_last_modified column in class table - the last date of a modification in M-Files
+The output of the procedure has significance from many angles.
 
-Understanding and working with the result
------------------------------------------
+If all the error columns is 0 then the last processing ran successfully with no errors.
+If checkedout is not 0 then there are records excluded from processing because they are checked out. Refer to :doc:`/blogs/working_with_checkedout/index` for more details on working with checked out objects.
+If MFNotInSQL or SQLNotInMF columns are not null then some items was detected that was not processed
 
 The significance of the result for a table include:
 - When last was the table updated?
 - Is the table out of line with M-Files?
 - Has the last updated record in M-Files been processed?
 - Did the update produce any errors to take note of?
-- How many records are there in M-Files
-- Are there any records in M-Files which has not been processed.
+- Are there any checked out objects that have not been updated?
+- How many records are there in M-Files?
+- Are there any objects where required workflow is not used?
+- Are there any records in M-Files which has not been processed?
 
-If MFNotInSQL is not null it may signal one or more of the following
-- the class include templates.  Template objects are not included in SQL
-- the class include document collections. document collections are not included in SQL
-- the class table is out of date and requires an update. use spMFUpdateTable to update the class table.
-- the object version exist without a record. Incomplete object in M-Files.
+Reconcile the records
+---------------------
 
-Exploring the audit history
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MFRecordCount = SQLRecordCount + Templates + Collections + Deleted
 
-The view :doc:`/views/MFvwAuditSummary` will provide a summary result of the :doc:`/tables/tbMFAuditHistory` table.
-
-Producing the result
---------------------
+-  The class tables does not include Templates or Collections for the same class.
+-  Deletions are removed from the class table by default.  This can be controlled with a switch.
 
 Explore :doc:`/procedures/spMFClassTableStats` for more details on the options and switches.
 
-Specifying the class table when the procedure is executed will process the result for a single table.
-
-.. code:: sql
-
-    EXEC [dbo].[spMFClassTableStats] 'MFCustomer'
-
-Simple list
-
-As a simple executable without any parameters it will produce a table with for all class tables where IncludedInApp is not null.
-
-.. code:: sql
-
-    EXEC [dbo].[spMFClassTableStats]
-
-Show the current status of the MFAuditHistory and class tables without performing a full table audit.
-
-    .. code:: sql
-
-        EXEC [dbo].[spMFClassTableStats] @Withaudit = 0
-
 |image0|
+
+Grouping the result
+-------------------
 
 Grouping tables for use with class table stats.  This is particularly useful when there are several subsets of applications in the connector and one want to have a quick overview of a particular subset.
 
@@ -98,7 +81,8 @@ In the following example the additional tables column IncludedInApp in the MFCla
 
 |image1|
 
-#. Using result in another procedure
+Using result in another procedure
+---------------------------------
 
 The result of the procedure can be included in global temporary table ##spMFClassTableStats. Each time the procedure is run the temporary table will be reset.  Set the parameter @IncludeOutput  = 1 to produce the result into the table
 
@@ -113,6 +97,13 @@ The result of the procedure can be included in global temporary table ##spMFClas
 When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.
 
 |image2|
+
+Emailing the error report
+-------------------------
+
+Using the @SendReport switch will allow for sending the output report to the support email account in the MFSettings table.
+
+The report is automatically sent when the procedure spMFUpdateAllncludedInAppTables is run.  This procedure is included in the daily update agent and the report will therefore be sent if any errors are detected in the daily update agent.
 
 .. |image0| image:: image0.png
 .. |image1| image:: image1.png
