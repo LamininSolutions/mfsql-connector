@@ -23,6 +23,7 @@ The object that is checked out can be detected in the spMFAuditHistory
     AND mah.StatusFlag = 3
 
 Checked out items can also be detected with the following
+
 -  :doc:`/procedures/spMFClassTableStats`
 -  :doc:`/views/MFvwAuditSummary`
 

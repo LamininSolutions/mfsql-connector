@@ -3,10 +3,12 @@ Using spMFClassTableStats
 =========================
 
 The :doc:`/procedures/spMFClassTableStats` procedure is useful for
+
 -  getting information about a class table or class tables
 -  using the result in other procedures such as error trapping or class table stats
 
 Running this procedure will produce a global temporary table of the same name ##spMFClassTableStats.  There are a number of parameters to refine the processing.  Executing without specifying any parameters will use the defaults
+
 -  include all class tables where IncludedInApp is not null
 -  report the current state of the AuditHistory without updating the this table
 -  report the current state of the class tables without resetting the tables
@@ -18,6 +20,7 @@ Running this procedure will produce a global temporary table of the same name ##
     EXEC [dbo].[spMFClassTableStats]
 
 However, using the parameters the procedure could also
+
 -  run the procedure for a single table (useful when this procedure is used in custom procedures)
 -  reset the class tables. This is useful during development.  It will delete the class table, recreate it, and repopulate it.  Do not use this switch for resetting large tables.
 -  suppress to output and only create the temporary table when using this procedure in custom procedures
@@ -38,6 +41,7 @@ If checkedout is not 0 then there are records excluded from processing because t
 If MFNotInSQL or SQLNotInMF columns are not null then some items was detected that was not processed
 
 The significance of the result for a table include:
+
 - When last was the table updated?
 - Is the table out of line with M-Files?
 - Has the last updated record in M-Files been processed?
