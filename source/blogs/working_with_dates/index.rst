@@ -26,7 +26,7 @@ The "lastmodified" column in every class table is NOT the last modified date and
 
 The following list of columns and date all reflect local time
 
-================= ====   =====================
+======================   =====================
 Table Name               Date Column
 ======================   =====================
 MFlog                    CreateDate
