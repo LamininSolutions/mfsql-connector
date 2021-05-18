@@ -47,6 +47,7 @@ Each procedure, table or function contains there own change control section. See
 #. Fix spMFDeleteObject to delete a single object to include changed Wrapper module
 #. Resolve issue with specifying a tablename in spMFClassTableStats
 #. Add removal of redundant class records in spMFUpdateMFilesToMFSQL
+#. Exclude running full spMFClassTableStats for each batch
 
 4.9.27.68
 ~~~~~~~~~
