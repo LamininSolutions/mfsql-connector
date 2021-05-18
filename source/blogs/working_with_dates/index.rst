@@ -26,7 +26,6 @@ The "lastmodified" column in every class table is NOT the last modified date and
 
 The following list of columns and date all reflect local time
 
-.. table:: Tables with local time
 ================= ====   =====================
 Table Name               Date Column
 ======================   =====================
