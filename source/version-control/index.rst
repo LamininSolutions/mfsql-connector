@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.68 2021-04-14
+Published version: 4.9.27.69 2021-05-17
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.68  2021-04-14
+SQL scripts       4.9.27.69  2021-05-17
 Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.0    2021-01-31
 ================= ========== ==========
@@ -48,6 +48,7 @@ Each procedure, table or function contains there own change control section. See
 #. Resolve issue with specifying a tablename in spMFClassTableStats
 #. Add removal of redundant class records in spMFUpdateMFilesToMFSQL
 #. Exclude running full spMFClassTableStats for each batch
+#. update MFSQL Database File Connector
 
 4.9.27.68
 ~~~~~~~~~
