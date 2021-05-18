@@ -38,7 +38,17 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
-4.8.27.68
+4.9.27.69
+~~~~~~~~~
+
+#. Fix timestamp updating issue of not showing correct time in spMFUpdateTableInternal, and spMFUpdateTable
+#. Redesign batching and grouping in spMFUpdateMFilesToMFSQL. spMFUpdateTable_ObjIds_GetGroupedList become redundant.
+#. Fix bug to include first record in each batch in spMFUpdateTableInBatches
+#. Fix spMFDeleteObject to delete a single object to include changed Wrapper module
+#. Resolve issue with specifying a tablename in spMFClassTableStats
+#. Add removal of redundant class records in spMFUpdateMFilesToMFSQL
+
+4.9.27.68
 ~~~~~~~~~
 
 #. Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats

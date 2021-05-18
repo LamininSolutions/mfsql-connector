@@ -21,8 +21,6 @@ is that this procedure will call the custom procedure that controls the
 execution of the desired process. On completion the output message of
 the this procedure will be return to the user in M-Files.
 
-
-
 Procedure without input parameter (action type 1)
 -------------------------------------------------
 
@@ -63,7 +61,7 @@ Procedure with object version as input parameter (action type 3)
     begin
       Begin Try
     --Call procedure to perform operation using the object details as input and return output message
-       set @OutPut='Operation successful'   
+       set @OutPut='Operation successful'
       End Try
       Begin Catch
        set @OutPut='Error:'
@@ -101,4 +99,3 @@ for example:
 .. code:: text
 
    + '/n' + ' ObjectVer='+ cast(@ObjectVer as varchar(10))
-
