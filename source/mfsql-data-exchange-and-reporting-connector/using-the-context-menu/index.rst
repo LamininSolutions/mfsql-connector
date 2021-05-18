@@ -4,7 +4,7 @@ Using the Context Menu
 Installing MFContextMenu
 ------------------------
 
-Refer to :doc:`/getting-started/installing-the-context-menu/index`
+Refer to :doc:`/getting-started/first-time-installation/installing-the-context-menu/index`
 to get ready.
 
 The Context Menu provides the ability for an authorised M-Files Desktop
