@@ -23,6 +23,15 @@ What is the top 5 use cases
 #. Remove objects and object versions
 #. Reprocess complex data to align it with M-Files properties and structure
 
+Why use MFSQL Connector for integration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One of the core pillars of MFSQL Connector is the capability of using the tool to integrate between M-Files and any third party system using SQL as their backend.
+
+This is particularly relevant when the connection is complex, must be flexible, and the business has skills with SQL capabilities.
+
+Learn more about the it in the :doc:`/blogs/integration-whitepaper/index`
+
 What is the rules for licensing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

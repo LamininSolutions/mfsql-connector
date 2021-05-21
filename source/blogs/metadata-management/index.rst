@@ -6,6 +6,8 @@ MFSQL Connector has a range of capabilities and functionality to support metadat
 
 This blog highlights the data management capabilities and how to use the methods.
 
+Learn more about using MFSQL Connector for `metadata management in the whitepaper <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=9123d002b8081a3bfa0cfd550793b1cb3d67357dc7e2574d2386f390139279a9&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>`_
+
 Metadata Structure
 ------------------
 
@@ -39,7 +41,7 @@ Metadata structure manipulation
 
 The Connector allows for a range of operations to work with the metadata structure
 
-aliases
+Updating aliases
 Reset multi file document type to single file
 Updating valuelist items
 updating metadata structure with different filters and operations
