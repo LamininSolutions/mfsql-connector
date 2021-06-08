@@ -32,15 +32,50 @@ Next step is to update the metadata structure with :doc:`/procedures/spMFDropAnd
  - Identifying duplicate aliases
  - Classes by Object type
  - Classes with required workflows
+ - Properties and class used with an ownership relation
+
+ Examples of the select statement for the view are below.
+
+ The main aim for this exploration is to identify all the classes and properties to be included in the survey.
 
 .. code:: sql
 
     EXEC dbo.spMFDropAndUpdateMetadata
 
-    SELECT * FROM dbo.MFvwMetadataStructure
+    SELECT Property FROM dbo.MFvwMetadataStructure where class = 'Customer'
+    Select Class FROM dbo.MFvwMetadataStructure where Property = 'Customer'
+    SELECT distinct Class FROM dbo.MFvwMetadataStructure where ObjectType = 'Document'
+    SELECT Class FROM dbo.MFvwMetadataStructure WHERE Workflow_MFID IS NOT null
+    SELECT Property, class,  Valuelist_Owner,IsObjectType FROM dbo.MFvwMetadataStructure where Valuelist_Owner IS NOT null
+
+Next, update the includedInApp column in the MFClass table for all the classes to be included in the data analysis and then create all the class tables with one instruction :doc:`/procedures/spMFCreateAllMFTables`.
+
+.. code:: sql
+
+    UPDATE mc
+    SET mc.IncludeInApp = 1
+    FROM MFclass mc WHERE name IN ('Customer','Employment Agreement','Purchase Invoice')
+
+    EXEC dbo.spMFCreateAllMFTables @IncludedInApp = 1
+
 
 Comparing and analysing the data sources
 ----------------------------------------
+
+The first step is to get access to the metadata.  With the SQL server of the external system on the same network, a link server was setup for easy access. The pull of data from the external system may include other methods such as Boomi, Talend, Jitterbit or other tools. The key is to get the data into SQL Server tables.
+The next step is to get the M-Files data. This is where MFSQL Connector comes in.  It allows for pulling metadata from M-Files without resorting to APIs.  It also goes far beyond the capabilities of M-Files External Database Connector and is much easier to debug and control.  All the related class tables have been created in the previous step, but any additional class tables can be created with
+:doc:`\procedures\spMFCreateTable`
+
+Updating the class tables from M-Files to SQL should take into account the volume of data in the tables and selecting the right procedure for the job is key:
+
+ -  Performing a quick update for smaller tables (< 10 000 records) or individual objects use :doc:`\procedures\spMFUpdateTable`
+ -  Initialising larger tables in batch mode use :doc:`\procedures\spMFUpdateMFilesToMFSQL` with UpdateTypeID = 0
+ -  Updating changed records for individual tables use :doc:`\procedures\spMFUpdateMFilesToMFSQL` with UpdateTypeID = 1
+ -  Updating all class tables for changed records use :doc:`\procedures\spMFUpdateAllncludedInAppTables`
+ -  Resetting a larger class table (only used in exception) use :doc:`\procedures\spMFUpdateTableInBatches`
+
+ All of the above procedures has different types of switches and parameters for different scenarios. Check out the documentation of the individual procedures for further examples.
+ 
 
 Making configuration changes to the M-Files
 -------------------------------------------

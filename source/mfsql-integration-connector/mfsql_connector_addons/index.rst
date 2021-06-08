@@ -16,7 +16,7 @@ Excel SQL reports
 This excel is similar to the above, except that it has more advanced features.  This excel is based on the requirements for a specific customer.
 
 Folder Export
-------------
+-------------
 
 This utility is built with powershell to extract directories and files from the explorer folders into CSVs.  The columns is specifically designed to support importing the CSV filed into a database and to use in in conjunction with MFSQL Connector file importing routines. Consult the readme.txt file for more information.
 
