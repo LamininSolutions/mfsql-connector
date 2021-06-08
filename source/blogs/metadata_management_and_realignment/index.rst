@@ -7,6 +7,12 @@ This process relied heavily on the power of SQL to compare, align, transform and
 
 Metadata re-alignment during the course of the analysis and design of the integration played a part in the project. This case study highlights some of the procedure, methods and approaches applied during this project.
 
+In essence data from an old stock management and ERP system was transformed to fit into the requirements of Navision.  At the same time, the data already in M-Files from the old ERP system had to be transformed to align with the new requirements. New data had to be taken on and the metadata of the files had to align to ensure that users will find the right files when working in Navision. Navision was modified to allow for a custom search and display of the related files.
+
+To achieve this, and indepth analysis of the structures in M-Files and both external systems had to be undertaken.  Thereafter the rows and columns of every related table was compared, analysed and normalised.  The new structures and changes of existing structured where applied to M-Files. Subsequently the existing data in M-Files where updated with the new structures. All of this laid the foundation for the new procedures to have a continuous update of Navision from M-Files and pull from Navision into M-Files.
+
+The following sections describe in more detail how different capabilities of MFSQL Connector were deployed to support this metadata realignment project.
+
 Understanding what is in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -99,6 +105,9 @@ Use 'cross apply' method with MFSQL function :doc:`/functions/fnMFParseDelimited
      Select * from MFClassTable
      cross apply fnMFParseDelimitedString(Multicolumn, ',')
 
+Joining class tables
+--------------------
+
 Making configuration changes to M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,8 +133,19 @@ Several configuration changes can be made in SQL and updated into M-Files.
  -   Update the name, ExternalID, alias or owner for a valuelist and valuelist item
  -   Update aliases for workflow and workflow state
 
+Updating the class tables
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After the data from the old and new external systems have been compared with M-Files, and the new properties and structures have been created in M-Files to align with data, the data can be prepared to insert or update records in M-Files. The updates are pushed from SQL to M-Files in batch.
+
+Several helper procedures are deployed as part of the preparation process.
+ - Creating easy to use lookup views for the related valuelists and workflows.
+ -
+
+
 Updating M-Files with the results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The final step is to update the records into M-Files
 
  .. |image0| image:: image_0.png

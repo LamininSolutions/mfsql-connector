@@ -1,4 +1,4 @@
-MFSQL Connector Addons and utilities
+MFSQL Connector addons and utilities
 =====================================
 
 The MFSQL Connector installation folder includes the following addons and utilities.  These utilities are provided as is, and is not fully productised. Use these as examples or a starting point for your own development.
