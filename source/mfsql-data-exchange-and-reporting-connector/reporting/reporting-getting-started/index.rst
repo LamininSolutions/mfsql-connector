@@ -39,4 +39,4 @@ Step 3: Check the result
 
 Watch the video
 
-Using MFSQL for Reporting`<https://youtu.be/BoA_7Ry8tKg>`__
+Using MFSQL for Reporting`<https://youtu.be/BoA_7Ry8tKg>`
