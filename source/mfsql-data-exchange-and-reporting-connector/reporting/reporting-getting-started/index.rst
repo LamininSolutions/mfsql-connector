@@ -37,4 +37,4 @@ Step 3: Check the result
         EXEC dbo.spMFClassTableStats
             @IncludeOutput = 0
 
-Watch the video on the you tube channel `Using MFSQL for Reporting <https://www.youtube.com/user/lamininsolutions/videos>`__
+Watch the video on the you tube channel `<https://www.youtube.com/user/lamininsolutions/videos>`
