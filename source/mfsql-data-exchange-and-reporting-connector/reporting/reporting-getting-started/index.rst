@@ -1,16 +1,44 @@
 Reporting - getting started
 ===========================
 
-Release 4.2.8.46 introduces a method to rapidly start-up the Connector
-for Reporting. Follow the link for a step by step guide of `getting
-started <https://cloud.lamininsolutions.com/SharedLinks.aspx?accesskey=ad33f6c77b6d68b8c26fa3bf6a32d830ba81ffc2f3bb33f037f22d410c59cba6&VaultGUID=312E44F6-AE4B-4F5E-8784-9527260A5743>`__.
+Rapidly start-up the Connector for Reporting. Follow the link for a step by step guide of `getting
+started <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>`__.
 
 Use the
-`Whitepaper <https://cloud.lamininsolutions.com/SharedLinks.aspx?accesskey=94f03e49e02e682394f8704be210fbfcd1995f20b1b2738d6a9d475a47509543&VaultGUID=312E44F6-AE4B-4F5E-8784-9527260A5743>`__
-to get an overview the MFSQL Connector for reporting
+`Whitepaper <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7
+>`__
+to get an overview the MFSQL Connector for reporting.
+
+In simple terms, the following procedures will get you going with reporting in a few steps.
+
+Step 1: Setup the class tables for reporting.  In this example three classes will be used for various reports: Customer, Other Document and Purchase invoice.
+
+.. code:: sql
+
+     EXEC dbo.spMFSetup_Reporting @Classes = 'Customer,Other Document, Purchase Invoice',
+     @Debug = 0
+
+Step 2: Initialise the class table.  Different procedures should be used if the class tables are large (more than 30 000 records)
+
+.. code:: sql
+
+    DECLARE @ProcessBatch_ID INT;
+
+    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1,
+        @RemoveDeleted = 1,
+        @IsIncremental = 0,
+        @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
+        @Debug = 0
+
+Step 3: Check the result
+
+.. code:: sql
+
+        EXEC dbo.spMFClassTableStats
+            @IncludeOutput = 0
 
 Watch the video
 
-| 
+.. youtube:: BoA_7Ry8tKg
 
-
+Using MFSQL for Reporting`<https://youtu.be/BoA_7Ry8tKg>`__
