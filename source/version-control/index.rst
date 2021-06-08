@@ -38,6 +38,12 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
+4.9.27.70
+~~~~~~~~~
+
+#. Fix logging and updating of class table in spMFDeleteObjectList
+
+
 4.9.27.69
 ~~~~~~~~~
 
