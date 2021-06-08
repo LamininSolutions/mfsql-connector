@@ -10,13 +10,51 @@ Metadata re-alignment during the course of the analysis and design of the integr
 Understanding what is in M-Files
 --------------------------------
 
+The following procedures and views was used the understand the metadata structure in M-Files
+
+Fetch an overview of class objects in the entire vault with :doc:`/procedures/spMFObjectTypeUpdateClassIndex` and show the results with the view :doc:`/views/MFvwObjectTypeSummary`
+
+.. code:: sql
+
+    EXEC dbo.spMFObjectTypeUpdateClassIndex @IsAllTables = 1
+
+    Select * from MFvwObjectTypeSummary
+
+|Image0|
+
+The volume of class data and the highest objid for each class can be determined from this table.  The underlying data is in the MFAuditHistory table.
+
+Next step is to update the metadata structure with :doc:`/procedures/spMFDropAndUpdateMetadata` and survey the use of properties and classes in the vault with the view :doc:`/views/MFvwMetadataStructure`. This view is a window into the structure for a number of angles:
+
+ - Properties by class
+ - Use of a property across all classes
+ - Properties/Classes/Workflow/Valuelist with no aliases
+ - Identifying duplicate aliases
+ - Classes by Object type
+ - Classes with required workflows
+
+.. code:: sql
+
+    EXEC dbo.spMFDropAndUpdateMetadata
+
+    SELECT * FROM dbo.MFvwMetadataStructure
+
 Comparing and analysing the data sources
 ----------------------------------------
 
 Making configuration changes to the M-Files
 -------------------------------------------
 
+.. code:: sql
+
+    EXEC dbo.spMFDropAndUpdateMetadata @IsResetAll = ?,
+    @WithClassTableReset = ?,
+    @WithColumnReset = ?,
+    @IsStructureOnly = ?,
+    @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
+    @Debug = ?
+
 Updating M-Files with the results
 ---------------------------------
 
- 
+ .. |image0| image:: image_0.png
