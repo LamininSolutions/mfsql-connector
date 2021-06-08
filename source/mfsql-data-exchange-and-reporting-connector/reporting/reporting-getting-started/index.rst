@@ -2,10 +2,10 @@ Reporting - getting started
 ===========================
 
 Rapidly start-up the Connector for Reporting. Follow the link for a step by step guide of getting
-started <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>
+started https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7
 
-Use the Whitepaper <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7
-> to get an overview the MFSQL Connector for reporting.
+Use the Whitepaper https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7
+ to get an overview the MFSQL Connector for reporting.
 
 In simple terms, the following procedures will get you going with reporting in a few steps.
 
@@ -35,4 +35,4 @@ Step 3: Check the result
         EXEC dbo.spMFClassTableStats
             @IncludeOutput = 0
 
-Watch the video on the youtube channel `<https://www.youtube.com/user/lamininsolutions/videos>`
+Watch the video on the youtube channel <https://www.youtube.com/user/lamininsolutions/videos>
