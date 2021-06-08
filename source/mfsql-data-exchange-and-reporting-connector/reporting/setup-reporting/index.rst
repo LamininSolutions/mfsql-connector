@@ -23,7 +23,7 @@ detail on Cloud Installations)
 
 Step 1: Step 1-3 for installing the software
 
-#. Download the installation package from the `web <http://bit.ly>`__
+#. `Download <https://lamininsolutions.com/download-mfsql-connector/>`__ the installation package 
    and request a license. Once a license is received, continue with step
    2.
 
@@ -37,7 +37,7 @@ included for reporting.
 
 .. code:: sql
 
-    EXEC [dbo].[spMFSetup_Reporting] @Classes = 'Account, Opportunity, Campaign' 
+    EXEC [dbo].[spMFSetup_Reporting] @Classes = 'Account, Opportunity, Campaign'
                                     ,@Debug = 0   -- int
 
 This routine will perform a series of operations and produce a result.

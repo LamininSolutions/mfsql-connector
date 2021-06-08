@@ -64,18 +64,42 @@ Comparing and analysing the data sources
 
 The first step is to get access to the metadata.  With the SQL server of the external system on the same network, a link server was setup for easy access. The pull of data from the external system may include other methods such as Boomi, Talend, Jitterbit or other tools. The key is to get the data into SQL Server tables.
 The next step is to get the M-Files data. This is where MFSQL Connector comes in.  It allows for pulling metadata from M-Files without resorting to APIs.  It also goes far beyond the capabilities of M-Files External Database Connector and is much easier to debug and control.  All the related class tables have been created in the previous step, but any additional class tables can be created with
-:doc:`\procedures\spMFCreateTable`
+:doc:`/procedures/spMFCreateTable`
 
 Updating the class tables from M-Files to SQL should take into account the volume of data in the tables and selecting the right procedure for the job is key:
 
- -  Performing a quick update for smaller tables (< 10 000 records) or individual objects use :doc:`\procedures\spMFUpdateTable`
- -  Initialising larger tables in batch mode use :doc:`\procedures\spMFUpdateMFilesToMFSQL` with UpdateTypeID = 0
- -  Updating changed records for individual tables use :doc:`\procedures\spMFUpdateMFilesToMFSQL` with UpdateTypeID = 1
- -  Updating all class tables for changed records use :doc:`\procedures\spMFUpdateAllncludedInAppTables`
- -  Resetting a larger class table (only used in exception) use :doc:`\procedures\spMFUpdateTableInBatches`
+ -  Performing a quick update for smaller tables (< 10 000 records) or individual objects use :doc:`/procedures/spMFUpdateTable`
+ -  Initialising larger tables in batch mode use :doc:`/procedures/spMFUpdateMFilesToMFSQL` with UpdateTypeID = 0
+ -  Updating changed records for individual tables use :doc:`/procedures/spMFUpdateMFilesToMFSQL` with UpdateTypeID = 1
+ -  Updating all class tables for changed records use :doc:`/procedures/spMFUpdateAllncludedInAppTables`
+ -  Resetting a larger class table (only used in exception) use :doc:`/procedures/spMFUpdateTableInBatches`
 
  All of the above procedures has different types of switches and parameters for different scenarios. Check out the documentation of the individual procedures for further examples.
- 
+
+ The following is a list of tips and technigue scripts for data analysis and exploration.
+
+ Identifying duplicates
+ ~~~~~~~~~~~~~~~~~~~~~~
+
+ Use 'group by' and 'having' method to identify duplicates
+
+ .. code:: sql
+
+     Select duplicateColumn from MFTableName
+     group by duplicateColumn
+     having count(*) > 1
+
+Expand multi lookup property columns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use 'cross apply' method with MFSQL function :doc:`/functions/fnMFParseDelimitedString` to split out a multi lookup Property to work with the individual members of the lookup.
+
+.. code:: sql
+
+    Select * from MFClassTable
+    cross apply fnMFParseDelimitedString(Multicolumn, ',')
+
+
 
 Making configuration changes to the M-Files
 -------------------------------------------
