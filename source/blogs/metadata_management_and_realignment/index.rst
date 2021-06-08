@@ -59,7 +59,7 @@ Next, update the includedInApp column in the MFClass table for all the classes t
     EXEC dbo.spMFCreateAllMFTables @IncludedInApp = 1
 
 
-Comparing and analysing the data sources
+Comparing and analyzing the data sources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The first step is to get access to the metadata.  With the SQL server of the external system on the same network, a link server was setup for easy access. The pull of data from the external system may include other methods such as Boomi, Talend, Jitterbit or other tools. The key is to get the data into SQL Server tables.
@@ -69,14 +69,14 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 Updating the class tables from M-Files to SQL should take into account the volume of data in the tables and selecting the right procedure for the job is key:
 
  -  Performing a quick update for smaller tables (< 10 000 records) or individual objects use :doc:`/procedures/spMFUpdateTable`
- -  Initialising larger tables in batch mode use :doc:`/procedures/spMFUpdateMFilesToMFSQL` with UpdateTypeID = 0
+ -  Initializing larger tables in batch mode use :doc:`/procedures/spMFUpdateMFilesToMFSQL` with UpdateTypeID = 0
  -  Updating changed records for individual tables use :doc:`/procedures/spMFUpdateMFilesToMFSQL` with UpdateTypeID = 1
  -  Updating all class tables for changed records use :doc:`/procedures/spMFUpdateAllncludedInAppTables`
- -  Resetting a larger class table (only used in exception) use :doc:`/procedures/spMFUpdateTableInBatches`
+ -  Resetting a larger class table (only used in exception) use :doc:`/procedures/spMFUpdateTableinBatches`
 
 All of the above procedures has different types of switches and parameters for different scenarios. Check out the documentation of the individual procedures for further examples.
 
-The following is a list of tips and technigue scripts for data analysis and exploration.
+The following is a list of tips and technique scripts for data analysis and exploration.
 
 Identifying duplicates
 -----------------------
@@ -99,10 +99,8 @@ Use 'cross apply' method with MFSQL function :doc:`/functions/fnMFParseDelimited
      Select * from MFClassTable
      cross apply fnMFParseDelimitedString(Multicolumn, ',')
 
-
-
 Making configuration changes to M-Files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is common to make changes in M-Files admin during the process of configuring M-Files to align with the data of the system.  The metadata structure must be re-synchronized after making changes in M-Files admin.  Using :doc:`/procedures/spMFDropAndUpdateMetadata` allows for different developer utilities to help with the process.
 
