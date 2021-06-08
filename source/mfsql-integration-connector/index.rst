@@ -20,3 +20,4 @@ MFSQL Integration Connector
    using-and-managing-logs/index
    working-with-object-version/index
    context-menu-queue/index
+   mfsql_connector_addons/index
