@@ -42,7 +42,8 @@ Each procedure, table or function contains there own change control section. See
 ~~~~~~~~~
 
 #. Fix logging and updating of class table in spMFDeleteObjectList
-
+#. Remove redundant debugging item from spMFUpdateExplorerFileToMFiles
+#. Allow updating of Document Collection object type for class in spMFUpdateTable and spMFUpdateMFilesToMFSQL
 
 4.9.27.69
 ~~~~~~~~~
