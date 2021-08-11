@@ -70,7 +70,7 @@ To get support send an email to `support <mailto:support@lamininsolutions.com>`_
  -  screenshot of the error
  -  details of the actual error from the MFlog table.  Copy and past the result of the query below to your email to show the full text
 
- ..code:: sql
+..code:: sql
 
      SELECT TOP 5 ErrorMessage, CreateDate FROM MFlog ORDER BY logid desc
 

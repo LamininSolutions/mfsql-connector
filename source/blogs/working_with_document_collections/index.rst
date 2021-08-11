@@ -29,5 +29,3 @@ The following procedure will update or insert objects from SQL to M-Files as Doc
         @UpdateMethod = 0,
         @IsDocumentCollection = 1,
         @Debug = 0
-
-        
