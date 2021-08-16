@@ -6,14 +6,15 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.69 2021-05-17
+Published version: 4.9.27.70 2021-08-15
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.69  2021-05-17
+SQL scripts       4.9.27.70  2021-08-15
 Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.0    2021-01-31
+Database File VAF 4.2.1.2    2021-07-15
 ================= ========== ==========
 
 Installed releases
@@ -44,6 +45,19 @@ Each procedure, table or function contains there own change control section. See
 #. Fix logging and updating of class table in spMFDeleteObjectList
 #. Remove redundant debugging item from spMFUpdateExplorerFileToMFiles
 #. Allow updating of Document Collection object type for class in spMFUpdateTable and spMFUpdateMFilesToMFSQL
+#. Fix truncate string bug in
+#. Add parameter to suppress the control report in spMFUpdateAllncludedInAppTables
+#. Improve debugging and error logging in spMFUpdateMFilesToMFSQL
+#. Improve debugging and resolve bug in spMFGetHistory
+#. Resolve unwanted output in spMFExportFiles
+#. Improve documentation for spMFDropandUpdateTable
+#. Change datatype of varchar to nvarchar in table  MFFileImport
+#. Improve control when version could not be found in spMFCheckandUpdateAssemblyVersions 
+
+Database File MFSQLConnector 4.2.1.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Add funtionality to promote object and add metadata to a data base file object
 
 4.9.27.69
 ~~~~~~~~~
