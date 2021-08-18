@@ -47,8 +47,7 @@ invoices that is approved or paid will be included.
 Process the extract of the history. In this case the full history for
 the selected records have been set as the filters. Note that other
 filters and parameters may apply in different circumstances. Refer to
-the\ `procedure
-guide <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/64454660/spMFGetHistory+for+Class+Object+change+history>`__\ for
+the :doc:`/procedure/spMFGetHistory` for
 more detail.
 
 The extract will insert/update the history records in the
@@ -108,7 +107,7 @@ There are several critical joins to take into account:
             ON [mua].[UserID] = [moch].[MFLastModifiedBy_ID]
         INNER JOIN [dbo].[MFWorkflowState] AS [mws]
             ON [moch].[Property_Value] = [mws].[MFID]
-    WHERE mpi.[ObjID] = 361 
+    WHERE mpi.[ObjID] = 361
 
 The result of the above select statement
 

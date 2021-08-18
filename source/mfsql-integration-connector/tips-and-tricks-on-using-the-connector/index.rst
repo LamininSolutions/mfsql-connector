@@ -35,7 +35,7 @@ However, if you have changed the metadata structure of the object in
 M-Files, it is good practice to drop the class table and recreate it.
 This will ensure that the table design stays in tact.
 
-| 
+|
 
 
 
@@ -92,7 +92,7 @@ valuelistitems across multiple classes, especially documents.  
                  INNER JOIN [dbo].[MFProperty] AS [mp] ON [mp].[MFValueList_ID] = [mvl].[ID]
                  INNER JOIN [dbo].[MFClassProperty] AS [mcp] ON [mp].ID = mcp.[MFProperty_ID]
                  INNER JOIN [dbo].[MFClass] AS [mc] ON mc.ID = mcp.[MFClass_ID]
-         WHERE   [mvli].deleted = 0; 
+         WHERE   [mvli].deleted = 0;
 
 
 
@@ -129,7 +129,7 @@ own financial periods; or Each County/State has their own cities.
                      INNER JOIN [dbo].[MFValueList] AS [mvl] ON [mvl].[ID] = [mvli].[MFValueListID]
                      INNER JOIN [dbo].[MFValueListItems] AS [mvli2] ON [mvli2].[AppRef] = [mvli].[Owner_AppRef]
                      INNER JOIN [dbo].[MFValueList] AS [mvl2] ON [mvl2].[ID] = [mvli2].[MFValueListID]
-             WHERE   [mvli].[OwnerID] <> 0; 
+             WHERE   [mvli].[OwnerID] <> 0;
 
 
 
@@ -153,12 +153,11 @@ your custom procedures to align with the new columnname.
 
 
 
-Showing the objects that was updated using the MFUpdateHistory Table
+Showing the objects that was updated using the :doc:`/tables/tbMFUpdateHistory` Table
 --------------------------------------------------------------------
 
-The UpdateHistory table has  record of the result of every update. Refer
-to \ `Utility
-Tables <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/21200964/Utility+Tables>`__
+The UpdateHistory table has a record of the result of every update. Refer
+to :doc:`/the-connector-framework/connector-content/utility-tables/index`
 for more detail on the columns in the MFUpdateHistory table. The column
 object version details include all the object versions from M-Files at
 the time of the update transaction in XML format.  Use spMFHistoryShow
@@ -178,7 +177,7 @@ in the update.
               Declare @id int
           SELECT TOP 1 @id = [muh].id
           FROM [dbo].[MFUpdateHistory] AS [muh] ORDER by [muh].[Id] DESC
-          
+
           EXEC [dbo].[sp_MFUpdateHistoryShow] @Debug = 0, -- smallint
               @Update_ID = @id, -- int
               @UpdateColumn = 1 -- int
@@ -200,7 +199,7 @@ be followed to update the deleted records in the class table
 This can be achieved by executing the\ `spMFTableAudit
 procedure <page31817744.html#Bookmark66>`__
 
-| 
+|
 
 
 

@@ -20,18 +20,8 @@ monitoring the M-Files version change and updating the assemblies.
 -  The procedure spMFUpdateAssemblies can be executed manually to
    update the assemblies.
 
-========= ========
-Module    Release#
-========= ========
-Developer 4.3.9.48
-========= ========
-
-Consult `Updating Connector after M-Files had an upgrade. <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/blog/2018/11/22/610795521>`__
-on how to update the assemblies after a change of version.
-
-MFSQL Connector will fail if the the M-Files API (M-Files version
+MFSQL Connector will fail if the M-Files API (M-Files version
 specific) changes without updating the assemblies in the database.
-
 
 ============== =============================================
 Type           Description

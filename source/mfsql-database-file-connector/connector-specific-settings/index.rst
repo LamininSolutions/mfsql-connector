@@ -33,23 +33,23 @@ connection to the database.
 Element                         Description                                                                 Notes                                                                               Example
 =============================== =========================================================================== =================================================================================== ========================
 SQL Server Name                 The full name of the server, including the instance and the port            Square brackets will automatically be added to encapsulate any spaces               localhost
-                                                                                                                                                                                               
+
                                                                                                                                                                                                 ServerName\Instance,port
-                                                                                                                                                                                               
+
                                                                                                                                                                                                 IPaddress
 Database Name                   The Database Name                                                           Square brackets will automatically be added to encapsulate any spaces               SampleVault
  Connection Table/View          This table of view is the source of the data that will be shown on M-Files  Consult the section on SQL Database for more detail on requirements for this table  Customer_Files
 Schema                          default to dbo                                                              Schema must exist prior to specifying the schema in this setting.                   custom
-                                                                                                                                                                                               
+
                                                                                                                                                                                                 scu
  SQL Server Authentication Type Default to windows authentication                                           Both windows and SQL Server Authentication is allows                                SQLServer
-                                                                                                                                                                                               
-                                Set to **SQLServer** to use SQL Server Authentication                       |                                                                                  
+
+                                Set to **SQLServer** to use SQL Server Authentication                       |
 Database Type                   Default to SQL Server                                                       Available options:                                                                  leave blank for default
-                                                                                                                                                                                               
-                                Set to Oracle for Oracle Databases                                          MF SQL                                                                             
-                                                                                                                                                                                               
-                                                                                                            Oracle                                                                             
+
+                                Set to Oracle for Oracle Databases                                          MF SQL
+
+                                                                                                            Oracle
  ODBC                           Default to SQL ODBC                                                         Use name for Oracle ODBC setting                                                    leave blank for default
 =============================== =========================================================================== =================================================================================== ========================
 
@@ -69,21 +69,21 @@ used in a view with joins to other tables to setup the data for M-Files.
 ======================= ======================================= ==================================================================================================================== ========
 Element                 Description                             Notes                                                                                                                Example
 ======================= ======================================= ==================================================================================================================== ========
-File Data Table Name    Name of source table with File Data     Square brackets will automatically be added to encapsulate any spaces                                               
-                                                                                                                                                                                    
-                                                                Schema must be consistent with the schema defined in the Database Connection section                                
+File Data Table Name    Name of source table with File Data     Square brackets will automatically be added to encapsulate any spaces
+
+                                                                Schema must be consistent with the schema defined in the Database Connection section
 Unique Reference Column Unique column                           Column must be defined as *Not Null and Unique.* Likely to be the primary key of the column, but not necessarily.    GUID
                                                                                                                                                                                      ID
 File Name Column        Name of file                            Filename must Include extension of file                                                                              FileName
  File Data Column        binary column with file data in a blob Defined as one of                                                                                                    FileData
-                                                                                                                                                                                    
-                                                                Varchar(xxx)                                                                                                        
-                                                                                                                                                                                    
-                                                                NVarchar(Max)                                                                                                       
-                                                                                                                                                                                    
-                                                                Binary(Max)                                                                                                         
-                                                                                                                                                                                    
-                                                                |                                                                                                                   
+
+                                                                Varchar(xxx)
+
+                                                                NVarchar(Max)
+
+                                                                Binary(Max)
+
+                                                                |
 ======================= ======================================= ==================================================================================================================== ========
 
 
@@ -94,11 +94,9 @@ Hierarchy Folder Mapping
 This mapping is used to define the hierarchy of the unmanaged object.
 Each element of the hierarchy must define the table column and the
 target M-Files property. Only text properties can be used.  The
-hierarchy is shown as the location in the metadata c card
+hierarchy is shown as the location in the metadata card
 
-e.g. [`name of
-connection <https://lamininsolutions.atlassian.net/wiki/pages/createpage.action?spaceKey=MFSQL&title=name+of+connection&linkCreation=true&fromPageId=156401672>`__]/
-column 1 / column 2
+e.g. name of connection / column 1 / column 2
 
 Click on Add Hierarchy
 

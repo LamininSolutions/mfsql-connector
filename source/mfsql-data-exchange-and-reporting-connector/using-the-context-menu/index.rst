@@ -199,8 +199,7 @@ The following script will reset the Context Menu to access the sample procedures
     DECLARE @Debug INT = 0;
     DECLARE @UserGroup NVARCHAR(100);
 
-    SELECT @ItemCount = COUNT(*)
-    FROM dbo.MFContextMenu AS mcm
+    SELECT @ItemCount = COUNT(\*) FROM dbo.MFContextMenu AS mcm
     WHERE mcm.ActionName NOT IN ( 'Synchronous Actions', 'Asynchronous Actions', 'Synchronous Object Actions',
                                     'Asynchronous Object Actions', 'Action Type Sync', 'Action Type Async',
                                     'Sync action for context Object', 'Async action for context Object', 'StateAction1',
@@ -213,41 +212,39 @@ The following script will reset the Context Menu to access the sample procedures
     IF @ItemCount = 0 -- this procedure will only be executed if no custom menus have been created
     BEGIN
 
-    /*
-    Insert menu items
-    */
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Actions', -- nvarchar(100)
-                                                                               --       @PriorMenu = '', -- nvarchar(100)
-            @IsRemove = 0,                                                     -- bit
-            @UserGroup = 'ContextMenu';                                        -- nvarchar(100)
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Actions', -- nvarchar(100)
-            @PriorMenu = 'Synchronous Actions',                                 -- nvarchar(100)
-            @IsRemove = 0,                                                      -- bit
-            @UserGroup = 'ContextMenu';                                         -- nvarchar(100)
+        --Insert menu items
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Web Sites', -- nvarchar(100)
-            @PriorMenu = 'Asynchronous Actions',                     -- nvarchar(100)
-            @IsRemove = 0,                                           -- bit
-            @UserGroup = 'ContextMenu';                              -- nvarchar(100)
-
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Object Actions', -- nvarchar(100)
-            @PriorMenu = 'Web Sites',                                                 -- nvarchar(100)
+        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Actions',
+            @PriorMenu = '',
             @IsRemove = 0,
-            @IsObjectContextMenu = 1,                                                 -- bit
-            @UserGroup = 'ContextMenu';                                               -- nvarchar(100)
+            @UserGroup = 'ContextMenu';
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Object Actions', -- nvarchar(100)
-            @PriorMenu = 'Synchronous Object Actions',                                 -- nvarchar(100)
-            @IsRemove = 0,                                                             -- bit
+        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Actions',
+            @PriorMenu = 'Synchronous Actions',
+            @IsRemove = 0,
+            @UserGroup = 'ContextMenu';
+
+        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Web Sites',
+            @PriorMenu = 'Asynchronous Actions',
+            @IsRemove = 0,
+            @UserGroup = 'ContextMenu';
+
+        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Object Actions',
+            @PriorMenu = 'Web Sites',
+            @IsRemove = 0,
             @IsObjectContextMenu = 1,
             @UserGroup = 'ContextMenu';
 
-                                                                                       -- nvarchar(100)
+        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Object Actions',
+            @PriorMenu = 'Synchronous Object Actions',
+            @IsRemove = 0,
+            @IsObjectContextMenu = 1,
+            @UserGroup = 'ContextMenu';
 
-    /*
-    Web Site access
-    */
+
+    --Web Site access
+
         EXEC dbo.spMFContextMenuActionItem @ActionName = 'Google website', -- nvarchar(100)
             @ProcedureName = 'http://google.com',                          -- nvarchar(100)
             @Description = 'Illustrate access to a website',               -- nvarchar(200)
@@ -314,33 +311,33 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',                                                                                                       -- nvarchar(100)
             @Debug = @Debug;
 
-    /*
-    Insert procedures for workflow state actions
-    */
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction1', -- nvarchar(100)
-            @ProcedureName = 'custom.DoCMAction',                        -- nvarchar(100)
-            @Description = NULL,                                         -- nvarchar(200)
-            @RelatedMenu = NULL,                                         -- nvarchar(100)
-            @IsRemove = 0,                                               -- bit
-            @IsObjectContext = 0,                                        -- bit
-            @IsWeblink = 0,                                              -- bit
-            @IsAsynchronous = 0,                                         -- bit
-            @IsStateAction = 1,                                          -- bit
-            @PriorAction = NULL,                                         -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                  -- nvarchar(100)
+
+    --Insert procedures for workflow state actions
+
+        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction1',
+            @ProcedureName = 'custom.DoCMAction',
+            @Description = NULL,
+            @RelatedMenu = NULL,
+            @IsRemove = 0,
+            @IsObjectContext = 0,
+            @IsWeblink = 0,
+            @IsAsynchronous = 0,
+            @IsStateAction = 1,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu',
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction2', -- nvarchar(100)
-            @ProcedureName = 'Custom.CMDoObjectActionForWorkFlowState',  -- nvarchar(100)
-            @Description = NULL,                                         -- nvarchar(200)
-            @RelatedMenu = NULL,                                         -- nvarchar(100)
-            @IsRemove = 0,                                               -- bit
-            @IsObjectContext = 0,                                        -- bit
-            @IsWeblink = 0,                                              -- bit
-            @IsAsynchronous = 1,                                         -- bit
-            @IsStateAction = 1,                                          -- bit
-            @PriorAction = NULL,                                         -- nvarchar(100)
-            @UserGroup = 'Context Menu',                                 -- nvarchar(100)
+        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction2',
+            @ProcedureName = 'Custom.CMDoObjectActionForWorkFlowState',
+            @Description = NULL,
+            @RelatedMenu = NULL,
+            @IsRemove = 0,
+            @IsObjectContext = 0,
+            @IsWeblink = 0,
+            @IsAsynchronous = 1,
+            @IsStateAction = 1,
+            @PriorAction = NULL,
+            @UserGroup = 'Context Menu',
             @Debug = 0;
     END;
 
@@ -1027,7 +1024,6 @@ a formatted user message when using the context Menu.
 
 This procedure works hand in hand with the ProcessBatch table and
 requires for the main procedure that executes the context menu action to
-incorporate logging as outline in the `logging
-section <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/39223308/Logging+execution+of+Process+and+Procedure+Steps>`__.
+incorporate logging as outline in :doc:`/mfsql-integration-connector/using-and-managing-logs/index`
 
 An example of the result message is illustrated below:
