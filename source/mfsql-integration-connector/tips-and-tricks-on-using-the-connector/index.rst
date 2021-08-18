@@ -19,8 +19,6 @@ across multiple classes. There is various ways to achieve this.  
    table MFObjectTypeToClassObject.  This will create a index for all
    the records included in the application.
 
-
-
 Reset SQL Class Table
 ---------------------
 
@@ -34,10 +32,6 @@ M-Files.
 However, if you have changed the metadata structure of the object in
 M-Files, it is good practice to drop the class table and recreate it.
 This will ensure that the table design stays in tact.
-
-|
-
-
 
 Dynamically add additional property to class table when inserting/updating records
 ----------------------------------------------------------------------------------
@@ -153,10 +147,10 @@ your custom procedures to align with the new columnname.
 
 
 
-Showing the objects that was updated using the :doc:`/tables/tbMFUpdateHistory` Table
---------------------------------------------------------------------
+Showing the objects that was updated using the history table
+-------------------------------------------------------------
 
-The UpdateHistory table has a record of the result of every update. Refer
+The :doc:`/tables/tbMFUpdateHistory` table has a record of the result of every update. Refer
 to :doc:`/the-connector-framework/connector-content/utility-tables/index`
 for more detail on the columns in the MFUpdateHistory table. The column
 object version details include all the object versions from M-Files at
@@ -164,23 +158,15 @@ the time of the update transaction in XML format.  Use spMFHistoryShow
 with @updatecolumn = 1 to return a list of the records that is included
 in the update.
 
-.. container:: code panel pdl
-
-   .. container:: codeHeader panelHeader pdl
-
-      **Execute Procedure**
-
-   .. container:: codeContent panelContent pdl
-
       .. code:: sql
 
               Declare @id int
           SELECT TOP 1 @id = [muh].id
           FROM [dbo].[MFUpdateHistory] AS [muh] ORDER by [muh].[Id] DESC
 
-          EXEC [dbo].[sp_MFUpdateHistoryShow] @Debug = 0, -- smallint
-              @Update_ID = @id, -- int
-              @UpdateColumn = 1 -- int
+          EXEC [dbo].[sp_MFUpdateHistoryShow] @Debug = 0,
+              @Update_ID = @id,
+              @UpdateColumn = 1
 
 
 
@@ -196,10 +182,8 @@ M-Files are updated in SQL and it is important to use the MFLastModified
 date as a parameter in the update routine then the following steps can
 be followed to update the deleted records in the class table
 
-This can be achieved by executing the\ `spMFTableAudit
-procedure <page31817744.html#Bookmark66>`__
-
-|
+This can be achieved by executing the :doc:`/procedures/spMFTableAudit`
+procedure
 
 
 
