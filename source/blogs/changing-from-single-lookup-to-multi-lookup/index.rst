@@ -9,18 +9,18 @@ The documentation has a number of posts and sections about lookups. A
 search on ‘lookup’ in the Connector guide is a necessity. it will
 highlight sections about lookup datatypes, updating multi lookups,
 lookup views, understanding the usage of lookups with
-spmfClassTableColumns, using lookups in reporting and much more.
+:doc:`/procedures/spmfClassTableColumns, using lookups in reporting and much more`.
 
 Some of the controls and self healing features highlighted in this blog
 is only available in version 4.3.9.48 and later.
-`spMFDropAndUpdateMetadata <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/36536345/spMFDropAndUpdateMetadata>`__
+:doc:`/procedures/spMFDropAndUpdateMetadata`
 has new features to validate and update columns.
-`spMFClassTableColumns <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/687374389/spMFClassTableColumns+for+analysis+property+usage>`__
+:doc:`/procedures/spMFClassTableColumns`
 is used to validate column usage.
 
 This blog deals with the question: I made a change - so what now?
 
-The likyhood that it would cause an error if you do nothing is very big,
+The likelyhood that it would cause an error if you do nothing is very big,
 but may not be noticed immediately.
 
 The error :
@@ -51,13 +51,13 @@ done BEFORE executing the next spMFUpdateTable procedure.
 .. code:: sql
 
     DECLARE @ProcessBatch_ID INT;
-    EXEC [dbo].[spMFDropAndUpdateMetadata] 
-    @IsResetAll = 0          
-    ,@WithClassTableReset = 0 
-    ,@WithColumnReset = 1    
-    ,@IsStructureOnly = 0    
-    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT  
-     ,@Debug = 0 
+    EXEC [dbo].[spMFDropAndUpdateMetadata]
+    @IsResetAll = 0
+    ,@WithClassTableReset = 0
+    ,@WithColumnReset = 1
+    ,@IsStructureOnly = 0
+    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+     ,@Debug = 0
 
 --------------
 
@@ -72,5 +72,3 @@ Prior to 4.3.9.48 action should be taken.
 #. If the column datatype is incorrect then manually change the type.
 
 #. If the datatype is correct, then proceed to update the class table.
-
-

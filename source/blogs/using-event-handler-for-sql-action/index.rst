@@ -4,14 +4,8 @@ Using event handler for SQL action
 In this use case we would like to illustrate how an event handler can be
 used to trigger an SQL procedure using the Context Menu functionality.
 
-Refer to the following sections for more detail on using and setting up
-context menu related functionality:
-
--  `Using the context
-   menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__
-
--  `Updating the context
-   menu <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/471793794/spMFContextMenuActionItem+to+update+MFContextMenu>`__
+Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#using-the-context-menu`
+for more detail on using and setting up context menu related functionality:
 
 The actions to start an SQL procedure from M-Files can be called via
 menu items, or workflow states or event handlers. This case highlights
@@ -98,7 +92,7 @@ Note the following:
 #. There is no need for a wait state in the procedure as the checkin of
    the object will take place before the action is called
 
-#. 
+#.
 
 Create vendor in M-Files, auto create in third party
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,7 +106,7 @@ VendorClassID; MFSQLConnectorUserID; ActionName
 .. code:: vbscript
 
     Option Explicit
-     
+
     Dim oProperties : Set oProperties = Vault.ObjectPropertyOperations.GetProperties(ObjVer)
 
     Dim ClassID
@@ -127,10 +121,10 @@ VendorClassID; MFSQLConnectorUserID; ActionName
 
     Dim strInput
     strInput = "{""ObjectID""  : "&ObjVer.ID &", ""ObjectType""  : "&ObjVer.Type &", ""Objectver""  : "&ObjVer.Version&",""ClassID""  : "&ClassID&", ""ActionName""  : ""VendorEventAction"", ""ActionTypeID"": ""5""}"
-     
+
     Dim strOutput
     strOutput = Vault.ExtensionMethodOperations.ExecuteVaultExtensionMethod("PerformActionMethod", strInput)
-     
+
     'Err.Raise MfScriptCancel, strOutput
     End If
 
@@ -167,7 +161,7 @@ Creating new vendor in ERP
                     INNER JOIN [dbo].[MFVendor] AS [mv]
                         ON [SupplierID] = [mv].[ExternalID]
                            AND [mv].[ObjID] = @ObjectID AND [mv].[Deleted] = 0
-            ) 
+            )
             BEGIN
                 SET @ProcedureStep = 'Insert into ERP';
 
@@ -179,7 +173,7 @@ Creating new vendor in ERP
                 -------------------------------------------------------------
                 -- Create new in ERP: will only create new item for the context object
                 -------------------------------------------------------------
-         
+
              INSERT INTO [NORTHWND].[dbo].[Suppliers]
                 (
                     [CompanyName]
@@ -199,7 +193,7 @@ Creating new vendor in ERP
 
                 SET @ExternalID =
                 (   SELECT MAX([T].[SupplierID])
-                    FROM [NORTHWND].[dbo].[Suppliers] AS [T]               
+                    FROM [NORTHWND].[dbo].[Suppliers] AS [T]
                 );
 
                 UPDATE [dbo].[MFVendor]
@@ -250,13 +244,13 @@ handler
                       ,[s].[SupplierID]
                 FROM [NORTHWND].[dbo].[Suppliers] AS [s])
             UPDATE [T]
-            SET 
+            SET
       [T].[CompanyName] = [s].[Company Name]
                ,[T].[Address] = [s].[Address]
                ,[T].[City] = [s].[City]
                ,[T].[PostalCode] = [s].[Postal]
      --    SELECT *
-            FROM  [cte]                    
+            FROM  [cte]
      INNER JOIN [NORTHWND].[dbo].[Suppliers] AS [T]
       ON [cte].[ExternalID] = [t].[SupplierID]
                 INNER JOIN
@@ -272,11 +266,11 @@ handler
                           ,SUBSTRING([ma].[Country], 1, 15)                                         AS [country]
                     --                       SUBSTRING([ma].[Phone], 1, 24)                                           AS [Phone],
                     --                       SUBSTRING([ma].[Fax], 1, 24)                                             AS [Fax],
-                    FROM [dbo].[MFVendor] AS [ma]  
-        WHERE [ma].[Deleted] = 0               
+                    FROM [dbo].[MFVendor] AS [ma]
+        WHERE [ma].[Deleted] = 0
                 )                             AS [s]
                     ON [T].[SupplierID] = [s].[CompanyID];
-        
+
 
             -------------------------------------------------------------
             -- Update changes into ERP
@@ -301,7 +295,7 @@ handler
                ,[Address_Line_1] = [cte].[Address]
                ,[City] = [cte].[City]
                ,[Postal_Code] = [cte].[PostalCode]
-            FROM [dbo].[MFVendor] AS [mv] 
+            FROM [dbo].[MFVendor] AS [mv]
                 INNER JOIN [cte]
                     ON [cte].[SupplierID] = [mv].[ExternalID]
         WHERE [mv].[Deleted] = 0;
@@ -364,7 +358,7 @@ M-Files.
           -------------------------------------------------------------
             -- insert ERP to MF
             -------------------------------------------------------------
-       
+
        IF @ActionType = 3
             BEGIN
                 SET @ProcedureStep = 'Insert into MF';
@@ -398,7 +392,7 @@ M-Files.
                       ,NULL
                       ,[s].[CompanyName]
                       --     ,[s].[ContactName]
-                      --     ,[s].[ContactTitle]  
+                      --     ,[s].[ContactTitle]
                       --     ,[s].[Region]
                       --      ,[s].[Country]
                       ,[s].[PostalCode]
@@ -413,7 +407,7 @@ M-Files.
 
                 -------------------------------------------------------------
                 -- changes from ERP to SQL
-                ------------------------------------------------------------- 
+                -------------------------------------------------------------
                 WITH [cte]
                 AS (SELECT [s].[CompanyName]
                           ,[s].[Address]

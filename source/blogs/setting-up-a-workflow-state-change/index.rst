@@ -33,23 +33,23 @@ a specific object when the state is changed.
 Different parts of the connector are being used in this use case and
 familiarity with the following is required:
 
--  spMFDropandUpdateMetadata (to update the configuration changes in
+-  :doc:`/procedures/spMFDropandUpdateMetadata` (to update the configuration changes in
    M-Files)
 
--  spMFCreateTable (to create the class table)
+-  :doc:`/procedures/spMFCreateTable` (to create the class table)
 
 -  MFPurchaseInvoice (the class table)
 
--  MFContextMenu (the rules table for context menu operations)
+-  :doc:`/tables/tbMFContextMenu` (the rules table for context menu operations)
 
--  spMFContextMenuHeadingItem (to add heading)
+-  :doc:`/procedures/spMFContextMenuHeadingItem` (to add heading)
 
--  spMFContextMenuActionItem (to add action)
+-  :doc:`/procedures/spMFContextMenuActionItem` (to add action)
 
 -  custom.CMDoObjectActionForWorkflowState (serves as template for
    setting up procedure)
 
--  spMFUpdateTable (to update object into SQL)
+-  :doc:`/procedures/spMFUpdateTable` (to update object into SQL)
 
 -  VB script of state change actions (template to be used)
 
@@ -80,7 +80,7 @@ structure.
 
 .. code:: sql
 
-    EXEC [dbo].[spMFDropAndUpdateMetadata] 
+    EXEC [dbo].[spMFDropAndUpdateMetadata]
 
 Step 3:
 
@@ -132,7 +132,7 @@ Note the following:
    action. We therefore setup an input parameter for the objid as an
    integer.
 
--  Spmfupdatetable allows for a comma delimited string of objid’s to be
+-  spMFupdatetable allows for a comma delimited string of objid’s to be
    passed to M-Files. It will only perform the update operation for the
    list of objid’s. In the example we will pass a single objid to the
    procedure but it need to be converted to a string.
@@ -149,15 +149,15 @@ Note the following:
     SET @objid = 360
     SET @objids_string = CAST(@objid AS NVARCHAR(10))
 
-    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFPurchaseInvoice',    -- nvarchar(200)
-                                 @UpdateMethod = 1,        
-                                 @ObjIDs = @Objids_string,         -- nvarchar(max)
-                                 @Update_IDOut = @Update_IDOut OUTPUT,                    -- int
+    EXEC [dbo].[spMFUpdateTable] @MFTableName = 'MFPurchaseInvoice',
+                                 @UpdateMethod = 1,
+                                 @ObjIDs = @Objids_string,
+                                 @Update_IDOut = @Update_IDOut OUTPUT,
                                  @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
-                                 
-    EXEC [dbo].[spMFUpdateHistoryShow] @Update_ID = @Update_IDOut,    -- int
-                                       @IsSummary = 0,    -- smallint
-                                       @UpdateColumn = 3                             
+
+    EXEC [dbo].[spMFUpdateHistoryShow] @Update_ID = @Update_IDOut,
+                                       @IsSummary = 0,
+                                       @UpdateColumn = 3
 
     SELECT * FROM [dbo].[MFProcessBatchDetail] AS [mpbd] WHERE [mpbd].[ProcessBatch_ID] = @ProcessBatch_ID
 
@@ -276,41 +276,40 @@ following parameters:
 
 .. code:: sql
 
-    EXEC [dbo].[spMFContextMenuActionItem] 
-    @ActionName = 'Approved state update for PI' ,     
-    @ProcedureName = 'Custom.DoApprovedPIUpdate',   
-    @Description = 'Procedure for state action to update object',    
-    @RelatedMenu = 'Asynchronous Actions',   
-    @IsRemove = 0,        
-    @IsObjectContext = 1, 
-    @IsWeblink = 0,      
-    @IsAsynchronous = 1,  
-    @IsStateAction = 1,   
-    @PriorAction = null,   
-    @UserGroup = 'All Internal users',    
-    @Debug = 0 
+    EXEC [dbo].[spMFContextMenuActionItem]
+    @ActionName = 'Approved state update for PI' ,
+    @ProcedureName = 'Custom.DoApprovedPIUpdate',
+    @Description = 'Procedure for state action to update object',
+    @RelatedMenu = 'Asynchronous Actions',
+    @IsRemove = 0,
+    @IsObjectContext = 1,
+    @IsWeblink = 0,
+    @IsAsynchronous = 1,
+    @IsStateAction = 1,
+    @PriorAction = null,
+    @UserGroup = 'All Internal users',
+    @Debug = 0
 
 The result is in the MFContextMenu
 
 The final step is to add the VB script into the workflow state. This is
 done in M-Files Admin
 
-Use the following VB script (also available in the
-`guide <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__)
+Use the following VB script (also available in the :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#using-the-context-menu`
 
 .. code:: vbscript
 
     Option Explicit
-     
+
     Dim ClassID
     ClassID= Vault.ObjectPropertyoperations.GetProperty(ObjVer, 100).value.GetLookupID
-     
+
     Dim strInput
     strInput = "{""ObjectID""  : "&ObjVer.ID &", ""ObjectType""  : "&ObjVer.Type &", ""Objectver""  : "&ObjVer.Version&",""ClassID""  : "&ClassID&", ""ActionName""  : ""StateAction2"", ""ActionTypeID"": ""5""}"
-     
+
     Dim strOutput
     strOutput = Vault.ExtensionMethodOperations.ExecuteVaultExtensionMethod("PerformActionMethod", strInput)
-     
+
     'Err.Raise MfScriptCancel, strOutput
 
 Copy and past the script to the workflow state (Approved) / option

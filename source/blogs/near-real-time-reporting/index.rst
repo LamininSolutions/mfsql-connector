@@ -43,24 +43,24 @@ The following parts of MFSQL Connector is deployed
    report server
 
 #. Create class tables for the cases, employees, and work orders
-   (spMFCreateTable)
+   (:doc:`/procedures/spMFCreateTable`)
 
 #. Build the update from M-Files to SQL into a store procedure using the
    Context Menu special parameters to pass through the objid of the
-   record to be updated. (spMFUpdateTable)
+   record to be updated. (:doc:`/procedures/spMFUpdateTable`)
 
 #. Add a task record in the Context Menu table to allow for a event
-   handler action to be passed through to SQL (MFContextMenu,
-   spMFContextMenuActionItem)
+   handler action to be passed through to SQL (:doc:`/tables/tbMFContextMenu`,
+   :doc:`/procedures/spMFContextMenuActionItem`)
 
 #. Add a task and menu record in the Context Menu table to allow for
-   linking to a report (MFContextMenu, spMFContextMenuActionItem,
-   spMFContextMenuHeadingItem)
+   linking to a report (:doc:`/tables/MFContextMenu`, :doc:`/procedures/spMFContextMenuActionItem`,
+   :doc:`/procedures/spMFContextMenuHeadingItem`)
 
 #. Add after check in changes event handler, add VB snippet in the event
    handler script.
 
-#. Pull data for class tables to get base data (spmfUpdateTable)
+#. Pull data for class tables to get base data (:doc:`/procedures/spMFUpdateTable`)
 
 #. Create a SQL view for reporting the case statistics (open cases by
    state by team)
@@ -104,42 +104,36 @@ statement.
 .. code:: sql
 
      EXEC [dbo].[spMFUpdateTable]
-                                @MFTableName = @MFClassTable
-                              , -- nvarchar(128)
-                                @UpdateMethod = 1
-                              , -- int
-                                @ObjIDs = @ObjectID
-                              , -- nvarchar(4000)
-                                @Update_IDOut = @Update_ID OUTPUT
-                              , -- int
-                                @ProcessBatch_ID = @ProcessBatch_ID
-                              , -- int
-                                @Debug = 0 -- smallint
+        @MFTableName = @MFClassTable ,
+        @UpdateMethod = 1,
+        @ObjIDs = @ObjectID ,
+        @Update_IDOut = @Update_ID OUTPUT ,
+        @ProcessBatch_ID = @ProcessBatch_ID  ,
+        @Debug = 0 -- smallint
 
 Refer to the section on setting up the context menu for the script to be
-added in the `event
-handler <https://lamininsolutions.atlassian.net/wiki/spaces/MFSQL/pages/52625447/Using+the+Context+Menu>`__.
-Use action type 5 VB script.
+added in the event handler :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#event-handler-scripts`.
+Use the action type 5 VB script.
 
 Below is the sample script for adding the action in the context menu for
 the event handler action
 
 .. code:: sql
 
-    EXEC [dbo].[spMFContextMenuActionItem] 
-    @ActionName = 'CaseUpdate_EventHandler' ,   
-    @ProcedureName = 'Custom.DoCaseUpdate',   
-    @Description = 'Update cases using event handler',    
-    @RelatedMenu = 'Asynchronous Actions',     
-    @IsRemove = 0,        
-    @IsObjectContext = 1, 
-    @IsWeblink = 0,      
-    @IsAsynchronous = 1, 
-    @IsStateAction = 1,   
-    @PriorAction = null,    
-    @UserGroup = 'Team Managers',      
-    @Debug = 0           
-                                           
+    EXEC [dbo].[spMFContextMenuActionItem]
+    @ActionName = 'CaseUpdate_EventHandler' ,
+    @ProcedureName = 'Custom.DoCaseUpdate',
+    @Description = 'Update cases using event handler',
+    @RelatedMenu = 'Asynchronous Actions',
+    @IsRemove = 0,
+    @IsObjectContext = 1,
+    @IsWeblink = 0,
+    @IsAsynchronous = 1,
+    @IsStateAction = 1,
+    @PriorAction = null,
+    @UserGroup = 'Team Managers',
+    @Debug = 0
+
 
 Example of the Context Menu entries for a SSRS report
 
