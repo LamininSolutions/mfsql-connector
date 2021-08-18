@@ -93,11 +93,9 @@ ID                     Identity column for Table       Unique ID                
 GUID                   MF Guid for object              Creating ULR links to record; SQL cannot update this item                                                                                                                                                                        From M-Files, SQL read only
 MX_User_ID             SQL User ID                     External applications can use this column to show SQL user ID for the record                                                                                                                                                     SQL only
 Created                MF Created date                 Automated by Connector, no need to specify when creating new record in SQL                                                                                                                                                       From M-Files, SQL Read Only
-
-                      in UTC datetime format
+                       in UTC datetime format
 MF_Last_Modified       MF last modified date           Automated by Connector, no need to specify when creating new record in SQL                                                                                                                                                       From M-Files, SQL Read Only
-
-                      in UTC datetime format
+                       in UTC datetime format
 MF_Last_Modified_By    MF user name                    From MF to SQL; Automated; do not specify when updating or creating record in SQL                                                                                                                                                From M-Files, SQL Read Only
 MF_Last_Modified_By_ID MF user id                      From MF to SQL; Automated; do not specify when updating or creating record in SQL                                                                                                                                                From M-Files, SQL Read Only
 Class                  MF Class                        For information only, not required to be updated                                                                                                                                                                                 From M-Files
@@ -106,9 +104,8 @@ Workflow               MF Workflow                     For information only, not
 Workflow_ID            MF Workflow_ID                  Always include workflow ID when inserting or updating the state                                                                                                                                                                  Updatable
 State                  MF State                        For information only, not required to be updated                                                                                                                                                                                 From M-Files
 State_ID               MF State_ID                     Used to update or insert a state                                                                                                                                                                                                 Updatable
-LastModified           SQL last modified               This column is automated                                                                                                                                                                                                         SQL Only
-
-                      in SQL server Local time format
+LastModified           SQL last modified               This column is automated                                                                                                                                                                          SQL Only
+                       Local time format
 Process_ID             SQL process ID                  Indicator to show status of process of record as per process table. Default value is 0                                                                                                                                           Flag
 ObjID                  MF Internal ID                  Leave blank when new records is created in SQL                                                                                                                                                                                   From M-Files, SQL Read Only
 ExternalID             MF External ID                  MF allows objects to have external ID, when the external ID is used, it is not longer possible for a user to search for a record in Mfiles by the internal ID. The internal ID is also no longer displayed in the Metadata Card. Updatable
