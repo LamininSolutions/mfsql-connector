@@ -53,7 +53,7 @@ External link
     
 Web-site error check
 --------------------
-https://travis-ci.org/lamininsolutions
+https://travis-ci.com/lamininsolutions
 
 rST cheatsheet
 --------------
