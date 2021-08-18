@@ -88,16 +88,19 @@ This procedure can be used to show all the comments  or the last 5 comments made
     DECLARE @StartDate DATETIME --= DATEADD(DAY,-1,GETDATE())
     DECLARE @ProcessBatch_id INT
     DECLARE @Debug INT = 0
+    DECLARE @Update_ID int
 
     EXECUTE @RC = [dbo].[spMFGetHistory]
-    @TableName
-    ,@Process_id
-    ,@ColumnNames
-    ,@IsFullHistory
-    ,@NumberOFDays
-    ,@StartDate
-    ,@ProcessBatch_id OUTPUT
-    ,@Debug
+    @MFTableName = @TableName,
+    @Process_id = @Process_id,
+    @ColumnNames = @ColumnNames,
+    @SearchString = null,
+    @IsFullHistory = @IsFullHistory,
+    @NumberOFDays = @NumberOFDays,
+    @StartDate = @StartDate,
+    @Update_ID = @Update_ID OUTPUT,
+    @ProcessBatch_id = @ProcessBatch_id OUTPUT,
+    @Debug = @Debug
 
     SELECT * FROM [dbo].[MFProcessBatch] AS [mpb] WHERE [mpb].[ProcessBatch_ID] = @ProcessBatch_id
     SELECT * FROM [dbo].[MFProcessBatchDetail] AS [mpbd] WHERE [mpbd].[ProcessBatch_ID] = @ProcessBatch_id

@@ -7,17 +7,16 @@ Return
   - 1 = Success
   - -1 = Error
 Parameters
-  @TableName varchar(100)
+  @MFTableName varchar(100)
     Name of table to be updated
-  @Debug smallint (optional)
-    - Default = 0
-    - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
+  @WithTableAudit bit (optional) 
+    Default = 0, if set to 1 then a table audit will be performed and only non processed items will be included
   @SingleItems bit (optional)
-    - Default = 1; processed one-by-one
-    - 0 = processed in blocks
+    - Default = 1; processed one-by-one, this is always the case   
   @SessionIDOut int (output)
     Output of the session id that was used to update the results in the MFAuditHistory Table
+  @Debug smallint 
+    Default = 0
 
 Purpose
 =======
@@ -37,17 +36,17 @@ Examples
 .. code:: sql
 
     DECLARE @RC INT
-    DECLARE @TableName VARCHAR(100) = 'MFCustomer'
-    DECLARE @Debug SMALLINT
+    DECLARE @MFTableName VARCHAR(100) = 'MFCustomer'
+    Declare @WithTableAudit bit = 1
+    DECLARE @Debug SMALLINT = 101
     DECLARE @SessionIDOut INT
-    Declare @SingelItems bit = 1
 
-    -- TODO: Set parameter values here.
     EXECUTE @RC = [dbo].[spMFUpdateItemByItem]
-                        @TableName
+                        @MFTableName
+                        ,@WithTableAudit
                        ,@Debug
-                       ,@singleitems
                        ,@SessionIDOut OUTPUT
+
     SELECT @SessionIDOut
 
 Changelog
@@ -56,6 +55,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-03-27  LC         Change parameters
+2021-03-27  LC         Add option to perform table audit
 2021-03-09  LC         Update documentation
 2020-08-28  LC         Set getobjver to date 2000-01-01
 2020-08-22  LC         Update for new deleted column

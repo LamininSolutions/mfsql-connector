@@ -29,7 +29,7 @@ Examples
 
     INSERT #ObjIdList ( ObjId )
     SELECT ObjID
-    FROM CLGLChart
+    FROM MFYourTable
 
     EXEC spMFUpdateTable_ObjIDS_GetGroupedList
 
@@ -39,6 +39,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-05-10  LC         prevent group list process when objid count < 500
 2021-03-10  LC         set default field length to 3900
 2020-12-11  LC         fix bug related to number of objids in list
 2020-09-08  Lc         resolve number of objids in batch

@@ -99,6 +99,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-05-03  LC         Fix bug to include first record of each batch
 2020-09-24  LC         Set updatetable objids to include unmatched versions
 2020-09-23  LC         Fix batch size calculation
 2020-09-04  LC         Fix null count or set operation

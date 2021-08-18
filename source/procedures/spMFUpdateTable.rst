@@ -35,6 +35,9 @@ Parameters
   @RetainDeletions (optional)
     - Default = 0
     - Set to 1 to keep deleted items in M-Files in the SQL table shown as "deleted" or the label of property 27 with the date time of the deletion.
+  @IsDocumentCollection (optional)
+    - Default = 0 (use default object type for the class)
+    - Set to 1 to process objects with object type 9 (document collection) for the class.
   @Debug (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -55,6 +58,8 @@ A number of procedures is included in the Connector that use this procedure incl
 - spMFUpdateTableinBatches
 - spMFUpdateAllIncludedInAppTables
 - spMFUpdateItembyItem
+
+By default the object type of the class will get the object type from the MFclass Table (using the default object type of the class).  To process Document collection objects for the class, the @IsDocumentCollection must be set to 1.  
 
 Prerequisites
 =============
@@ -82,6 +87,7 @@ Deleted objects will only be removed if they are included in the filter 'Objids'
 Deleted objects in M-Files will automatically be removed from the class table unless @RetainDeletions is set to 1.
 
 The valid range of real datatype properties for uploading from SQL to M-Files is -1,79E27 and 1,79E27
+
 Examples
 ========
 
@@ -124,7 +130,17 @@ Execute the core procedure with all parameters
 
     SELECT  'Return Value' = @return_value
 
-    GO
+Process document collection type objects for the class
+
+----
+
+.. code:: sql
+
+    EXEC dbo.spMFUpdateTable @MFTableName = 'MFOtherDocument',
+        @UpdateMethod = 1,
+        @IsDocumentCollection = 1,
+        @Debug = 101
+
 
 Update from and to M-Files with all optional parameters set to default.
 
@@ -152,6 +168,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-21  LC         Modify proc to include document collections
+2021-04-14  LC         fix timestamp datatype bug
 2021-03-15  LC         fix changing of class in the same object type in MF
 2021-03-11  LC         update maximum valid number range to between -1,79E27 and 1,79E27
 2021-01-31  LC         Fix bug on insert new into audithistory

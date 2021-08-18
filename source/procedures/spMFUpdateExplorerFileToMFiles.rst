@@ -75,6 +75,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-08-03  LC         Fix truncate string bug
+2021-05-21  LC         improve handling of files on network drive
 2020-12-31  LC         Improve error handling in procedure
 2020-12-31  LC         Update datetime handling in mffileexport
 2019-08-30  JC         Added documentation

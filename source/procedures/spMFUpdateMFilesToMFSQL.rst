@@ -15,6 +15,18 @@ Parameters
   @UpdateTypeID tinyint (optional)
     - 1 = incremental update (default)
     - 0 = Full update
+  @MaxObjects INT
+    - Default = 20000
+    - This parameter has no longer any impact, 
+  @WithObjectHistory BIT
+    - Default = 0 (No)
+    - set to 1 to include updating the object history
+  @RetainDeletions BIT
+    - Default = 0 (deletions will be removed from class table)
+    - set to 1 to retain any deletions since the last update
+  @WithStats BIT
+    - default = 0
+    - Set to 1 to show progress of processing
   @Update\_IDOut int (output)
     returns the id of the last updated batch
   @ProcessBatch\_ID int (optional, output)
@@ -67,12 +79,12 @@ Examples
        ,@Update_IDOut     INT
        ,@ProcessBatch_ID  INT;
 
-    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable'               -- nvarchar(128)
-                                    ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT -- smalldatetime
-                                    ,@UpdateTypeID = 0                            -- tinyint
-                                    ,@Update_IDOut = @Update_IDOut OUTPUT         -- int
-                                    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT   -- int
-                                    ,@debug = 0;                                  -- tinyint
+    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable' 
+                                    ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT 
+                                    ,@UpdateTypeID = 0 
+                                    ,@Update_IDOut = @Update_IDOut OUTPUT 
+                                    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
+                                    ,@debug = 0;  
 
     SELECT @MFLastUpdateDate AS [LastModifiedDate];
 
@@ -80,12 +92,12 @@ Examples
        ,@Update_IDOut     INT
        ,@ProcessBatch_ID  INT;
 
-    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable'               -- nvarchar(128)
-                                    ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT -- smalldatetime
-                                    ,@UpdateTypeID = 1                            -- tinyint
-                                    ,@Update_IDOut = @Update_IDOut OUTPUT         -- int
-                                    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT   -- int
-                                    ,@debug = 0;                                  -- tinyint
+    EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable'
+                                    ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT
+                                    ,@UpdateTypeID = 1 
+                                    ,@Update_IDOut = @Update_IDOut OUTPUT 
+                                    ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT 
+                                    ,@debug = 0;                   
 
     SELECT @MFLastUpdateDate;
 
@@ -96,6 +108,10 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-07-03  LC         improve debugging and error reporting
+2021-05-11  LC         redesign the grouping of objects to overcome persistent issues
+2021-05-10  LC         add controls to validate group list creation
+2021-04-26  LC         add removal of redundant class records
 2021-03-17  LC         include audit statusflag =1 into incremental update
 2021-03-17  LC         resolve issue where objid for exist for class in two objecttypes
 2021-03-16  LC         Remove object where class has changed from audit table

@@ -74,7 +74,7 @@ Deleting and object
 .. code:: sql
 
     DECLARE @return_value int, @Output nvarchar(2000)
-    SELECT @Output =N'0'
+
     EXEC @return_value = [dbo].[spMFDeleteObject]
          @ObjectTypeId =128,-- OBJECT MFID
          @objectId =4700,-- Objid of record
@@ -82,8 +82,7 @@ Deleting and object
          @DeleteWithDestroy = 0
     SELECT @Output as N'@Output'
     SELECT'Return Value'= @return_value
-    SELECT @Output =N'0'
-    GO
+
 
 Delete object versions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -134,6 +133,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-08-15  LC         Remove incorrect license check
+2021-05-05  LC         Align single delete object without class table with wrapper
 2020-12-08  LC         Change status messages and validate different methods
 2020-04-28  LC         Update documentation for Object Versions
 2019-08-30  JC         Added documentation
