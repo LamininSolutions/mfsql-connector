@@ -5,9 +5,6 @@ The Connector includes several logging tables for different
 purposes. Error management and functional use of these tables are
 further described in the documentation of each table
 
-Logging Tables
---------------
-
 :doc:`/tables/tbMFLog`: Used to store the Error details
 :doc:`/tables/tbMFUpdateHistory`: Used to store the results of each record update
 :doc:`/tables/tbMFProcessBatch`: Records start and finish of key processes
