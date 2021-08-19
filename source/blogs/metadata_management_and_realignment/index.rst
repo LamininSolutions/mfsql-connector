@@ -103,8 +103,8 @@ Lookup views
 ------------
 
 Using the MFvaluelist and MFValuelistitem tables will require a join on the MFValuelistID to get the right MFID of the related item.  Similarly to get the MFID of the workflow state a join is required on between MFWorkflow and MFWorkflowState on the WorkflowID.  Two helper procedures supports the creation of easy to use views for valuelists and workflows to improve useability.
- -  Create valuelist lookup view with :doc:`/procedures/spMFCreateValuelistLookupView`
- -  Create workflow state lookup with :doc:`/procedures/spMFCreateWorklowStateLookupView`
+ -  Create valuelist lookup view with :doc:`/procedures/spMFCreateValueListLookupView`
+ -  Create workflow state lookup with :doc:`/procedures/spMFCreateWorkflowStateLookupView`
  -  Create all related lookups with :doc:`/procedures/spMFCreateAllLookups`  Using this procedure will create a large number of views, irrespective if you will be using the views or not.
 
 .. code:: sql
@@ -183,7 +183,7 @@ It is common to make changes in M-Files admin during the process of configuring 
 Making configuration changes from SQL
 -------------------------------------
 
-In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using :doc:`/procedures/spMFSynchronizeValueListItemsToMFiles` allows for just that.
+In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using :doc:`/procedures/spMFSynchronizeValueListItemsToMfiles` allows for just that.
 
 Several configuration changes can be made in SQL and updated into M-Files.
 

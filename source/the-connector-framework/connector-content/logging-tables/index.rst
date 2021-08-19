@@ -1,9 +1,6 @@
 Logging Tables
 ==============
 
-.. toctree::
-   :maxdepth: 4
-
 The Connector includes several logging tables for different
 purposes. Error management and functional use of these tables are
 further described in the documentation of each table
@@ -17,7 +14,7 @@ Logging Tables
 :doc:`/tables/tbMFProcessBatchDetail`:Records details of key sub processes with each batch process
 :doc:`/tables/tbMFAuditHistory`: Records a listing of ObjectVersions when spMFTableAudit is processed.
 :doc:`/tables/tbMFContextMenuQueue`: Records the calls for MFContextMenu actions
-:doc:`/tables/tbMFEmailLog`: log emails sent via the bulk email routines
+:doc:`/tables/tbMFEmaillog`: log emails sent via the bulk email routines
 :doc:`/tables/tbMFExportFileHistory`: log file exports using spMFExportFiles
 :doc:`/tables/tbMFFileImport`: log file imports using spMFSynchronizeFilesToMFiles
 
@@ -45,10 +42,9 @@ Error logs
 System error is logged when it is triggered in any procedure. The Table
 MFLog have details of the system errors reported by the Connector.
 
-   errors entries in in MFLog Table triggers an email to the email
-   address in the setting table SupportEmailRecipient
+Errors entries in MFLog Table triggers an email to the email address in the MFSettings table SupportEmailRecipient
 
-   An example of such an email is below
+An example of such an email is below
 |Image0|
 
 .. |image0| image:: img_3.png
