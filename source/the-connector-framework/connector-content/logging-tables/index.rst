@@ -8,32 +8,16 @@ Logging Tables
 
 The Connector includes several logging tables for different
 purposes. Error management and functional use of these tables are
-further described in the :doc:`/tables/tbMFUpdateHistory` for logging of class record changes
+further described in the documentation of each table
 
 Logging Tables
 --------------
 
-MFLog
-
-Used to store the Error details
-
-MFUpdateHistory
-
-Used to store the results of each record update
-
-MFProcessBatch
-
-Records start and finish of key processes
-
-MFProcessBatchDetail
-
-Records details of key sub processes with each batch process
-
-MFAuditHistory
-
-Records a listing of ObjectVersions when spMFTableAudit is processed.
-
-
+:doc:`/tables/tbMFLog`: Used to store the Error details
+:doc:`/tables/MFUpdateHistory`: Used to store the results of each record update
+:doc:`/tables/MFProcessBatch`: Records start and finish of key processes
+:doc:`/tables/MFProcessBatchDetail`:Records details of key sub processes with each batch process
+:doc:`/tables/MFAuditHistory`: Records a listing of ObjectVersions when spMFTableAudit is processed.
 
 Class Record Updates
 --------------------
