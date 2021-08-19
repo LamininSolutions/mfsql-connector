@@ -67,7 +67,6 @@ Remove special characters in naming           |tick|  |tick|   |
 Insert update multi lookup values             |       |tick|   |
 Send bulk notifications using templates       |       |tick|   |
 **Files**                                     |       |        |
-**Files**                                     |       |        |
 Export files from M-Files to Folders          |       |tick|   |
 Send bulk emails with attachments             |       |tick|   |
 Import files from Database Blobs              |       |        |tick|
