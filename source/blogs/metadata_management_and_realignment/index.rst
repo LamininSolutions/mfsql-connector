@@ -34,7 +34,6 @@ Fetch an overview of class objects in the entire vault with :doc:`/procedures/sp
 .. code:: sql
 
     EXEC dbo.spMFObjectTypeUpdateClassIndex @IsAllTables = 1
-
     Select * from MFvwObjectTypeSummary
 
 |Image0|
@@ -137,9 +136,9 @@ The source column of the id to be used depends on the type of lookup.
 Identifying duplicates
 -----------------------
 
-  Use 'group by' and 'having' method to identify duplicates
+Use 'group by' and 'having' method to identify duplicates
 
-  .. code:: sql
+.. code:: sql
 
       Select duplicateColumn from MFTableName
       group by duplicateColumn
@@ -148,9 +147,9 @@ Identifying duplicates
 Expand multi lookup property columns
 ------------------------------------
 
- Use 'cross apply' method with MFSQL function :doc:`/functions/fnMFParseDelimitedString` to split out a multi lookup Property to work with the individual members of the lookup.
+Use 'cross apply' method with MFSQL function :doc:`/functions/fnMFParseDelimitedString` to split out a multi lookup Property to work with the individual members of the lookup.
 
- .. code:: sql
+.. code:: sql
 
       Select * from MFClassTable
       cross apply fnMFParseDelimitedString(Multicolumn, ',')
