@@ -127,6 +127,7 @@ The source column of the id to be used depends on the type of lookup.
  - In the case of a class table, it is the Objid in the source class table.
 
 .. code:: sql
+
      SELECT * FROM MFContactPerson mcp
      LEFT JOIN MFcustomer mc
      ON mcp.customer_ID = mc.objid
@@ -203,8 +204,8 @@ The final step is to update the records into M-Files.  This can be done for indi
 
 The following procedures are used to update records:
 
- -  :doc:`\procedures\spMFUpdateTable`
- -  :doc:`\procedures\spMFUpdateTableinBatches`
+  -  :doc:`\procedures\spMFUpdateTable`
+  -  :doc:`\procedures\spMFUpdateTableinBatches`
 
 Working through the analysis of the metadata, updating when required, sharing the results and then responding to the feedback is often a iterative process as it was in this case. It involved many scenarios of data management and M-Files metadata adjustment.  Without MFSQL Connector this project would have been greatly impeded with a much less efficient and effective outcome.
 
