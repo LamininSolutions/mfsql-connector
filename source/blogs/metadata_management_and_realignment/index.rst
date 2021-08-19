@@ -103,9 +103,9 @@ Lookup views
 ------------
 
 Using the MFvaluelist and MFValuelistitem tables will require a join on the MFValuelistID to get the right MFID of the related item.  Similarly to get the MFID of the workflow state a join is required on between MFWorkflow and MFWorkflowState on the WorkflowID.  Two helper procedures supports the creation of easy to use views for valuelists and workflows to improve useability.
- -  Create valuelist lookup view with :doc:`\procedures\spMFCreateValuelistLookupView`
- -  Create workflow state lookup with :doc:`\procedures\spMFCreateWorklowStateLookupView`
- -  Create all related lookups with :doc:`\procedures\spMFCreateAllLookups`  Using this procedure will create a large number of views, irrespective if you will be using the views or not.
+ -  Create valuelist lookup view with :doc:`/procedures/spMFCreateValuelistLookupView`
+ -  Create workflow state lookup with :doc:`/procedures/spMFCreateWorklowStateLookupView`
+ -  Create all related lookups with :doc:`/procedures/spMFCreateAllLookups`  Using this procedure will create a large number of views, irrespective if you will be using the views or not.
 
 .. code:: sql
 

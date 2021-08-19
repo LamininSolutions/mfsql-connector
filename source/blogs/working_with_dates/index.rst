@@ -45,19 +45,19 @@ The following is an example of converting the last modified date to a local time
 
 .. code:: sql
 
-select objid
-, Name_Or_Title
-, MF_Last_Modified
-,SWITCHOFFSET(MF_Last_Modified,datename(TZOFFSET,sysdatetimeoffset()))  MFLastModified_local_time
-, Customer
-from MFCustomer
+      select objid
+      , Name_Or_Title
+      , MF_Last_Modified
+      ,SWITCHOFFSET(MF_Last_Modified,datename(TZOFFSET,sysdatetimeoffset()))  MFLastModified_local_time
+      , Customer
+      from MFCustomer
 
 SQL offers many data and time related data types and functions. The following includes some of the most pertinent related to UTC and local time conversions.
 
 .. code:: sql
 
-select  getdate() sqllocaltime
-, getutcdate() utctime
-, sysdatetimeoffset() localtime_including_offset
-,datename(TZOFFSET,sysdatetimeoffset()) offset
-,SWITCHOFFSET(GETUTCDATE(),datename(TZOFFSET,sysdatetimeoffset()))
+      select  getdate() sqllocaltime
+      , getutcdate() utctime
+      , sysdatetimeoffset() localtime_including_offset
+      ,datename(TZOFFSET,sysdatetimeoffset()) offset
+      ,SWITCHOFFSET(GETUTCDATE(),datename(TZOFFSET,sysdatetimeoffset()))

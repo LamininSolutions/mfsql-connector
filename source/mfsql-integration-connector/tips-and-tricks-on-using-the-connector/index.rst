@@ -168,8 +168,6 @@ in the update.
               @Update_ID = @id,
               @UpdateColumn = 1
 
-
-
 Getting deleted objects
 =======================
 
