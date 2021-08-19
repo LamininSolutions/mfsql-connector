@@ -25,6 +25,7 @@ Deleted     Item is set to 1 by the Connector if it was deleted in M-Files
 These tables include several extensions of the standard M-Files Metadata that is useful in special applications.
 
 The columns and their usage for the metadata tables are outlined in the following sections
+
   -  :doc:`/tables/tbMFClass/`
   -  :doc:`/tables/tbMFProperty/`
   -  :doc:`/tables/tbMFClassProperty/`
