@@ -14,10 +14,13 @@ Logging Tables
 --------------
 
 :doc:`/tables/tbMFLog`: Used to store the Error details
-:doc:`/tables/MFUpdateHistory`: Used to store the results of each record update
-:doc:`/tables/MFProcessBatch`: Records start and finish of key processes
-:doc:`/tables/MFProcessBatchDetail`:Records details of key sub processes with each batch process
-:doc:`/tables/MFAuditHistory`: Records a listing of ObjectVersions when spMFTableAudit is processed.
+:doc:`/tables/tbMFUpdateHistory`: Used to store the results of each record update
+:doc:`/tables/tbMFProcessBatch`: Records start and finish of key processes
+:doc:`/tables/tbMFProcessBatchDetail`:Records details of key sub processes with each batch process
+:doc:`/tables/tbMFAuditHistory`: Records a listing of ObjectVersions when spMFTableAudit is processed.
+:doc:`/tables/tbMFContextMenuQueue`: Records the calls for MFContextMenu actions
+:doc:`/tables/tbMFEmailLog`: log emails sent via the bulk email routines
+:doc:`/tables/tbMFExportFileHistory`: log file exports using spMFFileExport
 
 Class Record Updates
 --------------------

@@ -183,7 +183,7 @@ It is common to make changes in M-Files admin during the process of configuring 
 Making configuration changes from SQL
 -------------------------------------
 
-In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using :doc:`\procedures\spMFSynchronizeValueListItemsToMFiles` allows for just that.
+In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using :doc:`/procedures/spMFSynchronizeValueListItemsToMFiles` allows for just that.
 
 Several configuration changes can be made in SQL and updated into M-Files.
 
