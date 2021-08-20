@@ -33,7 +33,7 @@ a specific object when the state is changed.
 Different parts of the connector are being used in this use case and
 familiarity with the following is required:
 
--  :doc:`/procedures/spMFDropandUpdateMetadata` (to update the configuration changes in
+-  :doc:`/procedures/spMFDropAndUpdateMetadata` (to update the configuration changes in
    M-Files)
 
 -  :doc:`/procedures/spMFCreateTable` (to create the class table)
