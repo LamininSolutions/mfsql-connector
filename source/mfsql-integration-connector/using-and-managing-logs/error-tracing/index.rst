@@ -89,16 +89,16 @@ Common Errors
 Error message :Cannot insert the value NULL into column *Name of Column*, table *Name of Table*; column does not
 allow nulls. INSERT fails. Cause for error. It is likely that a change
 was made in M-Files changing a property to required and where there are
-missing values in for the property in M-Files. 
+missing values in for the property in M-Files.
 
 Corrective action.
 -  option 1. Add the missing values in M-Files and retry the updating of
-the table. 
+the table.
 -  option 2: edit the table in SSMS and remove 'is not null'
 from the column of the table. After the values have been added using
 SSMS the column settings can be reset to 'is not null'.
 
-**Unable to establish a correction**  
+**Unable to establish a correction**
 
 A .NET Framework error occurred
 during execution of user-defined routine or aggregate:  
@@ -135,7 +135,7 @@ The following script show the quick steps to follow to isolate an error
 	--unprocessed errors in class tables (result should show none)
 	Select * from ClassTableName where Process_ID <> 0
 
-	--is flag for processes running OK: IsProcess running shouled be 0, date show last time it was called 
+	--is flag for processes running OK: IsProcess running shouled be 0, date show last time it was called
 	select * from MFContextMenu
 
 	--if is IsProcessRunning = 1 and the procedure has not been called in the last 30 minutes then reset this flag
@@ -154,7 +154,6 @@ The following script show the quick steps to follow to isolate an error
 ------------------
 
 -  :doc:`/mfsql-integration-connector/using-and-managing-logs/mfupdatehistory-for-logging-of-class-record-changes/index`
--  :doc:`/the-connector-framework/connector-content/logging-tables/process-batch-log-tables/index`
 -  :doc:`/the-connector-framework/connector-content/logging-tables/index`
 -  :doc:`/mfsql-integration-connector/using-and-managing-logs/index`
 -  :doc:`/blogs/using-spmfclasstablestats/index`
