@@ -112,7 +112,7 @@ statement.
         @Debug = 0 -- smallint
 
 Refer to the section on setting up the context menu for the script to be
-added in the event handler :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#event-handler-scripts`.
+added in the event handler :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`.
 Use the action type 5 VB script.
 
 Below is the sample script for adding the action in the context menu for
