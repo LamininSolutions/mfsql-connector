@@ -127,8 +127,6 @@ Menu item can be grouped together by using a header.  Use the following
     ,111 -- set this to the usergroup ID of that requires access to the menu item
    )
 
-
-
 Adding a menu item
 ~~~~~~~~~~~~~~~~~~
 
@@ -150,25 +148,23 @@ in different situations.
 .. code:: sql
 
     INSERT INTO [dbo].[MFContextMenu]
-              ([ActionName]
-              ,[Action]
-              ,[ActionType]
-              ,[Message]
-              ,[SortOrder]
-              ,[ParentID]
-       ,[ISAsync]
-    ,UserGroupID)
+      ([ActionName]
+      ,[Action]
+      ,[ActionType]
+      ,[Message]
+      ,[SortOrder]
+      ,[ParentID]
+      ,[ISAsync]
+      ,UserGroupID)
         VALUES
            ('Name of menu item'
-    ,'ProcedureName' -- name of the procedure to be executed, in the case of Action Type 2 the URL of the website is used.
-        ,1 -- one of 1, 2 or 3
-           ,'Message displayed to user on selecting the item'
-    ,1 -- this is the sort order for the menu items in the group
-           ,1 -- this is the record ID of the group heading for this item
-    ,1 -- set to asynchronous
-    ,111 -- set this to the usergroup ID of that requires access to the menu item
-
-   )
+      ,'ProcedureName' -- name of the procedure to be executed, in the case of Action Type 2 the URL of the website is used.
+      ,1 -- one of 1, 2 or 3
+      ,'Message displayed to user on selecting the item'
+      ,1 -- this is the sort order for the menu items in the group
+      ,1 -- this is the record ID of the group heading for this item
+      ,1 -- set to asynchronous
+      ,111 -- set this to the usergroup ID of that requires access to the menu item  )
 
 Set Context menu for sample procedures
 --------------------------------------
@@ -194,7 +190,6 @@ The following script will reset the Context Menu to access the sample procedures
 .. code:: sql
 
     SET NOCOUNT ON;
-
     DECLARE @ItemCount INT;
     DECLARE @Debug INT = 0;
     DECLARE @UserGroup NVARCHAR(100);
@@ -213,39 +208,39 @@ The following script will reset the Context Menu to access the sample procedures
     BEGIN
 
 
-        --Insert menu items
+    --Insert menu items
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Actions',
+    EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Actions',
             @PriorMenu = '',
             @IsRemove = 0,
             @UserGroup = 'ContextMenu';
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Actions',
+      EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Actions',
             @PriorMenu = 'Synchronous Actions',
             @IsRemove = 0,
             @UserGroup = 'ContextMenu';
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Web Sites',
+     EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Web Sites',
             @PriorMenu = 'Asynchronous Actions',
             @IsRemove = 0,
             @UserGroup = 'ContextMenu';
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Object Actions',
+     EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Object Actions',
             @PriorMenu = 'Web Sites',
             @IsRemove = 0,
             @IsObjectContextMenu = 1,
             @UserGroup = 'ContextMenu';
 
-        EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Object Actions',
+     EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Asynchronous Object Actions',
             @PriorMenu = 'Synchronous Object Actions',
             @IsRemove = 0,
             @IsObjectContextMenu = 1,
             @UserGroup = 'ContextMenu';
 
 
-    --Web Site access
+     --Web Site access
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'Google website', -- nvarchar(100)
+     EXEC dbo.spMFContextMenuActionItem @ActionName = 'Google website', -- nvarchar(100)
             @ProcedureName = 'http://google.com',                          -- nvarchar(100)
             @Description = 'Illustrate access to a website',               -- nvarchar(200)
             @RelatedMenu = 'Web Sites',                                    -- nvarchar(100)
@@ -258,7 +253,7 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',                                    -- nvarchar(100)
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Sync',                            -- nvarchar(100)
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Sync',                            -- nvarchar(100)
             @ProcedureName = 'custom.DoCMAction',                                                       -- nvarchar(100)
             @Description = 'Action the custom.DoCMAction procedure syncronously with feedback message', -- nvarchar(200)
             @RelatedMenu = 'Synchronous Actions',                                                       -- nvarchar(100)
@@ -271,7 +266,7 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',                                                                 -- nvarchar(100)
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Async', -- nvarchar(100)
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Async', -- nvarchar(100)
             @ProcedureName = 'Custom.DoCMAsyncAction',                        -- nvarchar(100)
             @Description = 'Action the custom.DoCMAsyncAction procedure Asyncronously - Feedback in User Messages',
                                                                               -- nvarchar(200)
@@ -285,7 +280,7 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',                                       -- nvarchar(100)
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'Sync action for context Object ',                                           -- nvarchar(100)
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Sync action for context Object ',                                           -- nvarchar(100)
             @ProcedureName = 'Custom.CMDoObjectAction',                                                                               -- nvarchar(100)
             @Description = 'Action the Custom.DoObjectAction procedure Synchronously with related object including feedback message', -- nvarchar(200)
             @RelatedMenu = 'Synchronous Object Actions',                                                                              -- nvarchar(100)
@@ -298,7 +293,7 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',                                                                                               -- nvarchar(100)
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'ASync action for context Object ',                                                  -- nvarchar(100)
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'ASync action for context Object ',                                                  -- nvarchar(100)
             @ProcedureName = 'Custom.CMDoObjectAction',                                                                                       -- nvarchar(100)
             @Description = 'Action the Custom.DoObjectAction procedure Asynchronously with related object including message in UserMessages', -- nvarchar(200)
             @RelatedMenu = 'Asynchronous Object Actions',                                                                                     -- nvarchar(100)
@@ -312,9 +307,9 @@ The following script will reset the Context Menu to access the sample procedures
             @Debug = @Debug;
 
 
-    --Insert procedures for workflow state actions
+      --Insert procedures for workflow state actions
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction1',
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction1',
             @ProcedureName = 'custom.DoCMAction',
             @Description = NULL,
             @RelatedMenu = NULL,
@@ -327,7 +322,7 @@ The following script will reset the Context Menu to access the sample procedures
             @UserGroup = 'ContextMenu',
             @Debug = @Debug;
 
-        EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction2',
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction2',
             @ProcedureName = 'Custom.CMDoObjectActionForWorkFlowState',
             @Description = NULL,
             @RelatedMenu = NULL,
@@ -339,8 +334,7 @@ The following script will reset the Context Menu to access the sample procedures
             @PriorAction = NULL,
             @UserGroup = 'Context Menu',
             @Debug = 0;
-    END;
-
+      END;
 
 Context Menu security
 ---------------------
