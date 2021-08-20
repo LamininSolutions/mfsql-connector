@@ -35,9 +35,11 @@ if (file_type == "script"):
     print("skipping script ({})".format(sys.argv[1]))
     sys.exit(0)
 
+"""
 if (len(file_type) < 1):
     print("skipping input without mapped type ({})".format(sys.argv[1]))
     sys.exit(0)
+"""
 
 doc = ""
 
