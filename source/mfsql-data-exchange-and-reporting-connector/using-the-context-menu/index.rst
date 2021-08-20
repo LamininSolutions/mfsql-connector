@@ -194,7 +194,7 @@ The following script will reset the Context Menu to access the sample procedures
     DECLARE @Debug INT = 0;
     DECLARE @UserGroup NVARCHAR(100);
 
-    SELECT @ItemCount = COUNT(\*) FROM dbo.MFContextMenu AS mcm
+    SELECT @ItemCount = COUNT(id) FROM dbo.MFContextMenu AS mcm
     WHERE mcm.ActionName NOT IN ( 'Synchronous Actions', 'Asynchronous Actions', 'Synchronous Object Actions',
                                     'Asynchronous Object Actions', 'Action Type Sync', 'Action Type Async',
                                     'Sync action for context Object', 'Async action for context Object', 'StateAction1',
