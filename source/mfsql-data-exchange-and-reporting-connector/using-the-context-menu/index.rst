@@ -207,8 +207,9 @@ The following script will reset the Context Menu to access the sample procedures
     IF @ItemCount = 0 -- this procedure will only be executed if no custom menus have been created
     BEGIN
 
+Insert menu items
 
-    --Insert menu items
+.. code:: sql
 
     EXEC dbo.spMFContextMenuHeadingItem @MenuName = 'Synchronous Actions',
             @PriorMenu = '',
@@ -237,80 +238,81 @@ The following script will reset the Context Menu to access the sample procedures
             @IsObjectContextMenu = 1,
             @UserGroup = 'ContextMenu';
 
+Setup Web Site access
 
-     --Web Site access
+.. code:: sql
 
-     EXEC dbo.spMFContextMenuActionItem @ActionName = 'Google website', -- nvarchar(100)
-            @ProcedureName = 'http://google.com',                          -- nvarchar(100)
-            @Description = 'Illustrate access to a website',               -- nvarchar(200)
-            @RelatedMenu = 'Web Sites',                                    -- nvarchar(100)
-            @IsRemove = 0,                                                 -- bit
-            @IsObjectContext = 0,                                          -- bit
-            @IsWeblink = 1,                                                -- bit
-            @IsAsynchronous = 0,                                           -- bit
-            @IsStateAction = 0,                                            -- bit
-            @PriorAction = NULL,                                           -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                    -- nvarchar(100)
-            @Debug = @Debug;
 
-      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Sync',                            -- nvarchar(100)
-            @ProcedureName = 'custom.DoCMAction',                                                       -- nvarchar(100)
-            @Description = 'Action the custom.DoCMAction procedure syncronously with feedback message', -- nvarchar(200)
-            @RelatedMenu = 'Synchronous Actions',                                                       -- nvarchar(100)
-            @IsRemove = 0,                                                                              -- bit
-            @IsObjectContext = 0,                                                                       -- bit
-            @IsWeblink = 0,                                                                             -- bit
-            @IsAsynchronous = 0,                                                                        -- bit
-            @IsStateAction = 0,                                                                         -- bit
-            @PriorAction = NULL,                                                                        -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                                                 -- nvarchar(100)
-            @Debug = @Debug;
+     EXEC dbo.spMFContextMenuActionItem @ActionName = 'Google website',
+            @ProcedureName = 'http://google.com',
+            @Description = 'Illustrate access to a website',
+            @RelatedMenu = 'Web Sites',
+            @IsRemove = 0,
+            @IsObjectContext = 0,
+            @IsWeblink = 1,
+            @IsAsynchronous = 0,
+            @IsStateAction = 0,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu'
 
-      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Async', -- nvarchar(100)
-            @ProcedureName = 'Custom.DoCMAsyncAction',                        -- nvarchar(100)
+Setup Actions
+
+.. code:: sql
+
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Sync',
+            @ProcedureName = 'custom.DoCMAction',
+            @Description = 'Action the custom.DoCMAction procedure syncronously with feedback message',
+            @RelatedMenu = 'Synchronous Actions',
+            @IsRemove = 0,
+            @IsObjectContext = 0,
+            @IsWeblink = 0,
+            @IsAsynchronous = 0,
+            @IsStateAction = 0,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu'
+
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Action Type Async',
+            @ProcedureName = 'Custom.DoCMAsyncAction',
             @Description = 'Action the custom.DoCMAsyncAction procedure Asyncronously - Feedback in User Messages',
-                                                                              -- nvarchar(200)
-            @RelatedMenu = 'Asynchronous Actions',                            -- nvarchar(100)
-            @IsRemove = 0,                                                    -- bit
-            @IsObjectContext = 0,                                             -- bit
-            @IsWeblink = 0,                                                   -- bit
-            @IsAsynchronous = 1,                                              -- bit
-            @IsStateAction = 0,                                               -- bit
-            @PriorAction = NULL,                                              -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                       -- nvarchar(100)
-            @Debug = @Debug;
+            @RelatedMenu = 'Asynchronous Actions',
+            @IsRemove = 0,
+            @IsObjectContext = 0,
+            @IsWeblink = 0,
+            @IsAsynchronous = 1,
+            @IsStateAction = 0,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu'
 
-      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Sync action for context Object ',                                           -- nvarchar(100)
-            @ProcedureName = 'Custom.CMDoObjectAction',                                                                               -- nvarchar(100)
-            @Description = 'Action the Custom.DoObjectAction procedure Synchronously with related object including feedback message', -- nvarchar(200)
-            @RelatedMenu = 'Synchronous Object Actions',                                                                              -- nvarchar(100)
-            @IsRemove = 0,                                                                                                            -- bit
-            @IsObjectContext = 1,                                                                                                     -- bit
-            @IsWeblink = 0,                                                                                                           -- bit
-            @IsAsynchronous = 0,                                                                                                      -- bit
-            @IsStateAction = 0,                                                                                                       -- bit
-            @PriorAction = NULL,                                                                                                      -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                                                                               -- nvarchar(100)
-            @Debug = @Debug;
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'Sync action for context Object ',
+            @ProcedureName = 'Custom.CMDoObjectAction',
+            @Description = 'Action the Custom.DoObjectAction procedure Synchronously with related object including feedback message',
+            @RelatedMenu = 'Synchronous Object Actions',
+            @IsRemove = 0,
+            @IsObjectContext = 1,
+            @IsWeblink = 0,
+            @IsAsynchronous = 0,
+            @IsStateAction = 0,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu'
 
-      EXEC dbo.spMFContextMenuActionItem @ActionName = 'ASync action for context Object ',                                                  -- nvarchar(100)
-            @ProcedureName = 'Custom.CMDoObjectAction',                                                                                       -- nvarchar(100)
-            @Description = 'Action the Custom.DoObjectAction procedure Asynchronously with related object including message in UserMessages', -- nvarchar(200)
-            @RelatedMenu = 'Asynchronous Object Actions',                                                                                     -- nvarchar(100)
-            @IsRemove = 0,                                                                                                                    -- bit
-            @IsObjectContext = 1,                                                                                                             -- bit
-            @IsWeblink = 0,                                                                                                                   -- bit
-            @IsAsynchronous = 1,                                                                                                              -- bit
-            @IsStateAction = 0,                                                                                                               -- bit
-            @PriorAction = NULL,                                                                                                              -- nvarchar(100)
-            @UserGroup = 'ContextMenu',                                                                                                       -- nvarchar(100)
-            @Debug = @Debug;
+      EXEC dbo.spMFContextMenuActionItem @ActionName = 'ASync action for context Object ',
+            @ProcedureName = 'Custom.CMDoObjectAction',
+            @Description = 'Action the Custom.DoObjectAction procedure Asynchronously with related object including message in UserMessages',
+            @RelatedMenu = 'Asynchronous Object Actions',
+            @IsRemove = 0,
+            @IsObjectContext = 1,
+            @IsWeblink = 0,
+            @IsAsynchronous = 1,
+            @IsStateAction = 0,
+            @PriorAction = NULL,
+            @UserGroup = 'ContextMenu'
 
+Insert procedures for workflow state actions
 
-      --Insert procedures for workflow state actions
+.. code:: sql
 
       EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction1',
-            @ProcedureName = 'custom.DoCMAction',
+      @ProcedureName = 'custom.DoCMAction',
             @Description = NULL,
             @RelatedMenu = NULL,
             @IsRemove = 0,
@@ -319,8 +321,7 @@ The following script will reset the Context Menu to access the sample procedures
             @IsAsynchronous = 0,
             @IsStateAction = 1,
             @PriorAction = NULL,
-            @UserGroup = 'ContextMenu',
-            @Debug = @Debug;
+            @UserGroup = 'ContextMenu'
 
       EXEC dbo.spMFContextMenuActionItem @ActionName = 'StateAction2',
             @ProcedureName = 'Custom.CMDoObjectActionForWorkFlowState',
