@@ -54,7 +54,7 @@ The following parts of MFSQL Connector is deployed
    :doc:`/procedures/spMFContextMenuActionItem`)
 
 #. Add a task and menu record in the Context Menu table to allow for
-   linking to a report (:doc:`/tables/MFContextMenu`, :doc:`/procedures/spMFContextMenuActionItem`,
+   linking to a report (:doc:`/tables/tbMFContextMenu`, :doc:`/procedures/spMFContextMenuActionItem`,
    :doc:`/procedures/spMFContextMenuHeadingItem`)
 
 #. Add after check in changes event handler, add VB snippet in the event
