@@ -1,6 +1,6 @@
 
 ======================
-spMFProcessBatch_EMail
+spMFProcessBatch_Mail
 ======================
 
 Return
