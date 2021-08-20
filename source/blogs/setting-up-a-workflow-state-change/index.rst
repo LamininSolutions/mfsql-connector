@@ -295,7 +295,7 @@ The result is in the MFContextMenu
 The final step is to add the VB script into the workflow state. This is
 done in M-Files Admin
 
-Use the following VB script (also available in the :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#using-the-context-menu`
+Use the following VB script (also available in the :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 
 .. code:: vbscript
 

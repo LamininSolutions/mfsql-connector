@@ -14,7 +14,7 @@ OBJECT_TYPES = {
     "fnMF" : "functions",
     "spMF" : "procedures",
     "tbMF" : "tables",
-    "tMF" : "triggers",
+    "trMF" : "triggers",
     "MFvw" : "views",
     "script" : ""
 }
