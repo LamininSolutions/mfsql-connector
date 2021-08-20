@@ -9,7 +9,7 @@ The documentation has a number of posts and sections about lookups. A
 search on ‘lookup’ in the Connector guide is a necessity. it will
 highlight sections about lookup datatypes, updating multi lookups,
 lookup views, understanding the usage of lookups with
-:doc:`/procedures/spmfClassTableColumns`, using lookups in reporting and much more.
+:doc:`/procedures/spMFClassTableColumns`, using lookups in reporting and much more.
 
 Some of the controls and self healing features highlighted in this blog
 is only available in version 4.3.9.48 and later.
