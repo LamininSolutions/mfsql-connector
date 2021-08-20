@@ -47,7 +47,7 @@ invoices that is approved or paid will be included.
 Process the extract of the history. In this case the full history for
 the selected records have been set as the filters. Note that other
 filters and parameters may apply in different circumstances. Refer to
-the :doc:`/procedure/spMFGetHistory` for
+the :doc:`/procedures/spMFGetHistory` for
 more detail.
 
 The extract will insert/update the history records in the
