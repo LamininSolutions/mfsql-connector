@@ -4,13 +4,10 @@ Correcting Synchronization errors
 Synchronization errors may happen during execution of spMFUpdateTable,
 or any of the procedures that calls the update method.  The error is
 caused when the version of the object is out of synchronization with the
-version in SQL. Refer to `Tracing
-Errors <page21200984.html#Bookmark39>`__ for more detail.
+version in SQL. Refer to :doc:`/mfsql-integration-connector/using-and-managing-logs/error-tracing/index` for more detail.
 
 When a synchronization error takes place the process_id column of the
 object is set to 2.  An email notification is also sent.
-
-
 
 Causes
 ------
@@ -23,14 +20,10 @@ Synchronization errors can be indicative of
    SQL where users inadvertently make a change in M-Files and the SQL
    procedures does not expect it.
 
-
-
 Correction
 ----------
 
 Correcting a synchronization error can following different paths.
-
-
 
 Manual correction
 ~~~~~~~~~~~~~~~~~
@@ -88,7 +81,7 @@ Use the following code block in your procedure  to process a correction
          IF ( SELECT SUM([syncError])FROM   [##spMFClassTableStats] ) > 0
           EXEC [dbo].[spMFUpdateSynchronizeError]
            @TableName = @TableName -- varchar(250)
-            , @Debug = 0; 
+            , @Debug = 0;
 
 The following code block illustrate the different scenarios of this
 functionality
@@ -99,23 +92,23 @@ functionality
    Scenario           settings                        expected outcome
    ================== =============================== =======================================================
    No precedence set  set parameters:                 sync error email sent
-                                                     
+
                       @ChangeText to a new test value process_id remains 2
-                                                     
+
                       @SynchPrecedence = null         no correction
    M-Files precedence set parameters:                 sync error email sent
-                                                     
+
                       @ChangeText to a new test value process_id  = 0
-                                                     
+
                       @SynchPrecedence = 1            ChangeText not update (reflects value in M-Files
    SQL precedence     set parameters:                 sync error email sent
-                                                     
+
                       @ChangeText to a new test value process_id  = 0
-                                                     
+
                       @SynchPrecedence = 0            ChangeText updated. Any changes in M-Files overwritten.
    ================== =============================== =======================================================
 
-| 
+|
 
 .. container:: code panel pdl
 
@@ -137,7 +130,7 @@ functionality
            , @SQL  NVARCHAR(1000)
            ,@Params  NVARCHAR(1000)
            , @ChangeText   NVARCHAR(100) = 'Test11'
-           , @SynchPrecedence INT = 0; 
+           , @SynchPrecedence INT = 0;
            -- null = no precedence, 0 = SQL precedence, 1 = M-Files precedence
 
          --SET SYNC PRECEDENCE ON CLASS
@@ -209,6 +202,6 @@ functionality
          WHERE [ID] = 1;'
          EXEC (@SQL)
 
-| 
+|
 
  

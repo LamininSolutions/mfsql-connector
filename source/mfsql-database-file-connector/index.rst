@@ -20,9 +20,7 @@ to be viewed via the M-Files user interface in a similar manner as
 other documents and objects in the vault.
 
 Using MFSQL Integration Connector it is now also possible to `export
-files from Database Blobs into
-M-File <page183631882.html#Bookmark3>`__\ s.  This feature can be used
-in conjunction with the Database File Connector.
+files from Database Blobs into M-Files.  This feature can be used in conjunction with the Database File Connector.
 
 
 This document provides the instructions for installing and configuring

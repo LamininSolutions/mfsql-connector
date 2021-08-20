@@ -4,7 +4,7 @@ Using event handler for SQL action
 In this use case we would like to illustrate how an event handler can be
 used to trigger an SQL procedure using the Context Menu functionality.
 
-Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html#using-the-context-menu`
+Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 for more detail on using and setting up context menu related functionality:
 
 The actions to start an SQL procedure from M-Files can be called via
