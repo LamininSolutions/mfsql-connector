@@ -1,0 +1,306 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introducing MFSQL Connector &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Requirements" href="../requirements/index.html" />
+    <link rel="prev" title="Introduction to MFSQL" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introduction to MFSQL</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introducing MFSQL Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#purpose-and-scope">Purpose and scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-help">Getting help</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../requirements/index.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mfsql-connector-modules/index.html">MFSQL Connector modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functional-overview/index.html">Functional Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../practical-tips-and-use-cases/index.html">Practical tips and Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Introduction to MFSQL</a> &raquo;</li>
+        
+      <li>Introducing MFSQL Connector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introducing-mfsql-connector">
+<h1>Introducing MFSQL Connector<a class="headerlink" href="#introducing-mfsql-connector" title="Permalink to this headline">¶</a></h1>
+<p>The introduction describes the background and purpose of the tool, elaborate on
+the requirements for using the tool, highlights the assumptions and constraints
+and provides guidance on how to get help.</p>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>MFSQL Connector (The Connector) is a framework designed to allow
+M-Files to interact with MS SQL to enable a range of business cases
+including but not limited to:</p>
+<ul class="simple">
+<li><p>Integration of M-Files with other applications with two way
+integration between M-Files and MS SQL</p></li>
+<li><p>Creating M-Files Add-on applications using SQL as the extended
+database for these applications</p></li>
+<li><p>Advanced M-Files metadata cleansing and metadata management</p></li>
+<li><p>M-Files metadata reports using any report writer or integrating
+the reports with in-house web applications</p></li>
+<li><p>Accessing database files (blobs) in third party databases and
+making them available in M-Files</p></li>
+</ul>
+<p>The detail application of these uses are discussed in the sections</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html">MFSQL data exchange and reporting connector</a></p></li>
+<li><p><a class="reference external" href="http://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html">MFSQL Integration Connector</a></p></li>
+<li><p><a class="reference external" href="http://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></p></li>
+</ul>
+<p>The Connector is designed as a developer or consultant framework
+rather than an end user application. It is unlikely that a general
+M-Files user will interact directly with the Connector. However the
+special applications used by users will apply the Connector to
+operate on a day by day basis.</p>
+</div></blockquote>
+</div>
+<div class="section" id="purpose-and-scope">
+<h2>Purpose and scope<a class="headerlink" href="#purpose-and-scope" title="Permalink to this headline">¶</a></h2>
+<p>The sole purpose of the Connector is to enhance the application of
+M-Files using Microsoft SQL. The licensing, use and support for M-Files
+and Microsoft SQL is assumed and separate from the Connector.</p>
+<p>M-Files helps enterprises find, share, and secure documents and
+information. At the same time, the integration with and access to
+Microsoft SQL as the database, exposes the M-Files metadata for a range
+of different types of applications. The Connector:</p>
+<ul class="simple">
+<li><p>Enables reporting on any metadata with static, or dynamic reports
+with the ability to have near real time availability of data;</p></li>
+<li><p>Allows for extensive metadata re-alignment, cleansing or
+manipulation;</p></li>
+<li><p>Allows for building interfaces and integration with bespoke
+applications or other third party systems</p></li>
+</ul>
+<p>The use and configuration of M-Files and SQL is not included in this
+document. Refer to the application documentation for further details.</p>
+</div>
+<div class="section" id="getting-help">
+<h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+<p>The Annual subscription entitles you to all hot fixes and improvements to the subscribed
+modules. The best way to get our attention is to
+email <a class="reference external" href="mailto:support&#37;&#52;&#48;lamininsolutions&#46;com">support</a>.</p>
+<p>The application of the functionality in your
+environment, performing upgrades and making use of the power of the
+Connector are not included in the subscription price. These services can
+be provided by you local reseller, supported by us for an additional fee
+depending on the requirements.</p>
+<p>We en-devour to answer questions by email, and if necessary by telephone
+or video conference.</p>
+<p>Your feedback on the use of the functionality and potential
+improvements are welcomed.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../requirements/index.html" class="btn btn-neutral float-right" title="Requirements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Introduction to MFSQL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

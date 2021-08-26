@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Context Menu &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Supporting Applications" href="../supporting-applications/index.html" />
+    <link rel="prev" title="M-Files Installation" href="../m-files-installation/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">The Connector Framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Connector Content</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../assemblies/index.html">Assemblies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metadata-structure-tables/index.html">Metadata Structure Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../class-tables/index.html">Class tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utility-tables/index.html">Utility Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../procedures-and-functions/index.html">Procedures and Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../m-files-installation/index.html">M-Files Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Context Menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#context-menu-procedures">Context Menu Procedures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#formatting-result-message-for-ui">Formatting result message for UI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../supporting-applications/index.html">Supporting Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../connector-database/index.html">Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connector-database/index.html#enabling-the-database">Enabling the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing/index.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../security/index.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">The Connector Framework</a> &raquo;</li>
+        
+          <li><a href="../index.html">Connector Content</a> &raquo;</li>
+        
+      <li>Context Menu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="context-menu">
+<h1>Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this headline">¶</a></h1>
+<p>The Context Menu provides the capability of executing a SQL Procedure or
+navigate to a URL from M-Files. The Context Menu is dependendent the
+M-Files Desktop client. it is not available in M-Files Web Access or
+Mobile.</p>
+<p>This capabilities allows for the following key features</p>
+<ol class="arabic simple">
+<li><p>Action button in M-Files task bar to open Menu items</p></li>
+<li><p>Customisable menu items grouped by customisable group headings</p></li>
+<li><p>Open URL in new browser when menu item is selected</p></li>
+<li><p>Execute a procedure in the Connector database when menu item is
+selected</p></li>
+<li><p>Right click on an object and execute an item from the menu to execute
+a store procedure with the object version details of the selected
+item as input parameters</p></li>
+<li><p>Add script in workflow state action that will execute a store
+procedure in SQL</p></li>
+</ol>
+<p>Refer to <a class="reference internal" href="../../../getting-started/first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a>
+the Context menu</p>
+<p>Refer to <a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a></p>
+<p>Note that the Context Menu is installed and operates as a separate module of the Connector and requires the installation of the Data Exchange module to operate.</p>
+<div class="section" id="context-menu-procedures">
+<h2>Context Menu Procedures<a class="headerlink" href="#context-menu-procedures" title="Permalink to this headline">¶</a></h2>
+<p>The context menu relies on procedures with a predefined structure.</p>
+<p>The procedure spMFGetContectMenu is used by the application and should
+not be modified.</p>
+<p>The functionality provides for two types of procedures to be executed:</p>
+<ol class="arabic simple">
+<li><p>Procedure without any input parameters</p></li>
+<li><p>procedure using the object version of the of the M-Files object in
+context as input parameter.</p></li>
+</ol>
+<p>The name of the procedure must be added in the column <em>Action</em> in
+MFContextMenu table for the menu item that will be used to execute the
+action.</p>
+<p>The procedure will be executed when the menu item is select. The intent
+is that this procedure will call the custom procedure that controls the
+execution of the desired process. On completion the output message of
+the this procedure will be return to the user in M-Files.</p>
+<div class="section" id="procedure-without-input-parameter-action-type-1">
+<h3>Procedure without input parameter (action type 1)<a class="headerlink" href="#procedure-without-input-parameter-action-type-1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">contmenu</span><span class="p">].[</span><span class="n">procname</span><span class="p">]</span>
+<span class="o">@</span><span class="k">OutPut</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">Output</span>
+<span class="k">as</span>
+<span class="k">Begin</span>
+
+  <span class="k">Begin</span> <span class="n">Try</span>
+   <span class="c1">--Call procedure to perform operation and return output message</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=</span><span class="s1">&#39;Operation successful&#39;</span>
+  <span class="k">End</span> <span class="n">Try</span>
+  <span class="k">Begin</span> <span class="n">Catch</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=</span><span class="s1">&#39;Error:&#39;</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=@</span><span class="k">OutPut</span><span class="o">+</span><span class="p">(</span><span class="k">select</span> <span class="n">ERROR_MESSAGE</span><span class="p">())</span>
+  <span class="k">End</span> <span class="n">Catch</span>
+<span class="k">End</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="procedure-with-object-version-as-input-parameter-action-type-3">
+<h3>Procedure with object version as input parameter (action type 3)<a class="headerlink" href="#procedure-with-object-version-as-input-parameter-action-type-3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Create</span> <span class="k">Procedure</span> <span class="n">contmenu</span><span class="p">.</span><span class="n">procname</span>
+<span class="o">@</span><span class="n">ObjectID</span> <span class="nb">int</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ObjectType</span> <span class="nb">int</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">int</span><span class="p">,</span>
+<span class="o">@</span><span class="k">OutPut</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">Output</span>
+<span class="k">as</span>
+<span class="k">begin</span>
+  <span class="k">Begin</span> <span class="n">Try</span>
+<span class="c1">--Call procedure to perform operation using the object details as input and return output message</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=</span><span class="s1">&#39;Operation successful&#39;</span>
+  <span class="k">End</span> <span class="n">Try</span>
+  <span class="k">Begin</span> <span class="n">Catch</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=</span><span class="s1">&#39;Error:&#39;</span>
+   <span class="k">set</span> <span class="o">@</span><span class="k">OutPut</span><span class="o">=@</span><span class="k">OutPut</span><span class="o">+</span><span class="p">(</span><span class="k">select</span> <span class="n">ERROR_MESSAGE</span><span class="p">())</span>
+  <span class="k">End</span> <span class="n">Catch</span>
+<span class="k">End</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="formatting-result-message-for-ui">
+<h2>Formatting result message for UI<a class="headerlink" href="#formatting-result-message-for-ui" title="Permalink to this headline">¶</a></h2>
+<p>The procedure spMFResultMessageForUI is specifically targeted at
+providing a formatted message to be returned to the UI to improve the
+user message on completion of the procedure.</p>
+<p>This procedure is called from the main procedure than controls the
+process to return and error or to return to successful completion.  It
+also assumes that the main procedure utilizes the MFProcessBatch table
+to log to outcome of the procedure.</p>
+<p>the message returned is the result of the procedure as recorded in the
+MFProcessBatch.</p>
+<div class="section" id="line-breaks-in-output">
+<h3>Line Breaks in output<a class="headerlink" href="#line-breaks-in-output" title="Permalink to this headline">¶</a></h3>
+<p>insert ‘n’ in the string to insert line breaks in the output
+message :</p>
+<p>for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set @OutPut= &#39;ObjectID=&#39;+CAST(@ObjectID as varchar(10))+ &#39;/n&#39; + &#39; ObjectType=&#39;+cast(@ObjectType as varchar(10))+
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+ &#39;/n&#39; + &#39; ObjectVer=&#39;+ cast(@ObjectVer as varchar(10))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../supporting-applications/index.html" class="btn btn-neutral float-right" title="Supporting Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../m-files-installation/index.html" class="btn btn-neutral float-left" title="M-Files Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

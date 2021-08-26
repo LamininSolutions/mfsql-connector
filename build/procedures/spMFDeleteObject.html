@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>spMFDeleteObject &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spMFDeleteObjectList" href="spMFDeleteObjectList.html" />
+    <link rel="prev" title="spMFDeleteHistory" href="spMFDeleteHistory.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Procedures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spMFAddCommentForObjects.html">spMFAddCommentForObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFAliasesUpsert.html">spMFAliasesUpsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCheckAndUpdateAssemblyVersion.html">spMFCheckAndUpdateAssemblyVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCheckLicenseStatus.html">spMFCheckLicenseStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFClassTableColumns.html">spMFClassTableColumns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFClassTableStats.html">spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFConnectionTest.html">spMFconnectionTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFContextMenuActionItem.html">spMFContextMenuActionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFContextMenuHeadingItem.html">spMFContextMenuHeadingItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFConvertTableToHtml.html">spMFConvertTableToHtml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateAllLookups.html">spMFCreateAllLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateAllMFTables.html">spMFCreateAllMFTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreatePublicSharedLink.html">spMFCreatePublicSharedLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateTable.html">spMFCreateTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateValueListLookupView.html">spMFCreateValueListLookupView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateWorkflowStateLookupView.html">spMFCreateWorkflowStateLookupView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteAdhocProperty.html">spMFDeleteAdhocProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteHistory.html">spMFDeleteHistory</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">spMFDeleteObject</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-information">Additional Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warnings">Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-and-object">Deleting and object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-object-versions">Delete object versions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteObjectList.html">spMFDeleteObjectList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteObjectVersionList.html">spMFDeleteObjectVersionList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeploymentDetails.html">spMFDeploymentDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetFilesDetails.html">spMFGetFilesDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetLicense.html">spMFGetLicense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetMFilesAssemblyVersion.html">spMFGetMFilesAssemblyVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetObjectvers.html">spMFGetObjectvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFImportBlobFilesToMFiles.html">spMFImportBlobFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertClass.html">spMFInsertClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertClassProperty.html">spMFInsertClassProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertLoginAccount.html">spMFInsertLoginAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertObjectType.html">spMFInsertObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertProperty.html">spMFInsertProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertUserAccount.html">spMFInsertUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertUserMessage.html">spMFInsertUserMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertValueList.html">spMFInsertValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertValueListItems.html">spMFInsertValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertWorkflow.html">spMFInsertWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertWorkflowState.html">spMFInsertWorkflowState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFLogProcessSummaryForClassTable.html">spMFLogProcessSummaryForClassTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFObjectTypeUpdateClassIndex.html">spMFObjectTypeUpdateClassIndex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatchDetail_Insert.html">spMFProcessBatchDetail_Insert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatch_Upsert.html">spMFProcessBatch_Upsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatch_mail.html">spMFProcessBatch_Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFRemoveAdditionalProperties.html">spMFRemoveAdditionalProperties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFResultMessageForUI.html">spMFResultMessageForUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSearchForObject.html">spMFSearchForObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSearchForObjectbyPropertyValues.html">spMFSearchForObjectbyPropertyValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSendHTMLBodyEmail.html">spMFSendHTMLBodyEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetUniqueIndexes.html">spMFSetUniqueIndexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeProperties.html">spMFSynchronizeProperties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeSpecificMetadata.html">spMFSynchronizeSpecificMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeUserAccount.html">spMFSynchronizeUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueList.html">spMFSynchronizeValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueListItems.html">spMFSynchronizeValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueListItemsToMfiles.html">spMFSynchronizeValueListItemsToMfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkFlowStateColumnChange.html">spMFSynchronizeWorkFlowSateColumnChange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateItemByItem.html">spMFUpdateItemByItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateMFilesToMFSQL.html">spMFUpdateMFilesToMFSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateObjectChangeHistory.html">spMFUpdateObjectChangeHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateSynchronizeError.html">spMFUpdateSynchronizeError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable.html">spMFUpdateTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableInternal.html">spMFUpdateTableInternal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableWithLastModifiedDate.html">spMFUpdateTableWithLastModifiedDate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFsettingsForVaultUpdate.html">spMFsettingsForVaultUpdate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Procedures</a> &raquo;</li>
+        
+      <li>spMFDeleteObject</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spmfdeleteobject">
+<h1>spMFDeleteObject<a class="headerlink" href="#spmfdeleteobject" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Return</dt><dd><ul class="simple">
+<li><p>1 = Success object deleted</p></li>
+<li><p>2 = Success object version destroyed</p></li>
+<li><p>3 = Success object destroyed</p></li>
+<li><p>3 = Successfully destroyed deleted object (when the object is already deleted)</p></li>
+<li><p>4 = Failed to destroy, object not found</p></li>
+<li><p>5 = Failed to delete, object not found</p></li>
+<li><p>6 = Failed to remove version, version not found</p></li>
+<li><p>-1 = SQL Error</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>&#64;ObjectTypeId int</dt><dd><p>OBJECT Type MFID from MFObjectType</p>
+</dd>
+<dt>&#64;objectId int</dt><dd><p>Objid of record</p>
+</dd>
+<dt>&#64;Output nvarchar(2000) (output)</dt><dd><p>Output message</p>
+</dd>
+<dt>&#64;objectVersion int</dt><dd><p>the object version to be removed.
+default = 0 which indicates the delete the object rather than a version</p>
+</dd>
+<dt>&#64;DeleteWithDestroy bit (optional)</dt><dd><ul class="simple">
+<li><p>Default = 0</p></li>
+<li><p>1 = Destroy</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>An object can be deleted from M-Files using the ClassTable by using the spMFDeleteObject procedure. Is it optional to delete or destroy the object in M-Files.</p>
+<p>The procedure can also be used to destroy a specific version of an object.  This is particularly useful when old or outdataed versions must be removed from the system.</p>
+</div>
+<div class="section" id="additional-information">
+<h2>Additional Information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>Use this procedure to delete or destroy a single object or object version.  spMFDeleteObjectList can be used to delete a series of objects.</p>
+<p>When DeleteWithDestroy = 1 the objectversion specified in ObjectVersion will be ignored and the ObjectVersion will automatically be set to -1.  This will trigger the method to destroy the whole object.  There is no need to manually set the ObjectVersion to -1.  A status code 3 will be returned.
+When DeleteWithDestroy = 1 and the objectversion is set to 0 then the object will be destroyed.
+When DeleteWithDestroy = 1 and the object does not exist an error code of 4 will be returned</p>
+<p>When DeleteWithDestroy = 0 and the ObjectVersion is set to 0 the whole object will be deleted. Status code 1 is returned.
+When DeleteWithDestroy = 0 and an ObjectVersion less that the latest object version is specified the ObjectVersion will be removed.  A status code 2 is returned</p>
+<p>When DeleteWithDestroy = 0 and an ObjectVersion that is equal to latest object version is specified the delete will fail with error 6 returned
+When DeletedWithDestroy = 0 and the object does not exist an error code 4 will be returned
+When DeletedWithDestroy = 0 and the object version does not exist, is not 0 and is not the latest version of the object then an error code 5 will be returned</p>
+</div>
+<div class="section" id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<p>To delete an object the object version must be set to 0 and DeleteWithDestroy must be set to 0.</p>
+<p>Note that when a object is deleted it will not show in M-Files but it will still show in the class table. However, in the class table the deleted column will have a date.</p>
+<p>To delete a object version, the specified version must exist.  Use spMFGetHistory to first pull all the versions of an object or objects, and then use the MFObjectChangeHistory table to determine the object versions to be removed.</p>
+<p>Deleting and object version performs a destroy of the version. There is no possibility to undelete a deleted version.</p>
+<p>The latest version of the object cannot be specified as the object version to be destroyed.  When the latest version of the object is specified the object will be deleted.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deleting-and-object">
+<h3>Deleting and object<a class="headerlink" href="#deleting-and-object" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">return_value</span> <span class="nb">int</span><span class="p">,</span> <span class="o">@</span><span class="k">Output</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+
+<span class="k">EXEC</span> <span class="o">@</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFDeleteObject</span><span class="p">]</span>
+     <span class="o">@</span><span class="n">ObjectTypeId</span> <span class="o">=</span><span class="mi">128</span><span class="p">,</span><span class="c1">-- OBJECT MFID</span>
+     <span class="o">@</span><span class="n">objectId</span> <span class="o">=</span><span class="mi">4700</span><span class="p">,</span><span class="c1">-- Objid of record</span>
+     <span class="o">@</span><span class="k">Output</span> <span class="o">=</span> <span class="o">@</span><span class="k">Output</span> <span class="k">OUTPUT</span><span class="p">,</span>
+     <span class="o">@</span><span class="n">DeleteWithDestroy</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="k">Output</span> <span class="k">as</span> <span class="n">N</span><span class="s1">&#39;@Output&#39;</span>
+<span class="k">SELECT</span><span class="s1">&#39;Return Value&#39;</span><span class="o">=</span> <span class="o">@</span><span class="n">return_value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-object-versions">
+<h3>Delete object versions<a class="headerlink" href="#delete-object-versions" title="Permalink to this headline">¶</a></h3>
+<p>To delete an object version the objid and the version to delete is required.
+Use spMFGetHistory to get the valid versions of an object
+Then use spMFDeleteObject to destroy the specific version</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">Mcoa</span>
+<span class="k">SET</span> <span class="p">[</span><span class="n">mcoa</span><span class="p">].[</span><span class="n">Process_ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFCustomer</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mcoa</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">mcoa</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">134</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="nb">INT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetHistory</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFCustomer&#39;</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Process_id</span> <span class="o">=</span> <span class="mi">5</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">ColumnNames</span> <span class="o">=</span> <span class="s1">&#39;MF_Last_modified&#39;</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">IsFullHistory</span> <span class="o">=</span> <span class="mi">1</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">NumberOFDays</span> <span class="o">=</span> <span class="k">null</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">StartDate</span> <span class="o">=</span> <span class="k">null</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">134</span>
+</pre></div>
+</div>
+<p>Use a loop to destroy multiple versions of multiple objects</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="k">Output</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">processBatch_ID</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="nb">int</span>
+
+<span class="k">EXEC</span>  <span class="o">@</span><span class="n">Return_Value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFDeleteObject</span><span class="p">]</span> <span class="o">@</span><span class="n">ObjectTypeId</span> <span class="o">=</span> <span class="mi">136</span>
+                         <span class="p">,</span><span class="o">@</span><span class="n">objectId</span> <span class="o">=</span> <span class="mi">134</span>
+                         <span class="p">,</span><span class="o">@</span><span class="k">Output</span> <span class="o">=</span> <span class="o">@</span><span class="k">Output</span> <span class="k">OUTPUT</span>
+                         <span class="p">,</span><span class="o">@</span><span class="n">ObjectVersion</span> <span class="o">=</span> <span class="mi">9</span>     <span class="c1">-- set to specific version to destroy</span>
+                         <span class="p">,</span><span class="o">@</span><span class="n">DeleteWithDestroy</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- object version history is always destroy</span>
+                                                     <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">processBatch_ID</span> <span class="k">OUTPUT</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">Return_Value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 79%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Author</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2021-08-15</p></td>
+<td><p>LC</p></td>
+<td><p>Remove incorrect license check</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-05-05</p></td>
+<td><p>LC</p></td>
+<td><p>Align single delete object without class table with wrapper</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-12-08</p></td>
+<td><p>LC</p></td>
+<td><p>Change status messages and validate different methods</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-04-28</p></td>
+<td><p>LC</p></td>
+<td><p>Update documentation for Object Versions</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-08-30</p></td>
+<td><p>JC</p></td>
+<td><p>Added documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-08-20</p></td>
+<td><p>LC</p></td>
+<td><p>Expand routine to respond to output and remove object from change history</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-08-13</p></td>
+<td><p>DEV2</p></td>
+<td><p>Added objversion to delete particular version.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2018-08-03</p></td>
+<td><p>LC</p></td>
+<td><p>Suppress SQL error when no object in MF found</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-09-26</p></td>
+<td><p>DEV2</p></td>
+<td><p>Removed vault settings parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-08-22</p></td>
+<td><p>LC</p></td>
+<td><p>Update settings index</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-08-14</p></td>
+<td><p>LC</p></td>
+<td><p>Add objid to output message</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spMFDeleteObjectList.html" class="btn btn-neutral float-right" title="spMFDeleteObjectList" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spMFDeleteHistory.html" class="btn btn-neutral float-left" title="spMFDeleteHistory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

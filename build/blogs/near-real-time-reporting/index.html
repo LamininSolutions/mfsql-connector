@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Near real time reporting &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Online Ordering of special stock" href="../online-ordering-of-special-stock/index.html" />
+    <link rel="prev" title="MultiSelectLookups" href="../multiselectlookups/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-deleted-records/index.html">Considerations for deleted records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-objectchangehistory/index.html">Working with object change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-to-know-mfsql-connector/index.html">Getting to know MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Near real time reporting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="near-real-time-reporting">
+<h1>Near real time reporting<a class="headerlink" href="#near-real-time-reporting" title="Permalink to this headline">¶</a></h1>
+<p>This use case highlight how to setup a report with near real time data
+in M-Files. This is particularly relevant where the data from M-Files
+objects are used for ongoing performance management or monitoring of
+progress.</p>
+<p>The illustration use the following: M-Files is used for case management
+in a high performance environment. Many new cases are reported every day
+and requires management of progress based on key performance areas and
+strict rules for excessive waiting time.</p>
+<p>One of the key requirements is to have have the status of cases in the
+system and allocation of cases to workstreams available to team managers
+to allow them to identify bottlenecks and re-allocate work where
+necessary. M-Files has been fine tuned to optimise the recording of the
+cases and to control the different steps of work through workflow and
+routing the cases to different teams based on the type of case.</p>
+<p>What is left, is to get a nice report on demand for the team managers to
+show the results. With some 200 000 cases in the system and several 100
+cases open at any point of time, it is not feasible to use the standard
+reporting module.</p>
+<hr class="docutils" />
+<p>MFSQL Connector has come into play because:</p>
+<ol class="arabic simple">
+<li><p>Only changed data can be downloaded instead of all data</p></li>
+<li><p>Updating of data can be triggered on demand, or automatically using
+an event handler</p></li>
+<li><p>A SQL view prepare the data for the report to the team managers.</p></li>
+<li><p>Security allows only the team managers to access the report from
+within M-Files</p></li>
+</ol>
+<p>The following parts of MFSQL Connector is deployed</p>
+<ol class="arabic simple">
+<li><p>Install and setup SSRS (SQL Reporting Services) to serve as the
+report server</p></li>
+<li><p>Create class tables for the cases, employees, and work orders
+(<a class="reference internal" href="../../procedures/spMFCreateTable.html"><span class="doc">spMFCreateTable</span></a>)</p></li>
+<li><p>Build the update from M-Files to SQL into a store procedure using the
+Context Menu special parameters to pass through the objid of the
+record to be updated. (<a class="reference internal" href="../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a>)</p></li>
+<li><p>Add a task record in the Context Menu table to allow for a event
+handler action to be passed through to SQL (<a class="reference internal" href="../../tables/tbMFContextMenu.html"><span class="doc">MFContextMenu</span></a>,
+<a class="reference internal" href="../../procedures/spMFContextMenuActionItem.html"><span class="doc">spMFContextMenuActionItem</span></a>)</p></li>
+<li><p>Add a task and menu record in the Context Menu table to allow for
+linking to a report (<a class="reference internal" href="../../tables/tbMFContextMenu.html"><span class="doc">MFContextMenu</span></a>, <a class="reference internal" href="../../procedures/spMFContextMenuActionItem.html"><span class="doc">spMFContextMenuActionItem</span></a>,
+<a class="reference internal" href="../../procedures/spMFContextMenuHeadingItem.html"><span class="doc">spMFContextMenuHeadingItem</span></a>)</p></li>
+<li><p>Add after check in changes event handler, add VB snippet in the event
+handler script.</p></li>
+<li><p>Pull data for class tables to get base data (<a class="reference internal" href="../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a>)</p></li>
+<li><p>Create a SQL view for reporting the case statistics (open cases by
+state by team)</p></li>
+<li><p>Use Visual Studio Report Designing to create a static report based on
+the view and publish to SSRS</p></li>
+</ol>
+<p>The end result should be the ability to make a change in M-Files on
+cases. this will auto update in SQL. The team manager can use the
+Context Menu in M-Files to access the report.</p>
+<p>Note that there are alternative methods also for the updating of the
+records into SQL, depending on the volume of changes.</p>
+<hr class="docutils" />
+<p>Store procedure snippets for using the Context Menu special parameters
+for a asynchronous action triggered by a event handler</p>
+<p>The sample script CMDoObjectActionForWorkflowState can be used as a
+starting point to build the event handler update procedure. The call
+from the event handler will pass through all the details of the object
+that has been checked in.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Alter</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">CMDoObjectActionForWorkFlowState</span><span class="p">]</span>
+      <span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
+ <span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span>
+<span class="k">AS</span>
+      <span class="k">BEGIN</span>
+</pre></div>
+</div>
+<p>All that is remaining is to update the object from M-Files to SQL
+asynchronously. Note that a single objid is passed through to the update
+statement.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+   <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="p">,</span>
+   <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span> <span class="p">,</span>
+   <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span> <span class="p">,</span>
+   <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>  <span class="p">,</span>
+   <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- smallint</span>
+</pre></div>
+</div>
+<p>Refer to the section on setting up the context menu for the script to be
+added in the event handler <a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a>.
+Use the action type 5 VB script.</p>
+<p>Below is the sample script for adding the action in the context menu for
+the event handler action</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFContextMenuActionItem</span><span class="p">]</span>
+<span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;CaseUpdate_EventHandler&#39;</span> <span class="p">,</span>
+<span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.DoCaseUpdate&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Update cases using event handler&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+<span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;Team Managers&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Example of the Context Menu entries for a SSRS report</p>
+<p><img alt="image0" src="../../_images/img_12.jpg" /></p>
+<p>Example of the action menu item on context menu to open the report</p>
+<p><img alt="image1" src="../../_images/img_21.jpg" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../online-ordering-of-special-stock/index.html" class="btn btn-neutral float-right" title="Online Ordering of special stock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../multiselectlookups/index.html" class="btn btn-neutral float-left" title="MultiSelectLookups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

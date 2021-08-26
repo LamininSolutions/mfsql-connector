@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MFEmailTemplate &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MFEmailLog" href="tbMFEmaillog.html" />
+    <link rel="prev" title="MFDeploymentDetail" href="tbMFDeploymentDetail.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tables</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tbMFAuditHistory.html">MFAuditHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFAuthenticationType.html">MFAuthenticationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFChangeHistoryUpdateControl.html">MFObjectChangeHistoryUpdateControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClass.html">MFClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClassProperty.html">MFClassProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenu.html">MFContextMenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenuQueue.html">MFContextMenuQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDataType.html">MFDataType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDeploymentDetail.html">MFDeploymentDetail</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MFEmailTemplate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#columns">Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#placeholders">Placeholders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-insert-statement">Example Insert statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEmaillog.html">MFEmailLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEventLog_OpenXML.html">MFEventLog_OpenXML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFExportFileHistory.html">MFExportFileHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFFileImport.html">MFFileImport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLog.html">MFLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLoginAccount.html">MFLoginAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectChangeHistory.html">MFObjectChangeHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectType.html">MFObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatch.html">MFProcessBatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatchDetail.html">MFProcessBatchDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProperty.html">MFProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProtocolType.html">MFProtocolType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFPublicLink.html">MFPublicLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFSearchLog.html">MFSearchLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUpdateHistory.html">MFUpdateHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUserAccount.html">MFUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFValueList.html">MFValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFValueListItems.html">MFValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflow.html">MFWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflowState.html">MFWorkflowState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFilesEvents.html">MFilesEvents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tables</a> &raquo;</li>
+        
+      <li>MFEmailTemplate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mfemailtemplate">
+<h1>MFEmailTemplate<a class="headerlink" href="#mfemailtemplate" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This is a configuration table to allow for the setup of email templates. It is used in conjunction with spMPrepareTemplatedEmail</p>
+</div>
+<div class="section" id="columns">
+<h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>ID int IDENTITY NOT NULL</dt><dd><p>id of row</p>
+</dd>
+<dt>Template_Name NVARCHAR(128) NOT null</dt><dd><ul class="simple">
+<li><p>each template must have a unique name</p></li>
+<li><p>each row represent a specific template</p></li>
+</ul>
+</dd>
+<dt>Channel NVARCHAR(128) not nULL</dt><dd><ul class="simple">
+<li><p>each template has a one to one correlation with the valuelist item in ‘Channel’. The valuelist item is added in the channel column</p></li>
+</ul>
+</dd>
+<dt>FromEmail NVARCHAR(128) NOT null</dt><dd><ul class="simple">
+<li><p>fromEmail can include multiple addressed delimited by ‘;’</p></li>
+</ul>
+</dd>
+<dt>CCEmail NVARCHAR(128) null</dt><dd><ul class="simple">
+<li><p>CCemail can include multiple addressed delimited by ‘;’</p></li>
+</ul>
+</dd>
+<dt>TableScript NVARCHAR(MAX)</dt><dd><ul class="simple">
+<li><p>Select statement for the table columns</p></li>
+<li><p>Default null</p></li>
+</ul>
+</dd>
+<dt>Subject NVARCHAR(256) NULL</dt><dd><ul class="simple">
+<li><p>Subject of email.</p></li>
+</ul>
+</dd>
+<dt>EmailProfile nvarchar(128) null</dt><dd><ul class="simple">
+<li><p>custom email profile.  if left blank the default profile in MFSettings will be used</p></li>
+</ul>
+</dd>
+<dt>Head_HTML NVARCHAR(max) NULL</dt><dd><ul class="simple">
+<li><p>DEFAULT(‘&lt;head&gt;&lt;/head&gt;’)</p></li>
+</ul>
+</dd>
+<dt>Greeting_HTML NVARCHAR(128) NULL</dt><dd><ul class="simple">
+<li><p>DEFAULT(‘&lt;p&gt;&lt;/p&gt;’)</p></li>
+</ul>
+</dd>
+<dt>MainBody_HTML NVARCHAR(max) NULL</dt><dd><ul class="simple">
+<li><p>DEFAULT(‘&lt;p&gt;&lt;/p&gt;’)</p></li>
+</ul>
+</dd>
+<dt>Signature_HTML nvarchar(256) NULL</dt><dd><ul class="simple">
+<li><p>DEFAULT(‘&lt;p&gt;&lt;/p&gt;’)</p></li>
+</ul>
+</dd>
+<dt>Footer_HTML nvarchar(256) NULL</dt><dd><ul class="simple">
+<li><p>DEFAULT(‘&lt;p&gt;&lt;/p&gt;’)</p></li>
+</ul>
+</dd>
+</dl>
+<p>The head, greeting, mainbody, signature and footer must include html tags</p>
+</div>
+<div class="section" id="additional-info">
+<h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>The tablescript to produce the table for inclusion in the email (optional) should copy with two requirements</dt><dd><ul class="simple">
+<li><p>insert result into ##Report e.g. select * into ##Report from table</p></li>
+<li><p>the where clause to include &#64;objid for e.g. where objid = &#64;objid</p></li>
+</ul>
+</dd>
+<dt>Email body consists of the following</dt><dd><ul class="simple">
+<li><p>Greeting : Dear Sir  or Dear John</p></li>
+<li><p>Main body : standard text of the email</p></li>
+<li><p>Signature : From Customer care or From Peter</p></li>
+<li><p>Footer : Company detail</p></li>
+</ul>
+</dd>
+</dl>
+<p>All styling is done in the HEAD and as inline styling using CSS and HTML</p>
+</div>
+<div class="section" id="placeholders">
+<h2>Placeholders<a class="headerlink" href="#placeholders" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Placeholders can be used optionally. Firstname, user and head. {head}, {firstname], {user}</p></li>
+<li><p>If the {head} placeholder is included then the default CSS from MFSettings will be used</p></li>
+<li><p>Place the {table} in the body where the table should appear.</p></li>
+<li><p>Additional placeholders can be customised by addding a placeholder in the table and modifying custom.ChannelEmail to replace the text for each email.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="example-insert-statement">
+<h2>Example Insert statement<a class="headerlink" href="#example-insert-statement" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">custom</span><span class="p">.</span><span class="n">EmailTemplate</span>
+<span class="p">(</span> <span class="n">Template_Name</span><span class="p">,</span>
+<span class="n">Channel</span><span class="p">,</span>
+<span class="n">FromEmail</span><span class="p">,</span>
+<span class="n">CCEmail</span><span class="p">,</span>
+<span class="n">TableScript</span><span class="p">,</span>
+<span class="n">Subject</span><span class="p">,</span>
+<span class="n">EmailProfile</span><span class="p">,</span>
+<span class="n">Head_HTML</span><span class="p">,</span>
+<span class="n">Greeting_HTML</span><span class="p">,</span>
+<span class="n">MainBody_HTML</span><span class="p">,</span>
+<span class="n">Signature_HTML</span><span class="p">,</span>
+<span class="n">Footer_HTML</span><span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="p">(</span>  <span class="s1">&#39;DemoEmail&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Telefone&#39;</span><span class="p">,</span>
+<span class="s1">&#39;noreply@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="s1">&#39;SELECT * INTO ##Report</span>
+<span class="s1">FROM dbo.MFClass</span>
+<span class="s1">WHERE name = &#39;</span><span class="n">Document</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Test&#39;</span><span class="p">,</span>
+<span class="k">null</span><span class="p">,</span>
+<span class="s1">&#39;{Head}&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;Dear {FirstName}&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;this is test email&lt;BR&gt;{table}&lt;BR&gt;&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;BR&gt;&lt;p&gt;From {User}&lt;/p&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;&lt;BR&gt;&lt;p&gt;Produced by MFSQL Mailing system&lt;/p&gt;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To review table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">custom</span><span class="p">.</span><span class="n">EmailTemplate</span> <span class="k">AS</span> <span class="n">et</span>
+</pre></div>
+</div>
+<p>To remove a template</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">Custom</span><span class="p">.</span><span class="n">EmailTemplate</span> <span class="k">where</span> <span class="n">template_Name</span> <span class="o">=</span> <span class="s1">&#39;DemoEmail&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 75%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Author</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2021-01-26</p></td>
+<td><p>LC</p></td>
+<td><p>Table designed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tbMFEmaillog.html" class="btn btn-neutral float-right" title="MFEmailLog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tbMFDeploymentDetail.html" class="btn btn-neutral float-left" title="MFDeploymentDetail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

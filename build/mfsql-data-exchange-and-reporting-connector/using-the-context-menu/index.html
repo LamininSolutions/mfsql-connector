@@ -1,0 +1,1251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the Context Menu &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Reporting" href="../reporting/index.html" />
+    <link rel="prev" title="View Files downloaded using the event log" href="../m-files-event-log/view-downloaded-files/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MFSQL Data Exchange and reporting Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../working-with-metadata/index.html">Working with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-class-tables/index.html">Working with Class Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../m-files-event-log/index.html">M-Files event log</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the Context Menu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-mfcontextmenu">Installing MFContextMenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu-and-menu-items">Menu and Menu items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#action-buttons">Action Buttons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-state-actions">Workflow State Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-table-mfcontextmenu">Updating table MFContextMenu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-group-heading-for-the-menu-items">Adding a group heading for the menu items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-a-menu-item">Adding a menu item</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#set-context-menu-for-sample-procedures">Set Context menu for sample procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context-menu-security">Context Menu security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#contextmenu-user-group">ContextMenu user group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-mfvwusergroup-to-get-usergroupid">Using MFvwUserGroup to get UserGroupID</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#procedures-for-action-types-1-3-4-in-mfcontextmenu-table">Procedures for Action Types 1,3,4 in MFContextMenu table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#workflow-state-scripts">Workflow state scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-handler-scripts">Event Handler scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-messaging-spmfresultmessageforui">User Messaging: spMFResultMessageForUI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reporting/index.html">Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#m-files-external-connectors">M-Files External Connectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">MFSQL Data Exchange and reporting Connector</a> &raquo;</li>
+        
+      <li>Using the Context Menu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-context-menu">
+<h1>Using the Context Menu<a class="headerlink" href="#using-the-context-menu" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-mfcontextmenu">
+<h2>Installing MFContextMenu<a class="headerlink" href="#installing-mfcontextmenu" title="Permalink to this headline">¶</a></h2>
+<p>Refer to <a class="reference internal" href="../../getting-started/first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a>
+to get ready.</p>
+<p>The Context Menu provides the ability for an authorised M-Files Desktop
+user to perform the following functions:</p>
+<ol class="arabic simple">
+<li><p><strong>Open Web Page</strong>  This is particularly useful if the user is required
+to access a Web Application. Instead of opening another browser, the
+user has a single window to open to go to the solution’s Web
+Applications.</p></li>
+<li><p><strong>Execute a SQL procedure</strong>.  This option allows the user the start an
+action that is built into the SQL application.  An example is to pull
+information from a third party system or perform a match between
+M-Files and the external application.</p></li>
+<li><p><strong>Execute a SQL procedure for a specific object</strong>.  This option allows
+for the user to perform and operation for the selected object. An
+example is to push an update of the specific item into the Connector.
+Another example is to make a copy of the object, especially where the
+object has a number of related objects that also should be copied and
+comply with specific requirements.</p></li>
+<li><p><strong>On the change of workflow state or event handler</strong>.  This option
+allows for executing either a procedure without a input parameter, or
+a procedure that takes the object id and class as of the object in
+scope as input parameters.  This method is particularly relevant
+where the procedure must be triggered automatically when the user
+performed a function in M-Files.</p></li>
+</ol>
+<p>Visibility of the Context Menu is controlled by the ‘ContextMenu’ User
+group.</p>
+<p>The availability of individual menu action items can be controller by
+adding the user group MFID in the MFContextMenu Table.  By default all
+menu items is set to the ContextMenu user group.</p>
+</div>
+<div class="section" id="menu-and-menu-items">
+<h2>Menu and Menu items<a class="headerlink" href="#menu-and-menu-items" title="Permalink to this headline">¶</a></h2>
+<p>The menu consists of:</p>
+<ol class="arabic simple">
+<li><p>The action button to open the menu</p></li>
+<li><p>The menu items on display</p></li>
+</ol>
+<div class="section" id="action-buttons">
+<h3>Action Buttons<a class="headerlink" href="#action-buttons" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="using-an-action-1-or-2">
+<h4>Using an action 1 or 2<a class="headerlink" href="#using-an-action-1-or-2" title="Permalink to this headline">¶</a></h4>
+<p>Select the MFSQL Connector action button  in the task bar of the M-Files
+Desktop client.</p>
+<p>This will open a separate window with menu options. The menu options
+depends on preparation of the Context Menu as outlined above.</p>
+<p>Action 3 menu items will not be displayed.</p>
+</div>
+<div class="section" id="using-the-context-sensitive-action-3">
+<h4>Using the context sensitive action 3<a class="headerlink" href="#using-the-context-sensitive-action-3" title="Permalink to this headline">¶</a></h4>
+<p>Select the M-Files object to be actioned.  Right click and select MFSQL
+Connector from the bottom of the pop-up menu.</p>
+<p>The separate window with menu options will be shown. This menu will only
+include the actions that is setup for option 3 (context sensitive
+actions).</p>
+<p>Only action 3 items will be displayed.</p>
+</div>
+</div>
+<div class="section" id="workflow-state-actions">
+<h3>Workflow State Actions<a class="headerlink" href="#workflow-state-actions" title="Permalink to this headline">¶</a></h3>
+<p>The context menu methods is also used to execute procedures for workflow
+state actions</p>
+<p>Action 4 and 5 items do not appear in the menu.  They are called
+directly from and action script in the workflow state.</p>
+<p>These procedures are triggered by adding a script in the workflow state.</p>
+</div>
+</div>
+<div class="section" id="updating-table-mfcontextmenu">
+<h2>Updating table MFContextMenu<a class="headerlink" href="#updating-table-mfcontextmenu" title="Permalink to this headline">¶</a></h2>
+<p>The MFContextMenu table controls the
+procedures that will be executed and the type of action that will be
+performed.  Add a record to this table to setup a menu item.</p>
+<p>Adding items the to table can be done using various methods</p>
+<ul class="simple">
+<li><p>Use SQL Update statement to update existing items</p></li>
+<li><p>Use SQL insert statement to insert new items</p></li>
+</ul>
+<p>or</p>
+<ul class="simple">
+<li><p>Use spMFContextMenuHeadingItem to add, update, remove headings</p></li>
+<li><p>Use spMFContextMenuActionItem to add, update or remove action items</p></li>
+</ul>
+<div class="section" id="adding-a-group-heading-for-the-menu-items">
+<h3>Adding a group heading for the menu items<a class="headerlink" href="#adding-a-group-heading-for-the-menu-items" title="Permalink to this headline">¶</a></h3>
+<p>Menu item can be grouped together by using a header.  Use the following</p>
+<p><strong>Execute Procedure</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+           <span class="p">([</span><span class="n">ActionName</span><span class="p">]</span>
+           <span class="p">,[</span><span class="n">Action</span><span class="p">]</span>
+           <span class="p">,[</span><span class="n">ActionType</span><span class="p">]</span>
+           <span class="p">,[</span><span class="n">Message</span><span class="p">]</span>
+           <span class="p">,[</span><span class="n">SortOrder</span><span class="p">]</span>
+           <span class="p">,[</span><span class="n">ParentID</span><span class="p">]</span>
+ <span class="p">,</span><span class="n">UserGroupID</span><span class="p">)</span>
+     <span class="k">VALUES</span>
+           <span class="p">(</span><span class="s1">&#39;Group heading 1&#39;</span>
+           <span class="p">,</span><span class="k">null</span> <span class="c1">-- fixed value for headings</span>
+           <span class="p">,</span><span class="mi">0</span> <span class="c1">-- fixed value for headings</span>
+           <span class="p">,</span><span class="k">null</span> <span class="c1">-- fixed value for headings</span>
+           <span class="p">,</span><span class="mi">1</span> <span class="c1">-- this is the sort order for the menu groups</span>
+           <span class="p">,</span><span class="mi">0</span> <span class="c1">-- fixed value for headings</span>
+ <span class="p">,</span><span class="mi">111</span> <span class="c1">-- set this to the usergroup ID of that requires access to the menu item</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-a-menu-item">
+<h3>Adding a menu item<a class="headerlink" href="#adding-a-menu-item" title="Permalink to this headline">¶</a></h3>
+<p>There are several types of menu items. Any combination of these
+menu types can be included. Multiple instances of the same type is
+allowed.   Each type will have different considerations and the menu
+items will behave differently for each type.</p>
+<p>Note that each procedure can be set to be either synchronous or
+asynchronous.  When the procedure is processed synchronous it will allow
+for feedback to the user on the outcome of the procedure in the context
+menu.  When the process is asynchronous, is will continue to process in
+the background and allow the user to continue with M-Files operations.
+See the section on Messaging for further guidance on providing feedback
+in different situations.</p>
+<p><strong>Execute Procedure</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+  <span class="p">([</span><span class="n">ActionName</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">Action</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">ActionType</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">Message</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">SortOrder</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">ParentID</span><span class="p">]</span>
+  <span class="p">,[</span><span class="n">ISAsync</span><span class="p">]</span>
+  <span class="p">,</span><span class="n">UserGroupID</span><span class="p">)</span>
+    <span class="k">VALUES</span>
+       <span class="p">(</span><span class="s1">&#39;Name of menu item&#39;</span>
+  <span class="p">,</span><span class="s1">&#39;ProcedureName&#39;</span> <span class="c1">-- name of the procedure to be executed, in the case of Action Type 2 the URL of the website is used.</span>
+  <span class="p">,</span><span class="mi">1</span> <span class="c1">-- one of 1, 2 or 3</span>
+  <span class="p">,</span><span class="s1">&#39;Message displayed to user on selecting the item&#39;</span>
+  <span class="p">,</span><span class="mi">1</span> <span class="c1">-- this is the sort order for the menu items in the group</span>
+  <span class="p">,</span><span class="mi">1</span> <span class="c1">-- this is the record ID of the group heading for this item</span>
+  <span class="p">,</span><span class="mi">1</span> <span class="c1">-- set to asynchronous</span>
+  <span class="p">,</span><span class="mi">111</span> <span class="c1">-- set this to the usergroup ID of that requires access to the menu item  )</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="set-context-menu-for-sample-procedures">
+<h2>Set Context menu for sample procedures<a class="headerlink" href="#set-context-menu-for-sample-procedures" title="Permalink to this headline">¶</a></h2>
+<p>Installation of all the menu items for the demonstration script</p>
+<p>Execute the following statement to reset the menu to the items in this script:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Truncate</span> <span class="k">table</span> <span class="n">MFContextMenu</span>
+</pre></div>
+</div>
+<p>View the result in table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mcm</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Use the MFSQL Connector action button in the task bar in M-Files to view the result</p>
+<p>The following script will reset the Context Menu to access the sample procedures</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SET</span> <span class="n">NOCOUNT</span> <span class="k">ON</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ItemCount</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Debug</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">UserGroup</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">ItemCount</span> <span class="o">=</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenu</span> <span class="k">AS</span> <span class="n">mcm</span>
+<span class="k">WHERE</span> <span class="n">mcm</span><span class="p">.</span><span class="n">ActionName</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span> <span class="s1">&#39;Synchronous Actions&#39;</span><span class="p">,</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span> <span class="s1">&#39;Synchronous Object Actions&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;Asynchronous Object Actions&#39;</span><span class="p">,</span> <span class="s1">&#39;Action Type Sync&#39;</span><span class="p">,</span> <span class="s1">&#39;Action Type Async&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;Sync action for context Object&#39;</span><span class="p">,</span> <span class="s1">&#39;Async action for context Object&#39;</span><span class="p">,</span> <span class="s1">&#39;StateAction1&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;StateAction2&#39;</span><span class="p">,</span> <span class="s1">&#39;Web Sites&#39;</span><span class="p">,</span> <span class="s1">&#39;Google website&#39;</span>
+                            <span class="p">);</span>
+
+<span class="k">IF</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">SELECT</span> <span class="o">@</span><span class="n">ItemCount</span> <span class="k">AS</span> <span class="n">Itemcount</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="o">@</span><span class="n">ItemCount</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- this procedure will only be executed if no custom menus have been created</span>
+<span class="k">BEGIN</span>
+</pre></div>
+</div>
+<p>Insert menu items</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuHeadingItem</span> <span class="o">@</span><span class="n">MenuName</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">PriorMenu</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span><span class="p">;</span>
+
+  <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuHeadingItem</span> <span class="o">@</span><span class="n">MenuName</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">PriorMenu</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span><span class="p">;</span>
+
+ <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuHeadingItem</span> <span class="o">@</span><span class="n">MenuName</span> <span class="o">=</span> <span class="s1">&#39;Web Sites&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">PriorMenu</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span><span class="p">;</span>
+
+ <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuHeadingItem</span> <span class="o">@</span><span class="n">MenuName</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Object Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">PriorMenu</span> <span class="o">=</span> <span class="s1">&#39;Web Sites&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsObjectContextMenu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span><span class="p">;</span>
+
+ <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuHeadingItem</span> <span class="o">@</span><span class="n">MenuName</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Object Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">PriorMenu</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Object Actions&#39;</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">IsObjectContextMenu</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Setup Web Site access</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;Google website&#39;</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;http://google.com&#39;</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Illustrate access to a website&#39;</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Web Sites&#39;</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+       <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+</pre></div>
+</div>
+<p>Setup Actions</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;Action Type Sync&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;custom.DoCMAction&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Action the custom.DoCMAction procedure syncronously with feedback message&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Actions&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;Action Type Async&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.DoCMAsyncAction&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Action the custom.DoCMAsyncAction procedure Asyncronously - Feedback in User Messages&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;Sync action for context Object &#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.CMDoObjectAction&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Action the Custom.DoObjectAction procedure Synchronously with related object including feedback message&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Synchronous Object Actions&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;ASync action for context Object &#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.CMDoObjectAction&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Action the Custom.DoObjectAction procedure Asynchronously with related object including message in UserMessages&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Object Actions&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+</pre></div>
+</div>
+<p>Insert procedures for workflow state actions</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;StateAction1&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;custom.DoCMAction&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;ContextMenu&#39;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;StateAction2&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.CMDoObjectActionForWorkFlowState&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;Context Menu&#39;</span><span class="p">,</span>
+      <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="context-menu-security">
+<h2>Context Menu security<a class="headerlink" href="#context-menu-security" title="Permalink to this headline">¶</a></h2>
+<p>Context menu security has two dimensions:</p>
+<ol class="arabic simple">
+<li><p>Only users in the M-Files user group ‘ContextMenu’ will be able the
+see the MFSQL Connector menu.</p></li>
+<li><p>Adding a usergroup id in the column UserGroupID in table
+MFContextMenu will restrict access to the individual menu item to the
+members of the group.</p></li>
+</ol>
+<div class="section" id="contextmenu-user-group">
+<h3>ContextMenu user group<a class="headerlink" href="#contextmenu-user-group" title="Permalink to this headline">¶</a></h3>
+<p>The ContextMenu user group is automatically installed in the vault
+during the installation routine for the replication content package.  By
+all internal users is added to this group by default. Individual users
+and/or user groups can be added.  Remove the default group when
+restricting access to a limited set of users.</p>
+</div>
+<div class="section" id="using-mfvwusergroup-to-get-usergroupid">
+<h3>Using MFvwUserGroup to get UserGroupID<a class="headerlink" href="#using-mfvwusergroup-to-get-usergroupid" title="Permalink to this headline">¶</a></h3>
+<p>By default the ContextMenu user group is set as the item level user
+group in the UserGroupID column.</p>
+<p>The view MFvwUserGroup is a helper to get the ID of existing user groups
+that can be assigned to this column.  Use Select * from MFvwUserGroup
+to get the ID.</p>
+<p>Create MFContextMenu table record for each  menu item</p>
+<p>User either a synchronous or asynchronous operation by setting the
+ISAsync column to 1 for Asynchronous.</p>
+<div class="table-wrap docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 22%" />
+<col style="width: 38%" />
+<col style="width: 1%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Action type</p></th>
+<th class="head"><p>Action Type description</p></th>
+<th class="head"><p>Behaviour</p></th>
+<th class="head"><p>Show</p></th>
+<th class="head"><p>Setup Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>execute procedure (no input parameters)</p></td>
+<td><p>Calls the procedure in ActionType.  Procedure will run asynchronously.</p></td>
+<td></td>
+<td><p>Create procedure with name in ActionType for the menu</p>
+<p>Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>show URL</p></td>
+<td><p>Opens URL in the default browser in new window outside of the scope of M-Files security context</p></td>
+<td></td>
+<td><p>use URL as the ActionType in MFContextMenu</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>execute procedure with input parameters</p></td>
+<td><p>Calls the procedure with class and objid of the selected item as parameters. Procedure will run asynchronously.</p></td>
+<td></td>
+<td><p>Create procedure with two parameters and with name in ActionType for the menu</p>
+<p>Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>execute procedure from a workflow action with no input parameters required</p></td>
+<td><p>Calls the procedure from a workflow state action</p></td>
+<td></td>
+<td><p>Create procedure with name in ActionType for the menu</p>
+<p>Add script (sample below) in the workflow state action</p>
+<p>Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>execute procedure from a workflow action with input parameters required</p></td>
+<td><p>Calls the procedure from a workflow state action and passing the object version details back to the procedure as input parameters</p></td>
+<td></td>
+<td><p>Create procedure with name in ActionType for the menu</p>
+<p>Add script (sample below) in the workflow state action</p>
+<p>Create secondary procedure that is called by the above procedure to perform the action and return appropriate messages to user</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="procedures-for-action-types-1-3-4-in-mfcontextmenu-table">
+<h2>Procedures for Action Types 1,3,4 in MFContextMenu table<a class="headerlink" href="#procedures-for-action-types-1-3-4-in-mfcontextmenu-table" title="Permalink to this headline">¶</a></h2>
+<p>The Procedures that is referenced in the ‘Action’ column in
+MFContextMenu must comply with the following requirements.</p>
+<ul class="simple">
+<li><p>All procedures must have an output parameter &#64;Output varchar(1000)
+and a &#64;ID int input parameter. <a class="reference external" href="mailto:The&#37;&#52;&#48;Output">The<span>&#64;</span>Output</a> parameter is returned to
+M-Files as a user message on completion (or error) of the routine.
+The &#64;input parameter is used by the system.</p></li>
+<li><p>Action Type 1 and 4 procedures cannot have input parameters</p></li>
+<li><p>Action Type 3  and 5 procedures must have the following additional
+parameters:  &#64;ObjectID int, &#64;ObjectType int, &#64;ObjectVer
+int, &#64;&#64;ClassID int</p></li>
+</ul>
+<p>Below is samples of the types of procedures that is referenced in the
+MFContextMenu table. Note that the messaging component of these sample
+scripts utilizes logging and procedures which are only available in the
+Developer Module of the Connector.  These procedures will be installed
+when the ‘Install Sample Menu’ option is selected during the MFSQL
+Context Menu installation.</p>
+<p>Procedure with no context parameters (action type 1,4)</p>
+<p><strong>Execute Procedure</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Create</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">DoCMAction</span><span class="p">]</span>
+      <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
+<span class="k">AS</span>
+      <span class="k">BEGIN</span>
+            <span class="k">BEGIN</span> <span class="n">TRY</span>
+
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Process Start Time: &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span> <span class="c1">--- set custom process start message for user</span>
+
+  <span class="c1">-- Setting Params</span>
+
+                  <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span>
+                        <span class="p">,</span> <span class="o">@</span><span class="n">procedureName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;custom.DoCMAction&#39;</span>
+                        <span class="p">,</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+                        <span class="p">,</span> <span class="o">@</span><span class="n">StartTime</span> <span class="n">DATETIME</span>
+                        <span class="p">,</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="nb">INT</span>
+
+                  <span class="k">BEGIN</span>
+  <span class="c1">--Updating MFContextMenu to show that process is still running</span>
+                        <span class="k">UPDATE</span>  <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                        <span class="k">SET</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">WHERE</span>   <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+
+ <span class="c1">--Logging start of process batch</span>
+
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Started&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;Metadata Syncronisation &#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;In Progress&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                          <span class="p">,</span> <span class="c1">-- datetime</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                            <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">END</span>
+<span class="c1">--- start of custom process for the action, this example updates perform metadata synchronization</span>
+
+                  <span class="k">BEGIN</span>
+                        <span class="k">EXEC</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFSynchronizeMetadata</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+                          <span class="p">,</span> <span class="c1">-- smallint</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>  <span class="c1">-- int</span>
+                  <span class="k">END</span>
+<span class="c1">-- set custom message to user</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="s1">&#39; Process End Time= &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+
+                  <span class="k">BEGIN</span>
+<span class="c1">-- reset process running in Context Menu</span>
+                        <span class="k">UPDATE</span>  <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                        <span class="k">SET</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">WHERE</span>   <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+<span class="c1">-- logging end of process batch</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Syncronize metadata&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Completed&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;End Metadata syncrhorization&#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Success&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                          <span class="p">,</span> <span class="c1">-- datetime</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                            <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">END</span>
+<span class="c1">-- format message for display in context menu</span>
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFResultMessageForUI</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ClassTable</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- varchar(100)</span>
+                    <span class="o">@</span><span class="n">RowCount</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">Processbatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Processbatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">MessageOUT</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="k">OUTPUT</span> <span class="c1">-- nvarchar(4000)</span>
+            <span class="k">END</span> <span class="n">TRY</span>
+            <span class="k">BEGIN</span> <span class="n">CATCH</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Error:&#39;</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="p">(</span> <span class="k">SELECT</span>  <span class="n">ERROR_MESSAGE</span><span class="p">()</span>
+                                          <span class="p">)</span>
+            <span class="k">END</span> <span class="n">CATCH</span>
+      <span class="k">END</span>
+</pre></div>
+</div>
+<p>Procedure with parameters (action type 3)</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">CMDoObjectAction</span><span class="p">]</span>
+      <span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
+ <span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span>
+<span class="k">AS</span>
+      <span class="k">BEGIN</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">SQLQuery</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Params</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+            <span class="k">BEGIN</span> <span class="n">TRY</span>
+
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Process Start Time: &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span> <span class="c1">--- set custom process start message for user</span>
+
+  <span class="c1">-- Setting Params</span>
+
+         <span class="k">BEGIN</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">procedureName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;custom.CMDoObjectAction&#39;</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">StartTime</span> <span class="n">DATETIME</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="nb">INT</span>
+  <span class="c1">--Updating MFContextMenu to show that process is still running</span>
+                        <span class="k">UPDATE</span>  <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                        <span class="k">SET</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">WHERE</span>   <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+<span class="c1">--Logging start of process batch</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Started&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;Start custom.DoObjectAction&#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;In Progress&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                          <span class="p">,</span> <span class="c1">-- datetime</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                            <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">END</span>
+<span class="c1">--- start of custom process for the action, this example updates keywords property on the object</span>
+                  <span class="k">BEGIN</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Name_or_Title</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="nb">INT</span>
+<span class="c1">--get object from M-Files</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="o">=</span> <span class="n">TableName</span> <span class="k">FROM</span> <span class="n">MFClass</span> <span class="k">WHERE</span> <span class="n">MFID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ClassID</span>
+<span class="k">IF</span> <span class="k">not</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span> <span class="n">T</span><span class="p">.</span><span class="k">TABLE_NAME</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span> <span class="k">AS</span> <span class="n">T</span> <span class="k">WHERE</span> <span class="n">T</span><span class="p">.</span><span class="k">TABLE_NAME</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span><span class="p">)</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateTable</span> <span class="o">@</span><span class="n">ClassName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;@MFClassTable&#39;</span><span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+    <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span><span class="c1">-- smallint;</span>
+                        <span class="k">EXEC</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTableWithLastModifiedDate</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">Return_LastModified</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- datetime</span>
+                            <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- sysname</span>
+                            <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span>
+                          <span class="p">,</span> <span class="c1">-- smallint</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="c1">-- int</span>
+<span class="c1">--Perform action on/with object</span>
+
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">Params</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;@Output nvarchar(100), @ObjectID int&#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">SQLQuery</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+
+<span class="s1">     UPDATE mot</span>
+<span class="s1">     SET process_ID = 1</span>
+<span class="s1">     ,Keywords = &#39;&#39;Updated in &#39;&#39; + @OutPut</span>
+<span class="s1">     FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="o">+</span> <span class="s1">&#39; mot WHERE [objid] = @ObjectID &#39;</span>
+
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_executesql</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">SQLQuery</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="n">Params</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="n">ObjectID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+<span class="c1">--process update of object into M-Files</span>
+
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">0</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- smallint</span>
+
+                  <span class="k">END</span>
+<span class="c1">-- reset process running in Context Menu</span>
+                  <span class="k">UPDATE</span>    <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                  <span class="k">SET</span>       <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="k">WHERE</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+<span class="c1">-- set custom message to user</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="s1">&#39; Process End Time= &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="c1">-- logging end of process batch</span>
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                    <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Completed&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;End custom.DoObjectAction&#39;</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                    <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Success&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                  <span class="p">,</span> <span class="c1">-- datetime</span>
+                    <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                    <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+
+<span class="c1">-- format message for display in context menu</span>
+
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFResultMessageForUI</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ClassTable</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                  <span class="p">,</span> <span class="c1">-- varchar(100)</span>
+                    <span class="o">@</span><span class="n">RowCount</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">Processbatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Processbatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">MessageOUT</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="k">OUTPUT</span> <span class="c1">-- nvarchar(4000)</span>
+
+            <span class="k">END</span> <span class="n">TRY</span>
+            <span class="k">BEGIN</span> <span class="n">CATCH</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Error:&#39;</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="p">(</span> <span class="k">SELECT</span>  <span class="n">ERROR_MESSAGE</span><span class="p">()</span>
+                                          <span class="p">)</span>
+            <span class="k">END</span> <span class="n">CATCH</span>
+      <span class="k">END</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="workflow-state-scripts">
+<h2>Workflow state scripts<a class="headerlink" href="#workflow-state-scripts" title="Permalink to this headline">¶</a></h2>
+<p>When action type 4 and 5 are used the procedure will be triggered by a
+script in the workflow state.  The workflow state script must comply
+with the following examples.  Note that there are only a few changes to
+be done to the script. None of the remainder of the script should be
+changed.</p>
+<p>Changes to make to allow these scripts to action the designated
+procedure:  Change ‘workflowState1’ in the text below to the name of the
+action to be performed in the MFContextMenu table.</p>
+<p>For example if the objective is to update the external ERP system with
+the details of the approved vendor then add this script to the approved
+state for the vendor workflow:</p>
+<ul class="simple">
+<li><p>Add a record in MFContextMenu with action type = 5, ActionName =
+‘VendorApproved’, Action = ‘custom.StateAction_VendorApproved’.</p></li>
+<li><p>Add the script below in the Approved workflow state action. Change
+the item “”WorkflowState1”” to “”VendorApproved”” and ensure that the
+ActionTypeID = 5.</p></li>
+<li><p>Create a procedure with the name  following the format requirements
+for a procedure with parameters as outlined above.</p></li>
+<li><p>Create another procedure custom.VendorERPInsert  that is called by
+‘custom.StateAction_VendorApproved’. This procedure will perform the
+ERP insert process and return the result of the process to
+‘custom.StateAction_VendorApproved’</p></li>
+</ul>
+<p>For Action Type 5</p>
+<p><strong>VB Script for State Action</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">CMDoObjectActionForWorkFlowState</span><span class="p">]</span>
+      <span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
+    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
+ <span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span>
+<span class="k">AS</span>
+      <span class="k">BEGIN</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFOtherDocument&#39;</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">SQLQuery</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+            <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Params</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+            <span class="k">BEGIN</span> <span class="n">TRY</span>
+
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Process Start Time: &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span> <span class="c1">--- set custom process start message for user</span>
+  <span class="c1">-- Setting Params</span>
+         <span class="k">BEGIN</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">procedureName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;custom.CMDoObjectAction&#39;</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">StartTime</span> <span class="n">DATETIME</span>
+                              <span class="p">,</span> <span class="o">@</span><span class="n">Return_Value</span> <span class="nb">INT</span>
+  <span class="c1">--Updating MFContextMenu to show that process is still running</span>
+                        <span class="k">UPDATE</span>  <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                        <span class="k">SET</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="k">WHERE</span>   <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+<span class="c1">--Logging start of process batch</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Started&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;Start custom.DoObjectAction&#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;In Progress&#39;</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                            <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                          <span class="p">,</span> <span class="c1">-- datetime</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                            <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">END</span>
+     <span class="c1">--- start of custom process for the action, this example updates keywords property on the object</span>
+                  <span class="k">BEGIN</span>
+            <span class="n">WAITFOR</span> <span class="n">DELAY</span> <span class="s1">&#39;00:01:00&#39;</span><span class="p">;</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Name_or_Title</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="nb">INT</span>
+
+      <span class="k">Select</span> <span class="o">@</span><span class="n">MFClassTable</span><span class="o">=</span><span class="n">TableName</span> <span class="k">from</span> <span class="n">MFClass</span> <span class="k">where</span> <span class="n">MFID</span><span class="o">=@</span><span class="n">ClassID</span>
+
+      <span class="c1">--get object from M-Files</span>
+                         <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- smallint</span>
+<span class="c1">--Perform action on/with object</span>
+
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">Params</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;@Output nvarchar(100), @ObjectID int&#39;</span>
+                        <span class="k">SET</span> <span class="o">@</span><span class="n">SQLQuery</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+
+<span class="s1">     UPDATE mot</span>
+<span class="s1">     SET process_ID = 1</span>
+<span class="s1">     --,Keywords = &#39;&#39;Updated in &#39;&#39; + @OutPut</span>
+<span class="s1">     FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="o">+</span> <span class="s1">&#39; mot WHERE [objid] = @ObjectID &#39;</span>
+
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_executesql</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">SQLQuery</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="n">Params</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                          <span class="p">,</span> <span class="o">@</span><span class="n">ObjectID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+<span class="c1">--process update of object into M-Files</span>
+
+                        <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+                            <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                            <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">0</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+                          <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                            <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                            <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                          <span class="p">,</span> <span class="c1">-- int</span>
+                           <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- smallint</span>
+
+                  <span class="k">END</span>
+<span class="c1">-- reset process running in Context Menu</span>
+                  <span class="k">UPDATE</span>    <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
+                  <span class="k">SET</span>       <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="k">WHERE</span>     <span class="p">[</span><span class="n">MFContextMenu</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ID</span>
+<span class="c1">-- set custom message to user</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="s1">&#39; Process End Time= &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="c1">-- logging end of process batch</span>
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">ProcessType</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                    <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Completed&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="n">ProcedureStep</span> <span class="o">=</span> <span class="s1">&#39;End custom.DoObjectAction&#39;</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="n">GETDATE</span><span class="p">()</span>
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatchDetail_Insert</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">LogType</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Message&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">LogText</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(4000)</span>
+                    <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Success&#39;</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(50)</span>
+                    <span class="o">@</span><span class="n">StartTime</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartTime</span>
+                  <span class="p">,</span> <span class="c1">-- datetime</span>
+                    <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">Validation_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">ColumnValue</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(256)</span>
+                    <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="k">NULL</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">LogProcedureName</span> <span class="o">=</span> <span class="o">@</span><span class="n">procedureName</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">LogProcedureStep</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcedureStep</span>
+                  <span class="p">,</span> <span class="c1">-- nvarchar(128)</span>
+                    <span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- tinyint</span>
+
+<span class="c1">-- format message for display in context menu</span>
+
+                  <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFResultMessageForUI</span><span class="p">]</span>
+                    <span class="o">@</span><span class="n">ClassTable</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFClassTable</span>
+                  <span class="p">,</span> <span class="c1">-- varchar(100)</span>
+                    <span class="o">@</span><span class="n">RowCount</span> <span class="o">=</span> <span class="mi">0</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">Processbatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Processbatch_ID</span>
+                  <span class="p">,</span> <span class="c1">-- int</span>
+                    <span class="o">@</span><span class="n">MessageOUT</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="k">OUTPUT</span> <span class="c1">-- nvarchar(4000)</span>
+
+            <span class="k">END</span> <span class="n">TRY</span>
+            <span class="k">BEGIN</span> <span class="n">CATCH</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="s1">&#39;Error:&#39;</span>
+                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="p">(</span> <span class="k">SELECT</span>  <span class="n">ERROR_MESSAGE</span><span class="p">()</span>
+                                          <span class="p">)</span>
+            <span class="k">END</span> <span class="n">CATCH</span>
+      <span class="k">END</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-handler-scripts">
+<h2>Event Handler scripts<a class="headerlink" href="#event-handler-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Action type 5 can be used in an event handler to trigger a store
+procedure based on an event handler.  This will require including the
+action script in the event handler with a corresponding record in the
+MFContextMenu table.</p>
+<p><strong>Event Handler</strong></p>
+<div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span><span class="w"></span>
+
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">ClassID</span><span class="w"></span>
+<span class="n">ClassID</span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyoperations</span><span class="p">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">).</span><span class="n">value</span><span class="p">.</span><span class="n">GetLookupID</span><span class="w"></span>
+
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">strInput</span><span class="w"></span>
+<span class="n">strInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{&quot;&quot;ObjectID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ObjectType&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;Objectver&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Version</span><span class="o">&amp;</span><span class="s2">&quot;,&quot;&quot;ClassID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ClassID</span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ActionName&quot;&quot;  : &quot;&quot;StateAction2&quot;&quot;, &quot;&quot;ActionTypeID&quot;&quot;: &quot;&quot;5&quot;&quot;}&quot;</span><span class="w"></span>
+
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">strOutput</span><span class="w"></span>
+<span class="n">strOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ExtensionMethodOperations</span><span class="p">.</span><span class="n">ExecuteVaultExtensionMethod</span><span class="p">(</span><span class="s2">&quot;PerformActionMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strInput</span><span class="p">)</span><span class="w"></span>
+
+<span class="c1">&#39;Err.Raise MfScriptCancel, strOutput</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-messaging-spmfresultmessageforui">
+<h2>User Messaging: spMFResultMessageForUI<a class="headerlink" href="#user-messaging-spmfresultmessageforui" title="Permalink to this headline">¶</a></h2>
+<p>A helper procedure is included in the Connector to assist with returning
+a formatted user message when using the context Menu.</p>
+<p>This procedure works hand in hand with the ProcessBatch table and
+requires for the main procedure that executes the context menu action to
+incorporate logging as outline in <a class="reference internal" href="../../mfsql-integration-connector/using-and-managing-logs/index.html"><span class="doc">Using and managing logs</span></a></p>
+<p>An example of the result message is illustrated below:</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reporting/index.html" class="btn btn-neutral float-right" title="Reporting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../m-files-event-log/view-downloaded-files/index.html" class="btn btn-neutral float-left" title="View Files downloaded using the event log" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

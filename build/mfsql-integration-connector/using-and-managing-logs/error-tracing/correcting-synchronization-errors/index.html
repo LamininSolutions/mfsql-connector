@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Correcting Synchronization errors &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Logging execution of Process and Procedure Steps" href="../../logging-execution-of-process-and-procedure-steps/index.html" />
+    <link rel="prev" title="Error tracing" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Using and managing logs</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Error tracing</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Correcting Synchronization errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#error-reporting">Error reporting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#errors">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#synchronization-errors">Synchronization errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#common-errors">Common Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#error-back-tracking">Error back tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#related-topics"><strong>Related Topics</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Using and managing logs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Error tracing</a> &raquo;</li>
+        
+      <li>Correcting Synchronization errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="correcting-synchronization-errors">
+<h1>Correcting Synchronization errors<a class="headerlink" href="#correcting-synchronization-errors" title="Permalink to this headline">¶</a></h1>
+<p>Synchronization errors may happen during execution of spMFUpdateTable,
+or any of the procedures that calls the update method.  The error is
+caused when the version of the object is out of synchronization with the
+version in SQL. Refer to <a class="reference internal" href="../index.html"><span class="doc">Error tracing</span></a> for more detail.</p>
+<p>When a synchronization error takes place the process_id column of the
+object is set to 2.  An email notification is also sent.</p>
+<div class="section" id="causes">
+<h2>Causes<a class="headerlink" href="#causes" title="Permalink to this headline">¶</a></h2>
+<p>Synchronization errors can be indicative of</p>
+<ul class="simple">
+<li><p>Processing changes in SQL is taking place before fetching the latest
+version of the object from M-Files</p></li>
+<li><p>Allowing updates in M-Files on objects that is only processed from
+SQL where users inadvertently make a change in M-Files and the SQL
+procedures does not expect it.</p></li>
+</ul>
+</div>
+<div class="section" id="correction">
+<h2>Correction<a class="headerlink" href="#correction" title="Permalink to this headline">¶</a></h2>
+<p>Correcting a synchronization error can following different paths.</p>
+<div class="section" id="manual-correction">
+<h3>Manual correction<a class="headerlink" href="#manual-correction" title="Permalink to this headline">¶</a></h3>
+<p>When the email is received, the object is investigated, and the root
+cause is investigated and adjusted.  The process_id of the object must
+be reset to 0,  spMFUpdateTable with updatemethod 1 is performed and the
+processing in SQL can be redone.</p>
+</div>
+<div class="section" id="auto-update-using-precedence">
+<h3>Auto update using precedence.<a class="headerlink" href="#auto-update-using-precedence" title="Permalink to this headline">¶</a></h3>
+<p>Precedence is when either M-Files or SQL is set to be taken as the
+master when a change has taken place in both systems.  When M-Files has
+precedence changes in SQL will be ignored in the case of a conflict.
+When SQL has precedence then changes in M-Files will be ignored.</p>
+<p>Precedence is set by class table using  MFClass table by setting the
+SynchPrecedence column.  By default the column is null, which indicates
+no precedence is set.  0 indicates SQL precedence and 1 indicates
+M-Files precedence.</p>
+<p>When  spMFUpdateSynchronizeError is executed, objects with process_id =2
+will be processed and the precedence rule will be applied.</p>
+<ol class="arabic simple">
+<li><p>When Precedence is set to M-Files for the class, the changes in SQL
+will be ignored and the latest version from M-Files will be pulled
+into SQL.</p></li>
+<li><p>When Precedence is set to SQL then M-Files will be updated with SQL.
+Any prior changes in M-Files will be part of the history tracking of
+the object in M-Files.</p></li>
+</ol>
+<p>To apply precedence the procedure calling spMFUpdateTable must check for
+synchronization errors and submit spMFUpdateSynchronizeError to correct
+the error.</p>
+<p>Use the following code block in your procedure  to process a correction</p>
+<div class="code panel pdl docutils container">
+<div class="codeheader panelheader pdl docutils container">
+<p><strong>Execute Procedure</strong></p>
+</div>
+<div class="codecontent panelcontent pdl docutils container">
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
+ <span class="o">@</span><span class="n">ClassTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span><span class="p">,</span> <span class="o">@</span><span class="n">IncludeOutput</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="k">SUM</span><span class="p">([</span><span class="n">syncError</span><span class="p">])</span><span class="k">FROM</span>   <span class="p">[</span><span class="o">##</span><span class="n">spMFClassTableStats</span><span class="p">]</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+ <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateSynchronizeError</span><span class="p">]</span>
+  <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span> <span class="c1">-- varchar(250)</span>
+   <span class="p">,</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following code block illustrate the different scenarios of this
+functionality</p>
+<div class="table-wrap docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 30%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>settings</p></th>
+<th class="head"><p>expected outcome</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>No precedence set</p></td>
+<td><p>set parameters:</p>
+<p>&#64;ChangeText to a new test value</p>
+<p>&#64;SynchPrecedence = null</p>
+</td>
+<td><p>sync error email sent</p>
+<p>process_id remains 2</p>
+<p>no correction</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>M-Files precedence</p></td>
+<td><p>set parameters:</p>
+<p>&#64;ChangeText to a new test value</p>
+<p>&#64;SynchPrecedence = 1</p>
+</td>
+<td><p>sync error email sent</p>
+<p>process_id  = 0</p>
+<p>ChangeText not update (reflects value in M-Files</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SQL precedence</p></td>
+<td><p>set parameters:</p>
+<p>&#64;ChangeText to a new test value</p>
+<p>&#64;SynchPrecedence = 0</p>
+</td>
+<td><p>sync error email sent</p>
+<p>process_id  = 0</p>
+<p>ChangeText updated. Any changes in M-Files overwritten.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="code panel pdl docutils container">
+<div class="codeheader panelheader pdl docutils container">
+<p><strong>Execute Procedure</strong></p>
+</div>
+<div class="codecontent panelcontent pdl docutils container">
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">SAMPLE CODE TO DEMONSTRATE SYNC PRECEDENCE</span>
+<span class="cm">PRE-REQUISIT: &#39;OTHER DOCUMENT&#39; CLASS TABLE EXISTS</span>
+<span class="cm">*/</span>
+<span class="k">DECLARE</span>
+<span class="o">@</span><span class="n">TableName</span>   <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFOtherDocument&#39;</span>
+  <span class="p">,</span> <span class="o">@</span><span class="k">SQL</span>  <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">,</span><span class="o">@</span><span class="n">Params</span>  <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">,</span> <span class="o">@</span><span class="n">ChangeText</span>   <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;Test11&#39;</span>
+  <span class="p">,</span> <span class="o">@</span><span class="n">SynchPrecedence</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">-- null = no precedence, 0 = SQL precedence, 1 = M-Files precedence</span>
+
+<span class="c1">--SET SYNC PRECEDENCE ON CLASS</span>
+<span class="k">UPDATE</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+<span class="k">SET</span>  <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">SynchPrecedence</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">MFID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">--REVIEW MFCLASS</span>
+<span class="k">SELECT</span>
+  <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">SynchPrecedence</span><span class="p">],</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">TableName</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span><span class="p">;</span>
+
+<span class="c1">--SHOW PROCESS_ID OF OBJECT BEFORE UPDATE</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">Params</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;@ChangeText NVARCHAR(100)&#39;</span>
+<span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">  [mod].[Process_ID], [mod].[MFVersion], [mod].[Keywords], *</span>
+<span class="s1">FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">+</span> <span class="s1">&#39; AS [mod]</span>
+<span class="s1">WHERE [ID] = 1;&#39;</span>
+<span class="k">EXEC</span> <span class="p">(</span><span class="o">@</span><span class="k">SQL</span><span class="p">)</span>
+
+<span class="c1">--UPDATE OBJECT FORCING A SYNCRONIZATION ERROR</span>
+<span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">UPDATE [mfod]</span>
+<span class="s1">SET</span>
+<span class="s1">  [mfod].[Process_ID] = 1, [mfod].[Keywords] = @ChangeText, [MFVersion] = 1</span>
+<span class="s1">FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">+</span> <span class="s1">&#39; AS [mfod]</span>
+<span class="s1">WHERE [ID] = 1;</span>
+<span class="s1">&#39;</span>
+<span class="k">EXEC</span> <span class="n">sp_executeSQL</span> <span class="o">@</span><span class="k">SQL</span><span class="p">,</span> <span class="o">@</span><span class="n">params</span> <span class="p">,</span> <span class="o">@</span><span class="n">ChangeText</span><span class="o">=@</span><span class="n">ChangeText</span>
+
+<span class="c1">--SHOW PROCESS_ID OF OBJECT AFTER UPDATE OF OBJECT WITH SAMPLE CHANGES</span>
+<span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">  [mod].[Process_ID], [mod].[MFVersion], [mod].[Keywords], *</span>
+<span class="s1">FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">+</span> <span class="s1">&#39; AS [mod]</span>
+<span class="s1">WHERE [ID] = 1;&#39;</span>
+<span class="k">EXEC</span> <span class="p">(</span><span class="o">@</span><span class="k">SQL</span><span class="p">)</span>
+
+<span class="c1">--UPDATING OBJECT.  THIS WILL PRODUCE A SYNCRONIZATION ERROR</span>
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+ <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;MFOtherDocument&#39;</span> <span class="c1">-- nvarchar(128)</span>
+  <span class="p">,</span> <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">--SHOW PROCESS_ID STATUS WITH SYNC ERROR</span>
+<span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">  [mod].[Process_ID], [mod].[MFVersion], [mod].[Keywords], *</span>
+<span class="s1">FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">+</span> <span class="s1">&#39; AS [mod]</span>
+<span class="s1">WHERE [ID] = 1;&#39;</span>
+<span class="k">EXEC</span> <span class="p">(</span><span class="o">@</span><span class="k">SQL</span><span class="p">)</span>
+
+<span class="c1">-- CHECK FOR SYNC ERROR AND AUTO CORRECT</span>
+
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
+ <span class="o">@</span><span class="n">ClassTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span><span class="p">,</span> <span class="o">@</span><span class="n">IncludeOutput</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="p">(</span> <span class="k">SELECT</span> <span class="k">SUM</span><span class="p">([</span><span class="n">syncError</span><span class="p">])</span><span class="k">FROM</span>   <span class="p">[</span><span class="o">##</span><span class="n">spMFClassTableStats</span><span class="p">]</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+ <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateSynchronizeError</span><span class="p">]</span>
+  <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span> <span class="c1">-- varchar(250)</span>
+   <span class="p">,</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">-- int</span>
+
+<span class="c1">--SHOW PROCESS_ID STATUS AFTER CORRECTING SYNCRONISATION ERROR</span>
+<span class="k">SET</span> <span class="o">@</span><span class="k">sql</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">SELECT</span>
+<span class="s1">  [mod].[Process_ID], [mod].[MFVersion], [mod].[Keywords], *</span>
+<span class="s1">FROM &#39;</span> <span class="o">+</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">+</span> <span class="s1">&#39; AS [mod]</span>
+<span class="s1">WHERE [ID] = 1;&#39;</span>
+<span class="k">EXEC</span> <span class="p">(</span><span class="o">@</span><span class="k">SQL</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../logging-execution-of-process-and-procedure-steps/index.html" class="btn btn-neutral float-right" title="Logging execution of Process and Procedure Steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Error tracing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

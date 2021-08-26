@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>spMFCreateTable &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="spMFCreateValueListLookupView" href="spMFCreateValueListLookupView.html" />
+    <link rel="prev" title="spMFCreatePublicSharedLink" href="spMFCreatePublicSharedLink.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Procedures</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spMFAddCommentForObjects.html">spMFAddCommentForObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFAliasesUpsert.html">spMFAliasesUpsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCheckAndUpdateAssemblyVersion.html">spMFCheckAndUpdateAssemblyVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCheckLicenseStatus.html">spMFCheckLicenseStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFClassTableColumns.html">spMFClassTableColumns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFClassTableStats.html">spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFConnectionTest.html">spMFconnectionTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFContextMenuActionItem.html">spMFContextMenuActionItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFContextMenuHeadingItem.html">spMFContextMenuHeadingItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFConvertTableToHtml.html">spMFConvertTableToHtml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateAllLookups.html">spMFCreateAllLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateAllMFTables.html">spMFCreateAllMFTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreatePublicSharedLink.html">spMFCreatePublicSharedLink</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">spMFCreateTable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#table-name">Table Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#column-name">Column Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-column-definitions">Property Column Definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mf-addidional-property">MF Addidional Property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#non-connector-columns">Non Connector Columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-columns">Special columns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#warnings">Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateValueListLookupView.html">spMFCreateValueListLookupView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFCreateWorkflowStateLookupView.html">spMFCreateWorkflowStateLookupView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteAdhocProperty.html">spMFDeleteAdhocProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteHistory.html">spMFDeleteHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteObject.html">spMFDeleteObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteObjectList.html">spMFDeleteObjectList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeleteObjectVersionList.html">spMFDeleteObjectVersionList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDeploymentDetails.html">spMFDeploymentDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetFilesDetails.html">spMFGetFilesDetails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetLicense.html">spMFGetLicense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetMFilesAssemblyVersion.html">spMFGetMFilesAssemblyVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetObjectvers.html">spMFGetObjectvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFImportBlobFilesToMFiles.html">spMFImportBlobFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertClass.html">spMFInsertClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertClassProperty.html">spMFInsertClassProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertLoginAccount.html">spMFInsertLoginAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertObjectType.html">spMFInsertObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertProperty.html">spMFInsertProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertUserAccount.html">spMFInsertUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertUserMessage.html">spMFInsertUserMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertValueList.html">spMFInsertValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertValueListItems.html">spMFInsertValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertWorkflow.html">spMFInsertWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFInsertWorkflowState.html">spMFInsertWorkflowState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFLogProcessSummaryForClassTable.html">spMFLogProcessSummaryForClassTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFObjectTypeUpdateClassIndex.html">spMFObjectTypeUpdateClassIndex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatchDetail_Insert.html">spMFProcessBatchDetail_Insert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatch_Upsert.html">spMFProcessBatch_Upsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFProcessBatch_mail.html">spMFProcessBatch_Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFRemoveAdditionalProperties.html">spMFRemoveAdditionalProperties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFResultMessageForUI.html">spMFResultMessageForUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSearchForObject.html">spMFSearchForObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSearchForObjectbyPropertyValues.html">spMFSearchForObjectbyPropertyValues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSendHTMLBodyEmail.html">spMFSendHTMLBodyEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetUniqueIndexes.html">spMFSetUniqueIndexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeProperties.html">spMFSynchronizeProperties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeSpecificMetadata.html">spMFSynchronizeSpecificMetadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeUserAccount.html">spMFSynchronizeUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueList.html">spMFSynchronizeValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueListItems.html">spMFSynchronizeValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeValueListItemsToMfiles.html">spMFSynchronizeValueListItemsToMfiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkFlowStateColumnChange.html">spMFSynchronizeWorkFlowSateColumnChange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateItemByItem.html">spMFUpdateItemByItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateMFilesToMFSQL.html">spMFUpdateMFilesToMFSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateObjectChangeHistory.html">spMFUpdateObjectChangeHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateSynchronizeError.html">spMFUpdateSynchronizeError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable.html">spMFUpdateTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableInternal.html">spMFUpdateTableInternal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableWithLastModifiedDate.html">spMFUpdateTableWithLastModifiedDate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFsettingsForVaultUpdate.html">spMFsettingsForVaultUpdate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Procedures</a> &raquo;</li>
+        
+      <li>spMFCreateTable</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spmfcreatetable">
+<h1>spMFCreateTable<a class="headerlink" href="#spmfcreatetable" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>Return</dt><dd><ul class="simple">
+<li><p>1 = Success</p></li>
+<li><p>-1 = Error</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>&#64;ClassName nvarchar(128)</dt><dd><ul class="simple">
+<li><p>Valid Class Name as a string</p></li>
+<li><p>Pass the class name, e.g.: ‘Customer’</p></li>
+</ul>
+</dd>
+<dt>&#64;Debug smallint (optional)</dt><dd><ul class="simple">
+<li><p>Default = 0</p></li>
+<li><p>1 = Standard Debug Mode</p></li>
+<li><p>101 = Advanced Debug Mode</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>To create table for a class with associate properties and other custom columns (like ID, GUID, MX_User_ID, MFID, ExternalID, MFVersion, FileCount, IsSingleFile, Update_ID, and LastModified)
+The column <strong>IncludedInApp</strong> in the MFCLass table is set to 1 for the created class table.</p>
+</div>
+<div class="section" id="additional-info">
+<h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<p>Class tables are not added by the Connector on deployment. The class tables are added by the developer using the Connector for those M-Files classes that will be used in the application.</p>
+<div class="section" id="table-name">
+<h3>Table Name<a class="headerlink" href="#table-name" title="Permalink to this headline">¶</a></h3>
+<p>The name of the class table is defined in column TableName in the MFClass Table. The Connector will create a default name for all the tables. These names can be customised.</p>
+</div>
+<div class="section" id="column-name">
+<h3>Column Name<a class="headerlink" href="#column-name" title="Permalink to this headline">¶</a></h3>
+<p>The name of the column is defined in the MFProperty Table in <strong>ColumnName</strong>. These names can be customised.
+Several special columns are automatically created:</p>
+<ul class="simple">
+<li><p>Metadata structure properties</p></li>
+<li><p>Standard or system properties</p></li>
+<li><p>Additional properties</p></li>
+<li><p>Columns for special purposes</p></li>
+<li><p>Non Connector columns</p></li>
+</ul>
+<p>The column order also has a very specific order.</p>
+</div>
+<div class="section" id="property-column-definitions">
+<h3>Property Column Definitions<a class="headerlink" href="#property-column-definitions" title="Permalink to this headline">¶</a></h3>
+<p>The metadata structure property columns in the Class Table is defined in the MFClassProperty table.
+Single and multi-lookup properties will have both a label column and a ID column, for example Customer and Customer_ID. The label column is incidental and does not have to be updated when changes are made. Only the ID have to be updated. The name column will be automatically refreshed from the metadata.
+If the metadata is a required property as defined in the MFClassProperty table then the column will be created with a NOT NULL constraint.</p>
+</div>
+<div class="section" id="mf-addidional-property">
+<h3>MF Addidional Property<a class="headerlink" href="#mf-addidional-property" title="Permalink to this headline">¶</a></h3>
+<p>M-Files allow the addition of ad-hoc properties. When a property is dropped from the metadata definition in M-Files and already have values on an object, then the property will retain its value.</p>
+<p>When the Connector finds an additional property on an object, and it is not part of the metadata card, then a column will be added to the end of the Class Table with the columnname and datatype definitions as previously described.</p>
+</div>
+<div class="section" id="non-connector-columns">
+<h3>Non Connector Columns<a class="headerlink" href="#non-connector-columns" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to add columns to the class table that will be ignored by the Connector but is available for processing in the application. These columns must have a prefix of MX_ (for example MX_SAGE_Code)</p>
+<p>Notwithstanding the ability to add additional columns to the Connector tables following the convension above, it is recommended to create additional tables for custom applications that is cross referenced to the Connector tables rather than adding columns to Connector tables.</p>
+</div>
+<div class="section" id="special-columns">
+<h3>Special columns<a class="headerlink" href="#special-columns" title="Permalink to this headline">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 51%" />
+<col style="width: 18%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Column</p></td>
+<td><p>Description</p></td>
+<td><p>Special application</p></td>
+<td><p>Updateable</p></td>
+</tr>
+<tr class="row-even"><td><p>Workflow_ID</p></td>
+<td><p>MF Workflow_ID</p></td>
+<td><p>Always include workflow ID when inserting or updating the state</p></td>
+<td><p>Updatable</p></td>
+</tr>
+<tr class="row-odd"><td><p>Workflow</p></td>
+<td><p>MF Workflow</p></td>
+<td><p>For information only, not required to be updated</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-even"><td><p>Update_ID</p></td>
+<td><p>SQL history log</p></td>
+<td><p>ID of history log when record was last updated</p></td>
+<td><p>SQL only, Read only</p></td>
+</tr>
+<tr class="row-odd"><td><p>State_ID</p></td>
+<td><p>MF State_ID</p></td>
+<td><p>Used to update or insert a state</p></td>
+<td><p>Updatable</p></td>
+</tr>
+<tr class="row-even"><td><p>State</p></td>
+<td><p>MF State</p></td>
+<td><p>For information only, not required to be updated</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>Process_ID</p></td>
+<td><p>SQL process ID</p></td>
+<td><p>Show status of process of record. Default value is 0</p></td>
+<td><p>Flag</p></td>
+</tr>
+<tr class="row-even"><td><p>ObjID</p></td>
+<td><p>MF Internal ID</p></td>
+<td><p>Leave blank when new records is created in SQL</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>MX_User_ID</p></td>
+<td><p>SQL User ID</p></td>
+<td><p>External applications SQL user ID for the record</p></td>
+<td><p>SQL only</p></td>
+</tr>
+<tr class="row-even"><td><p>MFVersion</p></td>
+<td><p>MF Version</p></td>
+<td><p>Last MF Version</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>MF_Last_Modified_By_ID</p></td>
+<td><p>MF user id</p></td>
+<td></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-even"><td><p>MF_Last_Modified_By</p></td>
+<td><p>MFuser name</p></td>
+<td></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>MF_Last_Modified</p></td>
+<td><p>last modified</p></td>
+<td><p>M-Files last modified in UTC datetime format</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-even"><td><p>LastModified</p></td>
+<td><p>last modified</p></td>
+<td><p>When SQL last updated, SQL server Local time format</p></td>
+<td><p>Default Getdate()</p></td>
+</tr>
+<tr class="row-odd"><td><p>IsSingleFile</p></td>
+<td><p>MF Single File</p></td>
+<td><p>Show status of the Single File property in M-Files.</p></td>
+<td><p>From M-Files, Updatable</p></td>
+</tr>
+<tr class="row-even"><td><p>ID</p></td>
+<td><p>Identity</p></td>
+<td><p>Record id in SQL</p></td>
+<td><p>SQL Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>GUID</p></td>
+<td><p>MF object Guid</p></td>
+<td><p>Used for creating ULR links to record</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-even"><td><p>FileCount</p></td>
+<td><p>MF File Count</p></td>
+<td><p>Count of files included in the object</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>ExternalID</p></td>
+<td><p>MF External ID</p></td>
+<td><p>MF displayID, must be unique</p></td>
+<td><p>Updatable</p></td>
+</tr>
+<tr class="row-even"><td><p>Deleted</p></td>
+<td><p>MF Deleted</p></td>
+<td><p>Deletion Status of record in MF</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+<tr class="row-odd"><td><p>Created</p></td>
+<td><p>MF Created date</p></td>
+<td><p>In UTC datetime format</p></td>
+<td><p>From M-Files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>Class name exist
+MFClass table contains names of the valid classes</p>
+</div>
+<div class="section" id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<p>Drop and recreate to reset a class table when the table name is customised in MFClass
+When an additional property is added in M-Files to an object the column will automatically be added at the end of the table.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spMFCreateTable</span> <span class="s1">&#39;Customer&#39;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span>    <span class="o">@</span><span class="n">return_value</span> <span class="nb">int</span>
+<span class="k">EXEC</span>       <span class="o">@</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFCreateTable</span><span class="p">]</span>
+           <span class="o">@</span><span class="n">ClassName</span> <span class="o">=</span>  <span class="n">N</span><span class="s1">&#39;Customer&#39;</span>
+<span class="k">SELECT</span>    <span class="s1">&#39;Return Value&#39;</span>  <span class="o">=</span> <span class="o">@</span><span class="n">return_value</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Author</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2015-05-23</p></td>
+<td><p>DEV2</p></td>
+<td><p>Default column ExternalID added</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015-05-25</p></td>
+<td><p>DEV2</p></td>
+<td><p>Default column Update_ID added</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-06-27</p></td>
+<td><p>LC</p></td>
+<td><p>Automatically add includeInApp if null</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-08-18</p></td>
+<td><p>LC</p></td>
+<td><p>Add system columns with localized text names that is required for creating a new record</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-09-10</p></td>
+<td><p>LC</p></td>
+<td><p>Set process_ID default to 1 and deleted default to 0 on creating new record</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-10-02</p></td>
+<td><p>LC</p></td>
+<td><p>Update multi lookup columns to nvarchar(4000)</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-10-13</p></td>
+<td><p>DEV2</p></td>
+<td><p>Added Single_File Column in Class table</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-10-15</p></td>
+<td><p>LC</p></td>
+<td><p>Change Default of Single_file to 0</p></td>
+</tr>
+<tr class="row-even"><td><p>2017-07-06</p></td>
+<td><p>LC</p></td>
+<td><p>Add new default column for FileCount</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017-11-29</p></td>
+<td><p>LC</p></td>
+<td><p>Add error message of file does not exist or table already exist</p></td>
+</tr>
+<tr class="row-even"><td><p>2018-04-17</p></td>
+<td><p>LC</p></td>
+<td><p>Add condition to only create trigger on table if includedinApp is set to 2 (for transaction based tables.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2018-10-30</p></td>
+<td><p>LC</p></td>
+<td><p>Add creating unique index on objid and externalid</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-09-20</p></td>
+<td><p>LC</p></td>
+<td><p>allow for ID at end of name of a lookup property</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-10-14</p></td>
+<td><p>LC</p></td>
+<td><p>Resolve multilookup table data type incorrectly set</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-12-01</p></td>
+<td><p>LC</p></td>
+<td><p>Resolve where duplicate columns exist and removal of ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-03-11</p></td>
+<td><p>LC</p></td>
+<td><p>Add check license</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-03-18</p></td>
+<td><p>LC</p></td>
+<td><p>Add non clustered unique index for objid</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-03-27</p></td>
+<td><p>LC</p></td>
+<td><p>Add MFSetting to allow optional create of indexes</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-04-22</p></td>
+<td><p>LC</p></td>
+<td><p>Improve naming of constraints</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-05-12</p></td>
+<td><p>LC</p></td>
+<td><p>Add index on Update_ID to improve performance</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-08-18</p></td>
+<td><p>LC</p></td>
+<td><p>replace deleted column flag with property 27 (deleted)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-11-21</p></td>
+<td><p>LC</p></td>
+<td><p>Fix bug with unique index on objid</p></td>
+</tr>
+<tr class="row-even"><td><p>2021-01-22</p></td>
+<td><p>LC</p></td>
+<td><p>set default schema to dbo</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="spMFCreateValueListLookupView.html" class="btn btn-neutral float-right" title="spMFCreateValueListLookupView" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="spMFCreatePublicSharedLink.html" class="btn btn-neutral float-left" title="spMFCreatePublicSharedLink" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

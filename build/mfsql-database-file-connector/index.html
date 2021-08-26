@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MFSQL Database File Connector &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Database file import into M-Files" href="database-file-import-into-m-files/index.html" />
+    <link rel="prev" title="Using Power BI for reporting" href="../mfsql-data-exchange-and-reporting-connector/reporting/using-power-bi-for-reporting/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MFSQL Database File Connector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="database-file-import-into-m-files/index.html">Database file import into M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-the-connector/index.html">Installing the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html">Configuring the File Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/index.html">Connector Specific Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="authenticate-connection/index.html">Authenticate Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functional-checklist/index.html">Functional Checklist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>MFSQL Database File Connector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mfsql-database-file-connector">
+<h1>MFSQL Database File Connector<a class="headerlink" href="#mfsql-database-file-connector" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="database-file-import-into-m-files/index.html">Database file import into M-Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-the-connector/index.html">Installing the Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuring-the-file-connector/index.html">Configuring the File Connector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html#general-settings">General Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html#permissions">Permissions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html#automatic-association">Automatic Association</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html#mapping">Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuring-the-file-connector/index.html#search-index">Search Index</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connector-specific-settings/index.html">Connector Specific Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/sql-database/index.html">SQL Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/oracle-database-specific-settings/index.html">Oracle Database Specific Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/oracle-database-specific-settings/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/oracle-database-specific-settings/index.html#oracle-specific-settings">Oracle specific settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/oracle-database-specific-settings/index.html#odbc-driver-installation">ODBC Driver installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/index.html#database-connection">Database Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/index.html#file-data-table">File Data Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/index.html#hierarchy-folder-mapping">Hierarchy Folder Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connector-specific-settings/index.html#other-columns">Other Columns</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authenticate-connection/index.html">Authenticate Connection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functional-checklist/index.html">Functional Checklist</a></li>
+</ul>
+</div>
+<p>M-Files SQL Database Connector is a vault application that adds a
+connection to files in a SQL Table to an M-Files document vault. The
+connector allows documents and other files residing in a SQL database
+to be viewed via the M-Files user interface in a similar manner as
+other documents and objects in the vault.</p>
+<p>Using MFSQL Integration Connector it is now also possible to export files from Database Blobs into M-Files.  This feature can be used in conjunction with the Database File Connector.</p>
+<p>This document provides the instructions for installing and configuring
+M-Files SQL Database Connector.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="database-file-import-into-m-files/index.html" class="btn btn-neutral float-right" title="Database file import into M-Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mfsql-data-exchange-and-reporting-connector/reporting/using-power-bi-for-reporting/index.html" class="btn btn-neutral float-left" title="Using Power BI for reporting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

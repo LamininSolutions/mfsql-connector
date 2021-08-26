@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Version Control &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="List of blogs" href="../blogs/index.html" />
+    <link rel="prev" title="Schemas" href="../the-connector-framework/security/schemas/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#published">Published</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installed-releases">Installed releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-numbering">Release numbering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-control-summary">Change control summary</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.9.27.70</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-file-mfsqlconnector-4-2-1-2">Database File MFSQLConnector 4.2.1.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.9.27.69</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.9.27.68</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.8.26.67</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.8.25.66</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.8.24.65</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-4-8-21-61-to-4-8-23-64">Version 4.8.21.61 to 4.8.23.64</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-4-7-19-59-to-4-7-20-60">Version 4.7.19.59 to 4.7.20.60</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versions-4-4-14-56-to-4-7-18-58">Versions 4.4.14.56 to 4.7.18.58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versions-4-4-13-54-4-4-14-55">Versions 4.4.13.54, 4.4.14.55</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versions-4-4-12-52-4-4-13-53">Versions 4.4.12.52, 4.4.13.53</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-4-3-9-49-4-4-11-51">Version 4.3.9.49 - 4.4.11.51</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-4-3-8-48">Version 4.3.8.48</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Version Control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="version-control">
+<h1>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="published">
+<h2>Published<a class="headerlink" href="#published" title="Permalink to this headline">¶</a></h2>
+<p>Published version: 4.9.27.70 2021-08-15</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Date</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SQL scripts</p></td>
+<td><p>4.9.27.70</p></td>
+<td><p>2021-08-15</p></td>
+</tr>
+<tr class="row-odd"><td><p>Assemblies</p></td>
+<td><p>4.9.27.0</p></td>
+<td><p>2021-04-14</p></td>
+</tr>
+<tr class="row-even"><td><p>Vault application</p></td>
+<td><p>4.9.0.0</p></td>
+<td><p>2021-01-31</p></td>
+</tr>
+<tr class="row-odd"><td><p>Database File VAF</p></td>
+<td><p>4.2.1.2</p></td>
+<td><p>2021-07-15</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="installed-releases">
+<h2>Installed releases<a class="headerlink" href="#installed-releases" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Get the latest release installed in your database : SELECT * FROM dbo.MFDeploymentDetail</p></li>
+<li><p>Get the latest release installed for a specific object:  SELECT * FROM setup.MFSQLObjectsControl WHERE Name = ‘ObjectName’</p></li>
+<li><p>View the Release of the package Installation File:  Right click on installation file / Select Properties / Select Details tab</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="release-numbering">
+<h2>Release numbering<a class="headerlink" href="#release-numbering" title="Permalink to this headline">¶</a></h2>
+<p>Starting with Rel 4, there is only one installation package and the release number of the main package show changes in different elements</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The first digit is the main release.  e.g. Release 4 starts with 4.x.x.x</p></li>
+<li><p>The second digit is for M-Files application changes (note that the Apps have their own release number series)</p></li>
+<li><p>The third digit is for Assembly changes (note that the assemblies have their own release number series)</p></li>
+<li><p>The fourth digit is for SQL changes.  This number will run in series for all packages.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="change-control-summary">
+<h2>Change control summary<a class="headerlink" href="#change-control-summary" title="Permalink to this headline">¶</a></h2>
+<p>Each procedure, table or function contains there own change control section. See each object for more detail</p>
+<div class="section" id="id1">
+<h3>4.9.27.70<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Fix logging and updating of class table in spMFDeleteObjectList</p></li>
+<li><p>Remove redundant debugging item from spMFUpdateExplorerFileToMFiles</p></li>
+<li><p>Allow updating of Document Collection object type for class in spMFUpdateTable and spMFUpdateMFilesToMFSQL</p></li>
+<li><p>Fix truncate string bug in</p></li>
+<li><p>Add parameter to suppress the control report in spMFUpdateAllncludedInAppTables</p></li>
+<li><p>Improve debugging and error logging in spMFUpdateMFilesToMFSQL</p></li>
+<li><p>Improve debugging and resolve bug in spMFGetHistory</p></li>
+<li><p>Resolve unwanted output in spMFExportFiles</p></li>
+<li><p>Improve documentation for spMFDropandUpdateTable</p></li>
+<li><p>Change datatype of varchar to nvarchar in table  MFFileImport</p></li>
+<li><p>Improve control when version could not be found in spMFCheckandUpdateAssemblyVersions</p></li>
+</ol>
+</div>
+<div class="section" id="database-file-mfsqlconnector-4-2-1-2">
+<h3>Database File MFSQLConnector 4.2.1.2<a class="headerlink" href="#database-file-mfsqlconnector-4-2-1-2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Add funtionality to promote object and add metadata to a data base file object</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>4.9.27.69<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Fix timestamp updating issue of not showing correct time in spMFUpdateTableInternal, and spMFUpdateTable</p></li>
+<li><p>Redesign batching and grouping in spMFUpdateMFilesToMFSQL. spMFUpdateTable_ObjIds_GetGroupedList become redundant.</p></li>
+<li><p>Fix bug to include first record in each batch in spMFUpdateTableInBatches</p></li>
+<li><p>Fix spMFDeleteObject to delete a single object to include changed Wrapper module</p></li>
+<li><p>Resolve issue with specifying a tablename in spMFClassTableStats</p></li>
+<li><p>Add removal of redundant class records in spMFUpdateMFilesToMFSQL</p></li>
+<li><p>Exclude running full spMFClassTableStats for each batch</p></li>
+<li><p>update MFSQL Database File Connector</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3>4.9.27.68<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats</p></li>
+<li><p>Add columns checkedOut, templates, MFNotInSQL, collections, Missingtables, and RequiredWorkflowError in spMFClassTableStats</p></li>
+<li><p>Add error report to email in spMFClassTableStats</p></li>
+<li><p>Fix calculation of deleted records in spMFClassTableStats</p></li>
+<li><p>Remove deletion of audit table from spMFClassTableStats</p></li>
+<li><p>Update MFvwAuditSummary to include collections</p></li>
+<li><p>Update spMFAuditTable to set statusflag for collections</p></li>
+<li><p>Update spMFUpdateAllIncludeInAppTables to include error report with spMFClassTableStats</p></li>
+<li><p>Add detail in table in email messaging in spMFProcessBatch_Email and spMFResultMessageForUI</p></li>
+<li><p>Fix bug in assemblies to return local server MFVersion, ensuring that spMFGetMFilesAssemblyVersion returns to correct value for spMFCheckandUpdateAssemblyVersions</p></li>
+<li><p>Fix bug with spMFCreatePublicSharedLink</p></li>
+<li><p>Fix bug with updating multiple columns with spMFGetHistory</p></li>
+<li><p>Remove object from class table when class is changed to another object in the same object type with spMFUpdateTable</p></li>
+<li><p>Set default schema for MFModule in spMFCheckLicenseStatus</p></li>
+<li><p>Fix objlist error when both class and audit objid is null in spMFUpdateMfilesToMFSQL</p></li>
+<li><p>Include statusflag = 1 into spMFUpdateMFilesToMFSQL with incremental update</p></li>
+<li><p>Resolve issue with duplicate objids for same class in spMFUpdateMFilesToMFSQL - related to collections</p></li>
+<li><p>Fix  spMFUpdateChangeHistory when control table MFObjectChangeHistoryControl is empty when running spMFUpdateMfilesToMFSQL</p></li>
+<li><p>The number of objects in a batch is set to 500 in spMFUpdateTable_ObjIDs_GetGroupList</p></li>
+<li><p>Improve debugging in spMFUpdateObjectChangeHistory</p></li>
+<li><p>Set updateflag to 1 in spMFObjectTypeUpdateClassIndex to support audit history control</p></li>
+<li><p>Remove resetting of audit history in spMFUpdateAllncludedInAppTables</p></li>
+<li><p>Prevent spMFUpdateObjectChangeHistory to run if for a class without entries in control table</p></li>
+<li><p>Set spMFUpdateAssemblies to accept other than sa as the default master owner</p></li>
+<li><p>Fix bug with spMFUpdateItembyItem and improve logic for batch processing</p></li>
+<li><p>Fix bug with installation package resetting MFSettings</p></li>
+<li><p>Add connection test to spMFGetLicense to validate a connection before license check</p></li>
+<li><p>Fix timestamp datatype bug in assemblies,  and spMFUpdateTableInternal</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3>4.8.26.67<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Fix datetime bug in spMFUpdateExplorerFileToMFiles when importing files and updating error handling</p></li>
+<li><p>Fix datetime error in the assemblies for importing files using spMFUpdateExplorerFileToMFiles</p></li>
+<li><p>Enhance functionality of spMFClassTableColumns</p></li>
+<li><p>Expand the columns returned in vwMFMetadataStructure</p></li>
+<li><p>Improve error message when license expired using spMFCheckLicenseStatus</p></li>
+<li><p>Enhance functionality of spMFExportFiles to export files in batches. This significantly improves performance.</p></li>
+<li><p>Extent functionality of spMFExportFiles to allow for getting file related metadata without downloading the file.</p></li>
+<li><p>Add additional columns to MFExportFileHistory for file size and file extension</p></li>
+<li><p>Replace spMFGetFilesInternal with spMFGetFilesListInternal. Update assemblies with corresponding code</p></li>
+<li><p>Deploy several new tables and procedures to handle sending bulk emails using email templates. This include MFEmailLog, MFEmailTemplate, spMFsendHTMLBodyEmail, and spMFConvertTabletoHtml .</p></li>
+<li><p>Add 90.107.Custom.DoAccountConfirmationEmail as an example custom procedure for bulk email setup</p></li>
+<li><p>spMFUpdateMFilesToMFSQL Include override to recheck any class objects not in Audit</p></li>
+<li><p>spMFRemoveAdditionalProperties replaces the previous procedure to update ad hoc properties</p></li>
+<li><p>By default add class property 100 in the MFClassProperty Table with spMFInsertClassProperty</p></li>
+<li><p>Set default schema for class tables in spMFCreateTable to dbo</p></li>
+<li><p>Fix bug with checking module 2 license in spMFGetLicense</p></li>
+<li><p>Provide for using different profiles for different email templates, updating spMFValidateEmailProfile</p></li>
+<li><p>Fix bug in spMFUpdateTable on insert new object into audithistory</p></li>
+<li><p>Remove duplicate routine for creating MFUserMessages</p></li>
+</ol>
+</div>
+<div class="section" id="id5">
+<h3>4.8.25.66<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>spMFUpdateTable is extended to include support for changing of a class.  The record will be updated and the new class table will automatically be refreshed for the object.</p></li>
+<li><p>spMFUpdateTableInternal Fix datetime formatting on updating class table</p></li>
+<li><p>spMFCreateTable fix bug on setting of objid value. unique index on non null values only.</p></li>
+<li><p>spMFUpdateTable improve messaging when partial failure of update</p></li>
+<li><p>MFSettings and MFVaultSettings fix incorrect setting of password when installing a new database</p></li>
+<li><p>asseblies was updated for improvements on the status reports when using object delete</p></li>
+<li><p>spMFDeleteObject, spMFDeleteObjectList, spMFDeleteObjectVersionList update to improve status and bug with destroy</p></li>
+<li><p>spMFGetLicense is a new helper procedure for spMFCheckLicenseStatus</p></li>
+<li><p>spMFCheckLicenseStatus updated for efficiency and improved error trapping</p></li>
+<li><p>spMFClassTableStats has new switches to improve usability and efficiency</p></li>
+<li><p>spMFClassTableCoumns has new swithces to improve usability and efficiency</p></li>
+<li><p>Vault application: MFSQLConnectorVaultApp is changed for the Web API connection</p></li>
+</ol>
+</div>
+<div class="section" id="id6">
+<h3>4.8.24.65<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>spMFDeleteObjectList is redesigned to move away from single object deletions to multiple object deletions to improve performance and the number of M-Files logins</p></li>
+<li><p>spMFDeleteObjectVersionList is introduced to allow for bulk deletions of selected object versions</p></li>
+<li><p>Assemblies is updated to include additional methods for deletions in bulk</p></li>
+<li><p>spMFGetHistory and MFObjectChangeHistory is modified to support spmfDeleteObjectVersionList</p></li>
+<li><p>spMFCheckandUpdateAssemblyVersions is improved with more robust error checking</p></li>
+<li><p>spMFGetMFilesAssemblyVersion is improved with additional error management</p></li>
+<li><p>spMFUpdateAssemblies is improved with additional comments when executed manually</p></li>
+<li><p>Updates to the M-Files Web App to implement setting of encryption key for the cloud</p></li>
+<li><p>spMFUpdatetableInternal to set datetime conversion to ANSII (method 102)</p></li>
+<li><p>spMFDropandUpdateTable to fix updating of changes to lookup columns</p></li>
+<li><p>spMFupdatetable to fix bug with localisation of class_id</p></li>
+<li><p>spMFUpdateTable to change column name ‘Value’ to avoid conflict with a similar property name</p></li>
+<li><p>spMFCheckLicenseStatus to change the datatype of license date to date</p></li>
+<li><p>spMFUpdateTableInBatches to set updatetable objids to include unmatched versions; fix batch size calculation and fix null count for set operation</p></li>
+<li><p>spMFTableAuditInBatches is removed. The functionality is incorporated in spmfTableAudit</p></li>
+<li><p>remove setting objid as a unique index</p></li>
+<li><p>spMFUpdateMfilestoMFSQL to fix bug with update full set</p></li>
+<li><p>spMFclassTableColumns to set single lookup column to error when not int</p></li>
+</ol>
+</div>
+<div class="section" id="version-4-8-21-61-to-4-8-23-64">
+<h3>Version 4.8.21.61 to 4.8.23.64<a class="headerlink" href="#version-4-8-21-61-to-4-8-23-64" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Significant changes in assemblies and multiple procedures to update MFSQL Connector to allign with Microsoft security advisory: If any of the updates related to the VCE-2020-1147 : .NET Framework, SharePoint Server, and Visual Studio Remote Code Execution Vulnerability advisory have been applied to the SQL Server, your M-Files to SQL updates will stop working until you have upgraded to the new version.</p></li>
+<li><p>Replace Deleted bit column with Property 27 DataTime datatype.  Adjust multiple procedures where this change have an impact</p></li>
+<li><p>Add RetainDeletions option on spMFUpdateMFilesToMFSQL, spmfUpdateAllIncludedInAppTables and spmfUpdateTableInBatches</p></li>
+<li><p>Resolve bug with deleted objects in assembly</p></li>
+<li><p>Remove procedure spMFGetDeletedObjects</p></li>
+<li><p>Replace random default max objid default with getting count of object versions in spMFUpdateMFilesToMFSQL</p></li>
+</ol>
+</div>
+<div class="section" id="version-4-7-19-59-to-4-7-20-60">
+<h3>Version 4.7.19.59 to 4.7.20.60<a class="headerlink" href="#version-4-7-19-59-to-4-7-20-60" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Update naming of constraints on tables</p></li>
+<li><p>spMFUpdateMFilesToMFSQL - set maximum objids default to 200000</p></li>
+<li><p>spMFDeleteObject - update documentation for object version deletions</p></li>
+<li><p>spMFCreateTable - add index to Update_ID to improve performance</p></li>
+<li><p>spMFUpdateTable - fix bug for setting last modified user</p></li>
+<li><p>spMFUpdateTable - Revome xml_document when transaction failed</p></li>
+<li><p>spMFGetMFilesAssemblyVersion - fix logic and update MFVersion</p></li>
+<li><p>spMFConnectionTest - add new procedure to perform simple vault connection test</p></li>
+<li><p>spMFUpdateAllIncludeInAppTables - add exit if unable to connect to vault</p></li>
+<li><p>spMFUpdateTableInternal - fix bug with localisation error on workflow</p></li>
+<li><p>spMFCheckLicenseStatus - set module to 1 when null or 0</p></li>
+<li><p>spMFImportBlobFilestoMFiles - rewrite import of blob functionality</p></li>
+<li><p>spMFUpdateExplorerFileToMFiles - remove eroneous debugging</p></li>
+<li><p>spMFExportFiles - fix bug with updating file_id into MFExportFileHistory</p></li>
+<li><p>MFilesEvents - fix bug on updating indexes</p></li>
+<li><p>MFvwMetadataStructure - improve view for not showing document objecttype in error</p></li>
+<li><p>MFilesWrapper assembly - improve error messages</p></li>
+<li><p>MFilesWrapper assembly - add new method for vault connection test</p></li>
+<li><p>MFilesWrapper assembly - remove ability to modify last modified date</p></li>
+<li><p>General update of procedure documentation</p></li>
+</ol>
+</div>
+<div class="section" id="versions-4-4-14-56-to-4-7-18-58">
+<h3>Versions 4.4.14.56 to 4.7.18.58<a class="headerlink" href="#versions-4-4-14-56-to-4-7-18-58" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>spMFUpdateObjectChangeHistory - improve Object change history processing</p></li>
+<li><p>spMFupdateMFilesToMFSQL - bug fixes and improvements</p></li>
+<li><p>spMFUpdateAllIncludeInAppTables - improvements for Object change updates</p></li>
+<li><p>spMFClassTableStats - resolve bug</p></li>
+<li><p>spMFUpdateMFilesToMFSQL - add optional running of spMFUpdateChangeHistory</p></li>
+<li><p>MFSettings - add new setting for indexes</p></li>
+<li><p>spMFCreateTable - add optional create of indexes</p></li>
+<li><p>add indexes to tables, including class tables to improve performance</p></li>
+<li><p>resolve finish localisation bugs</p></li>
+<li><p>spMFSynchronizeFilestoMFiles - improve synchronization of files</p></li>
+<li><p>fnMFExcelObjectHyperlink - add new function for excel based hyperlinks</p></li>
+<li><p>spMFImportBlobFilesToMFiles - improve importing of Blobs, include assembly changes</p></li>
+<li><p>spMFUpdateTable_ObjIDs_GetGroupList - resolve issue with #objidlist not exist</p></li>
+<li><p>spMFSynchronizeProperties - resolve bug with synchronisation</p></li>
+<li><p>spMFUpdateMfilesToMFSQL - Set max objects</p></li>
+<li><p>Reset naming of constraints on standard tables</p></li>
+<li><p>MFSQLConnectorVaultApp - improve high volume context menu action updates</p></li>
+<li><p>MFSQLConnectorVaultApp - add Web Services to as alternative to ODBC connection</p></li>
+<li><p>MFSQLConnectorVaultApp - improve error reporting</p></li>
+<li><p>Update documentation on various procedures, tables and functions</p></li>
+<li><p>Assemblies - improve error and debug messaging</p></li>
+<li><p>spMFTableAudit - improvements and bug fixes</p></li>
+<li><p>spMFsettingsForDBUpdate - improve messaging</p></li>
+</ol>
+</div>
+<div class="section" id="versions-4-4-13-54-4-4-14-55">
+<h3>Versions 4.4.13.54, 4.4.14.55<a class="headerlink" href="#versions-4-4-13-54-4-4-14-55" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Allow for comments to be included as a column in class table - Assembly change</p></li>
+<li><p>Localisation of date and time for Finish Language</p></li>
+<li><p>Bug fixing for adding comments</p></li>
+<li><p>Update example for working with comments</p></li>
+<li><p>Bug fixing for localisation in spmfTableAudit</p></li>
+<li><p>Bug fixing for spMFGetHistory</p></li>
+<li><p>Improve spmfUpdateAssemblies to allow for different M-Files Versions</p></li>
+<li><p>Bug fix in spmfClassTableColumns to fix multilookup column change errors</p></li>
+<li><p>Bug fix when non standard mail profile is being used</p></li>
+<li><p>Bug fix spMFTableAudit delete of redundant records</p></li>
+<li><p>Add MFUserMessagesEnabled to spMFSettingsForDBUpdate</p></li>
+<li><p>Add MFContextMenuQueue table</p></li>
+<li><p>Add trigger MFContextMenuQueue_UpdateQueue to trigger spMFUpdateContectMenuQueue</p></li>
+<li><p>Add procedure spMFUpdateContectMenuQueue to re-process outstanding context menu items</p></li>
+<li><p>Add logtype <em>END</em> to trigger MFProcessBatch_UserMessage to insert messages from spMFUpdateTable</p></li>
+<li><p>Update spMFUpdateTableInternal and spMFUpdateTable to allow for <em>_id</em> in as part of the name of a property</p></li>
+</ol>
+</div>
+<div class="section" id="versions-4-4-12-52-4-4-13-53">
+<h3>Versions 4.4.12.52, 4.4.13.53<a class="headerlink" href="#versions-4-4-12-52-4-4-13-53" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Allow <em>ID</em> or <em>space ID</em> at the end of a property name - previously not allowed</p></li>
+<li><p>Allow specifying MFilesVersion as a parameter in spMFUpdateAssemblies</p></li>
+<li><p>Extend functionality of licence check to include notification on expiry and limit checks to once a day</p></li>
+<li><p>Explicity log out of M-Files on license check and connection test to reduce concurrent sessions</p></li>
+<li><p>Set ContextMenu group as default for permissions in context menu functionality</p></li>
+<li><p>Allow for custom class list when using spMFCreateAllMFTables</p></li>
+<li><p>New function to control Text to Date conversions to allow for Mexico localisation</p></li>
+<li><p>Suppress stats to show detail when using spMFUpdateMFilesToSQL</p></li>
+<li><p>Improve error trapping and logging</p></li>
+<li><p>Remove deleted objects from MFAuditHistory</p></li>
+<li><p>Add functionality to destroy specific version of an object</p></li>
+</ol>
+</div>
+<div class="section" id="version-4-3-9-49-4-4-11-51">
+<h3>Version 4.3.9.49 - 4.4.11.51<a class="headerlink" href="#version-4-3-9-49-4-4-11-51" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Add functionality to get all deleted objects in and object type from M-Files</p></li>
+<li><p>Upgrade to latest release of VAF framework</p></li>
+<li><p>Improve large scale updates</p></li>
+<li><p>Improve automatic updating of MFVersion on upgrading of M-Files</p></li>
+<li><p>Improve error trapping and logging</p></li>
+</ol>
+</div>
+<div class="section" id="version-4-3-8-48">
+<h3>Version 4.3.8.48<a class="headerlink" href="#version-4-3-8-48" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Added new CLR to get details of a specfic unmanaged object</p></li>
+<li><p>Added new procedure to Syncronise unmanaged object</p></li>
+<li><p>Add procedures to validate and update assemblies automatically when MFiles Version changed on the SQL Server</p></li>
+<li><p>Check validity of MFVersion when connection test is performed and auto fix if not valid</p></li>
+<li><p>Add column to table FileObjedID</p></li>
+<li><p>Update procedure to update file object Id</p></li>
+<li><p>update changes to workflow state names to all related class table records</p></li>
+<li><p>Add capability to import files from explorer using SQL procedure</p></li>
+<li><p>Check if valuelist name exists or is duplicate</p></li>
+<li><p>Fix bug for spMFDropandUpdateTable parameter</p></li>
+<li><p>New functionality to be able to update object versions in large tables in batches</p></li>
+<li><p>Add error checking for text columns that have incorrect size in spMFClassTableColumns</p></li>
+<li><p>add validation that tables exists in spMFTableAudit. Add controls for large tables</p></li>
+<li><p>Fix updating of object type if object type is Document Collection in spMFTableAudit</p></li>
+<li><p>Switch to spMFTableAuditInBatches when table size have more 100 000 records in spMFUpdateMFilesToMFSQL</p></li>
+<li><p>Add Import Error column in MFFileImport table</p></li>
+<li><p>Add RealObjectType as a column in MFvwMetadataStructure</p></li>
+<li><p>Add ability to process result in subsequent procedure for spMFSearchObject</p></li>
+<li><p>Include connection string for context menu functionality in named value storage</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../blogs/index.html" class="btn btn-neutral float-right" title="List of blogs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../the-connector-framework/security/schemas/index.html" class="btn btn-neutral float-left" title="Schemas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

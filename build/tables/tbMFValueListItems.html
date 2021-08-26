@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MFValueListItems &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MFWorkflow" href="tbMFWorkflow.html" />
+    <link rel="prev" title="MFValueList" href="tbMFValueList.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tables</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tbMFAuditHistory.html">MFAuditHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFAuthenticationType.html">MFAuthenticationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFChangeHistoryUpdateControl.html">MFObjectChangeHistoryUpdateControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClass.html">MFClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClassProperty.html">MFClassProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenu.html">MFContextMenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenuQueue.html">MFContextMenuQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDataType.html">MFDataType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDeploymentDetail.html">MFDeploymentDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEmailTemplate.html">MFEmailTemplate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEmaillog.html">MFEmailLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEventLog_OpenXML.html">MFEventLog_OpenXML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFExportFileHistory.html">MFExportFileHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFFileImport.html">MFFileImport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLog.html">MFLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLoginAccount.html">MFLoginAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectChangeHistory.html">MFObjectChangeHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectType.html">MFObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatch.html">MFProcessBatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatchDetail.html">MFProcessBatchDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProperty.html">MFProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProtocolType.html">MFProtocolType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFPublicLink.html">MFPublicLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFSearchLog.html">MFSearchLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUpdateHistory.html">MFUpdateHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUserAccount.html">MFUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFValueList.html">MFValueList</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MFValueListItems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#columns">Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexes">Indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#foreign-keys">Foreign Keys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-control">Change control</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflow.html">MFWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflowState.html">MFWorkflowState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFilesEvents.html">MFilesEvents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tables</a> &raquo;</li>
+        
+      <li>MFValueListItems</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mfvaluelistitems">
+<h1>MFValueListItems<a class="headerlink" href="#mfvaluelistitems" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="columns">
+<h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>ID int (primarykey, not null)</dt><dd><p>SQL Primary Key</p>
+</dd>
+<dt>Name nvarchar(100)</dt><dd><p>Name of the valuelist item</p>
+</dd>
+<dt>MFID nvarchar(20)</dt><dd><p>M-Files internal ID</p>
+</dd>
+<dt>MFValueListID int</dt><dd><p>ID column column in MFValuelist table</p>
+</dd>
+<dt>OwnerID int</dt><dd><p>MFID of the owner valuelistitem</p>
+</dd>
+<dt>ModifiedOn datetime (not null)</dt><dd><p>When was the row last modified in SQL. This column is automatically populated.</p>
+</dd>
+<dt>CreatedOn datetime (not null)</dt><dd><p>When was the row created in SQL. This column is automatically populated.</p>
+</dd>
+<dt>Deleted bit (not null)</dt><dd><p>Is deleted in M-Files</p>
+</dd>
+<dt>AppRef nvarchar(25)</dt><dd><p>Unique reference of the Valuelist item accross all all Valuelists</p>
+</dd>
+<dt>Owner_AppRef nvarchar(25)</dt><dd><p>AppRef of the Valuelist item that owns the item</p>
+</dd>
+<dt>ItemGUID nvarchar(200)</dt><dd><p>This is the M-Files internally assigned guid and can be used as an alternative unique reference to the item</p>
+</dd>
+<dt>DisplayID nvarchar(200)</dt><dd><p>Display ID from M-Files</p>
+</dd>
+<dt>Process_ID int</dt><dd><p>default = 0
+values could be 1 or 2</p>
+</dd>
+<dt>IsNameUpdate bit</dt><dd><p>default = 0</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="additional-info">
+<h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<p>The MFValuelistItem table is a single table with all the valuelist items in the vault.</p>
+<p>The valuelist item table has two special columns to provide a unique reference for a valuelist item accross all valuelist items. The AppRef is assigned on creation of the valuelist item table and will not be changed during syncronisation if the valuelist item name or MFID is changed. The Owner_AppRef references the AppRef of the owner.  This feature is of particular importants with vault replication or making a copy of the vault when the unique identifyer for the valuelist item must stay constant accross multiple systems.</p>
+<p>The MFValueListID references the primary key of the MFValuelist table and is different from the MFID of the valuelist.</p>
+<p>The OwnerID is the MFID of the valuelist item that owns the particular item.   For example: the document type property value is owned by the class of the object. In this case the ownerID of the valuelist item on the valuelist ‘document type’ will be the MFID of the class.</p>
+<p>The Display id is often the same as the M-Files valuelist item intenal id (MFID). However, it is possible to set this to another id that can be used to link with external systems.</p>
+<p>The IsNameUpdate column is used internally to indicate a requirement to push updates of the name of the valuelist item to class tables where this item is being used.</p>
+<p>When Process_id = 0 the value from M-Files will be used.  When 1 then SQL value will update M-Files. When set to 2 the item in M-Files will be deleted.</p>
+</div>
+<div class="section" id="indexes">
+<h2>Indexes<a class="headerlink" href="#indexes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>idx_MFValueListItems_AppRef</dt><dd><ul class="simple">
+<li><p>AppRef</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="foreign-keys">
+<h2>Foreign Keys<a class="headerlink" href="#foreign-keys" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Columns</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FK_MFValueListItems_MFValueList</p></td>
+<td><p>MFValueListID-&gt;<a class="reference external" href="MFValueList.md">[dbo].[MFValueList].[ID]</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">mvli</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">mvl</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">mvli2</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueListItems</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvli</span><span class="p">]</span>
+<span class="k">left</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueList</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvl</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mvl</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFValueListID</span><span class="p">]</span>
+
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueListItems</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvli2</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mvli2</span><span class="p">.[</span><span class="n">AppRef</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">Owner_AppRef</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">OwnerID</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-control">
+<h2>Change control<a class="headerlink" href="#change-control" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 75%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Author</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-09-07</p></td>
+<td><p>JC</p></td>
+<td><p>Added documentation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tbMFWorkflow.html" class="btn btn-neutral float-right" title="MFWorkflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tbMFValueList.html" class="btn btn-neutral float-left" title="MFValueList" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

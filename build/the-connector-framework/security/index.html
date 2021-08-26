@@ -1,0 +1,300 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Schemas" href="schemas/index.html" />
+    <link rel="prev" title="Licensing" href="../licensing/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">The Connector Framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connector-content/index.html">Connector Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connector-database/index.html">Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connector-database/index.html#enabling-the-database">Enabling the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing/index.html">Licensing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="schemas/index.html">Schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credentials-for-accessing-m-files-from-sql">Credentials for accessing M-Files from SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credentials-for-accessing-sql-from-m-files">Credentials for accessing SQL from M-Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encryption-of-password-in-mfvaultsettings">Encryption of password in MFVaultSettings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">The Connector Framework</a> &raquo;</li>
+        
+      <li>Security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="schemas/index.html">Schemas</a></li>
+</ul>
+</div>
+<p>The Connector requires several aspects of authentication to be
+considered and deployed. Security for accessing M-Files from SQL and accessing SQL from M-Files are different.</p>
+<div class="section" id="credentials-for-accessing-m-files-from-sql">
+<h2>Credentials for accessing M-Files from SQL<a class="headerlink" href="#credentials-for-accessing-m-files-from-sql" title="Permalink to this headline">¶</a></h2>
+<p>SQL use a standard M-Files Connection to login to M-Files.</p>
+<p>The Connector allows for both Specific Windows and M-Files authentication
+as a user.  We recommend the use of a dedicated M-Files authentication
+user with a distinct name such as <em>MFSQL</em> or <em>MFSQLConnect</em> as a named user license.  The name of the
+user will appear on all objects in M-Files that is updated or
+created.</p>
+<p>Assign administrator permissions in the vault to the user.</p>
+<p>The M-Files user for the connector must be assigned as a
+server-administrator in M-Files for the duration of the
+installation into the M-Files vault.  The installation of the
+vault applications will fail if the user does not have this
+required permissions.  The permissions of the installation user
+can be downgraded to a vault administrator when the
+installation is complete.</p>
+<p>The M-Files user is automatically configured in the database on installation of the package.  These details are maintained in the table MFVaultSettings. Re-running the installation package will automatically update the
+credentials. The connection settings can also be
+changed  in the <strong>MFVaultSettings</strong> table using the
+spmfSettingsForVaultUpdate procedure.</p>
+<p>The password is stored in the MFVaultSettings table in encrypted format.</p>
+</div>
+<div class="section" id="credentials-for-accessing-sql-from-m-files">
+<h2>Credentials for accessing SQL from M-Files<a class="headerlink" href="#credentials-for-accessing-sql-from-m-files" title="Permalink to this headline">¶</a></h2>
+<p>On installation the package automatically configure the authentication for acc</p>
+<p>It is required for the SQL server to be installed with mixed mode
+authentication to operate.</p>
+<p>The Context Menu functionality of the Connector uses an ODBC connection string for access to SQL operations from
+M-Files to SQL. A webservices API method is available for Cloud installation</p>
+<p>The connection method is configured in the M-Files Admin Configurator as part of the installation process. The password used in the configurator need to be reset in SQL before the connection from M-Files to SQL will be operational.</p>
+<p>The installation package automatically install and assign permissions
+for the SQL operations.  An SQL authentication login ‘MFSQLConnect’ is created and
+assumes the permissions assigned to the db_MFSQLConnect role in the database.</p>
+<p>Another user (including windows authentication users) can be added
+to the db_MFSQLConnect role to allow specific users to perform
+Connector tasks.</p>
+<p>The permissions delete, execute, insert, select and update are
+associated with the db_MFSQLConnect role for the schemas: dbo, Setup,
+custom, ContMenu.  Alter permission is applied to dbo and Custom
+schema.</p>
+</div>
+<div class="section" id="encryption-of-password-in-mfvaultsettings">
+<h2>Encryption of password in MFVaultSettings<a class="headerlink" href="#encryption-of-password-in-mfvaultsettings" title="Permalink to this headline">¶</a></h2>
+<p>The M-Files user credentials used for the Connector is stored in
+encrypted format using Microsoft cryptographic services. The  <strong>Secret-key encryption (symmetric
+cryptography).</strong> is used. Secret-key encryption algorithms use a single secret
+key to encrypt and decrypt data.</p>
+<p>Two procedures are provided with the Connector to encrypt and decrypt
+the passwords. You must secure these procedures from access by
+unauthorized agents, because any party that has these procedures can use
+it to decrypt the passwords in the Connector.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="schemas/index.html" class="btn btn-neutral float-right" title="Schemas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../licensing/index.html" class="btn btn-neutral float-left" title="Licensing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

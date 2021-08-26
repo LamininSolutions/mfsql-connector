@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MFAuditHistory &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MFAuthenticationType" href="tbMFAuthenticationType.html" />
+    <link rel="prev" title="Tables" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tables</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MFAuditHistory</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#columns">Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexes">Indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFAuthenticationType.html">MFAuthenticationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFChangeHistoryUpdateControl.html">MFObjectChangeHistoryUpdateControl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClass.html">MFClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFClassProperty.html">MFClassProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenu.html">MFContextMenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFContextMenuQueue.html">MFContextMenuQueue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDataType.html">MFDataType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFDeploymentDetail.html">MFDeploymentDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEmailTemplate.html">MFEmailTemplate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEmaillog.html">MFEmailLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFEventLog_OpenXML.html">MFEventLog_OpenXML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFExportFileHistory.html">MFExportFileHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFFileImport.html">MFFileImport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLog.html">MFLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFLoginAccount.html">MFLoginAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectChangeHistory.html">MFObjectChangeHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFObjectType.html">MFObjectType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatch.html">MFProcessBatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProcessBatchDetail.html">MFProcessBatchDetail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProperty.html">MFProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFProtocolType.html">MFProtocolType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFPublicLink.html">MFPublicLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFSearchLog.html">MFSearchLog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUpdateHistory.html">MFUpdateHistory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFUserAccount.html">MFUserAccount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFValueList.html">MFValueList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFValueListItems.html">MFValueListItems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflow.html">MFWorkflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFWorkflowState.html">MFWorkflowState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tbMFilesEvents.html">MFilesEvents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tables</a> &raquo;</li>
+        
+      <li>MFAuditHistory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mfaudithistory">
+<h1>MFAuditHistory<a class="headerlink" href="#mfaudithistory" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="columns">
+<h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>ID int (primarykey, not null)</dt><dd><p>identity int for records in the table</p>
+</dd>
+<dt>RecID int</dt><dd><p>the id of the record in the class table. if null then the record was not yet in the table when the session was processed</p>
+</dd>
+<dt>SessionID int</dt><dd><p>sequential number for the session. Each update for a specific class is regarded as a session. Only records that was updated/inserted show toe latest session id</p>
+</dd>
+<dt>TranDate datetime</dt><dd><p>date that the session was processed</p>
+</dd>
+<dt>ObjectType int</dt><dd><p>MFID of the ObjectType of the class</p>
+</dd>
+<dt>Class int</dt><dd><p>MFID of the Class</p>
+</dd>
+<dt>ObjID int</dt><dd><p>Objid of the record from the Objver of the object in M-Files</p>
+</dd>
+<dt>MFVersion smallint</dt><dd><p>the version from the Objver when the object was processed</p>
+</dd>
+<dt>StatusFlag smallint</dt><dd><p>the status flag integer is between 1 and 7</p>
+</dd>
+<dt>StatusName varchar(100)</dt><dd><p>Description of status</p>
+</dd>
+<dt>UpdateFlag int</dt><dd><p>this is the update status of spmfupdatetable when Flag spmfupdateitembyitem is processed</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="indexes">
+<h2>Indexes<a class="headerlink" href="#indexes" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>idx_AuditHistory_ObjType_ObjID</dt><dd><ul class="simple">
+<li><p>ObjectType</p></li>
+<li><p>ObjID</p></li>
+</ul>
+</dd>
+<dt>idx_AuditHistory_Class_Objid</dt><dd><ul class="simple">
+<li><p>Class</p></li>
+<li><p>ObjID</p></li>
+</ul>
+</dd>
+<dt>idx_AuditHistory_Class_StatusFlag</dt><dd><ul class="simple">
+<li><p>Class</p></li>
+<li><p>StatusFlag</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="additional-info">
+<h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>The status flag indicates:</dt><dd><ul class="simple">
+<li><p>0 the record MFversion in M-Files and SQL is identical Flag</p></li>
+<li><p>1 the record MFversion in M-Files is higher than SQL. This indicates a need for updating from Mfiles to SQL</p></li>
+<li><p>2 the SQL version is later than the M-Files version (usually signalling a syncronisation error)</p></li>
+<li><p>3 the record in SQL is flagged as deleted in SQL and does not exist in M-Files</p></li>
+<li><p>4 the record is not in M-Files and the record flag in SQL is not deleted. This usually indicate that the routine for deleting records have not yet been processed.</p></li>
+<li><p>5 when there is no record in SQL for an objver in M-Files. This usually indicate that the records was created in M-Files and that the update routine has not yet been run. This may indicate a need for updating from Mfiles to SQL Note that all templates in M-Files will also show as statusflag 5 as templates are not inserted into SQL. Execute spmfUpdateTable to move the template objects to statusflag 6.</p></li>
+<li><p>6 the Record is a template. This status flag is update by spmfUpdateTable.</p></li>
+<li><p>7 The record in SQL is marked as deleted but the record exist in M-Files (likely to have been undeleted.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Note that the records in this table is not automatically deleted. It is
+recommended that agent is used to delete old records in the table if
+they are no longer required.</p>
+<p>The following procedures do updates to this table
+- <a class="reference internal" href="../procedures/spMFTableAudit.html"><span class="doc">spMFTableAudit</span></a>
+- <a class="reference internal" href="../procedures/spMFObjectTypeUpdateClassIndex.html"><span class="doc">spMFObjectTypeUpdateClassIndex</span></a>
+- <a class="reference internal" href="../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a></p>
+<p>The following special views relate to this table
+- <a class="reference internal" href="../views/MFvwObjectTypeSummary.html"><span class="doc">MFvwObjectTypeSummary</span></a>
+- <a class="reference internal" href="../views/MFvwAuditSummary.html"><span class="doc">MFvwAuditSummary</span></a></p>
+</div>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 12%" />
+<col style="width: 75%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Date</p></td>
+<td><p>Author</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-09-02</p></td>
+<td><p>LC</p></td>
+<td><p>Add unique index objectype, class, objid</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-04-16</p></td>
+<td><p>LC</p></td>
+<td><p>Add index Class_StatusFlag</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-03-18</p></td>
+<td><p>LC</p></td>
+<td><p>Change name of index Class_Objid</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-09-07</p></td>
+<td><p>JC</p></td>
+<td><p>Added documentation</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-05-01</p></td>
+<td><p>DEV2</p></td>
+<td><p>Create Table</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tbMFAuthenticationType.html" class="btn btn-neutral float-right" title="MFAuthenticationType" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

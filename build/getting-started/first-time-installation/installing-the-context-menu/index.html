@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing the Context Menu &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration of connection string" href="../configuration-of-connection-string/index.html" />
+    <link rel="prev" title="Content Package installation" href="../content-package-installation/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../installation-overview/index.html">Installation Overview</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">First time installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../standard-new-installation/index.html">Standard New Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content-package-installation/index.html">Content Package installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Installing the Context Menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sql-connection-configuration">SQL Connection configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context-menu-access">Context Menu Access</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-m-files-client-settings">Update M-Files client settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context-menu">Context Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration-of-connection-string/index.html">Configuration of connection string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install-webapi/index.html">Installing the Web API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../database-file-connector-installation/index.html">Database file connector installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../using-agent-for-automated-updates/index.html">Using Agent for automated updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-powershell-utilities/index.html">Setup powershell utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install-package-with-logging/index.html">Install package with logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#installation-scenarios">Installation scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual-installation-using-scripts/index.html">Manual installation using scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing-management/index.html">Licensing Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../next-steps-after-installation/index.html">Next Steps after installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../next-steps-after-installation/index.html#using-example-scripts">Using example scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../update-settings/index.html">Update settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../setup-database/index.html">Set-up and working with Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../database-mail/index.html">Database Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#quick-steps-for-a-new-installation">Quick steps for a new installation.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Getting Started</a> &raquo;</li>
+        
+          <li><a href="../index.html">First time installation</a> &raquo;</li>
+        
+      <li>Installing the Context Menu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-the-context-menu">
+<h1>Installing the Context Menu<a class="headerlink" href="#installing-the-context-menu" title="Permalink to this headline">¶</a></h1>
+<p>The Context Menu functionality enables actioning a SQL Procedure from
+within M-Files:</p>
+<ul class="simple">
+<li><p>User selected action from a menu</p></li>
+<li><p>User selected context sensitive action from a menu</p></li>
+<li><p>Triggered by a workflow change</p></li>
+<li><p>Triggered by an event handler</p></li>
+</ul>
+<p>The installation and configuration of the context menu changed
+from version 4.3.9.48.  The configuration and setup prior to this
+version is not compatible with the new setup. Special attention is
+required for:</p>
+<ol class="arabic simple">
+<li><p>Configuration of the SQL Connection string</p></li>
+<li><p>Access security to the context menu</p></li>
+</ol>
+<p>The Context Menu requires several additional steps to complete the
+installation. Note that this installation must be done after MFSQL
+Connector package has been deployed.</p>
+<p>If an object type ‘MFSQL Connector’ is not present in your vault, then
+the Context Menu have not yet been installed.</p>
+<p>The following tables and procedures are installed when the MFSQL
+Connector is deployed:</p>
+<ul class="simple">
+<li><p>dbo.MFContextMenu:  This table contains the menu items displayed in
+the Context Menu. Note that this is an empty table. The menu items is
+added as part of your deployment.</p></li>
+<li><p>dbo.spMFGetContextMenu: This system procedure is used to by the vault
+application to action the items defined in the Context Menu.</p></li>
+</ul>
+<p>The Context Menu is dependent on the following Vault Application and UIX
+Application</p>
+<ul class="simple">
+<li><p>ContextMenuVaultApp - version 3.2.1.42 and later</p></li>
+<li><p>MFSQLContextMenuUIX - MFSQL Connector Vault App</p></li>
+</ul>
+<p>The installation and application of the Web API is optional. The Web API allows for the communication between M-Files and SQL server to be entirely secure web services based without the need for using ODBC. This is specifically targeted for installations where the M-Files server is not in the same network as the SQL server, such as M-Files in the cloud.</p>
+<p>The installation of the context menu provides the framework to operate
+the context menu. The individual menu items and procedures to execute is
+described in the deployment of the context as set out in <a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The installation folder contains the content package and vault applications required by the Context Menu.</p>
+<p>The installation package will automatically install these components,
+however, these components can be installed manually.  Follow the M-Files
+documentation for instructions on performing content package imports and
+application installations.</p>
+<p>Restart the vault after installation of the applications.</p>
+</div>
+<div class="section" id="sql-connection-configuration">
+<h2>SQL Connection configuration<a class="headerlink" href="#sql-connection-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The operations for the context menu is dependent on access to SQL using either an ODBC connection or a Web API connection. Check the configuration of the <a class="reference internal" href="../configuration-of-connection-string/index.html"><span class="doc">Configuration of connection string</span></a></p>
+</div>
+<div class="section" id="context-menu-access">
+<h2>Context Menu Access<a class="headerlink" href="#context-menu-access" title="Permalink to this headline">¶</a></h2>
+<p>Showing the action button to select the context menu is dependent on the
+users or usergroups specified in the ContextMenu Usergroup.</p>
+<p>Individual actions are shown in the context menu for users / user groups
+set in the MFContextMenu table MFUserGroupID column.</p>
+<p>The default installation set ‘ContextMenu’ as the user group.
+The users or usergroups for this group must be set for the context menu to be accessible.</p>
+</div>
+<div class="section" id="update-m-files-client-settings">
+<h2>Update M-Files client settings<a class="headerlink" href="#update-m-files-client-settings" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Log into M-Files to get access to the context menu.</p></li>
+<li><p>Validate that the following action menu is available in the task
+bar:</p></li>
+</ol>
+</div>
+<div class="section" id="context-menu">
+<h2>Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this headline">¶</a></h2>
+<p>When testing the MFSQL Connector Context after initial installation the
+following should be displayed:</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The next steps to prepare or use the context menu are explained in detail in <a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a></p>
+<ol class="arabic simple">
+<li><p>Insert records in MFContextMenu table to control the menu</p></li>
+<li><p>Create procedures to control the actions:</p></li>
+<li><p>Update workflow state actions to call state action procedures.</p></li>
+<li><p>Prepare user messages if required.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../configuration-of-connection-string/index.html" class="btn btn-neutral float-right" title="Configuration of connection string" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../content-package-installation/index.html" class="btn btn-neutral float-left" title="Content Package installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

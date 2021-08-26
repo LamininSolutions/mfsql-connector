@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Connector Database &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Using CLR" href="use-of-clr/index.html" />
+    <link rel="prev" title="Code On Time" href="../connector-content/supporting-applications/code-on-time/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">The Connector Framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../architecture/index.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../connector-content/index.html">Connector Content</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Connector Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html">Using CLR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="m-files-api-version-and-clr-assembly-update/index.html">M-Files API version and CLR Assembly update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#size">Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-security">Access Security</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enabling-the-database">Enabling the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing/index.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security/index.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">The Connector Framework</a> &raquo;</li>
+        
+      <li>Connector Database</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="connector-database">
+<h1>Connector Database<a class="headerlink" href="#connector-database" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="use-of-clr/index.html">Using CLR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="use-of-clr/index.html#architecture-of-clr-integration">Architecture of CLR Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#reliability-safety">Reliability (Safety)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#scalability">Scalability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#type-safety-verification">Type safety verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#application-domains">Application domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#code-access-security-cas">Code Access Security(CAS)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="use-of-clr/index.html#application-of-clr-in-store-procedures">Application of CLR in store procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-of-clr/index.html#benefits-of-using-clr">Benefits of using CLR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-of-clr/index.html#securing-the-use-of-clr">Securing the use of CLR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="use-of-clr/index.html#clr-integration-security">CLR Integration Security</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="m-files-api-version-and-clr-assembly-update/index.html">M-Files API version and CLR Assembly update</a></li>
+</ul>
+</div>
+<p>The Connector requires a SQL Server database that has a one to one relationship with a vault</p>
+<p>The database is automatically installed by the installation package. This database is completely separate from the M-Files own databases (either SQL or Firebird)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The connector should NEVER be installed into the M-Files Vault SQL database. Contact support if the deployment waa accidentally pointed to the vault database.</p>
+</div>
+<p>The Database will exclusively be used for the Connector and only contain one vault. Name the database to include easy reference to both connector and Vault.  We Recommend the naming convention ‘MFSQL_VaultName’</p>
+<div class="section" id="size">
+<h2>Size<a class="headerlink" href="#size" title="Permalink to this headline">¶</a></h2>
+<p>This database will contain a replica of the metadata structure of the specific M-Files Vault. These tables are generally small. It will also have all the class tables that is applied in the special application. The number of tables and record volume depends on the special application but is generally not very large.  The size of these tables will depend on usage and the number of records in the classes.  Note that these tables does not include file content which further restricts the size of tables.</p>
+<p>The largest tables in the database is likely to be the logging tables and class tables.</p>
+<p>When sizing and monitoring the growth of the database it is important to note the log files.  MFUpdateHistory in particular is likely to grow substantially, especially with high transaction volumes between M-Files and SQL. this table contains XML records of every update.</p>
+</div>
+<div class="section" id="access-security">
+<h2>Access Security<a class="headerlink" href="#access-security" title="Permalink to this headline">¶</a></h2>
+<p>The connector requires a login account that can access the database. The following rights should be granted to the user: execute for all store procedures in the database; create, update, delete tables and views in the database. Note that the installation will assign a default user and role and set the permissions. This can be changed if required.  Consult the security section regarding the security settings.</p>
+</div>
+</div>
+<div class="section" id="enabling-the-database">
+<h1>Enabling the database<a class="headerlink" href="#enabling-the-database" title="Permalink to this headline">¶</a></h1>
+<p>The installation routine will automatically enable the database for the <a class="reference internal" href="use-of-clr/index.html"><span class="doc">Using CLR</span></a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use-of-clr/index.html" class="btn btn-neutral float-right" title="Using CLR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../connector-content/supporting-applications/code-on-time/index.html" class="btn btn-neutral float-left" title="Code On Time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

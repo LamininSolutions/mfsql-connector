@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with files &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Working with aliases" href="../working-with-aliases/index.html" />
+    <link rel="prev" title="Send Bulk Email" href="../send-bulk-email/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#importing-files-from-explorer">Importing files from explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extend-importing-files-capability">Extend importing files capability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-of-files">Exporting of files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-of-preparing-to-export-of-files">Example of preparing to export of Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-and-managing-logs/index.html">Using and managing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+      <li>Working with files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-files">
+<h1>Working with files<a class="headerlink" href="#working-with-files" title="Permalink to this headline">¶</a></h1>
+<p>The connector provides a number of different ways to work with the file
+documents in M-Files.</p>
+<ol class="arabic simple">
+<li><p>The primary focus of the connector is to work with the <strong>metadata
+related to the files</strong>.  The class table has the following columns
+specifically related to files.</p>
+<ol class="arabic simple">
+<li><p>SingleFile:  this column show if the object is a single or
+multi-file object.</p></li>
+<li><p>FileCount: This column show the number of files in the multi-file
+object</p></li>
+</ol>
+</li>
+<li><p><strong>Export of files from M-Files</strong>:  Export files from any class table
+to a designated folder on the SQL server.  The MFExportFileHistory
+table references the exported files to allow for further processing
+such as using the files as an attachment to an email.  This
+functionality can be used to export files to explorer to create an
+extract of all the files in the vault.</p></li>
+<li><p>I<strong>mport files into M-Files</strong> from another database where the files
+are stored as blob.</p></li>
+<li><p><strong>Show and search for files in M-Files</strong> where the files are located
+in another database using the IML connector capability.</p></li>
+</ol>
+<div class="section" id="importing-files-from-explorer">
+<h2>Importing files from explorer<a class="headerlink" href="#importing-files-from-explorer" title="Permalink to this headline">¶</a></h2>
+<p>The new procedure <a class="reference internal" href="../../procedures/spMFUpdateExplorerFileToMFiles.html"><span class="doc">spMFUpdateExplorerFileToMFiles</span></a>
+allows for importing a file or files from explorer into M-Files. In
+simple terms an explorer file is matched with the record in the class
+table and imported into M-Files.</p>
+<ul class="simple">
+<li><p>The object can be created in M-Files using MFSQL Connector at the
+same time as importing the file.</p></li>
+<li><p>If another file is added to a single file object, it would
+automatically be converted to a multifile document</p></li>
+<li><p>The file in M-Files will be overwritten If the file already exists
+for the specific object</p></li>
+</ul>
+<p>The following is required to make it all fit together:</p>
+<ul class="simple">
+<li><p>The location of the file</p></li>
+<li><p>The name of the file</p></li>
+<li><p>The destination class table</p></li>
+<li><p>The SQL id of the record in the class table to attach the file to.</p></li>
+</ul>
+<p>The table MFFileImport show a history of the importing of files.</p>
+<p>Refresh M-Files view or the object F5 after running procedure to show
+the updated object</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">FileLocation</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;C:\Share\Fileimport\2\&#39;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">FileName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;CV - Tommy Hart.docx&#39;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">TableName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFOtherDocument&#39;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">SQLID</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+ <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateExplorerFileToMFiles</span><span class="p">]</span>
+ <span class="o">@</span><span class="n">FileName</span> <span class="o">=</span> <span class="o">@</span><span class="n">FileName</span>
+ <span class="p">,</span><span class="o">@</span><span class="n">FileLocation</span> <span class="o">=</span> <span class="o">@</span><span class="n">FileLocation</span>
+ <span class="p">,</span><span class="o">@</span><span class="n">SQLID</span> <span class="o">=</span> <span class="o">@</span><span class="n">SQLID</span>
+ <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span>
+ <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+ <span class="p">,</span><span class="o">@</span><span class="n">IsFileDelete</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFFileImport</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfi</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In some cases the name of the file and location of the file is derived
+from another database.</p>
+<p>Contact us if you would like to know more about using a powershell
+utility to import the file names and folder locations of the files into
+SQL as a preparatory step to match the files to the objects in the class
+table.</p>
+</div>
+<div class="section" id="extend-importing-files-capability">
+<h2>Extend importing files capability<a class="headerlink" href="#extend-importing-files-capability" title="Permalink to this headline">¶</a></h2>
+<p>The Importing of files using spMFUpdateExplorerFileToMFiles will list
+all the files imported, or rejected in the MFMfileImport table. The
+results of each file import is shown in the column ImportError.</p>
+</div>
+<div class="section" id="exporting-of-files">
+<h2>Exporting of files<a class="headerlink" href="#exporting-of-files" title="Permalink to this headline">¶</a></h2>
+<p>Exporting files with <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> from
+M-Files allows for extracting files, and information about the files from M-Files into explorer and SQL.  An object in M-Files, including its properties, could have none or multiple files each with its own properties. This capability allows for access these files and properties.</p>
+<p>The functionality is designed to address different types of use cases.</p>
+<p>Some of these use cases include:</p>
+<ul class="simple">
+<li><p>Get a file from M-Files and attach it to a database email, and therefore send bulk emails with attachments.</p></li>
+<li><p>Move files from one object type to another.</p></li>
+<li><p>Move objects from a non document Object type class  to a document type class.  This is particularly useful because one cannot change the class of a non-document object type to a document type class in the user interface.</p></li>
+<li><p>Get all the files related to a specific project, customer or event in explorer.</p></li>
+<li><p>Compare the versions of files on a checksum level with the same files outside of M-Files. (this use case stems from the need to legally prove that the files in M-Files did not change when compared with the originating files in explorer)</p></li>
+<li><p>Export files from M-Files when M-Files are no longer used.</p></li>
+</ul>
+<p>In principal this capability centers around matching metadata of objects in a class with the files in the object and making the information related to the objects, and the actual files available outside M-Files.  The related information in SQL is in the class table and <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>.  The files, if downloaded, is in explorer in the folders specified in the parameters.  Some of the use cases will require additional custom procedures or steps to complete the functional process of the use case. The output of this exporting procedure is however a fundamental building block in the process.</p>
+<div class="section" id="example-of-preparing-to-export-of-files">
+<h3>Example of preparing to export of Files<a class="headerlink" href="#example-of-preparing-to-export-of-files" title="Permalink to this headline">¶</a></h3>
+<p>This example use the Sales Invoice class</p>
+<p>Step 1 - create class table, review setup for export destinations.  The Root folder is set in the MFSettings table.  The base folder for the class is set in the MFClass table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">EXEC</span> <span class="n">spmfcreatetable</span> <span class="s1">&#39;Sales Invoice&#39;</span> <span class="c1">--create table</span>
+ <span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span><span class="mi">1</span>  <span class="c1">--update table</span>
+
+ <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mfsalesinvoice</span> <span class="c1">---review objects in table</span>
+
+ <span class="k">Update</span> <span class="n">mc</span>  <span class="c1">-- update Class table to set a custom folder for sales invoices</span>
+ <span class="k">SET</span> <span class="n">FileExportFolder</span> <span class="o">=</span> <span class="s1">&#39;SalesInvoices&#39;</span>
+ <span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span> <span class="k">WHERE</span> <span class="n">tablename</span> <span class="o">=</span> <span class="s1">&#39;MFSalesInvoice&#39;</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mfsettings</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;RootFolder&#39;</span>  <span class="c1">-- review Root folder: all files will be exported to C:\MFSQL\FileExport\ on the SQL server</span>
+</pre></div>
+</div>
+<p>Step 2 - Select the objects to be included in the export.  this could be for a single row, or the whole table.  Note that the column FileCount show if the object have none, or multiple files.  The Column Single_File indicate if the object is a multi document object or not.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">MFSalesInvoice</span> <span class="c1">--mark records for files to be exported by setting the process_id column</span>
+<span class="k">SET</span> <span class="n">process_Id</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">WHERE</span> <span class="n">filecount</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1">--use filters to select the appropriate records.</span>
+</pre></div>
+</div>
+<p>Step 3 - determine the settings for the parameters.  Refer to <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> for more detail about the parameters</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFExportFiles</span><span class="p">]</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">PathProperty_L1</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">PathProperty_L2</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">PathProperty_L3</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">IncludeDocID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">Process_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Step 4 - Review the result. <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>  show the output of the process. If &#64;IsDownload = 1 then the files should be in the explorer folders</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFExportFileHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mefh</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../working-with-aliases/index.html" class="btn btn-neutral float-right" title="Working with aliases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../send-bulk-email/index.html" class="btn btn-neutral float-left" title="Send Bulk Email" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

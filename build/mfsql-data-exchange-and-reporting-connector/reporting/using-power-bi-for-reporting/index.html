@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Power BI for reporting &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="MFSQL Database File Connector" href="../../../mfsql-database-file-connector/index.html" />
+    <link rel="prev" title="Reporting : using setup_Reporting" href="../setup-reporting/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MFSQL Data Exchange and reporting Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-metadata/index.html">Working with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-class-tables/index.html">Working with Class Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../m-files-event-log/index.html">M-Files event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using-the-context-menu/index.html">Using the Context Menu</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Reporting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../reporting-getting-started/index.html">Reporting - getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-reporting/index.html">Reporting : using setup_Reporting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Power BI for reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#m-files-external-connectors">M-Files External Connectors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">MFSQL Data Exchange and reporting Connector</a> &raquo;</li>
+        
+          <li><a href="../index.html">Reporting</a> &raquo;</li>
+        
+      <li>Using Power BI for reporting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-power-bi-for-reporting">
+<h1>Using Power BI for reporting<a class="headerlink" href="#using-power-bi-for-reporting" title="Permalink to this headline">¶</a></h1>
+<p>In this use case we demonstrate how Power BI is connected to a Connector
+class table or view.</p>
+<p>Enabling the Connector for Power BI has a few steps to prepare the data.
+Once the data is prepared one need to consider the frequency or trigger
+for updating the data. Connecting Power BI with the data comes next and
+finally one need to consider how the user will trigger the report..</p>
+<p>After installing the data exchange module of the Connector and
+refreshing the metadata structure, the first step is to decide on the
+data source for the report. All the related classes are then created
+using spMFCreateTable.</p>
+<p>In our example we would like to create a report on value of invoices
+from customers by customer region. The value and date of invoices is in
+the invoice class table. The name of the customer is on the invoice,
+however, we also need the region of the customer found on the customer
+class. We therefore need to create class tables for both sales invoices
+and customers</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- check the classes</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+
+<span class="c1">--create class tables</span>
+<span class="k">EXEC</span> <span class="n">spmfcreatetable</span> <span class="s1">&#39;Customer&#39;</span>
+<span class="k">EXEC</span> <span class="n">spmfcreatetable</span> <span class="s1">&#39;Sales Invoice&#39;</span>
+
+<span class="c1">--VIEW the created tables</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MFCustomer</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MFSalesInvoice</span>
+</pre></div>
+</div>
+<p>The newly created tables does not have data in (yet). Assess the number
+of records in the classes before starting the update process. Less than
+10 000 records requires no special consideration. Updating records would
+average at between 8 and 20 records per second. Plan around updating
+larger quantities of records and make use of batching (see example
+scripts) of the updates.</p>
+<p>Once the volume of data and plan for data take-on is established, the
+process can be started.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Note the way the class tables display both id and the label in the case
+of lookups. This applies to both valuelists (e.g. country) and Customer
+(object type). This implies there is no need to do a join on the class
+table to get the name of the country. Or a summary of invoices by
+customer does not require a join with the customer table. The Connector
+tables are significantly easier to use for reporting that fully
+normalised data tables which will require many more joins to make.</p>
+<p>The next step is to create a view to drive the report.</p>
+<p>In our case we do need to join the sales table with the customer table
+because the region (country) is not available on the sales invoices.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="n">custom</span><span class="p">.</span><span class="n">PBI_TotalSalesByRegion</span>
+<span class="k">AS</span>
+
+<span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">Total</span><span class="p">)</span> <span class="k">AS</span> <span class="n">Total</span><span class="p">,</span> <span class="n">Customer</span><span class="p">,</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">Country</span><span class="p">]</span>
+<span class="k">FROM</span> <span class="n">MFSalesInvoice</span> <span class="n">si</span>
+<span class="k">CROSS</span> <span class="n">APPLY</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">](</span><span class="n">Customer_ID</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFCustomer</span> <span class="n">mc</span>
+<span class="k">ON</span> <span class="n">mc</span><span class="p">.</span><span class="n">objid</span> <span class="o">=</span> <span class="n">fmpds</span><span class="p">.[</span><span class="n">ListItem</span><span class="p">]</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">Customer</span><span class="p">,</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">Country</span><span class="p">]</span>
+
+<span class="k">GO</span>
+</pre></div>
+</div>
+<p>Note the use of a cross apply to deal with the multilookup of the
+customers on the invoice table.</p>
+<p><img alt="image0" src="../../../_images/img_113.jpg" /></p>
+<p>With the data prepared for the report, we can switch to connecting the
+table with Power BI. In our example we are using Power BI desktop
+edition.</p>
+<p>After installing Power BI one can point to Get Data option to the SQL
+Server. One can either point directly to the table, or to the view.</p>
+<p><img alt="image1" src="../../../_images/img_211.jpg" /></p>
+<p>The report is designed and published in Power BI</p>
+<p><img alt="image2" src="../../../_images/img_35.jpg" /></p>
+<p>The final step is to consider how the data for the report will be
+refreshed.</p>
+<p>Doing nothing else will result in the a scenario where any updates or
+changes in M-Files does not flow through to the report. Triggering the
+update has various options depending on the timeframe of updates to
+become available. Consider the balance of reducing the timeframe,
+increasing the automation, and optimising the performance of the
+query/procedure when selecting the appropriate option. Consult other
+blogs which goes into more depth on configuring the options. In short
+the options are</p>
+<ul class="simple">
+<li><p>Add the update as part of a scheduled agent job in SQL. The update
+frequency is determined by the agent schedule.</p></li>
+<li><p>Add the update as part of the context menu action (state change,
+event handler, menu option) - this option is not available in M-Files
+cloud</p></li>
+<li><p>Include the update in a procedure also producing the data table as an
+output. Use Direct Query in Power BI as the data source.</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../mfsql-database-file-connector/index.html" class="btn btn-neutral float-right" title="MFSQL Database File Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../setup-reporting/index.html" class="btn btn-neutral float-left" title="Reporting : using setup_Reporting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

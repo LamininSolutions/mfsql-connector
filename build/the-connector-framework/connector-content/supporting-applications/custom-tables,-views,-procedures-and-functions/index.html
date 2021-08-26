@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom tables, views, procedures and functions &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Code On Time" href="../code-on-time/index.html" />
+    <link rel="prev" title="Supporting Applications" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">The Connector Framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Connector Content</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../assemblies/index.html">Assemblies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../metadata-structure-tables/index.html">Metadata Structure Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../class-tables/index.html">Class tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../utility-tables/index.html">Utility Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../procedures-and-functions/index.html">Procedures and Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../m-files-installation/index.html">M-Files Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../context-menu/index.html">Context Menu</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Supporting Applications</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Custom tables, views, procedures and functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../code-on-time/index.html">Code On Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../index.html#content">Content</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../connector-database/index.html">Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../connector-database/index.html#enabling-the-database">Enabling the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../licensing/index.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../security/index.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">The Connector Framework</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Connector Content</a> &raquo;</li>
+        
+          <li><a href="../index.html">Supporting Applications</a> &raquo;</li>
+        
+      <li>Custom tables, views, procedures and functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="custom-tables-views-procedures-and-functions">
+<h1>Custom tables, views, procedures and functions<a class="headerlink" href="#custom-tables-views-procedures-and-functions" title="Permalink to this headline">¶</a></h1>
+<p>The Connector allows adding additional tables to the Database for
+add-hoc or application use. It is recommended that these tables follow a
+different naming convention to the Connector tables for easy
+identification. We suggest that custom tables, procedures, views and
+functions all use the ‘custom’ schema.  We also recommend to script all
+custom changes and to save the changes as re-executable files. This will
+all for the easy restore and rebuild of any custom development.</p>
+<p>Example of a re-executable procedure script.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>PRINT SPACE(5) + QUOTENAME(@@SERVERNAME) + &#39;.&#39; + QUOTENAME(DB_NAME())
++ &#39;.[custom].[DoAccountDocumentUpsert]&#39;;
+GO
+
+/*------------------------------------------------------------------------------------------------
+Author:
+Create date:
+Database:
+Description:
+
+PARAMETERS:
+------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------
+MODIFICATION HISTORY
+====================
+DATE NAME DESCRIPTION
+------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------
+USAGE:
+=====
+EXEC [custom].DoAccountDocumentUpsert @withupdate = 1, @debug = 0
+
+
+-----------------------------------------------------------------------------------------------*/
+IF EXISTS
+(
+SELECT 1
+FROM [INFORMATION_SCHEMA].[ROUTINES]
+WHERE [ROUTINE_NAME] = &#39;DoAccountDocumentUpsert&#39; --name of procedure
+AND [ROUTINE_TYPE] = &#39;PROCEDURE&#39; --for a function --&#39;FUNCTION&#39;
+AND [ROUTINE_SCHEMA] = &#39;custom&#39;
+)
+BEGIN
+PRINT SPACE(10) + &#39;...Stored Procedure: update&#39;;
+SET NOEXEC ON;
+END;
+ELSE
+PRINT SPACE(10) + &#39;...Stored Procedure: create&#39;;
+GO
+
+-- if the routine exists this stub creation stem is parsed but not
+executed
+CREATE PROCEDURE [Custom].[DoAccountDocumentUpsert]
+AS
+SELECT &#39;created, but not implemented yet.&#39;;
+--just anything will do
+
+GO
+-- the following section will be always executed
+SET NOEXEC OFF;
+GO
+ALTER PROCEDURE [Custom].[DoAccountDocumentUpsert]
+(your params)
+
+as
+
+Begin
+
+Your procedure
+
+End
+
+Go
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../code-on-time/index.html" class="btn btn-neutral float-right" title="Code On Time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Supporting Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
