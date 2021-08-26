@@ -39,6 +39,11 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
+4.9.27.71 not yet published
+~~~~~~~~~
+
+#. Add parameter to spMFUpdateItembyItem to deleted objects
+
 4.9.27.70
 ~~~~~~~~~
 
@@ -52,7 +57,7 @@ Each procedure, table or function contains there own change control section. See
 #. Resolve unwanted output in spMFExportFiles
 #. Improve documentation for spMFDropandUpdateTable
 #. Change datatype of varchar to nvarchar in table  MFFileImport
-#. Improve control when version could not be found in spMFCheckandUpdateAssemblyVersions 
+#. Improve control when version could not be found in spMFCheckandUpdateAssemblyVersions
 
 Database File MFSQLConnector 4.2.1.2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
