@@ -99,6 +99,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-08-25  LC         add output to the processbatch_id parameter
 2021-05-03  LC         Fix bug to include first record of each batch
 2020-09-24  LC         Set updatetable objids to include unmatched versions
 2020-09-23  LC         Fix batch size calculation

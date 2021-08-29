@@ -131,6 +131,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-08-25  LC         Resolve bug with null count
 2021-02-26  LC         Fix issue with duration
 2019-08-30  JC         Added documentation
 2018-12-02  LC         Fix bug for returning more than one result in query
