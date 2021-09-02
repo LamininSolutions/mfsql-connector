@@ -1,15 +1,15 @@
-dist: xenial
-language: python
-python:
-    - "3.7"
+#dist: xenial
+#language: python
+#python:
+#    - "3.7"
 
-install:
+#install:
 #    - pip install travis-sphinx sphinx-rtd-theme
 
-script:
-    - git clone https://github.com/LamininSolutions/connector
-    - find connector -name '*.sql' -exec python doc_extractor.py {} \;
+#script:
+#    - git clone https://github.com/LamininSolutions/connector
+#    - find connector -name '*.sql' -exec python doc_extractor.py {} \;
 #    - travis-sphinx build --source=./source
 
-after_success:
+#after_success:
 #    travis-sphinx deploy
