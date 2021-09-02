@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utility Tables &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Logging Tables" href="../logging-tables/index.html" />
+    <link rel="prev" title="Class tables" href="../class-tables/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">The Connector Framework</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../architecture/index.html">Architecture</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Connector Content</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../assemblies/index.html">Assemblies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../metadata-structure-tables/index.html">Metadata Structure Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../class-tables/index.html">Class tables</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Utility Tables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mfdatatype">MFDataType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mfdeploymentdetail">MFDeploymentDetail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mfsettings">MFSettings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mfprocess-table">MFProcess table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../procedures-and-functions/index.html">Procedures and Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../m-files-installation/index.html">M-Files Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../context-menu/index.html">Context Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../supporting-applications/index.html">Supporting Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../connector-database/index.html">Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../connector-database/index.html#enabling-the-database">Enabling the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing/index.html">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../security/index.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">The Connector Framework</a> &raquo;</li>
+        
+          <li><a href="../index.html">Connector Content</a> &raquo;</li>
+        
+      <li>Utility Tables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utility-tables">
+<h1>Utility Tables<a class="headerlink" href="#utility-tables" title="Permalink to this headline">¶</a></h1>
+<p>A number of special tables is included in the Connector. The use and columns of these tables are described in the following sections</p>
+<p>MFDataType</p>
+<p>MFDataTypes are used by the Connector to convert the M-Files datatypes
+to SQL datatypes. This table should not be changed as it will make the
+assemblies inoperable.</p>
+<p>MFDeploymentDetail</p>
+<p>Used to store the deployment details</p>
+<p>MFSettings</p>
+<p>Used to store the connection details to the Connector Database and other
+settings</p>
+<p>MFVaultSettings</p>
+<p>Used to store the connection details to the M-Files Vault</p>
+<p>MFProcess</p>
+<p>Include the process id and description of the process.</p>
+<div class="section" id="mfdatatype">
+<h2>MFDataType<a class="headerlink" href="#mfdatatype" title="Permalink to this headline">¶</a></h2>
+<p>The MFDataType table allows for converting between the M-Files DataType
+definitions and SQL datatype definitions. This table is used with
+spMFCreateTable to set the columns of the class table.</p>
+<p>Note that the ‘Time’ datatype in M-Files converts a varchar value
+to a valid time in M-Files. The input value in SQL for a time
+based column must be a string of the format nn:nn using the 24
+hour time format.  hours and minutes outside 1-24 and 0-59 will
+result in a M-Files datatype error.</p>
+</div>
+<div class="section" id="mfdeploymentdetail">
+<h2>MFDeploymentDetail<a class="headerlink" href="#mfdeploymentdetail" title="Permalink to this headline">¶</a></h2>
+<p>The MFdeploymentDetail table is maintained by the Connector and show the
+latest version of the Connector that is deployed in the database.</p>
+</div>
+<div class="section" id="mfsettings">
+<h2>MFSettings<a class="headerlink" href="#mfsettings" title="Permalink to this headline">¶</a></h2>
+<p>The Settings Table defines key settings that is used by the Connector.
+It can also be used for other settings required in the application as
+long as the structure of the table is not changed and the minimum
+requirements for the Connector is met.</p>
+<p>The table is used for the M-Files user and vault settings for the
+Connector as outlined in the security section.</p>
+<p>When use encrypt and decrypt procedures when the M-Files password is
+updated in the settings table as described in the CLR integrated
+security section</p>
+<p>The table is also used for the email settings used by the Connector as
+described in the error management section</p>
+<p>Enable the SQL instance for Email Management and create email profile
+for the Connector.  This email profile must be updated in the value
+column of the setting SupportEMailProfile.</p>
+</div>
+<div class="section" id="mfprocess-table">
+<h2>MFProcess table<a class="headerlink" href="#mfprocess-table" title="Permalink to this headline">¶</a></h2>
+<p>Several process_IDs are used as a standard by the Connector to indicate
+the status of a record in the ClassTable for processing. These IDs are
+defined in the Process table. The following process_id are predefined
+and must be retained in the settings table. Additional processes that is
+application specific may be added to the table.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../logging-tables/index.html" class="btn btn-neutral float-right" title="Logging Tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../class-tables/index.html" class="btn btn-neutral float-left" title="Class tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

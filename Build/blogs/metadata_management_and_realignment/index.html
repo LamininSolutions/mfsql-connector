@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Metadata Management and Realignment Case Study &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Moving documents from one class to another" href="../moving-documents-from-one-class-to-another/index.html" />
+    <link rel="prev" title="Metadata Management and data cleansing" href="../metadata-management/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-deleted-records/index.html">Considerations for deleted records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-objectchangehistory/index.html">Working with object change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-to-know-mfsql-connector/index.html">Getting to know MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Metadata Management and Realignment Case Study</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-what-is-in-m-files">Understanding what is in M-Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-and-analyzing-the-data-sources">Comparing and analyzing the data sources</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-schemas">Using schemas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lookup-views">Lookup views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#joining-class-tables">Joining class tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#identifying-duplicates">Identifying duplicates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#expand-multi-lookup-property-columns">Expand multi lookup property columns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#making-configuration-changes-to-m-files">Making configuration changes to M-Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#resetting-metadata-structure">Resetting metadata structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#making-configuration-changes-from-sql">Making configuration changes from SQL</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-the-class-tables">Updating the class tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-m-files-with-the-results">Updating M-Files with the results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../near-real-time-reporting/index.html">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Metadata Management and Realignment Case Study</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata-management-and-realignment-case-study">
+<h1>Metadata Management and Realignment Case Study<a class="headerlink" href="#metadata-management-and-realignment-case-study" title="Permalink to this headline">¶</a></h1>
+<p>Brown MacFarlane, a steel merchant, selected MFSQL Connector for their integration between M-Files and Navision. Part of the project was to migrate and align the data from their previous ERP system with Navision and M-Files.</p>
+<p>Navision is used for order management, inventory control and customer and supplier control. M-Files is used for advanced control of the related inventory certificates, and document control
+around all the ERP processes.  Some business processes originates in Navision with M-Files being dependent on the data from Navision, and
+other cases such as confirmation of certificates Navision is dependent on the data that originates from M-Files.</p>
+<p>The deployment of Navision involved updating supplier and inventory data directly from Navision with the MFSQL class tables, which
+in turn updates M-Files.  The certification of inventory, processed in M-Files is continuously updated in SQL using MFSQL procedures.  This
+data becomes available to Navision using extended views and query facilities in SQL to validate availability of inventory and supporting
+certification documents.</p>
+<p>The Metadata management and alignment in M-Files focused primarily to transform the data originating from the previous ERP and fixing omissions and errors.</p>
+<p>This process relied heavily on the power of SQL to compare, align, transform and update several sources and destinations of data tables.  MFSQL Connector built in tools and capabilities significantly reduced to time to prepare for and perform the metadata extract and alignment, and subsequently updating of the tabled data to and from M-Files.</p>
+<p>Metadata re-alignment during the course of the analysis and design of the integration played a part in the project. This case study highlights some of the procedure, methods and approaches applied during this project.</p>
+<p>In essence data from an old stock management and ERP system was transformed to fit into the requirements of Navision.  At the same time, the data already in M-Files from the old ERP system had to be transformed to align with the new requirements. New data had to be taken on and the metadata of the files had to align to ensure that users will find the right files when working in Navision. Navision was modified to allow for a custom search and display of the related files.</p>
+<p>To achieve this, and in depth analysis of the structures in M-Files and both external systems had to be undertaken.  Thereafter the rows and columns of every related table was compared, analysed and normalised.  The new structures and changes of existing structured where applied to M-Files. Subsequently the existing data in M-Files where updated with the new structures. All of this laid the foundation for the new procedures to have a continuous update of Navision from M-Files and pull from Navision into M-Files.</p>
+<p>The following sections describe in more detail how different capabilities of MFSQL Connector were deployed to support this metadata realignment project.</p>
+<div class="section" id="understanding-what-is-in-m-files">
+<h2>Understanding what is in M-Files<a class="headerlink" href="#understanding-what-is-in-m-files" title="Permalink to this headline">¶</a></h2>
+<p>The following procedures and views was used the understand the metadata structure in M-Files</p>
+<p>Fetch an overview of class objects in the entire vault with <a class="reference internal" href="../../procedures/spMFObjectTypeUpdateClassIndex.html"><span class="doc">spMFObjectTypeUpdateClassIndex</span></a> and show the results with the view <a class="reference internal" href="../../views/MFvwObjectTypeSummary.html"><span class="doc">MFvwObjectTypeSummary</span></a></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFObjectTypeUpdateClassIndex</span> <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFvwObjectTypeSummary</span>
+</pre></div>
+</div>
+<p><img alt="image0" src="../../_images/image_0.png" /></p>
+<p>The volume of class data and the highest objid for each class can be determined from this table.  The underlying data is in the MFAuditHistory table.</p>
+<p>Next step is to update the metadata structure with <a class="reference internal" href="../../procedures/spMFDropAndUpdateMetadata.html"><span class="doc">spMFDropAndUpdateMetadata</span></a> and survey the use of properties and classes in the vault with the view <a class="reference internal" href="../../views/MFvwMetadataStructure.html"><span class="doc">MFvwMetadataStructure</span></a>. This view is a window into the structure for a number of angles:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Properties by class</p></li>
+<li><p>Use of a property across all classes</p></li>
+<li><p>Properties/Classes/Workflow/Valuelist with no aliases</p></li>
+<li><p>Identifying duplicate aliases</p></li>
+<li><p>Classes by Object type</p></li>
+<li><p>Classes with required workflows</p></li>
+<li><p>Properties and class used with an ownership relation</p></li>
+</ul>
+<p>Examples of the select statement for the view are below.</p>
+<p>The main aim for this exploration is to identify all the classes and properties to be included in the survey.</p>
+</div></blockquote>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span>
+
+<span class="k">SELECT</span> <span class="n">Property</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="k">class</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
+<span class="k">Select</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">Property</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
+<span class="k">SELECT</span> <span class="k">distinct</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">ObjectType</span> <span class="o">=</span> <span class="s1">&#39;Document&#39;</span>
+<span class="k">SELECT</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">WHERE</span> <span class="n">Workflow_MFID</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
+<span class="k">SELECT</span> <span class="n">Property</span><span class="p">,</span> <span class="k">class</span><span class="p">,</span>  <span class="n">Valuelist_Owner</span><span class="p">,</span><span class="n">IsObjectType</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">Valuelist_Owner</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
+</pre></div>
+</div>
+<p>Next, update the includedInApp column in the MFClass table for all the classes to be included in the data analysis and then create all the class tables with one instruction <a class="reference internal" href="../../procedures/spMFCreateAllMFTables.html"><span class="doc">spMFCreateAllMFTables</span></a>.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">mc</span>
+<span class="k">SET</span> <span class="n">mc</span><span class="p">.</span><span class="n">IncludeInApp</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="s1">&#39;Employment Agreement&#39;</span><span class="p">,</span><span class="s1">&#39;Purchase Invoice&#39;</span><span class="p">)</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateAllMFTables</span> <span class="o">@</span><span class="n">IncludedInApp</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comparing-and-analyzing-the-data-sources">
+<h2>Comparing and analyzing the data sources<a class="headerlink" href="#comparing-and-analyzing-the-data-sources" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to get access to the metadata.  With the SQL server of the external system on the same network, a link server was setup for easy access. The pull of data from the external system may include other methods such as Boomi, Talend, Jitterbit or other tools. The key is to get the data into SQL Server tables.
+The next step is to get the M-Files data. This is where MFSQL Connector comes in.  It allows for pulling metadata from M-Files without resorting to APIs.  It also goes far beyond the capabilities of M-Files External Database Connector and is much easier to debug and control.  All the related class tables have been created in the previous step, but any additional class tables can be created with
+<a class="reference internal" href="../../procedures/spMFCreateTable.html"><span class="doc">spMFCreateTable</span></a></p>
+<p>Updating the class tables from M-Files to SQL should take into account the volume of data in the tables and selecting the right procedure for the job is key:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Performing a quick update for smaller tables (&lt; 10 000 records) or individual objects use <a class="reference internal" href="../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a></p></li>
+<li><p>Initializing larger tables in batch mode use <a class="reference internal" href="../../procedures/spMFUpdateMFilesToMFSQL.html"><span class="doc">spMFUpdateMFilesToMFSQL</span></a> with UpdateTypeID = 0</p></li>
+<li><p>Updating changed records for individual tables use <a class="reference internal" href="../../procedures/spMFUpdateMFilesToMFSQL.html"><span class="doc">spMFUpdateMFilesToMFSQL</span></a> with UpdateTypeID = 1</p></li>
+<li><p>Updating all class tables for changed records use <a class="reference internal" href="../../procedures/spMFUpdateAllncludedInAppTables.html"><span class="doc">spMFUpdateAllncludedInAppTables</span></a></p></li>
+<li><p>Resetting a larger class table (only used in exception) use <a class="reference internal" href="../../procedures/spMFUpdateTableinBatches.html"><span class="doc">spMFUpdateTableinBatches</span></a></p></li>
+</ul>
+</div></blockquote>
+<p>All of the above procedures has different types of switches and parameters for different scenarios. Check out the documentation of the individual procedures for further examples.</p>
+<p>The following is a list of procedures, tips and technique scripts for data analysis and exploration.</p>
+<div class="section" id="using-schemas">
+<h3>Using schemas<a class="headerlink" href="#using-schemas" title="Permalink to this headline">¶</a></h3>
+<p>The core MFSQL Connector procedures, tables, views and functions all use the default schema of dbo.  We recommend that the custom schema is used for any objects created in the database.  Any object in the schema of dbo will be replaced or overwritten when an upgrade of the Connector is performed.</p>
+</div>
+<div class="section" id="lookup-views">
+<h3>Lookup views<a class="headerlink" href="#lookup-views" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>Using the MFvaluelist and MFValuelistitem tables will require a join on the MFValuelistID to get the right MFID of the related item.  Similarly to get the MFID of the workflow state a join is required on between MFWorkflow and MFWorkflowState on the WorkflowID.  Two helper procedures supports the creation of easy to use views for valuelists and workflows to improve useability.</dt><dd><ul class="simple">
+<li><p>Create valuelist lookup view with <a class="reference internal" href="../../procedures/spMFCreateValueListLookupView.html"><span class="doc">spMFCreateValueListLookupView</span></a></p></li>
+<li><p>Create workflow state lookup with <a class="reference internal" href="../../procedures/spMFCreateWorkflowStateLookupView.html"><span class="doc">spMFCreateWorkflowStateLookupView</span></a></p></li>
+<li><p>Create all related lookups with <a class="reference internal" href="../../procedures/spMFCreateAllLookups.html"><span class="doc">spMFCreateAllLookups</span></a>  Using this procedure will create a large number of views, irrespective if you will be using the views or not.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateValueListLookupView</span> <span class="o">@</span><span class="n">ValueListName</span> <span class="o">=</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+  <span class="o">@</span><span class="n">ViewName</span> <span class="o">=</span> <span class="s1">&#39;vwCountry&#39;</span><span class="p">,</span>
+  <span class="o">@</span><span class="k">Schema</span> <span class="o">=</span> <span class="s1">&#39;custom&#39;</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="../../_images/image_1.png" /></p>
+</div>
+<div class="section" id="joining-class-tables">
+<h3>Joining class tables<a class="headerlink" href="#joining-class-tables" title="Permalink to this headline">¶</a></h3>
+<p>Class tables have several types of lookups.  This include valuelists, valuelist items,  other class tables, workflow, and workflow states.  In each case the class table has two columns, one for the property value, and another for the ID of the property.  When updating or inserting a record into a class table, only the ID of the lookup need to be set. The property value column is only for information and ease of use in the class table.</p>
+<dl class="simple">
+<dt>The source column of the id to be used depends on the type of lookup.</dt><dd><ul class="simple">
+<li><p>In the case of valuelist, workflow state or workflow, the source column is the MFID in the tables MFValuelist, MFValuelistItems, MFWorkflow and MFWorkflowState</p></li>
+<li><p>In the case of a class table, it is the Objid in the source class table.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MFContactPerson</span> <span class="n">mcp</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">MFcustomer</span> <span class="n">mc</span>
+<span class="k">ON</span> <span class="n">mcp</span><span class="p">.</span><span class="n">customer_ID</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">objid</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span> <span class="n">vlc</span>
+<span class="k">ON</span> <span class="n">mc</span><span class="p">.</span><span class="n">country_id</span> <span class="o">=</span> <span class="n">vlc</span><span class="p">.</span><span class="n">MFID_ValuelistItems</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="identifying-duplicates">
+<h3>Identifying duplicates<a class="headerlink" href="#identifying-duplicates" title="Permalink to this headline">¶</a></h3>
+<p>Use ‘group by’ and ‘having’ method to identify duplicates</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="n">duplicateColumn</span> <span class="k">from</span> <span class="n">MFTableName</span>
+<span class="k">group</span> <span class="k">by</span> <span class="n">duplicateColumn</span>
+<span class="k">having</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="expand-multi-lookup-property-columns">
+<h3>Expand multi lookup property columns<a class="headerlink" href="#expand-multi-lookup-property-columns" title="Permalink to this headline">¶</a></h3>
+<p>Use ‘cross apply’ method with MFSQL function <a class="reference internal" href="../../functions/fnMFParseDelimitedString.html"><span class="doc">fnMFParseDelimitedString</span></a> to split out a multi lookup Property to work with the individual members of the lookup.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFClassTable</span>
+<span class="k">cross</span> <span class="n">apply</span> <span class="n">fnMFParseDelimitedString</span><span class="p">(</span><span class="n">Multicolumn</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="making-configuration-changes-to-m-files">
+<h2>Making configuration changes to M-Files<a class="headerlink" href="#making-configuration-changes-to-m-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="resetting-metadata-structure">
+<h3>Resetting metadata structure<a class="headerlink" href="#resetting-metadata-structure" title="Permalink to this headline">¶</a></h3>
+<p>It is common to make changes in M-Files admin during the process of configuring M-Files to align with the data of the system.  The metadata structure must be re-synchronized after making changes in M-Files admin.  Using <a class="reference internal" href="../../procedures/spMFDropAndUpdateMetadata.html"><span class="doc">spMFDropAndUpdateMetadata</span></a> allows for different developer utilities to help with the process.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Setting the IsResetAll = 1 will cancel all custom settings in SQL (such as column names and class table names) and reset it to the default.</p></li>
+<li><p>WithClassTableReset = 1 will drop all the class tables and recreate it. It will not refresh the data automatically.</p></li>
+<li><p>WithColumnReset = 1 will recreate the columns for properties where the datatype of the properties were changed.</p></li>
+<li><p>IsStructureOnly = 0 will update both structure changes and valuelist item changes.</p></li>
+</ul>
+<p>Setting these parameters is cummulative.  Normally, these switches will not be used in combination, but executed depending on the developer’s requirement.</p>
+</div></blockquote>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">IsResetAll</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">WithClassTableReset</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">WithColumnReset</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">IsStructureOnly</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="making-configuration-changes-from-sql">
+<h3>Making configuration changes from SQL<a class="headerlink" href="#making-configuration-changes-from-sql" title="Permalink to this headline">¶</a></h3>
+<p>In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using <a class="reference internal" href="../../procedures/spMFSynchronizeValueListItemsToMfiles.html"><span class="doc">spMFSynchronizeValueListItemsToMfiles</span></a> allows for just that.</p>
+<p>Several configuration changes can be made in SQL and updated into M-Files.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Update the name, ExternalID, alias or owner for a valuelist and valuelist item</p></li>
+<li><p>Add new valuelist items</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="updating-the-class-tables">
+<h2>Updating the class tables<a class="headerlink" href="#updating-the-class-tables" title="Permalink to this headline">¶</a></h2>
+<p>After the data from the old and new external systems have been compared with M-Files, and the new properties and structures have been created in M-Files to align with data, the data can be prepared to insert or update records in M-Files. The updates are pushed from SQL to M-Files in batch.</p>
+<p>It each case the changes is made in the respective class table such as MFCertificates. When a change is made to the data in SQL, the process_id in the table must be set to 1. When lookup columns (those with a ‘_ID’ suffix) are update, then only the id need to change, it is not necessary to update the label column of the lookup, only the id must be updated.</p>
+</div>
+<div class="section" id="updating-m-files-with-the-results">
+<h2>Updating M-Files with the results<a class="headerlink" href="#updating-m-files-with-the-results" title="Permalink to this headline">¶</a></h2>
+<p>The final step is to update the records into M-Files.  This can be done for individual records, or a batch, or a large number of records.</p>
+<p>The following procedures are used to update records:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a></p></li>
+<li><p><a class="reference internal" href="../../procedures/spMFUpdateTableinBatches.html"><span class="doc">spMFUpdateTableinBatches</span></a></p></li>
+</ul>
+</div></blockquote>
+<p>Working through the analysis of the metadata, updating when required, sharing the results and then responding to the feedback is often a iterative process as it was in this case. It involved many scenarios of data management and M-Files metadata adjustment.  Without MFSQL Connector this project would have been greatly impeded with a much less efficient and effective outcome.</p>
+<blockquote>
+<div></div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../moving-documents-from-one-class-to-another/index.html" class="btn btn-neutral float-right" title="Moving documents from one class to another" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../metadata-management/index.html" class="btn btn-neutral float-left" title="Metadata Management and data cleansing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

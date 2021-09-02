@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Considerations for deleted records &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Considerations for large volume vault" href="../considerations-for-large-volume-vault/index.html" />
+    <link rel="prev" title="Changing from single lookup to multi lookup" href="../changing-from-single-lookup-to-multi-lookup/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Considerations for deleted records</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#spmfupdatetable-and-deletions">spMFUpdateTable and deletions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfupdatemfilestomfsql">spMFUpdateMFilesToMFSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfaudithistory">MFAuditHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfgetobjectvers">spMFGetObjectVers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfobjecttypeupdateclassindex">spMFObjectTypeUpdateClassIndex</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-objectchangehistory/index.html">Working with object change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-to-know-mfsql-connector/index.html">Getting to know MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../near-real-time-reporting/index.html">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Considerations for deleted records</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="considerations-for-deleted-records">
+<h1>Considerations for deleted records<a class="headerlink" href="#considerations-for-deleted-records" title="Permalink to this headline">¶</a></h1>
+<p>M-Files users can delete, destroy and undelete a record. MFSQL Connector
+will remove deleted objects from the class table (or optionally retain
+the record showing the date of the deletion in the deleted column) and reinstate the record in the class
+table if it has been undeleted. It is also possible to delete or destroy
+records in M-Files in bulk from MFSQL Connector. This is particularly
+useful when a large number of records must be deleted in M-Files.
+M-Files user interface only allows for manual deletions in batches of
+500.</p>
+<div class="section" id="spmfupdatetable-and-deletions">
+<h2>spMFUpdateTable and deletions<a class="headerlink" href="#spmfupdatetable-and-deletions" title="Permalink to this headline">¶</a></h2>
+<p>When a record is deleted in M-Files and a table is updated from M-Files
+to SQL using spMFupdateTable with no filters, the deleted or destroyed
+record will automatically be removed from the class table.</p>
+<p>Each class table will include property 27 (Deleted) as a column with datatype datetime. If this column is null the record is not deleted. The date in this column reflects the date of the deletion of the object.</p>
+<p>Setting the &#64;RetainDeletions parameter for spMFUpdateTable controls the removal of the
+deleted records from the class table. Setting this flag to 0 will retain
+the deleted records in the table. The default of the procedure is set to 0. This is particularly useful when the
+deletions must be included in a report, or be updated in a third party
+system.</p>
+<p>When a record is undeleted in M-Files, spMFUpdateTable with no filters
+will reinstate the record in the class table.</p>
+<p>Setting &#64;RetainDeletions flag to 1 will retain the deleted records in the class table and show the date of the deletion to indicate that the record was deleted.</p>
+<p>It is important to note that deleted object is processed into the class table when an update takes place.  If the setting is to remove deleted objects then the object is subsequently deleted from the table as part of the update routine.  This has a direct impact on the use of custom unique indexes or keys on the class table where SQL is checking for duplicates and one of the objects was deleted. In this case an error will be thrown in SQL for duplicate check, even if the deleted object is removed from the table subsequent to the updating.  It is advisable to destroy the object in &lt;-Files when removing duplicate objects from a class table where a duplicate check is done with SQL constraints.</p>
+<p>Using spMFUpdateTable on large class tables will have performance
+issues. In these cases spMFUpdateMFilestoMFSQL must be used. The option to retain deletions is available on this procedure also.</p>
+</div>
+<div class="section" id="spmfupdatemfilestomfsql">
+<h2>spMFUpdateMFilesToMFSQL<a class="headerlink" href="#spmfupdatemfilestomfsql" title="Permalink to this headline">¶</a></h2>
+<p>spMFUpdateMFilestoMFSQL is used to update large class tables and should be
+used as a default for building updates into custom procedures.</p>
+<p>When a record is deleted or destroyed in M-Files, this procedure will
+first get the object versions since the last class table update, and
+then only update the changed records, including deletions.</p>
+<p>spMFUpdateMFilesToMFSQL will identify an undeleted records also, however,
+with large tables this could take considerably longer as it will have to
+process through the entire dataset to determine if a object has been
+undeleted and missing in the class table.</p>
+</div>
+<div class="section" id="mfaudithistory">
+<h2>MFAuditHistory<a class="headerlink" href="#mfaudithistory" title="Permalink to this headline">¶</a></h2>
+<p>The MFAuditHistory table is autmatically maintained when the update routines (spMFUpdateMFilesToMFSSQL, spmfUpdateTable) are processed.</p>
+<p>This table show deleted objects with a statusflag of 4.</p>
+<p>spmfTableAudit updates MFAuditHistory.</p>
+</div>
+<div class="section" id="spmfgetobjectvers">
+<h2>spMFGetObjectVers<a class="headerlink" href="#spmfgetobjectvers" title="Permalink to this headline">¶</a></h2>
+<p>This procedure returns the object version of an object, including if the object is deleted.</p>
+</div>
+<div class="section" id="spmfobjecttypeupdateclassindex">
+<h2>spMFObjectTypeUpdateClassIndex<a class="headerlink" href="#spmfobjecttypeupdateclassindex" title="Permalink to this headline">¶</a></h2>
+<p>This procedure gets all the object versions in the vault and include the deleted objects. The result is in table MFObjectTypeToClassObject.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../considerations-for-large-volume-vault/index.html" class="btn btn-neutral float-right" title="Considerations for large volume vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../changing-from-single-lookup-to-multi-lookup/index.html" class="btn btn-neutral float-left" title="Changing from single lookup to multi lookup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

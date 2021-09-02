@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting to know MFSQL Connector &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="How to generate a quick follow up list" href="../howto-quick-follow-up-list/index.html" />
+    <link rel="prev" title="Getting started with a custom application" href="../getting-started-with-a-custom-application/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-deleted-records/index.html">Considerations for deleted records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-objectchangehistory/index.html">Working with object change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting to know MFSQL Connector</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics-procedures-and-related-examples-to-get-started">Topics procedures and related examples to get started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics-procedures-and-related-examples-for-reporting-and-data-exchange">Topics procedures and related examples for reporting and data exchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics-procedures-and-related-examples-for-integration-and-data-management">Topics procedures and related examples for integration and data management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-topics-procedures-and-examples">Advanced topics procedures and examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../near-real-time-reporting/index.html">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Getting to know MFSQL Connector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-to-know-mfsql-connector">
+<h1>Getting to know MFSQL Connector<a class="headerlink" href="#getting-to-know-mfsql-connector" title="Permalink to this headline">¶</a></h1>
+<p>MFSQL Connector is installed, so now what?</p>
+<p>Getting started could be overwhelming with the Connector’s wide range of
+capabilities and uses. This blog will guide you through the resources
+for specific use cases to get started. When you mastered the basics, you
+will discover more of the many capabilities that is installed with the
+product.</p>
+<p>However, it is likely that you are using the Connector to solve a
+specific use case or problem. This guide aims at helping you on the way
+to know what you need to know.</p>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>The Connector includes a range of resources to fully use the all the
+capabilities and features.</p>
+<p><strong>Prerequisites:</strong> It presumes a basic understanding of SQL. MFSQL
+Connector enables a developer to use SQL to interact with M-Files. To
+improve your SQL skills you could resort to
+<a class="reference external" href="http://Udemy.com">Udemy.com</a> or many other training resources for
+basic and advanced SQL training. Google search for any SQL task is a
+good way to learn.</p>
+<p><strong>This guide</strong>: The MFSQL Connector guide is a rich source with information about the Connector and is constantly updated. Use the search to lookup any procedure or table or keyword, or follow the pages which is organised in a logical structure to guide you through specific focus areas. The guide includes technical documentation; general guidelines and a series of blogs or practical guides on different topics.</p>
+<p>Your feedback on the guide will be appreciated.</p>
+<p><strong>The blogs:</strong> The guide includes a series of blogs prepared over time to highlight different aspects of the use of MFSQL Connector
+Contact us if you would like to have a blog about a specific topic.</p>
+<p><strong>The examples:</strong> Examples of usage of the procedures and capabilities
+can be found in this guide and in a series of SQL scripts. These scripts
+are located in the installation folder for the package in the examples
+scripts folder: C:\Program Files (x86)\Laminin Solutions\MFSQL
+Connector Release 4\yourDatabaseName\Example Scripts. A good way to
+navigate through these is to access them directly from SSMS (Open file
+in SSMS) and to use the search on keywords or a procedure name to get
+scripts that relates to the keyword or procedure.</p>
+<p>To search on the title of the examples: type the keyword in the search
+in explorer</p>
+<p><img alt="image0" src="../../_images/img_11.jpg" /></p>
+<p>To search the content of the files: type the prefix ‘contents: ‘ and
+then the keyword in the search in explorer</p>
+<p><img alt="image1" src="../../_images/img_2.jpg" /></p>
+<p><strong>Videos:</strong> There is a growing number of training and overview videos in
+our youtube channel</p>
+<p><a class="reference external" href="https://www.youtube.com/user/lamininsolutions/videos">https://www.youtube.com/user/lamininsolutions/videos</a></p>
+</div>
+<div class="section" id="topics-procedures-and-related-examples-to-get-started">
+<h2>Topics procedures and related examples to get started<a class="headerlink" href="#topics-procedures-and-related-examples-to-get-started" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>check connection</strong> : spMFVaultConnectionTest : <em>01.100.Getting Started</em></p></li>
+<li><p><strong>Update metadata structure</strong> : spMFSynchronizeMetadata, spMFDropAndUpdateMetadata : <em>01.100.Getting Started, 01.102.QuickStartup for multiple class tables, 01.105.MetadataStructureChanges</em></p></li>
+<li><p><strong>check settings</strong> : MFvwVaultSettings, MFSettings, MFVaultSettings : <em>01.100.Getting Started, 01.101.Updating settings</em></p></li>
+<li><p><strong>Get error</strong> : MFLog : <em>01.100.Getting Started</em></p></li>
+<li><p><strong>Review metadata structure</strong> : MFvwMetadataStructure, MFclass, MFLoginAccount, MFUserAccount : <em>01.100.Getting Started</em></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="topics-procedures-and-related-examples-for-reporting-and-data-exchange">
+<h2>Topics procedures and related examples for reporting and data exchange<a class="headerlink" href="#topics-procedures-and-related-examples-for-reporting-and-data-exchange" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Setup reporting</strong> : MFClass, spMFCreateTable, spMFUpdateTable, spMFCreateAllMFTables, spMFUpdateAllncludedInAppTables, spMFUpdateTableinBatches, spMFClassTableStats, DoUpdateReportingData : <em>20.102.Setup Reporting, 08.101.Getting ready for reporting</em></p></li>
+<li><p><strong>Create class table</strong> : spMFCreateTable : <em>01.100.Getting Started, 01.102.QuickStartup for multiple class tables</em></p></li>
+<li><p><strong>Get data from M-Files</strong> : spMFUpdateTable, spMFUpdateTableWithLastModifiedDate, spMFUpdateMFilesToMFSQL,spMFUpdateAllncludedInAppTables, spMFUpdateTableinBatches : <em>01.100.Getting Started, 01.102.QuickStartup for multiple class tables, 02.115.using updatetable filters - Objid, 02.120.using updatetable filter - last modified date, 03.153.Comparing procedures for large volume updating</em></p></li>
+<li><p><strong>Working with multi lookup columns</strong> : fnMFParseDelimitedString, fnMFMultiLookupUpsert : <em>16.101.Using functions in custom procs</em></p></li>
+<li><p><strong>Get hyperlink to object</strong> : fnMFObjectHyperlink : <em>16.102.using object hyperlink</em></p></li>
+<li><p><strong>Get event log</strong> : spMFGetMfilesLog, MFEventLog_OpenXML, MFilesEvents : <em>17.101.Export and use M-Files event log</em></p></li>
+<li><p><strong>Get Comments, Get object change history, Get State change history</strong> : spMFGetHistory, MFObjectChangeHistory : <em>04.155.Get Object History records, 04.170.Get Comments using Change History, 04.171.Get Workflow state changes using Change History, 04.172.Get all changes for object with Change History</em></p></li>
+<li><p><strong>Get class table stats</strong> : spMFClassTableStats : <em>01.103.InitialiseApp</em></p></li>
+<li><p><strong>Setup context menu</strong> : MFContextMenu, spMFContextMenuHeadingItem, spMFContextMenuActionItem : <em>01.103.InitialiseApp, 07.101.Updating the ContextMenu</em></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="topics-procedures-and-related-examples-for-integration-and-data-management">
+<h2>Topics procedures and related examples for integration and data management<a class="headerlink" href="#topics-procedures-and-related-examples-for-integration-and-data-management" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Adding / updating records from SQL to M-Files</strong> : spMFUpdateTable : <em>01.120.Inserting new objects using batch mode, 03.115.Inserting new objects using lookup views</em></p></li>
+<li><p><strong>Updating large volume from SQL to M-Files</strong> : spMFUpdateMFilesToMFSQL, spMFUpdateTableinBatches : <em>03.150 Update large volume from SQL to MF, 03.151.using spmfupdatetableInbatches for batch updates, 03.153.Comparing procedures for large volume updating</em></p></li>
+<li><p><strong>Get object history for large volumes</strong> : spMFGetHistory, MFObjectChangeHistory : <em>04.175.Getting History in high volume situations</em></p></li>
+<li><p><strong>Updating multi lookup columns</strong> : fnMFMultiLookupUpsert : <em>03.155.Using multilookup upsert</em></p></li>
+<li><p><strong>Get Object Versions</strong> : spMFTableAudit, MFAuditHistory, spMFGetObjectvers : <em>03.152. using spMFTableAuditInBatches to get objversions in batches, 03.153.Comparing procedures for large volume updating</em></p></li>
+<li><p><strong>Setup and using auto correction for sync errors</strong> : MFclass, MFUpdateTable : <em>15.104.using auto correction of synchronization errors, 15.106.Example of SyncPrecedence 0 (SQL takes precedence), 15.107.Example of SyncPrecedence 1 (MF takes precedence)</em></p></li>
+<li><p><strong>Get Public shared link</strong> : spMFCreatePublicSharedLink, MFPublicLink : <em>04.150.Create public shared link</em></p></li>
+<li><p><strong>Add comments</strong> : spMFAddCommentForObjects : <em>04.160.Adding comments to object</em></p></li>
+<li><p><strong>Adding new valuelist item</strong> : spMFSynchronizeSpecificMetadata, spMFSynchronizeValueListItemsToMFiles : <em>03.120.Insert Records with single lookup columns</em></p></li>
+<li><p><strong>Importing Files, Exporting Files, Importing Blob Files, Send bulk emails with attachments</strong> : spMFExportFiles, MFExportFileHistory, spMFSynchronizeFilesToMFiles, MFFileImport : <em>06.102.Exporting files from M-Files, 06.104.updating file from explorer into M-Files, 06.103.Uploading Blob Files into M-Files, 15.102.sending bulk emails with attachments</em></p></li>
+<li><p><strong>Deleting objects</strong> : spMFDeleteObjectList : <em>01.130.Delete object list, 01.131 Example of Deleting duplicate objects in MFiles</em></p></li>
+<li><p><strong>Updating valuelist items</strong> : MFValueListItems, spMFSynchronizeSpecificMetadata, spMFSynchronizeValueListItemsToMFiles : <em>01.150.Updating ValuelistItems</em></p></li>
+<li><p><strong>Working with workflows</strong> : MFWorkflowState, MFWorkflow, spMFCreateWorkflowStateLookupView, MFvwMetadataStructure, spmfSynchronizeWorkFlowSateColumnChange : <em>01.200.working with workflows, 01.201.Resetting workflow state names on all class tables</em></p></li>
+<li><p><strong>Using Search</strong> : spMFSearchForObject, spMFSearchForObjectbyPropertyValues : <em>09.101.using Search object</em></p></li>
+<li><p><strong>Update records based on external users</strong> : spMFUpdateTable : 10.110.using updatetable filters - UserID</p></li>
+<li><p><strong>Creating lookups</strong> : spMFCreateValueListLookupView, spMFCreateWorkflowStateLookupView : <em>01.103.InitialiseApp, 01.140.create lookup views</em></p></li>
+<li><p><strong>Updating aliases</strong> : spMFAliasesUpsert : <em>01.103.InitialiseApp, 01.115.update aliases, 01.116.Bulk Updating of aliases</em></p></li>
+<li><p><strong>Send bulk emails with attachements</strong> : advanced metadata synchronization, spMFSynchronizeSpecificMetadata, spMFDropAndUpdateMetadata, MFvwMetadataStructure : <em>01.105.MetadataStructureChanges, 01.110.Metadata Update Development - Practical example</em></p></li>
+<li><p><strong>Setup unique indexes</strong> : spMFCreateTable : <em>01.110.Metadata Update Development - Practical example</em></p></li>
+<li><p><strong>Removing ad hoc columns</strong> : spMFDeleteAdhocProperty : <em>02.250.Add hoc columns</em></p></li>
+<li><p><strong>Working with agents, Get agent process status, Daily update agent</strong> : <em>30.101.SQL Agent Job Status view, 30.102.adding daily update agent job, 30.103.adding agent job for use with wait status, 30.104.adding agent job to run wait status</em></p></li>
+<li><p><strong>Working with Context Menu</strong> : custom.DoCMObjectAction, custom.DoCMAction, custom.CMDoObjectActionForWorkflowState, DoCMAsyncAction : <em>90.101.script.CreateDemoMenuitems, 90.102.custom.DoCMObjectAction, 90.103.custom.DoCMAction, 90.104.custom.CMDoObjectActionForWorkFlowState, 90.105.custom.DoCMAsyncAction</em></p></li>
+<li><p><strong>Sample custom procedures</strong> : <em>70.100.Example - Sync Procesure, 70.101 Example - Sync Process - Test wLogging, 70.102.Example - Sync Process - Test, 70.103.Example - Sync Process - Check Progress, 70.104.Example - Start Job Wait - Agent,80.100.Template - custom procedure</em></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="advanced-topics-procedures-and-examples">
+<h2>Advanced topics procedures and examples<a class="headerlink" href="#advanced-topics-procedures-and-examples" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Get vault settings</strong> : FnMFVaultSettings : <em>01.101.Updating settings</em></p></li>
+<li><p><strong>Change Settings</strong> : spMFSettingsForVaultUpdate, spMFSettingsForDBUpdate : <em>01.101.Updating settings</em></p></li>
+<li><p><strong>Vault settings related tables</strong> : MFVaultSettings, MFProtocolType, MFAuthenticationType : <em>01.101.Updating settings</em></p></li>
+<li><p><strong>Metadata structure related tables</strong> MFValuelist , MFValuelistItems, MFProperty , MFClassProperty, MFClass, MFWorkflow , MFWorkflowState : <em>01.100.Getting Started, 01.105.MetadataStructureChanges</em></p></li>
+<li><p><strong>Changing the lookup type</strong> : spMFClassTableColumns : <em>15.109.Explorer impact of multi lookup property changes</em></p></li>
+<li><p><strong>Split Paired string, Split string, Replace special characters, Capitalize first letter</strong> : fnMFSplit, fnMFSplitPairedStrings, fnMFSplitString, fnMFCapitalizeFirstLetter : <em>16.101.Using functions in custom procs</em></p></li>
+<li><p><strong>Advanced class table stats</strong> : spMFClassTableStats, ##spMFClassTableStats : <em>01.105.MetadataStructureChanges</em></p></li>
+<li><p><strong>Class Table column error</strong> : spMFClassTableColumns, ##spMFClassTableColumns : <em>15.108.Analyse Class table columns</em></p></li>
+<li><p><strong>Update record by record</strong> : spMFUpdateItemByItem : <em>03.200.using record by record update</em></p></li>
+<li><p><strong>Managing deletions in M-Files</strong> : spMFUpdateTable : <em>01.131 Example of Deleting duplicate objects in MFiles</em></p></li>
+<li><p><strong>Create all class tables</strong> : spMFCreateAllMFTables : <em>01.103.InitialiseApp, 01.110.working with ALL metadata update procs</em></p></li>
+<li><p><strong>Drop all class tables</strong> : spMFCreateAllMFTables : <em>01.103.InitialiseApp, 01.105.MetadataStructureChanges, 01.110.working with ALL metadata update procs</em></p></li>
+<li><p><strong>Update all class tables</strong> : spMFUpdateAllncludedInAppTables : <em>01.103.InitialiseApp, 01.110.working with ALL metadata update procs</em></p></li>
+<li><p><strong>using custom table and column names</strong> : spMFCreateTable, spMFDropAndUpdateMetadata : <em>01.105.MetadataStructureChanges</em></p></li>
+<li><p><strong>Create multiple class tables &amp; update tables</strong> : spMFCreateTable, spMFUpdateTable, fnMFParseDelimitedString : <em>01.102.QuickStartup for multiple class tables</em></p></li>
+<li><p><strong>Tracking processing</strong> : MFUpdateHistory, MFAuditHistory, MFProcessBatchDetail, MFProcessBatch : <em>02.115.using updatetable filters - Objid, 05.100.understanding updatehistory logging tables</em></p></li>
+<li><p><strong>Processing performance report</strong> : MFProcessBatch, MFProcessBatchDetail : <em>20.101.Processing PerformanceAnalysis</em></p></li>
+<li><p><strong>Manage logging</strong> : MFUpdateHistory, spMFUpdateHistoryShow, spMFClassTableStats, spMFLogTableStats : <em>01.132.Deleting objects in M-Files, 02.115.using updatetable filters Objid, 05.100.Delete history logging tables, 15.101.Using user messaging</em></p></li>
+<li><p><strong>Managing logging tables</strong> : spMFDeleteHistory : <em>05.100.understanding uhistory tables</em></p></li>
+<li><p><strong>Using user messages</strong> : MFUserMessages, MFProcessBatch, spMFInsertUserMessage, spMFProcessBatch_EMail, spMFResultMessageForUI : <em>15.101.Using user messaging</em></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../howto-quick-follow-up-list/index.html" class="btn btn-neutral float-right" title="How to generate a quick follow up list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting-started-with-a-custom-application/index.html" class="btn btn-neutral float-left" title="Getting started with a custom application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced updating of Valuelists from external source &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Align metadata from an external source with data in M-Files" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html" />
+    <link rel="prev" title="List of blogs" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Advanced updating of Valuelists from external source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-create-easy-to-use-lookups-for-the-valuelists">Step 1: Create easy to use lookups for the valuelists.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-create-custom-procedure-to-string-process-together">Step 2: Create custom procedure to string process together</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-use-the-new-mfid-of-the-valuelist-items">Step 3: use the new mfid of the valuelist items</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-deleted-records/index.html">Considerations for deleted records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-objectchangehistory/index.html">Working with object change history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-to-know-mfsql-connector/index.html">Getting to know MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../near-real-time-reporting/index.html">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Advanced updating of Valuelists from external source</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-updating-of-valuelists-from-external-source">
+<h1>Advanced updating of Valuelists from external source<a class="headerlink" href="#advanced-updating-of-valuelists-from-external-source" title="Permalink to this headline">¶</a></h1>
+<p>When updating M-Files using data from external sources, it is often necessary to create new associated valuelist items before the data of the object can be added to M-Files.  Using the Connector, the missing valuelist items can be identified and then added to M-Files before triggering the object import, all as one process.</p>
+<p>The following is an example of an advanced updating of multiple dependent valuelists from an external source before processing the
+update of the record from the external source.</p>
+<p>There is some preparation to be done and several steps in the ongoing process to take into account.</p>
+<div class="section" id="step-1-create-easy-to-use-lookups-for-the-valuelists">
+<h2>Step 1: Create easy to use lookups for the valuelists.<a class="headerlink" href="#step-1-create-easy-to-use-lookups-for-the-valuelists" title="Permalink to this headline">¶</a></h2>
+<p>Valuelists in M-Files is in the <a class="reference internal" href="../../tables/tbMFValueList.html"><span class="doc">MFValueList</span></a> table and the valuelist items are all in the <a class="reference internal" href="../../tables/tbMFValueListItems.html"><span class="doc">MFValueListItems</span></a> table.  Selecting the valuelist items for a specific valuelist requires a join between these two table based on the valuelist_id.</p>
+<p>However, we recommend to create a individual view for each valuelist that would be used in your application. The <a class="reference internal" href="../../procedures/spMFCreateValueListLookupView.html"><span class="doc">spMFCreateValueListLookupView</span></a> is a very handy tool to rapidly create these lookups.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateValueListLookupView</span> <span class="o">@</span><span class="n">ValueListName</span> <span class="o">=</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+ <span class="o">@</span><span class="n">ViewName</span> <span class="o">=</span> <span class="s1">&#39;vwCountry&#39;</span><span class="p">,</span>
+ <span class="o">@</span><span class="k">Schema</span> <span class="o">=</span> <span class="s1">&#39;custom&#39;</span><span class="p">,</span>
+ <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-create-custom-procedure-to-string-process-together">
+<h2>Step 2: Create custom procedure to string process together<a class="headerlink" href="#step-2-create-custom-procedure-to-string-process-together" title="Permalink to this headline">¶</a></h2>
+<p>Start with updating the valuelist items from M-Files to the database.  This is only necessary if changes to the valuelist is allowed. <a class="reference internal" href="../../procedures/spMFSynchronizeSpecificMetadata.html"><span class="doc">spMFSynchronizeSpecificMetadata</span></a> can be executed for the specific ValueListName</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeSpecificMetadata</span> <span class="o">@</span><span class="n">Metadata</span> <span class="o">=</span> <span class="s1">&#39;ValuelistItem&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsUpdate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ItemName</span> <span class="o">=</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="c1">-- reference the name of the valuelist</span>
+<span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>The next routine is to add new valuelistitems if they do not already exist. The following example filter for missing items and update <a class="reference internal" href="../../tables/tbMFValueListItems.html"><span class="doc">MFValueListItems</span></a>, setting the process_id to 1.
+Note using the ID of the valuelist table by setting a parameter from the lookup table.  The only values that is required to be populated in the MFvaluelistItem table is the name, valuelist id and process_id.  repeat this routine for each valuelist used in the source table.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Valuelist_ID</span> <span class="nb">INT</span>
+<span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">1</span> <span class="o">@</span><span class="n">Valuelist_id</span> <span class="o">=</span> <span class="n">vc</span><span class="p">.</span><span class="n">ID_ValueList</span> <span class="k">FROM</span> <span class="n">Custom</span><span class="p">.</span><span class="n">vwCountry</span> <span class="k">AS</span> <span class="n">vc</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFValueListItems</span>
+<span class="p">(</span><span class="n">Name</span><span class="p">,</span>
+<span class="n">MFValueListID</span><span class="p">,</span>
+<span class="n">Process_ID</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="n">mc</span><span class="p">.</span><span class="n">Country</span><span class="p">,</span><span class="o">@</span><span class="n">Valuelist_ID</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">FROM</span> <span class="n">SourceTable</span> <span class="n">mc</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span> <span class="n">vc</span>
+<span class="k">ON</span> <span class="n">vc</span><span class="p">.</span><span class="n">Name_ValueListItems</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">Country</span>
+<span class="k">WHERE</span> <span class="n">vc</span><span class="p">.</span><span class="n">mfid_ValuelistItems</span> <span class="k">IS</span> <span class="k">null</span> <span class="k">and</span> <span class="n">mc</span><span class="p">.</span><span class="n">Country</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
+</pre></div>
+</div>
+<p>The final part of the entire process is to update the valuelist item table to M-Files using <a class="reference internal" href="../../procedures/spMFSynchronizeValueListItemsToMfiles.html"><span class="doc">spMFSynchronizeValueListItemsToMfiles</span></a></p>
+<p>This procedure will create the new items in M-Files for all the new valuelist items with a process_id = 1.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeValueListItemsToMFiles</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-use-the-new-mfid-of-the-valuelist-items">
+<h2>Step 3: use the new mfid of the valuelist items<a class="headerlink" href="#step-3-use-the-new-mfid-of-the-valuelist-items" title="Permalink to this headline">¶</a></h2>
+<p>Join the lookup table with the source table to get the mfid of the new valuelist item to insert the new record in the class table.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFCustomer</span>
+<span class="p">(</span><span class="n">Country_ID</span><span class="p">,</span>
+<span class="n">Customer_Name</span><span class="p">,</span>
+<span class="n">Process_ID</span>   <span class="p">)</span>
+<span class="k">SELECT</span> <span class="n">vc</span><span class="p">.</span><span class="n">MFID_ValueListItems</span><span class="p">,</span><span class="s1">&#39;Customer Name&#39;</span><span class="p">,</span><span class="mi">1</span>
+<span class="k">FROM</span> <span class="n">SourceTable</span> <span class="n">s</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">MFcustomer</span> <span class="n">mc</span>
+<span class="n">s</span><span class="p">.</span><span class="n">CustomerNr</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">CustomerNr</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span> <span class="n">vc</span>
+<span class="k">ON</span> <span class="n">vc</span><span class="p">.</span><span class="n">Name_ValueListItems</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">Country</span>
+<span class="k">WHERE</span> <span class="n">mc</span><span class="p">.</span><span class="n">guid</span> <span class="k">IS</span> <span class="k">null</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html" class="btn btn-neutral float-right" title="Align metadata from an external source with data in M-Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="List of blogs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

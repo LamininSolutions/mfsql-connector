@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frequently asked questions &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to MFSQL" href="../introduction/index.html" />
+    <link rel="prev" title="Welcome to MFSQL Connector’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-mfsql-connector">What is MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-the-connector">Why use the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-top-5-use-cases">What is the top 5 use cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-mfsql-connector-for-integration">Why use MFSQL Connector for integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-the-rules-for-licensing">What is the rules for licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-it-compatible-with-m-files-cloud">Is it compatible with M-Files Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-can-the-connector-do-with-the-metadata-in-m-files">What can the Connector do with the Metadata in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-the-connector-remove-redundant-object-versions-from-an-object-history">Can the Connector remove redundant object versions from an object history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-get-support">How to get support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#can-the-connector-change-or-update-the-display-id-of-an-object-in-m-files">Can the connector change or update the display id of an object in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-file-operations-can-be-performed">What file operations can be performed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-count-to-number-of-objects-in-the-vault">How to count to number of objects in the vault</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Frequently asked questions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<p>A collection of frequently asked questions about MFSQL Connector</p>
+<div class="section" id="what-is-mfsql-connector">
+<h2>What is MFSQL Connector<a class="headerlink" href="#what-is-mfsql-connector" title="Permalink to this headline">¶</a></h2>
+<p>MFSQL Connector is a developer platform of tools and capabilities to connect M-Files
+with SQL Server bidirectionally without having to master the M-Files APIs.  <a class="reference internal" href="../introduction/purpose-and-scope/index.html"><span class="doc">Introducing MFSQL Connector</span></a></p>
+</div>
+<div class="section" id="why-use-the-connector">
+<h2>Why use the Connector<a class="headerlink" href="#why-use-the-connector" title="Permalink to this headline">¶</a></h2>
+<p>The Connector liberates M-Files metadata to use the power of SQL to explore it, change it and link it with external applications and systems</p>
+</div>
+<div class="section" id="what-is-the-top-5-use-cases">
+<h2>What is the top 5 use cases<a class="headerlink" href="#what-is-the-top-5-use-cases" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Extract data from M-Files for reporting and analysis</p></li>
+<li><p>Exchange M-Files metadata with other systems</p></li>
+<li><p>Reorganize and reclassify metadata in bulk</p></li>
+<li><p>Remove objects and object versions</p></li>
+<li><p>Reprocess complex data to align it with M-Files properties and structure</p></li>
+</ol>
+</div>
+<div class="section" id="why-use-mfsql-connector-for-integration">
+<h2>Why use MFSQL Connector for integration<a class="headerlink" href="#why-use-mfsql-connector-for-integration" title="Permalink to this headline">¶</a></h2>
+<p>One of the core pillars of MFSQL Connector is the capability of using the tool to integrate between M-Files and any third party system using SQL as their backend.</p>
+<p>This is particularly relevant when the connection is complex, must be flexible, and the business has skills with SQL capabilities.</p>
+<p>Learn more about the it in the <a class="reference internal" href="../blogs/integration-whitepaper/index.html"><span class="doc">Integration whitepaper</span></a></p>
+</div>
+<div class="section" id="what-is-the-rules-for-licensing">
+<h2>What is the rules for licensing<a class="headerlink" href="#what-is-the-rules-for-licensing" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Each M-Files Server requires a separate MFSQL Connector license</p></li>
+<li><p>The license is issued for the specific M-Files Serial nr and for the subscription period (a year)</p></li>
+<li><p>The number of M-Files user licenses (named and concurrent) on the M-Files server determines the MFSQL licensing bracket (e.g. 1-49; 50 – 200 etc). Read only licenses are excluded in the count.</p></li>
+<li><p>The usage of specific functions and features in MFSQL Connector (as outlined in the functional overview) determines the module (e.g. data exchange, integration or database file connector)</p></li>
+<li><p>The number of vaults on the M-Files server is not restricted.</p></li>
+<li><p>Separate M-Files servers that is used for replication, backup or any other vaults, are not taken into account as long as no MFSQL Connector connection to the vaults on these separate servers is used.</p></li>
+<li><p>The number of users assigned to the vaults (irrespective if the vaults are using MFSQL Connector or not) are not relevant.</p></li>
+<li><p>The number of SQL servers connected to the M-Files Server is not restricted</p></li>
+<li><p>One MFSQL Connector license for a separate M-Files Server and serial nr, exclusively used for testing and prototyping,  is included at no additional cost.</p></li>
+</ol>
+</div>
+<div class="section" id="is-it-compatible-with-m-files-cloud">
+<h2>Is it compatible with M-Files Cloud<a class="headerlink" href="#is-it-compatible-with-m-files-cloud" title="Permalink to this headline">¶</a></h2>
+<p>The M-Files Cloud vault can interact with MFSQL Connector database on premise or in another cloud.
+From the MFSQL database to M-Files is a HTTPS secure connection. Optionally, action SQL operations from M-Files using webservices.</p>
+</div>
+<div class="section" id="what-can-the-connector-do-with-the-metadata-in-m-files">
+<h2>What can the Connector do with the Metadata in M-Files<a class="headerlink" href="#what-can-the-connector-do-with-the-metadata-in-m-files" title="Permalink to this headline">¶</a></h2>
+<p>MFSQL Connector allows for working with M-Files metadata by executing SQL procedures and exploring the underlying tables in SQL.  It provides full CRUD (Create, Read, Update and Delete) bi-directionally between an M-Files vault and the Connector Database.
+<a class="reference internal" href="../blogs/metadata-management/index.html"><span class="doc">Metadata Management and data cleansing</span></a></p>
+</div>
+<div class="section" id="can-the-connector-remove-redundant-object-versions-from-an-object-history">
+<h2>Can the Connector remove redundant object versions from an object history<a class="headerlink" href="#can-the-connector-remove-redundant-object-versions-from-an-object-history" title="Permalink to this headline">¶</a></h2>
+<p>The connector allows for the removal of specific object versions from the object history in M-Files.  <a class="reference internal" href="../procedures/spMFDeleteObjectVersionList.html"><span class="doc">spMFDeleteObjectVersionList</span></a></p>
+</div>
+<div class="section" id="how-to-get-support">
+<h2>How to get support<a class="headerlink" href="#how-to-get-support" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>To get support send an email to <a class="reference external" href="mailto:support&#37;&#52;&#48;lamininsolutions&#46;com">support</a> and include the following:</dt><dd><ul class="simple">
+<li><p>screenshot of the error</p></li>
+<li><p>details of the actual error from the MFlog table.  Copy and past the result of the query below to your email to show the full text</p></li>
+</ul>
+</dd>
+</dl>
+<p>..code:: sql</p>
+<blockquote>
+<div><p>SELECT TOP 5 ErrorMessage, CreateDate FROM MFlog ORDER BY logid desc</p>
+</div></blockquote>
+</div>
+<div class="section" id="can-the-connector-change-or-update-the-display-id-of-an-object-in-m-files">
+<h2>Can the connector change or update the display id of an object in M-Files<a class="headerlink" href="#can-the-connector-change-or-update-the-display-id-of-an-object-in-m-files" title="Permalink to this headline">¶</a></h2>
+<p>The column ‘’External_ID’’ in the class table represents the display_id of the object. This column can be updated from SQL to M-Files. This is particularly useful when a external system made changes to the unique identifyer of an object and these changes need to be update into M-Files.</p>
+</div>
+<div class="section" id="what-file-operations-can-be-performed">
+<h2>What file operations can be performed<a class="headerlink" href="#what-file-operations-can-be-performed" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../blogs/import-files-into-m-files-from-explorer/index.html"><span class="doc">Import files into M-Files from explorer</span></a></p></li>
+<li><p><a class="reference internal" href="../blogs/importing-files-from-a-database/index.html"><span class="doc">Importing files from a database</span></a></p></li>
+<li><p><a class="reference internal" href="../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-count-to-number-of-objects-in-the-vault">
+<h2>How to count to number of objects in the vault<a class="headerlink" href="#how-to-count-to-number-of-objects-in-the-vault" title="Permalink to this headline">¶</a></h2>
+<p>Use <a class="reference internal" href="../procedures/spMFObjectTypeUpdateClassIndex.html"><span class="doc">spMFObjectTypeUpdateClassIndex</span></a> to get all the object versions in the vault, and view the result with <a class="reference internal" href="../views/MFvwAuditSummary.html"><span class="doc">MFvwAuditSummary</span></a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../introduction/index.html" class="btn btn-neutral float-right" title="Introduction to MFSQL" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to MFSQL Connector’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

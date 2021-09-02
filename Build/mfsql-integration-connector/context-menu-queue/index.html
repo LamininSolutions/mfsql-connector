@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Context Menu Queue &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MFSQL Connector addons and utilities" href="../mfsql_connector_addons/index.html" />
+    <link rel="prev" title="Working with Object Version" href="../working-with-object-version/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-and-managing-logs/index.html">Using and managing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dependent-objects">Dependent objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-procedure-for-processing-update-action">Custom procedure for processing update action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-mfcontextmenu">Setup MFContextMenu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-the-action-in-m-files">Setup the action in M-Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-handlers">Event handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-sql-agent">Adding SQL Agent</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+      <li>Context Menu Queue</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="context-menu-queue">
+<h1>Context Menu Queue<a class="headerlink" href="#context-menu-queue" title="Permalink to this headline">¶</a></h1>
+<p>The functionality to control context menu actions in progress with a queue is added in release 4.4.14.55. This functionality is only available in the integration module.</p>
+<p>This feature allows for action call from M-Files to SQL using the context menu actions to be controlled by a process queue.  This feature is particularly important when action types 3 or 5 (asynchronous context sensitive actions) are used with a high volume of throughput (event handlers).</p>
+<p>The queue requires special steps to include it in your integration project.</p>
+</div>
+<div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dependent-objects">
+<h2>Dependent objects<a class="headerlink" href="#dependent-objects" title="Permalink to this headline">¶</a></h2>
+<p>Release 4.5.14.56 will add new tables and procedures. Use the following script to check if it exists.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sys</span><span class="p">.</span><span class="n">objects</span> <span class="k">where</span> <span class="n">name</span> <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;MFContextMenuQueue&#39;</span><span class="p">,</span><span class="s1">&#39;spMFUpdateContextMenuQueue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The queue processing functionality of the context menu is reliant on using a SQL agent. This feature cannot be deployed with SQL Express editions.</p>
+</div>
+<p>The configuration has the follow key steps</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>create custom procedure for the action to be performed</p></li>
+<li><p>configure Context Menu in M-Files to connect with SQL</p></li>
+<li><p>add rows in the MFContextMenu for the actions</p></li>
+<li><p>add scripts to the custom procedure for processing the queue</p></li>
+<li><p>add action script in event handler or workflow action</p></li>
+<li><p>add agent to process the queue</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="custom-procedure-for-processing-update-action">
+<h2>Custom procedure for processing update action<a class="headerlink" href="#custom-procedure-for-processing-update-action" title="Permalink to this headline">¶</a></h2>
+<p>The first step is to create a SQL procedure to perform the action to be triggered from M-Files. This could include any operation, but it is likely to be, or include triggering the update of the underlying object from M-Files to SQL. This procedure must include specific elements highligted below.  Example Procedure 90.101.Custom.CMMFiles_UpdateSQL is a complete procedure to update the context object using a trigger in M-Files.</p>
+<p><strong>insert into table</strong>
+Insert a new row into MFContextMenuQueue before the main process start. Example script snippet</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Get the class table name</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="n">TableName</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFClass</span>
+<span class="k">WHERE</span> <span class="n">MFID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ClassID</span>
+  <span class="k">AND</span> <span class="n">IncludeInApp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">--Insert rows in MFContextMenuQueue to capture action from MF</span>
+
+<span class="k">BEGIN</span> <span class="n">TRY</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">updateCycle</span> <span class="nb">INT</span>
+
+<span class="k">SET</span> <span class="o">@</span><span class="n">SQLQuery</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;UPDATE &#39;</span> <span class="o">+</span> <span class="n">QUOTENAME</span><span class="p">(</span><span class="o">@</span><span class="n">MFTableName</span><span class="p">)</span> <span class="o">+</span> <span class="n">N</span><span class="s1">&#39;</span>
+<span class="s1">SET process_id = 0</span>
+<span class="s1">WHERE objid = @ObjectID&#39;</span><span class="p">;</span>
+<span class="k">EXEC</span> <span class="n">sys</span><span class="p">.</span><span class="n">sp_executesql</span> <span class="o">@</span><span class="n">SQLQuery</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;@ObjectID int&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">ObjectID</span><span class="p">;</span>
+
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span> <span class="o">=</span> <span class="k">MIN</span><span class="p">(</span><span class="n">mcmq</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="k">AS</span> <span class="n">mcmq</span>
+<span class="k">WHERE</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">ObjectID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+      <span class="k">AND</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">ObjectType</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectType</span><span class="p">;</span>
+<span class="k">IF</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">updateCycle</span> <span class="o">=</span> <span class="n">UpdateCycle</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="k">AS</span> <span class="n">mcmq</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span>
+
+<span class="k">BEGIN</span>
+    <span class="k">UPDATE</span> <span class="n">mcmq</span>
+    <span class="k">SET</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">Status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">updateCycle</span> <span class="o">=</span> <span class="o">@</span><span class="n">updateCycle</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="k">AS</span> <span class="n">mcmq</span>
+    <span class="k">WHERE</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">ObjectID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+          <span class="k">AND</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">ObjectType</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectType</span>
+          <span class="k">AND</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="o">&lt;=</span> <span class="n">mcmq</span><span class="p">.</span><span class="n">ObjectVer</span><span class="p">;</span>
+
+    <span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span>
+    <span class="k">WHERE</span> <span class="n">ObjectID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectID</span>
+          <span class="k">AND</span> <span class="n">ObjectType</span> <span class="o">=</span> <span class="o">@</span><span class="n">ObjectType</span>
+          <span class="k">AND</span> <span class="n">ObjectVer</span> <span class="o">&lt;&gt;</span> <span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">ObjectVer</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+          <span class="k">AND</span> <span class="n">id</span> <span class="o">&lt;&gt;</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span><span class="p">;</span>
+
+<span class="k">END</span><span class="p">;</span>
+<span class="k">ELSE</span>
+<span class="k">BEGIN</span>
+    <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span>
+    <span class="p">(</span>
+        <span class="n">ContextMenu_ID</span><span class="p">,</span>
+        <span class="n">ObjectID</span><span class="p">,</span>
+        <span class="n">ObjectType</span><span class="p">,</span>
+        <span class="n">ObjectVer</span><span class="p">,</span>
+        <span class="n">ClassID</span><span class="p">,</span>
+        <span class="n">Status</span><span class="p">,</span>
+        <span class="n">UpdateCycle</span><span class="p">,</span>
+        <span class="n">ProcessBatch_ID</span><span class="p">,</span>
+        <span class="n">UpdateID</span><span class="p">,</span>
+        <span class="n">CreatedOn</span>
+    <span class="p">)</span>
+    <span class="k">VALUES</span>
+    <span class="p">(</span><span class="o">@</span><span class="n">ID</span><span class="p">,</span> <span class="o">@</span><span class="n">ObjectID</span><span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span><span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span><span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="o">@</span><span class="n">StartTime</span><span class="p">);</span>
+    <span class="k">SET</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span> <span class="o">=</span> <span class="o">@@</span><span class="k">IDENTITY</span><span class="p">;</span>
+
+
+<span class="k">END</span><span class="p">;</span>
+
+<span class="k">END</span> <span class="n">TRY</span>
+<span class="k">BEGIN</span> <span class="n">CATCH</span>
+
+<span class="k">SET</span> <span class="o">@</span><span class="n">DebugText</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;FAILED &#39;</span><span class="p">;</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">DefaultDebugText</span> <span class="o">=</span> <span class="o">@</span><span class="n">DefaultDebugText</span> <span class="o">+</span> <span class="o">@</span><span class="n">DebugText</span><span class="p">;</span>
+
+<span class="k">IF</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="k">BEGIN</span>
+    <span class="n">RAISERROR</span><span class="p">(</span><span class="o">@</span><span class="n">DefaultDebugText</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">ProcedureName</span><span class="p">,</span> <span class="o">@</span><span class="n">ProcedureStep</span><span class="p">);</span>
+<span class="k">END</span><span class="p">;</span>
+
+<span class="k">END</span> <span class="n">CATCH</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>check result of update</strong>
+Get the version of the object that has been update.  Place this script snippet just after using MFUpdateTable with updatemethod 1</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--validate that update has taken place</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">VersionUpdated</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">VersionUpdated</span> <span class="o">=</span> <span class="n">muh</span><span class="p">.</span><span class="n">NewOrUpdatedObjectDetails</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/form/Object/@objVersion)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="k">AS</span> <span class="n">muh</span>
+<span class="k">WHERE</span> <span class="n">muh</span><span class="p">.</span><span class="n">Id</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span><span class="p">;</span>
+
+<span class="c1">--update queue with result</span>
+<span class="k">BEGIN</span> <span class="n">TRAN</span><span class="p">;</span>
+<span class="k">UPDATE</span> <span class="n">mcl</span>
+<span class="k">SET</span> <span class="n">mcl</span><span class="p">.</span><span class="n">UpdateID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span><span class="p">,</span>
+    <span class="n">mcl</span><span class="p">.</span><span class="n">ObjectVer</span> <span class="o">=</span> <span class="o">@</span><span class="n">VersionUpdated</span><span class="p">,</span>
+    <span class="n">mcl</span><span class="p">.</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="p">,</span>
+<span class="n">mcl</span><span class="p">.</span><span class="n">updateCycle</span> <span class="o">=</span> <span class="n">mcl</span><span class="p">.</span><span class="n">UpdateCycle</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">mcl</span><span class="p">.</span><span class="n">Status</span> <span class="o">=</span> <span class="k">CASE</span>
+                     <span class="k">WHEN</span> <span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">ObjectVer</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="o">@</span><span class="n">VersionUpdated</span> <span class="k">THEN</span>
+                         <span class="mi">1</span>
+                     <span class="k">ELSE</span>
+                         <span class="o">-</span><span class="mi">1</span>
+                 <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="n">mcl</span>
+<span class="k">WHERE</span> <span class="n">mcl</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ContextMenuLog_ID</span><span class="p">;</span>
+<span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-mfcontextmenu">
+<h2>Setup MFContextMenu<a class="headerlink" href="#setup-mfcontextmenu" title="Permalink to this headline">¶</a></h2>
+<p>To trigger the custom procedure from M-Files an entry is required in the table MFContextMenu. Refer to <a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a> to create or update this table.</p>
+<p>Use the following scripts setup a class table and action item in MFContextMenu</p>
+<p><strong>create class table</strong>
+using the setup_reporting procedure will perform a number of operations, including adding entries to MFContextMenu</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span> <span class="n">spMFSetup_reporting</span> <span class="s1">&#39;ClassName&#39;</span>
+</pre></div>
+</div>
+<p><strong>add row for action type 5</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>   <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFContextMenuActionItem</span> <span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Updateprop_EventHandler&#39;</span><span class="p">,</span>       <span class="c1">-- nvarchar(100)</span>
+                                  <span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Custom.CMMFILES_UpdateSQL&#39;</span><span class="p">,</span>    <span class="c1">-- nvarchar(100)</span>
+                                  <span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Volume test&#39;</span><span class="p">,</span>      <span class="c1">-- nvarchar(200)</span>
+                                  <span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Update Tables&#39;</span><span class="p">,</span>      <span class="c1">-- nvarchar(100)</span>
+                                  <span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>        <span class="c1">-- bit</span>
+                                  <span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">-- bit</span>
+                                  <span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">,</span>       <span class="c1">-- bit</span>
+                                  <span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1">-- bit</span>
+                                  <span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>   <span class="c1">-- bit</span>
+                                  <span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>      <span class="c1">-- nvarchar(100)</span>
+                                  <span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;ContextMenu&#39;</span><span class="p">,</span>        <span class="c1">-- nvarchar(100)</span>
+                                  <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1">-- int</span>
+
+<span class="n">The</span> <span class="n">following</span> <span class="n">script</span> <span class="n">will</span> <span class="n">list</span> <span class="k">all</span> <span class="n">action</span> <span class="n">types</span> <span class="mi">3</span> <span class="k">and</span> <span class="mi">5</span> <span class="k">and</span> <span class="k">show</span> <span class="k">if</span> <span class="n">the</span> <span class="n">related</span> <span class="k">procedure</span> <span class="n">have</span> <span class="n">a</span> <span class="n">Context</span> <span class="n">Menu</span> <span class="n">Queue</span> <span class="n">component</span><span class="p">.</span>
+</pre></div>
+</div>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">cm</span><span class="p">.</span><span class="n">ActionName</span><span class="p">,</span>
+   <span class="n">cm</span><span class="p">.</span><span class="n">Action</span><span class="p">,</span>
+   <span class="n">cm</span><span class="p">.</span><span class="n">ActionType</span><span class="p">,</span>
+   <span class="n">cm</span><span class="p">.</span><span class="n">ISAsync</span><span class="p">,</span>
+   <span class="n">ug</span><span class="p">.</span><span class="n">Name</span> <span class="k">AS</span> <span class="n">usergroup</span><span class="p">,</span>
+   <span class="n">so</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Mapped_procedure</span><span class="p">,</span>
+   <span class="n">sm</span><span class="p">.</span><span class="n">definition</span><span class="p">,</span>
+   <span class="k">CASE</span>
+       <span class="k">WHEN</span> <span class="n">sm</span><span class="p">.</span><span class="n">definition</span> <span class="k">LIKE</span> <span class="p">(</span><span class="s1">&#39;%MFContextMenuQueue%&#39;</span><span class="p">)</span> <span class="k">THEN</span>
+           <span class="s1">&#39;MFContextMenuQueue Applied&#39;</span>
+       <span class="k">ELSE</span>
+           <span class="s1">&#39;Procedure not setup&#39;</span>
+   <span class="k">END</span> <span class="k">AS</span> <span class="n">Valid_Procedure</span>
+   <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenu</span> <span class="n">cm</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwUserGroup</span> <span class="n">ug</span>
+    <span class="k">ON</span> <span class="n">cm</span><span class="p">.</span><span class="n">UserGroupID</span> <span class="o">=</span> <span class="n">ug</span><span class="p">.</span><span class="n">UserGroupID</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">objects</span> <span class="n">so</span>
+    <span class="k">ON</span> <span class="n">cm</span><span class="p">.</span><span class="n">Action</span> <span class="o">=</span> <span class="s1">&#39;custom.&#39;</span> <span class="o">+</span> <span class="n">so</span><span class="p">.</span><span class="n">name</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">sys</span><span class="p">.</span><span class="n">sql_modules</span> <span class="n">sm</span>
+    <span class="k">ON</span> <span class="n">so</span><span class="p">.</span><span class="n">object_id</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">object_id</span>
+<span class="k">WHERE</span> <span class="n">cm</span><span class="p">.</span><span class="n">ActionType</span> <span class="k">IN</span> <span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p><img alt="image0" src="../../_images/image01.png" />
+Example of a valid result</p>
+</div>
+<div class="section" id="setup-the-action-in-m-files">
+<h2>Setup the action in M-Files<a class="headerlink" href="#setup-the-action-in-m-files" title="Permalink to this headline">¶</a></h2>
+<p>Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult <a class="reference internal" href="../../getting-started/first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a> to install the context menu functionality.</p>
+<p>Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu</p>
+<div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">oProperties</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">Set</span><span class="w"> </span><span class="n">oProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyOperations</span><span class="p">.</span><span class="n">GetProperties</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">ClassID</span><span class="w"></span>
+<span class="w"> </span><span class="n">ClassID</span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyoperations</span><span class="p">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">).</span><span class="n">value</span><span class="p">.</span><span class="n">GetLookupID</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">LastModifiedUserID</span><span class="w"></span>
+<span class="w"> </span><span class="n">LastModifiedUserID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyoperations</span><span class="p">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">).</span><span class="n">value</span><span class="p">.</span><span class="n">GetLookupID</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">VendorClassID</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">VendorClassID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">94</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">MFSQLConnectUserID</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MFSQLConnectUserID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="w"></span>
+<span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="p">(</span><span class="n">VendorClassID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ClassID</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">LastModifiedUserID</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">MFSQLConnectUserID</span><span class="p">)</span><span class="w"> </span><span class="k">Then</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">strInput</span><span class="w"></span>
+<span class="w"> </span><span class="n">strInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{&quot;&quot;ObjectID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ObjectType&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;Objectver&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Version</span><span class="o">&amp;</span><span class="s2">&quot;,&quot;&quot;ClassID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ClassID</span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ActionName&quot;&quot;  : &quot;&quot;Updateprop_EventHandler&quot;&quot;, &quot;&quot;ActionTypeID&quot;&quot;: &quot;&quot;5&quot;&quot;}&quot;</span><span class="w"></span>
+<span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">strOutput</span><span class="w"></span>
+<span class="w"> </span><span class="n">strOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ExtensionMethodOperations</span><span class="p">.</span><span class="n">ExecuteVaultExtensionMethod</span><span class="p">(</span><span class="s2">&quot;PerformActionMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strInput</span><span class="p">)</span><span class="w"></span>
+<span class="c1">&#39;Err.Raise MfScriptCancel, strOutput</span><span class="w"></span>
+<span class="w"> </span><span class="k">End</span><span class="w"> </span><span class="k">If</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="event-handlers">
+<h2>Event handlers<a class="headerlink" href="#event-handlers" title="Permalink to this headline">¶</a></h2>
+<p>Use the AfterCheckinChanges event handler for the updating SQL from M-Files. A separate event handler - AfterCreateNewObject - must be used to catch the creation of new objects if required.  The same procedure can be applied for creation events.</p>
+</div>
+<div class="section" id="adding-sql-agent">
+<h2>Adding SQL Agent<a class="headerlink" href="#adding-sql-agent" title="Permalink to this headline">¶</a></h2>
+<p>The final step of the configation is to setup an agent that can trigger the spMFUpdateContextMenuQueue procedure.  This procedure will check for any unprocessed items in the queue and process all the open items.  The frequency of the updates should be considered in the light of the type of operation that is being supported, but is quite feasible to be set to 1 minute intervals.  Be aware that this could have a performance impact.</p>
+<p>Every time the SQL agent runs it will process the oldest unprocessed queue item and will retry the item 5 times. This is controlled by the agent step and checking the update cycle.</p>
+<p>Consider having a control procedure to start and stop the agent to avoid it running in the background if updates using the event handler is only occasaional.</p>
+<p>Sample code for the step in the SQL agent is below</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Declare</span> <span class="o">@</span><span class="n">id</span> <span class="nb">int</span><span class="p">,</span> <span class="o">@</span><span class="n">UpdateCycle</span> <span class="nb">int</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">id</span><span class="o">=</span><span class="k">min</span><span class="p">(</span><span class="n">sq</span><span class="p">.</span><span class="n">id</span><span class="p">),</span> <span class="o">@</span><span class="n">UpdateCycle</span> <span class="o">=</span> <span class="k">MAX</span><span class="p">(</span><span class="k">isnull</span><span class="p">(</span><span class="n">UpdateCycle</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">MFContextMenuQueue</span> <span class="n">sq</span> <span class="k">WHERE</span> <span class="n">sq</span><span class="p">.</span><span class="n">Status</span> <span class="o">&lt;&gt;</span> <span class="mi">1</span>
+<span class="k">IF</span> <span class="o">@</span><span class="n">ID</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">and</span> <span class="o">@</span><span class="n">UpdateCycle</span> <span class="o">&lt;</span> <span class="mi">6</span>
+<span class="k">BEGIN</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateContextMenuQueue</span> <span class="o">@</span><span class="n">id</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<p>On the completion of the configuration, test the setup by making a change to the class object.</p>
+<p>MFContectMenuQueue should show the result</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="k">AS</span> <span class="n">mcmq</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="../../_images/image11.png" /></p>
+<p>The status = 1 in the above example implies that the record was that the version of the object in M-Files after checkin is the same as the version of the object in the class table after update.</p>
+<p>Status 0 implies that the action has been received from M-Files but no processing took place.
+Status -1 implies that the action has been received from M-Files but after processing, the versions are different.</p>
+<p>The following script will show the results for updating a specific property from the underlying log tables.  Note that the propval in this example will report the 8th property in the XML record.  The next script will highlight how to get the row number of the property</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">pb</span><span class="p">.</span><span class="n">CreatedOnUTC</span><span class="p">,</span>
+   <span class="n">pb</span><span class="p">.</span><span class="n">Status</span><span class="p">,</span>
+   <span class="n">pb</span><span class="p">.</span><span class="n">LogText</span><span class="p">,</span>
+   <span class="n">pbd</span><span class="p">.</span><span class="n">ColumnValue</span><span class="p">,</span>
+   <span class="n">uh</span><span class="p">.</span><span class="n">Id</span><span class="p">,</span>
+   <span class="n">uh</span><span class="p">.</span><span class="n">ObjectVerDetails</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/form/objVers/@objectID)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">objid</span><span class="p">,</span>
+   <span class="n">uh</span><span class="p">.</span><span class="n">ObjectVerDetails</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/form/objVers/@version)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="k">version</span><span class="p">,</span>
+   <span class="n">uh</span><span class="p">.</span><span class="n">NewOrUpdatedObjectDetails</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/form/Object/properties/@propertyValue)[8]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">propval</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFProcessBatch</span> <span class="n">pb</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFProcessBatchDetail</span> <span class="n">pbd</span>
+    <span class="k">ON</span> <span class="n">pb</span><span class="p">.</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="n">pbd</span><span class="p">.</span><span class="n">ProcessBatch_ID</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="n">uh</span>
+    <span class="k">ON</span> <span class="n">uh</span><span class="p">.</span><span class="n">Id</span> <span class="o">=</span> <span class="n">pbd</span><span class="p">.</span><span class="n">Update_ID</span>
+<span class="k">WHERE</span> <span class="n">pbd</span><span class="p">.</span><span class="n">ColumnName</span> <span class="o">=</span> <span class="s1">&#39;NewOrUpdatedObjectDetails&#39;</span> <span class="k">AND</span>  <span class="n">uh</span><span class="p">.</span><span class="n">ObjectVerDetails</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/form/objVers/@objectID)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">578</span>
+</pre></div>
+</div>
+<p>The image show all the instances where the specific object has been processed and the property value and version for the specific update.
+<img alt="image2" src="../../_images/image21.png" /></p>
+<p>The following script wlll allow you to identify the row number of the property being monitored (as in row 8 in the above example.) Inspect the xml record for one of the updates that has taken place.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">NewOrUpdatedObjectDetails</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="n">uh</span>
+<span class="k">WHERE</span> <span class="n">uh</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span><span class="mi">1247</span>
+</pre></div>
+</div>
+<p><img alt="image3" src="../../_images/image3.png" /></p>
+<p>Alternatively use a script to list the properties in sequence.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">props</span> <span class="n">XML</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Hdoc</span> <span class="nb">INT</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">props</span> <span class="o">=</span><span class="n">NewOrUpdatedObjectDetails</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="n">uh</span>
+<span class="k">WHERE</span> <span class="n">uh</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span><span class="mi">1247</span>
+<span class="k">EXEC</span> <span class="n">sp_xml_preparedocument</span> <span class="o">@</span><span class="n">hdoc</span> <span class="k">OUTPUT</span> <span class="p">,</span><span class="o">@</span><span class="n">props</span>
+<span class="k">SelECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">OPENXML</span><span class="p">(</span>  <span class="o">@</span><span class="n">hdoc</span> <span class="p">,</span><span class="s1">&#39;/form/Object/properties&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">WITH</span>
+<span class="p">(</span><span class="n">propertyId</span> <span class="nb">INT</span><span class="p">,</span> <span class="n">dataType</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">propertyValue</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="k">EXEC</span> <span class="n">sp_xml_removedocument</span> <span class="o">@</span><span class="n">Hdoc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p><strong>no entry in MFContextMenuQueue</strong></p>
+<ul class="simple">
+<li><p>check that the correct actionname is included in the event handler script</p></li>
+<li><p>validate that the insert statement has been included in the custom procedure</p></li>
+<li><p>check MFContextMenu table to validate that the event is reaching SQL</p></li>
+</ul>
+<p><strong>nothing is reaching SQL</strong></p>
+<ul class="simple">
+<li><p>check cross referencing of MFContextMenu with the event handler scripts and the SQL procedure</p></li>
+<li><p>check connnection in the M-Files Configurator</p></li>
+</ul>
+<p><strong>the queue is not being processed</strong></p>
+<ul class="simple">
+<li><p>check that the agent is running</p></li>
+</ul>
+<p><strong>deletions are not being processed</strong></p>
+<ul class="simple">
+<li><p>validate the separate event handler, custom procedure and entry in MFContextMenu</p></li>
+</ul>
+<p><strong>created objects is not being processed</strong></p>
+<ul class="simple">
+<li><p>a sepearate event handler must point to the same procedure and MFcontextMenu item as the update procedure</p></li>
+</ul>
+<p><img alt="image4" src="../../_images/image4.png" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mfsql_connector_addons/index.html" class="btn btn-neutral float-right" title="MFSQL Connector addons and utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../working-with-object-version/index.html" class="btn btn-neutral float-left" title="Working with Object Version" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

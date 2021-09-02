@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Error tracing &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Correcting Synchronization errors" href="correcting-synchronization-errors/index.html" />
+    <link rel="prev" title="Using and managing logs" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Using and managing logs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Error tracing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="correcting-synchronization-errors/index.html">Correcting Synchronization errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-reporting">Error reporting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errors">Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#synchronization-errors">Synchronization errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-errors">Common Errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-back-tracking">Error back tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#related-topics"><strong>Related Topics</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+          <li><a href="../index.html">Using and managing logs</a> &raquo;</li>
+        
+      <li>Error tracing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="error-tracing">
+<h1>Error tracing<a class="headerlink" href="#error-tracing" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="correcting-synchronization-errors/index.html">Correcting Synchronization errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="correcting-synchronization-errors/index.html#causes">Causes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="correcting-synchronization-errors/index.html#correction">Correction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="correcting-synchronization-errors/index.html#manual-correction">Manual correction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="correcting-synchronization-errors/index.html#auto-update-using-precedence">Auto update using precedence.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Tracing MFSQL Errors has many different dimensions and investigating an
+error may require several steps.</p>
+<div class="section" id="error-reporting">
+<h2>Error reporting<a class="headerlink" href="#error-reporting" title="Permalink to this headline">¶</a></h2>
+<p>Errors becomes visible in different ways:</p>
+<ol class="arabic simple">
+<li><p>If Database mail was setup and the settings in MFSettings is setup
+for email notifications then the support email recipient will receive
+an email when one of the following errors happen:</p>
+<ol class="arabic simple">
+<li><p>Synchronization error (process_id = 2)</p></li>
+<li><p>M-Files processing error (process_id = 3)</p></li>
+<li><p>SQL Database error (process_id = 4)</p></li>
+</ol>
+</li>
+<li><p>errors can be reviewed in table MFLog (Select * from MFLog order by
+logid desc)</p></li>
+<li><p>exec spmfClassTableStats will show a listing of all class tables and
+if it has errors.</p></li>
+</ol>
+</div>
+<div class="section" id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>All error details are logging into the MFLog and error details will send
+as email to support email mentioned in the Setting table. MFLog is cross
+referenced to MFUpdateHistory. This table includes the information on
+the objects that were updated/produced an error.</p>
+<p>If the error occurred during insert/update objects into the M-Files,
+there are different types of errors</p>
+<ol class="arabic simple">
+<li><p>Error occurred while executing SQL script</p></li>
+<li><p>Error occurred while executing Connector assembly codes</p></li>
+<li><p>Error occurred while insert/update into M-Files.</p></li>
+</ol>
+<p>3.1. Error due to version conflicts</p>
+<p>3.2. Error due to some validation fails from M-Files</p>
+<p>4. Error occurred while insert/update records into MF Tables due to
+converting values into specific data type.</p>
+<p>If error type 1 &amp; 2 occurs, execution will terminate and changes will
+roll-back. If error type 3 &amp; 4 occurs, execution will skip that record
+and continue with next record and the error details will log into MFLog
+table with ObjID, error message, Table Name. If error type 3 occurs,
+then reference to MFUpdateHistory table also will be inserting in MFLog
+table. So that you can cross check with MFUpdateHistory table and find
+the record which failed to insert/update.</p>
+<p>Errors are reported by email. See below for a sample of an email</p>
+</div>
+<div class="section" id="synchronization-errors">
+<h2>Synchronization errors<a class="headerlink" href="#synchronization-errors" title="Permalink to this headline">¶</a></h2>
+<p>A syncronisation error will result where object version in SQL is
+incompatible with the object version in M-Files. These errors can
+include</p>
+<ul class="simple">
+<li><p>When process_ID is 1, indicating an update from SQL to M-Files, and
+the M-Files version in M-Files is later than the M-Files version in
+SQL</p></li>
+<li><p>When process_ID is 0, and update method 1 or 2 is used and the
+M-Files version in SQL is later than the M-Files version in M-Files.</p></li>
+</ul>
+<p>A syncronisation error will result in a the Connector creating a new
+object in SQL with a process_id of 2.</p>
+<p>From version 3.1.2.38 functionality is included to allow for automatic
+correction of synchronization errors.  This feature is explained in
+detail in Correcting Synchronization Errors.</p>
+</div>
+<div class="section" id="common-errors">
+<h2>Common Errors<a class="headerlink" href="#common-errors" title="Permalink to this headline">¶</a></h2>
+<p><strong>Failed to insert ObjID</strong></p>
+<p>Error message :Cannot insert the value NULL into column <em>Name of Column</em>, table <em>Name of Table</em>; column does not
+allow nulls. INSERT fails. Cause for error. It is likely that a change
+was made in M-Files changing a property to required and where there are
+missing values in for the property in M-Files.</p>
+<p>Corrective action.
+-  option 1. Add the missing values in M-Files and retry the updating of
+the table.
+-  option 2: edit the table in SSMS and remove ‘is not null’
+from the column of the table. After the values have been added using
+SSMS the column settings can be reset to ‘is not null’.</p>
+<p><strong>Unable to establish a correction</strong></p>
+<p>A .NET Framework error occurred
+during execution of user-defined routine or aggregate:
+System.Runtime.InteropServices.COMException: Network problems are
+preventing M-Files from communicating with the server.  The RPC server
+is unavailable.</p>
+<p>This error sometimes happen if establishing a
+connection timed out which could related to the connection between the
+SQL server and M-Files server.  It usually is sufficient to try again.
+if this issue persists then it requires deeper investigation. contact
+support.</p>
+</div>
+<div class="section" id="error-back-tracking">
+<h2>Error back tracking<a class="headerlink" href="#error-back-tracking" title="Permalink to this headline">¶</a></h2>
+<p>Investigating an error will depend on the nature of the error.</p>
+<ul class="simple">
+<li><p>Check the most recent entry in MFLog.  Copy and past the
+‘ErrorMessage’ column to notepad to see the entire error</p></li>
+<li><p>View the transaction update that has caused the error by using the
+MFUpdateHistory.  Use spMFUpdateHistoryshow procedure to list the
+records</p></li>
+<li><p>Get more detail on the actual procedure step that is causing the
+issue by using the MFProcessBatch and MFProcessBatchDetail tables.</p></li>
+</ul>
+<p>The following script show the quick steps to follow to isolate an error</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--details of last errors</span>
+<span class="k">Select</span> <span class="n">top</span> <span class="mi">10</span> <span class="n">CreateDate</span><span class="p">,</span><span class="n">ErrorMessage</span><span class="p">,</span> <span class="n">spName</span><span class="p">,</span> <span class="n">ProcedureStep</span><span class="p">,</span> <span class="o">*</span> <span class="k">from</span> <span class="n">mflog</span> <span class="k">order</span> <span class="k">by</span> <span class="n">logid</span> <span class="k">desc</span>
+
+<span class="c1">--unprocessed errors in class tables (result should show none)</span>
+<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">ClassTableName</span> <span class="k">where</span> <span class="n">Process_ID</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span>
+
+<span class="c1">--is flag for processes running OK: IsProcess running shouled be 0, date show last time it was called</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFContextMenu</span>
+
+<span class="c1">--if is IsProcessRunning = 1 and the procedure has not been called in the last 30 minutes then reset this flag</span>
+<span class="k">update</span> <span class="n">MFContextMenu</span>
+<span class="k">set</span> <span class="n">IsProcessRunning</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">where</span> <span class="n">IsProcessRunning</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">--check outcome of processes</span>
+<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFProcessBatch</span> <span class="k">order</span> <span class="k">by</span> <span class="n">ProcessBatch_ID</span> <span class="k">desc</span>
+
+<span class="c1">--inspect details of a particular process</span>
+<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFProcessBatchDetail</span>
+<span class="k">where</span> <span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="mi">1335</span> <span class="c1">-- use result from previous script to get the number</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="related-topics">
+<h2><strong>Related Topics</strong><a class="headerlink" href="#related-topics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html"><span class="doc">MFUpdateHistory for logging of class record changes</span></a></p></li>
+<li><p><a class="reference internal" href="../../../the-connector-framework/connector-content/logging-tables/index.html"><span class="doc">Logging Tables</span></a></p></li>
+<li><p><a class="reference internal" href="../index.html"><span class="doc">Using and managing logs</span></a></p></li>
+<li><p><a class="reference internal" href="../../../blogs/using-spmfclasstablestats/index.html"><span class="doc">Using spMFClassTableStats</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="correcting-synchronization-errors/index.html" class="btn btn-neutral float-right" title="Correcting Synchronization errors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Using and managing logs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

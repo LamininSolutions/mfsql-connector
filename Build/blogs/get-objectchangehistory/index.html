@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Working with object change history &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Getting started with a custom application" href="../getting-started-with-a-custom-application/index.html" />
+    <link rel="prev" title="Get number of records in Class" href="../get-number-of-records-in-class/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../align-metadata-from-an-external-source-with-data-in-m-files/index.html">Align metadata from an external source with data in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligning-valuelist-items-with-different-owners/index.html">Aligning valuelist items with different owners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building-applications-around-m-files/index.html">Building applications around M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../certified-application-developer-presentation/index.html">Certified Application Developer presentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-class-of-object/index.html">Changing the class of an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changing-from-single-lookup-to-multi-lookup/index.html">Changing from single lookup to multi lookup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-deleted-records/index.html">Considerations for deleted records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../considerations-for-large-volume-vault/index.html">Considerations for large volume vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html">Create a scheduled pull from M-Files using SQL Server Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-and-using-public-shared-link/index.html">Creating and using public shared link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with object change history</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps-the-enable-object-change-history">Steps the enable object change history</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfobjectchangehistory">MFObjectChangeHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#column-relationships-and-conversions">Column relationships and conversions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#relations-for-objecttype-id">Relations for ObjectType_ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#relations-for-class-id">Relations for Class_ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#universal-versus-local-datetime">Universal versus local datetime</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#last-modified-user">Last modified user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property">Property</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#property-value">Property Value</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#clearing-rows-in-table">Clearing rows in table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfobjectchangehistoryupdatecontrol">MFObjectChangeHistoryUpdateControl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfupdatemfilestosql">spMFUpdateMfilesToSQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfupdateallncludedinapptables">spMFUpdateAllncludedinAppTables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfupdateobjectchangehistory">spmfUpdateObjectChangeHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spmfgethistory">spMFGetHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#volume-warning">Volume warning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-filters">Using filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-the-records-to-be-updated">Set the records to be updated</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pull-the-change-history">Pull the change history</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started-with-a-custom-application/index.html">Getting started with a custom application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-to-know-mfsql-connector/index.html">Getting to know MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto-quick-follow-up-list/index.html">How to generate a quick follow up list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../illegal-xml-characters/index.html">Illegal XML Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../import-files-into-m-files-from-explorer/index.html">Import files into M-Files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../importing-files-from-a-database/index.html">Importing files from a database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insert-new-records-from-sql/index.html">Insert new records from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-whitepaper/index.html">Integration whitepaper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-200---case-management/index.html">Integration with SAGE 200 - Case Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-sage-50/index.html">Integration with SAGE 50</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-test-equipment/index.html">Integration with test equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integration-with-vendor-management-and-purchasing-with-epicor-enterprise/index.html">Integration with Vendor Management and Purchasing with Epicor Enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../near-real-time-reporting/index.html">Near real time reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-ordering-of-special-stock/index.html">Online Ordering of special stock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../online-quote-system/index.html">Online Quote System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../processing-scanned-documents/index.html">Processing scanned documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../properties-with-multi-lookup-datatypes/index.html">Properties with multi lookup datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../real-datatype/index.html">Limitations of real datatype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../report-designers-and-the-connector/index.html">Report designers and the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reports-from-the-extended-event-log/index.html">Reports from the extended Event log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restore-to-a-different-database/index.html">Restore MFSQL database to a different server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rpc-over-https/index.html">RPC over HTTPS setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setting-up-a-workflow-state-change/index.html">Setting up a workflow state change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-agent-proxy/index.html">Setup Agent Proxy for MFSQLConnect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updating_millions_of_records/index.html">Updating millions of records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-delimiter-functions/index.html">Using delimiter functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-spmfclasstablestats/index.html">Using spMFClassTableStats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-the-external_id-to-match-third-party-app-tables/index.html">Using the External_ID to match third party app tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../windows-authentication/index.html">Using windows authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_checkedout/index.html">Working with checkedOut objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_dates/index.html">Working with date and time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working_with_document_collections/index.html">Working with Document Collections</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">List of blogs</a> &raquo;</li>
+        
+      <li>Working with object change history</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="working-with-object-change-history">
+<h1>Working with object change history<a class="headerlink" href="#working-with-object-change-history" title="Permalink to this headline">¶</a></h1>
+<p>Object change history is often used in reporting to get the data about property changes.  This include changes such as Comments, workflow states, and other key properties where changes to the properties requires monitoring.</p>
+<dl class="simple">
+<dt>The following procedures are related:</dt><dd><ul class="simple">
+<li><p>spMFUpdateObjectChangeHistory</p></li>
+<li><p>spMFupdateAllncludedInAppTables</p></li>
+<li><p>spMFUpdateMfilesToMFSQL</p></li>
+<li><p>spMFGetHistory</p></li>
+</ul>
+</dd>
+<dt>The following tables are related:</dt><dd><ul class="simple">
+<li><p>MFObjectChangeHistory</p></li>
+<li><p>MFObjectChangeHistoryUpdateControl</p></li>
+</ul>
+</dd>
+</dl>
+<p>Updating of the object change history is included in spmfUpdateAllIncludedInAppTables and spmfUpdateMFilestoMFSQL</p>
+<p>After taking the steps outlined below spmfUpdateMFilestoMFSQL will automatically include processing spMFUpdateObjectChangeHistory.  spMFUpdateobjectChangeHistory uses the MFObjectChangeHistoryUpdateControl table to get all the classes and properties and then use spMFGetHistory to perform the updates.</p>
+<p>spMFUpdateobjectChangeHistory can be executed on its own using the parameters to set the scope. See below for more detail.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>spMFGetHistory will be processed for each row in the control table (consisting of a valid class table name and a valid property column name)</p></li>
+<li><p>All records in the class table with values for the specific property will be included</p></li>
+<li><p>The start date of the update will be set to the last change date in for the specific class and property in the MFObjectChangeHistory table.</p></li>
+<li><p>The procedure will therefor only update new changes for the property.</p></li>
+</ul>
+</div></blockquote>
+<p>MFObjectChangeHistory maintains a cummulative object change history for the designated properties.</p>
+<div class="section" id="steps-the-enable-object-change-history">
+<h2>Steps the enable object change history<a class="headerlink" href="#steps-the-enable-object-change-history" title="Permalink to this headline">¶</a></h2>
+<p>Step 1: Update the control table for the properties to be monitored
+Step 2: Use spMFUpdateMFilestoMFSQL to update the class table and history
+Step 3: Schedule spMFUpdateAllncludedinAppTables in an agent to regularly update the history</p>
+</div>
+<div class="section" id="mfobjectchangehistory">
+<h2>MFObjectChangeHistory<a class="headerlink" href="#mfobjectchangehistory" title="Permalink to this headline">¶</a></h2>
+<p>This table contains the result of the get history operation.  Examples of using the result in queries and views are detailed below.</p>
+<dl class="simple">
+<dt>The table columns are the following:</dt><dd><ul class="simple">
+<li><p>ID: Identity of row</p></li>
+<li><p>ObjectType_ID: MFID of the ObjectType</p></li>
+<li><p>Class_ID: MFID of the Class</p></li>
+<li><p>Objid: Objid of the class object</p></li>
+<li><p>MFVersion: Version of the object where the value changed for the property in column Property_ID. Only versions matching the filters on the spMFGetHistory procedure is fetched. Widening the filters may restrict the MFVersions returned. Narrowing the filters will not remove the rows previously fetched for</p></li>
+</ul>
+</dd>
+<dt>the object.</dt><dd><ul class="simple">
+<li><p>LastModifiedUtc: The ‘CheckInTimeStamp’ of the specific version for the object. The timestamp is shown in Universal Time.</p></li>
+<li><p>MFLastModifiedBy_ID: MFID of the user. User information is on MFUserAccount or MFLoginAccount.</p></li>
+<li><p>Property_ID: MFID of the property specified in the MFObjectChangeHistoryControl table.</p></li>
+<li><p>Property_Value: value as a string. Interpreting and relating to this value will depend on the type of property. Lookups require special consideration, see below.</p></li>
+<li><p>CreatedOn: timestamp when the row was recreated in the table</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="column-relationships-and-conversions">
+<h2>Column relationships and conversions<a class="headerlink" href="#column-relationships-and-conversions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="relations-for-objecttype-id">
+<h3>Relations for ObjectType_ID<a class="headerlink" href="#relations-for-objecttype-id" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--object types in change history table</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">mot</span><span class="p">.</span><span class="n">Name</span> <span class="k">AS</span> <span class="n">objectType</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectType</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mot</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mot</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">ObjectType_ID</span><span class="p">]</span>
+
+<span class="c1">--getting the object type id for the class</span>
+
+<span class="k">SELECT</span> <span class="n">MC2</span><span class="p">.</span><span class="n">MFID</span> <span class="n">class_id</span><span class="p">,</span> <span class="n">mot</span><span class="p">.</span><span class="n">MFID</span> <span class="n">ObjectType_ID</span><span class="p">,</span> <span class="n">mc2</span><span class="p">.</span><span class="n">name</span> <span class="k">Class</span><span class="p">,</span> <span class="n">mot</span><span class="p">.</span><span class="n">name</span> <span class="n">ObjectType</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc2</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectType</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mot</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mot</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">mc2</span><span class="p">.[</span><span class="n">MFObjectType_ID</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="relations-for-class-id">
+<h3>Relations for Class_ID<a class="headerlink" href="#relations-for-class-id" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">mc2</span><span class="p">.</span><span class="n">name</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc2</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mc2</span><span class="p">.</span><span class="n">mfid</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Class_ID</span><span class="p">]</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">mc2</span><span class="p">.</span><span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="universal-versus-local-datetime">
+<h3>Universal versus local datetime<a class="headerlink" href="#universal-versus-local-datetime" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--understanding dates and times</span>
+<span class="k">SELECT</span> <span class="n">SYSDATETIME</span><span class="p">()</span> <span class="k">AS</span> <span class="p">[</span><span class="n">SYSDATETIME</span><span class="p">()]</span>
+    <span class="p">,</span><span class="n">SYSDATETIMEOFFSET</span><span class="p">()</span> <span class="k">AS</span> <span class="p">[</span><span class="n">SYSDATETIMEOFFSET</span><span class="p">()]</span>
+    <span class="p">,</span><span class="n">SYSUTCDATETIME</span><span class="p">()</span> <span class="k">AS</span> <span class="p">[</span><span class="n">SYSUTCDATETIME</span><span class="p">()]</span>
+    <span class="p">,</span><span class="k">CURRENT_TIMESTAMP</span> <span class="k">AS</span> <span class="p">[</span><span class="k">CURRENT_TIMESTAMP</span><span class="p">]</span>
+    <span class="p">,</span><span class="n">GETDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="p">[</span><span class="n">GETDATE</span><span class="p">()]</span>
+    <span class="p">,</span><span class="n">GETUTCDATE</span><span class="p">()</span> <span class="k">AS</span> <span class="p">[</span><span class="n">GETUTCDATE</span><span class="p">()];</span>
+
+  <span class="c1">--adjust for local time (where the time offset is known)</span>
+ <span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">5</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">LastModifiedUtc</span><span class="p">],</span> <span class="n">DATEADD</span><span class="p">(</span><span class="n">HOUR</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,[</span><span class="n">moch</span><span class="p">].[</span><span class="n">LastModifiedUtc</span><span class="p">])</span> <span class="n">EasternTime</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="last-modified-user">
+<h3>Last modified user<a class="headerlink" href="#last-modified-user" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">mla</span><span class="p">.[</span><span class="n">UserName</span><span class="p">],</span> <span class="p">[</span><span class="n">mla</span><span class="p">].[</span><span class="n">FullName</span><span class="p">]</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFLoginAccount</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mla</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">MFLastModifiedBy_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mla</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="property">
+<h3>Property<a class="headerlink" href="#property" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">mp</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">propertyName</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProperty</span><span class="p">]</span> <span class="n">mp</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mp</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="property-value">
+<h3>Property Value<a class="headerlink" href="#property-value" title="Permalink to this headline">¶</a></h3>
+<p>Lookup property values require special consideration as the column will
+contain the id or comma delimited list of ids rather than the labels. It
+is best practice to build datasets for reporting and other uses for the
+change data around specific property types. Combining analysis of change
+history for diffferent property types simultaneously is more complex.
+There are 4 types of lookups, each with different considerations:</p>
+<ul class="simple">
+<li><p>valuelist single and multi select</p></li>
+<li><p>workflow</p></li>
+<li><p>class table object single and multi select</p></li>
+<li><p>workflow state</p></li>
+</ul>
+<div class="section" id="workflow">
+<h4>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h4>
+<p>The property value is the MFID of the workflow in the MFWorkflow Table
+if the property_id = 38</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">mfid</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFWorkflow</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mw</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="o">=</span> <span class="n">mw</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">38</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="workflow-state">
+<h4>workflow state<a class="headerlink" href="#workflow-state" title="Permalink to this headline">¶</a></h4>
+<p>The property value is the MFID of the workflow state in the
+MFWorkflowState Table if the property_id = 39</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">mfid</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFWorkflowState</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mw</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="o">=</span> <span class="n">mw</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">39</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="valuelist-item-single-lookup">
+<h4>Valuelist item - single lookup<a class="headerlink" href="#valuelist-item-single-lookup" title="Permalink to this headline">¶</a></h4>
+<p>The property value is the MFID of the Valuelist item in the
+MFValuelistItem Table. The MFValuelistItem must be joined with the
+MFValuelist for the specific property to select the correct MFID
+through the MFProperty Table. Both Valuelist related to the property_ID
+and the Valuelist Item ID for the Property Value must be matched. See
+line 10 below.</p>
+<p>The samples below have three different approaches to achieve the same
+objective.</p>
+<ul class="simple">
+<li><p>The first illustrate the joins based on the base tables.</p></li>
+<li><p>The second use the MFvwMetadataStructure to simplify the relationship</p></li>
+<li><p>The third use a valuelist view. This view is generated using the
+spMFCreateValuelistLookup</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">moch</span><span class="p">.</span><span class="n">id</span><span class="p">,[</span><span class="n">moch</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">],</span> <span class="n">moch</span><span class="p">.</span><span class="n">MFVersion</span><span class="p">,</span>  <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">],</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span>
+<span class="p">,</span> <span class="n">mp</span><span class="p">.</span><span class="n">name</span> <span class="n">Property</span><span class="p">,</span> <span class="n">mvl</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Valuelist</span><span class="p">,</span> <span class="n">mvl</span><span class="p">.[</span><span class="n">RealObjectType</span><span class="p">]</span>
+<span class="p">,</span> <span class="n">mvli</span><span class="p">.</span><span class="n">name</span> <span class="k">AS</span> <span class="n">Valuelistitem</span>
+  <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProperty</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mp</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueList</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvl</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mp</span><span class="p">.[</span><span class="n">MFValueList_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvl</span><span class="p">.[</span><span class="n">ID</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueListItems</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvli</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span> <span class="k">AND</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFValueListID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvl</span><span class="p">.[</span><span class="n">ID</span><span class="p">]</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">]</span>
+
+<span class="c1">--using the MFvwMetadatastructure</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFvwMetadataStructure</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfms</span><span class="p">]</span>
+<span class="k">ON</span> <span class="p">[</span><span class="n">mfms</span><span class="p">].[</span><span class="n">Property_MFID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">moch</span><span class="p">].[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="k">AND</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Class_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mfms</span><span class="p">.[</span><span class="n">class_MFID</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueListItems</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvli</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="k">AND</span> <span class="n">mfms</span><span class="p">.[</span><span class="n">Valuelist_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFValueListID</span><span class="p">]</span>
+
+<span class="c1">--creating a valuelist item view for currency</span>
+
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFCreateValueListLookupView</span><span class="p">]</span> <span class="o">@</span><span class="n">ValueListName</span> <span class="o">=</span> <span class="s1">&#39;Currency&#39;</span> <span class="c1">-- nvarchar(128)</span>
+                                          <span class="p">,</span><span class="o">@</span><span class="n">ViewName</span> <span class="o">=</span> <span class="s1">&#39;vwCurrency&#39;</span>      <span class="c1">-- nvarchar(128)</span>
+                                          <span class="p">,</span><span class="o">@</span><span class="k">Schema</span> <span class="o">=</span> <span class="s1">&#39;Custom&#39;</span>        <span class="c1">-- nvarchar(20)</span>
+                                          <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1">-- smallint</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProperty</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mp</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">mfid</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">custom</span><span class="p">.[</span><span class="n">VLvwCurrency</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">vlc</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">vlc</span><span class="p">.[</span><span class="n">MFID_ValueListItems</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="k">AND</span> <span class="n">vlc</span><span class="p">.[</span><span class="n">ID_ValueList</span><span class="p">]</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.[</span><span class="n">MFValueList_ID</span><span class="p">]</span>
+<span class="k">ON</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="valuelist-item-multi-lookup">
+<h4>valuelist item - multi lookup<a class="headerlink" href="#valuelist-item-multi-lookup" title="Permalink to this headline">¶</a></h4>
+<p>When a multi lookup property are used and there are more than one value
+selected on the property, the values will be displayed as a comma
+delimited string.</p>
+<p>Before the joins above can be applied, the values in the Property Value
+column must be split to allow for it to be joined the the underlying
+tables.</p>
+<p>Using cross apply with fnMFParseDelimitedString will parse the string
+and allow joining with its parts. This is illustrated with the second
+example for valuelist items.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- working with a multi lookup valuelist</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">CROSS</span> <span class="n">APPLY</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">]([</span><span class="n">moch</span><span class="p">].[</span><span class="n">Property_Value</span><span class="p">],</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFvwMetadataStructure</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfms</span><span class="p">]</span>
+<span class="k">ON</span> <span class="p">[</span><span class="n">mfms</span><span class="p">].[</span><span class="n">Property_MFID</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="k">AND</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Class_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mfms</span><span class="p">.[</span><span class="n">class_MFID</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFValueListItems</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mvli</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">].[</span><span class="n">ListItem</span><span class="p">]</span> <span class="k">AND</span> <span class="n">mfms</span><span class="p">.[</span><span class="n">Valuelist_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mvli</span><span class="p">.[</span><span class="n">MFValueListID</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-table-objects-or-real-object-type-objects">
+<h4>Class table objects or real Object Type objects<a class="headerlink" href="#class-table-objects-or-real-object-type-objects" title="Permalink to this headline">¶</a></h4>
+<p>Where the property references a real object, such as ‘Customer’, the
+Property_Value column will reference the objid of the class. In the
+example below the list show the changes for the Account property which
+references the MFAccount class table.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFvwMetadataStructure</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfms</span><span class="p">]</span>
+<span class="k">ON</span> <span class="p">[</span><span class="n">mfms</span><span class="p">].[</span><span class="n">Property_MFID</span><span class="p">]</span> <span class="o">=</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_ID</span><span class="p">]</span> <span class="k">AND</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Class_ID</span><span class="p">]</span> <span class="o">=</span> <span class="n">mfms</span><span class="p">.[</span><span class="n">class_MFID</span><span class="p">]</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFAccount</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ma</span><span class="p">]</span>
+<span class="k">ON</span> <span class="n">moch</span><span class="p">.[</span><span class="n">Property_Value</span><span class="p">]</span> <span class="o">=</span> <span class="n">ma</span><span class="p">.[</span><span class="n">ObjID</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">mfms</span><span class="p">].[</span><span class="n">IsObjectType</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="clearing-rows-in-table">
+<h2>Clearing rows in table<a class="headerlink" href="#clearing-rows-in-table" title="Permalink to this headline">¶</a></h2>
+<p>The MFObjectChangeHistory table contains the version history for all the
+classed and objects and properties for every time the procedure
+spMFGetHistory is processed. This table is likely to grow very fast if
+not maintained.</p>
+<p>There is no automated process for clearing the history table. It really
+depends on the specific application and use case for the object history.</p>
+<p>In most applications fetching the history for an object is incidental
+and can be removed after the data was consumed. In other cases this
+table is constantly consumed for reporting on previous history.</p>
+<p>Devising a strategy for deleting records in this table is likely to be
+different for each class, and could even be different for specific
+properties on the class.</p>
+<p>Adhoc use of the change history can be deleted from the table. Always
+delete by class. Truncating the entire table may destroy history records
+of other classes unintentionally.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span>
+<span class="k">WHERE</span> <span class="p">[</span><span class="n">Class_ID</span><span class="p">]</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">MFID</span> <span class="k">FROM</span> <span class="n">MFClass</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">TableName</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mfobjectchangehistoryupdatecontrol">
+<h2>MFObjectChangeHistoryUpdateControl<a class="headerlink" href="#mfobjectchangehistoryupdatecontrol" title="Permalink to this headline">¶</a></h2>
+<p>This control table must have an entry for each class table to be included in the change history pull.  Each property to be included for the class table must be included in a separate row.</p>
+<p>The underlying class table must be created and kept up to date for the change history to work.</p>
+<p>Records must be added for your specific requirements in the control table.  The update procedure will have no impact if no records are found in this table.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFObjectChangeHistoryUpdateControl</span><span class="p">(</span>
+<span class="n">MFTableName</span><span class="p">,</span>
+<span class="n">ColumnNames</span><span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="p">(</span><span class="n">N</span><span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;City&#39;</span><span class="p">),</span>
+<span class="n">N</span><span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;Country_ID&#39;</span><span class="p">),</span>
+<span class="n">N</span><span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;State_ID&#39;</span><span class="p">),</span>
+<span class="n">N</span><span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">,</span> <span class="n">N</span><span class="s1">&#39;State_ID&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spmfupdatemfilestosql">
+<h2>spMFUpdateMfilesToSQL<a class="headerlink" href="#spmfupdatemfilestosql" title="Permalink to this headline">¶</a></h2>
+<p>A new paramater is added to this procedure for including updating of the change history for the class specified class table.  By default change history is not included. When the class table is included in the MFObjectChangeHistoryUpdateControl table then it would automatically update the change history for the objects that a) is updated using the main procedure and b) check for any objects where the history is older than the class table and update the history.  Note that this works on incremental updates.  It will only look for changes history from the date of the previous update.</p>
+<p>To update Change history when updating the class table: Set the &#64;WithObjectHistory = 1
+This setting will check the MFObjectChangeHistoryUpdateControl table, if the class table has entries in this control table then it would use these entries to call spMFUpdateObjectChangeHistory</p>
+<p>Use spMFGetHistory as described below to force a full update of the change history for a table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Update_IDOut</span>         <span class="nb">INT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcessBatch_ID</span>      <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateMFilesToMFSQL</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">UpdateTypeID</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">MaxObjects</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+<span class="o">@</span><span class="n">WithObjectHistory</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spmfupdateallncludedinapptables">
+<h2>spMFUpdateAllncludedinAppTables<a class="headerlink" href="#spmfupdateallncludedinapptables" title="Permalink to this headline">¶</a></h2>
+<p>This procedure no longer calls spmfUpdateObjectChangeHistory directly.  It only calls spMFUpdateMfilesToSQL which in turns call spmfUpdateObjectChangeHistory</p>
+</div>
+<div class="section" id="spmfupdateobjectchangehistory">
+<h2>spmfUpdateObjectChangeHistory<a class="headerlink" href="#spmfupdateobjectchangehistory" title="Permalink to this headline">¶</a></h2>
+<p>Use spMFUpdateobjectChangeHistory for automating the manual process of using spmfGetHistory.  This is an alternative method to spMFUpdateMFilestoMFSQL and may be used on its own.  spMFUpdateMfilestoSQL actually calls this procedures as part of its routine.</p>
+<p>If &#64;withClasstableupdate is set to 1 then the class table will be updated before the history is pulled.</p>
+<p>If only a subset of objects must be updated then the &#64;Objids can be set as a comma delimited string to update only the specific objects’ change history.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span>   <span class="o">@</span><span class="n">ProcessBatch_ID</span>      <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateObjectChangeHistory</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFcustomer&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">WithClassTableUpdate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Objids</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spmfgethistory">
+<h2>spMFGetHistory<a class="headerlink" href="#spmfgethistory" title="Permalink to this headline">¶</a></h2>
+<p>spMFGetHistory is the core procedure to fetch the history from M-Files</p>
+<p>The operation will get the change history for specific objects and for
+specific properties. It is not designed to get the change history for
+every property on the object in a single process. The operation is
+intended to be used where the target property and the specific object is
+predetermined.</p>
+<p>For instance the change history can be extracted for address changes in
+all the customers ; the workflow state changes for purchase orders
+approved in the last month can be extracted.</p>
+</div>
+<div class="section" id="volume-warning">
+<h2>Volume warning<a class="headerlink" href="#volume-warning" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended to carefully consider the population of the extract
+before executing the procedure. It is very easy to request the history
+for a number of object and return many thousands of results. For
+instance, getting the history of 4000 customers using 5 properties with
+an average of 10 versions per customer would produce approx 200 000
+history records.</p>
+<div class="section" id="using-filters">
+<h3>Using filters<a class="headerlink" href="#using-filters" title="Permalink to this headline">¶</a></h3>
+<p>Several types of filters are available:</p>
+<ul class="simple">
+<li><p>Exclude the objects where the data is no longer required or relevant:
+for instance if the report is targeting the approvals of invoices in
+the past month then only include the invoices where the
+MFLastModified date is in the last month by updating the process_id
+= 5 only on these records.</p></li>
+<li><p>Only include the properties on the object that is relevant for the
+report. The use of multiple properties should be reduced to the
+minimum.</p></li>
+<li><p>Only use getting the full history if it is relevant, or the fist time
+that history is being updated. It would be more productive to
+initialize the data by getting the full history, and then to update
+the history by setting the start date or number of days filter.</p></li>
+<li><p>The search string filter can be used to return a result for a
+specific value of change. For instance to only return the state
+change where the approval took place, instead of all the state
+change, set the search string value to the approval state ID.</p></li>
+</ul>
+<dl class="simple">
+<dt>Using spMFGetHistory has two steps:</dt><dd><ul class="simple">
+<li><p>set the process_id on the class table for the records to be included in the pull.</p></li>
+<li><p>pull the change history for these rows</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="set-the-records-to-be-updated">
+<h3>Set the records to be updated<a class="headerlink" href="#set-the-records-to-be-updated" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="p">[</span><span class="n">MFPurchaseInvoice</span><span class="p">]</span>
+<span class="k">SET</span> <span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pull-the-change-history">
+<h3>Pull the change history<a class="headerlink" href="#pull-the-change-history" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">RC</span> <span class="nb">INT</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">TableName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFPurchaseInvoice&#39;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Process_id</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ColumnNames</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;State&#39;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">IsFullHistory</span> <span class="nb">BIT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">NumberOFDays</span> <span class="nb">INT</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">SearchString</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="k">null</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">StartDate</span> <span class="n">DATETIME</span> <span class="c1">--= DATEADD(DAY,-1,GETDATE())</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Debug</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Update_ID</span>  <span class="nb">INT</span>
+
+<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetHistory</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span>  <span class="o">@</span><span class="n">TableName</span>   <span class="c1">-- nvarchar(128)</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Process_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">Process_id</span>    <span class="c1">-- int</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">ColumnNames</span> <span class="o">=</span> <span class="o">@</span><span class="n">ColumnNames</span>   <span class="c1">-- nvarchar(4000)</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">SearchString</span> <span class="o">=</span> <span class="k">null</span>  <span class="c1">-- nvarchar(4000)</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">IsFullHistory</span> <span class="o">=</span> <span class="o">@</span><span class="n">IsFullHistory</span> <span class="c1">-- bit</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">NumberOFDays</span> <span class="o">=</span> <span class="o">@</span><span class="n">NumberOFDays</span>  <span class="c1">-- int</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">StartDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">StartDate</span>     <span class="c1">-- datetime</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span>                         <span class="c1">-- int</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span>            <span class="c1">-- int</span>
+                       <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="o">@</span><span class="n">debug</span>         <span class="c1">-- int</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProcessBatch</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mpb</span><span class="p">]</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">mpb</span><span class="p">].[</span><span class="n">ProcessBatch_ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProcessBatchDetail</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mpbd</span><span class="p">]</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">mpbd</span><span class="p">].[</span><span class="n">ProcessBatch_ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectChangeHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">moch</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../getting-started-with-a-custom-application/index.html" class="btn btn-neutral float-right" title="Getting started with a custom application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../get-number-of-records-in-class/index.html" class="btn btn-neutral float-left" title="Get number of records in Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

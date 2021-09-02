@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MFSQL Integration Connector &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exploring metadata" href="exploring-metadata/index.html" />
+    <link rel="prev" title="Functional Checklist" href="../mfsql-database-file-connector/functional-checklist/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MFSQL Integration Connector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/index.html">Using and managing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>MFSQL Integration Connector</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mfsql-integration-connector">
+<h1>MFSQL Integration Connector<a class="headerlink" href="#mfsql-integration-connector" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="exploring-metadata/index.html">Exploring metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exploring-metadata/index.html#extended-columns-in-metadata-structure-view">Extended columns in Metadata structure view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exploring-metadata/index.html#exploring-valuelists-with-mfvwmetadatastructure">Exploring Valuelists with MFvwMetadataStructure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#using-code-on-time">Using Code On Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#updating-m-files-from-within-cot">Updating M-Files from within CoT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#update-in-m-files">Update in M-Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#transaction-based-update">Transaction based update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#batched-based-update-with-low-volume-of-updates-at-any-one-point-in-time">Batched based update with low volume of updates at any one point in time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building-custom-applications-and-integrations/index.html#batched-based-update-for-many-records">Batched based update for many records</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create-valuelist-items-from-sql/index.html#spmfsynchronizevaluelistitemstomfiles">spMFSynchronizeValueListItemsToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-valuelist-items-from-sql/index.html#updating-creating-a-valuelist-item">Updating creating a valuelist item</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user-messages/index.html">User Messages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-messages/index.html#examples-and-setup-of-messaging">Examples and setup of messaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#access-error-message-in-mflog">Access error message in MFLog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#get-error-messages-to-email">Get error messages to email</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#access-process-logging">Access process logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#adding-a-process-message-to-an-individual-object">Adding a process message to an individual object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#get-standard-process-messages-in-m-files">Get standard process messages in M-Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#add-custom-message-in-the-mfusermessage-table">Add custom message in the MFUserMessage table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#show-process-results-in-context-menu-action">Show process results in context menu action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-messages/index.html#process-custom-messages-by-email">Process custom messages by Email</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="send-bulk-email/index.html">Send Bulk Email</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="send-bulk-email/index.html#components">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="send-bulk-email/index.html#use-case">Use case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="send-bulk-email/index.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="send-bulk-email/index.html#email-template">Email Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-bulk-email/index.html#insert-template">Insert Template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-bulk-email/index.html#custom-procedure-for-processing">Custom procedure for processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-bulk-email/index.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send-bulk-email/index.html#staging">Staging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working-with-files/index.html">Working with files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working-with-files/index.html#importing-files-from-explorer">Importing files from explorer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-files/index.html#extend-importing-files-capability">Extend importing files capability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-files/index.html#exporting-of-files">Exporting of files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="working-with-files/index.html#example-of-preparing-to-export-of-files">Example of preparing to export of Files</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change-of-vault/index.html">Change of Vault</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="change-of-vault/index.html#new-vault">New Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-of-vault/index.html#when-qa-or-production-is-a-created-as-a-structure-copy-of-dev">When QA or Production is a created as a structure copy of Dev</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="change-of-vault/index.html#update-settings">Update Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="change-of-vault/index.html#updating-metadata">Updating metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="change-of-vault/index.html#scripting-tool">Scripting tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#multi-class">Multi-Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#reset-sql-class-table">Reset SQL Class Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#dynamically-add-additional-property-to-class-table-when-inserting-updating-records">Dynamically add additional property to class table when inserting/updating records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#view-of-valuelistitems-by-class">View of Valuelistitems by Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#view-of-valuelistitems-by-owner-valuelistitem">View of Valuelistitems by Owner ValuelistItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#renaming-of-property-related-to-a-valuelist">Renaming of property related to a valuelist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#showing-the-objects-that-was-updated-using-the-history-table">Showing the objects that was updated using the history table</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tips-and-tricks-on-using-the-connector/index.html#helper-procedures-when-iterating-through-the-configuration-of-the-vault-and-the-connector">Helper procedures when iterating through the configuration of the vault and the Connector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using-and-managing-logs/index.html">Using and managing logs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html">Error tracing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/correcting-synchronization-errors/index.html">Correcting Synchronization errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="using-and-managing-logs/error-tracing/correcting-synchronization-errors/index.html#causes">Causes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using-and-managing-logs/error-tracing/correcting-synchronization-errors/index.html#correction">Correction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#error-reporting">Error reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#errors">Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#synchronization-errors">Synchronization errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#common-errors">Common Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#error-back-tracking">Error back tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/error-tracing/index.html#related-topics"><strong>Related Topics</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-and-managing-logs/mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="using-and-managing-logs/mfupdatehistory-for-logging-of-class-record-changes/index.html#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working-with-object-version/index.html">Working with Object Version</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="working-with-object-version/index.html#getting-object-version-detail-in-batches">Getting object version detail in batches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="working-with-object-version/index.html#get-object-version-for-specific-object-or-objects">Get object version for specific object or objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context-menu-queue/index.html#configuration">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#dependent-objects">Dependent objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#custom-procedure-for-processing-update-action">Custom procedure for processing update action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#setup-mfcontextmenu">Setup MFContextMenu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#setup-the-action-in-m-files">Setup the action in M-Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#event-handlers">Event handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context-menu-queue/index.html#adding-sql-agent">Adding SQL Agent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mfsql_connector_addons/index.html#excel-basic-for-sql-queries">Excel Basic for SQL queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfsql_connector_addons/index.html#excel-sql-reports">Excel SQL reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfsql_connector_addons/index.html#folder-export">Folder Export</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mfsql_connector_addons/index.html#sql-scheduler">SQL Scheduler</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="exploring-metadata/index.html" class="btn btn-neutral float-right" title="Exploring metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mfsql-database-file-connector/functional-checklist/index.html" class="btn btn-neutral float-left" title="Functional Checklist" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

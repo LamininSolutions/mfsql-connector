@@ -1,0 +1,1424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Functional Overview &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Practical tips and Use Cases" href="../practical-tips-and-use-cases/index.html" />
+    <link rel="prev" title="MFSQL Connector modules" href="../mfsql-connector-modules/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introduction to MFSQL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../purpose-and-scope/index.html">Introducing MFSQL Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../requirements/index.html">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mfsql-connector-modules/index.html">MFSQL Connector modules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functional Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-functional-composition-of-the-modules">Overview of functional composition of the modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../practical-tips-and-use-cases/index.html">Practical tips and Use Cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Introduction to MFSQL</a> &raquo;</li>
+        
+      <li>Functional Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="functional-overview">
+<h1>Functional Overview<a class="headerlink" href="#functional-overview" title="Permalink to this headline">¶</a></h1>
+<p>The following is a functional overview of all the different aspects of
+MFSQL Connector by package.   Refer to <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/introduction/mfsql-connector-modules/index.html">Connector
+Modules</a> for more detail about the
+different packages.</p>
+<div class="section" id="overview-of-functional-composition-of-the-modules">
+<h2>Overview of functional composition of the modules<a class="headerlink" href="#overview-of-functional-composition-of-the-modules" title="Permalink to this headline">¶</a></h2>
+<p>The columns below reference the following modules</p>
+<ol class="arabic simple">
+<li><p>Data Exchange and Reporting Connector</p></li>
+<li><p>Integration Connector</p></li>
+<li><p>Database File Connector</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 71%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functional element</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Metadata structure</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Auto create metadata structure tables</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Analyse and refresh metadata using SQL</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Drop &amp; recreate metadata</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update names and aliases from SQL</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Insert new valuelist items from SQL</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update aliases in bulk</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Analyse metadata structure relationships</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Show login accounts, user accounts details</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Show workflows and workflow states</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Show valuelists and valuelist items</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Auto Create valuelist and workflow views</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Show complex ownership relationships</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Explore metadata usage in vault</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Get metadata structure version</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Class Tables</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Create new class tables</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Drop and re-create all class tables</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Batch update of records</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Update only changed records</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Concurrent update processes</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Update from and to M-Files</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update records from specific date</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Update records with specific objids</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update records changed by specific SQL user</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Update all included in Application tables</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update using filters</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Helper procedures for update filters</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Insert new records</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Hyperlinks to show and links in M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Format Hyperlinks for use in excel</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Get object hyperlink to public links</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Change classes and properties</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Delete records</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Delete adhoc properties in bulk</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Get objver of objects</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Copy objects in M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Add comments for objects</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Search objects</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Delete adhoc properties</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Special Functions</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Work with delimited string objects</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Convert data into html format for reporting</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Include table in notification</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Send html formatted email</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Remove special characters in naming</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Insert update multi lookup values</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Send bulk notifications using templates</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Files</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Export files from M-Files to Folders</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Send bulk emails with attachments</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Import files from Database Blobs</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Checksum of a file in M-Files</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Import files from network folders</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Get file size</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Get data on files without downloading file</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>View and search files in Blobs in M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Promote external Blobs as metadata</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Views and Reporting</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Explore full metadata structure</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Create views for related lookups in bulk</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Class Table Statistical report</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Explore use of columns and errors</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Explore valuelist item ownership relations</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Export and views of M-Files event log</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Export object history from M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Produce process log summary for class tables</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>View Error log</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Get and create comments of objects</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>View Update History</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>View Process Batch logs</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>View User Messages</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>View Audit History</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Valuelists and valuelist items</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Create valuelist lookup views</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Create  workflow state lookup views</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Create, update, delete valuelist items</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Operations in M-Files</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Configurable context menu with items</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Access Website</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Execute procedure on object</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Execute procedure with workflow trigger</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Execute procedure event handler trigger</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Show user message</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Process procedures synchronously</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Process with feedback message</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Process procedure asynchronously</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Using SQL actions with WebAPI in cloud vault</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Error Handling</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Email notification of SQL errors</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>User Messages</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Error logging</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Email sent log</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Process logging</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>show user message from SQL in M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Formatted emailed process results</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Show feedback message in M-Files</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Validate email profile</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Perform Class Table audits</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Delete history logs</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Special Applications</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>External application user to filter updates</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Action M-Files Reporting Data Export</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Update metadata on demand</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Update metadata scheduled</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Change history of any class property</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Installation and upgrade</strong></p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Installation package</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>License control by module</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Auto setup of default authentication for SQL</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Auto and manual install</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Customize default settings</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Retain custom settings when upgrading</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sample scripts to aid development</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Install connectors for multiple vaults</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-odd"><td><p>Control log of all versions of procedures</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>Upgrade packages</p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+<td><p><img alt="tick" src="../../_images/img_113.png" /></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../practical-tips-and-use-cases/index.html" class="btn btn-neutral float-right" title="Practical tips and Use Cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../mfsql-connector-modules/index.html" class="btn btn-neutral float-left" title="MFSQL Connector modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

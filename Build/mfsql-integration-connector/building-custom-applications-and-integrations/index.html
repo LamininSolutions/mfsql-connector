@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building custom applications and integrations &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Property and column usage" href="../property-and-column-usage/index.html" />
+    <link rel="prev" title="Exploring metadata" href="../exploring-metadata/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">MFSQL Integration Connector</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../exploring-metadata/index.html">Exploring metadata</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building custom applications and integrations</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-code-on-time">Using Code On Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#updating-m-files-from-within-cot">Updating M-Files from within CoT</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-in-m-files">Update in M-Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transaction-based-update">Transaction based update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batched-based-update-with-low-volume-of-updates-at-any-one-point-in-time">Batched based update with low volume of updates at any one point in time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#batched-based-update-for-many-records">Batched based update for many records</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../property-and-column-usage/index.html">Property and column usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metadata-search/index.html">Metadata Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-valuelist-items-from-sql/index.html">Update / Create Valuelist Items from SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-messages/index.html">User Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lookup-views/index.html">Lookup Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../send-bulk-email/index.html">Send Bulk Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-files/index.html">Working with files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../change-of-vault/index.html">Change of Vault</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using-and-managing-logs/index.html">Using and managing logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../working-with-object-version/index.html">Working with Object Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html">Context Menu Queue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
+        
+      <li>Building custom applications and integrations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-custom-applications-and-integrations">
+<h1>Building custom applications and integrations<a class="headerlink" href="#building-custom-applications-and-integrations" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>The main focus of the Connector is to allow for building small and large
+custom applications and integrations around M-Files.  Building these
+applications does not require deep knowledge of the M-Files API’s or
+.Net Application development although it may be useful in some cases.
+The Connector is built for and is very useful in the hands of someone
+with T-SQL query experience.</p>
+</div>
+<div class="section" id="using-code-on-time">
+<h1>Using Code On Time<a class="headerlink" href="#using-code-on-time" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://codeontime.com">Code on Time</a> is a powerful Intelligent App
+Generator.  It works well with SQL Server and we have used to generate a
+number of applications to extend the functionality of M-Files.  MFSQL
+Connector is a vital part of this architecture to enable Code On Time to
+operate on the SQL tables and integrate the operations with M-Files.</p>
+<p>Many of the Connector helper tools supports the development and
+deployment of a Code on Time application.</p>
+<p>Code on Time is entirely optional and is not a requirement for
+the deployment of the Connector.  However it is a useful tool to rapidly
+provide the user interface to the end user where the user cannot perform
+the interaction using M-Files or another third party application.</p>
+<p>This documentation does not provide detail guidance or training for the
+use of Code On Time.  Consult the Code On Time website, training
+material and forums that is dedicated for this purpose.  We do however
+highlight guidance and applications specific to the Connector.</p>
+<div class="section" id="updating-m-files-from-within-cot">
+<h2>Updating M-Files from within CoT<a class="headerlink" href="#updating-m-files-from-within-cot" title="Permalink to this headline">¶</a></h2>
+<p>Different methods can be used to perform an update on records in CoT.
+ The following highlights some of these methods:</p>
+<div class="section" id="update-in-m-files">
+<h3>Update in M-Files<a class="headerlink" href="#update-in-m-files" title="Permalink to this headline">¶</a></h3>
+<p>Use CoT listing as read only and provide a link to the item in M-Files.
+Use the Connector hyperlink function in a view  to generate the URL.  On the CoT Controller of the view add a action on
+the grid with the item Command Name set to Navigate and the Command
+Argument is set the \_blank:{ColumnNameofURL}</p>
+<p>hyperlink <a class="reference internal" href="../../functions/fnMFObjectHyperlink.html"><span class="doc">fnMFObjectHyperlink</span></a></p>
+</div>
+<div class="section" id="transaction-based-update">
+<h3>Transaction based update<a class="headerlink" href="#transaction-based-update" title="Permalink to this headline">¶</a></h3>
+<p>On MFClass set IncludeInApp = 2 on the
+class table that you want to update.  in CoT:  Using the Field property
+window for process_id; Set the Code Value = 1.  When you make an update
+in CoT using the standard create / edit actions in CoT, the record will
+automatically be created in M-Files on save.</p>
+<blockquote>
+<div><p>The Class Table must be created with the IncludeInApp set to 2
+before the table is created.  When the IncludeInApp is changed to
+2 after the class table was created then either a) drop and
+recreate the table after the column was set to 2 or b) run the
+procedure spMFCreateClassTableSynchronizeTrigger for the table.</p>
+</div></blockquote>
+</div>
+<div class="section" id="batched-based-update-with-low-volume-of-updates-at-any-one-point-in-time">
+<h3>Batched based update with low volume of updates at any one point in time<a class="headerlink" href="#batched-based-update-with-low-volume-of-updates-at-any-one-point-in-time" title="Permalink to this headline">¶</a></h3>
+<p>Set the class table column IncludeInApp = 1.  In CoT:  Using the Field
+property window for process_id; Set the Code Value = 1.. Add an action
+on the Controller : Command Name = SQL.  Add the standard procedure call
+for updating records <a class="reference internal" href="../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a> in the script section.</p>
+</div>
+<div class="section" id="batched-based-update-for-many-records">
+<h3>Batched based update for many records<a class="headerlink" href="#batched-based-update-for-many-records" title="Permalink to this headline">¶</a></h3>
+<p> Set the class table column IncludeInApp = 1.  In CoT:  Using the Field
+property window for process_id; Set the Code Value = 1. Add an action
+on the Controller.  Instead of a simple SQL statement we recommend that
+a business rule is used and that the appropriate updatetable procedure
+is used as part of the deployment to <a class="reference external" href="https://codeontime.com/learn/business-rules/sql/calling-stored-procedure">call a store procedure in a
+business rule</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../property-and-column-usage/index.html" class="btn btn-neutral float-right" title="Property and column usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../exploring-metadata/index.html" class="btn btn-neutral float-left" title="Exploring metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

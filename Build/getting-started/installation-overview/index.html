@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation Overview &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="First time installation" href="../first-time-installation/index.html" />
+    <link rel="prev" title="Getting Started" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">FAQ:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-included">What is included</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-features-of-the-installation-packages">Key features of the installation packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-software">Download software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deployment-server-model">Deployment server model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#single-server-deployment-model">Single Server Deployment Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-server-deployment-model">Multi Server Deployment Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#m-files-cloud-deployment-model">M-Files Cloud Deployment Model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../first-time-installation/index.html">First time installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual-installation-using-scripts/index.html">Manual installation using scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing-management/index.html">Licensing Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html">Next Steps after installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html#using-example-scripts">Using example scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-settings/index.html">Update settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../setup-database/index.html">Set-up and working with Connector Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database-mail/index.html">Database Mail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#quick-steps-for-a-new-installation">Quick steps for a new installation.</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Blog:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MFSQL Connector</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Installation Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation-overview">
+<h1>Installation Overview<a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-included">
+<h2>What is included<a class="headerlink" href="#what-is-included" title="Permalink to this headline">¶</a></h2>
+<p>This section provide guidance on how to perform a first time installation and to upgrade the tool after the initial installation.</p>
+<p>The preparation of the environment before first installation is also highlighted in this section.</p>
+<p>Consult the <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index">requirements</a> before commencing with the installation.</p>
+<p>Release 4.3.9.48 introduces a new method of installation building on the
+new licensing methods and Vault applications introduced with the advent
+of the first release of Release 4.</p>
+<p>Release 4 requires a minimum of version M-Files 2018.   Release 3
+can upgrade to release 4, however release 4 cannot be downgraded
+to release 3.</p>
+</div>
+<div class="section" id="key-features-of-the-installation-packages">
+<h2>Key features of the installation packages<a class="headerlink" href="#key-features-of-the-installation-packages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MFSQL Connector installation package has two packages for installation: the main application and a separate package for the deployment of the Web API.</p></li>
+<li><p>The main installation package is used to install/transfer files on the
+developer desktop, the M-Files server or the SQL Server. These are
+often the same computer in testing/development scenarios.
+The installation of the Web API is only used for M-Files Cloud deployments of MFSQL Connector when the context menu functionality is required.</p></li>
+<li><p>The different modules are licensed by installing the license file to
+the vault applications. <a class="reference external" href="mailto:MFSQL&#37;&#52;&#48;lamininsolutions&#46;com">Contact us</a> if your license has expired.</p></li>
+<li><p>The application will only operate with a valid license. Licenses
+expire when the subscription period runs out.</p></li>
+<li><p>Selecting options in the installation package will install the
+content package and vault applications in the M-Files server, and the
+assemblies and procedures in the database server.</p></li>
+<li><p>The vault application packages and assemblies can also be manually
+installed. See directions below.</p></li>
+<li><p>All installation files are installed on the computer as part of the
+installation.</p></li>
+<li><p> It is necessary to rerun the installation package for each
+vault/database installation to install multiple versions on the same
+computer</p></li>
+<li><p>The installation files are in different folders for easy access.
+Some of the destination folders for installation can be changes
+during the installation process.</p>
+<ul>
+<li><p> Installation files (destination can be changed)</p>
+<ul>
+<li><p>C:Program Files (x86)Laminin SolutionsMFSQL Connector
+Release 4[Database Name]Content Package</p></li>
+<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]Database Scripts</p></li>
+<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]Example Scripts</p></li>
+<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]Vault Applications</p></li>
+</ul>
+</li>
+<li><p>Assemblies  (destination can be changed)</p>
+<ul>
+<li><p>C:MFSQLAssemblies</p></li>
+</ul>
+</li>
+<li><p>File exchange folders (destination can be changed)</p>
+<ul>
+<li><p>C:MFSQLFileExport</p></li>
+<li><p>C:MFSQLFileImport</p></li>
+</ul>
+</li>
+<li><p>Setup Files (fixed)</p>
+<ul>
+<li><p>C:Users[user]AppDataLocalMFSQL Vault Install</p></li>
+</ul>
+</li>
+<li><p>Installation Log (fixed)</p>
+<ul>
+<li><p>C:UserslerouxcAppDataLocalTemp (MSIXXX.log)</p></li>
+</ul>
+</li>
+<li><p>License Update script</p>
+<ul>
+<li><p>C:Program Files (x86)Common FilesMFSQLConnector</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The license files (.lic) is provided separately.  The Trial
+license is valid for 30 days. Thereafter new license files must be
+obtained from <a class="reference external" href="mailto:MFSQL&#37;&#52;&#48;lamininsolutions&#46;com">support</a></p></li>
+</ul>
+</div>
+<div class="section" id="download-software">
+<h2>Download software<a class="headerlink" href="#download-software" title="Permalink to this headline">¶</a></h2>
+<p>The latest published release is available from the <a class="reference external" href="https://lamininsolutions.com/download-mfsql-connector/">Laminin Solutions website</a></p>
+</div>
+<div class="section" id="deployment-server-model">
+<h2>Deployment server model<a class="headerlink" href="#deployment-server-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-server-deployment-model">
+<h3>Single Server Deployment Model<a class="headerlink" href="#single-server-deployment-model" title="Permalink to this headline">¶</a></h3>
+<p>The Connector can be deployed in a single server where M-Files server
+and SQL server is installed on the same server.</p>
+<p>The Connect must be deployed in a separate Database on the SQL Server.
+It is not required, but preferred for the Connector Database to be a
+separate SQL instance from the M-Files vault SQL Database in cases where
+the M-Files vault is also deployed as a SQL database.</p>
+</div>
+<div class="section" id="multi-server-deployment-model">
+<h3>Multi Server Deployment Model<a class="headerlink" href="#multi-server-deployment-model" title="Permalink to this headline">¶</a></h3>
+<p>When the Connector is used for integration with other applications or
+for special application development, then a multi database deployment
+model is preferred.</p>
+<p>The following Server deployment is preferred in cases of high data
+volume usage.</p>
+<ul class="simple">
+<li><p>M-Files Server: Installation of the M-Files Server and vaults</p></li>
+<li><p>SQL Server(s) with (separate instance for M-Files SQL vault
+databases)</p>
+<ul>
+<li><p>M-Files SQL Database</p></li>
+<li><p>Connector Database</p></li>
+</ul>
+</li>
+<li><p>SQL Server for special application databases</p></li>
+</ul>
+</div>
+<div class="section" id="m-files-cloud-deployment-model">
+<h3>M-Files Cloud Deployment Model<a class="headerlink" href="#m-files-cloud-deployment-model" title="Permalink to this headline">¶</a></h3>
+<p>When the Vault is on M-Files-Cloud and SQL Server is either on premise
+or hosted</p>
+<ul class="simple">
+<li><p>M-Files Cloud and SQL Server is connected with a VPN and in the same
+Domain</p></li>
+<li><p>M-Files Cloud and SQL Server is not connected with a VPN</p></li>
+</ul>
+<p>When the M-Files Cloud is connected with to the SQL Server with a VPN
+the deployment model is the same as a Multi-Server Deployment</p>
+<p>Special considerations apply when SQL Server is not connected with
+M-Files Cloud. Follow the installation instructions specific to this
+model.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../first-time-installation/index.html" class="btn btn-neutral float-right" title="First time installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Laminin Solutions Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
