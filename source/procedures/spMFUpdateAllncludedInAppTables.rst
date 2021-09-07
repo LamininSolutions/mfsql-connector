@@ -15,6 +15,9 @@ Parameters
   @IsIncremental int
     - Default = 1 (yes)
 	- Set to 0 to perform a rebuild or initialisation all included in app tables
+  @RetainDeletions int
+    - Default = 0 (n)
+	- Set to 1 to retain deletions for all included in app tables
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)
@@ -68,6 +71,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-09-01  LC         add parameter to retain deletions for all tables
 2021-08-04  LC         add parameter to allow suppress of control report, default 0
 2021-04-01  LC         add control report for updates
 2021-03-17  LC         remove step to reset audit history to null if full 

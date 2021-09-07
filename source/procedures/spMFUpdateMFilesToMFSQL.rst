@@ -108,6 +108,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-08-28  LC         with full update, remove objects in class table not in audit table
 2021-07-03  LC         improve debugging and error reporting
 2021-05-11  LC         redesign the grouping of objects to overcome persistent issues
 2021-05-10  LC         add controls to validate group list creation

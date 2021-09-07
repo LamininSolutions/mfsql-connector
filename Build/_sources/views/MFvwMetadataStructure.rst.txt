@@ -44,6 +44,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-09-01  LC         Add valuelist_Class_MFID
 2020-12-20  LC         Add MFDatatype_ID
 2020-08-22  LC         Deleted column change to localisation
 2020-07-08  LC         Add Valuelist Table name to columns
