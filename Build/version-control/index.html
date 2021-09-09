@@ -255,9 +255,16 @@
 <p>Each procedure, table or function contains there own change control section. See each object for more detail</p>
 <div class="section" id="not-yet-published">
 <h3>4.9.27.71 not yet published<a class="headerlink" href="#not-yet-published" title="Permalink to this headline">¶</a></h3>
-<p>test</p>
 <ol class="arabic simple">
 <li><p>Add parameter to spMFUpdateItembyItem to deleted objects</p></li>
+<li><p>Add new column for valuelist_Class_ID in vwMFMetadataStructure</p></li>
+<li><p>Resolve incorrect value in column SQLnotinMF in spmfClassTableStats</p></li>
+<li><p>Add in spMFUpdateMfilesToMFSQL with full update: remove objects in class table not in audit table</p></li>
+<li><p>Add parameter for RetainDeletions in spMFUpdateAllncludedInAppTables</p></li>
+<li><p>Add output to parameter ProcessBatch_ID in spMFUpdateTableInBatches</p></li>
+<li><p>Resolve bug with null count in spMFResultMessageForUI</p></li>
+<li><p>Remove deletion of MFAuditHistory from spMFDeleteHistory</p></li>
+<li><p>Remove incorrect license check in spmfDeleteObject</p></li>
 </ol>
 </div>
 <div class="section" id="id1">
