@@ -42,9 +42,15 @@ Each procedure, table or function contains there own change control section. See
 4.9.27.71 not yet published
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-test
-
 #. Add parameter to spMFUpdateItembyItem to deleted objects
+#. Add new column for valuelist_Class_ID in vwMFMetadataStructure
+#. Resolve incorrect value in column SQLnotinMF in spmfClassTableStats
+#. Add in spMFUpdateMfilesToMFSQL with full update: remove objects in class table not in audit table
+#. Add parameter for RetainDeletions in spMFUpdateAllncludedInAppTables
+#. Add output to parameter ProcessBatch_ID in spMFUpdateTableInBatches
+#. Resolve bug with null count in spMFResultMessageForUI
+#. Remove deletion of MFAuditHistory from spMFDeleteHistory
+#. Remove incorrect license check in spmfDeleteObject
 
 4.9.27.70
 ~~~~~~~~~
