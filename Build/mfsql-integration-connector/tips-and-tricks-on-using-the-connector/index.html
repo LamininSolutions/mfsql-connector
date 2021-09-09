@@ -337,8 +337,7 @@ object version details include all the object versions from M-Files at
 the time of the update transaction in XML format.  Use spMFHistoryShow
 with &#64;updatecolumn = 1 to return a list of the records that is included
 in the update.</p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>    <span class="k">Declare</span> <span class="o">@</span><span class="n">id</span> <span class="nb">int</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Declare</span> <span class="o">@</span><span class="n">id</span> <span class="nb">int</span>
 <span class="k">SELECT</span> <span class="n">TOP</span> <span class="mi">1</span> <span class="o">@</span><span class="n">id</span> <span class="o">=</span> <span class="p">[</span><span class="n">muh</span><span class="p">].</span><span class="n">id</span>
 <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFUpdateHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">muh</span><span class="p">]</span> <span class="k">ORDER</span> <span class="k">by</span> <span class="p">[</span><span class="n">muh</span><span class="p">].[</span><span class="n">Id</span><span class="p">]</span> <span class="k">DESC</span>
 
@@ -347,7 +346,6 @@ in the update.</p>
     <span class="o">@</span><span class="n">UpdateColumn</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="getting-deleted-objects">

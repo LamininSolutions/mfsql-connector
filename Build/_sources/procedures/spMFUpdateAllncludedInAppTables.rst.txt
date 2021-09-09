@@ -32,14 +32,16 @@ The purpose of this procedure is to allow for daily processing of all the class 
 
 Updating the Object Change History, based on the entries in MFObjectChangeHistoryControl is also included in this routine.
 
-This procedure can be used for initializing all the tables or to update only the differential. 
+This procedure can be used for initializing all the tables or to update only the differential.
 
 Warning
 =======
 
-Setting @IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish. 
+Setting @IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish.
 
-The procedure will automatically default to using 200 000 records as default for each new class table.  
+Setting the @RetainDeletions = 1 parameter will affect all the class tables.
+
+The procedure will automatically default to using 200 000 records as default for each new class table.
 
 Examples
 ========
@@ -48,21 +50,22 @@ Examples
 
     --example for incremental updates (to be included in agent for daily update)
     DECLARE @ProcessBatch_ID INT;
-    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1, 
-                                         @RemoveDeleted = 1,  
-                                         @IsIncremental = 1,    
-                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT, 
+    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1,
+                                         @RemoveDeleted = 1,
+                                         @IsIncremental = 1,
+                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
                                          @Debug = 0
-                                         
+
 .. code:: sql
 
     --example for initating all table - use only when small class tables are involved
     DECLARE @ProcessBatch_ID INT;
-    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1, 
-                                         @RemoveDeleted = 1,  
-                                         @IsIncremental = 0,    
-                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT, 
+    EXEC dbo.spMFUpdateAllncludedInAppTables @UpdateMethod = 1,
+                                         @RemoveDeleted = 1,
+                                         @IsIncremental = 0,
+                                         @ProcessBatch_ID = @ProcessBatch_ID OUTPUT,
                                          @Debug = 0
+
 
 
 Changelog
@@ -74,7 +77,7 @@ Date        Author     Description
 2021-09-01  LC         add parameter to retain deletions for all tables
 2021-08-04  LC         add parameter to allow suppress of control report, default 0
 2021-04-01  LC         add control report for updates
-2021-03-17  LC         remove step to reset audit history to null if full 
+2021-03-17  LC         remove step to reset audit history to null if full
 2021-03-17  LC         set history update flag to not update if control is empty
 2020-06-24  LC         Add additional debugging
 2020-06-06  LC         Add exit if unable to connect to vault

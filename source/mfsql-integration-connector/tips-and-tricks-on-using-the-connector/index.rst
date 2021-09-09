@@ -158,9 +158,9 @@ the time of the update transaction in XML format.  Use spMFHistoryShow
 with @updatecolumn = 1 to return a list of the records that is included
 in the update.
 
-      .. code:: sql
+.. code:: sql
 
-              Declare @id int
+          Declare @id int
           SELECT TOP 1 @id = [muh].id
           FROM [dbo].[MFUpdateHistory] AS [muh] ORDER by [muh].[Id] DESC
 
