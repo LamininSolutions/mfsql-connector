@@ -41,7 +41,7 @@ Probable causes:
 Solution:
 
  - Check the error log (see screenshot)
- - Delete content of the c:\_\users\_[loginuser]\_\AppData\_\MFSQL Vault Install folder
+ - Delete content of the **c:\\users\\[loginuser]\\AppData\\local\\MFSQL Vault Install** folder
  - Alternatively one can delete the VaultSettings.xml file in the this folder
  - check the settings to log into the correct M-Files Server
 
