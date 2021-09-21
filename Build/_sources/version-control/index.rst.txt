@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.70 2021-08-15
+Published version: 4.9.27.71 2021-09-15
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.70  2021-08-15
+SQL scripts       4.9.27.71  2021-09-15
 Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.0    2021-01-31
 Database File VAF 4.2.1.2    2021-07-15
@@ -39,8 +39,8 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
-4.9.27.71 not yet published
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4.9.27.71
+~~~~~~~~~
 
 #. Add parameter to spMFUpdateItembyItem to deleted objects
 #. Add new column for valuelist_Class_ID in vwMFMetadataStructure
@@ -51,6 +51,8 @@ Each procedure, table or function contains there own change control section. See
 #. Resolve bug with null count in spMFResultMessageForUI
 #. Remove deletion of MFAuditHistory from spMFDeleteHistory
 #. Remove incorrect license check in spmfDeleteObject
+#. Improve spMFDeploymentDetails to record failed deployment
+#. Renew Advanced installer - the installation package. UI improvements, installation validations, https installation bug fix, powershell setup recovery added to the installer
 
 4.9.27.70
 ~~~~~~~~~
@@ -67,8 +69,8 @@ Each procedure, table or function contains there own change control section. See
 #. Change datatype of varchar to nvarchar in table  MFFileImport
 #. Improve control when version could not be found in spMFCheckandUpdateAssemblyVersions
 
-Database File MFSQLConnector 4.2.1.2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+4.2.1.2 Database File
+~~~~~~~~~~~~~~~~~~~~~
 
 #. Add funtionality to promote object and add metadata to a data base file object
 

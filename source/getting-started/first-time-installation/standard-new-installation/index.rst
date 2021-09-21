@@ -1,9 +1,13 @@
-Standard New Installation
-=========================
+Standard Installation
+=====================
 
-This page relates to Release 4.3.9.48 and later with M-Files, and SQL on differents servers in the same domain.
+This page relates to Release 4.3.9.71 and later with M-Files, and SQL on differents servers in the same domain. The installation routine in tha package of previous versions may vary slightly
 
-Watch the video
+Installation video
+
+
+
+installation video for prior releases
 
 .. raw:: html
 
@@ -19,13 +23,13 @@ Before executing the installation package
 -  Ensure M-Files Desktop Client is installed on the M-Files Server and
    SQL server
 -  Copy Sample Vault to create a new test vault to prototype with the
-   Connector ; or use an existing vault
+   Connector, or use an existing vault
 -  Install the package with windows administrator credentials. 
--  Connect to the M-Files server with system administration credentials
 -  Setup a dedicated M-Files User for the vault. It is recommended to
    use M-Files authentication. However specific windows user can also be
    used.  Set user with vault admin rights. We recommend a user name
    that is easily identifiable as a Connector User such as MFSQLConnect
+-  Connect to the M-Files server with the MFSQL User set to system administration credentials
 
 Run Installation Package on the M-Files Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,19 +48,19 @@ or browse to desired folder
 
 |image2|
 
+
 Login into M-Files to connect the M-Files Vault and the MFSQL
 Database.   The credentials used as login will be used by MFSQL
 Connector to access the vault for all future operations. The
 credentials can be changed at any time using SSMS or by rerunning the
 installation package.
 
-|image3|
-
 |image9|
 
-Select either both, or one of the options to install the vault
-applications. These options must ONLY be selected when the installer is
-executed while on the M-Files Server.
+
+
+Select option to install the vault applications. This option must ONLY be selected when the installer is
+executed while on the M-Files Server.  The MFSQL User must have system administration rights.
 
 |image4|
 
@@ -95,11 +99,24 @@ The installation will proceed through a number of steps
 On completion of the installation a message box is shown to remind
 you to take vault offline and bring back online before proceeding.
 
-Finish the installation.
-
 |image7|
 
-After taking the vault offline and back online will complete the installation of the vault applications
+On selecting next the package will perform a validation check.  The checks vary depending on performing the installation on the M-Files server or SQL server. On completion of the validation either an error message will show
+or the following window will appear.
+
+|image11|
+
+Finish the installation of the package.
+
+|image12|
+
+Use M-Files Admin to complete the installation on the M-Files Server.
+
+The following configuration should be apparent in the Vault
+
+The Vault application: MFSQL Connector Vault App. Take the vault offline and back online to complete the installation of the vault application.
+
+|image13|
 
 Validate the vault applications
 
@@ -109,7 +126,7 @@ Get the vault installation error log at
 
 C:\Users\[windowsuser]\AppData\Local\MFSQL Vault Install\ErrorLog.txt
 
-Configure M-Files ServerAfter installing the M-Files Application
+Configure M-Files Server after installing the M-Files Application
 packages for the MFSQL Connector, proceed with setting up the
 Connector in M-Files
 Take vault off line and bring back online
@@ -164,7 +181,6 @@ C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Na
 .. |image0| image:: img_11.png
 .. |image1| image:: img_12.png
 .. |image2| image:: img_13.png
-.. |image3| image:: img_20.jpg
 .. |image4| image:: img_15.png
 .. |image5| image:: img_16.png
 .. |image6| image:: img_17.png
@@ -172,4 +188,6 @@ C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Na
 .. |image8| image:: img_19.png
 .. |image9| image:: img_20.png
 .. |image10| image:: img_30.png
-.. |image11| image:: img_33.png
+.. |image11| image:: img_34.png
+.. |image11| image:: img_35.png
+.. |image11| image:: img_36.png

@@ -20,8 +20,7 @@ First time installation
 Installation scenarios
 ----------------------
 
-Different server configurations could give rise to different
-installation methods.
+Different server configurations could give rise to different installation methods.
 
 Separate servers on premise
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,11 +41,11 @@ The servers are not connected within a common domain. Consider the following:
 
   - Administrative access to install software on the servers
   - Access from M-Files server to SQL on the SQL server via ODBC
-  - Access from M-Files server to SQL on the sql server via Web API
+  - Access from M-Files server to SQL on the SQL server via Web API
   - Sysadmin rights on the SQL Server
 
-Manually, or partially manual installation is required when any of the above restrictions apply.
+Additional steps to the basic installation is required when any of the above restrictions apply.
 
 M-Files Cloud installation falls within this scope as administrative access to the M-Files Server is restricted to M-Files support only.
 
-Refer to the next section for manual installation.
+Refer to the next section for these types of installation.
