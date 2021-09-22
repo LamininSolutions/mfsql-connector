@@ -22,7 +22,7 @@ copyright = '2020, Laminin Solutions Ltd'
 author = 'Laminin Solutions Ltd'
 
 # The full version, including alpha/beta/rc tags
-release = '4.9.27.69'
+release = '4.9.27.71'
 
 
 # -- General configuration ---------------------------------------------------

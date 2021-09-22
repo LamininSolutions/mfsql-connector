@@ -130,12 +130,12 @@ The Vault application: MFSQL Connector Vault App. Take the vault offline and bac
 
 |image36|
 
-Refer to section on :doc:`\getting-started\licensing-management\index` for further detail on licensing
+Refer to section on :doc:`/getting-started/licensing-management/index` for further detail on licensing
 the applications.
 
-To perform a manual installation refer to :doc:`\getting-started\manual-installation-using-scripts\index`
+To perform a manual installation refer to :doc:`/getting-started/manual-installation-using-scripts/index`
 
-Activate the context menu with the :doc:`\getting-started\content-package-installation\index`
+Activate the context menu with the :doc:`/getting-started/first-time-installation/content-package-installation/index`
 
 
 .. |image11| image:: img_11.png

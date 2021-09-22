@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Standard Installation &mdash; MFSQL Connector 4.9.27.69 documentation</title>
+  <title>Standard Installation &mdash; MFSQL Connector 4.9.27.71 documentation</title>
   
 
   
@@ -95,7 +95,6 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Standard Installation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#before-executing-the-installation-package">Before executing the installation package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#run-installation-package-on-the-m-files-server">Run Installation Package on the M-Files Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-installation-package-on-the-sql-server">Run Installation Package on the SQL Server</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../content-package-installation/index.html">Content Package installation</a></li>
@@ -206,9 +205,7 @@
   <div class="section" id="standard-installation">
 <h1>Standard Installation<a class="headerlink" href="#standard-installation" title="Permalink to this headline">¶</a></h1>
 <p>This page relates to Release 4.3.9.71 and later with M-Files, and SQL on differents servers in the same domain. The installation routine in tha package of previous versions may vary slightly</p>
-<p>Installation video</p>
-<p>installation video for prior releases</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/a0ZhxwIws4Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="section" id="before-executing-the-installation-package">
+<div class="section" id="before-executing-the-installation-package">
 <h2>Before executing the installation package<a class="headerlink" href="#before-executing-the-installation-package" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Confirm M-Files version 12.0.6400.0 or higher is installed</p></li>
@@ -301,36 +298,10 @@ Use M-Files Admin to complete the following on the M-Files Server.</p>
 <p>Access the Applications window using M-Files Admin. The following configuration should be apparent in the Vault</p>
 <p>The Vault application: MFSQL Connector Vault App. Take the vault offline and back online to complete the installation of the vault application.</p>
 <p><img alt="image36" src="../../../_images/img_361.png" /></p>
-<p>Take vault off line and bring back online</p>
-<p>See section on installing the licenses for further detail on licensing
+<p>Refer to section on <a class="reference internal" href="../../licensing-management/index.html"><span class="doc">Licensing Management</span></a> for further detail on licensing
 the applications.</p>
-<p>Access the application configuration using M-Files Admin</p>
-</div>
-<div class="section" id="run-installation-package-on-the-sql-server">
-<h2>Run Installation Package on the SQL Server<a class="headerlink" href="#run-installation-package-on-the-sql-server" title="Permalink to this headline">¶</a></h2>
-<p>The first few steps is a repeat of the M-Files Server installation.</p>
-<p>Login into M-Files to connect the M-Files Vault and the MFSQL Database.
-The credentials used during login will be used by MFSQL Connector to
-access the vault for all future operations.  Note the M-Files server is likely to NOT be localhost.</p>
-<p>Select the installation type</p>
-<p>Checkbox: Install CLR.  This selection will create the database, install
-the Connector in SQL and install the CLR Assemblies.</p>
-<p>Only check this box if the installation routine is being run on the SQL
-Server.</p>
-<p><a href="#id1"><span class="problematic" id="id2">|image10|</span></a></p>
-<p>Use the SQL Database window to login into the SQL Server. Use
-credentials with sysadmin rights.</p>
-<p>Type in the name of the database if it is a new installation. The
-database will automatically be created.</p>
-<p>Use the … dots to show the existing databases on the server.  Select
-an existing database when the installation is re-run for the database.</p>
-<p><img alt="image11" src="../../../_images/img_112.png" /></p>
-<p>Continue with the installation until finished.</p>
-<p>Log into SSMS from a workstation and access the MFSQL Connector
-database.</p>
-<p>Use the example scripts to guide you through the first steps to get
-going with the Connector. The sample scripts are available at</p>
-<p>C:Program Files (x86)Laminin Solutions\MFSQL Connector Release 4\[Database Name]Example Scripts</p>
+<p>To perform a manual installation refer to <a class="reference internal" href="../../manual-installation-using-scripts/index.html"><span class="doc">Manual installation using scripts</span></a></p>
+<p>Activate the context menu with the <a class="reference internal" href="../content-package-installation/index.html"><span class="doc">Content Package installation</span></a></p>
 </div>
 </div>
 
