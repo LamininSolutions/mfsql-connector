@@ -42,6 +42,7 @@ Each procedure, table or function contains there own change control section. See
 4.9.27.71
 ~~~~~~~~~
 
+#. The installation package is significantly upgraded to include validations, improved UI and some bug fixing
 #. Add parameter to spMFUpdateItembyItem to deleted objects
 #. Add new column for valuelist_Class_ID in vwMFMetadataStructure
 #. Resolve incorrect value in column SQLnotinMF in spmfClassTableStats

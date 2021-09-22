@@ -1,0 +1,2 @@
+[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\getting-started\first-time-installation\standard-new-installation\index.rst:213: WARNING: Duplicate substitution definition name: "image37".[39;49;00m
+[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\getting-started\first-time-installation\standard-new-installation\index.rst:168: WARNING: Undefined substitution referenced: "image10".[39;49;00m

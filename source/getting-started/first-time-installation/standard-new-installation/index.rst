@@ -3,17 +3,6 @@ Standard Installation
 
 This page relates to Release 4.3.9.71 and later with M-Files, and SQL on differents servers in the same domain. The installation routine in tha package of previous versions may vary slightly
 
-Installation video
-
-
-
-installation video for prior releases
-
-.. raw:: html
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/a0ZhxwIws4Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 Before executing the installation package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -141,52 +130,13 @@ The Vault application: MFSQL Connector Vault App. Take the vault offline and bac
 
 |image36|
 
-Take vault off line and bring back online
-
-See section on installing the licenses for further detail on licensing
+Refer to section on :doc:`\getting-started\licensing-management\index` for further detail on licensing
 the applications.
 
-Access the application configuration using M-Files Admin
+To perform a manual installation refer to :doc:`\getting-started\manual-installation-using-scripts\index`
 
-Run Installation Package on the SQL Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Activate the context menu with the :doc:`\getting-started\content-package-installation\index`
 
-The first few steps is a repeat of the M-Files Server installation.
-
-Login into M-Files to connect the M-Files Vault and the MFSQL Database.
-The credentials used during login will be used by MFSQL Connector to
-access the vault for all future operations.  Note the M-Files server is likely to NOT be localhost.
-
-Select the installation type
-
-Checkbox: Install CLR.  This selection will create the database, install
-the Connector in SQL and install the CLR Assemblies. 
-
-Only check this box if the installation routine is being run on the SQL
-Server.
-
-|image10|
-
-Use the SQL Database window to login into the SQL Server. Use
-credentials with sysadmin rights.
-
-Type in the name of the database if it is a new installation. The
-database will automatically be created.
-
-Use the ... dots to show the existing databases on the server.  Select
-an existing database when the installation is re-run for the database.
-
-|image11|
-
-Continue with the installation until finished.
-
-Log into SSMS from a workstation and access the MFSQL Connector
-database.
-
-Use the example scripts to guide you through the first steps to get
-going with the Connector. The sample scripts are available at
-
-C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Name]\Example Scripts
 
 .. |image11| image:: img_11.png
 .. |image12| image:: img_12.png
@@ -208,6 +158,3 @@ C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Na
 .. |image42| image:: img_42.png
 .. |image43| image:: img_43.png
 .. |image44| image:: img_44.png
-
-
-.. |image37| image:: img_37.png
