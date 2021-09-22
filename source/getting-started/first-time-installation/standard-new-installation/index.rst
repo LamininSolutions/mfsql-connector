@@ -34,11 +34,11 @@ Before executing the installation package
 Run Installation Package on the M-Files Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image0|
+|image11|
 
 Confirm the license agreement
 
-|image1|
+|image12|
 
 Select installation folder. We recommend to use the default. Selecting a different folder will require additional steps.
 
@@ -46,92 +46,102 @@ The installation folder will contain the installation files for the
 specific to the Vault and Database being implemented. Accept default,
 or browse to desired folder
 
-|image2|
+|image13|
 
+Select the installation mode and options.  The installation package facilitate installation either on premise or in the cloud.
 
-Login into M-Files to connect the M-Files Vault and the MFSQL
-Database.   The credentials used as login will be used by MFSQL
-Connector to access the vault for all future operations. The
-credentials can be changed at any time using SSMS or by rerunning the
-installation package.
+The installation could be on a single server with both M-Files and SQL on the same server, or separate on a dual server configuration or on a workstation where neither M-Files nor SQL is installed.
+Installing the package on a workstation is only used for manual installations. Neither M-Files or SQL is accessed during a workstation installation, it merely puts the installation on the workstation, configured for manual deployment.
 
-|image9|
+The final selection to make is if the installation is targeted for M-Files or SQL or Both at the same time.
 
+The following selection scenarios would be invalid:
 
+ -  M-Files Cloud on a single server. A cloud installation would always be on a dual server or workstation only.
+ -  Installing Both M-Files and SQL at the same time on a dual server configuration.   The installation must be run separately for M-Files and SQL.
 
-Select option to install the vault applications. This option must ONLY be selected when the installer is
-executed while on the M-Files Server.  The MFSQL User must have system administration rights.
+The default selection is for on premise.  The other options must be selected for the specific installation routine. Selecting nothing will perform no installation in either SQL or M-Files and merely put the installation files on the local machine.
 
-|image4|
+|image37|
 
-  - Selecting **MFSQL Connector vault applications** will install
+The selected options will determine if the package will prompt logging into M-Files.
 
-    - Content package to add objects related and required by the
-      connector.
-    - Vault application: MFSQL Connector VaultApp
-    - MFSQL Connector Context Menu UIX
+Login into M-Files to connect the M-Files Vault.   This interface will place a installation file on the local machine to recognise the installation credentials the next time when the installation is run on the local machine.
 
-  - Selecting the **DB File Connector** will install
+The credentials used as login will be used by MFSQL Connector to access the vault for all future operations. The
+credentials can be changed at any time using SSMS or by rerunning the installation package.
 
-    - SQL Database Connector application
+On occasion the M-Files login button is unresponsive, or crashes.  This is likely because the installation references an vault that is no longer available or the installation history file is corrupt.  In this case, simply remove the history file by deleting the entire folder: C:\\Users\\[windowsuser]\\AppData\\Local\\MFSQL Vault Install.
 
-All these applications can be installed manually. See section for manual
-installation.
+Get the vault installation error log at C:\\Users\\[windowsuser]\\AppData\\Local\\MFSQL Vault Install\\ErrorLog.txt
 
-The DB File Connector is only required if the functionality is needed to
-connect to Blobs (database files) in a third party database  without
-transferring the files to M-Files.  Installing this connector will
-require M-Files IML core to be licensed by your M-Files license.
+On repeated installation on the same machine for the same vault and database does not require you to log into M-Files again. The settings will be picked up from the local machine.  If multiple vaults are installed from the machine, or if it is the first time installation then logging in is required.
 
-Verify that the installation is connected to the correct Vault
+|image20|
 
-|image5|
+When selecting the login button on a new installation the following window will prompt for accessing the M-Files Server.
 
-Login into the SQL server with sysadmin credentials. The server name
-must include the SQL Server \\ Instance.  Add the server port if a non
-standard port are used.
+Use the user credentials that is designated for MFSQL Connector to log into the M-Files.  This user should have M-Files System admin rights and Vault Admin rights. System admin right may be removed after the installation is completed.
 
-Type in the new name of the target MFSQL Connector database. We recommend using MFSQL\_ as the prefix and the name of the vault as the suffix.
+|image39|
 
-|image6|
+After the first installation the package will automatically prompt for in the window to accept the previously used credentials or log into another vault.
 
-The installation will proceed through a number of steps
-On completion of the installation a message box is shown to remind
-you to take vault offline and bring back online before proceeding.
+|image44|
 
-|image7|
+Click the down arrow to select the vault, this will prompt with next window to log into the vault.  Use the MFSQL user for the credentials.
 
-On selecting next the package will perform a validation check.  The checks vary depending on performing the installation on the M-Files server or SQL server. On completion of the validation either an error message will show
-or the following window will appear.
+|image40|
 
-|image11|
+After updating the connection to the vault, click next.  The following window will show the credentials that will be applied in the installation.
 
-Finish the installation of the package.
+Normally, this is for confirmation only.  In some cases it may be necessary to enter or update the credentials in this window:
 
-|image12|
+ -  this is where the credentials are entered for a cloud installation.
+ -  when the current windows user was used to log into the vault, it would be necessary to enter the username and password again in this window
+ -  when the installation package are unable to use Powershell to access the installation settings, the user can reset the credentials in this window
 
-Use M-Files Admin to complete the installation on the M-Files Server.
+|image16|
 
-The following configuration should be apparent in the Vault
+Click next to open the SQL login window. Login into the SQL server with sysadmin credentials. The server name
+must include the SQL Server \\ Instance.  Add the server port if a non standard port are used.
+
+Click show databases to verify the name of the MFSQL connector database.  Alternatively, type in the new name of the target MFSQL Connector database. We recommend using MFSQL\_ as the prefix and the name of the vault as the suffix.
+
+The installation will automatically create the database if it does not exist.
+
+.. warning::
+    Do not install MFSQL Connector into the M-Files SQL database. Always use a separate database with a distinct naming convention.
+
+|image17|
+
+The installation will proceed through a number of steps. On completion of the installation a message box is shown to remind you to take vault offline and bring back online before proceeding if the installation option is to install on the M-Files Server.
+
+|image18|
+
+If the installation option is selected for installing on the SQL server then a SQL installation validation will take place.  If no errors are found then the following window will show.
+
+|image34|
+
+Two types of errors may be reported.
+
+ - Unable to connect to the M-Files Server.  If this happens, check the credentials, and rerun the package installations
+ - Assemblies are unable to install.  Contact support. This is indicative of a underlying issue with the installation.
+
+if no errors are found, finish the installation of the package.
+
+|image35|
+
+In the case of selecting to option for an M-Files server installation, additional steps are required to complete the installation.
+Use M-Files Admin to complete the following on the M-Files Server.
+
+Access the Applications window using M-Files Admin. The following configuration should be apparent in the Vault
 
 The Vault application: MFSQL Connector Vault App. Take the vault offline and back online to complete the installation of the vault application.
 
-|image13|
+|image36|
 
-Validate the vault applications
-
-|image8|
-
-Get the vault installation error log at
-
-C:\Users\[windowsuser]\AppData\Local\MFSQL Vault Install\ErrorLog.txt
-
-Configure M-Files Server after installing the M-Files Application
-packages for the MFSQL Connector, proceed with setting up the
-Connector in M-Files
 Take vault off line and bring back online
-
-Access the Applications window using M-Files Admin
 
 See section on installing the licenses for further detail on licensing
 the applications.
@@ -178,16 +188,26 @@ going with the Connector. The sample scripts are available at
 
 C:\Program Files (x86)Laminin Solutions\\MFSQL Connector Release 4\\[Database Name]\Example Scripts
 
-.. |image0| image:: img_11.png
-.. |image1| image:: img_12.png
-.. |image2| image:: img_13.png
-.. |image4| image:: img_15.png
-.. |image5| image:: img_16.png
-.. |image6| image:: img_17.png
-.. |image7| image:: img_18.png
-.. |image8| image:: img_19.png
-.. |image9| image:: img_20.png
-.. |image10| image:: img_30.png
-.. |image11| image:: img_34.png
-.. |image11| image:: img_35.png
-.. |image11| image:: img_36.png
+.. |image11| image:: img_11.png
+.. |image12| image:: img_12.png
+.. |image13| image:: img_13.png
+.. |image16| image:: img_16.png
+.. |image17| image:: img_17.png
+.. |image18| image:: img_18.png
+.. |image20| image:: img_20.png
+.. |image21| image:: img_21.png
+.. |image33| image:: img_33.png
+.. |image34| image:: img_34.png
+.. |image35| image:: img_35.png
+.. |image36| image:: img_36.png
+.. |image37| image:: img_37.png
+.. |image38| image:: img_38.png
+.. |image39| image:: img_39.png
+.. |image40| image:: img_40.png
+.. |image41| image:: img_41.png
+.. |image42| image:: img_42.png
+.. |image43| image:: img_43.png
+.. |image44| image:: img_44.png
+
+
+.. |image37| image:: img_37.png
