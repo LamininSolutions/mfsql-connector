@@ -94,7 +94,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">First time installation</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Standard Installation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#before-executing-the-installation-package">Before executing the installation package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#run-installation-package-on-the-m-files-server">Run Installation Package on the M-Files Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-by-step-installation-guide">Step by step installation Guide</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../content-package-installation/index.html">Content Package installation</a></li>
@@ -204,7 +204,7 @@
             
   <div class="section" id="standard-installation">
 <h1>Standard Installation<a class="headerlink" href="#standard-installation" title="Permalink to this headline">¶</a></h1>
-<p>This page relates to Release 4.3.9.71 and later with M-Files, and SQL on differents servers in the same domain. The installation routine in tha package of previous versions may vary slightly</p>
+<p>This page relates to Release 4.3.9.71 and later with M-Files, and SQL on different servers in the same domain. The installation routine in the package of previous versions may vary slightly</p>
 <div class="section" id="before-executing-the-installation-package">
 <h2>Before executing the installation package<a class="headerlink" href="#before-executing-the-installation-package" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -223,17 +223,20 @@ that is easily identifiable as a Connector User such as MFSQLConnect</p></li>
 <li><p>Connect to the M-Files server with the MFSQL User set to system administration credentials</p></li>
 </ul>
 </div>
-<div class="section" id="run-installation-package-on-the-m-files-server">
-<h2>Run Installation Package on the M-Files Server<a class="headerlink" href="#run-installation-package-on-the-m-files-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-by-step-installation-guide">
+<h2>Step by step installation Guide<a class="headerlink" href="#step-by-step-installation-guide" title="Permalink to this headline">¶</a></h2>
+<p><strong>1. Run Installation Package on the M-Files Server</strong></p>
 <p><img alt="image11" src="../../../_images/img_112.png" /></p>
-<p>Confirm the license agreement</p>
+<p><strong>2. Confirm the license agreement</strong></p>
 <p><img alt="image12" src="../../../_images/img_122.png" /></p>
-<p>Select installation folder. We recommend to use the default. Selecting a different folder will require additional steps.</p>
-<p>The installation folder will contain the installation files for the
+<p><strong>3. Select installation folder.</strong></p>
+<p>We recommend to use the default. Selecting a different folder will require additional steps.
+The installation folder will contain the installation files for the
 specific to the Vault and Database being implemented. Accept default,
 or browse to desired folder</p>
 <p><img alt="image13" src="../../../_images/img_132.png" /></p>
-<p>Select the installation mode and options.  The installation package facilitate installation either on premise or in the cloud.</p>
+<p><strong>4. Select the installation mode and options.</strong></p>
+<p>The installation package facilitate installation either on premise or in the cloud.</p>
 <p>The installation could be on a single server with both M-Files and SQL on the same server, or separate on a dual server configuration or on a workstation where neither M-Files nor SQL is installed.
 Installing the package on a workstation is only used for manual installations. Neither M-Files or SQL is accessed during a workstation installation, it merely puts the installation on the workstation, configured for manual deployment.</p>
 <p>The final selection to make is if the installation is targeted for M-Files or SQL or Both at the same time.</p>
@@ -246,8 +249,9 @@ Installing the package on a workstation is only used for manual installations. N
 </div></blockquote>
 <p>The default selection is for on premise.  The other options must be selected for the specific installation routine. Selecting nothing will perform no installation in either SQL or M-Files and merely put the installation files on the local machine.</p>
 <p><img alt="image37" src="../../../_images/img_37.png" /></p>
+<p><strong>5. Log into M-Files.</strong></p>
 <p>The selected options will determine if the package will prompt logging into M-Files.</p>
-<p>Login into M-Files to connect the M-Files Vault.   This interface will place a installation file on the local machine to recognise the installation credentials the next time when the installation is run on the local machine.</p>
+<p>Login into M-Files to connect the M-Files Vault.   This interface will place a installation file on the local machine to recognize the installation credentials the next time when the installation is run on the local machine.</p>
 <p>The credentials used as login will be used by MFSQL Connector to access the vault for all future operations. The
 credentials can be changed at any time using SSMS or by rerunning the installation package.</p>
 <p>On occasion the M-Files login button is unresponsive, or crashes.  This is likely because the installation references an vault that is no longer available or the installation history file is corrupt.  In this case, simply remove the history file by deleting the entire folder: C:\Users\[windowsuser]\AppData\Local\MFSQL Vault Install.</p>
@@ -255,12 +259,16 @@ credentials can be changed at any time using SSMS or by rerunning the installati
 <p>On repeated installation on the same machine for the same vault and database does not require you to log into M-Files again. The settings will be picked up from the local machine.  If multiple vaults are installed from the machine, or if it is the first time installation then logging in is required.</p>
 <p><img alt="image20" src="../../../_images/img_20.png" /></p>
 <p>When selecting the login button on a new installation the following window will prompt for accessing the M-Files Server.</p>
+<p><strong>6. Enter credentials for M-Files Server</strong></p>
 <p>Use the user credentials that is designated for MFSQL Connector to log into the M-Files.  This user should have M-Files System admin rights and Vault Admin rights. System admin right may be removed after the installation is completed.</p>
 <p><img alt="image39" src="../../../_images/img_39.png" /></p>
+<p><strong>6.1 Select another vault to log into.</strong></p>
 <p>After the first installation the package will automatically prompt for in the window to accept the previously used credentials or log into another vault.</p>
 <p><img alt="image44" src="../../../_images/img_44.png" /></p>
+<p><strong>7. Log into the vault.</strong></p>
 <p>Click the down arrow to select the vault, this will prompt with next window to log into the vault.  Use the MFSQL user for the credentials.</p>
 <p><img alt="image40" src="../../../_images/img_40.png" /></p>
+<p><strong>8. Confirm M-Files login credentials.</strong></p>
 <p>After updating the connection to the vault, click next.  The following window will show the credentials that will be applied in the installation.</p>
 <p>Normally, this is for confirmation only.  In some cases it may be necessary to enter or update the credentials in this window:</p>
 <blockquote>
@@ -271,6 +279,7 @@ credentials can be changed at any time using SSMS or by rerunning the installati
 </ul>
 </div></blockquote>
 <p><img alt="image16" src="../../../_images/img_161.png" /></p>
+<p><strong>9.Log into SQL Server and database.</strong></p>
 <p>Click next to open the SQL login window. Login into the SQL server with sysadmin credentials. The server name
 must include the SQL Server \ Instance.  Add the server port if a non standard port are used.</p>
 <p>Click show databases to verify the name of the MFSQL connector database.  Alternatively, type in the new name of the target MFSQL Connector database. We recommend using MFSQL_ as the prefix and the name of the vault as the suffix.</p>
@@ -280,10 +289,13 @@ must include the SQL Server \ Instance.  Add the server port if a non standard 
 <p>Do not install MFSQL Connector into the M-Files SQL database. Always use a separate database with a distinct naming convention.</p>
 </div>
 <p><img alt="image17" src="../../../_images/img_171.png" /></p>
+<p><strong>10. Installing.</strong></p>
 <p>The installation will proceed through a number of steps. On completion of the installation a message box is shown to remind you to take vault offline and bring back online before proceeding if the installation option is to install on the M-Files Server.</p>
 <p><img alt="image18" src="../../../_images/img_182.png" /></p>
+<p><strong>11. Validate SQL installation and vault connection.</strong></p>
 <p>If the installation option is selected for installing on the SQL server then a SQL installation validation will take place.  If no errors are found then the following window will show.</p>
 <p><img alt="image34" src="../../../_images/img_341.png" /></p>
+<p><strong>12. SQL Errors.</strong></p>
 <p>Two types of errors may be reported.</p>
 <blockquote>
 <div><ul class="simple">
@@ -291,17 +303,22 @@ must include the SQL Server \ Instance.  Add the server port if a non standard 
 <li><p>Assemblies are unable to install.  Contact support. This is indicative of a underlying issue with the installation.</p></li>
 </ul>
 </div></blockquote>
-<p>if no errors are found, finish the installation of the package.</p>
+<p><strong>13. Finish.</strong></p>
+<p>If no errors are found, finish the installation of the package.</p>
 <p><img alt="image35" src="../../../_images/img_351.png" /></p>
+<p><strong>14. Configure M-Files server</strong></p>
 <p>In the case of selecting to option for an M-Files server installation, additional steps are required to complete the installation.
 Use M-Files Admin to complete the following on the M-Files Server.</p>
 <p>Access the Applications window using M-Files Admin. The following configuration should be apparent in the Vault</p>
 <p>The Vault application: MFSQL Connector Vault App. Take the vault offline and back online to complete the installation of the vault application.</p>
-<p><img alt="image36" src="../../../_images/img_361.png" /></p>
+<p><img alt="image36" src="../../../_images/img_36.png" /></p>
+<p><strong>15. License to product.</strong></p>
 <p>Refer to section on <a class="reference internal" href="../../licensing-management/index.html"><span class="doc">Licensing Management</span></a> for further detail on licensing
 the applications.</p>
-<p>To perform a manual installation refer to <a class="reference internal" href="../../manual-installation-using-scripts/index.html"><span class="doc">Manual installation using scripts</span></a></p>
+<p><strong>16. Install contextmenu functionality</strong></p>
 <p>Activate the context menu with the <a class="reference internal" href="../content-package-installation/index.html"><span class="doc">Content Package installation</span></a></p>
+<p><strong>17. Perform manual installation.</strong></p>
+<p>To perform a manual installation refer to <a class="reference internal" href="../../manual-installation-using-scripts/index.html"><span class="doc">Manual installation using scripts</span></a></p>
 </div>
 </div>
 

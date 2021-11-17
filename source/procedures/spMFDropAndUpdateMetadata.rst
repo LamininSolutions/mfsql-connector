@@ -56,7 +56,7 @@ Set @ISResetAll = 1 only when custom settings in SQL should be reset to the defa
 
 Setting the parameter @WithClassTableReset = 1 will drop and recreate all class tables where IncludeInApp = 1.  This is particularly usefull during testing or development to reset the class tables. This parameter is set to 0 by default.
 
-Setting the parameter @WithColumnReset = 1 will force the synchronisation to add missing properties to class tables.  This is particularly handy when a property is added to multiple classes on the metadata cards and requires pull through to the class tables in SQL.  This parameter is set to 0 by default.
+Setting the parameter @WithColumnReset = 1 will force the synchronisation to add missing properties to class tables.  This is particularly handy when a property is added to multiple classes on the metadata cards and requires pull through to the class tables in SQL.  It will also change single lookup to multi lookup columns or visa versa.  This parameter is set to 0 by default.
 
 Use :doc:`/procedures/spMFClassTableColumns/` to review the application and status of properties and columns on class tables.
 
@@ -118,14 +118,10 @@ To reset columns when data types have changed, set the @WithColumnReset = 1
 
 .. code:: sql
 
-    DECLARE @ProcessBatch_ID INT;
-    EXEC [dbo].[spMFDropAndUpdateMetadata]
-               @IsResetAll = 0
-              ,@WithClassTableReset = 0
+    EXEC [dbo].[spMFDropAndUpdateMetadata]              
               ,@WithColumnReset = 1
               ,@IsStructureOnly = 0
-              ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
-              ,@Debug = 0
+              
 
 Changelog
 =========
@@ -133,6 +129,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-09-30  LC         Update documentation regarding column fixes
 2020-09-08  LC         Add fixing column errors in datatype 9
 2019-08-30  JC         Added documentation
 2019-08-27  LC         If exist table then drop, avoid sql error when table not exist

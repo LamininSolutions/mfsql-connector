@@ -68,7 +68,11 @@ Detail
 
 **DotNet Framework**
 
- - .Net 4.6.1 or higher on both SQL Server and Web Server
+ - MFSQL Connector .Net 4.6
+ - MFSQL Web Services appliction .net 4.6.1
+ - MFSQL Database File Connector .Net 4.6.1
+ - ContextMenu Vault Application Framework .Net 4.6.1
+ - Installer TLS 1.2 compliant
 
 **Experience level of SQL Development**
 

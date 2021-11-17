@@ -154,6 +154,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-10-07  LC         Resolve bug of showing query
 2021-04-14  LC         Resolve issue with specifying a table name
 2021-04-08  LC         Add check that table exists
 2021-04-01  LC         Add column to report on number of collections 

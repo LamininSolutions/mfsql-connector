@@ -6,15 +6,15 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.71 2021-09-15
+Published version: 4.9.27.71 2021-09-23
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
 SQL scripts       4.9.27.71  2021-09-15
 Assemblies        4.9.27.0   2021-04-14
-Vault application 4.9.0.0    2021-01-31
-Database File VAF 4.2.1.2    2021-07-15
+Vault application 4.9.0.1    2021-09-23
+Database File VAF 4.3.0.1    2021-09-23
 ================= ========== ==========
 
 Installed releases
@@ -54,6 +54,9 @@ Each procedure, table or function contains there own change control section. See
 #. Remove incorrect license check in spmfDeleteObject
 #. Improve spMFDeploymentDetails to record failed deployment
 #. Renew Advanced installer - the installation package. UI improvements, installation validations, https installation bug fix, powershell setup recovery added to the installer
+#. Update Advanced Installer SQL connection to be TLS 1.2 compliant. Update components to .Net framework 4.6.1
+#. Update .Net Framework for MFSQLConnectorVaultApp VAF to 4.6.1
+#. Update .Net Framework for MFSQLDBFileConnector VAF to 4.6.1
 
 4.9.27.70
 ~~~~~~~~~

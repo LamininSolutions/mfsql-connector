@@ -101,6 +101,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Set-up and working with Connector Database</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#backup-and-restore-of-connector">Backup and restore of Connector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changing-name-of-database">Changing name of database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixing-orphaned-user-account">Fixing orphaned user account</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../database-mail/index.html">Database Mail</a></li>
@@ -208,6 +209,22 @@ a database with a different name.</p>
 <div class="section" id="changing-name-of-database">
 <h2>Changing name of database<a class="headerlink" href="#changing-name-of-database" title="Permalink to this headline">¶</a></h2>
 <p>Changing the name of the Connector database by restoring and backup to a new name is not advisable.  We recommend to reinstall the connector using the installation software to a new database and to migrate any custom scripts and procedures to the new database.</p>
+</div>
+<div class="section" id="fixing-orphaned-user-account">
+<h2>Fixing orphaned user account<a class="headerlink" href="#fixing-orphaned-user-account" title="Permalink to this headline">¶</a></h2>
+<p>It is likely that MFSQLConnect user will be orphened when restoring a MFSQL database to another server</p>
+<p>To identify orphaned users:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span> <span class="n">YourDatabase</span>
+<span class="k">EXEC</span> <span class="n">SP_CHANGE_USERS_LOGIN</span> <span class="s1">&#39;REPORT&#39;</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+<p>To fix the orphaned users</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">USE</span> <span class="n">YourDatabase</span>
+<span class="k">exec</span> <span class="n">sp_change_users_login</span> <span class="n">AUTO_FIX</span><span class="p">,</span> <span class="s1">&#39;MFSQLConnect&#39;</span>
+<span class="k">Go</span>
+</pre></div>
+</div>
 </div>
 </div>
 

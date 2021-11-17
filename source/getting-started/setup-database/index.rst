@@ -31,5 +31,23 @@ Changing name of database
 Changing the name of the Connector database by restoring and backup to a new name is not advisable.  We recommend to reinstall the connector using the installation software to a new database and to migrate any custom scripts and procedures to the new database.
 
 
+Fixing orphaned user account
+----------------------------
 
-   
+It is likely that MFSQLConnect user will be orphened when restoring a MFSQL database to another server
+
+To identify orphaned users:
+
+.. code:: sql
+
+    USE YourDatabase
+    EXEC SP_CHANGE_USERS_LOGIN 'REPORT'
+    GO
+
+To fix the orphaned users
+
+.. code:: sql
+
+    USE YourDatabase
+    exec sp_change_users_login AUTO_FIX, 'MFSQLConnect'
+    Go

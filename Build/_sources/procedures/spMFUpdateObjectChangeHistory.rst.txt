@@ -17,19 +17,35 @@ Return
   @Objids nvarchar(4000)
   - comma delimited list of objids to be included 
   - if null then all objids for the class is included
+  - can only be used in conjunction with a specific class table.
+
+  @IsFullHistory int
+   - default = 0 (no).  The history will be updated from the last transaction date for the property of the class
+   - if set the full history then all the versions will be updated with a start date from 2020-01-01
 
   @Debug (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
 
 Purpose
 =======
 
-To process change history for a single or all class tables and property combinations 
+To process change history for a single or all class tables and properties as set in the MFObjectChangeHistoryUpdateControl table. 
 
 Additional Info
 ===============
+
+The procedure allows for three modes of operation:
+  - specific objects defined as a comma delimited string of objid's. This only applies to a single table. 
+  - pre selected objects, by setting the process_id on the class to 5 prior to running this procedure. All the properties specified in the control table will be updated.
+  - for all objects in the class, by not setting the process_id in the class and setting @objids to null. All the properties specified in the control table will be updated.
+
+For each mode there are various options available:
+  - For all tables specified in the control table MFObjectChangeHistoryUpdateControl by setting @MFTableName to null
+  - For a specific table
+  - to perform a class table update at the same time by setting @WithClassTableUpdate to 1
+
+Finally the update can be done incrementally or in full by setting @IsFullHistory.  
 
 Update MFObjectChangeHistoryUpdatecontrol for each class and property to be included in the update. Use separate rows for for each property to be included. A class may have multiple rows if multiple properties are to be processed for the tables.
 
@@ -44,17 +60,18 @@ spMFUpdateObjectChangeHistory can be run on its own, either by calling it using 
 Prerequisites
 =============
 
-The table MFObjectChangeHistoryUpdatecontrol must be updated before this procedure will work
+The table MFObjectChangeHistoryUpdatecontrol must be updated before this procedure will work.
 
-Include this procedure in an agent to schedule to update.
+This procedures is dependent on the object being present and up to date in the class table.
 
-Warnings
-========
+Include this procedure in an agent to schedule the update.
 
-Do not specify more than one property for a single update, rather specify a separate row for each property.
+This procedure use a process_id = 5 internally.  Using 5 as a process id for other purposes may interfere with this procedure.
 
 Examples
 ========
+
+To insert the values in the control table.
 
 .. code:: sql
 
@@ -71,22 +88,23 @@ Examples
 		N'State_ID'  
 		)
 
-----updating a class table for specific objids
+updating a class table for specific objids
 
 .. code:: sql
 
     exec spMFUpdateObjectChangeHistory @MFTableName = 'MFCustomer', @WithClassTableUpdate = 1, @ObjIDs = '1,2,3', @Debug = 0
 
-----updating all class tables (including updating the class table)
+----updating all class tables with full update (including updating the class table)
 
 .. code:: sql
 
-    exec spMFUpdateObjectChangeHistory @MFTableName = null, @WithClassTableUpdate = 1, @ObjIDs = null, @Debug = 0
+    exec spMFUpdateObjectChangeHistory @MFTableName = null, @WithClassTableUpdate = 1, @ObjIDs = null,  @IsFullHistory = 1, @Debug = 0
 
     or
 
     exec spMFUpdateObjectChangeHistory 
-    @WithClassTableUpdate = 0, 
+    @WithClassTableUpdate = 0,
+     @IsFullHistory = 0,
     @Debug = 0
 
     
@@ -96,6 +114,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-10-18  LC         The procedure is fundamentally rewritten
 2021-04-02  LC         Add parameter for IsFullHistory
 2020-06-26  LC         added additional exception management
 2020-05-06  LC         Validate the column in control table

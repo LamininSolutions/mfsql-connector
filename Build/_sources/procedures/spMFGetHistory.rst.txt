@@ -14,7 +14,7 @@ Parameters
     - Set process_id in the class table for records to be selected
     - Use process_id not in (1-4) e.g. 5
   @ColumnNames nvarchar(4000)
-    - Comma delimited list of the columns to be included in the export
+    - The column (Property) to be included in the export 
   @IsFullHistory bit
     - Default = 1
     - 1 will include all the changes of the object for the specified column names
