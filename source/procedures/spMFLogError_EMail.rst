@@ -52,5 +52,5 @@ Date        Author     Description
 
 ==========  =========  ========================================================
 
-.. |image1| image:: Image_1.png
+.. |image1| image:: Image_1.jpg
 
