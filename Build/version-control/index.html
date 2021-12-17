@@ -99,14 +99,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#installed-releases">Installed releases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-numbering">Release numbering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#change-control-summary">Change control summary</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">4.9.27.71</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">4.9.27.70</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.9.27.72</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.9.27.71</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.9.27.70</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#database-file">4.2.1.2 Database File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">4.9.27.69</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">4.9.27.68</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">4.8.26.67</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">4.8.25.66</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">4.8.24.65</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.9.27.69</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.9.27.68</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.8.26.67</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.8.25.66</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">4.8.24.65</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-4-8-21-61-to-4-8-23-64">Version 4.8.21.61 to 4.8.23.64</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#version-4-7-19-59-to-4-7-20-60">Version 4.7.19.59 to 4.7.20.60</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#versions-4-4-14-56-to-4-7-18-58">Versions 4.4.14.56 to 4.7.18.58</a></li>
@@ -195,7 +196,7 @@
 <h1>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="published">
 <h2>Published<a class="headerlink" href="#published" title="Permalink to this headline">¶</a></h2>
-<p>Published version: 4.9.27.71 2021-09-23</p>
+<p>Published version: 4.9.27.72 2021-12-16</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 46%" />
@@ -211,7 +212,7 @@
 <tbody>
 <tr class="row-even"><td><p>SQL scripts</p></td>
 <td><p>4.9.27.71</p></td>
-<td><p>2021-09-15</p></td>
+<td><p>2021-12-16</p></td>
 </tr>
 <tr class="row-odd"><td><p>Assemblies</p></td>
 <td><p>4.9.27.0</p></td>
@@ -254,7 +255,27 @@
 <h2>Change control summary<a class="headerlink" href="#change-control-summary" title="Permalink to this headline">¶</a></h2>
 <p>Each procedure, table or function contains there own change control section. See each object for more detail</p>
 <div class="section" id="id1">
-<h3>4.9.27.71<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>4.9.27.72<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Change default for objectVersion to -1 in spMFDeleteObject</p></li>
+<li><p>Change script for adding Delete History Agent to only create agent if not exist</p></li>
+<li><p>Fix bug with spMFCheckAndUpdateAssemblyVersion</p></li>
+<li><p>Remove duplicate indexes on tables MFLog, MFUpdateHistory</p></li>
+<li><p>Update additional elements of Advanced Installer Package to improve control, resolve issues in use of powershell, allow TLS1.2 and cloud installation.</p></li>
+<li><p>Fix bugs in spMFClassTableColumns for missing table not identying if table deleted and bug on multilookup data type change error</p></li>
+<li><p>Remove bug of showing query with debug = 0 in spMFClassTableStats</p></li>
+<li><p>The procedures spMFUpdateObjectChangeHistory and smMFGetHistory are fundamentally recoded to change the approach to improve performance</p></li>
+<li><p>Update documentation in spMFDropandUpdateTable, spMFLogError_Email, spMFUpdateMfilesToMFSQL</p></li>
+<li><p>Set maximum rows in MFvwClassTableColumns to 10000</p></li>
+<li><p>Update spMFDeploymentDetails and spMFUpdateAssemblies to improve entries in the MFDeploymentDetail table</p></li>
+<li><p>Fix update references in MFProcess table to map to descriptions</p></li>
+<li><p>Update logging in spMFTableAudit to track performance</p></li>
+<li><p>Fix spMFUpdateHistoryShow to aid performance tracking</p></li>
+<li><p>Add new special procedure to aid performance tracking of a procedurebatch spMFGetProcedurePerformance</p></li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>4.9.27.71<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>The installation package is significantly upgraded to include validations, improved UI and some bug fixing</p></li>
 <li><p>Add parameter to spMFUpdateItembyItem to deleted objects</p></li>
@@ -273,8 +294,8 @@
 <li><p>Update .Net Framework for MFSQLDBFileConnector VAF to 4.6.1</p></li>
 </ol>
 </div>
-<div class="section" id="id2">
-<h3>4.9.27.70<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>4.9.27.70<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Fix logging and updating of class table in spMFDeleteObjectList</p></li>
 <li><p>Remove redundant debugging item from spMFUpdateExplorerFileToMFiles</p></li>
@@ -295,8 +316,8 @@
 <li><p>Add funtionality to promote object and add metadata to a data base file object</p></li>
 </ol>
 </div>
-<div class="section" id="id3">
-<h3>4.9.27.69<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>4.9.27.69<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Fix timestamp updating issue of not showing correct time in spMFUpdateTableInternal, and spMFUpdateTable</p></li>
 <li><p>Redesign batching and grouping in spMFUpdateMFilesToMFSQL. spMFUpdateTable_ObjIds_GetGroupedList become redundant.</p></li>
@@ -308,8 +329,8 @@
 <li><p>update MFSQL Database File Connector</p></li>
 </ol>
 </div>
-<div class="section" id="id4">
-<h3>4.9.27.68<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>4.9.27.68<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Remove required workflow check from spMFUpdateTableInternal and deploy the check in spMFClassTableStats</p></li>
 <li><p>Add columns checkedOut, templates, MFNotInSQL, collections, Missingtables, and RequiredWorkflowError in spMFClassTableStats</p></li>
@@ -341,8 +362,8 @@
 <li><p>Fix timestamp datatype bug in assemblies,  and spMFUpdateTableInternal</p></li>
 </ol>
 </div>
-<div class="section" id="id5">
-<h3>4.8.26.67<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>4.8.26.67<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Fix datetime bug in spMFUpdateExplorerFileToMFiles when importing files and updating error handling</p></li>
 <li><p>Fix datetime error in the assemblies for importing files using spMFUpdateExplorerFileToMFiles</p></li>
@@ -365,8 +386,8 @@
 <li><p>Remove duplicate routine for creating MFUserMessages</p></li>
 </ol>
 </div>
-<div class="section" id="id6">
-<h3>4.8.25.66<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>4.8.25.66<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>spMFUpdateTable is extended to include support for changing of a class.  The record will be updated and the new class table will automatically be refreshed for the object.</p></li>
 <li><p>spMFUpdateTableInternal Fix datetime formatting on updating class table</p></li>
@@ -382,8 +403,8 @@
 <li><p>Vault application: MFSQLConnectorVaultApp is changed for the Web API connection</p></li>
 </ol>
 </div>
-<div class="section" id="id7">
-<h3>4.8.24.65<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>4.8.24.65<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>spMFDeleteObjectList is redesigned to move away from single object deletions to multiple object deletions to improve performance and the number of M-Files logins</p></li>
 <li><p>spMFDeleteObjectVersionList is introduced to allow for bulk deletions of selected object versions</p></li>

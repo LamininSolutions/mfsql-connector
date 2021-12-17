@@ -76,5 +76,6 @@ Date        Author     Description
 2018-05-09  LC         Fix bug with column 1
 2020-08-22  LC         Update for impact of new deleted column  
 2021-02-03  LC         Rewrite the procedure to streamline and fix errors
+2021-12-13  LC         Remove redundant temp table from printing
 ==========  =========  ========================================================
 

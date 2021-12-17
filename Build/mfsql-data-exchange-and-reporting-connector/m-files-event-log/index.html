@@ -307,6 +307,37 @@ described in <a class="reference internal" href="../../procedures/spMFGetMfiles
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">ObjectType</span>
 </pre></div>
 </div>
+<p>Show duration of object operations</p>
+<blockquote>
+<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="p">;</span><span class="k">WITH</span> <span class="p">[</span><span class="n">cte</span><span class="p">]</span>
+ <span class="k">AS</span> <span class="p">(</span>
+ <span class="k">SELECT</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span>
+ <span class="p">,</span><span class="k">type</span> <span class="k">as</span> <span class="n">EventType</span>
+       <span class="p">,</span><span class="k">CONVERT</span><span class="p">(</span><span class="n">DATETIME</span><span class="p">,</span> <span class="k">SUBSTRING</span><span class="p">([</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">],</span><span class="mi">1</span><span class="p">,</span><span class="mi">22</span><span class="p">))</span> <span class="k">AS</span> <span class="n">EventDate</span>
+       <span class="p">,[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span>          <span class="k">AS</span> <span class="p">[</span><span class="n">NameOrTitle</span><span class="p">]</span>
+       <span class="p">,[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ObjectType</span><span class="p">]</span>
+       <span class="p">,[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span>   <span class="k">AS</span> <span class="p">[</span><span class="n">Objid</span><span class="p">]</span>
+       <span class="p">,[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/version)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Version</span><span class="p">]</span>
+ <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
+ <span class="k">WHERE</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ObjectOperation&#39;</span> <span class="k">and</span>  <span class="n">CausedByUser</span> <span class="o">=</span> <span class="s1">&#39;MFSQL&#39;</span> <span class="p">)</span>
+ <span class="p">,[</span><span class="n">CTE2</span><span class="p">]</span>
+<span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="p">[</span><span class="n">cte</span><span class="p">].[</span><span class="n">id</span><span class="p">]</span>
+      <span class="p">,</span><span class="n">LEAD</span><span class="p">([</span><span class="n">cte</span><span class="p">].</span><span class="n">Eventdate</span><span class="p">)</span> <span class="n">OVER</span> <span class="p">(</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="p">[</span><span class="n">cte</span><span class="p">].[</span><span class="n">ID</span><span class="p">])</span> <span class="p">[</span><span class="n">ProcessEnd</span><span class="p">]</span>
+      <span class="c1">--,LAG([cte].Eventdate) OVER (ORDER BY [cte].[ID])  [LagStart]</span>
+    <span class="p">,</span><span class="n">Eventdate</span> <span class="k">as</span> <span class="n">ProcessStart</span>
+<span class="k">FROM</span> <span class="p">[</span><span class="n">cte</span><span class="p">])</span>
+<span class="k">SELECT</span> <span class="n">cte</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">EventType</span>
+<span class="p">,</span><span class="n">cte2</span><span class="p">.</span><span class="n">ProcessStart</span><span class="p">,</span> <span class="n">cte2</span><span class="p">.</span><span class="n">ProcessEnd</span>
+<span class="p">,</span><span class="n">datediff</span><span class="p">(</span><span class="n">MILLISECOND</span><span class="p">,</span> <span class="n">cte2</span><span class="p">.</span><span class="n">ProcessStart</span><span class="p">,</span><span class="n">cte2</span><span class="p">.</span><span class="n">ProcessEnd</span><span class="p">)</span> <span class="n">ProcessDuration</span>
+ <span class="k">FROM</span> <span class="p">[</span><span class="n">cte</span><span class="p">]</span>
+ <span class="k">inner</span> <span class="k">join</span> <span class="n">cte2</span>
+ <span class="k">on</span> <span class="n">cte</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">cte2</span><span class="p">.</span><span class="n">id</span>
+<span class="k">where</span> <span class="n">eventdate</span> <span class="o">&gt;</span> <span class="s1">&#39;2021-12-08 06:24:35.680&#39;</span> <span class="c1">--and cte.ID between 40461735 and 40461740</span>
+<span class="c1">--GROUP BY cte.ID, EventType, cte2.ProcessStart, cte2.ProcessEnd</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 

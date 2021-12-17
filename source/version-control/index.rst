@@ -42,6 +42,9 @@ Each procedure, table or function contains there own change control section. See
 4.9.27.72
 ~~~~~~~~~
 
+#. Change default for objectVersion to -1 in spMFDeleteObject
+#. Change script for adding Delete History Agent to only create agent if not exist
+#. Fix bug with spMFCheckAndUpdateAssemblyVersion
 #. Remove duplicate indexes on tables MFLog, MFUpdateHistory
 #. Update additional elements of Advanced Installer Package to improve control, resolve issues in use of powershell, allow TLS1.2 and cloud installation.
 #. Fix bugs in spMFClassTableColumns for missing table not identying if table deleted and bug on multilookup data type change error

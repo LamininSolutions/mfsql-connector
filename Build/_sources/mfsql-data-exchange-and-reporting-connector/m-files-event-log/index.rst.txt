@@ -52,7 +52,7 @@ Show objects that is not system objects
     SELECT [me].[ID]
       ,[me].[Category]
       ,[me].[CausedByUser]
-      ,[me].[TimeStamp] 
+      ,[me].[TimeStamp]
       ,[me].[Events].[value]('(/event/data/objectversion/title)[1]', 'varchar(100)')              AS [NameOrTitle]
       ,[me].[Events].[value]('(/event/data/objectversion/objver/objtype/@id)[1]', 'varchar(100)') AS [ObjectType_ID]
       ,[me].[Events].[value]('(/event/data/objectversion/objver/objtype)[1]', 'varchar(100)')     AS [ObjectType]
@@ -137,7 +137,7 @@ show number of object created in a particular timeframe
     AS (
     SELECT [me].[ID]
           ,CONVERT(DATETIME, SUBSTRING([me].[TimeStamp],1,22)) AS EventDate
-          ,[me].[Events].[value]('(/event/data/objectversion/title)[1]', 'varchar(100)')          AS [NameOrTitle]      
+          ,[me].[Events].[value]('(/event/data/objectversion/title)[1]', 'varchar(100)')          AS [NameOrTitle]
           ,[me].[Events].[value]('(/event/data/objectversion/objver/objtype)[1]', 'varchar(100)') AS [ObjectType]
           ,[me].[Events].[value]('(/event/data/objectversion/objver/objid)[1]', 'varchar(100)')   AS [Objid]
           ,[me].[Events].[value]('(/event/data/objectversion/objver/version)[1]', 'varchar(100)') AS [Version]
@@ -146,3 +146,33 @@ show number of object created in a particular timeframe
    SELECT ObjectType, MIN(EventDate) AS fromDate ,MAX(Eventdate) AS ToDate, COUNT(*) AS RecCount FROM [cte]
    GROUP BY ObjectType
 
+Show duration of object operations
+
+   .. code:: sql
+
+       ;WITH [cte]
+       AS (
+       SELECT [me].[ID]
+       ,type as EventType
+             ,CONVERT(DATETIME, SUBSTRING([me].[TimeStamp],1,22)) AS EventDate
+             ,[me].[Events].[value]('(/event/data/objectversion/title)[1]', 'varchar(100)')          AS [NameOrTitle]
+             ,[me].[Events].[value]('(/event/data/objectversion/objver/objtype)[1]', 'varchar(100)') AS [ObjectType]
+             ,[me].[Events].[value]('(/event/data/objectversion/objver/objid)[1]', 'varchar(100)')   AS [Objid]
+             ,[me].[Events].[value]('(/event/data/objectversion/objver/version)[1]', 'varchar(100)') AS [Version]
+       FROM [dbo].[MFilesEvents] [me]
+       WHERE [me].[Category] = 'ObjectOperation' and  CausedByUser = 'MFSQL' )
+       ,[CTE2]
+      AS (SELECT [cte].[id]
+            ,LEAD([cte].Eventdate) OVER (ORDER BY [cte].[ID]) [ProcessEnd]
+            --,LAG([cte].Eventdate) OVER (ORDER BY [cte].[ID])  [LagStart]
+      	  ,Eventdate as ProcessStart
+      FROM [cte])
+      SELECT cte.id, EventType
+      ,cte2.ProcessStart, cte2.ProcessEnd
+      ,datediff(MILLISECOND, cte2.ProcessStart,cte2.ProcessEnd) ProcessDuration
+       FROM [cte]
+       inner join cte2
+       on cte.id = cte2.id
+      where eventdate > '2021-12-08 06:24:35.680' --and cte.ID between 40461735 and 40461740
+      --GROUP BY cte.ID, EventType, cte2.ProcessStart, cte2.ProcessEnd
+      ;
