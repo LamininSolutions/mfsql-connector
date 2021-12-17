@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.71 2021-09-23
+Published version: 4.9.27.72 2021-12-16
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.71  2021-09-15
+SQL scripts       4.9.27.71  2021-12-16
 Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.1    2021-09-23
 Database File VAF 4.3.0.1    2021-09-23
@@ -38,6 +38,22 @@ Change control summary
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+4.9.27.72
+~~~~~~~~~
+
+#. Remove duplicate indexes on tables MFLog, MFUpdateHistory
+#. Update additional elements of Advanced Installer Package to improve control, resolve issues in use of powershell, allow TLS1.2 and cloud installation.
+#. Fix bugs in spMFClassTableColumns for missing table not identying if table deleted and bug on multilookup data type change error
+#. Remove bug of showing query with debug = 0 in spMFClassTableStats
+#. The procedures spMFUpdateObjectChangeHistory and smMFGetHistory are fundamentally recoded to change the approach to improve performance
+#. Update documentation in spMFDropandUpdateTable, spMFLogError_Email, spMFUpdateMfilesToMFSQL
+#. Set maximum rows in MFvwClassTableColumns to 10000
+#. Update spMFDeploymentDetails and spMFUpdateAssemblies to improve entries in the MFDeploymentDetail table
+#. Fix update references in MFProcess table to map to descriptions
+#. Update logging in spMFTableAudit to track performance
+#. Fix spMFUpdateHistoryShow to aid performance tracking
+#. Add new special procedure to aid performance tracking of a procedurebatch spMFGetProcedurePerformance
 
 4.9.27.71
 ~~~~~~~~~
