@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMFilesAssemblyVersion.html">spMFGetMFilesAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetObjectvers.html">spMFGetObjectvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetProcedurePerformance.html">spMFGetProcedurePerformance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFImportBlobFilesToMFiles.html">spMFImportBlobFilesToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClass.html">spMFInsertClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClassProperty.html">spMFInsertClassProperty</a></li>
@@ -305,18 +306,27 @@
 <div class="section" id="additional-info">
 <h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
+<dt>The significance of the update column depends on the update method</dt><dd><ul class="simple">
+<li><p>0 : Objects in class updated from SQL to MF</p></li>
+<li><p>1 : Objects in class updated from MF to SQL</p></li>
+<li><p>10: Object versions updated in audit history</p></li>
+<li><p>11: Object Change versions update in objectChange History</p></li>
+</ul>
+</dd>
 <dt>Update column reference</dt><dd><ul class="simple">
 <li><p>UpdateColumn 0 = ObjectDetails:
-- For UpdateMethod 1 : represent the objecttype and class, will always show 1 record
-- For UpdateMethod 0 : represents the objects in the class to be updated, will show the number of properties to be updated</p></li>
+- UpdateMethod 1,10 : represent the objecttype and class, will always show 1 record
+- UpdateMethod 0 : represents the objects in the class to be updated, will show the number of properties to be updated
+- UpdateMethod 11 : class id and property id for changes</p></li>
 <li><p>UpdateColumn 1 = ObjectVerDetails:
-- For UpdateMethod 1 : represents the object ver in SQL to be compared with MF, will show the number of records to be updated
-- For UpdateMethod 0 : not used</p></li>
+- UpdateMethod 1,11 : represents the object ver in SQL to be compared with MF, will show the number of records to be updated
+- UpdateMethod 0,10 : not used</p></li>
 <li><p>UpdateColumn 2 = NewOrUpdatedObjectVer:
-- For UpdateMethod 1 : Not used
-- For UpdateMethod 0 : represents the object ver in SQL to be updated in MF, will show the number of records to be updated</p></li>
+- UpdateMethod 1 : Not used
+- UpdateMethod 0,10 : represents the object ver in SQL to be updated in MF, will show the number of records to be updated
+- UpdateMethod 11 :represents the objectversions returned from MF</p></li>
 <li><p>UpdateColumn 3 = NewOrUpdateObjectDetails:
-- Represents the object ver details from MF to be updated in SQL, will show the number of properties to be updated</p></li>
+- UpdateMethod 0,1 : Represents the object ver details from MF to be updated in SQL, will show the number of properties to be updated</p></li>
 <li><p>UpdateColumn 4 = SyncronisationErrors  (not yet implemented)</p></li>
 <li><p>UpdateColumn 5 = MFError  (not yet implemented)</p></li>
 <li><p>UpdateColumn 6 = DeletedObjects (not yet implemented)</p></li>
@@ -326,7 +336,7 @@
 </div>
 <div class="section" id="warning">
 <h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
-<p>MFUpdatehistory has records for different types of operations.  This procedure is targeted and showing updates to and from M-Files using the spMFupdateTable procedure. Using it for rows in the MFupdateHistory for other types of updates will produce false results or through an  error.</p>
+<p>MFUpdatehistory has records for different types of operations.  This procedure is targeted and showing updates to and from M-Files using the spMFupdateTable, spMFTableAudit and spMFUpdateObjectChange procedure.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -352,37 +362,41 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-01-10</p></td>
+<tr class="row-even"><td><p>2021-12-22</p></td>
 <td><p>LC</p></td>
-<td><p>Create procedure</p></td>
+<td><p>Add Audit History and Object Change history show records</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-06-09</p></td>
-<td><p>Arnie</p></td>
-<td><p>produce single result sets for easier usage</p></td>
-</tr>
-<tr class="row-even"><td><p>2017-06-09</p></td>
+<tr class="row-odd"><td><p>2021-12-13</p></td>
 <td><p>LC</p></td>
-<td><p>Change options to print either summary or detail</p></td>
-</tr>
-<tr class="row-odd"><td><p>2018-08-01</p></td>
-<td><p>LC</p></td>
-<td><p>Fix bug with showing deletions</p></td>
-</tr>
-<tr class="row-even"><td><p>2018-05-09</p></td>
-<td><p>LC</p></td>
-<td><p>Fix bug with column 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>2020-08-22</p></td>
-<td><p>LC</p></td>
-<td><p>Update for impact of new deleted column</p></td>
+<td><p>Remove redundant temp table from printing</p></td>
 </tr>
 <tr class="row-even"><td><p>2021-02-03</p></td>
 <td><p>LC</p></td>
 <td><p>Rewrite the procedure to streamline and fix errors</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-12-13</p></td>
+<tr class="row-odd"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
-<td><p>Remove redundant temp table from printing</p></td>
+<td><p>Update for impact of new deleted column</p></td>
+</tr>
+<tr class="row-even"><td><p>2018-05-09</p></td>
+<td><p>LC</p></td>
+<td><p>Fix bug with column 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2018-08-01</p></td>
+<td><p>LC</p></td>
+<td><p>Fix bug with showing deletions</p></td>
+</tr>
+<tr class="row-even"><td><p>2017-06-09</p></td>
+<td><p>LC</p></td>
+<td><p>Change options to print either summary or detail</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017-06-09</p></td>
+<td><p>Arnie</p></td>
+<td><p>produce single result sets for easier usage</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-01-10</p></td>
+<td><p>LC</p></td>
+<td><p>Create procedure</p></td>
 </tr>
 </tbody>
 </table>

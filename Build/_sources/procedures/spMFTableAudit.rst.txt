@@ -79,6 +79,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-20  LC         add revalidate of deleted objects when incremental update
+2021-12-20  LC         add checking of objvers where full update did not update them
 2021-12-16  LC         Add additional logging for performance monitoring
 2021-04-01  LC         Add statusflag for Collections
 2020-09-08  LC         Update to include status code 5 object does not exist

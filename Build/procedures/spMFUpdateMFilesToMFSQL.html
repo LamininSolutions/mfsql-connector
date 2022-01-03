@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMFilesAssemblyVersion.html">spMFGetMFilesAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetObjectvers.html">spMFGetObjectvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetProcedurePerformance.html">spMFGetProcedurePerformance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFImportBlobFilesToMFiles.html">spMFImportBlobFilesToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClass.html">spMFInsertClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClassProperty.html">spMFInsertClassProperty</a></li>
@@ -396,143 +397,155 @@ Setting UpdateTypeID = 1 (incremental update) will perform an audit of the class
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-08-28</p></td>
+<tr class="row-even"><td><p>2021-12-20</p></td>
+<td><p>LC</p></td>
+<td><p>Maintain same processbatch_ID for entire process</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-12-20</p></td>
+<td><p>LC</p></td>
+<td><p>Revise removal of deleted objects from table</p></td>
+</tr>
+<tr class="row-even"><td><p>2021-12-16</p></td>
+<td><p>LC</p></td>
+<td><p>Remove deletion of audit table with full update</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-08-28</p></td>
 <td><p>LC</p></td>
 <td><p>with full update, remove objects in class table not in audit table</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-07-03</p></td>
+<tr class="row-even"><td><p>2021-07-03</p></td>
 <td><p>LC</p></td>
 <td><p>improve debugging and error reporting</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-05-11</p></td>
+<tr class="row-odd"><td><p>2021-05-11</p></td>
 <td><p>LC</p></td>
 <td><p>redesign the grouping of objects to overcome persistent issues</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-05-10</p></td>
+<tr class="row-even"><td><p>2021-05-10</p></td>
 <td><p>LC</p></td>
 <td><p>add controls to validate group list creation</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-04-26</p></td>
+<tr class="row-odd"><td><p>2021-04-26</p></td>
 <td><p>LC</p></td>
 <td><p>add removal of redundant class records</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-03-17</p></td>
+<tr class="row-even"><td><p>2021-03-17</p></td>
 <td><p>LC</p></td>
 <td><p>include audit statusflag =1 into incremental update</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-03-17</p></td>
+<tr class="row-odd"><td><p>2021-03-17</p></td>
 <td><p>LC</p></td>
 <td><p>resolve issue where objid for exist for class in two objecttypes</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-03-16</p></td>
+<tr class="row-even"><td><p>2021-03-16</p></td>
 <td><p>LC</p></td>
 <td><p>Remove object where class has changed from audit table</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-03-11</p></td>
+<tr class="row-odd"><td><p>2021-03-11</p></td>
 <td><p>LC</p></td>
 <td><p>fix objlist error when both class and audit objid is null</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-03-10</p></td>
+<tr class="row-even"><td><p>2021-03-10</p></td>
 <td><p>LC</p></td>
 <td><p>fix updatechangehistory when control table empty</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-01-07</p></td>
+<tr class="row-odd"><td><p>2021-01-07</p></td>
 <td><p>LC</p></td>
 <td><p>Include override to recheck any class objects not in Audit</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-09-04</p></td>
+<tr class="row-even"><td><p>2020-09-04</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve bug with full update</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-08-23</p></td>
+<tr class="row-odd"><td><p>2020-08-23</p></td>
 <td><p>LC</p></td>
 <td><p>replace get max objid with index update</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-08-23</p></td>
+<tr class="row-even"><td><p>2020-08-23</p></td>
 <td><p>LC</p></td>
 <td><p>Add parameter to retain deletions, default set to NO.</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-08-22</p></td>
+<tr class="row-odd"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>Elliminate use of get deleted records</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-04-23</p></td>
+<tr class="row-even"><td><p>2020-04-23</p></td>
 <td><p>LC</p></td>
 <td><p>Set maxobjects</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-03-06</p></td>
+<tr class="row-odd"><td><p>2020-03-06</p></td>
 <td><p>LC</p></td>
 <td><p>Add updating of object history</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-02-14</p></td>
+<tr class="row-even"><td><p>2020-02-14</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve skipped audit items where class missing items</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-12-10</p></td>
+<tr class="row-odd"><td><p>2019-12-10</p></td>
 <td><p>LC</p></td>
 <td><p>Add a parameter to set the maximum number of objects in class</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-09-27</p></td>
+<tr class="row-even"><td><p>2019-09-27</p></td>
 <td><p>LC</p></td>
 <td><p>Set withstats for audit batches = 0</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-27</p></td>
+<tr class="row-odd"><td><p>2019-09-27</p></td>
 <td><p>LC</p></td>
 <td><p>Fix UpdateID in MFProcessBatchDetail</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-09-03</p></td>
+<tr class="row-even"><td><p>2019-09-03</p></td>
 <td><p>LC</p></td>
 <td><p>Set audittableinbatches to withstats = 0</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-03</p></td>
+<tr class="row-odd"><td><p>2019-09-03</p></td>
 <td><p>LC</p></td>
 <td><p>Set default date for deleted record check to 2000-01-01</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-08-05</p></td>
+<tr class="row-odd"><td><p>2019-08-05</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug in updating single record</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-04-12</p></td>
+<tr class="row-even"><td><p>2019-04-12</p></td>
 <td><p>LC</p></td>
 <td><p>Allow for large tables</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-10-22</p></td>
+<tr class="row-odd"><td><p>2018-10-22</p></td>
 <td><p>LC</p></td>
 <td><p>Align logtext description for reporting, refine ProcessBatch messages</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-10-20</p></td>
+<tr class="row-even"><td><p>2018-10-20</p></td>
 <td><p>LC</p></td>
 <td><p>Fix processing time calculation</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-05-10</p></td>
+<tr class="row-odd"><td><p>2018-05-10</p></td>
 <td><p>LC</p></td>
 <td><p>Add error if invalid table name is specified</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-12-28</p></td>
+<tr class="row-even"><td><p>2017-12-28</p></td>
 <td><p>LC</p></td>
 <td><p>Add routine to reset process_id 3,4 to 0</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-12-25</p></td>
+<tr class="row-odd"><td><p>2017-12-25</p></td>
 <td><p>LC</p></td>
 <td><p>Change BatchProcessDetail log text for lastupdatedate</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-06-29</p></td>
+<tr class="row-even"><td><p>2017-06-29</p></td>
 <td><p>AC</p></td>
 <td><p>Change LogStatusDetail to ‘Completed’ from ‘Complete’</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-06-08</p></td>
+<tr class="row-odd"><td><p>2017-06-08</p></td>
 <td><p>AC</p></td>
 <td><p>Incorrect LogTypeDetail value</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-06-08</p></td>
+<tr class="row-even"><td><p>2017-06-08</p></td>
 <td><p>AC</p></td>
 <td><p>ProcessBatch_ID not passed into spMFTableAudit</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-08-11</p></td>
+<tr class="row-odd"><td><p>2016-08-11</p></td>
 <td><p>AC</p></td>
 <td><p>Create Procedure</p></td>
 </tr>

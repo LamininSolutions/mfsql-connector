@@ -74,6 +74,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-20  LC         Add logging to improve performance analysis
+2021-12-20  LC         Use same processbatchID for entire process
 2021-09-01  LC         add parameter to retain deletions for all tables
 2021-08-04  LC         add parameter to allow suppress of control report, default 0
 2021-04-01  LC         add control report for updates

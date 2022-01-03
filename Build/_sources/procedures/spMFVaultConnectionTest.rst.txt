@@ -50,6 +50,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-20  LC         Add guid to result set
 2020-03-29  LC         Add documentation 
 2020-02-08  LC         Fix bug for check license validation
 2016-08-15  DEV1       Create procedure

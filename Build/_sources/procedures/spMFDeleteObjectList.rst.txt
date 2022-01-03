@@ -102,6 +102,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-20  LC         Pair connection test with accessing assembly
 2021-06-08  LC         Remove object from class table if not found
 2021-06-08  LC         Fix bug to remove item on deletion from class table
 2021-06-08  LC         Fix entry in MFUpdateHistory on completion of deletion

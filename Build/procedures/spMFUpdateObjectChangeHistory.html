@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMFilesAssemblyVersion.html">spMFGetMFilesAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetObjectvers.html">spMFGetObjectvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFGetProcedurePerformance.html">spMFGetProcedurePerformance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFImportBlobFilesToMFiles.html">spMFImportBlobFilesToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClass.html">spMFInsertClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFInsertClassProperty.html">spMFInsertClassProperty</a></li>
@@ -282,7 +283,8 @@
 Class table name to be updated
 If null then all class tables in MFObjectChangeHistoryUpdateControl table is included.</p>
 <p>&#64;WithClassTableUpdate int
-- Default = 1 (yes)</p>
+- Default = 0 (No)
+- The expectation is that the update history will run just after the class table was updated</p>
 <p>&#64;Objids nvarchar(4000)
 - comma delimited list of objids to be included
 - if null then all objids for the class is included
@@ -380,6 +382,14 @@ If null then all class tables in MFObjectChangeHistoryUpdateControl table is inc
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2021-12-22</p></td>
+<td><p>LC</p></td>
+<td><p>Update logging to monitor performance</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-12-22</p></td>
+<td><p>LC</p></td>
+<td><p>Set default for withtableupdate to 0</p></td>
 </tr>
 <tr class="row-even"><td><p>2021-10-18</p></td>
 <td><p>LC</p></td>

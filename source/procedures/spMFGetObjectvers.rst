@@ -60,6 +60,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-21  LC         This procedure is no longer used by MFTableAudit
+2021-12-20  LC         Pair connection test with wrapper
 2020-08-25  LC         Add return XML for deleted records
 2019-12-12  LC         Improve text in MFProcessBatchDetail
 2019-09-04  LC         Add connection test

@@ -23,7 +23,7 @@ Parameters
     Output message
   @objectVersion int
     the object version to be removed. 
-    default = 0 which indicates the delete the object rather than a version
+    default = -1 which indicates the delete the object rather than a version
   @DeleteWithDestroy bit (optional)
     - Default = 0
     - 1 = Destroy
@@ -133,6 +133,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-16  LC         Reset objectversion default to -1
 2021-08-15  LC         Remove incorrect license check
 2021-05-05  LC         Align single delete object without class table with wrapper
 2020-12-08  LC         Change status messages and validate different methods

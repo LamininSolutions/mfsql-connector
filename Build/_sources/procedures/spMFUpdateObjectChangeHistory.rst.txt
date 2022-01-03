@@ -12,7 +12,8 @@ Return
   If null then all class tables in MFObjectChangeHistoryUpdateControl table is included.
 
   @WithClassTableUpdate int
-  - Default = 1 (yes)  
+  - Default = 0 (No)
+  - The expectation is that the update history will run just after the class table was updated 
 
   @Objids nvarchar(4000)
   - comma delimited list of objids to be included 
@@ -114,6 +115,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-22  LC         Update logging to monitor performance
+2021-12-22  LC         Set default for withtableupdate to 0
 2021-10-18  LC         The procedure is fundamentally rewritten
 2021-04-02  LC         Add parameter for IsFullHistory
 2020-06-26  LC         added additional exception management

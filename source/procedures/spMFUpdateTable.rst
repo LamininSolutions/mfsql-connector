@@ -168,7 +168,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
-2022-06-21  LC         Modify proc to include document collections
+2021-12-20  LC         Pair connection test with Wrapper
+2021-06-21  LC         Modify proc to include document collections
 2021-04-14  LC         fix timestamp datatype bug
 2021-03-15  LC         fix changing of class in the same object type in MF
 2021-03-11  LC         update maximum valid number range to between -1,79E27 and 1,79E27

@@ -6,14 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.72 2021-12-16
+Published version: 4.9.27.72 2021-12-17
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.71  2021-12-16
+SQL scripts       4.9.27.71  2021-12-17
 Assemblies        4.9.27.0   2021-04-14
-Vault application 4.9.0.1    2021-09-23
+Vault application 4.9.0.2    2021-12-17
 Database File VAF 4.3.0.1    2021-09-23
 ================= ========== ==========
 
@@ -39,9 +39,20 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
+4.9.28.73
+~~~~~~~~~
+
+#. Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings
+#. Change spmfConnectionTest to test connection to M-Files Server without logging into vault. This method is mainly used to detect early of M-Files server is no longer available for long running processes
+
 4.9.27.72
 ~~~~~~~~~
 
+Take note:
+After installation of the package, restart the vault.
+
+#. Update spMFAuditTable and spMFUpdateMFilesToMFSQL to re-evaluate deleted objects when incremental update is performed.
+#. Remove deletion of MFAuditHistory on full update.
 #. Change default for objectVersion to -1 in spMFDeleteObject
 #. Change script for adding Delete History Agent to only create agent if not exist
 #. Fix bug with spMFCheckAndUpdateAssemblyVersion
@@ -57,6 +68,7 @@ Each procedure, table or function contains there own change control section. See
 #. Update logging in spMFTableAudit to track performance
 #. Fix spMFUpdateHistoryShow to aid performance tracking
 #. Add new special procedure to aid performance tracking of a procedurebatch spMFGetProcedurePerformance
+#. Align on premise VAF with cloud VAF with updates to image references
 
 4.9.27.71
 ~~~~~~~~~

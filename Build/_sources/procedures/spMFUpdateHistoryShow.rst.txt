@@ -29,18 +29,26 @@ The result is a join between the column data and the class table.  The first cou
 Additional Info
 ===============
 
+The significance of the update column depends on the update method
+  - 0 : Objects in class updated from SQL to MF
+  - 1 : Objects in class updated from MF to SQL
+  - 10: Object versions updated in audit history
+  - 11: Object Change versions update in objectChange History
+
 Update column reference
  - UpdateColumn 0 = ObjectDetails: 
-   - For UpdateMethod 1 : represent the objecttype and class, will always show 1 record
-   - For UpdateMethod 0 : represents the objects in the class to be updated, will show the number of properties to be updated
+   - UpdateMethod 1,10 : represent the objecttype and class, will always show 1 record
+   - UpdateMethod 0 : represents the objects in the class to be updated, will show the number of properties to be updated
+   - UpdateMethod 11 : class id and property id for changes
  - UpdateColumn 1 = ObjectVerDetails:
-   - For UpdateMethod 1 : represents the object ver in SQL to be compared with MF, will show the number of records to be updated
-   - For UpdateMethod 0 : not used
+   - UpdateMethod 1,11 : represents the object ver in SQL to be compared with MF, will show the number of records to be updated
+   - UpdateMethod 0,10 : not used
  - UpdateColumn 2 = NewOrUpdatedObjectVer: 
-   - For UpdateMethod 1 : Not used
-   - For UpdateMethod 0 : represents the object ver in SQL to be updated in MF, will show the number of records to be updated
+   - UpdateMethod 1 : Not used
+   - UpdateMethod 0,10 : represents the object ver in SQL to be updated in MF, will show the number of records to be updated
+   - UpdateMethod 11 :represents the objectversions returned from MF
  - UpdateColumn 3 = NewOrUpdateObjectDetails: 
-   - Represents the object ver details from MF to be updated in SQL, will show the number of properties to be updated
+   - UpdateMethod 0,1 : Represents the object ver details from MF to be updated in SQL, will show the number of properties to be updated
 
  - UpdateColumn 4 = SyncronisationErrors  (not yet implemented)
  - UpdateColumn 5 = MFError  (not yet implemented)
@@ -49,7 +57,7 @@ Update column reference
 Warning
 =======
 
-MFUpdatehistory has records for different types of operations.  This procedure is targeted and showing updates to and from M-Files using the spMFupdateTable procedure. Using it for rows in the MFupdateHistory for other types of updates will produce false results or through an  error.
+MFUpdatehistory has records for different types of operations.  This procedure is targeted and showing updates to and from M-Files using the spMFupdateTable, spMFTableAudit and spMFUpdateObjectChange procedure. 
 
 Examples
 ========
@@ -69,13 +77,14 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
-2016-01-10  LC         Create procedure
-2017-06-09  Arnie      produce single result sets for easier usage 
-2017-06-09  LC         Change options to print either summary or detail
-2018-08-01  LC         Fix bug with showing deletions
-2018-05-09  LC         Fix bug with column 1
-2020-08-22  LC         Update for impact of new deleted column  
-2021-02-03  LC         Rewrite the procedure to streamline and fix errors
+2021-12-22  LC         Add Audit History and Object Change history show records
 2021-12-13  LC         Remove redundant temp table from printing
+2021-02-03  LC         Rewrite the procedure to streamline and fix errors
+2020-08-22  LC         Update for impact of new deleted column
+2018-05-09  LC         Fix bug with column 1
+2018-08-01  LC         Fix bug with showing deletions
+2017-06-09  LC         Change options to print either summary or detail
+2017-06-09  Arnie      produce single result sets for easier usage
+2016-01-10  LC         Create procedure
 ==========  =========  ========================================================
 
