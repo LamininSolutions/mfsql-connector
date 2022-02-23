@@ -16,8 +16,8 @@ Parameters
     - 1 = incremental update (default)
     - 0 = Full update
   @MaxObjects INT
-    - Default = 20000
-    - This parameter has no longer any impact, 
+    - Default = 100000
+    - if UpdateTypeID = 0 then this parameter must be set if there are more than 100000 objects in the objecttype 
   @WithObjectHistory BIT
     - Default = 0 (No)
     - set to 1 to include updating the object history
@@ -68,12 +68,14 @@ Warnings
 
 Use spmfUpdateTableInBatches to initiate a class table instead of this procedure.
 
+When @updateTypeID is set to 0 and the maximum objid of the object type is more than 100 000 then the @MaxObjects parameter must be set
+
 Examples
 ========
 
-.. code:: sql
+Full update of class table.  Set parameter @MaxObjects to the maximum oobject id in the object type when greater than 100000 to ensure that the audit process will run in batches.  
 
-    --Full Update from MF to SQL
+.. code:: sql
 
     DECLARE @MFLastUpdateDate SMALLDATETIME
        ,@Update_IDOut     INT
@@ -82,15 +84,23 @@ Examples
     EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable' 
                                     ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT 
                                     ,@UpdateTypeID = 0 
+                                    ,@MaxObjects = 500000
+                                    ,@Withstats = 1
                                     ,@Update_IDOut = @Update_IDOut OUTPUT 
                                     ,@ProcessBatch_ID = @ProcessBatch_ID OUTPUT
                                     ,@debug = 0;  
 
     SELECT @MFLastUpdateDate AS [LastModifiedDate];
 
+
+For incremental updates
+
+.. code:: sql
+
     DECLARE @MFLastUpdateDate SMALLDATETIME
        ,@Update_IDOut     INT
        ,@ProcessBatch_ID  INT;
+
 
     EXEC [dbo].[spMFUpdateMFilesToMFSQL] @MFTableName = 'YourTable'
                                     ,@MFLastUpdateDate = @MFLastUpdateDate OUTPUT
@@ -108,6 +118,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-25  LC         allow for batch processing of audit when max object > 100000
+2022-01-25  LC         increase maxobjects default to 100000
 2021-12-20  LC         Maintain same processbatch_ID for entire process
 2021-12-20  LC         Revise removal of deleted objects from table
 2021-12-16  LC         Remove deletion of audit table with full update

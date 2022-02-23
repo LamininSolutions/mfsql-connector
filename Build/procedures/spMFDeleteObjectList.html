@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFDeleteObjectList &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFDeleteObjectList &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -185,8 +185,10 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -311,7 +313,13 @@
 </li>
 </ul>
 </dd>
-<dt>&#64;ProcessBatch_ID (optional, output)</dt><dd><p>Referencing the ID of the ProcessBatch logging table</p>
+<dt>&#64;Update_ID int (output)</dt><dd><ul class="simple">
+<li><p>Referencing ID of the record in the MFUpdateHistory table</p></li>
+</ul>
+</dd>
+<dt>&#64;ProcessBatch_ID (optional, output)</dt><dd><ul class="simple">
+<li><p>Referencing the ID of the ProcessBatch logging table</p></li>
+</ul>
 </dd>
 <dt>&#64;Debug (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
@@ -338,9 +346,9 @@
 <li><p>1 = Success object deleted</p></li>
 <li><p>2 = Success object version destroyed</p></li>
 <li><p>3 = Success object destroyed</p></li>
-<li><p>4 = Failed to destroy, object not found</p></li>
-<li><p>5 = Failed to delete, object not found</p></li>
-<li><p>6 = Failed to remove version, version not found</p></li>
+<li><p>4 = Failed to destroy</p></li>
+<li><p>5 = Failed to delete</p></li>
+<li><p>6 = Failed to remove version</p></li>
 </ul>
 </div></blockquote>
 <p>Use the parameter RetainDeletions = 1 to retain the deletions in the class table. The timestamp for the deletion will show in the deleted column.</p>
@@ -401,47 +409,51 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-12-20</p></td>
+<tr class="row-even"><td><p>2022-02-10</p></td>
+<td><p>LC</p></td>
+<td><p>Add update ID to record deletions in history</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-12-20</p></td>
 <td><p>LC</p></td>
 <td><p>Pair connection test with accessing assembly</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-06-08</p></td>
+<tr class="row-even"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Remove object from class table if not found</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-06-08</p></td>
+<tr class="row-odd"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug to remove item on deletion from class table</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-06-08</p></td>
+<tr class="row-even"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Fix entry in MFUpdateHistory on completion of deletion</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-12-08</p></td>
+<tr class="row-odd"><td><p>2020-12-08</p></td>
 <td><p>LC</p></td>
 <td><p>Reset mfversion to -1 when deleting and destroying</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-12-03</p></td>
+<tr class="row-even"><td><p>2020-12-03</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug when object is destroyed</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-10-06</p></td>
+<tr class="row-odd"><td><p>2020-10-06</p></td>
 <td><p>LC</p></td>
 <td><p>Modified to process delete operation in batch</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-08-22</p></td>
+<tr class="row-even"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>deleted records in class table will be removed</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-04-9</p></td>
+<tr class="row-odd"><td><p>2018-04-9</p></td>
 <td><p>lc</p></td>
 <td><p>Delete object from class table after deletion.</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-6-26</p></td>
+<tr class="row-even"><td><p>2018-6-26</p></td>
 <td><p>LC</p></td>
 <td><p>Improve return value</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-8-2</p></td>
+<tr class="row-odd"><td><p>2018-8-2</p></td>
 <td><p>LC</p></td>
 <td><p>Suppress SQL error when nothing deleted</p></td>
 </tr>

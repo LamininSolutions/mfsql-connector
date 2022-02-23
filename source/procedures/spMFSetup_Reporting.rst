@@ -58,6 +58,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-26  Lc         Fix valuelist creation
 2019-09-27  LC         Adjust to setup context menu group for access
 2019-05-17  LC         Set security for menu to MFSQLConnector group
 2019-04-10  LC         Adjust to allow for context menu configuration in different languages

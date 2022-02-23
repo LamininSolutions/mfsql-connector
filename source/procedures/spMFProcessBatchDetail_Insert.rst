@@ -89,6 +89,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-04  LC         Add assembly logging for app detail logging
 2020-03-12  LC         Improve default wording of text
 2019-08-30  JC         Added documentation
 2019-01-27  LC         Exclude MFUserMessage table from any logging

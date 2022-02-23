@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFClassTableStats &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFClassTableStats &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -111,6 +111,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">spMFClassTableStats</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#report-by-email">Report by Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#warnings">Warnings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#corrective-action">Corrective Action</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
@@ -186,8 +187,10 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -302,17 +305,33 @@
 <li><p>1 = will include running spmftableaudit and updating info from MF</p></li>
 </ul>
 </dd>
-<dt>&#64;IncludeOutput int (optional)</dt><dd><p>set to 1 to output result to a table ##spMFClassTableStats</p>
+<dt>&#64;IncludeOutput int (optional)</dt><dd><ul class="simple">
+<li><p>set to 1 to output result to a table ##spMFClassTableStats</p></li>
+</ul>
 </dd>
 <dt>&#64;SendReport int (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>When set to 1, and IncludeOutput is set to 1 then a email report will be sent if when any off the error columns are not null.</p></li>
 </ul>
 </dd>
+<dt>&#64;Body NVARCHAR(MAX) (optional)</dt><dd><ul class="simple">
+<li><p>Default to ‘&lt;p&gt;The class tables in the following report is not up to date or is showing errors.  Consult <a class="reference external" href="https://doc.lamininsolutions.com/procedures/spMFClassTableStats.html">https://doc.lamininsolutions.com/procedures/spMFClassTableStats.html</a> for corrective action. &lt;/p&gt; &lt;BR&gt; ‘</p></li>
+<li><p>This email body will appear above the table</p></li>
+</ul>
+</dd>
+<dt>&#64;MessageTitle NVARCHAR(258) (optional)</dt><dd><ul class="simple">
+<li><p>Default DB_NAME() + ‘ : Class Table Error Report’</p></li>
+<li><p>This will be the Email subject</p></li>
+</ul>
+</dd>
+<dt>&#64;Footer NVARCHAR(400) (optional)</dt><dd><ul class="simple">
+<li><p>Default to ‘&lt;BR&gt;&lt;p&gt;Produced by MFSQL Connector&lt;/p&gt;’</p></li>
+<li><p>This will appear at the bottom of the email</p></li>
+</ul>
+</dd>
 <dt>&#64;Debug smallint (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>1 = Standard Debug Mode</p></li>
-<li><p>101 = Advanced Debug Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -400,19 +419,26 @@ excluded from an &#64;updatemethod = 1 routine</p></td>
 </tbody>
 </table>
 </div>
+<div class="section" id="report-by-email">
+<h2>Report by Email<a class="headerlink" href="#report-by-email" title="Permalink to this headline">¶</a></h2>
+<p>To allow for the automatic generation of the report and sending by email, set the parameter &#64;SendReport = 1.  Use the parameters &#64;MessageTitle, &#64;Body and &#64;Footer to customise these elements of the email</p>
+<p>The email will be sent to the email addresses set in the table MFsettings for as the support email recipient for all tables where a error is included.</p>
+</div>
 <div class="section" id="warnings">
 <h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
 <p>The MFRecordCount results of spMFClassTableStats is only accurate based on the last execution of spMFTableAudit for a particular class table.</p>
 </div>
 <div class="section" id="corrective-action">
 <h2>Corrective Action<a class="headerlink" href="#corrective-action" title="Permalink to this headline">¶</a></h2>
-<p>If MissingTable = 1 then run spMFCreateTable or set IncludeInApp column to null
-If MFnotInSQL &gt; 0 then rerun the update of class table
-If SQLNotInMF &gt; 0 then run spMFClasstableStats &#64;WithAudit = 1
-If CheckedOut &gt; 0 then check in records and rerun the update of class table
-If RequiredWorkflowError &gt; 0 then update objects with the required workflow, or remove required workflow from the class table definition.
-If SyncError &gt; 0 then investigate the objects in the class table. Manually reset the process_id to 0, rerun update from M-Files or setup Sync presidence
-If Process_ID_not_0 or MFError or SQLError &gt; 0 then investigate the objects process_id and why the updating failed.  There could be many different reasons depending on the underlying process.</p>
+<ul class="simple">
+<li><p>If MissingTable = 1 then run spMFCreateTable or set IncludeInApp column to null</p></li>
+<li><p>If MFnotInSQL &gt; 0 then rerun the update of class table</p></li>
+<li><p>If SQLNotInMF &gt; 0 then run spMFClasstableStats &#64;WithAudit = 1</p></li>
+<li><p>If CheckedOut &gt; 0 then check in records and rerun the update of class table</p></li>
+<li><p>If RequiredWorkflowError &gt; 0 then update objects with the required workflow, or remove required workflow from the class table definition.</p></li>
+<li><p>If SyncError &gt; 0 then investigate the objects in the class table. Manually reset the process_id to 0, rerun update from M-Files or setup Sync presidence</p></li>
+<li><p>If Process_ID_not_0 or MFError or SQLError &gt; 0 then investigate the objects process_id and why the updating failed.  There could be many different reasons depending on the underlying process.</p></li>
+</ul>
 <p>Use the following view to explore the MFAuditHistory</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwAuditSummary</span>
 </pre></div>
@@ -475,107 +501,111 @@ If Process_ID_not_0 or MFError or SQLError &gt; 0 then investigate the objects p
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-10-07</p></td>
+<tr class="row-even"><td><p>2022-01-18</p></td>
+<td><p>LC</p></td>
+<td><p>Increase size of email parameters to align with mailer</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-10-07</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve bug of showing query</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-04-14</p></td>
+<tr class="row-even"><td><p>2021-04-14</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve issue with specifying a table name</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-04-08</p></td>
+<tr class="row-odd"><td><p>2021-04-08</p></td>
 <td><p>LC</p></td>
 <td><p>Add check that table exists</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-04-01</p></td>
+<tr class="row-even"><td><p>2021-04-01</p></td>
 <td><p>LC</p></td>
 <td><p>Add column to report on number of collections</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-04-01</p></td>
+<tr class="row-odd"><td><p>2021-04-01</p></td>
 <td><p>LC</p></td>
 <td><p>Add parameter and option to send error report</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-03-11</p></td>
+<tr class="row-even"><td><p>2021-03-11</p></td>
 <td><p>LC</p></td>
 <td><p>Add column to report on number of templates</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-03-11</p></td>
+<tr class="row-odd"><td><p>2021-03-11</p></td>
 <td><p>LC</p></td>
 <td><p>fix calculation of deleted objects</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-03-02</p></td>
+<tr class="row-even"><td><p>2021-03-02</p></td>
 <td><p>LC</p></td>
 <td><p>Add column to report on records without required workflow</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-03-02</p></td>
+<tr class="row-odd"><td><p>2021-03-02</p></td>
 <td><p>LC</p></td>
 <td><p>Add column to report on Checked out objects</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-12-10</p></td>
+<tr class="row-even"><td><p>2020-12-10</p></td>
 <td><p>LC</p></td>
 <td><p>add new parameter to allow for a quick run without table audit</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-09-04</p></td>
+<tr class="row-odd"><td><p>2020-09-04</p></td>
 <td><p>LC</p></td>
 <td><p>rebase MFObjectTotal to include checkedout</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-08-22</p></td>
+<tr class="row-even"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>Update code for new deleted column</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-04-16</p></td>
+<tr class="row-odd"><td><p>2020-04-16</p></td>
 <td><p>LC</p></td>
 <td><p>Add with nolock option</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-03-06</p></td>
+<tr class="row-even"><td><p>2020-03-06</p></td>
 <td><p>LC</p></td>
 <td><p>Remove statusflag 6 from notinSQL</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-03-06</p></td>
+<tr class="row-odd"><td><p>2020-03-06</p></td>
 <td><p>LC</p></td>
 <td><p>Change deleted to include deleted from audit table</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-03-06</p></td>
+<tr class="row-even"><td><p>2020-03-06</p></td>
 <td><p>LC</p></td>
 <td><p>Change Column to show process_id not 0</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-26</p></td>
+<tr class="row-odd"><td><p>2019-09-26</p></td>
 <td><p>LC</p></td>
 <td><p>Update documentation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-12-27</p></td>
+<tr class="row-odd"><td><p>2017-12-27</p></td>
 <td><p>LC</p></td>
 <td><p>run tableaudit for each table to update status from MF</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-11-23</p></td>
+<tr class="row-even"><td><p>2017-11-23</p></td>
 <td><p>LC</p></td>
 <td><p>MF_lastModified set to deal with localization</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-07-22</p></td>
+<tr class="row-odd"><td><p>2017-07-22</p></td>
 <td><p>LC</p></td>
 <td><p>add parameter to allow the temp table to persist</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-06-29</p></td>
+<tr class="row-even"><td><p>2017-06-29</p></td>
 <td><p>LC</p></td>
 <td><p>change mflastmodified date to localtime</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-06-16</p></td>
+<tr class="row-odd"><td><p>2017-06-16</p></td>
 <td><p>LC</p></td>
 <td><p>remove flag = 1 from listing</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-09-09</p></td>
+<tr class="row-even"><td><p>2016-09-09</p></td>
 <td><p>LC</p></td>
 <td><p>add input parameter to only show table requested</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-08-22</p></td>
+<tr class="row-odd"><td><p>2016-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>mflastmodified date show in local time</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-02-30</p></td>
+<tr class="row-even"><td><p>2016-02-30</p></td>
 <td><p>DEV2</p></td>
 <td><p>Created procedure</p></td>
 </tr>

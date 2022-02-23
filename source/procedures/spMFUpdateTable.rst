@@ -168,6 +168,10 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-02-08  LC         Further optimize, replace UNPIVOT with new case method
+2022-02-06  LC         allow null to be passed in for properties   
+2022-01-28  lc         Remove table scan when updatemethod 0
+2022-01-26  LC         Resolve bug related to audit table deletions removal
 2021-12-20  LC         Pair connection test with Wrapper
 2021-06-21  LC         Modify proc to include document collections
 2021-04-14  LC         fix timestamp datatype bug

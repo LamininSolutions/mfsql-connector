@@ -11,7 +11,7 @@ Published version: 4.9.27.72 2021-12-17
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.71  2021-12-17
+SQL scripts       4.9.27.72  2021-12-17
 Assemblies        4.9.27.0   2021-04-14
 Vault application 4.9.0.2    2021-12-17
 Database File VAF 4.3.0.1    2021-09-23
@@ -42,8 +42,23 @@ Each procedure, table or function contains there own change control section. See
 4.9.28.73
 ~~~~~~~~~
 
-#. Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings
+#. Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings and spMFGetMetadataStructureID
 #. Change spmfConnectionTest to test connection to M-Files Server without logging into vault. This method is mainly used to detect early of M-Files server is no longer available for long running processes
+#. Improve performance in spMFAuditTable, spMFUpdateTable, spMFUpdateMFilesToMFSQL, spMFUpdateAllncludedInAppTables
+#. Improve logging and the use of MFProcessBatchDetail to review processing.
+#. Add Guid to fnMFVaultSettings to allow for login with Guid
+#. Update spMFUpdateTable to allow for updating of collections in a class.
+#. Automatically add guid in MFSettings to allow for logging in with Guid
+#. Set default of updating tables in spMFUpdateObjectChangeHistory to 0 to prevent updating tables unnecessary
+#. Remove redundant checking of vault connection in spMFGetLicense
+#. Elliminate use of spMFGetObjectVers in spMFAuditTable to improve performance
+#. Fix bug in spMFCheckandUpdateAssemblyVersion
+#. Pair connectiontest and CLR procedures to elliminate unecessary use of checking a connection.
+#. Maintain same ProcessBatch_ID throughout in spMFUpdateAllIncludeInAppTables to allow for performance monitoring of the entire process
+#. Fix bug where some records did not update in spMFUpdateMFilesToMFSQL
+#. Entend the output of spMFUpdateHistoryShow to include change of object versions and audit History
+#. Improve and extend spMFGetProcedurePerformance
+#. Fix bug to longer drop agents already created.
 
 4.9.27.72
 ~~~~~~~~~

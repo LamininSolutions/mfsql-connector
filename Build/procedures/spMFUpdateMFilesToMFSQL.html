@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFUpdateMFilesToMFSQL &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFUpdateMFilesToMFSQL &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -177,8 +177,10 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -294,8 +296,8 @@
 </ul>
 </dd>
 <dt>&#64;MaxObjects INT</dt><dd><ul class="simple">
-<li><p>Default = 20000</p></li>
-<li><p>This parameter has no longer any impact,</p></li>
+<li><p>Default = 100000</p></li>
+<li><p>if UpdateTypeID = 0 then this parameter must be set if there are more than 100000 objects in the objecttype</p></li>
 </ul>
 </dd>
 <dt>&#64;WithObjectHistory BIT</dt><dd><ul class="simple">
@@ -351,27 +353,32 @@ Setting UpdateTypeID = 1 (incremental update) will perform an audit of the class
 <div class="section" id="warnings">
 <h2>Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
 <p>Use spmfUpdateTableInBatches to initiate a class table instead of this procedure.</p>
+<p>When &#64;updateTypeID is set to 0 and the maximum objid of the object type is more than 100 000 then the &#64;MaxObjects parameter must be set</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--Full Update from MF to SQL</span>
-
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span>
+<p>Full update of class table.  Set parameter &#64;MaxObjects to the maximum oobject id in the object type when greater than 100000 to ensure that the audit process will run in batches.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span>
    <span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span>     <span class="nb">INT</span>
    <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span>  <span class="nb">INT</span><span class="p">;</span>
 
 <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateMFilesToMFSQL</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;YourTable&#39;</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="k">OUTPUT</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">UpdateTypeID</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="p">,</span><span class="o">@</span><span class="n">MaxObjects</span> <span class="o">=</span> <span class="mi">500000</span>
+                                <span class="p">,</span><span class="o">@</span><span class="n">Withstats</span> <span class="o">=</span> <span class="mi">1</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="k">OUTPUT</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="k">SELECT</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="k">AS</span> <span class="p">[</span><span class="n">LastModifiedDate</span><span class="p">];</span>
-
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span>
+</pre></div>
+</div>
+<p>For incremental updates</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span>
    <span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span>     <span class="nb">INT</span>
    <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span>  <span class="nb">INT</span><span class="p">;</span>
+
 
 <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateMFilesToMFSQL</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;YourTable&#39;</span>
                                 <span class="p">,</span><span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="k">OUTPUT</span>
@@ -396,6 +403,14 @@ Setting UpdateTypeID = 1 (incremental update) will perform an audit of the class
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2022-01-25</p></td>
+<td><p>LC</p></td>
+<td><p>allow for batch processing of audit when max object &gt; 100000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-01-25</p></td>
+<td><p>LC</p></td>
+<td><p>increase maxobjects default to 100000</p></td>
 </tr>
 <tr class="row-even"><td><p>2021-12-20</p></td>
 <td><p>LC</p></td>

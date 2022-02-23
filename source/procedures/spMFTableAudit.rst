@@ -31,7 +31,6 @@ Parameters
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
 
 Purpose
 =======
@@ -79,6 +78,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-28  LC         set objids datatype to max
+2022-01-08  LC         new code to deal with class changes
 2021-12-20  LC         add revalidate of deleted objects when incremental update
 2021-12-20  LC         add checking of objvers where full update did not update them
 2021-12-16  LC         Add additional logging for performance monitoring

@@ -7,10 +7,9 @@ Return
   - 1 = Success object deleted
   - 2 =	Success object version destroyed
   - 3 =	Success object destroyed  
-  - 3 = Successfully destroyed deleted object (when the object is already deleted)
-  - 4 = Failed to destroy, object not found
-  - 5 =	Failed to delete, object not found
-  - 6 = Failed to remove version, version not found
+  - 4 = Failed to destroy
+  - 5 =	Failed to delete
+  - 6 = Failed to remove version
 
   - -1 = SQL Error
 
@@ -27,6 +26,13 @@ Parameters
   @DeleteWithDestroy bit (optional)
     - Default = 0
     - 1 = Destroy
+  @Update_ID Output
+    - ID of the record in the MFUpdateHistory table
+  @ProcessBatch_ID Output
+    -ID of the record in the MFProcessBatch table
+  @Debug (optional)
+    - Default = 0
+    - 1 = Standard Debug Mode
 
 Purpose
 =======
@@ -73,16 +79,24 @@ Deleting and object
 
 .. code:: sql
 
-    DECLARE @return_value int, @Output nvarchar(2000)
+     DECLARE @Output1 NVARCHAR(2000),
+     @update_ID INT ,
+     @ProcessBatch_ID1 INT,
+     @rt INT;
 
-    EXEC @return_value = [dbo].[spMFDeleteObject]
-         @ObjectTypeId =128,-- OBJECT MFID
-         @objectId =4700,-- Objid of record
-         @Output = @Output OUTPUT,
-         @DeleteWithDestroy = 0
-    SELECT @Output as N'@Output'
-    SELECT'Return Value'= @return_value
-
+     EXEC @rt = dbo.spMFDeleteObject @ObjectTypeId =136,
+                          @objectId = 151,
+                          @Output = @Output1 OUTPUT,
+                          @ObjectVersion = 0,
+                          @DeleteWithDestroy = 0,
+                          @Update_ID = @Update_ID OUTPUT,
+                          @ProcessBatch_ID = @ProcessBatch_ID1 OUTPUT,
+                          @Debug = 0
+     SELECT @Output1
+     SELECT @rt, @update_ID, @ProcessBatch_ID1
+     SELECT * FROM dbo.MFUpdateHistory AS muh WHERE id = @update_ID
+     SELECT * FROM dbo.MFProcessBatch AS mpb WHERE mpb.ProcessBatch_ID = @ProcessBatch_ID1
+     SELECT * FROM dbo.MFProcessBatchDetail AS mpb WHERE mpb.ProcessBatch_ID = @ProcessBatch_ID1
 
 Delete object versions
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -133,6 +147,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-02-11  LC         Update audit history and class table with result
+2022-02-11  LC         Align the error codes with the assemblies
 2021-12-16  LC         Reset objectversion default to -1
 2021-08-15  LC         Remove incorrect license check
 2021-05-05  LC         Align single delete object without class table with wrapper

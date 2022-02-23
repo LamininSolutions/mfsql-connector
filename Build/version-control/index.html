@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Version Control &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>Version Control &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -212,7 +212,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SQL scripts</p></td>
-<td><p>4.9.27.71</p></td>
+<td><p>4.9.27.72</p></td>
 <td><p>2021-12-17</p></td>
 </tr>
 <tr class="row-odd"><td><p>Assemblies</p></td>
@@ -258,8 +258,23 @@
 <div class="section" id="id1">
 <h3>4.9.28.73<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li><p>Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings</p></li>
+<li><p>Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings and spMFGetMetadataStructureID</p></li>
 <li><p>Change spmfConnectionTest to test connection to M-Files Server without logging into vault. This method is mainly used to detect early of M-Files server is no longer available for long running processes</p></li>
+<li><p>Improve performance in spMFAuditTable, spMFUpdateTable, spMFUpdateMFilesToMFSQL, spMFUpdateAllncludedInAppTables</p></li>
+<li><p>Improve logging and the use of MFProcessBatchDetail to review processing.</p></li>
+<li><p>Add Guid to fnMFVaultSettings to allow for login with Guid</p></li>
+<li><p>Update spMFUpdateTable to allow for updating of collections in a class.</p></li>
+<li><p>Automatically add guid in MFSettings to allow for logging in with Guid</p></li>
+<li><p>Set default of updating tables in spMFUpdateObjectChangeHistory to 0 to prevent updating tables unnecessary</p></li>
+<li><p>Remove redundant checking of vault connection in spMFGetLicense</p></li>
+<li><p>Elliminate use of spMFGetObjectVers in spMFAuditTable to improve performance</p></li>
+<li><p>Fix bug in spMFCheckandUpdateAssemblyVersion</p></li>
+<li><p>Pair connectiontest and CLR procedures to elliminate unecessary use of checking a connection.</p></li>
+<li><p>Maintain same ProcessBatch_ID throughout in spMFUpdateAllIncludeInAppTables to allow for performance monitoring of the entire process</p></li>
+<li><p>Fix bug where some records did not update in spMFUpdateMFilesToMFSQL</p></li>
+<li><p>Entend the output of spMFUpdateHistoryShow to include change of object versions and audit History</p></li>
+<li><p>Improve and extend spMFGetProcedurePerformance</p></li>
+<li><p>Fix bug to longer drop agents already created.</p></li>
 </ol>
 </div>
 <div class="section" id="id2">

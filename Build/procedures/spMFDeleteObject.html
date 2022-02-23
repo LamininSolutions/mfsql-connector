@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFDeleteObject &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFDeleteObject &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -188,8 +188,10 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -283,10 +285,9 @@
 <li><p>1 = Success object deleted</p></li>
 <li><p>2 = Success object version destroyed</p></li>
 <li><p>3 = Success object destroyed</p></li>
-<li><p>3 = Successfully destroyed deleted object (when the object is already deleted)</p></li>
-<li><p>4 = Failed to destroy, object not found</p></li>
-<li><p>5 = Failed to delete, object not found</p></li>
-<li><p>6 = Failed to remove version, version not found</p></li>
+<li><p>4 = Failed to destroy</p></li>
+<li><p>5 = Failed to delete</p></li>
+<li><p>6 = Failed to remove version</p></li>
 <li><p>-1 = SQL Error</p></li>
 </ul>
 </dd>
@@ -303,6 +304,17 @@ default = -1 which indicates the delete the object rather than a version</p>
 <dt>&#64;DeleteWithDestroy bit (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>1 = Destroy</p></li>
+</ul>
+</dd>
+<dt>&#64;Update_ID Output</dt><dd><ul class="simple">
+<li><p>ID of the record in the MFUpdateHistory table</p></li>
+</ul>
+</dd>
+<dt>&#64;ProcessBatch_ID Output</dt><dd><p>-ID of the record in the MFProcessBatch table</p>
+</dd>
+<dt>&#64;Debug (optional)</dt><dd><ul class="simple">
+<li><p>Default = 0</p></li>
+<li><p>1 = Standard Debug Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -337,15 +349,24 @@ When DeletedWithDestroy = 0 and the object version does not exist, is not 0 and 
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="deleting-and-object">
 <h3>Deleting and object<a class="headerlink" href="#deleting-and-object" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">return_value</span> <span class="nb">int</span><span class="p">,</span> <span class="o">@</span><span class="k">Output</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Output1</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">2000</span><span class="p">),</span>
+<span class="o">@</span><span class="n">update_ID</span> <span class="nb">INT</span> <span class="p">,</span>
+<span class="o">@</span><span class="n">ProcessBatch_ID1</span> <span class="nb">INT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">rt</span> <span class="nb">INT</span><span class="p">;</span>
 
-<span class="k">EXEC</span> <span class="o">@</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFDeleteObject</span><span class="p">]</span>
-     <span class="o">@</span><span class="n">ObjectTypeId</span> <span class="o">=</span><span class="mi">128</span><span class="p">,</span><span class="c1">-- OBJECT MFID</span>
-     <span class="o">@</span><span class="n">objectId</span> <span class="o">=</span><span class="mi">4700</span><span class="p">,</span><span class="c1">-- Objid of record</span>
-     <span class="o">@</span><span class="k">Output</span> <span class="o">=</span> <span class="o">@</span><span class="k">Output</span> <span class="k">OUTPUT</span><span class="p">,</span>
-     <span class="o">@</span><span class="n">DeleteWithDestroy</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="k">Output</span> <span class="k">as</span> <span class="n">N</span><span class="s1">&#39;@Output&#39;</span>
-<span class="k">SELECT</span><span class="s1">&#39;Return Value&#39;</span><span class="o">=</span> <span class="o">@</span><span class="n">return_value</span>
+<span class="k">EXEC</span> <span class="o">@</span><span class="n">rt</span> <span class="o">=</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDeleteObject</span> <span class="o">@</span><span class="n">ObjectTypeId</span> <span class="o">=</span><span class="mi">136</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">objectId</span> <span class="o">=</span> <span class="mi">151</span><span class="p">,</span>
+                     <span class="o">@</span><span class="k">Output</span> <span class="o">=</span> <span class="o">@</span><span class="n">Output1</span> <span class="k">OUTPUT</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">ObjectVersion</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">DeleteWithDestroy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID1</span> <span class="k">OUTPUT</span><span class="p">,</span>
+                     <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">Output1</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">rt</span><span class="p">,</span> <span class="o">@</span><span class="n">update_ID</span><span class="p">,</span> <span class="o">@</span><span class="n">ProcessBatch_ID1</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="k">AS</span> <span class="n">muh</span> <span class="k">WHERE</span> <span class="n">id</span> <span class="o">=</span> <span class="o">@</span><span class="n">update_ID</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFProcessBatch</span> <span class="k">AS</span> <span class="n">mpb</span> <span class="k">WHERE</span> <span class="n">mpb</span><span class="p">.</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID1</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFProcessBatchDetail</span> <span class="k">AS</span> <span class="n">mpb</span> <span class="k">WHERE</span> <span class="n">mpb</span><span class="p">.</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID1</span>
 </pre></div>
 </div>
 </div>
@@ -401,6 +422,14 @@ Then use spMFDeleteObject to destroy the specific version</p>
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2022-02-11</p></td>
+<td><p>LC</p></td>
+<td><p>Update audit history and class table with result</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-02-11</p></td>
+<td><p>LC</p></td>
+<td><p>Align the error codes with the assemblies</p></td>
 </tr>
 <tr class="row-even"><td><p>2021-12-16</p></td>
 <td><p>LC</p></td>

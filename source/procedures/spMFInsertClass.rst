@@ -24,17 +24,6 @@ Purpose
 
 The purpose of this procedure is to insert Class details into MFClass table.
 
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
 
 Changelog
 =========
@@ -42,6 +31,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-04  LC         Add assembly logging to app detail logging
 2019-08-30  JC         Added documentation
 2018-11-10  LC         Add includedinApp update for User Messager table
 2018-03-26  DEV2       Workflow required check

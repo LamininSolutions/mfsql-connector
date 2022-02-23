@@ -20,14 +20,22 @@ Parameters
     - Default = 0
     - 1 = will include running spmftableaudit and updating info from MF
   @IncludeOutput int (optional)
-    set to 1 to output result to a table ##spMFClassTableStats
+    - set to 1 to output result to a table ##spMFClassTableStats
   @SendReport int (optional)
     - Default = 0
     - When set to 1, and IncludeOutput is set to 1 then a email report will be sent if when any off the error columns are not null.
+  @Body NVARCHAR(MAX) (optional) 
+    - Default to '<p>The class tables in the following report is not up to date or is showing errors.  Consult https://doc.lamininsolutions.com/procedures/spMFClassTableStats.html for corrective action. </p> <BR> '
+    - This email body will appear above the table 
+  @MessageTitle NVARCHAR(258) (optional) 
+    - Default DB_NAME() + ' : Class Table Error Report'
+    - This will be the Email subject
+  @Footer NVARCHAR(400) (optional) 
+    - Default to '<BR><p>Produced by MFSQL Connector</p>'
+    - This will appear at the bottom of the email
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
 
 Purpose
 =======
@@ -67,6 +75,13 @@ MFLastModified         Most recent that an update was made in M-Files on the rec
 SessionID              ID  of the latest spMFTableAudit procedure execution.
 =====================  =====================================================================================================
 
+Report by Email
+===============
+
+To allow for the automatic generation of the report and sending by email, set the parameter @SendReport = 1.  Use the parameters @MessageTitle, @Body and @Footer to customise these elements of the email
+
+The email will be sent to the email addresses set in the table MFsettings for as the support email recipient for all tables where a error is included.
+
 Warnings
 ========
 
@@ -75,13 +90,13 @@ The MFRecordCount results of spMFClassTableStats is only accurate based on the l
 Corrective Action
 =================
 
-If MissingTable = 1 then run spMFCreateTable or set IncludeInApp column to null
-If MFnotInSQL > 0 then rerun the update of class table
-If SQLNotInMF > 0 then run spMFClasstableStats @WithAudit = 1
-If CheckedOut > 0 then check in records and rerun the update of class table
-If RequiredWorkflowError > 0 then update objects with the required workflow, or remove required workflow from the class table definition.
-If SyncError > 0 then investigate the objects in the class table. Manually reset the process_id to 0, rerun update from M-Files or setup Sync presidence
-If Process_ID_not_0 or MFError or SQLError > 0 then investigate the objects process_id and why the updating failed.  There could be many different reasons depending on the underlying process.
+- If MissingTable = 1 then run spMFCreateTable or set IncludeInApp column to null
+- If MFnotInSQL > 0 then rerun the update of class table
+- If SQLNotInMF > 0 then run spMFClasstableStats @WithAudit = 1
+- If CheckedOut > 0 then check in records and rerun the update of class table
+- If RequiredWorkflowError > 0 then update objects with the required workflow, or remove required workflow from the class table definition.
+- If SyncError > 0 then investigate the objects in the class table. Manually reset the process_id to 0, rerun update from M-Files or setup Sync presidence
+- If Process_ID_not_0 or MFError or SQLError > 0 then investigate the objects process_id and why the updating failed.  There could be many different reasons depending on the underlying process.
 
 Use the following view to explore the MFAuditHistory
 
@@ -154,6 +169,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-18  LC         Increase size of email parameters to align with mailer
 2021-10-07  LC         Resolve bug of showing query
 2021-04-14  LC         Resolve issue with specifying a table name
 2021-04-08  LC         Add check that table exists

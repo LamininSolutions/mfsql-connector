@@ -12,7 +12,7 @@ Parameters
    @MessageTitle 
      Subject of email
    @FromEmail 
-     email address for sender
+     email address for sender taken from the mail profile
    @ToEmail 
      email address of recipient. Delimited with ';' if multiples
    @CCEmail 
@@ -47,6 +47,8 @@ Prerequisites
 
 msdb Database mail need to be activiated and configured.
 
+The email from is taken from the mail profile.
+
 Examples
 ========
 
@@ -70,6 +72,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-01-18  LC         Fix cc  email bug
 2021-01-29  LC         Updated to allow for setting profile in MFEmailTemplate
 2021-01-26  LC         Create procedure
 ==========  =========  ========================================================

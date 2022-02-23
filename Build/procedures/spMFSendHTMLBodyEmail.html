@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFSendHTMLBodyEmail &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFSendHTMLBodyEmail &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -184,8 +184,10 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAllncludedInAppTables.html">spMFUpdateAllncludedInAppTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -285,7 +287,7 @@
 </dd>
 <dt>&#64;MessageTitle</dt><dd><p>Subject of email</p>
 </dd>
-<dt>&#64;FromEmail</dt><dd><p>email address for sender</p>
+<dt>&#64;FromEmail</dt><dd><p>email address for sender taken from the mail profile</p>
 </dd>
 <dt>&#64;ToEmail</dt><dd><p>email address of recipient. Delimited with ‘;’ if multiples</p>
 </dd>
@@ -318,6 +320,7 @@
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>msdb Database mail need to be activiated and configured.</p>
+<p>The email from is taken from the mail profile.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -348,11 +351,15 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-01-29</p></td>
+<tr class="row-even"><td><p>2022-01-18</p></td>
+<td><p>LC</p></td>
+<td><p>Fix cc  email bug</p></td>
+</tr>
+<tr class="row-odd"><td><p>2021-01-29</p></td>
 <td><p>LC</p></td>
 <td><p>Updated to allow for setting profile in MFEmailTemplate</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-01-26</p></td>
+<tr class="row-even"><td><p>2021-01-26</p></td>
 <td><p>LC</p></td>
 <td><p>Create procedure</p></td>
 </tr>

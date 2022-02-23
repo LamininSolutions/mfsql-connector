@@ -18,8 +18,10 @@ Parameters
   @RetainDeletions
     - Default = 0 (no)
 	- Set to 1 to retain the objected objects in the class table
+  @Update_ID int (output)
+    - Referencing ID of the record in the MFUpdateHistory table
   @ProcessBatch_ID (optional, output)
-    Referencing the ID of the ProcessBatch logging table
+    - Referencing the ID of the ProcessBatch logging table
   @Debug (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -44,9 +46,9 @@ The following status codes are used:
  - 1 = Success object deleted
  - 2 = Success object version destroyed
  - 3 = Success object destroyed
- - 4 = Failed to destroy, object not found
- - 5 = Failed to delete, object not found
- - 6 = Failed to remove version, version not found
+ - 4 = Failed to destroy
+ - 5 = Failed to delete
+ - 6 = Failed to remove version
 
 Use the parameter RetainDeletions = 1 to retain the deletions in the class table. The timestamp for the deletion will show in the deleted column.
 
@@ -102,6 +104,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-02-10  LC         Add update ID to record deletions in history
 2021-12-20  LC         Pair connection test with accessing assembly
 2021-06-08  LC         Remove object from class table if not found
 2021-06-08  LC         Fix bug to remove item on deletion from class table

@@ -11,19 +11,21 @@ Parameters
     - Default = 1
   @RemoveDeleted int
     - Default = 1
-    - Remove all the deleted objects when this process is run
+    - This parameter is redundant
   @IsIncremental int
     - Default = 1 (yes)
-	- Set to 0 to perform a rebuild or initialisation all included in app tables
+	- Set to 0 to perform a full refresh of the AuditHistory for the in app tables
   @RetainDeletions int
     - Default = 0 (n)
 	- Set to 1 to retain deletions for all included in app tables
+  @IncludeClass varchar
+    - Default = '1,2'
+    - update the class table with additional groupings using IncludeInApp column and then include the group in this parameter to override the default.
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
 
 Purpose
 =======
@@ -34,14 +36,19 @@ Updating the Object Change History, based on the entries in MFObjectChangeHistor
 
 This procedure can be used for initializing all the tables or to update only the differential.
 
+Additional Info
+===============
+
+To run this procedure for different groupings of class tables, set this up in the MFClass table column IncludeInApp and then set the @IncludeClass to the designated setting in this column to only include tables of the grouping in the update.
+
 Warning
 =======
+
+Updatemethod = 0 (From SQL to MF) is no longer a valid option for this procedure. The only valid option is the default (1).
 
 Setting @IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish.
 
 Setting the @RetainDeletions = 1 parameter will affect all the class tables.
-
-The procedure will automatically default to using 200 000 records as default for each new class table.
 
 Examples
 ========

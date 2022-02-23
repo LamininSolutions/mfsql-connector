@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFUpdateAllncludedInAppTables &mdash; MFSQL Connector 4.9.27.71 documentation</title>
+  <title>spMFUpdateAllncludedInAppTables &mdash; MFSQL Connector 4.9.28.73 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="spMFUpdateAssemblies" href="spMFUpdateAssemblies.html" />
-    <link rel="prev" title="spMFTableAudit" href="spMFTableAudit.html" /> 
+    <link rel="prev" title="spMFUnDeleteObject" href="spMFUnDeleteObject.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -177,14 +177,17 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflow.html">spMFSynchronizeWorkflow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeWorkflowsStates.html">spMFSynchronizeWorkflowsStates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFTableAudit.html">spMFTableAudit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUnDeleteObject.html">spMFUnDeleteObject</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">spMFUpdateAllncludedInAppTables</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#warning">Warning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblies.html">spMFUpdateAssemblies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUpdateAssemblyLog.html">spMFUpdateAssemblyLog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateContextMenuQueue.html">spMFUpdateContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateExplorerFileToMFiles.html">spMFUpdateExplorerFileToMFiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateHistoryShow.html">spMFUpdateHistoryShow</a></li>
@@ -286,13 +289,13 @@
 </dd>
 <dt>&#64;RemoveDeleted int</dt><dd><ul class="simple">
 <li><p>Default = 1</p></li>
-<li><p>Remove all the deleted objects when this process is run</p></li>
+<li><p>This parameter is redundant</p></li>
 </ul>
 </dd>
 <dt>&#64;IsIncremental int</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>Default = 1 (yes)</dt><dd><ul>
-<li><p>Set to 0 to perform a rebuild or initialisation all included in app tables</p></li>
+<li><p>Set to 0 to perform a full refresh of the AuditHistory for the in app tables</p></li>
 </ul>
 </dd>
 </dl>
@@ -309,12 +312,16 @@
 </li>
 </ul>
 </dd>
+<dt>&#64;IncludeClass varchar</dt><dd><ul class="simple">
+<li><p>Default = ‘1,2’</p></li>
+<li><p>update the class table with additional groupings using IncludeInApp column and then include the group in this parameter to override the default.</p></li>
+</ul>
+</dd>
 <dt>&#64;ProcessBatch_ID int (optional, output)</dt><dd><p>Referencing the ID of the ProcessBatch logging table</p>
 </dd>
 <dt>&#64;Debug smallint (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>1 = Standard Debug Mode</p></li>
-<li><p>101 = Advanced Debug Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -326,11 +333,15 @@
 <p>Updating the Object Change History, based on the entries in MFObjectChangeHistoryControl is also included in this routine.</p>
 <p>This procedure can be used for initializing all the tables or to update only the differential.</p>
 </div>
+<div class="section" id="additional-info">
+<h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<p>To run this procedure for different groupings of class tables, set this up in the MFClass table column IncludeInApp and then set the &#64;IncludeClass to the designated setting in this column to only include tables of the grouping in the update.</p>
+</div>
 <div class="section" id="warning">
 <h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+<p>Updatemethod = 0 (From SQL to MF) is no longer a valid option for this procedure. The only valid option is the default (1).</p>
 <p>Setting &#64;IsIncremental to 0 and including a large number of tables with a large number of objects could take a considerable time to finish.</p>
 <p>Setting the &#64;RetainDeletions = 1 parameter will affect all the class tables.</p>
-<p>The procedure will automatically default to using 200 000 records as default for each new class table.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -462,7 +473,7 @@
         <a href="spMFUpdateAssemblies.html" class="btn btn-neutral float-right" title="spMFUpdateAssemblies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="spMFTableAudit.html" class="btn btn-neutral float-left" title="spMFTableAudit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="spMFUnDeleteObject.html" class="btn btn-neutral float-left" title="spMFUnDeleteObject" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

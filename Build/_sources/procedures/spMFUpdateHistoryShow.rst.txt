@@ -77,6 +77,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2021-12-24  LC         Sset default for updatecolumn to null
 2021-12-22  LC         Add Audit History and Object Change history show records
 2021-12-13  LC         Remove redundant temp table from printing
 2021-02-03  LC         Rewrite the procedure to streamline and fix errors
