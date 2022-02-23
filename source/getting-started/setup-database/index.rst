@@ -34,7 +34,7 @@ Changing the name of the Connector database by restoring and backup to a new nam
 Fixing orphaned user account
 ----------------------------
 
-It is likely that MFSQLConnect user will be orphened when restoring a MFSQL database to another server
+It is likely that MFSQLConnect user will be orphaned when restoring a MFSQL database to another server
 
 To identify orphaned users:
 

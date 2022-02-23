@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Version Control &mdash; MFSQL Connector 4.9.28.73 documentation</title>
+  <title>Version Control &mdash; MFSQL Connector 4.9.29.73 documentation</title>
   
 
   
@@ -99,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installed-releases">Installed releases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#release-numbering">Release numbering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#change-control-summary">Change control summary</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">4.9.28.73</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.9.29.73</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">4.9.27.72</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id3">4.9.27.71</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">4.9.27.70</a></li>
@@ -197,7 +197,7 @@
 <h1>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="published">
 <h2>Published<a class="headerlink" href="#published" title="Permalink to this headline">¶</a></h2>
-<p>Published version: 4.9.27.72 2021-12-17</p>
+<p>Published version: 4.9.29.73 2022-02-27</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 46%" />
@@ -212,12 +212,12 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SQL scripts</p></td>
-<td><p>4.9.27.72</p></td>
-<td><p>2021-12-17</p></td>
+<td><p>4.9.29.73</p></td>
+<td><p>2022-02-28</p></td>
 </tr>
 <tr class="row-odd"><td><p>Assemblies</p></td>
-<td><p>4.9.27.0</p></td>
-<td><p>2021-04-14</p></td>
+<td><p>4.9.29.0</p></td>
+<td><p>2022-02-17</p></td>
 </tr>
 <tr class="row-even"><td><p>Vault application</p></td>
 <td><p>4.9.0.2</p></td>
@@ -256,7 +256,7 @@
 <h2>Change control summary<a class="headerlink" href="#change-control-summary" title="Permalink to this headline">¶</a></h2>
 <p>Each procedure, table or function contains there own change control section. See each object for more detail</p>
 <div class="section" id="id1">
-<h3>4.9.28.73<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>4.9.29.73<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings and spMFGetMetadataStructureID</p></li>
 <li><p>Change spmfConnectionTest to test connection to M-Files Server without logging into vault. This method is mainly used to detect early of M-Files server is no longer available for long running processes</p></li>
@@ -274,7 +274,27 @@
 <li><p>Fix bug where some records did not update in spMFUpdateMFilesToMFSQL</p></li>
 <li><p>Entend the output of spMFUpdateHistoryShow to include change of object versions and audit History</p></li>
 <li><p>Improve and extend spMFGetProcedurePerformance</p></li>
-<li><p>Fix bug to longer drop agents already created.</p></li>
+<li><p>Fix bug to no longer drop agents already created.</p></li>
+<li><p>Add CLRModule column in MFSQLObjectsControl to improve visibility of CLR methods</p></li>
+<li><p>Add additional processes in the MFProcess table</p></li>
+<li><p>Add MFAssemblylog table to support Assembly logging (for future release deployment)</p></li>
+<li><p>Add MFObjidlist table to improve performance of updates</p></li>
+<li><p>Fix bug in spMFGetMissingObjids to support deletions</p></li>
+<li><p>Add assembly logging to app detail logging in spMFInsertClass, spMFCreateTable, spMFProcessBatchUpsert and spMFProcessBatchDetail_insert</p></li>
+<li><p>Updates to spMFUpdateTable include
+- Optimize preparing properties for update and replace UNPIVOT with new case method
+- Allow null to be passed in for properties
+- Remove table scan when updatemethod 0 is used
+- Resolve bug related to audit table deletions removal</p></li>
+<li><p>Resolve bug on valuelists in spMFSetup_Reporting</p></li>
+<li><p>Resolve issues and add logging in spMFDeleteObject</p></li>
+<li><p>Add logging in spMFDeleteObjectList</p></li>
+<li><p>Increase size of email parameters to align with mailer in spMFClassTableStats</p></li>
+<li><p>Add parameter to extend the flexibility of spMFUpdateAllncludedInAppTables to include other options in IncludeInApp column</p></li>
+<li><p>Improve logging for spMFUpdateAllncludedInAppTables</p></li>
+<li><p>Updates to spMFAuditTable to set objids datatype to max and to deal with class changes</p></li>
+<li><p>Fix bug in spMFsendHTMLBodyEmail</p></li>
+<li><p>Add new procedure spMFUndeleteObject to allow for undeleting of objects from SQL. This involve assembly changes</p></li>
 </ol>
 </div>
 <div class="section" id="id2">
