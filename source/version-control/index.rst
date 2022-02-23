@@ -6,13 +6,13 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.27.72 2021-12-17
+Published version: 4.9.29.73 2022-02-27
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.27.72  2021-12-17
-Assemblies        4.9.27.0   2021-04-14
+SQL scripts       4.9.29.73  2022-02-28
+Assemblies        4.9.29.0   2022-02-17
 Vault application 4.9.0.2    2021-12-17
 Database File VAF 4.3.0.1    2021-09-23
 ================= ========== ==========
@@ -39,7 +39,7 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
-4.9.28.73
+4.9.29.73
 ~~~~~~~~~
 
 #. Change of login method to use guid instead of name of vault. This change affected a) the VAF, the assemblies, and spMFVaultConnectionTest, fnMFVaultSettings and spMFGetMetadataStructureID
@@ -58,7 +58,27 @@ Each procedure, table or function contains there own change control section. See
 #. Fix bug where some records did not update in spMFUpdateMFilesToMFSQL
 #. Entend the output of spMFUpdateHistoryShow to include change of object versions and audit History
 #. Improve and extend spMFGetProcedurePerformance
-#. Fix bug to longer drop agents already created.
+#. Fix bug to no longer drop agents already created.
+#. Add CLRModule column in MFSQLObjectsControl to improve visibility of CLR methods
+#. Add additional processes in the MFProcess table
+#. Add MFAssemblylog table to support Assembly logging (for future release deployment)
+#. Add MFObjidlist table to improve performance of updates
+#. Fix bug in spMFGetMissingObjids to support deletions
+#. Add assembly logging to app detail logging in spMFInsertClass, spMFCreateTable, spMFProcessBatchUpsert and spMFProcessBatchDetail_insert
+#. Updates to spMFUpdateTable include
+   - Optimize preparing properties for update and replace UNPIVOT with new case method
+   - Allow null to be passed in for properties
+   - Remove table scan when updatemethod 0 is used
+   - Resolve bug related to audit table deletions removal
+#. Resolve bug on valuelists in spMFSetup_Reporting
+#. Resolve issues and add logging in spMFDeleteObject
+#. Add logging in spMFDeleteObjectList
+#. Increase size of email parameters to align with mailer in spMFClassTableStats
+#. Add parameter to extend the flexibility of spMFUpdateAllncludedInAppTables to include other options in IncludeInApp column
+#. Improve logging for spMFUpdateAllncludedInAppTables
+#. Updates to spMFAuditTable to set objids datatype to max and to deal with class changes
+#. Fix bug in spMFsendHTMLBodyEmail
+#. Add new procedure spMFUndeleteObject to allow for undeleting of objects from SQL. This involve assembly changes
 
 4.9.27.72
 ~~~~~~~~~
