@@ -9,7 +9,7 @@ Columns
 =======
 The rows for this table is inserted from your custom contextmenu procedure
 
-example xx illustrates how the functionality is built into the custom procedure.
+Example xx illustrates how the functionality is built into the custom procedure.
 
 Additional Info
 ===============
@@ -58,6 +58,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-03-10  LC         Reset log table to align with VAF Job Task processing
 2020-04-22  LC         Add naming for primary key
 2020-03-18  LC         Add indexes
 2019-12-06  LC         Create Table

@@ -56,6 +56,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-02-24  MA         Fix date delimiter bug to pass in fnMFTextToDate funtion 
 2021-04-08  LC         Add check to validate connection
 2021-01-06  LC         Fix bug with checking module 2 license
 2020-12-04  LC         Create procedure to aid spMFChecklicense status

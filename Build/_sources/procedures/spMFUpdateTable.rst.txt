@@ -168,6 +168,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-03-23  LC         Add protection against locking when updating class table
+2022-03-07  LC         Fix bug with not updating AuditTable
 2022-02-08  LC         Further optimize, replace UNPIVOT with new case method
 2022-02-06  LC         allow null to be passed in for properties   
 2022-01-28  lc         Remove table scan when updatemethod 0

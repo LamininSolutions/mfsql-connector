@@ -2,7 +2,7 @@ MFSQL Integration Connector
 ===========================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
 
    exploring-metadata/index
    building-custom-applications-and-integrations/index
@@ -24,7 +24,7 @@ MFSQL Integration Connector
 
    M-Files External Connectors
    ---------------------------
-   
+
    When to use MFSQL Connector instead of M-Files External Connectors.
 
    The standard M-Files External Connector is powerful and applicable in

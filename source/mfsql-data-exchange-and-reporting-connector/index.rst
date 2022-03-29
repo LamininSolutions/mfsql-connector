@@ -2,7 +2,7 @@ MFSQL Data Exchange and reporting Connector
 ===========================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    reporting/index
    working-with-metadata/index
