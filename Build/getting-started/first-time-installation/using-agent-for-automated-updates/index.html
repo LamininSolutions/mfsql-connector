@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Common installation errors and resolutions" href="../common-installation-errors-and-resolutions/index.html" />
+    <link rel="next" title="View to check if job is running" href="view-running-agent-job/index.html" />
     <link rel="prev" title="Database file connector installation" href="../database-file-connector-installation/index.html" /> 
 </head>
 
@@ -206,13 +206,10 @@
             
   <div class="section" id="using-agent-for-automated-updates">
 <h1>Using Agent for automated updates<a class="headerlink" href="#using-agent-for-automated-updates" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>SQL Agent is not available for SQL Express editions.  Use the <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/setup-powershell-utilities/index.html">powershell utilities</a> for scheduled operations for SQL Express scenarios.</p>
-</div></blockquote>
 <p>SQL Agent is used to schedule a range of operations for the Connector.
 The installation package will automatically install two agents.  Other
 agents can be used to perform any number of operations. Updating class
-table on a schedule is very common.</p>
+tables on a schedule is very common.</p>
 <p>Agents will be installed for each Connector database for the following</p>
 <ol class="arabic simple">
 <li><p>MFSQL Delete History</p></li>
@@ -222,26 +219,41 @@ table on a schedule is very common.</p>
 <h2>Update Class Tables<a class="headerlink" href="#update-class-tables" title="Permalink to this headline">¶</a></h2>
 <p>The installation package does not automatically create an agent for
 scheduling the update of the class tables.</p>
-<p>If it is appropriate to update all class tables simultaneously on a
-schedule then use spMFUpdateAllIncludedInAppTables in the agent.
-Include the following script as a step in the agent.</p>
+<p>For incremental updates use <a class="reference internal" href="../../../procedures/spMFUpdateAllncludedInAppTables.html"><span class="doc">spMFUpdateAllncludedInAppTables</span></a> in the agent.</p>
+<dl class="simple">
+<dt>This procedure provides for:</dt><dd><ul class="simple">
+<li><p>Update all tables included in the app.</p></li>
+<li><p>Incremental updates for all changes in M-Files since the last class table update. This does not catch deleted and destroyed objects.</p></li>
+<li><p>Full update to catch deleted or destroyed objects</p></li>
+<li><p>Include deleted objects for all class tables.  By default, deleted records are removed from the class table.</p></li>
+<li><p>Specify the update for a subset classes.  Include by default all the tables where IncludeInApp column in MFClass has 1. However, by setting the column to a different figure the tables can be grouped together.  This is particularly handy to run this procedure on subsets of class tables.</p></li>
+<li><p>Email a status report for all tables with errors to a specified user</p></li>
+</ul>
+</dd>
+</dl>
+<p>Include the following script as a step in the agent and schedule to job to run with your required intervals</p>
+<p>The shortage interval should not be less that the run time of the procedure.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateAllncludedInAppTables</span><span class="p">]</span>
  <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">RemoveDeleted</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="p">,</span><span class="o">@</span><span class="n">IsIncremental</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Consider adding the powershell utility to update the M-Files version in combination with the agent when the SQL Server is separate from the M-Files server and the M-Files Version is likely to get out of sync between the servers.</p>
+<p>For full updates use <a class="reference internal" href="../../../procedures/spMFUpdateAllncludedInAppTables.html"><span class="doc">spMFUpdateAllncludedInAppTables</span></a> in the agent.
+Include the following script as a step in the agent.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateAllncludedInAppTables</span><span class="p">]</span>
+ <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">,</span><span class="o">@</span><span class="n">IsIncremental</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="delete-history-agent">
 <h2>Delete History Agent<a class="headerlink" href="#delete-history-agent" title="Permalink to this headline">¶</a></h2>
 <p>The agent calls spMFDeleteHistory and is set to run once a month to
-delete history older than 90 days. The following tables are included in
-the deletion:</p>
+delete history older than 90 days. By default this job is not set to active on installation.</p>
+<p>The following tables are included in the deletion:</p>
 <ul class="simple">
 <li><p>MFLog</p></li>
 <li><p>MFUpdateHistory</p></li>
-<li><p>MFAuditHistory</p></li>
 <li><p>MFProcessBatchDetail</p></li>
 <li><p>MFProcessBatch</p></li>
 </ul>
@@ -255,11 +267,16 @@ will fail during the time that the assemblies are updated.</p>
 </div>
 <div class="section" id="staging-updates-with-agents">
 <h2>Staging updates with agents<a class="headerlink" href="#staging-updates-with-agents" title="Permalink to this headline">¶</a></h2>
-<p>Sometimes it is necessary to ensure one agent is completed before
-another kicks in, or to check if a agent is running before a procedure
-is executed.  We included an example procedure in the Demonstrate
-Functions ‘70.104.Eample - Start Job wait - Agent’ to assist with this
-type of operation.</p>
+<p>Sometimes it is necessary to ensure a job is completed before
+it is proccessed again, or to check if a agent is running before a procedure
+is executed. The following provides more details to assist with this
+consideration.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="view-running-agent-job/index.html">View to check if job is running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agent-job-wait-status/index.html">Prevent agent job to run</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -271,7 +288,7 @@ type of operation.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../common-installation-errors-and-resolutions/index.html" class="btn btn-neutral float-right" title="Common installation errors and resolutions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="view-running-agent-job/index.html" class="btn btn-neutral float-right" title="View to check if job is running" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../database-file-connector-installation/index.html" class="btn btn-neutral float-left" title="Database file connector installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,11 +1,25 @@
 Automated update of records from M-Files
 ========================================
 
-The Connector uses the spMFUpdateTable procedure with update method 1 to
-process updates from M-Files to SQL.  This procedure is not
-automatically called on a change of a record in M-Files. There are
-various methods that can be used to trigger this method.
+Updating a class table is not automatically called on a change of a record in M-Files. There are
+various methods that can be used to action or schedule an update.
 
+If SQL standard edition is used for MFSQL Connector, then use and SQL Agent job. refer to :doc:`/getting-started/first-time-installation/using-agent-for-automated-updates/index` for more details
+
+If SQL express edition then use the powershell special add in to schedule a task.
+
+In either case the procedure :doc:`/procedures/spMFUpdateAllncludedInAppTables` will allow for both incremental and full updates.
+
+We recommend to schedule an incremental update with an appropriate interval for your needs as well as a full update at least once a day.
+
+.. note:: Records deleted in M-Files is not picked up by the incremental update.  It requires a full update to be picked up.
+
+
+Updates on Demand
+-----------------
+
+Updates triggered by an M-Files event
+-------------------------------------
 
 
 Before making change in SQL
@@ -15,7 +29,7 @@ The general rule is to always update from M-Files before a record is
 changed in SQL.  This is done by first calling the spMFUpdateTable with
 method 1 for the records that will be updated and then to call
 spMFUpdateTable with update method 0 after the the SQL record is update
-to push to update back to M-Files. The procedure `spMFUpdateMFilesToMFSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToMFSQL>`_ 
+to push to update back to M-Files. The procedure `spMFUpdateMFilesToMFSQL <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateMFilesToMFSQL>`_
 is particularly valuable in this regard.  Depending on the requirement
 and volume of data to be taken into account other update procedures can
 also be used as outline in section Insert Update of Class Records.
@@ -25,7 +39,6 @@ Using an agent
 
 If the requirement is to refresh the class tables at intervals (for
 instance overnight, or every 2 hours) an agent can be used with
-`spMFUpdateAllIncludedinAppTables <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFUpdateAllncludedInAppTables>`_
 
 On Demand in external application
 ---------------------------------

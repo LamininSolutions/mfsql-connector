@@ -1,9 +1,6 @@
 M-Files event log
 =================
 
-.. toctree::
-   :maxdepth: 4
-
 The Connector includes the ability to export the event log from
 M-Files. 
 
@@ -131,8 +128,8 @@ Example of extract based on the statement above
 
 |image2|
 
-Objects that is not system objects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Show objects that is not system objects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: sql
 
@@ -181,8 +178,8 @@ Show public files downloaded
     FROM [dbo].[MFilesEvents] [me]
     WHERE [me].[Type] = 'File downloaded via public link';
 
-Performance of a process
-~~~~~~~~~~~~~~~~~~~~~~~~
+Show performance of a process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: sql
 

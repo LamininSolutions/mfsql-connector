@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Reporting : using setup_Reporting" href="../setup-reporting/index.html" />
+    <link rel="next" title="Reporting : Quick start" href="../setup-reporting/index.html" />
     <link rel="prev" title="Reporting" href="../index.html" /> 
 </head>
 
@@ -91,17 +91,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MFSQL Data Exchange and reporting Connector</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../working-with-metadata/index.html">Working with Metadata</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../working-with-class-tables/index.html">Working with Class Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../m-files-event-log/index.html">M-Files event log</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../using-the-context-menu/index.html">Using the Context Menu</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Reporting</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Reporting - getting started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../setup-reporting/index.html">Reporting : using setup_Reporting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../using-power-bi-for-reporting/index.html">Using Power BI for reporting</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Reporting - getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-use-mfsql-reporting">Why use MFSQL Reporting?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#best-practices-and-things-to-think-about">Best practices and things to think about</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-class-tables">Adding class tables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keep-class-tables-up-to-date">Keep class tables up to date</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scheduling-the-updates">Scheduling the updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-a-separate-reporting-database">Using a separate reporting database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-complex-views">building complex views</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-m-files-event-log">Using the M-Files Event log</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../index.html#m-files-external-connectors">M-Files External Connectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../setup-reporting/index.html">Reporting : Quick start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../using-power-bi-for-reporting/index.html">Using Power BI for reporting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../m-files-event-log/index.html">M-Files event log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-metadata/index.html">Working with Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../working-with-class-tables/index.html">Working with Class Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using-the-context-menu/index.html">Using the Context Menu</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
@@ -187,13 +196,47 @@
             
   <div class="section" id="reporting-getting-started">
 <h1>Reporting - getting started<a class="headerlink" href="#reporting-getting-started" title="Permalink to this headline">¶</a></h1>
-<p>Rapidly start-up the Connector for Reporting. Follow the link for a step by step guide of getting
-started <a class="reference external" href="https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7">https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7</a></p>
-<dl class="simple">
-<dt>Use the Whitepaper <a class="reference external" href="https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7">https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7</a></dt><dd><p>to get an overview the MFSQL Connector for reporting.</p>
-</dd>
-</dl>
-<p>In simple terms, the following procedures will get you going with reporting in a few steps.</p>
+<div class="section" id="why-use-mfsql-reporting">
+<h2>Why use MFSQL Reporting?<a class="headerlink" href="#why-use-mfsql-reporting" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>It is simply to setup.  It also provides flexibility to do very involved and complex reporting.</p></li>
+<li><p>Changes in M-Files is refreshed incrementally, providing near real time data access</p></li>
+<li><p>It includes access to the M-Files event log. Report on event logs combined with other M-Files data</p></li>
+<li><p>It allows for interactive reporting. Use interject with MFSQL Connector to view data in excel and perform updates to M-Files directly from excel</p></li>
+</ul>
+</div></blockquote>
+<p>Review the <a class="reference external" href="https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=0563f41dc90d10648755e4b05f9629b51316d756c32b4cc7e20a6fe2090cdc07&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7">deployment plan</a>
+for a step by step guide for deployment.</p>
+<p>Read the <a class="reference external" href="https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=1ff4e19514215d568f95a63dabc80f0d2df9a74cf250700cbb04221953b65166&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7">whitepaper</a> to get an overview the MFSQL Connector for reporting.</p>
+</div>
+<div class="section" id="best-practices-and-things-to-think-about">
+<h2>Best practices and things to think about<a class="headerlink" href="#best-practices-and-things-to-think-about" title="Permalink to this headline">¶</a></h2>
+<p>To get on the spot data or do a few reports, simply follow the step in <a class="reference internal" href="../setup-reporting/index.html"><span class="doc">Reporting : Quick start</span></a></p>
+<p>For more advanced reporting and to explore the full capabilities of the Connector:</p>
+</div>
+<div class="section" id="adding-class-tables">
+<h2>Adding class tables<a class="headerlink" href="#adding-class-tables" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../../../procedures/spMFSetup_Reporting.html"><span class="doc">spMFSetup_Reporting</span></a> can we used at any time to create additional class tables. Note that this procedure will perform a number of operations and will take some time.</p>
+<p>Use <a class="reference internal" href="../../../procedures/spMFCreateTable.html"><span class="doc">spMFCreateTable</span></a> to create additional class tables without going through all the sub processes of the setup reporting routine. To create multiple class tables in one go use <a class="reference internal" href="../../../procedures/spMFCreateAllMFTables.html"><span class="doc">spMFCreateAllMFTables</span></a></p>
+</div>
+<div class="section" id="keep-class-tables-up-to-date">
+<h2>Keep class tables up to date<a class="headerlink" href="#keep-class-tables-up-to-date" title="Permalink to this headline">¶</a></h2>
+<p>The procedure <a class="reference internal" href="../../../procedures/spMFUpdateTable.html"><span class="doc">spMFUpdateTable</span></a> is useful in the initial stages of exploring the tables, unless the datasets are very large.  In the case of larger than 30 000 objects in a table, we recommend to use <a class="reference internal" href="../../../procedures/spMFUpdateTableinBatches.html"><span class="doc">spMFUpdateTableinBatches</span></a>.</p>
+<p>When scheduling regular updates for an individual class, use <a class="reference internal" href="../../../procedures/spMFUpdateMFilesToMFSQL.html"><span class="doc">spMFUpdateMFilesToMFSQL</span></a>. This can be used for both small and large tables are able to perform both incremental and full updates.  It uses a process to determine only versions that have changed and will do the processing in batches. This allows for updates to run over for multiple hours in the case of large tables.</p>
+</div>
+<div class="section" id="scheduling-the-updates">
+<h2>Scheduling the updates<a class="headerlink" href="#scheduling-the-updates" title="Permalink to this headline">¶</a></h2>
+<p>To schedule updates in predetermined intervals for all class tables use <a class="reference internal" href="../../../procedures/spMFUpdateAllncludedInAppTables.html"><span class="doc">spMFUpdateAllncludedInAppTables</span></a>.  For more details on <a class="reference internal" href="../../working-with-class-tables/automated-update-of-records-from-m-files/index.html"><span class="doc">Automated update of records from M-Files</span></a></p>
+</div>
+<div class="section" id="using-a-separate-reporting-database">
+<h2>Using a separate reporting database<a class="headerlink" href="#using-a-separate-reporting-database" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="building-complex-views">
+<h2>building complex views<a class="headerlink" href="#building-complex-views" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="using-the-m-files-event-log">
+<h2>Using the M-Files Event log<a class="headerlink" href="#using-the-m-files-event-log" title="Permalink to this headline">¶</a></h2>
 <p>Step 1: Setup the class tables for reporting.  In this example three classes will be used for various reports: Customer, Other Document and Purchase invoice.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSetup_Reporting</span> <span class="o">@</span><span class="n">Classes</span> <span class="o">=</span> <span class="s1">&#39;Customer,Other Document, Purchase Invoice&#39;</span><span class="p">,</span>
 <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
@@ -216,6 +259,7 @@ started <a class="reference external" href="https://m-files.lamininsolutions.com
 </div>
 <p>Watch the video on the youtube channel &lt;<a class="reference external" href="https://www.youtube.com/user/lamininsolutions/videos">https://www.youtube.com/user/lamininsolutions/videos</a>&gt;</p>
 </div>
+</div>
 
 
            </div>
@@ -225,7 +269,7 @@ started <a class="reference external" href="https://m-files.lamininsolutions.com
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../setup-reporting/index.html" class="btn btn-neutral float-right" title="Reporting : using setup_Reporting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../setup-reporting/index.html" class="btn btn-neutral float-right" title="Reporting : Quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Reporting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

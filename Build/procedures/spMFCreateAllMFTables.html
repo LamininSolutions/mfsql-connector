@@ -120,12 +120,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">spMFCreateAllMFTables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Purpose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Changelog</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCreatePublicSharedLink.html">spMFCreatePublicSharedLink</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCreateTable.html">spMFCreateTable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCreateValueListLookupView.html">spMFCreateValueListLookupView</a></li>
@@ -321,75 +315,6 @@
 </div>
 <div class="section" id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 10%" />
-<col style="width: 78%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Date</p></td>
-<td><p>Author</p></td>
-<td><p>Description</p></td>
-</tr>
-<tr class="row-even"><td><p>2019-09-26</p></td>
-<td><p>LC</p></td>
-<td><p>Add parameter to allow for setting up custom list for creating tables</p></td>
-</tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
-<td><p>JC</p></td>
-<td><p>Added documentation</p></td>
-</tr>
-<tr class="row-even"><td><p>2016-04-01</p></td>
-<td><p>DEV2</p></td>
-<td><p>Create procedure</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="id1">
-<h1>spMFCreateAllMFTables<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>Return</dt><dd><ul class="simple">
-<li><p>1 = Success</p></li>
-<li><p>-1 = Error</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><dl class="simple">
-<dt>&#64;IncludedInApp int</dt><dd><p>Default = 1</p>
-</dd>
-<dt>&#64;Debug smallint (optional)</dt><dd><ul class="simple">
-<li><p>Default = 0</p></li>
-<li><p>1 = Standard Debug Mode</p></li>
-</ul>
-</dd>
-</dl>
-</dd>
-</dl>
-<div class="section" id="id2">
-<h2>Purpose<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Create all Class Tables for IncludedinApp = 1 by default, or as set in the &#64;IncludedInApp parameter</p>
-</div>
-<div class="section" id="id3">
-<h2>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">spMFCreateAllMFTables</span><span class="p">]</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">mc</span>
-<span class="k">SET</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFObjectType</span> <span class="n">mo</span>
-<span class="k">ON</span> <span class="p">[</span><span class="n">mo</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">MFObjectType_ID</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="n">mo</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Document&#39;</span> <span class="k">AND</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="k">IS</span> <span class="k">NULL</span>
-
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">spMFCreateAllMFTables</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="id4">
-<h2>Changelog<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 11%" />

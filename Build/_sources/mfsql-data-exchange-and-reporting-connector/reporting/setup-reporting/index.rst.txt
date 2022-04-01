@@ -1,50 +1,43 @@
-Reporting : using setup\_Reporting
-==================================
+Reporting : Quick start
+=======================
 
-Release 4.2.7.46 introduces new procedures to rapidly get started with
-reporting from M-Files in just a few simple steps.
+Get started with reporting from M-Files in just a few simple steps.
 
 Step 1: Install the MFSQL Connector and complete the license
-installation.
+installation. Refer to :doc:`/getting-started/first-time-installation/index`
 
-Step 2: Use setup reporting in sample in C:\\Program Files
-(x86)\\Laminin Solutions\\MFSQL Connector Release
-4\\MFSQL\_Release\_46\\Example Scripts\\20.102.Setup\_Reporting.sql to
-prepare the Connector.
+Step 2: Watch the overview of reporting `Reporting - Getting started <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=f09ccfc6101abc69116618524f2c978ed7ffb69f1b3f7616c5f19164be93309c&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>`__
 
-Step 3: Use Report designer of your choice (Excel, Power BI, Visual
-Studio Report Designer, ChrystalReports etc) to access the data tables
-in SQL.
-
-(This routine applies to on premise installations. Contact us for more
-detail on Cloud Installations)
-
---------------
-
-Step 1: Step 1-3 for installing the software
-
-#. `Download <https://lamininsolutions.com/download-mfsql-connector/>`__ the installation package 
-   and request a license. Once a license is received, continue with step
-   2.
-
-#. Install the package on the M-Files Server. Install the license on
-   completion.
-
-#. Install the package on the SQL Server.
-
-Step 2: Execute spMFSetup\_Reporting in SSMS. Use the classes to be
-included for reporting.
+Step 3: Prepare the class tables for Reporting for the selected classes to include in reports: Run :doc:`/procedures/spMFSetup_Reporting`.
 
 .. code:: sql
 
     EXEC [dbo].[spMFSetup_Reporting] @Classes = 'Account, Opportunity, Campaign'
                                     ,@Debug = 0   -- int
 
-This routine will perform a series of operations and produce a result.
-All of these operations can also be configured manually. Review the sub
-procedures call by this routine in the spMFSetup\_Reporting procedure.
+Step 4: Use Report designer of your choice (Excel, Power BI, Visual
+Studio Report Designer, ChrystalReports etc) to access the data tables
+in SQL.
+
+spMF_SetupReporting
+-------------------
+
+This procedure will perform a number of operations for each class included in the parameter.
+
+.. Note:: include a maximum of 10 classes at a time. The procedure can be reused for multiple batches of class tables
+
+This routine will perform the following.
+  - Validate connection and license
+  - Update the metadata structure from M-Files
+  - Create the class table
+  - Create views for all the valuelist lookups used on the class table
+  - Pull the objects from M-Files into the class table
+  - Setup the context menu to refresh the data on demand from M-Files
+
+All of these operations can also be configured manually. Review the result in the message tab
 
 |image0|
+
 
 When done, the menu would have been updated to include an action item to
 update all the tables included in the app.

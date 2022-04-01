@@ -1,12 +1,10 @@
 Using Agent for automated updates
 =================================
 
-      SQL Agent is not available for SQL Express editions.  Use the `powershell utilities <https://doc.lamininsolutions.com/mfsql-connector/getting-started/first-time-installation/setup-powershell-utilities/index.html>`__ for scheduled operations for SQL Express scenarios.
-
 SQL Agent is used to schedule a range of operations for the Connector. 
 The installation package will automatically install two agents.  Other
 agents can be used to perform any number of operations. Updating class
-table on a schedule is very common.
+tables on a schedule is very common.
 
 Agents will be installed for each Connector database for the following
 
@@ -19,29 +17,45 @@ Update Class Tables
 The installation package does not automatically create an agent for
 scheduling the update of the class tables.
 
-If it is appropriate to update all class tables simultaneously on a
-schedule then use spMFUpdateAllIncludedInAppTables in the agent. 
-Include the following script as a step in the agent.
+For incremental updates use :doc:`/procedures/spMFUpdateAllncludedInAppTables` in the agent. 
+
+This procedure provides for:
+  - Update all tables included in the app.
+  - Incremental updates for all changes in M-Files since the last class table update. This does not catch deleted and destroyed objects.
+  - Full update to catch deleted or destroyed objects
+  - Include deleted objects for all class tables.  By default, deleted records are removed from the class table.
+  - Specify the update for a subset classes.  Include by default all the tables where IncludeInApp column in MFClass has 1. However, by setting the column to a different figure the tables can be grouped together.  This is particularly handy to run this procedure on subsets of class tables.
+  - Email a status report for all tables with errors to a specified user
+
+Include the following script as a step in the agent and schedule to job to run with your required intervals
+
+The shortage interval should not be less that the run time of the procedure.
 
 .. code:: sql
 
     EXEC [dbo].[spMFUpdateAllncludedInAppTables]
     @UpdateMethod = 1
-   ,@RemoveDeleted = 1
    ,@IsIncremental = 1
 
-Consider adding the powershell utility to update the M-Files version in combination with the agent when the SQL Server is separate from the M-Files server and the M-Files Version is likely to get out of sync between the servers.
+For full updates use :doc:`/procedures/spMFUpdateAllncludedInAppTables` in the agent. 
+Include the following script as a step in the agent.
+
+.. code:: sql
+
+      EXEC [dbo].[spMFUpdateAllncludedInAppTables]
+      @UpdateMethod = 0
+     ,@IsIncremental = 1
 
 Delete History Agent
 --------------------
 
 The agent calls spMFDeleteHistory and is set to run once a month to
-delete history older than 90 days. The following tables are included in
-the deletion:
+delete history older than 90 days. By default this job is not set to active on installation.
+
+The following tables are included in the deletion:
 
 -  MFLog
 -  MFUpdateHistory
--  MFAuditHistory
 -  MFProcessBatchDetail
 -  MFProcessBatch
 
@@ -57,8 +71,13 @@ will fail during the time that the assemblies are updated.
 Staging updates with agents
 ---------------------------
 
-Sometimes it is necessary to ensure one agent is completed before
-another kicks in, or to check if a agent is running before a procedure
-is executed.  We included an example procedure in the Demonstrate
-Functions '70.104.Eample - Start Job wait - Agent' to assist with this
-type of operation.
+Sometimes it is necessary to ensure a job is completed before
+it is proccessed again, or to check if a agent is running before a procedure
+is executed. The following provides more details to assist with this
+consideration.
+
+.. toctree::
+   :maxdepth: 1
+
+   view-running-agent-job/index
+   agent-job-wait-status/index
