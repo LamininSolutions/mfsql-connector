@@ -7,6 +7,7 @@ Using and managing logs
    error-tracing/index
    logging-execution-of-process-and-procedure-steps/index
    mfupdatehistory-for-logging-of-class-record-changes/index
+   logging-in-custom-procedures/index
 
 Logs improve the tracing and review of the operations of the Connector.
 Different types of logs are used.
@@ -16,5 +17,4 @@ Different types of logs are used.
    steps
 -  Logging of system errors.
 -  Logging of the latest ObjectVersion of an object in M-Files
-
-
+-  Use logging in custom procedures to monitor specific operations

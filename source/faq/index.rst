@@ -23,6 +23,20 @@ What is the top 5 use cases
 #. Remove objects and object versions
 #. Reprocess complex data to align it with M-Files properties and structure
 
+Why use MFSQL Connector for reporting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The reporting functionality of the Connector does everything the reporting tool of standard M-Files does, plus more. Customers often replace the reporting tool with the Connector when the reporting tool no longer meet their needs.
+
+ - Exploring the data and its relationships is simpler and exploring available data is much easier to do
+ - The data table structures of the Connector is simpler to use and reduces the complexity and requirement to join multiple tables to obtain a simple extraction of data from M-Files
+ - Changes in M-Files can be included in reports - near real time.
+ - There is no need to replace the entire data set to update data from M-Files to SQL for reporting.
+ - Multiple extracts of data is maintained in a single database, rather that a database for each exported dataset.
+ - Combining the M-Files event log information for other metadata to create more meaningful reports
+
+ Learn more about it in :doc:`/mfsql-data-exchange-and-reporting-connector/reporting/index`
+
 Why use MFSQL Connector for integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
