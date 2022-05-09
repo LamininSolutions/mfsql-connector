@@ -288,6 +288,14 @@
 <li><p>When set to 1 it will get the object versions for all class tables</p></li>
 </ul>
 </dd>
+<dt>&#64;MFTableName</dt><dd><ul class="simple">
+<li><p>Class table name to perform the update for a single table</p></li>
+</ul>
+</dd>
+<dt>&#64;ProcessBatch_ID</dt><dd><ul class="simple">
+<li><p>Process batch id to manage to logging process</p></li>
+</ul>
+</dd>
 <dt>&#64;Debug (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>1 = Standard Debug Mode</p></li>
@@ -307,9 +315,18 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>to update all object types and tables</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span>  <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwObjectTypeSummary</span> <span class="k">AS</span> <span class="n">mfots</span>
+</pre></div>
+</div>
+<p>to update only tables included in the application</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span>  <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>to update a single table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span>  <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span><span class="p">,</span>  <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -353,6 +370,10 @@
 <tr class="row-even"><td><p>2021-03-17</p></td>
 <td><p>LC</p></td>
 <td><p>Set updatestatus = 1 when not matched</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-04-12</p></td>
+<td><p>LC</p></td>
+<td><p>Add logging, remove updating MFclass, add error handling</p></td>
 </tr>
 </tbody>
 </table>

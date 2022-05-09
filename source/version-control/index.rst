@@ -6,12 +6,12 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.29.73 2022-02-27
+Published version: 4.9.29.73 2022-05-09
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.29.73  2022-02-28
+SQL scripts       4.9.29.73  2022-05-09
 Assemblies        4.9.29.0   2022-02-17
 Vault application 4.9.0.2    2021-12-17
 Database File VAF 4.3.0.1    2021-09-23
@@ -38,6 +38,32 @@ Change control summary
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+4.10.30.74
+~~~~~~~~~~
+
+#. Change of name of the procedure spMfGetSettingsForCofigurator to spMfGetSettingsForConfigurator
+#. The assemblies were updated to change the approach the license expiry date to avoid localisation issues.
+#. The VAF was fundamentally redesigned to cater for multi server mode, process actions as tasks and allow for full logging. The core functionality remained the same.
+#. The MFSQLConnectorWebAPI is changed to respond to the changes in the new VAF.
+#. Fix bug in spMFsendHTMLBodyEmail
+#. Add new procedure spMFUndeleteObject to allow for undeleting of objects from SQL. This involve assembly changes
+#. Increase parameter text size to allow for more feedback from the VAF in the procedure spMFValidateModule. The additional feedback will only come into effect with the VAF changes in the next version
+#. Table MFContextMenuQueue is expanded to include additional logging information. These changes will only come into effect after the logging methods have been deployed.
+#. spMFSetContextMenuQueue is being revised to respond to new logging methods in VAF. This is work in progress.
+#. spMFUpdateTableInternal is changed with isolation levels and no lock to avoid locking
+#. spMFUpdatetable is changed by adding protection against locking when updating class table
+#. spMFUpdatetable is changed to fix bug with not updating MFAuditHistory
+#. spMFSetup_Reporting added additional automated functionality, including automatically updating the created table and showing the classtablestats
+#. spMFDeleteObject, spMFUndeleteObject and spMFDeleteObjectList are improved to return more detailed error messages
+#. spMFInserUserMessage documentation is updated
+#. spMFObjectTypeUpdateClassIndex added logging, remove resetting the MFClass, add error handling
+#. spMFUpdateMFilesToMFSQL resolve bug with NextBatch_ID
+#. MFvwUserGroup is revised to align with localisation.
+#. Excel based temples in the add-ons is retired and removed as the template is no longer valid for latest releases of excel.
+#. Several example scripts are updated, or retired as example scripts are being moved into the doc.lamininsolutions documentation
+#. spMFUpdateAllncludedInAppTables documentation is updated to respond to the new parameters added for the procedure
+#. Resolve bug with updating MFAuditHistory in the procedure spMFTableAudit and improve logging
 
 4.9.29.73
 ~~~~~~~~~
@@ -73,12 +99,11 @@ Each procedure, table or function contains there own change control section. See
 #. Resolve bug on valuelists in spMFSetup_Reporting
 #. Resolve issues and add logging in spMFDeleteObject
 #. Add logging in spMFDeleteObjectList
+#. Add new procedure for undeleting objects as spMFUndeleteObject
 #. Increase size of email parameters to align with mailer in spMFClassTableStats
 #. Add parameter to extend the flexibility of spMFUpdateAllncludedInAppTables to include other options in IncludeInApp column
 #. Improve logging for spMFUpdateAllncludedInAppTables
 #. Updates to spMFAuditTable to set objids datatype to max and to deal with class changes
-#. Fix bug in spMFsendHTMLBodyEmail
-#. Add new procedure spMFUndeleteObject to allow for undeleting of objects from SQL. This involve assembly changes
 
 4.9.27.72
 ~~~~~~~~~

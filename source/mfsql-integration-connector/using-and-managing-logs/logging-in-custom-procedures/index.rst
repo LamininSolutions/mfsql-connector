@@ -52,9 +52,9 @@ ProcessBatchDetail
 
 The :doc:`/tables/tbMFProcessBatchDetail/` allows for logging sub process steps and is used in conjunction with MFProcessBatch.  By obtaining and then passing through the processbatch_id into the processbatchdetail one can tie all the sub processes together.
 
-it is good practice to add a processbatchdetail entry in the MFProcessBatchDetail table when at the start and end of long running sub processes and to highlight the outcome of key steps in the process. This is accomplished with the :doc:`/procedures/spMFProcessBatchDetail_insert`.
+it is good practice to add a processbatchdetail entry in the MFProcessBatchDetail table when at the start and end of long running sub processes and to highlight the outcome of key steps in the process. This is accomplished with the :doc:`/procedures/spMFProcessBatchDetail_Insert`.
 
-Copy the following snippet into your custom procedure where ever a sub process must be logged. Read more in die documentation of :doc:`/procedures/spMFProcessBatchDetail_insert` about the use of the different parameters.
+Copy the following snippet into your custom procedure where ever a sub process must be logged. Read more in die documentation of :doc:`/procedures/spMFProcessBatchDetail_Insert` about the use of the different parameters.
 
 .. code:: sql
 

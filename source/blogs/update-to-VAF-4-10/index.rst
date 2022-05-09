@@ -44,9 +44,11 @@ VAF 10 and later includes additional logging functionality, based on VAF 22.4.21
  . Logging ContextMenu operations
  . Logging VAF operations
 
- Logging ContextMenu operations
+Logging ContextMenu operations
 -------------------------------
- The standard MFSQL Connector logging functionality is accessed by the VAF to log entries in the MFProcessBatch and MFProcessBatchDetail tables.
+
+The standard MFSQL Connector logging functionality is accessed by the VAF to log entries in the MFProcessBatch and MFProcessBatchDetail tables.
+
   . On the start of the action in M-Files (before the call reaches SQL) the VAF will get a new ProcessBatch_ID and record the entry in MFProcessBatch
   . When the task is scheduled in M-Files an entry is processed in the MFProcessBatchDetail table.
   . When the task is ready to calls the SQL Procedure as specified in the MFContextMenu another entry is made in MFProcessBatchDetail. This logs the start time of executing the operation.
@@ -55,16 +57,20 @@ VAF 10 and later includes additional logging functionality, based on VAF 22.4.21
 
 Required changes to procedures called via MFContextMenu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The changes in the logging functionality requires the parameters for procedures that is called by the context menu functionality to have very specific parameters in the correct sequence.  This may impact your current custom procedures and requires to check and ensure that these custom procedures complies with the following.
 
-#. For procedures that is called using an action type 1 or 4 (menu action and event action that is NOT object context sensitive)
-  The parameters for the custom procedure must have the following parameters as the first three parameters in sequence:
+For procedures that is called using an action type 1 or 4 (menu action and event action that is NOT object context sensitive)
+
+The parameters for the custom procedure must have the following parameters as the first three parameters in sequence:
+
     - @ID int not null
     - @Output nvarchar(1000) output
     - @ProcessBatch_ID int = null output
 
-#. For procedures that is called using and action type 3 or 5 (menu action and event action that IS object context sensitive)
-  The parameters for the custom procedure must have the following parameters as the first seven parameters in sequence:
+For procedures that is called using and action type 3 or 5 (menu action and event action that IS object context sensitive)
+The parameters for the custom procedure must have the following parameters as the first seven parameters in sequence:
+
     - @ID int not null
     - @Output nvarchar(1000) output
     - @ProcessBatch_ID int = null output
@@ -75,4 +81,5 @@ The changes in the logging functionality requires the parameters for procedures 
 
 Optional changes to procedures called via MFContextMenu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Logging in the MFProcessBatch and MFProcessBatchDetail tables is automatic for all major standard procedures of the Connector.  However, logging can also be used in custom procedures to record the different stages of processing in the procedure and improve debugging. See :doc:`/mfsql-integration-connector/using-and-managing-logs/index`

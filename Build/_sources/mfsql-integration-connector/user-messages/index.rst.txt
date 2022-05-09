@@ -118,8 +118,8 @@ Add custom message in the MFUserMessage table
 ---------------------------------------------
 
 The Connector includes a mechanism to generate and trigger user
-messages.  This is built into the `process batch
-logging <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/using-and-managing-logs/index.html>`_
+messages.  This is built into the process batch
+logging detail in :doc:`/mfsql-integration-connector/using-and-managing-logs/index`
 When an entry is made in the MFProcessBatch with a LogType of 'Message' 
 a trigger will update an entry in the
 MFUserMessages table using the spMFResultMessageForUI procedure.
@@ -139,6 +139,7 @@ Example of script to trigger a message in the MFUserMessage table
          SET @Msg = @Msg + ' | SQL New : ' + CAST(@NewSQL AS VARCHAR(5));
 
          Set @logText = @Msg
+         Set @LogStatus = 'Completed' -- setting this to 'Error' or 'Fail' will also trigger a message
 
 
          EXEC [dbo].[spMFProcessBatch_Upsert] @ProcessBatch_ID = @ProcessBatch_ID OUTPUT
@@ -147,7 +148,6 @@ Example of script to trigger a message in the MFUserMessage table
          ,@LogText = @LogText
          ,@LogStatus = @LogStatus
          ,@debug = @Debug;
-
 
 Show process results in context menu action
 -------------------------------------------

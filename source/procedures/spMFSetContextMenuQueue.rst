@@ -7,12 +7,15 @@ Return
   - -1 = Error
 Parameters
   @ID   - id of Contextmenu
+
   @Updatetype 
+
     1 - insert new queue
     2 - update Task
     3 - initiate procedure
     4 - complete procedure
     5 - update error
+
   @Debug
 
 Purpose

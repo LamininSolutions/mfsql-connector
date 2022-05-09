@@ -10,6 +10,10 @@ Parameters
   @IsAllTables 
     - Default 0
     - When set to 1 it will get the object versions for all class tables
+  @MFTableName
+    - Class table name to perform the update for a single table
+  @ProcessBatch_ID
+    - Process batch id to manage to logging process
   @Debug (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -29,11 +33,25 @@ When parameter @IsAllTables is set to 0 then it will only perform the operation 
 Examples
 ========
 
+to update all object types and tables
+
 .. code:: sql
 
     EXEC [spMFObjectTypeUpdateClassIndex]  @IsAllTables = 1,  @Debug = 0  
 
     SELECT * FROM dbo.MFvwObjectTypeSummary AS mfots
+
+to update only tables included in the application
+
+.. code:: sql
+
+    EXEC [spMFObjectTypeUpdateClassIndex]  @IsAllTables = 0,  @Debug = 0  
+
+to update a single table
+
+.. code:: sql
+
+    EXEC [spMFObjectTypeUpdateClassIndex]  @IsAllTables = 0, @MFTableName = 'Customer',  @Debug = 0  
 
 Changelog
 =========
@@ -48,5 +66,6 @@ Date        Author     Description
 2020-08-13  LC         update assemblies to set date formats to local culture
 2020-08-22  LC         update to take account of new deleted column
 2021-03-17  LC         Set updatestatus = 1 when not matched
+2022-04-12  LC         Add logging, remove updating MFclass, add error handling
 ==========  =========  ========================================================
 

@@ -114,7 +114,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Get number of records in Class</a></li>
@@ -152,6 +151,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-to-VAF-4-10/index.html">Upgrading to VAF 10.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
@@ -246,24 +246,21 @@
 class or object type.</p>
 <p>Using the procedure spMFObjectTypeUpdateClassIndex and then inspecting
 the result will do just that.</p>
-<p>First, process the update of the index. This can either be done only for
+<p>First, process the update of the index. This can be done for a specific class, only for
 classes included in MFSQL Connector, or for all classes.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--how to get the max id&#39;s in a vault</span>
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span> <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">-- setting to 0 will only include includedinapp class tables</span>
-                                           <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>       <span class="c1">-- smallint</span>
+<p>Get the max objid and object count in a vault for all objects</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span> <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- setting to 0 will only include includedinapp class tables</span>
+                                           <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>The result is updated in the table MFobjectTypeToClassObject. The
-illustration below show the number of records and maximum id for the
-records in the specific class.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">MAX</span><span class="p">([</span><span class="n">mottco</span><span class="p">].[</span><span class="n">Object_MFID</span><span class="p">])</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFObjectTypeToClassObject</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mottco</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFClass</span> <span class="n">mc</span>
-<span class="k">ON</span> <span class="n">mc</span><span class="p">.</span><span class="n">mfid</span> <span class="o">=</span> <span class="n">mottco</span><span class="p">.[</span><span class="n">Class_ID</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="n">mc</span><span class="p">.[</span><span class="n">TableName</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_Volume&#39;</span>
+<p>Determine the max objid and object count for a specific class</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="p">]</span> <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">0</span>
+                                           <span class="p">,</span><span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
+                                           <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>The view MFvwObjectTypeSummary will produce a stats table on the data in
-the MFObjectTypeToClassObject table to show all the classes by Object
+the MFAuditHistory table to show all the classes by Object
 Type with the record count, maximum object id and if it has a class
 table or not.</p>
 <p><img alt="image0" src="../../_images/img_11.png" /></p>

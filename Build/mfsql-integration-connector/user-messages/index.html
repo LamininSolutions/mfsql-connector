@@ -128,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../context-menu-queue/index.html#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#m-files-external-connectors">M-Files External Connectors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
@@ -303,8 +304,8 @@ intended for user consumption.</p>
 <div class="section" id="add-custom-message-in-the-mfusermessage-table">
 <h3>Add custom message in the MFUserMessage table<a class="headerlink" href="#add-custom-message-in-the-mfusermessage-table" title="Permalink to this headline">¶</a></h3>
 <p>The Connector includes a mechanism to generate and trigger user
-messages.  This is built into the <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/using-and-managing-logs/index.html">process batch
-logging</a>
+messages.  This is built into the process batch
+logging detail in <a class="reference internal" href="../using-and-managing-logs/index.html"><span class="doc">Using and managing logs</span></a>
 When an entry is made in the MFProcessBatch with a LogType of ‘Message’
 a trigger will update an entry in the
 MFUserMessages table using the spMFResultMessageForUI procedure.</p>
@@ -321,6 +322,7 @@ MFUserMessages table using the spMFResultMessageForUI procedure.</p>
 <span class="k">SET</span> <span class="o">@</span><span class="n">Msg</span> <span class="o">=</span> <span class="o">@</span><span class="n">Msg</span> <span class="o">+</span> <span class="s1">&#39; | SQL New : &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">NewSQL</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
 
 <span class="k">Set</span> <span class="o">@</span><span class="n">logText</span> <span class="o">=</span> <span class="o">@</span><span class="n">Msg</span>
+<span class="k">Set</span> <span class="o">@</span><span class="n">LogStatus</span> <span class="o">=</span> <span class="s1">&#39;Completed&#39;</span> <span class="c1">-- setting this to &#39;Error&#39; or &#39;Fail&#39; will also trigger a message</span>
 
 
 <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFProcessBatch_Upsert</span><span class="p">]</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
