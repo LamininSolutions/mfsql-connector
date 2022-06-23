@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation Overview &mdash; MFSQL Connector 4.9.29.73 documentation</title>
+  <title>Installation Overview &mdash; MFSQL Connector 4.10.30.74 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="First time installation" href="../first-time-installation/index.html" />
+    <link rel="next" title="On Premise Installation" href="../on-premise-installation/index.html" />
     <link rel="prev" title="Getting Started" href="../index.html" /> 
 </head>
 
@@ -91,27 +91,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-is-included">What is included</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#key-features-of-the-installation-packages">Key features of the installation packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-files">Installation files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-software">Download software</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#deployment-server-model">Deployment server model</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#single-server-deployment-model">Single Server Deployment Model</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#multi-server-deployment-model">Multi Server Deployment Model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#m-files-cloud-deployment-model">M-Files Cloud Deployment Model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#m-files-and-sql-is-on-separate-domains-cloud-deployment-model">M-Files and SQL is on separate domains (Cloud Deployment Model)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-steps-for-a-new-installation">Quick steps for a new installation.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#before-installation">Before installation:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#during-installation">During installation:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../first-time-installation/index.html">First time installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../on-premise-installation/index.html">On Premise Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud-and-hosted-installation/index.html">M-Files Cloud and other hosted installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../high-availability-sql-servers/index.html">High Availability SQL Servers installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration-and-setup/index.html">Configuration and setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../manual-installation-using-scripts/index.html">Manual installation using scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../licensing-management/index.html">Licensing Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database-file-connector-installation/index.html">Database file connector installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html">Next Steps after installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html#using-example-scripts">Using example scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../update-settings/index.html">Update settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../setup-database/index.html">Set-up and working with Connector Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database-mail/index.html">Database Mail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#quick-steps-for-a-new-installation">Quick steps for a new installation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
@@ -195,111 +200,138 @@
            <div itemprop="articleBody">
             
   <div class="section" id="installation-overview">
-<h1>Installation Overview<a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-included">
-<h2>What is included<a class="headerlink" href="#what-is-included" title="Permalink to this headline">¶</a></h2>
+<h1><a class="toc-backref" href="#id1">Installation Overview</a><a class="headerlink" href="#installation-overview" title="Permalink to this headline">¶</a></h1>
 <p>This section provide guidance on how to perform a first time installation and to upgrade the tool after the initial installation.</p>
 <p>The preparation of the environment before first installation is also highlighted in this section.</p>
-<p>Consult the <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/introduction/requirements/index">requirements</a> before commencing with the installation.</p>
-<p>Release 4.3.9.48 introduces a new method of installation building on the
-new licensing methods and Vault applications introduced with the advent
-of the first release of Release 4.</p>
-<p>Release 4 requires a minimum of version M-Files 2018.   Release 3
-can upgrade to release 4, however release 4 cannot be downgraded
-to release 3.</p>
+<p>Consult the <a class="reference internal" href="../../introduction/requirements/index.html"><span class="doc">Requirements</span></a> before commencing with the installation.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#installation-overview" id="id1">Installation Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#key-features-of-the-installation-packages" id="id2">Key features of the installation packages</a></p></li>
+<li><p><a class="reference internal" href="#installation-files" id="id3">Installation files</a></p></li>
+<li><p><a class="reference internal" href="#download-software" id="id4">Download software</a></p></li>
+<li><p><a class="reference internal" href="#deployment-server-model" id="id5">Deployment server model</a></p>
+<ul>
+<li><p><a class="reference internal" href="#single-server-deployment-model" id="id6">Single Server Deployment Model</a></p></li>
+<li><p><a class="reference internal" href="#multi-server-deployment-model" id="id7">Multi Server Deployment Model</a></p></li>
+<li><p><a class="reference internal" href="#m-files-and-sql-is-on-separate-domains-cloud-deployment-model" id="id8">M-Files and SQL is on separate domains (Cloud Deployment Model)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#quick-steps-for-a-new-installation" id="id9">Quick steps for a new installation.</a></p>
+<ul>
+<li><p><a class="reference internal" href="#before-installation" id="id10">Before installation:</a></p></li>
+<li><p><a class="reference internal" href="#during-installation" id="id11">During installation:</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="key-features-of-the-installation-packages">
-<h2>Key features of the installation packages<a class="headerlink" href="#key-features-of-the-installation-packages" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Key features of the installation packages</a><a class="headerlink" href="#key-features-of-the-installation-packages" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>MFSQL Connector installation package has two packages for installation: the main application and a separate package for the deployment of the Web API.</p></li>
 <li><p>The main installation package is used to install/transfer files on the
 developer desktop, the M-Files server or the SQL Server. These are
-often the same computer in testing/development scenarios.
-The installation of the Web API is only used for M-Files Cloud deployments of MFSQL Connector when the context menu functionality is required.</p></li>
+often the same computer in testing/development scenarios.</p></li>
+<li><p>The Context Menu functionality is optional and only need to be configured when SQL processes need to be triggered from M-Files.</p></li>
+<li><p>The installation of the Web API is used for Context Menu functionality in installations where the MFSQL Server and M-Files server are in separate domains, such as M-Files Cloud.</p></li>
 <li><p>The different modules are licensed by installing the license file to
 the vault applications. <a class="reference external" href="mailto:MFSQL&#37;&#52;&#48;lamininsolutions&#46;com">Contact us</a> if your license has expired.</p></li>
 <li><p>The application will only operate with a valid license. Licenses
-expire when the subscription period runs out.</p></li>
+expire when the subscription or rental period runs out.</p></li>
 <li><p>Selecting options in the installation package will install the
 content package and vault applications in the M-Files server, and the
 assemblies and procedures in the database server.</p></li>
 <li><p>The vault application packages and assemblies can also be manually
-installed. See directions below.</p></li>
+installed. See separate directions.</p></li>
 <li><p>All installation files are installed on the computer as part of the
-installation.</p></li>
-<li><p> It is necessary to rerun the installation package for each
+installation. The installation files are in different folders for easy access.  See below for detials.</p></li>
+<li><p>It is necessary to rerun the installation package for each
 vault/database installation to install multiple versions on the same
 computer</p></li>
-<li><p>The installation files are in different folders for easy access.
-Some of the destination folders for installation can be changes
-during the installation process.</p>
-<ul>
-<li><p> Installation files (destination can be changed)</p>
-<ul>
-<li><p>C:Program Files (x86)Laminin SolutionsMFSQL Connector
-Release 4[Database Name]Content Package</p></li>
-<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
-Release 4\[Database Name]Database Scripts</p></li>
-<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
-Release 4\[Database Name]Example Scripts</p></li>
-<li><p>C:Program Files (x86)Laminin Solutions\MFSQL Connector
-Release 4\[Database Name]Vault Applications</p></li>
+<li><p>Some of the destination folders for installation can be changes during the installation process. Changing the destination (e.g. to drive D:) could require manual intervention for each installation or upgrade. See details in the installation instructions.</p></li>
 </ul>
-</li>
+</div>
+<div class="section" id="installation-files">
+<h2><a class="toc-backref" href="#id3">Installation files</a><a class="headerlink" href="#installation-files" title="Permalink to this headline">¶</a></h2>
+<p>Some destinations is configurable</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]Content Package</p></li>
+<li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]\Database Scripts</p></li>
+<li><p>C:\Program Files (x86)Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]\Example Scripts</p></li>
+<li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector
+Release 4\[Database Name]\Vault Applications</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
 <li><p>Assemblies  (destination can be changed)</p>
 <ul>
-<li><p>C:MFSQLAssemblies</p></li>
+<li><p>C:\MFSQL\Assemblies</p></li>
 </ul>
 </li>
 <li><p>File exchange folders (destination can be changed)</p>
 <ul>
-<li><p>C:MFSQLFileExport</p></li>
-<li><p>C:MFSQLFileImport</p></li>
+<li><p>C:\MFSQL\FileExport</p></li>
+<li><p>C:\MFSQL\FileImport</p></li>
 </ul>
 </li>
 <li><p>Setup Files (fixed)</p>
 <ul>
-<li><p>C:Users[user]AppDataLocalMFSQL Vault Install</p></li>
+<li><p>C:\Users\[user]AppData\Local\MFSQL Vault Install</p></li>
 </ul>
 </li>
 <li><p>Installation Log (fixed)</p>
 <ul>
-<li><p>C:UserslerouxcAppDataLocalTemp (MSIXXX.log)</p></li>
+<li><p>C:\Users\lerouxc\AppData\Local\Temp (MSIXXX.log)</p></li>
 </ul>
 </li>
-<li><p>License Update script</p>
+<li><p>Context Menu Log (destination can be changed)</p>
 <ul>
-<li><p>C:Program Files (x86)Common FilesMFSQLConnector</p></li>
+<li><p>C:\Program Files\M-Files\Server Vaults\[Vaultname]\Applogs\[GUID]\[GUID]0current.txt</p></li>
 </ul>
 </li>
 </ul>
-</li>
+</div></blockquote>
+<ul class="simple">
 <li><p>The license files (.lic) is provided separately.  The Trial
 license is valid for 30 days. Thereafter new license files must be
-obtained from <a class="reference external" href="mailto:MFSQL&#37;&#52;&#48;lamininsolutions&#46;com">support</a></p></li>
+obtained from <a class="reference external" href="mailto:support&#37;&#52;&#48;lamininsolutions&#46;com">support</a></p></li>
 </ul>
 </div>
 <div class="section" id="download-software">
-<h2>Download software<a class="headerlink" href="#download-software" title="Permalink to this headline">¶</a></h2>
-<p>The latest published release is available from the <a class="reference external" href="https://lamininsolutions.com/download-mfsql-connector/">Laminin Solutions website</a></p>
+<h2><a class="toc-backref" href="#id4">Download software</a><a class="headerlink" href="#download-software" title="Permalink to this headline">¶</a></h2>
+<p>The latest published release is available from the <a class="reference external" href="https://lamininsolutions.com/what-we-do/mfsql-connector/">Laminin Solutions website</a></p>
 </div>
 <div class="section" id="deployment-server-model">
-<h2>Deployment server model<a class="headerlink" href="#deployment-server-model" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Deployment server model</a><a class="headerlink" href="#deployment-server-model" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="single-server-deployment-model">
-<h3>Single Server Deployment Model<a class="headerlink" href="#single-server-deployment-model" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Single Server Deployment Model</a><a class="headerlink" href="#single-server-deployment-model" title="Permalink to this headline">¶</a></h3>
 <p>The Connector can be deployed in a single server where M-Files server
 and SQL server is installed on the same server.</p>
-<p>The Connect must be deployed in a separate Database on the SQL Server.
-It is not required, but preferred for the Connector Database to be a
-separate SQL instance from the M-Files vault SQL Database in cases where
-the M-Files vault is also deployed as a SQL database.</p>
+<p>The Connector must be deployed in a separate Database on the SQL Server.</p>
 </div>
 <div class="section" id="multi-server-deployment-model">
-<h3>Multi Server Deployment Model<a class="headerlink" href="#multi-server-deployment-model" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Multi Server Deployment Model</a><a class="headerlink" href="#multi-server-deployment-model" title="Permalink to this headline">¶</a></h3>
 <p>When the Connector is used for integration with other applications or
 for special application development, then a multi database deployment
 model is preferred.</p>
-<p>The following Server deployment is preferred in cases of high data
+<p>MFSQL Connector is Multiserver mode enabled for the purposes of a distributed M-Files installation.</p>
+<p>When MFSQL Connector database is installed in a SQL High availability cluster then the following must be installed on each member server of the cluster</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>M-Files desktop</p></li>
+<li><p>A copy of the Assembly files in the same folder as the main installation</p></li>
+</ul>
+</div></blockquote>
+<p>Most often MFSQL Connector is installed in the same SQL server as the M-Files database and other applications.  However, the following Server deployment is preferred in cases of high data
 volume usage.</p>
 <ul class="simple">
 <li><p>M-Files Server: Installation of the M-Files Server and vaults</p></li>
@@ -313,20 +345,79 @@ databases)</p>
 <li><p>SQL Server for special application databases</p></li>
 </ul>
 </div>
-<div class="section" id="m-files-cloud-deployment-model">
-<h3>M-Files Cloud Deployment Model<a class="headerlink" href="#m-files-cloud-deployment-model" title="Permalink to this headline">¶</a></h3>
-<p>When the Vault is on M-Files-Cloud and SQL Server is either on premise
-or hosted</p>
-<ul class="simple">
-<li><p>M-Files Cloud and SQL Server is connected with a VPN and in the same
-Domain</p></li>
-<li><p>M-Files Cloud and SQL Server is not connected with a VPN</p></li>
+<div class="section" id="m-files-and-sql-is-on-separate-domains-cloud-deployment-model">
+<h3><a class="toc-backref" href="#id8">M-Files and SQL is on separate domains (Cloud Deployment Model)</a><a class="headerlink" href="#m-files-and-sql-is-on-separate-domains-cloud-deployment-model" title="Permalink to this headline">¶</a></h3>
+<p>When the Vault is in a separate domain than the SQL Server such as M-Files-Cloud or another hosted solution then the following additional steps would apply:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Install or enable a Web Server in the same domain as SQL server</p></li>
+<li><p>Install IIS on the Web Server and enable a SSL certificate for https protocol</p></li>
+<li><p>Install the MFSQL Connector Web API installation package</p></li>
+<li><p>Update the configurations tab in M-Files Admin for using the Web API</p></li>
 </ul>
-<p>When the M-Files Cloud is connected with to the SQL Server with a VPN
-the deployment model is the same as a Multi-Server Deployment</p>
-<p>Special considerations apply when SQL Server is not connected with
-M-Files Cloud. Follow the installation instructions specific to this
-model.</p>
+</div></blockquote>
+<p>See detail instructions for <a class="reference internal" href="../cloud-and-hosted-installation/install-webapi/index.html"><span class="doc">Installing the Web API</span></a></p>
+</div>
+</div>
+<div class="section" id="quick-steps-for-a-new-installation">
+<h2><a class="toc-backref" href="#id9">Quick steps for a new installation.</a><a class="headerlink" href="#quick-steps-for-a-new-installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="before-installation">
+<h3><a class="toc-backref" href="#id10">Before installation:</a><a class="headerlink" href="#before-installation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>For M-Files, check the following</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Minimum version 20.5</p></li>
+<li><p>Target Vault is pre-created</p></li>
+<li><p>Named User dedicated to MFSQL Connector with Vault admin rights is
+available in M-Files</p></li>
+<li><p>The user doing the installation must have M-Files System rights</p></li>
+<li><p>The M-Files Desktop is enabled on the M-Files server</p></li>
+<li><p>The M-Files IML (Intelligent Metadata Layer) Core license is
+required for the MFSQL Database File Connector to operate</p></li>
+</ul>
+</div></blockquote>
+<p>For SQL, check the following</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Microsoft SQL Server version 2016, 2017, 2019 Express , Standard, or Enterprise editions.  (Note that procedures dependent on SSIS or SQL agents will only operate in Standard or Enterprise)</p></li>
+<li><p>Confirm SQL Server is installed with mixed authentication mode enabled</p></li>
+<li><p>The user doing the installation must have sysadmin rights to the SQL Server or access to a user credentials with these rights.</p></li>
+<li><p>M-Files desktop is installed on the SQL server</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="during-installation">
+<h3><a class="toc-backref" href="#id11">During installation:</a><a class="headerlink" href="#during-installation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>Always start with installation on the M-Files Server, and then the
+SQL Server for a <a class="reference internal" href="../on-premise-installation/index.html"><span class="doc">On Premise Installation</span></a> or upgrade</p></li>
+<li><p>Follow the standard installation instructions for all installations and upgrades except if one of the following applies:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>high availability multi SQL server</p></li>
+<li><p>M-Files Cloud or other type of hosted installation</p></li>
+<li><p>High security limited SQL server access</p></li>
+<li><p>Database file connector for access to Blob Files</p></li>
+<li><p>Using powershell utilities for SQL express installation</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Follow the manual installation instructions for high security limited SQL server access to perform the SQL
+server installation without running the installation package</p></li>
+<li><p>Follow the Cloud installation instructions for performing an installation for M-Files Cloud. These instructions include the WEB API instructions for installing a web service between M-Files and SQL Server</p></li>
+<li><p>Follow the DB File Connector installation and configuration to get access the database file blobs</p></li>
+<li><p>Follow the workstation installation instruction for installing the
+installation files only. This method is used to get access to the
+installation files for manual installation of certain parts of the
+package.</p></li>
+<li><p>Always take vault off-line and bring back online after installing the
+vault applications on the M-Files Server or making configuration changes for the context menu functionality</p></li>
+<li><p>Use SSMS and the examples scripts to get started with MFSQL Connector</p></li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 </div>
@@ -339,7 +430,7 @@ model.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../first-time-installation/index.html" class="btn btn-neutral float-right" title="First time installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../on-premise-installation/index.html" class="btn btn-neutral float-right" title="On Premise Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

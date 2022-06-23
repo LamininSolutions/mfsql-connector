@@ -102,12 +102,6 @@
 <li class="toctree-l3"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html">Setup powershell utilities</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-package-with-logging/index.html">Install package with logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-scenarios">Installation scenarios</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#separate-servers-on-premise">Separate servers on premise</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#single-server">Single Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#m-files-server-and-sql-server-on-different-domains">M-Files server and SQL Server on different domains</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../manual-installation-using-scripts/index.html">Manual installation using scripts</a></li>
@@ -205,118 +199,19 @@
 <h1>First time installation<a class="headerlink" href="#first-time-installation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="standard-new-installation/index.html">Standard Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="standard-new-installation/index.html#before-executing-the-installation-package">Before executing the installation package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="standard-new-installation/index.html#step-by-step-installation-guide">Step by step installation Guide</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="content-package-installation/index.html">Content Package installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="content-package-installation/index.html#content-package">Content package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installing-the-context-menu/index.html">Installing the Context Menu</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#sql-connection-configuration">SQL Connection configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#context-menu-access">Context Menu Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#update-m-files-client-settings">Update M-Files client settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#context-menu">Context Menu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-the-context-menu/index.html#configuration">Configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="standard-new-installation/index.html">Standard Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content-package-installation/index.html">Content Package installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-the-context-menu/index.html">Installing the Context Menu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration-of-connection-string/index.html">Configuration of connection string</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install-webapi/index.html">Installing the Web API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#purpose">Purpose</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#architecture">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#website">Website</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#manual-install">Manual install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#removing-or-reinstalling-the-packages">Removing or reinstalling the packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#configuration-of-m-files">Configuration of M-files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install-webapi/index.html#error-trapping">Error trapping</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="database-file-connector-installation/index.html">Database file connector installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="database-file-connector-installation/index.html#db-file-connector-configurator-settings">DB File Connector Configurator Settings</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="using-agent-for-automated-updates/index.html">Using Agent for automated updates</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="using-agent-for-automated-updates/index.html#update-class-tables">Update Class Tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-agent-for-automated-updates/index.html#delete-history-agent">Delete History Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-agent-for-automated-updates/index.html#validate-m-files-version-agent">Validate M-Files Version Agent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-agent-for-automated-updates/index.html#staging-updates-with-agents">Staging updates with agents</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="using-agent-for-automated-updates/view-running-agent-job/index.html">View to check if job is running</a></li>
-<li class="toctree-l3"><a class="reference internal" href="using-agent-for-automated-updates/agent-job-wait-status/index.html">Prevent agent job to run</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="using-agent-for-automated-updates/agent-job-wait-status/index.html#creating-the-procedure-spmfstart-job-wait">Creating the procedure spMFStart_job_wait</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#vaultconnectiontest-fails">VaultConnectionTest fails</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#unable-to-log-into-m-files">Unable to log into M-Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#unable-to-connect-to-vault">Unable to connect to vault</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#exec-spmfsyncronizemetadata-produces-an-error-email">Exec spMFSyncronizeMetadata produces an error / email</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#network-connection-error-on-login-to-the-vault-for-the-first-time">Network connection error on login to the vault for the first time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#mfsql-connector-context-menu-error">MFSQL Connector context menu error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#emailprofile-error">EmailProfile Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#mflog-shows-error-for-invalid-license">MFLog shows error for invalid license</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html#no-such-interface-supported">No such interface supported</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="setup-powershell-utilities/index.html">Setup powershell utilities</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup-powershell-utilities/index.html#location-of-powershell-utilities">Location of powershell utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup-powershell-utilities/index.html#automation-and-scheduling-of-procedures-for-sql-express">Automation and scheduling of procedures for SQL Express</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#content-of-the-package">Content of the package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#setup">Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#bat-file">Bat File</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#windows-task-scheduler">Windows task scheduler</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="setup-powershell-utilities/index.html#file-importing">File Importing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#file-import-prerequisites">File import prerequisites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#file-import-content-of-the-package">File import content of the package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#output-of-file-import">Output of File import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#setup-of-file-import">Setup of File Import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-powershell-utilities/index.html#file-import-bat-file">File import Bat file</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="install-webapi/index.html">Installing the Web API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database-file-connector-installation/index.html">Database file connector installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using-agent-for-automated-updates/index.html">Using Agent for automated updates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup-powershell-utilities/index.html">Setup powershell utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install-package-with-logging/index.html">Install package with logging</a></li>
 </ul>
 </div>
-<div class="section" id="installation-scenarios">
-<h2>Installation scenarios<a class="headerlink" href="#installation-scenarios" title="Permalink to this headline">¶</a></h2>
-<p>Different server configurations could give rise to different installation methods.</p>
-<div class="section" id="separate-servers-on-premise">
-<h3>Separate servers on premise<a class="headerlink" href="#separate-servers-on-premise" title="Permalink to this headline">¶</a></h3>
-<p>M-Files server and SQL Server is separate servers in the same domain network. This is the recommended and most common scenario for production environments.</p>
-<p>Use the standard Installation method. Install the package on each server selecting the options for the server type. Start with M-Files Server.</p>
-</div>
-<div class="section" id="single-server">
-<h3>Single Server<a class="headerlink" href="#single-server" title="Permalink to this headline">¶</a></h3>
-<p> M-Files Server and SQL Server is on the same box (server or workstation). This is the most common scenario for test and development environments.</p>
-<p> Use the standard installation and select all the installation options at the same time.</p>
-</div>
-<div class="section" id="m-files-server-and-sql-server-on-different-domains">
-<h3>M-Files server and SQL Server on different domains<a class="headerlink" href="#m-files-server-and-sql-server-on-different-domains" title="Permalink to this headline">¶</a></h3>
-<p>The servers are not connected within a common domain. Consider the following:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Administrative access to install software on the servers</p></li>
-<li><p>Access from M-Files server to SQL on the SQL server via ODBC</p></li>
-<li><p>Access from M-Files server to SQL on the SQL server via Web API</p></li>
-<li><p>Sysadmin rights on the SQL Server</p></li>
-</ul>
-</div></blockquote>
-<p>Additional steps to the basic installation is required when any of the above restrictions apply.</p>
-<p>M-Files Cloud installation falls within this scope as administrative access to the M-Files Server is restricted to M-Files support only.</p>
-<p>Refer to the next section for these types of installation.</p>
-</div>
-</div>
+<p>Consult the <a class="reference internal" href="../installation-overview/index.html"><span class="doc">Installation Overview</span></a> before proceeding.</p>
 </div>
 
 

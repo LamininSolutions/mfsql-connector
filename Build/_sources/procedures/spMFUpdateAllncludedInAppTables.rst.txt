@@ -81,6 +81,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-05-25  LC         Resolve loop bug with updating history
 2021-12-20  LC         Add logging to improve performance analysis
 2021-12-20  LC         Use same processbatchID for entire process
 2021-09-01  LC         add parameter to retain deletions for all tables

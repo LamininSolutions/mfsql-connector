@@ -38,6 +38,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-16  LC         Fix conflict of name value in Pivot of Tempobjectlist
 2022-03-24  LC         Add isolation levels and no lock to avoid locking
 2021-04-14  LC         Fix timestamp datatype bug
 2021-03-02  LC         Remove check for required workflows, check is included in spMFClassTableStats

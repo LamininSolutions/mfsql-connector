@@ -118,6 +118,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-06  LC         resolve issue of removal of class table objects
+2022-05-06  LC         resolve bug with nextbatch_ID
 2022-01-25  LC         allow for batch processing of audit when max object > 100000
 2022-01-25  LC         increase maxobjects default to 100000
 2021-12-20  LC         Maintain same processbatch_ID for entire process

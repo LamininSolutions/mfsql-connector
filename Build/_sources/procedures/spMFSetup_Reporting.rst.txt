@@ -58,6 +58,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-05-25  LC         Change approach to only update selected tables
 2022-03-17  LC         add additional automated functionality
 2022-01-26  Lc         Fix valuelist creation
 2019-09-27  LC         Adjust to setup context menu group for access

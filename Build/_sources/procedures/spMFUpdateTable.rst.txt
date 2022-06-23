@@ -168,6 +168,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-01  LC         Resolve bug with data definition in large text properties
 2022-03-23  LC         Add protection against locking when updating class table
 2022-03-07  LC         Fix bug with not updating AuditTable
 2022-02-08  LC         Further optimize, replace UNPIVOT with new case method

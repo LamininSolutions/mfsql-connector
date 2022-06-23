@@ -54,6 +54,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-04-28  LC         This procedure is being revised in the light of the new
+                       task system in the VAF
 2020-01-07  LC         Add routine to clean up the queue
 2019-12-06  LC         Create procedure
 ==========  =========  ========================================================

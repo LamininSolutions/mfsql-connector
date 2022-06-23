@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFUpdateTableInternal &mdash; MFSQL Connector 4.9.29.73 documentation</title>
+  <title>spMFUpdateTableInternal &mdash; MFSQL Connector 4.10.30.74 documentation</title>
   
 
   
@@ -323,171 +323,175 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-03-24</p></td>
+<tr class="row-even"><td><p>2022-06-16</p></td>
+<td><p>LC</p></td>
+<td><p>Fix conflict of name value in Pivot of Tempobjectlist</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-03-24</p></td>
 <td><p>LC</p></td>
 <td><p>Add isolation levels and no lock to avoid locking</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-04-14</p></td>
+<tr class="row-even"><td><p>2021-04-14</p></td>
 <td><p>LC</p></td>
 <td><p>Fix timestamp datatype bug</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-03-02</p></td>
+<tr class="row-odd"><td><p>2021-03-02</p></td>
 <td><p>LC</p></td>
 <td><p>Remove check for required workflows, check is included in spMFClassTableStats</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-11-07</p></td>
+<tr class="row-even"><td><p>2020-11-07</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve issue with duplicate columns and multilookup datatype</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-10-22</p></td>
+<tr class="row-odd"><td><p>2020-10-22</p></td>
 <td><p>LC</p></td>
 <td><p>set datetime conversion to 102 (ansi)</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-10-22</p></td>
+<tr class="row-even"><td><p>2020-10-22</p></td>
 <td><p>LC</p></td>
 <td><p>Required workflow check is only performed on updated objects</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-09-23</p></td>
+<tr class="row-odd"><td><p>2020-09-23</p></td>
 <td><p>LC</p></td>
 <td><p>Remove rows from other classes for table update</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-09-04</p></td>
+<tr class="row-even"><td><p>2020-09-04</p></td>
 <td><p>LC</p></td>
 <td><p>split merge into parts per advice</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-09-04</p></td>
+<tr class="row-odd"><td><p>2020-09-04</p></td>
 <td><p>LC</p></td>
 <td><p>move updating of audit history to smpfupdatetable</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-08-26</p></td>
+<tr class="row-even"><td><p>2020-08-26</p></td>
 <td><p>LC</p></td>
 <td><p>revise error checking for required workflows</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-08-18</p></td>
+<tr class="row-odd"><td><p>2020-08-18</p></td>
 <td><p>LC</p></td>
 <td><p>replace column deleted flag with property 27 (deleted) datetime</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-07-27</p></td>
+<tr class="row-even"><td><p>2020-07-27</p></td>
 <td><p>LC</p></td>
 <td><p>Update to handle new status for deleted and checked out</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-06-20</p></td>
+<tr class="row-odd"><td><p>2020-06-20</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug with localisation error on workflow</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-02-20</p></td>
+<tr class="row-even"><td><p>2020-02-20</p></td>
 <td><p>LC</p></td>
 <td><p>Change assembly to system.culture time</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-11-18</p></td>
+<tr class="row-odd"><td><p>2019-11-18</p></td>
 <td><p>LC</p></td>
 <td><p>Update time format to address localisation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-04-01</p></td>
+<tr class="row-odd"><td><p>2019-04-01</p></td>
 <td><p>LC</p></td>
 <td><p>Add process_id = 0 as condition</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-12-17</p></td>
+<tr class="row-even"><td><p>2018-12-17</p></td>
 <td><p>LC</p></td>
 <td><p>formatting of boolean property</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-12-16</p></td>
+<tr class="row-odd"><td><p>2018-12-16</p></td>
 <td><p>LC</p></td>
 <td><p>prevent record from wrong class in class table</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-10-02</p></td>
+<tr class="row-even"><td><p>2018-10-02</p></td>
 <td><p>LC</p></td>
 <td><p>Fix localization bug on  missing quotename</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-08-23</p></td>
+<tr class="row-odd"><td><p>2018-08-23</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve sync error bug</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-08-01</p></td>
+<tr class="row-even"><td><p>2018-08-01</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve deletions for filter objid</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-07-03</p></td>
+<tr class="row-odd"><td><p>2018-07-03</p></td>
 <td><p>LC</p></td>
 <td><p>locatlisation for finish datetime</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-06-22</p></td>
+<tr class="row-even"><td><p>2018-06-22</p></td>
 <td><p>LC</p></td>
 <td><p>Localisation of workflow_id, name_or_Title property name</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-11-29</p></td>
+<tr class="row-odd"><td><p>2017-11-29</p></td>
 <td><p>LC</p></td>
 <td><p>Fix Is Templatelist temp file to allow for multiple threads</p></td>
 </tr>
-<tr class="row-odd"><td><p>2017-08-22</p></td>
+<tr class="row-even"><td><p>2017-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>Add synch error auto correction</p></td>
 </tr>
-<tr class="row-even"><td><p>2017-07-06</p></td>
+<tr class="row-odd"><td><p>2017-07-06</p></td>
 <td><p>LC</p></td>
 <td><p>Add updating of Filecount</p></td>
 </tr>
-<tr class="row-odd"><td><p>17-04-2015</p></td>
+<tr class="row-even"><td><p>17-04-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>DATETIME column value convertion is changed</p></td>
 </tr>
-<tr class="row-even"><td><p>16-05-2015</p></td>
+<tr class="row-odd"><td><p>16-05-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>Record Update/Insert logic is modified</p></td>
 </tr>
-<tr class="row-odd"><td><p>16-05-2015</p></td>
+<tr class="row-even"><td><p>16-05-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>(new logic : one record insert/update at a time and</p></td>
 </tr>
-<tr class="row-even"><td><p>16-05-2015</p></td>
+<tr class="row-odd"><td><p>16-05-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>skip the records which fails to insert/update)</p></td>
 </tr>
-<tr class="row-odd"><td><p>25-05-2015</p></td>
+<tr class="row-even"><td><p>25-05-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>New input parameter added (&#64;Update_ID)</p></td>
 </tr>
-<tr class="row-even"><td><p>25-05-2015</p></td>
+<tr class="row-odd"><td><p>25-05-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>Adding &#64;Update_ID &amp; ExtrenalID into MFLog table</p></td>
 </tr>
-<tr class="row-odd"><td><p>30-06-2015</p></td>
+<tr class="row-even"><td><p>30-06-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>Changed the return value to 4 if any record failed insert/Update</p></td>
 </tr>
-<tr class="row-even"><td><p>08-07-2015</p></td>
+<tr class="row-odd"><td><p>08-07-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>Template object issue resolved</p></td>
 </tr>
-<tr class="row-odd"><td><p>08-07-2015</p></td>
+<tr class="row-even"><td><p>08-07-2015</p></td>
 <td><p>DEV 2</p></td>
 <td><p>BIT Column value resolved</p></td>
 </tr>
-<tr class="row-even"><td><p>22-2-2016</p></td>
+<tr class="row-odd"><td><p>22-2-2016</p></td>
 <td><p>LC</p></td>
 <td><p>Update Error logging, remove Is_template</p></td>
 </tr>
-<tr class="row-odd"><td><p>10-8-2016</p></td>
+<tr class="row-even"><td><p>10-8-2016</p></td>
 <td><p>LC</p></td>
 <td><p>update objid filter to fix bug</p></td>
 </tr>
-<tr class="row-even"><td><p>17-8-2016</p></td>
+<tr class="row-odd"><td><p>17-8-2016</p></td>
 <td><p>LC</p></td>
 <td><p>conversion of float columns for comma as decimal character</p></td>
 </tr>
-<tr class="row-odd"><td><p>19-8-2016</p></td>
+<tr class="row-even"><td><p>19-8-2016</p></td>
 <td><p>LC</p></td>
 <td><p>update to take account of class table name in foreign languages</p></td>
 </tr>
-<tr class="row-even"><td><p>26-8-2016</p></td>
+<tr class="row-odd"><td><p>26-8-2016</p></td>
 <td><p>LC</p></td>
 <td><p>change usage of temptables to global variables and convert to multi user</p></td>
 </tr>
-<tr class="row-odd"><td><p>10-11-2016</p></td>
+<tr class="row-even"><td><p>10-11-2016</p></td>
 <td><p>LC</p></td>
 <td><p>fix bug for records with Null values in required fields</p></td>
 </tr>

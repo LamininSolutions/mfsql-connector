@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Context Menu Queue &mdash; MFSQL Connector 4.9.29.73 documentation</title>
+  <title>Context Menu Queue &mdash; MFSQL Connector 4.10.30.74 documentation</title>
   
 
   
@@ -123,6 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mfsql_connector_addons/index.html">MFSQL Connector addons and utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#m-files-external-connectors">M-Files External Connectors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
@@ -396,7 +397,7 @@ Example of a valid result</p>
 </div>
 <div class="section" id="setup-the-action-in-m-files">
 <h2>Setup the action in M-Files<a class="headerlink" href="#setup-the-action-in-m-files" title="Permalink to this headline">¶</a></h2>
-<p>Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult <a class="reference internal" href="../../getting-started/first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a> to install the context menu functionality.</p>
+<p>Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult <span class="xref std std-doc">/getting-started/first-time-installation/installing-the-context-menu/index</span> to install the context menu functionality.</p>
 <p>Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu</p>
 <div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span><span class="w"></span>
 <span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">oProperties</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">Set</span><span class="w"> </span><span class="n">oProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyOperations</span><span class="p">.</span><span class="n">GetProperties</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">)</span><span class="w"></span>

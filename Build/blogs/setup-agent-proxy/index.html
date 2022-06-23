@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setup Agent Proxy for MFSQLConnect &mdash; MFSQL Connector 4.9.29.73 documentation</title>
+  <title>Setup Agent Proxy for MFSQLConnect &mdash; MFSQL Connector 4.10.30.74 documentation</title>
   
 
   
@@ -114,7 +114,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../extended-reporting/index.html">Extended Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get-number-of-records-in-class/index.html">Get number of records in Class</a></li>
@@ -158,6 +157,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../status-report-using-context-menu/index.html">Status report using context menu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../table-relations---views-for-reporting/index.html">Table relations - views for reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../update-large-tables/index.html">Update large tables using batch mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../update-to-VAF-4-10/index.html">Upgrading to VAF 10.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-a-multi-lookup-property-on-an-object/index.html">Updating a multi lookup property on an object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-incorrect-properties-across-multiple-related-classes/index.html">Updating incorrect properties across multiple related classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../updating-only-records-that-changed/index.html">Updating only records that changed</a></li>
@@ -253,7 +253,7 @@
 <p>In some cases additional configuration is required to allow for the context menu to be used to trigger a SQL process. Calling a SSIS (SQL Server Integration System) package is one example where the standard MFSQLConnect profile is not sufficient because SSIS requires elevated security. Other examples would be file operations or powershell operations.</p>
 <p>Consult your DBA and Domain Security expects before configuring the SQL Server security. The guidelines in this section for additional configuration of access security is provided as an input to be considered by your organisations security advisors and the actual configuration may differ from organisation to organisation.</p>
 <p>When using the context menu with elevated security it would be necessary to setup an Agent Proxy account and assign MFSQLConnect to the proxy.  There are several steps to follow for configuring an agent with a proxy account.</p>
-<p>A prerequisit for this section is to configure <a class="reference internal" href="../../getting-started/first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a>  and create a procedure which will call the agent. Script Example <strong>70.104.Example - Start Job Wait - Agent</strong> show how to setup a calling procedure.</p>
+<p>A prerequisit for this section is to configure <a class="reference internal" href="../../getting-started/configuration-and-setup/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a>  and create a procedure which will call the agent. Script Example <strong>70.104.Example - Start Job Wait - Agent</strong> show how to setup a calling procedure.</p>
 <div class="section" id="service-account">
 <h2>Service account<a class="headerlink" href="#service-account" title="Permalink to this headline">¶</a></h2>
 <p>The first step is to review the security for the standard SQL Server Agent security. It is important to set up SQL Server Agent Security on the principles of ‘executing with minimum privileges’, and ensure that errors are properly logged and alerts are set up for a comprehensive range of errors. SQL Server Agent allows fine-grained control of every job step that should allow tasks to be run entirely safely even if they occasionally need special privileges.</p>

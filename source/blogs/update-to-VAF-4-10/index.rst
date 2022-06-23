@@ -5,7 +5,6 @@ M-Files requires all Vault Applications operating on the M-Files cloud to be Mul
 
 This section have important information for the upgrade in your environment.  Not following these steps will cause errors. These steps must be followed when M<FSQL Connector is upgraded to version 4.10.29.74. This upgrade include upgrades to the MFSQL Connector modules:
  . MFSQLConnectorVAFApp
- . MFSQL Connector Web Services plugin
  . MFSQL Connector Assemblies
  . MFSQL Connector procedures
 
@@ -26,7 +25,7 @@ The operations of the MFSQL Connector Context Menu was overhauled to align with 
 Changes in SQL procedures
 ---------------------------
 
- .  The changes requires the installation of the deployment package on the SQL server BEFORE running the installation on the M-Files Server if SQL and M-Files is not on the same server.
+ . The changes requires the installation of the deployment package on the SQL server BEFORE running the installation on the M-Files Server if SQL and M-Files is not on the same server.
 
  . The store procedure spMfGetSettingsForConfigurator has a name change.  The previous name was spMfGetSettingsForCofigurator.  This name change is automatically included in the upgrade and there is no need for any user action.
 
@@ -35,7 +34,7 @@ Changes in SQL procedures
 Changes to the MFSQL Connector menu
 -----------------------------------
 
-There are no changes to the visual layout of the MFSQL Connector menu
+All actions related to the context menu is now running asynchronously. Feedback to the user on the completion of an action is no longer provided in an M-Files window.  The feedback can be provided in other ways.
 
 Logging
 -------

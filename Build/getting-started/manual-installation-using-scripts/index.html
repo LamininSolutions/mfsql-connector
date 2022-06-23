@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Manual installation using scripts &mdash; MFSQL Connector 4.9.29.73 documentation</title>
+  <title>Manual installation using scripts &mdash; MFSQL Connector 4.10.30.74 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Licensing Management" href="../licensing-management/index.html" />
-    <link rel="prev" title="Install package with logging" href="../first-time-installation/install-package-with-logging/index.html" /> 
+    <link rel="next" title="Content Package installation" href="content-package-installation/index.html" />
+    <link rel="prev" title="Setup powershell utilities" href="../configuration-and-setup/setup-powershell-utilities/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,22 +91,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../installation-overview/index.html">Installation Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../first-time-installation/index.html">First time installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../on-premise-installation/index.html">On Premise Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cloud-and-hosted-installation/index.html">M-Files Cloud and other hosted installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../high-availability-sql-servers/index.html">High Availability SQL Servers installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration-and-setup/index.html">Configuration and setup</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Manual installation using scripts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#install-package-on-workstation">Install package on workstation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#relevant-installation-files">Relevant Installation Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-install-mfsql-connector-on-the-m-files-server">Manual install MFSQL Connector on the M-Files Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#manual-install-mfsql-connector-on-the-sql-server">Manual install MFSQL Connector on the SQL Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="content-package-installation/index.html">Content Package installation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../licensing-management/index.html">Licensing Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database-file-connector-installation/index.html">Database file connector installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html">Next Steps after installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html#using-example-scripts">Using example scripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../upgrades-and-hotfixes/index.html">Upgrades and hotfixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../update-settings/index.html">Update settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../setup-database/index.html">Set-up and working with Connector Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../database-mail/index.html">Database Mail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#quick-steps-for-a-new-installation">Quick steps for a new installation.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
@@ -191,124 +188,122 @@
             
   <div class="section" id="manual-installation-using-scripts">
 <h1>Manual installation using scripts<a class="headerlink" href="#manual-installation-using-scripts" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content-package-installation/index.html">Content Package installation</a></li>
+</ul>
+</div>
 <p>In special use cases in may be required to install or upgrade MFSQL Connector manually.</p>
-<dl class="simple">
-<dt>Manual installation may be necessary in the following scenarios:</dt><dd><ul class="simple">
-<li><p>The installation is targeted for a M-Files Cloud installation</p></li>
+<p>Manual installation may be necessary in the following scenarios:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Security policy on the SQL Server prevents Powershell scripts from running on the server.</p></li>
 <li><p>Security policy on the SQL Server prevents the MFSQL Connector package to run on the server.</p></li>
 <li><p>The scripts to be installed on the SQL Server must be separately validated by a DBA and executed independently from the package installation.</p></li>
 </ul>
-</dd>
-<dt>The following steps must be completed for each vault. The details of each step follows below:</dt><dd><ol class="arabic simple">
+</div></blockquote>
+<p>The following steps must be completed for each vault. The details of each step follows below:</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Run the installation package for the latest version on a workstation.</p></li>
 <li><p>Install the VAF (vault applications) and configurations on the M-Files server</p></li>
 <li><p>Install the scripts on the SQL server</p></li>
 <li><p>Run the startup procedures on the SQL Server</p></li>
 </ol>
-</dd>
-</dl>
-<div class="section" id="install-package-on-workstation">
-<h2>Install package on workstation<a class="headerlink" href="#install-package-on-workstation" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
-<li><p>The installation package of the Connector allows for creating the installation package on a workstation and then to use the components of the installation package ready to be copied to the servers.</p></li>
+</div></blockquote>
+<p><strong>1. Prior to installation.</strong></p>
+<ul class="simple">
 <li><p>M-Files Desktop must be installed on the workstation prior to commencing with the package installation.</p></li>
-<li><p>Ensure that M-Files Desktop is also installed on the SQL Server and make a note of the version number.</p></li>
+<li><p>Ensure that M-Files Desktop is also installed on the SQL Server and make a note of the M-Files version number.</p></li>
 <li><p>Download the latest package from the Website.  The latest published release is available from the <a class="reference external" href="https://lamininsolutions.com/download-mfsql-connector/">Laminin Solutions website</a></p></li>
-<li><p>The installation will not perform any operations on the M-Files Server or SQL Server.</p></li>
-<li><p>The installation files will be place in the installation folders on the workstation</p></li>
 </ul>
+<p><strong>2. Install package on workstation.</strong></p>
+<blockquote>
+<div><ul>
+<li><p>The installation package of the Connector allows for creating the installation package on a workstation and then to use the components of the installation package ready to be copied to the servers.</p></li>
+<li><p>The installation will not perform any operations on the M-Files Server or SQL Server.</p></li>
+<li><p>The installation files will be place in the installation folders on the workstation</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]</p></li>
 <li><p>C:\MFSQL\Assemblies</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
+</li>
 <li><p>Run the installation on the workstation with the selections outlined below.</p></li>
 </ul>
 </div></blockquote>
 <p>The installation folder selected in step 1 below will include the files for the manual installations</p>
 <p><img alt="image1" src="../../_images/Image1.png" /></p>
-<p>Select options 1 and 2 below for all workstation installations irrespective of installing on premise or in the cloud.</p>
+<p>Select options 1 and 2 below for all workstation installations.</p>
 <p><img alt="image2" src="../../_images/Image2.png" /></p>
-<dl class="simple">
-<dt>Complete the vault connection setup for the steps below:</dt><dd><ol class="arabic simple">
+<p>Complete the vault connection setup for the steps below:</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li><p>Vault name as per the M-Files Admin module</p></li>
-<li><p>The name of the dedicated user for MFSQL Connector operations in the vault. Fill in the Domain if a windows user applies.</p></li>
-<li><p>Select the protocol and add the port for the vault.</p></li>
+<li><p>The name and password of the dedicated user for MFSQL Connector operations in the vault.</p></li>
+<li><p>Fill in the Domain if a windows user applies.</p></li>
+<li><p>Select authentication type from drop down</p></li>
+<li><p>Select the protocol from the dropdown</p></li>
+<li><p>Add the port for the vault.</p></li>
 <li><p>Enter the M-Files version number on the SQL Server, for example 21.9.10629.5 The version is available by hovering over the M-Files logo on the server.  Take care not to confuse the workstation version and the SQL server version.</p></li>
-<li><p>Enter the path of the installation of M-Files on the SQL server</p></li>
+<li><p>Update the path of the installation of M-Files on the SQL server if it is not the default path</p></li>
 <li><p>Enter the DNS address for the M-Files Server.</p></li>
 </ol>
-</dd>
-</dl>
+</div></blockquote>
 <p><img alt="image3" src="../../_images/Image3.png" /></p>
 <p>The following image illustrated a completed form for a cloud Vault</p>
 <p><img alt="image4" src="../../_images/Image4.png" /></p>
-<dl class="simple">
-<dt>In the next window the credentials for the MFSQL Connector SQL Server and database are entered.</dt><dd><ol class="arabic simple">
-<li><p>Enter the name of the SQL server.  Add the instance and port if applicable</p></li>
-<li><p>It is not required to enter any credentials.  No attempt will be made to access the server.</p></li>
-<li><p>Enter the existing MFSQL Connector database, or a new name if it does not yet exist.</p></li>
-</ol>
-</dd>
-</dl>
-<p>Note that the database will not be created at this stage and the information is not validated.  When incorrect information is provided then the installation must be re-run for the correct information.</p>
-<p><img alt="image5" src="../../_images/Image5.png" /></p>
-<p>Select install to complete the generation of the installation files.</p>
-<p><img alt="image6" src="../../_images/Image6.png" /></p>
-</div>
-<div class="section" id="relevant-installation-files">
-<h2>Relevant Installation Files<a class="headerlink" href="#relevant-installation-files" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
-<dt>Copy the related installation files to the server.  The files in the following folders must be copied to the SQL server</dt><dd><ul class="simple">
+<p>Complete the installation as described in the on-premise installation instruction.</p>
+<p><strong>3. Copy assembly files.</strong></p>
+<p>Copy the related installation files to the server.  The files in the following folders must be copied to the SQL server</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>All Assemblies in the folder C:\MFSQL\Assemblies on the workstation must be copied to C:\MFSQL\Assemblies on the SQL Server</p></li>
 <li><p>The assemblies should be copied for each upgrade as they may have changed. It is possible to check on the file version of the assemblies to determine if the file have changed.</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p><img alt="image9" src="../../_images/Image9.png" /></p>
-<dl class="simple">
-<dt>Copy the following folders to the M-Files server.  This is only necessary if MFSQL Connector on the M-Files server is a new install or an upgrade where the VAF version changed.</dt><dd><ul class="simple">
+<p><strong>4. Copy vault related files.</strong></p>
+<p>Copy the following folders to the M-Files server.  This is only necessary if MFSQL Connector on the M-Files server is a new install or an upgrade where the VAF version changed.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Content Package</p></li>
 <li><p>C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Vault Applications\MFSQL_VAF</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <p><img alt="image10" src="../../_images/Image10.png" /></p>
-</div>
-<div class="section" id="manual-install-mfsql-connector-on-the-m-files-server">
-<h2>Manual install MFSQL Connector on the M-Files Server<a class="headerlink" href="#manual-install-mfsql-connector-on-the-m-files-server" title="Permalink to this headline">¶</a></h2>
+<p><strong>5. Installation on M-Files Server.</strong></p>
 <p>The installation on the M-Files Server must always take place in advance of the SQL server when a new installation is performed. In the case of an upgrade, the installation on the M-Files server can be skipped, unless a change in the vault application was made. The version of the vault application is evident indicted in a change of the VAF version or from the <a class="reference internal" href="../../version-control/index.html"><span class="doc">Version Control</span></a> page</p>
-<p>In a case of a M-Files Cloud installation, the installation must be performed by M-Files Support. Contact us for details of the ticket reference to quote for M-Files Support.</p>
-<dl class="simple">
-<dt>First time installation:</dt><dd><ul class="simple">
+<p>First time installation:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Install the content package from C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Content Package using the M-Files Admin one time import in Content Replication and Archiving.</p></li>
 <li><p>Install the VAF from C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Vault Applications\MFSQL_VAF</p></li>
-<li><p>Configure the context menu functionality as outlined in <a class="reference internal" href="../first-time-installation/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a> , if required</p></li>
+<li><p>Configure the context menu functionality as outlined in <a class="reference internal" href="../configuration-and-setup/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a> , if required</p></li>
 <li><p>Obtain a license from us and install the license.</p></li>
 </ul>
-</dd>
-<dt>Upgrade:</dt><dd><ul class="simple">
+</div></blockquote>
+<p>Upgrade:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>The VAF can be installed directly into the vault using the Applications window from the folder C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Vault Applications\MFSQL_VAF</p></li>
 </ul>
-</dd>
-</dl>
-</div>
-<div class="section" id="manual-install-mfsql-connector-on-the-sql-server">
-<h2>Manual install MFSQL Connector on the SQL Server<a class="headerlink" href="#manual-install-mfsql-connector-on-the-sql-server" title="Permalink to this headline">¶</a></h2>
+</div></blockquote>
+<p><strong>5. Installation on SQL Server .</strong></p>
 <p>Before commencing, ensure that the latest Assemblies have been copied to the server, and that M-Files Desktop is installed on the server.</p>
-<dl>
-<dt>Using SSMS from the workstation (or directly on the server), open the following scripts from the folder C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Database scripts\[latest version]\</dt><dd><ul class="simple">
+<p>Using SSMS from the workstation (or directly on the server), open the following scripts from the folder C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Database Name]\Database scripts\[latest version]\</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>10_Setup-[version].sql</p></li>
 <li><p>20_CLR-[version].sql</p></li>
 <li><p>30_Data_Exchange-[version].sql</p></li>
 <li><p>35_Intergation-[version].sql</p></li>
 </ul>
-</dd>
-<dt>Execute the 4 scripts in sequence. Each script will show a listing of routines in the message tab.  Note the following:</dt><dd><ul class="simple">
+</div></blockquote>
+<p>Execute the 4 scripts in sequence. Each script will show a listing of routines in the message tab.  Note the following:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>On a new installation, the database will automatically be created.</p></li>
 <li><p>Do NOT use the same scripts for multiple MFSQL Connector databases.  The name of the database is imbedded in each script. New scripts must be created for each MFSQL Connector database.</p></li>
 <li><p>The messages may show ‘missing objects’. This is only a warning and can be ignored.</p></li>
@@ -317,11 +312,11 @@
 <ul class="simple">
 <li><p>If the execution result shows a failure, scroll down to the section shown in red, make a screenshot and report it to <a class="reference external" href="mailto:support&#37;&#52;&#48;lamininsolutions&#46;com">support<span>&#64;</span>lamininsolutions<span>&#46;</span>com</a>.  Stop processing of the remainder of the scripts.</p></li>
 </ul>
-</dd>
-<dt>On completion of the 4 scripts, execute the following additional procedures in sequence.</dt><dd><ul>
-<li><p>To install the assemblies</p>
-<dl>
-<dt>If the installation of the assemblies failed, then validate that the following is correct:</dt><dd><blockquote>
+</div></blockquote>
+<p><strong>6. Installation the assemblies .</strong></p>
+<p>On completion of the 4 scripts, execute the following to install the assemblies</p>
+<p>If the installation of the assemblies failed, then validate that the following is correct:</p>
+<blockquote>
 <div><ul class="simple">
 <li><p>the correct M-Files Version on the SQL server was used (select * from MFSettings to validate)</p></li>
 <li><p>the Assemblies was copied to the correct path as specified above</p></li>
@@ -332,32 +327,24 @@
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spmfupdateassemblies</span>
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-<li><p>Encrypt the password</p>
+<p><strong>7. Update the password .</strong></p>
+<ul class="simple">
+<li><p>Encrypt the password</p></li>
+</ul>
 <p>Use the password for the M-Files user dedicated for MFSQL Connector</p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSettingsForVaultUpdate</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSettingsForVaultUpdate</span>
 <span class="o">@</span><span class="n">Password</span> <span class="o">=</span> <span class="s1">&#39;the password of the M-Files user&#39;</span>
 </pre></div>
 </div>
-</div></blockquote>
-</li>
-<li><p>Validate that the installation is successful</p>
+<p><strong>7. Validate the installation .</strong></p>
 <p>This procedure will check that license is valid and connection to M-Files can be established. This concludes the manual installation.</p>
-<blockquote>
-<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spmfvaultconnectionTest</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spmfvaultconnectionTest</span>
 </pre></div>
 </div>
 <p>The expected outcome</p>
-<p><img alt="image8" src="../../_images/Image8.png" /></p>
+<blockquote>
+<div><p><img alt="image8" src="../../_images/Image8.png" /></p>
 </div></blockquote>
-</li>
-</ul>
-</dd>
-</dl>
-</div>
 </div>
 
 
@@ -368,10 +355,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../licensing-management/index.html" class="btn btn-neutral float-right" title="Licensing Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="content-package-installation/index.html" class="btn btn-neutral float-right" title="Content Package installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../first-time-installation/install-package-with-logging/index.html" class="btn btn-neutral float-left" title="Install package with logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../configuration-and-setup/setup-powershell-utilities/index.html" class="btn btn-neutral float-left" title="Setup powershell utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -131,6 +131,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-05-31  LC         Fix bug with duration being null
 2021-08-25  LC         Resolve bug with null count
 2021-02-26  LC         Fix issue with duration
 2019-08-30  JC         Added documentation

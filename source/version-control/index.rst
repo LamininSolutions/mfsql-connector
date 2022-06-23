@@ -11,9 +11,9 @@ Published version: 4.9.29.73 2022-05-09
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.29.73  2022-05-09
-Assemblies        4.9.29.0   2022-02-17
-Vault application 4.9.0.2    2021-12-17
+SQL scripts       4.10.30.74  2022-06-30 (Beta)
+Assemblies        4.10.30.0   2022-06-30
+Vault application 4.10.1.19   2022-06-30
 Database File VAF 4.3.0.1    2021-09-23
 ================= ========== ==========
 
@@ -41,6 +41,9 @@ Each procedure, table or function contains there own change control section. See
 
 4.10.30.74
 ~~~~~~~~~~
+
+This is a major new release with significant changes related to the vault application in response to M-Files moving to New Cloud.
+It has material implications for users of the Context Menu functionality. Consult :doc:`/blogs/update-to-VAF-4-10/index`
 
 #. Change of name of the procedure spMfGetSettingsForCofigurator to spMfGetSettingsForConfigurator
 #. The assemblies were updated to change the approach the license expiry date to avoid localisation issues.
