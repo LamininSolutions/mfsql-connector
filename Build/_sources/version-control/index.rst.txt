@@ -11,9 +11,9 @@ Published version: 4.9.29.73 2022-05-09
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.9.29.73  2022-05-09
-Assemblies        4.9.29.0   2022-02-17
-Vault application 4.9.0.2    2021-12-17
+SQL scripts       4.10.30.74  2022-06-30 (Beta)
+Assemblies        4.10.30.0   2022-06-30
+Vault application 4.10.1.19   2022-06-30
 Database File VAF 4.3.0.1    2021-09-23
 ================= ========== ==========
 
@@ -42,6 +42,9 @@ Each procedure, table or function contains there own change control section. See
 4.10.30.74
 ~~~~~~~~~~
 
+This is a major new release with significant changes related to the vault application in response to M-Files moving to New Cloud.
+It has material implications for users of the Context Menu functionality. Consult :doc:`/blogs/update-to-VAF-4-10/index`
+
 #. Change of name of the procedure spMfGetSettingsForCofigurator to spMfGetSettingsForConfigurator
 #. The assemblies were updated to change the approach the license expiry date to avoid localisation issues.
 #. The VAF was fundamentally redesigned to cater for multi server mode, process actions as tasks and allow for full logging. The core functionality remained the same.
@@ -64,6 +67,23 @@ Each procedure, table or function contains there own change control section. See
 #. Several example scripts are updated, or retired as example scripts are being moved into the doc.lamininsolutions documentation
 #. spMFUpdateAllncludedInAppTables documentation is updated to respond to the new parameters added for the procedure
 #. Resolve bug with updating MFAuditHistory in the procedure spMFTableAudit and improve logging
+#. Advanced installer is updated to allow for gRPC to be selected as a protocol
+#. MFProtocolType table is updated to include gRPC
+#. spMFUpdateTableInternal is update to fix a conflict of a property with a name 'value' in the Pivot.
+#. spMFUpdateTable is update to resolve a bug with data definition in large text properties
+#. spMFsetup_Reporting is modified to change the approach to only update selected tables
+#. spMFClassTableStats is updated to resolve an error with the count of objects when sending a report, and to prevent sending a blank page.
+#. spMFResultMessageForUI fixing bug with duration being null
+#. spMFUpdateAllncludedInAppTables is updated to resolve a loop bug with updating history
+#. spMFUpdateMFilesToMFSQL resolve issue of removal of class table objects
+#. Update all example scripts for using the context menu to include ProcessBatch_ID and other changes
+#. Update the Web API to respond to the newly designed VAF.
+
+
+
+
+
+
 
 4.9.29.73
 ~~~~~~~~~

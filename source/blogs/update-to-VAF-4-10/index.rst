@@ -7,6 +7,7 @@ This section have important information for the upgrade in your environment.  No
  . MFSQLConnectorVAFApp
  . MFSQL Connector Assemblies
  . MFSQL Connector procedures
+ . MFSQL Connector Web API
 
  and requires changes to any custom procedures that is called via the ContextMenu functionality.
 
@@ -82,3 +83,8 @@ Optional changes to procedures called via MFContextMenu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Logging in the MFProcessBatch and MFProcessBatchDetail tables is automatic for all major standard procedures of the Connector.  However, logging can also be used in custom procedures to record the different stages of processing in the procedure and improve debugging. See :doc:`/mfsql-integration-connector/using-and-managing-logs/index`
+
+Changes in the Web Api
+-----------------------
+
+If you have previously deployed the Web API for using Context Menu with a cloud vault, then the current Web API must be uninstalled, and the new version must be re-installed by following the Web API installation instructions.

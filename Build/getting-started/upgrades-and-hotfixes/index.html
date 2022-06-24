@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="M-Files automatic upgrade" href="mfiles-upgrade/index.html" />
+    <link rel="next" title="Moving the Connector Database" href="setup-database/index.html" />
     <link rel="prev" title="Database file connector installation" href="../database-file-connector-installation/index.html" /> 
 </head>
 
@@ -91,16 +91,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Getting Started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../installation-overview/index.html">Installation Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../on-premise-installation/index.html">Standard Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../on-premise-installation/index.html">On Premise Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cloud-and-hosted-installation/index.html">M-Files Cloud and other hosted installations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../high-availability-sql-servers/index.html">High Availability SQL Servers installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../configuration-and-setup/index.html">Configuration and setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../manual-installation-using-scripts/index.html">Manual installation using scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../database-file-connector-installation/index.html">Database file connector installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Upgrades and hotfixes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mfiles-upgrade/index.html">M-Files automatic upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="setup-database/index.html">Set-up and working with Connector Database</a></li>
-<li class="toctree-l3"><a class="reference internal" href="updating-to-version-4.8.22.62/index.html">Upgrading version 4.8.22.62 or later</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-database/index.html">Moving the Connector Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfsql-connector-change-management">MFSQL Connector change management</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#types-of-upgrades">Types of Upgrades</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#preparation-for-upgrading">Preparation for upgrading</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#automatic-updates">Automatic updates</a></li>
@@ -110,7 +109,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html">Next Steps after installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../next-steps-after-installation/index.html#using-example-scripts">Using example scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../common-installation-errors-and-resolutions/index.html">Common installation errors and resolutions</a></li>
 </ul>
 </li>
@@ -198,22 +196,32 @@
 <h1>Upgrades and hotfixes<a class="headerlink" href="#upgrades-and-hotfixes" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="mfiles-upgrade/index.html">M-Files automatic upgrade</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mfiles-upgrade/index.html#methods-to-update-mfsql-connector">Methods to update MFSQL Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mfiles-upgrade/index.html#assembly-related-errors">Assembly related errors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="setup-database/index.html">Set-up and working with Connector Database</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="setup-database/index.html">Moving the Connector Database</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup-database/index.html#backup-and-restore-of-connector">Backup and restore of Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup-database/index.html#changing-name-of-database">Changing name of database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setup-database/index.html#fixing-orphaned-user-account">Fixing orphaned user account</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="updating-to-version-4.8.22.62/index.html">Upgrading version 4.8.22.62 or later</a></li>
 </ul>
 </div>
-<p>M-Files and MFSQL Connector regularly publish upgrades and hot fixes.</p>
-<p>Connector functionality released in specific releases are highlighted in <a class="reference internal" href="../../version-control/index.html"><span class="doc">Version Control</span></a>. The change control of each procedure is documented as a section in the procedure documentation.</p>
+<p>M-Files and MFSQL Connector regularly publish upgrades and hot fixes.  Lately, M-Files updates are automated and can be scheduled. MFSQL Connector
+updates are not automated and the latest available releases are published on the website.</p>
+<p>M-Files upgrades on workstations and the M-Files Server (in cases where the MFSQL SQL instance is not on the M-Files Server) does not affect MFSQL Connector,
+however, MFSQL Connector is directly affected by an upgrade of M-Files on the SQL Server.</p>
+<p>Special routines, highlighted below aim at keeping the MFSQL Connector responsive to an M-Files upgrade.
+We nevertheless recommend to set M-Files upgrades on the SQL server as manual and to only upgrade M-Files when a new version of MFSQL connector is deployed.</p>
+<p>This chapter elaborates on</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>How to perform a MFSQL Connector upgrade</p></li>
+<li><p>Exception handling when MFSQL Connector did not update when M-Files upgraded</p></li>
+<li><p>Considerations when copying, moving, or restoring an MFSQL Connector database</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="mfsql-connector-change-management">
+<h2>MFSQL Connector change management<a class="headerlink" href="#mfsql-connector-change-management" title="Permalink to this headline">¶</a></h2>
+<p>Changes to the connector and new functionality released in specific releases are highlighted in <a class="reference internal" href="../../version-control/index.html"><span class="doc">Version Control</span></a>. The change control of each procedure is documented as a section in the procedure documentation.</p>
+</div>
 <div class="section" id="types-of-upgrades">
 <h2>Types of Upgrades<a class="headerlink" href="#types-of-upgrades" title="Permalink to this headline">¶</a></h2>
 <p>Connector upgrades will differ depending on what is driving the upgrade.</p>
@@ -266,7 +274,7 @@ load the new version API’s into memory</p>
 <p>When the second segment has changed, the package must be applied to both SQL Server and M-Files Server.
 (e.g. 4.7.22.48 to 4.8.23.50)</p>
 <p>Take special care when the current version is prior to 4.8.22.62.  Additional steps may include:
-- <a class="reference internal" href="updating-to-version-4.8.22.62/index.html"><span class="doc">Upgrading version 4.8.22.62 or later</span></a>
+- <span class="xref std std-doc">/getting-started/upgrades-and-hotfixes/updating-to-version-4.8.22.62/index</span>
 - contact us when upgrading from releases prior to 4.4.7.40</p>
 </div>
 <div class="section" id="version-check">
@@ -280,6 +288,51 @@ table</p>
 <span class="n">ID</span>   <span class="n">LSWrapperVersion</span>                    <span class="n">MFilesAPIVersion</span>       <span class="n">DeployedBy</span> <span class="n">DeployedOn</span>
 <span class="mi">1019</span> <span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">11</span> <span class="o">/</span> <span class="n">MFSQL</span> <span class="n">Connector</span> <span class="mi">2</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">13</span> <span class="mi">7</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span> <span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">4330</span><span class="p">.</span><span class="mi">134</span> <span class="n">RemoteSQL</span>  <span class="mi">12</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2016</span>
 <span class="o">====</span> <span class="o">===================================</span> <span class="o">======================</span> <span class="o">==========</span> <span class="o">==========</span>
+
+<span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">automatic</span> <span class="n">upgrade</span>
+<span class="o">=========================</span>
+
+<span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">automatically</span> <span class="n">upgrades</span> <span class="k">to</span> <span class="n">keep</span> <span class="n">the</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">software</span> <span class="n">up</span> <span class="k">to</span> <span class="nb">date</span><span class="p">.</span>
+
+<span class="n">MFSQL</span> <span class="n">Connector</span> <span class="n">must</span> <span class="n">response</span> <span class="k">to</span> <span class="n">the</span> <span class="n">upgrade</span> <span class="k">of</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="k">on</span> <span class="n">the</span> <span class="k">SQL</span> <span class="n">Server</span><span class="p">.</span> <span class="n">MFSQL</span> <span class="n">Connector</span> <span class="n">requires</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">Desktop</span> <span class="k">on</span> <span class="n">the</span> <span class="k">SQL</span> <span class="n">Server</span> <span class="k">where</span> <span class="n">MFSQL</span> <span class="n">Connector</span> <span class="k">is</span> <span class="n">deployed</span><span class="p">.</span> <span class="k">When</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">upgrades</span> <span class="k">on</span> <span class="n">the</span> <span class="k">SQL</span> <span class="n">Server</span> <span class="n">it</span> <span class="n">moves</span> <span class="n">the</span> <span class="k">location</span> <span class="k">of</span> <span class="n">the</span> <span class="n">MFilesAPI</span> <span class="k">to</span> <span class="n">the</span> <span class="k">new</span> <span class="n">installed</span> <span class="k">version</span><span class="p">.</span> <span class="n">MFSQL</span> <span class="n">Connector</span> <span class="n">must</span> <span class="n">therefore</span> <span class="n">be</span> <span class="n">updated</span> <span class="k">to</span> <span class="n">repoint</span> <span class="n">the</span> <span class="n">MFileAPI</span> <span class="k">in</span> <span class="n">the</span> <span class="n">CLR</span> <span class="n">Assemblies</span> <span class="k">to</span> <span class="n">the</span> <span class="k">new</span> <span class="k">location</span><span class="p">.</span>
+
+<span class="n">Methods</span> <span class="k">to</span> <span class="k">update</span> <span class="n">MFSQL</span> <span class="n">Connector</span>
+<span class="c1">---------------------------------</span>
+
+<span class="o">#</span><span class="p">.</span> <span class="n">Automatic</span> <span class="k">Update</span>
+
+<span class="n">The</span> <span class="n">Connector</span> <span class="n">checks</span> <span class="k">to</span> <span class="n">validate</span> <span class="k">if</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">has</span> <span class="n">upgraded</span> <span class="k">by</span> <span class="n">running</span> <span class="n">the</span> <span class="k">procedure</span> <span class="o">`</span><span class="n">spMFCheckAndUpdateAssemblyVersion</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doc</span><span class="p">.</span><span class="n">lamininsolutions</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">mfsql</span><span class="o">-</span><span class="n">connector</span><span class="o">/</span><span class="n">procedures</span><span class="o">/</span><span class="n">spMFCheckAndUpdateAssemblyVersion</span><span class="o">&gt;`</span><span class="n">_</span><span class="p">.</span>  <span class="n">This</span> <span class="k">procedure</span> <span class="n">can</span> <span class="n">be</span> <span class="n">run</span> <span class="n">manually</span> <span class="k">using</span> <span class="o">`</span><span class="n">spMFUpdateAssemblies</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doc</span><span class="p">.</span><span class="n">lamininsolutions</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">mfsql</span><span class="o">-</span><span class="n">connector</span><span class="o">/</span><span class="n">procedures</span><span class="o">/</span><span class="n">spMFUpdateAssemblies</span><span class="o">&gt;`</span><span class="n">_</span><span class="p">,</span> <span class="k">using</span> <span class="n">a</span> <span class="o">`</span><span class="k">SQL</span> <span class="n">agent</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doc</span><span class="p">.</span><span class="n">lamininsolutions</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">mfsql</span><span class="o">-</span><span class="n">connector</span><span class="o">/</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="k">first</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">installation</span><span class="o">/</span><span class="k">using</span><span class="o">-</span><span class="n">agent</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">automated</span><span class="o">-</span><span class="n">updates</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">html</span><span class="o">&gt;`</span><span class="n">_</span> <span class="p">,</span> <span class="k">or</span> <span class="k">using</span> <span class="n">a</span> <span class="o">`</span><span class="n">powershell</span> <span class="n">utility</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doc</span><span class="p">.</span><span class="n">lamininsolutions</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">mfsql</span><span class="o">-</span><span class="n">connector</span><span class="o">/</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">/</span><span class="k">first</span><span class="o">-</span><span class="n">time</span><span class="o">-</span><span class="n">installation</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">powershell</span><span class="o">-</span><span class="n">utilities</span><span class="o">/&gt;`</span><span class="n">_</span><span class="p">.</span>  <span class="n">Use</span> <span class="n">the</span> <span class="n">powershell</span> <span class="n">utility</span> <span class="k">for</span> <span class="k">SQL</span> <span class="n">Express</span> <span class="n">installations</span><span class="p">.</span>
+
+<span class="o">#</span><span class="p">.</span> <span class="n">Manual</span> <span class="k">update</span>
+
+<span class="k">Set</span> <span class="n">the</span> <span class="k">parameter</span> <span class="k">to</span> <span class="n">the</span> <span class="k">current</span> <span class="k">version</span> <span class="k">of</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="k">on</span> <span class="n">the</span> <span class="k">SQL</span> <span class="n">Server</span> <span class="k">then</span> <span class="k">execute</span><span class="p">.</span>
+
+<span class="p">..</span> <span class="n">code</span><span class="p">::</span> <span class="k">sql</span>
+
+    <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateAssemblies</span><span class="p">]</span> <span class="o">@</span><span class="n">MfilesVersion</span> <span class="o">=</span> <span class="s1">&#39;19.9.8028.5&#39;</span>
+
+<span class="o">#</span><span class="p">.</span> <span class="n">Rerun</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">package</span>
+
+<span class="n">Another</span> <span class="n">way</span> <span class="k">to</span> <span class="k">reset</span> <span class="n">the</span> <span class="n">assemblies</span> <span class="k">is</span> <span class="k">to</span> <span class="n">re</span><span class="o">-</span><span class="n">run</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">package</span> <span class="k">of</span> <span class="n">the</span> <span class="n">MFSQL</span> <span class="n">Connector</span><span class="p">.</span>
+
+<span class="o">#</span><span class="p">.</span> <span class="k">Check</span> <span class="n">the</span> <span class="n">M</span><span class="o">-</span><span class="n">files</span> <span class="k">version</span> <span class="k">on</span> <span class="n">the</span> <span class="k">SQL</span> <span class="n">Server</span>
+
+<span class="p">..</span> <span class="n">code</span><span class="p">::</span> <span class="k">sql</span>
+
+    <span class="k">Declare</span> <span class="o">@</span><span class="n">IsUpdateAssembly</span> <span class="nb">int</span><span class="p">,</span> <span class="o">@</span><span class="n">MFilesVersion</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+    <span class="k">Exec</span> <span class="n">spMFGetMFilesAssemblyVersion</span> <span class="o">@</span><span class="n">IsUpdateAssembly</span> <span class="o">=</span> <span class="o">@</span><span class="n">IsUpdateAssembly</span> <span class="k">output</span><span class="p">,</span> <span class="o">@</span><span class="n">MFilesVersion</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFilesVersion</span> <span class="k">output</span>
+    <span class="k">Select</span> <span class="o">@</span><span class="n">IsUpdateAssembly</span> <span class="k">as</span> <span class="n">IsUpdateRequired</span><span class="p">,</span> <span class="o">@</span><span class="n">MFilesVersion</span> <span class="k">as</span> <span class="n">InstalledVersion</span>
+
+<span class="n">Assembly</span> <span class="n">related</span> <span class="n">errors</span>
+<span class="c1">-----------------------</span>
+
+<span class="n">An</span> <span class="n">error</span> <span class="n">reporting</span> <span class="n">a</span> <span class="n">missing</span> <span class="k">procedure</span> <span class="k">or</span> <span class="n">that</span> <span class="n">the</span> <span class="n">assembly</span> <span class="n">could</span> <span class="k">not</span> <span class="n">be</span> <span class="k">found</span> <span class="k">is</span> <span class="n">usually</span> <span class="n">an</span> <span class="n">indication</span> <span class="n">that</span> <span class="n">the</span> <span class="n">updating</span> <span class="k">of</span> <span class="n">the</span> <span class="n">assemblies</span> <span class="n">did</span> <span class="k">not</span> <span class="k">work</span><span class="p">.</span>
+
+<span class="k">Check</span> <span class="n">the</span> <span class="n">following</span><span class="p">:</span>
+
+ <span class="o">-</span> <span class="k">Check</span> <span class="n">the</span> <span class="n">agent</span> <span class="k">or</span> <span class="n">powershell</span> <span class="n">utility</span> <span class="k">to</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">the</span> <span class="k">update</span> <span class="k">is</span> <span class="n">running</span> <span class="k">as</span> <span class="n">expected</span><span class="p">.</span>
+ <span class="o">-</span> <span class="k">If</span> <span class="n">the</span> <span class="n">Connector</span> <span class="k">is</span> <span class="n">running</span> <span class="n">updates</span> <span class="n">regularly</span> <span class="n">during</span> <span class="n">the</span> <span class="k">day</span><span class="p">,</span> <span class="k">then</span> <span class="n">it</span> <span class="k">is</span> <span class="n">advisable</span> <span class="k">to</span> <span class="n">ensure</span> <span class="n">the</span> <span class="n">agent</span> <span class="n">runs</span> <span class="n">say</span> <span class="k">every</span> <span class="n">half</span> <span class="n">hour</span> <span class="k">to</span> <span class="n">catch</span> <span class="k">any</span> <span class="n">unexpected</span> <span class="n">automatic</span> <span class="n">M</span><span class="o">-</span><span class="n">Files</span> <span class="n">updates</span><span class="p">.</span>
+ <span class="o">-</span> <span class="n">Running</span> <span class="n">the</span> <span class="n">updates</span><span class="p">,</span> <span class="n">especially</span> <span class="k">with</span> <span class="n">Connector</span> <span class="n">versions</span> <span class="k">prior</span> <span class="k">to</span> <span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">24</span><span class="p">.</span><span class="mi">65</span> <span class="n">may</span> <span class="k">result</span> <span class="k">in</span> <span class="n">the</span> <span class="n">dropping</span> <span class="k">of</span> <span class="n">the</span> <span class="n">CLR</span> <span class="n">assemblies</span><span class="p">,</span> <span class="k">without</span> <span class="n">reloading</span> <span class="n">the</span> <span class="n">assemblies</span><span class="p">.</span>  <span class="n">Run</span> <span class="k">exec</span> <span class="n">spmfUpdateAssemblies</span> <span class="o">@</span><span class="n">MfilesVersion</span> <span class="o">=</span> <span class="s1">&#39;the current version on the SQL server&#39;</span> <span class="k">to</span> <span class="n">fix</span><span class="p">.</span>
 </pre></div>
 </div>
 </div>
@@ -293,7 +346,7 @@ table</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="mfiles-upgrade/index.html" class="btn btn-neutral float-right" title="M-Files automatic upgrade" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="setup-database/index.html" class="btn btn-neutral float-right" title="Moving the Connector Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../database-file-connector-installation/index.html" class="btn btn-neutral float-left" title="Database file connector installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

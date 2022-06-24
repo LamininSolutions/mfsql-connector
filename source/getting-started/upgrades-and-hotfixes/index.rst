@@ -85,9 +85,6 @@ Note the installed version before updating with `Version Check`.  If only the th
 When the second segment has changed, the package must be applied to both SQL Server and M-Files Server.
 (e.g. 4.7.22.48 to 4.8.23.50)
 
-Take special care when the current version is prior to 4.8.22.62.  Additional steps may include:
-- :doc:`/getting-started/upgrades-and-hotfixes/updating-to-version-4.8.22.62/index`
-- contact us when upgrading from releases prior to 4.4.7.40
 
 Version Check
 -------------

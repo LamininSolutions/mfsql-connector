@@ -67,6 +67,23 @@ It has material implications for users of the Context Menu functionality. Consul
 #. Several example scripts are updated, or retired as example scripts are being moved into the doc.lamininsolutions documentation
 #. spMFUpdateAllncludedInAppTables documentation is updated to respond to the new parameters added for the procedure
 #. Resolve bug with updating MFAuditHistory in the procedure spMFTableAudit and improve logging
+#. Advanced installer is updated to allow for gRPC to be selected as a protocol
+#. MFProtocolType table is updated to include gRPC
+#. spMFUpdateTableInternal is update to fix a conflict of a property with a name 'value' in the Pivot.
+#. spMFUpdateTable is update to resolve a bug with data definition in large text properties
+#. spMFsetup_Reporting is modified to change the approach to only update selected tables
+#. spMFClassTableStats is updated to resolve an error with the count of objects when sending a report, and to prevent sending a blank page.
+#. spMFResultMessageForUI fixing bug with duration being null
+#. spMFUpdateAllncludedInAppTables is updated to resolve a loop bug with updating history
+#. spMFUpdateMFilesToMFSQL resolve issue of removal of class table objects
+#. Update all example scripts for using the context menu to include ProcessBatch_ID and other changes
+#. Update the Web API to respond to the newly designed VAF.
+
+
+
+
+
+
 
 4.9.29.73
 ~~~~~~~~~
