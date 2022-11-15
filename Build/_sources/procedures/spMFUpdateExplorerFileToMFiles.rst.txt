@@ -19,6 +19,12 @@ Parameters
   @IsFileDelete bit (optional)
     - Default = 0
     - 1 = the file should be deleted in folder
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @ProcessBatch\_id int (output)
     Output ID in MFProcessBatch for logging the process
   @Debug int (optional)
@@ -75,6 +81,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Update to include RetainDeletions and DocumentCollections
 2021-08-03  LC         Fix truncate string bug
 2021-05-21  LC         improve handling of files on network drive
 2020-12-31  LC         Improve error handling in procedure

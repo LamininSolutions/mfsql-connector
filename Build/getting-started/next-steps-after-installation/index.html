@@ -202,7 +202,7 @@ This is achieved by either:</p>
 <div><ul class="simple">
 <li><p>using the procedure <a class="reference internal" href="../../procedures/spMFSetup_Reporting.html"><span class="doc">spMFSetup_Reporting</span></a> as discussed in more detail in <a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/reporting/setup-reporting/index.html"><span class="doc">Reporting : Quick start</span></a> , or</p></li>
 <li><p>Follow the steps below or</p></li>
-<li><p>see the section  <span class="xref std std-doc">/Using example scripts</span> scripts and follow the script ‘Getting Started’ to complete the first steps and getting to know the Connector.</p></li>
+<li><p>see the section Using example scripts below and follow the script ‘Getting Started’ to complete the first steps and getting to know the Connector.</p></li>
 </ul>
 </div></blockquote>
 <p>After the metadata structure is refreshed, and the targeted class tables are created, the Connector can be used.</p>
@@ -215,14 +215,14 @@ that the Connector can access the M-Files vault.</p>
 <p>Execute the following procedure to test that the Connector can access
 the vault.  This procedure can be executed even before metadata have
 been synchronized.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFVaultConnectionTest</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spMFVaultConnectionTest</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="update-metadata-structure">
 <h2>Update metadata Structure<a class="headerlink" href="#update-metadata-structure" title="Permalink to this headline">¶</a></h2>
 <p>Update the metadata structure by using the following procedure</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFSynchronizeMetadata</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spMFSynchronizeMetadata</span>
 </pre></div>
 </div>
 <p>The vault is now ready to design the usage of the Connector and add the
@@ -232,14 +232,14 @@ related Class tables.</p>
 <h2>View available class tables<a class="headerlink" href="#view-available-class-tables" title="Permalink to this headline">¶</a></h2>
 <p>Use the following procedure to get a listing of all the classes in the
 vault.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MFClass</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-first-class-table">
 <h2>Create first Class Table<a class="headerlink" href="#create-first-class-table" title="Permalink to this headline">¶</a></h2>
 <p>The following procedure will create a class table such as Customer.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFCreateTable</span><span class="p">]</span> <span class="o">@</span><span class="n">ClassName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;Customer&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spMFCreateTable</span> <span class="o">@</span><span class="n">ClassName</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
 </pre></div>
 </div>
 <p>Note that the table will be created with the TableName as per the
@@ -252,7 +252,7 @@ columns that has automatically be created.</p>
 procedure. Note that class tables will take some time to update.  If there are many records in the class then
 consult the section on UpdateTable for further guidance when large
 datasets are updated.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">spMFUpdateTable</span>
        <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="n">N</span><span class="s1">&#39;MFCustomer&#39;</span>
      <span class="p">,</span> <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>

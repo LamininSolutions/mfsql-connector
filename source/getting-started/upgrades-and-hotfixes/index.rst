@@ -5,6 +5,7 @@ Upgrades and hotfixes
    :maxdepth: 4
 
    setup-database/index
+   update_to_4_10_30_74/index
 
 M-Files and MFSQL Connector regularly publish upgrades and hot fixes.  Lately, M-Files updates are automated and can be scheduled. MFSQL Connector
 updates are not automated and the latest available releases are published on the website.
@@ -38,8 +39,7 @@ Connector upgrades will differ depending on what is driving the upgrade.
 #. Upgrades from Release 3 (version 3.1.4.40 and earlier) to Release 4
    (version 4.1.5.41 and higher). 
 
-..note::
-    There is no need to update the Connector if the M-Files version changes on the user desktop or M-Files server, where the M-Files server is not the same as the SQL server.
+.. note:: There is no need to update the Connector if the M-Files version changes on the user desktop or M-Files server, where the M-Files server is not the same as the SQL server.
 
 Preparation for upgrading
 -------------------------

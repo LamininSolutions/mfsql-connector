@@ -14,6 +14,12 @@ Parameters
     Name of the column to be removed
   @process\_ID smallint
     Use any flag that is not 0 = 4 to indicate the records that should be included. Set the flag on all records if the adhoc property should be removed from all
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)
@@ -64,6 +70,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Update to include RetainDeletions and DocumentCollections
 2020-08-22  LC         Update code for deleted column change
 2019-08-30  JC         Added documentation
 2018-04-25  LC         Fix bug to pick up both ID column and label column when deleting columns

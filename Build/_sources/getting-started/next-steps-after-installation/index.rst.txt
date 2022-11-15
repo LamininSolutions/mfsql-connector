@@ -7,9 +7,10 @@ Always test the installation first (see below)
 If the connection test fails, consult the common installation errors section to resolve it.
 Thereafter, before using the Connector, the metadata structure must be updated, and the class tables must be setup.
 This is achieved by either:
+
  - using the procedure :doc:`/procedures/spMFSetup_Reporting` as discussed in more detail in :doc:`/mfsql-data-exchange-and-reporting-connector/reporting/setup-reporting/index` , or
  - Follow the steps below or
- - see the section  :doc:`/Using example scripts` scripts and follow the script 'Getting Started' to complete the first steps and getting to know the Connector.
+ - see the section Using example scripts below and follow the script 'Getting Started' to complete the first steps and getting to know the Connector.
 
 After the metadata structure is refreshed, and the targeted class tables are created, the Connector can be used.
 
@@ -28,7 +29,7 @@ been synchronized.
 
 .. code:: sql
 
-    EXEC [dbo].[spMFVaultConnectionTest]
+    EXEC spMFVaultConnectionTest
 
 Update metadata Structure
 -------------------------
@@ -37,7 +38,7 @@ Update the metadata structure by using the following procedure
 
 .. code:: sql
 
-     EXEC [dbo].[spMFSynchronizeMetadata]
+     EXEC spMFSynchronizeMetadata
 
 The vault is now ready to design the usage of the Connector and add the
 related Class tables. 
@@ -50,7 +51,7 @@ vault.  
 
 .. code:: sql
 
-      SELECT * FROM [dbo].[MFClass] AS [mc]
+      SELECT * FROM MFClass
 
 Create first Class Table
 ------------------------
@@ -59,7 +60,7 @@ The following procedure will create a class table such as Customer.  
 
 .. code:: sql
 
-    EXEC [dbo].[spMFCreateTable] @ClassName = N'Customer'
+    EXEC spMFCreateTable @ClassName = 'Customer'
 
 Note that the table will be created with the TableName as per the
 MFClass Table.  Perform a select statement on the table to view the
@@ -75,7 +76,7 @@ datasets are updated.
 
 .. code:: sql
 
-      EXEC [dbo].[spMFUpdateTable]
+      EXEC spMFUpdateTable
              @MFTableName = N'MFCustomer'
            , @UpdateMethod = 1
 

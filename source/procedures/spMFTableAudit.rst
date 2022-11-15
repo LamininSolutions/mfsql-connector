@@ -78,6 +78,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-08  LC         simplify query for flag 5 to ellimate objects not in Audit table
 2022-01-28  LC         set objids datatype to max
 2022-01-08  LC         new code to deal with class changes
 2021-12-20  LC         add revalidate of deleted objects when incremental update

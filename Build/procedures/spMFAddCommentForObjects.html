@@ -112,6 +112,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="spMFAliasesUpsert.html">spMFAliasesUpsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFChangeClass.html">spMFChangeClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckAndUpdateAssemblyVersion.html">spMFCheckAndUpdateAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckLicenseStatus.html">spMFCheckLicenseStatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFClassTableColumns.html">spMFClassTableColumns</a></li>
@@ -167,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObject.html">spMFSearchForObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObjectbyPropertyValues.html">spMFSearchForObjectbyPropertyValues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSendHTMLBodyEmail.html">spMFSendHTMLBodyEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetAdditionalProperty.html">SpmfSetAdditionalProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetContextMenuQueue.html">spMFSetContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetUniqueIndexes.html">spMFSetUniqueIndexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
@@ -289,6 +291,16 @@
 <li><p>Pass the class table name, e.g.: ‘MFCustomer’</p></li>
 </ul>
 </dd>
+<dt>&#64;RetainDeletions bit</dt><dd><ul class="simple">
+<li><p>Default = No</p></li>
+<li><p>Set explicity to 1 if the class table should retain deletions</p></li>
+</ul>
+</dd>
+<dt>&#64;IsDocumentCollection</dt><dd><ul class="simple">
+<li><p>Default = No</p></li>
+<li><p>Set explicitly to 1 if the class table refers to a document collection class table</p></li>
+</ul>
+</dd>
 <dt>&#64;Process_id int</dt><dd><p>process id of the object(s) to add the comment to</p>
 </dd>
 <dt>&#64;Comment nvarchar(1000)</dt><dd><p>the text of the bulk comment</p>
@@ -349,15 +361,19 @@ The same comment will be applied to all the selected objects.</p>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-08-22</p></td>
+<tr class="row-even"><td><p>2022-09-02</p></td>
+<td><p>LC</p></td>
+<td><p>Add additional parameters for spmfupdatetable</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>change of deleted column definition</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-11-23</p></td>
+<tr class="row-even"><td><p>2019-11-23</p></td>
 <td><p>LC</p></td>
 <td><p>Redesign procedure</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-08-30</p></td>
+<tr class="row-odd"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>

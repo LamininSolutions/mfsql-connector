@@ -21,6 +21,12 @@ Parameters
   @UserId nvarchar(200) (optional)
     - Default = NULL
     - Update specific user
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)
@@ -52,6 +58,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Update to include RetainDeletions and DocumentCollections
 2019-08-30  JC         Added documentation
 2017-06-29  AC         @ObjIds_toUpdate change sizes to NVARCHAR(4000)
 2017-06-29  AC         @ObjIds_FieldLenth change default value to 2000

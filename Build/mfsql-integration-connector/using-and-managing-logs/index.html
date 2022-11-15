@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Error tracing" href="error-tracing/index.html" />
+    <link rel="next" title="Logging Tables" href="../../the-connector-framework/connector-content/logging-tables/index.html" />
     <link rel="prev" title="Tips and tricks on using the Connector" href="../tips-and-tricks-on-using-the-connector/index.html" /> 
 </head>
 
@@ -104,20 +104,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../send-bulk-email/index.html">Send Bulk Email</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../working-with-files/index.html">Working with files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../working-with-aliases/index.html">Working with aliases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../correcting-synchronization-errors/index.html">Correcting Synchronization errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../change-of-vault/index.html">Change of Vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../daily-monthly-routines-for-agents/index.html">Daily Monthly Routines for Agents</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using and managing logs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="error-tracing/index.html">Error tracing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../the-connector-framework/connector-content/logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../getting-started/configuration-and-setup/enabling-vaf-logging/index.html">Enabling and configuring the VAF logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
 <li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="logging-in-custom-procedures/index.html">Logging in custom procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error-tracing/index.html">Error tracing</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../working-with-object-version/index.html">Working with Object Version</a></li>
@@ -210,52 +209,15 @@
 <h1>Using and managing logs<a class="headerlink" href="#using-and-managing-logs" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="error-tracing/index.html">Error tracing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/correcting-synchronization-errors/index.html">Correcting Synchronization errors</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="error-tracing/correcting-synchronization-errors/index.html#causes">Causes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="error-tracing/correcting-synchronization-errors/index.html#correction">Correction</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="error-tracing/correcting-synchronization-errors/index.html#manual-correction">Manual correction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="error-tracing/correcting-synchronization-errors/index.html#auto-update-using-precedence">Auto update using precedence.</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#error-reporting">Error reporting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#errors">Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#synchronization-errors">Synchronization errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#common-errors">Common Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#error-back-tracking">Error back tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="error-tracing/index.html#related-topics"><strong>Related Topics</strong></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/connector-content/logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/configuration-and-setup/enabling-vaf-logging/index.html">Enabling and configuring the VAF logging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mfupdatehistory-for-logging-of-class-record-changes/index.html#logging">Logging</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="logging-in-custom-procedures/index.html">Logging in custom procedures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="logging-in-custom-procedures/index.html#processbatch">ProcessBatch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-in-custom-procedures/index.html#processbatchdetail">ProcessBatchDetail</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging-in-custom-procedures/index.html">Logging in custom procedures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error-tracing/index.html">Error tracing</a></li>
 </ul>
 </div>
-<p>Logs improve the tracing and review of the operations of the Connector.
-Different types of logs are used.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Logging class record updates between M-Files and SQL</p></li>
-<li><p>Logging the execution of key processes and their associated process steps</p></li>
-<li><p>Logging of system errors.</p></li>
-<li><p>Logging of the latest ObjectVersion of an object in M-Files</p></li>
-<li><p>Use logging in custom procedures to monitor specific operations</p></li>
-</ul>
-</div></blockquote>
 </div>
 
 
@@ -266,7 +228,7 @@ Different types of logs are used.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="error-tracing/index.html" class="btn btn-neutral float-right" title="Error tracing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../the-connector-framework/connector-content/logging-tables/index.html" class="btn btn-neutral float-right" title="Logging Tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../tips-and-tricks-on-using-the-connector/index.html" class="btn btn-neutral float-left" title="Tips and tricks on using the Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

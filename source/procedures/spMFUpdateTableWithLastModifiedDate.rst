@@ -15,6 +15,12 @@ Parameters
     fixme description
   @Update\_IDOut int (output)
     fixme description
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @debug smallint
@@ -42,6 +48,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Update to include RetainDeletions and DocumentCollections
 2019-08-30  JC         Added documentation
 2019-07-07  LC         Change sequnce of paramters, add new method to include updating deletions.
 2018-10-22  LC         Add 1 second to last modified data to avoid reprocessing the last record.

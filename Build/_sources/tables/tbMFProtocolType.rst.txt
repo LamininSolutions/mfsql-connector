@@ -16,7 +16,7 @@ MFProtocolTypeValue nvarchar(200)
 Additional Info
 ===============
 
-Allow for HTTPS and localhost protocol Types and flexible port end points.
+Allow for gRPC, HTTPS, IPS and localhost protocol Types and flexible port end points.
 
 Used By
 =======
@@ -33,6 +33,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-21  LC         Add gRPC
 2019-09-07  JC         Added documentation
+2016-08-01  DEV        Created procedure
 ==========  =========  ========================================================
 

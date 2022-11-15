@@ -10,10 +10,17 @@ Parameters
   @MFTableName nvarchar(250)
     - Valid Class TableName as a string
     - Pass the class table name, e.g.: 'MFCustomer'
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @Process\_id int
     process id of the object(s) to add the comment to
   @Comment nvarchar(1000)
     the text of the bulk comment
+
   @Debug smallint (optional)
     - Default = 0
     - 1 = Standard Debug Mode
@@ -66,6 +73,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Add additional parameters for spmfupdatetable
 2020-08-22  LC         change of deleted column definition
 2019-11-23  LC         Redesign procedure
 2019-08-30  JC         Added documentation

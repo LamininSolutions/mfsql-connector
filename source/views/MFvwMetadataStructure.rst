@@ -44,6 +44,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-03  LC         Add Retain if null for ad hoc properties
 2021-09-01  LC         Add valuelist_Class_MFID
 2020-12-20  LC         Add MFDatatype_ID
 2020-08-22  LC         Deleted column change to localisation

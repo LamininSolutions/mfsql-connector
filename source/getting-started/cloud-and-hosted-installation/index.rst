@@ -25,7 +25,7 @@ Run the MFSQL Connector installation package on the SQL Server using :doc:`/gett
  -   Select cloud option in the location of M-Files Vault window.
  -   Note that the installation package will skip the window to log into the M-Files Server
 
- |image1|
+|image1|
 
  **3. Complete M-Files login details.**
 

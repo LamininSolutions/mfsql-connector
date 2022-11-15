@@ -82,9 +82,13 @@ This procedure will not remove destroyed objects from the class table.  Use spMF
 
 This procedure will not remove objects from the class table where the class of the object was changed in M-Files.  Use spMFUpdateMFilestoMFSQL to identify and remove these objects from the class table.
 
+When running this procedure without setting the objids parameter will not identify if a record was deleted in M-Files. To update deleted records, use spMFUpdateMFilestoMFSQL or set the objids for the records to be updated.
+
 Deleted objects will only be removed if they are included in the filter 'Objids'.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.
 
 Deleted objects in M-Files will automatically be removed from the class table unless @RetainDeletions is set to 1.
+
+When the Retaindeletions flag are used, and a deleted object's deleted date is reset to null with the intent to undelete the object, it will not reset the deletions flag in M-Files for the object. Use the procedure spmfDeleteObject, or spMFDeleteObjectList to reset a deletions flag of an object.
 
 The valid range of real datatype properties for uploading from SQL to M-Files is -1,79E27 and 1,79E27
 
@@ -168,6 +172,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-02  LC         Add retain deletions to spMFUpdateSynchronizeError
+2022-08-03  LC         Update sync precedence to resolve issue with not updating
 2022-06-01  LC         Resolve bug with data definition in large text properties
 2022-03-23  LC         Add protection against locking when updating class table
 2022-03-07  LC         Fix bug with not updating AuditTable

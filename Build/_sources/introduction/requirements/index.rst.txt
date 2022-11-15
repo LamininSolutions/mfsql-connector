@@ -7,6 +7,8 @@ Summary
 M-Files: Version 20.5 or later; On premise or Cloud; 1 Named User
 dedicated to MFSQL Connector; M-Files desktop on server
 
+From MFSQL Connector version 4.10.30.74 the minimum requirement for M-Files is 20.12.  All desktops must be on 20.12 or later versions.
+
 SQL: MS SQL 2016 to 2019; (Express or Standard); M-Files Desktop on
 server.
 
@@ -15,7 +17,7 @@ Detail
 
 **M-Files Version**
 
- - M-Files version 20.5 and later
+ - M-Files version 20.12 and later
  - M-Files IML (Intelligent Metadata Layer) Core licence is required for the DB File Connector module
 
 **M-Files User**

@@ -1,3 +1,0 @@
-[31mE:\Development\Github\LamininSolutions\mfsql-connector\source\getting-started\next-steps-after-installation\index.rst:10: WARNING: Unexpected indentation.[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\getting-started\next-steps-after-installation\index.rst:12: WARNING: unknown document: /Using example scripts[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\getting-started\upgrades-and-hotfixes\index.rst:88: WARNING: unknown document: /getting-started/upgrades-and-hotfixes/updating-to-version-4.8.22.62/index[39;49;00m

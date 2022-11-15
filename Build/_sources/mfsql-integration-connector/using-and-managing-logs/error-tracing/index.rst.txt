@@ -1,10 +1,6 @@
 Error tracing
 =============
 
-.. toctree::
-   :maxdepth: 4
-
-   correcting-synchronization-errors/index
 
 Tracing MFSQL Errors has many different dimensions and investigating an
 error may require several steps.
@@ -80,6 +76,7 @@ object in SQL with a process_id of 2.
 From version 3.1.2.38 functionality is included to allow for automatic
 correction of synchronization errors.  This feature is explained in
 detail in Correcting Synchronization Errors.
+
 
 Common Errors
 -------------

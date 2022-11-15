@@ -28,6 +28,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-07  LC         Introduce columns RetainIfNull and IsAdditional
 2020-12-23  LC         Add class as a property 100
 2019-08-30  JC         Added documentation
 2017-09-11  LC         Resolve issue with constraints

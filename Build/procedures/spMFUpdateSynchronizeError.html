@@ -105,6 +105,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Procedures</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="spMFAddCommentForObjects.html">spMFAddCommentForObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFAliasesUpsert.html">spMFAliasesUpsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFChangeClass.html">spMFChangeClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckAndUpdateAssemblyVersion.html">spMFCheckAndUpdateAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckLicenseStatus.html">spMFCheckLicenseStatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFClassTableColumns.html">spMFClassTableColumns</a></li>
@@ -160,6 +161,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObject.html">spMFSearchForObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObjectbyPropertyValues.html">spMFSearchForObjectbyPropertyValues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSendHTMLBodyEmail.html">spMFSendHTMLBodyEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetAdditionalProperty.html">SpmfSetAdditionalProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetContextMenuQueue.html">spMFSetContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetUniqueIndexes.html">spMFSetUniqueIndexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
@@ -289,6 +291,16 @@
 </dd>
 <dt>&#64;Update_ID int</dt><dd><p>Related update id output</p>
 </dd>
+<dt>&#64;RetainDeletions bit</dt><dd><ul class="simple">
+<li><p>Default = No</p></li>
+<li><p>Set explicity to 1 if the class table should retain deletions</p></li>
+</ul>
+</dd>
+<dt>&#64;IsDocumentCollection</dt><dd><ul class="simple">
+<li><p>Default = No</p></li>
+<li><p>Set explicitly to 1 if the class table refers to a document collection class table</p></li>
+</ul>
+</dd>
 <dt>&#64;ProcessBatch_ID int (optional, output)</dt><dd><p>Referencing the ID of the ProcessBatch logging table</p>
 </dd>
 <dt>&#64;Debug int (optional)</dt><dd><ul class="simple">
@@ -320,15 +332,27 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2022-09-02</p></td>
+<td><p>LC</p></td>
+<td><p>Update to include RetainDeletions and DocumentCollections</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-08-03</p></td>
+<td><p>LC</p></td>
+<td><p>fix bug on calling proc in sync precedence</p></td>
+</tr>
+<tr class="row-even"><td><p>2022-08-03</p></td>
+<td><p>LC</p></td>
+<td><p>Updating debug logging to aid error trapping</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-08-29</p></td>
+<tr class="row-even"><td><p>2018-08-29</p></td>
 <td><p>LC</p></td>
 <td><p>Include this process as a part of the logging of MFUpdateTable</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-08-23</p></td>
+<tr class="row-odd"><td><p>2018-08-23</p></td>
 <td><p>LC</p></td>
 <td><p>Update procedure to only process the errors from the prior update run</p></td>
 </tr>

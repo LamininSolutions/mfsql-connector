@@ -19,6 +19,12 @@ Parameters
   @IsStructureOnly smallint (optional)
     - Default = 0
     - 1 = include updating of all valuelist items or only main structure elements
+  @RetainDeletions bit
+    - Default = No
+    - Set explicity to 1 if the class table should retain deletions
+  @IsDocumentCollection
+    - Default = No
+    - Set explicitly to 1 if the class table refers to a document collection class table
   @ProcessBatch\_ID int (optional, output)
     Referencing the ID of the ProcessBatch logging table
   @Debug smallint (optional)

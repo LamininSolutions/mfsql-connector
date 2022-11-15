@@ -14,6 +14,7 @@ MFSQL Integration Connector
    send-bulk-email/index
    working-with-files/index
    working-with-aliases/index
+   correcting-synchronization-errors/index
    change-of-vault/index
    daily-monthly-routines-for-agents/index
    tips-and-tricks-on-using-the-connector/index

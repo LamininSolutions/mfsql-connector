@@ -2,18 +2,11 @@ Using and managing logs
 =======================
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
-   error-tracing/index
+   /the-connector-framework/connector-content/logging-tables/index
+   /getting-started/configuration-and-setup/enabling-vaf-logging/index
    logging-execution-of-process-and-procedure-steps/index
    mfupdatehistory-for-logging-of-class-record-changes/index
    logging-in-custom-procedures/index
-
-Logs improve the tracing and review of the operations of the Connector.
-Different types of logs are used.
-
-  -  Logging class record updates between M-Files and SQL
-  -  Logging the execution of key processes and their associated process steps
-  -  Logging of system errors.
-  -  Logging of the latest ObjectVersion of an object in M-Files
-  -  Use logging in custom procedures to monitor specific operations
+   error-tracing/index

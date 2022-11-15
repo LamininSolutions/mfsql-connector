@@ -154,5 +154,8 @@ Date        Author     Description
 2020-11-21  LC         Fix bug with unique index on objid
 2021-01-22  LC         set default schema to dbo
 2022-01-04  LC         update app detail logging to include assembly logging
+2022-09-07  LC         update after changes to classproperty table to add IsAdditional
+2022-09-07  LC         revamp and simplify procedure
+2022-09-07  LC         remove unique index on externalid
 ==========  =========  ========================================================
 

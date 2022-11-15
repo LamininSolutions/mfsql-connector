@@ -12,6 +12,10 @@ MFProperty\_ID int (primarykey, not null)
   ID column of MFProperty
 Required bit (not null)
   If the property is required on the class
+RetainIfNull bit 
+  If set to 1 then property is additional property then property will be added to metadata card if null
+IsAdditional bit
+  Updated by system to indicate that property is not on defined on the structure as part of the class
 
 Additional Info
 ===============
@@ -41,7 +45,9 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-09-06  LC         add RetainIfNull and IsAdditional
 2020-04-22  LC         create constraints when table is created
 2019-09-07  JC         Added documentation
+2016-02-10  LC         Create table
 ==========  =========  ========================================================
 

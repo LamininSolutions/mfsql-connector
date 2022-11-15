@@ -147,6 +147,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-06-23  LC         Set a default for @Update_ID parameter
 2022-02-11  LC         Update audit history and class table with result
 2022-02-11  LC         Align the error codes with the assemblies
 2021-12-16  LC         Reset objectversion default to -1

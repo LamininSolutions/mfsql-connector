@@ -10,34 +10,87 @@ within M-Files:
 -  Triggered by an event handler
 
 This guide deals with the installation and configuration of the context menu
-for versions between 4.3.9.48 and 4.9.29.73  and from 4.10.30.74 onwards.  The configuration and setup prior to 4.3.9.48
-version is not compatible with the new setup of context menu. Version 4.10.30.74 introduced VAF Multi server mode, task scheduling and logging to the context menu with significant changes to the configuration and use of the context menu.
+for versions 4.10.30.74 onwards.  Configuration of versions between 4.3.9.48 and 4.9.29.73  is similar, but does not include logging and Web Services. The configuration and setup prior to 4.3.9.48 version is not compatible with the new setup of context menu.
+
+Version 4.10.30.74 introduced VAF Multi server mode, task scheduling and logging to the context menu with significant changes to the configuration and use of the context menu. It also includes the setup of the Web API service for cloud installations.
 
 This chapter is concerned with the basic configuration and enablement of the context menu functionality. The use and deployment of different alternatives for this functionality is in :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index`
 The steps to enable the context menu include:
 
+#. Installing the Connector package
 #. Setup of the SQL Connection
 #. Access security to the context menu
 #. Enabling Logging
 
-This configuration must be done after MFSQL Connector package has been deployed.  The context menu functionality is dependent on the following elements installed when the package is run
+Installation
+------------
+
+The installation folder contains the content package and vault applications required by the Context Menu.
+
+The installation package will automatically install these components,
+however, these components can be installed manually.  Follow the M-Files
+documentation for instructions on performing content package imports and
+application installations.
+
+Restart the vault after installation of the applications.
+
+The configuration must be done after MFSQL Connector package has been installed on both M-Files Server and SQL Server.  The context menu functionality is dependent on the following elements installed when the package is run.  The remainder of this section deals with various aspects of the configuration and setup.
+
+
+Configuration and Setup
+------------------------
+
+The configuration of the context menu has several steps:
+
+ Configure the settings in the Configurations tab for the vault using M-Files Admin.  The connector settings is in the Other Applications section.
+
+|image2|
+
+The first step is to ensure that the license is installed.  See section :doc:`/getting-started/configuration-and-setup/licensing-management/index` for help on installing the license.
+If correctly installed, the configuration dashboard should show the modules licensed and if the license is valid.
+
+|image1|
+
+The following steps are only necessary if your application of the Connector includes the Context Menu functionality. It is not necessary to be setup if no Connector related operations is triggered from within the Client Desktop.
+
+Setup the connection string.  See section `Configuration of connection string`_ for further details.  When using the functionality with a cloud vault, it is necessary to deploy the Web API Service to allow access from the cloud to the MFSQL Server. Refer to :doc:`/getting-started/cloud-and-hosted-installation/install-webapi/index`
+
+The configuration for an on premise installation should include all the database connections elements and the Web API settings should be empty.
+
+|image3|
+
+After configuring the connection string correctly, the configurator will connect to the settings table and show key settings in the dashboard.
+
+|image4|
+
+Enable logging. see section :doc:`/getting-started/configuration-and-setup/enabling-vaf-logging/index` to configure and test the log.  The section :doc:`/mfsql-integration-connector/using-and-managing-logs/logging-in-custom-procedures/index` has more detail on using logging in procedures.
+
+next step is to review the current use of context menu functionality or decide on the deployment of the context menu for new functionality.
+
+Refer to :doc:`/mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index` on more information on the deployment of the context menu.
+
+The blog :doc:`/blogs/update-to-VAF-4-10/index` has more details on the steps to take to convert existing procedures to the requirements of the new version.
+
+Testing the procedures and monitoring the processing of transactions is explained in more details in the section 
 
 Tables and procedures
 ~~~~~~~~~~~~~~~~~~~~~
 
-The following tables and procedures are installed when the MFSQL
+The following context menu related tables and procedures are installed when the MFSQL
 Connector is deployed:
 
 -  MFContextMenu:  This table contains the menu items displayed in
    the Context Menu. Note that this is an empty table. The menu items is
    added as part of your deployment.
--  MFProcessBatch:
--  MFProcessBatchDetail:
+-  MFProcessBatch: This table log processing and assign a record for a processes or series of processes
+-  MFProcessBatchDetail: This table logs the steps for a process defined in MFProcessBatch.
 -  spMFGetContextMenu: This system procedure is used to by the vault
    application to action the items defined in the Context Menu.
 
 Example custom procedures
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The context menu main purpose is to trigger a SQL procedure from M-Files. This procedure could per
 
 User group
 ~~~~~~~~~~
@@ -63,18 +116,6 @@ described in the deployment of the context as set out in :doc:`/mfsql-data-excha
 
 Log files
 ~~~~~~~~~
-
-Installation
-------------
-
-The installation folder contains the content package and vault applications required by the Context Menu.
-
-The installation package will automatically install these components,
-however, these components can be installed manually.  Follow the M-Files
-documentation for instructions on performing content package imports and
-application installations.
-
-Restart the vault after installation of the applications.
 
 SQL Connection configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,3 +204,8 @@ The next steps to prepare or use the context menu are explained in detail in :do
 #. Create procedures to control the actions: 
 #. Update workflow state actions to call state action procedures.
 #. Prepare user messages if required.
+
+.. |image1| image:: image1.png
+.. |image2| image:: image2.png
+.. |image3| image:: image3.png
+.. |image4| image:: image4.png

@@ -11,7 +11,7 @@ The purpose of the Web API is to provide an alternative method of connecting M-F
 
 The transaction calls from M-Files to SQL does not include any metadata. It only instructs SQL to perform a store procedure which will in turn use standard M-Files connections protocols to exchange the metadata between M-Files and SQL.
 
-This method is dependent on installing MFSQL Connector version 4.8.22.62 or later in the MFSQL Server.  The Vault Application should be 4.8.1.0 or later.
+This method is dependent on installing MFSQL Connector version 4.10.30.74 or later.  The Vault Application should be 4.10.1.21 or later.
 
 This section describes the installation of the Web API.
 
@@ -112,7 +112,7 @@ The Web API details in the configuration tab of the MFSQL Connector Vault Applic
 There is no need to complete any details in the connectionstring.
 The API username and password must match the details used in the Web Site.
 The API URL section is only visible to M-Files System Administrator.  In the case of a cloud vault, this will be completed by M-Files Support.
-For example http://DNSName/MFSQLConnectWebAPI/
+For example https://DNSName/MFSQLConnectWebAPI/
 Validate the database connection in the website is point to the MFSQL Connector database when the correct details are returned to the dashboard
 |Image2|
 

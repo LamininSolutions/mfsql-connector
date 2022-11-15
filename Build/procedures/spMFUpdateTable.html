@@ -105,6 +105,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Procedures</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="spMFAddCommentForObjects.html">spMFAddCommentForObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFAliasesUpsert.html">spMFAliasesUpsert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFChangeClass.html">spMFChangeClass</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckAndUpdateAssemblyVersion.html">spMFCheckAndUpdateAssemblyVersion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFCheckLicenseStatus.html">spMFCheckLicenseStatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFClassTableColumns.html">spMFClassTableColumns</a></li>
@@ -160,6 +161,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObject.html">spMFSearchForObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSearchForObjectbyPropertyValues.html">spMFSearchForObjectbyPropertyValues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSendHTMLBodyEmail.html">spMFSendHTMLBodyEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSetAdditionalProperty.html">SpmfSetAdditionalProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetContextMenuQueue.html">spMFSetContextMenuQueue</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetUniqueIndexes.html">spMFSetUniqueIndexes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
@@ -373,8 +375,10 @@
 <p>When using a filter (e.g. for a single object) to update the table with Update method 1 and the filter object process_id is not 0 then the filter will automatically revert to updating all records. Take care to pass valid filters before passing them into the procedure call.</p>
 <p>This procedure will not remove destroyed objects from the class table.  Use spMFUpdateMFilestoMFSQL identify and remove destroyed object.</p>
 <p>This procedure will not remove objects from the class table where the class of the object was changed in M-Files.  Use spMFUpdateMFilestoMFSQL to identify and remove these objects from the class table.</p>
+<p>When running this procedure without setting the objids parameter will not identify if a record was deleted in M-Files. To update deleted records, use spMFUpdateMFilestoMFSQL or set the objids for the records to be updated.</p>
 <p>Deleted objects will only be removed if they are included in the filter ‘Objids’.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.</p>
 <p>Deleted objects in M-Files will automatically be removed from the class table unless &#64;RetainDeletions is set to 1.</p>
+<p>When the Retaindeletions flag are used, and a deleted object’s deleted date is reset to null with the intent to undelete the object, it will not reset the deletions flag in M-Files for the object. Use the procedure spmfDeleteObject, or spMFDeleteObjectList to reset a deletions flag of an object.</p>
 <p>The valid range of real datatype properties for uploading from SQL to M-Files is -1,79E27 and 1,79E27</p>
 </div>
 <div class="section" id="examples">
@@ -451,6 +455,14 @@
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2022-09-02</p></td>
+<td><p>LC</p></td>
+<td><p>Add retain deletions to spMFUpdateSynchronizeError</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-08-03</p></td>
+<td><p>LC</p></td>
+<td><p>Update sync precedence to resolve issue with not updating</p></td>
 </tr>
 <tr class="row-even"><td><p>2022-06-01</p></td>
 <td><p>LC</p></td>
