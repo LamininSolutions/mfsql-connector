@@ -34,6 +34,8 @@ When the property is set to retain if null, then the property will be updated an
 
 Properties defined on the metadata card will always be retained on the metadata card, even if they are null
 
+If the parameter is set to retain null = 0 and all the values in the class for the property is null then the procedure spMFDeleteAdhocProperty will automatically be triggered to remove the column from the class table and from the metadata cards.
+
 To remove a property that is defined as an additional property, or changed from being on the metadata card, to not being on the metadata card, the following steps should be followed
  - After a change to the metadata definition, the procedure spMFDropAndUpdateMetadata must be run before an update is process from SQL to MF.
  - Ensure that the value of the property is null in the class table. Follow the instructions below in a case where the value is not null, and the property should be set to null and then removed.
@@ -60,7 +62,9 @@ This procedure does not reset the definition of the property in M-Files. Use M-F
 Warnings
 ========
 
-The property rule is set by class.  It will apply to all the objects that is included in the update routine. 
+The property rule is set by class.  It will apply to all the objects that is included in the update routine.
+
+The procedure will perform a metadata synchronization and table update and may run for a considerable time to complete.
 
 Examples
 ========

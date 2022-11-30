@@ -172,6 +172,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-11-18  LC         Change formatting of float to take account of culture
 2022-09-02  LC         Add retain deletions to spMFUpdateSynchronizeError
 2022-08-03  LC         Update sync precedence to resolve issue with not updating
 2022-06-01  LC         Resolve bug with data definition in large text properties

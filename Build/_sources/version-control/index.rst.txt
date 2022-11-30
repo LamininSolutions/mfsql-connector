@@ -11,7 +11,7 @@ Published version: 4.9.29.73 2022-05-09
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.10.30.74  2022-09-30 (Beta)
+SQL scripts       4.10.30.74  2022-10-30 (Beta)
 Assemblies        4.10.30.0   2022-06-30
 Vault application 4.10.1.25   2022-09-30
 Database File VAF 4.3.0.1    2021-09-23
@@ -79,6 +79,10 @@ It has material implications for users of the Context Menu functionality. Consul
 #. Update all example scripts for using the context menu to include ProcessBatch_ID and other changes
 #. Update the Web API to respond to the newly designed VAF.
 #. New functionality was added to allow for parameterised processing of additional properties. This has affected a range of procedures.  Refer to the guide for more details
+#. Add VaultRoles to MFUserAccount dataset
+#. Add ServerRoles to MFLoginAccount dataset
+#. Upgrade spMFCheckAndUpdateAssemblyVersion to include updating when assemblies failed to load.
+#. Add debugging to spMFUpdateAssemblies
 
 4.9.29.73
 ~~~~~~~~~

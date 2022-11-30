@@ -50,6 +50,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-11-25  LC         Add logging and improve messaging
 2021-12-20  LC         Add guid to result set
 2020-03-29  LC         Add documentation 
 2020-02-08  LC         Fix bug for check license validation

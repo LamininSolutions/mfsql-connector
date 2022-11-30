@@ -88,13 +88,15 @@ Windows task scheduler
 File Importing
 --------------
 
-The File importing utility FolderExport_v3 is built to get the name and location of files in explorer or network drive.  A powershell utility is used to update SQL with the file and folder data from explorer.
+The File importing utility FolderExport_v3 is built to get the name and location of files in explorer or network drive.  A powershell utility is used to update SQL with the file and folder data from explorer.  The utility is designed to be run on the SQL server.
 
 This utility will export structured folder and file data from explorer for a specific directory to a) CSV files b) tables in an SQL database.
 
 The csv files and table names are based on the settings in the setup file and will be created automatically. When rerunning the process the csv files and tables will be reset.
 
 The data includes the file hash for file extensions in the setup file.  Note that the inclusion of the hash will increase the runtime of the process significantly, especially has the hash extensions include large files such as videos, zip files etc.
+
+Incorporating the CSV or tables in the application is further detailed in :doc:`/mfsql-integration-connector/working-with-files/index`
 
 File import prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,6 +105,11 @@ File import prerequisites
  - SQLServer module is required for the export to the SQL database
  - Run with windows credentials with access to SQL and the explorer file structure.
  - Access to SQL is based on using windows integrated security
+
+Setup of security
+~~~~~~~~~~~~~~~~~
+
+Setup a windows service account with access to the designated folders. Add the service account in SQL and assign it to the db_MFSQLConnector role in the MFSQL database.
 
 File import content of the package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -117,33 +124,33 @@ File import content of the package
 Output of File import
 ~~~~~~~~~~~~~~~~~~~~~
 
- - Related to files:
+Related to files:
 
-[FileName] - file name without path
-[Extension] - file extension
-[SubPath] - file path excluding the root
-[FullPath] - full path including the file name
-[Length] - length in bytes (devide by 1024 to get kilo bytes
-[Creation] - file creation date
-[LastAccess] - date when file was last accessed
-[LastWrite] - date when file was last written
-[Attributes] - file attributes
-[IsContainer] - show if directory
-[RootPath] - file root used in the extraction, as per setup file
-[Hash] - file hash, include on files with extensions set it setup file
+   - [FileName] - file name without path
+   - [Extension] - file extension
+   - [SubPath] - file path excluding the root
+   - [FullPath] - full path including the file name
+   - [Length] - length in bytes (devide by 1024 to get kilo bytes
+   - [Creation] - file creation date
+   - [LastAccess] - date when file was last accessed
+   - [LastWrite] - date when file was last written
+   - [Attributes] - file attributes
+   - [IsContainer] - show if directory
+   - [RootPath] - file root used in the extraction, as per setup file
+   - [Hash] - file hash, include on files with extensions set it setup file
 
-- Related to folders
+Related to folders
 
-[Path] - path root
-[Drive] - drive
-[Parent] - parent name
-[Folder] - folder name
-[FullPath] - path, including root
-[PathFileCount] - count of files in path
-[PathSize] - total of all files in path
-[FolderFileCount] - count of files in folder
-[FolderSize] - total of files in folder
-[Root] -  root used in the extraction, as per setup file
+   - [Path] - path root
+   - [Drive] - drive
+   - [Parent] - parent name
+   - [Folder] - folder name
+   - [FullPath] - path, including root
+   - [PathFileCount] - count of files in path
+   - [PathSize] - total of all files in path
+   - [FolderFileCount] - count of files in folder
+   - [FolderSize] - total of files in folder
+   - [Root] -  root used in the extraction, as per setup file
 
 Setup of File Import
 ~~~~~~~~~~~~~~~~~~~~

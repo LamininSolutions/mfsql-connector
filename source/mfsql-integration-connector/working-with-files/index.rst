@@ -4,6 +4,8 @@ Working with files
 The connector provides a number of different ways to work with the file
 documents in M-Files. 
 
+#. **Import files into M-Files** from another database where the files
+   are stored as blob or from a file location in explorer.
 #. The primary focus of the connector is to work with the **metadata
    related to the files**.  The class table has the following columns
    specifically related to files.
@@ -19,42 +21,83 @@ documents in M-Files. 
    such as using the files as an attachment to an email.  This
    functionality can be used to export files to explorer to create an
    extract of all the files in the vault.
-#. I\ **mport files into M-Files** from another database where the files
-   are stored as blob.
+#. **Use FolderExport_v3 for bulk file imports ** to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.
+#. **Use the properties related to files** in reporting or analysis by accessing the file data and then using the
 #. **Show and search for files in M-Files** where the files are located
    in another database using the IML connector capability. 
 
 Importing files from explorer
 -----------------------------
 
-The new procedure :doc:`/procedures/spMFUpdateExplorerFileToMFiles`
+The main use of this feature is create or update a record in the class
+table and associate a file or files from explorer at the same time.
+
+The procedure :doc:`/procedures/spMFUpdateExplorerFileToMFiles`
 allows for importing a file or files from explorer into M-Files. In
 simple terms an explorer file is matched with the record in the class
 table and imported into M-Files.
 
--  The object can be created in M-Files using MFSQL Connector at the
-   same time as importing the file.
+ -  The object can be created in M-Files using MFSQL Connector at the same time as importing the file.
+ -  If another file is added to a single file object, it would automatically be converted to a multifile document
+ -  If a file is added to a empty multifile document, it would automatically change it to a single file object.
+ -  The file in M-Files will be overwritten If the file already exists for the specific object
 
--  If another file is added to a single file object, it would
-   automatically be converted to a multifile document
+Prerequisites for the spMFUpdateExplorerFiletoMFiles routine are:
 
--  The file in M-Files will be overwritten If the file already exists
-   for the specific object
+#. New or existing record in Class table - @SQLID parameter refers to
+   the id of the record. The record must pre-exist in the class table.
+   There is no need to pre-update M-Files with a new record. This
+   routine will automatically create the object in M-Files if it does
+   not exist.
 
-The following is required to make it all fit together:
+#. Filename of the file to be imported - @fileName
 
--  The location of the file
+#. folder path of the file - @Filelocation. This location must be
+   on the SQL server, preferably use the location c://MFSQL//FileImport with sub folders.
 
--  The name of the file
+#. Class table name - @TableName
 
--  The destination class table
+SpMFUpdateExplorerFiletoMFiles processes one file for one record To
+process a series of files and records one would create a loop to run
+through all the records and related file references. This can be
+accomplished in different ways, the choice of which will depend on the
+source of the files and data to be imported.
 
--  The SQL id of the record in the class table to attach the file to.
+-  A Powershell utility for :doc:`/getting-started/configuration-and-setup/setup-powershell-utilities/index`  is available in the addons of MFSQL Connector as FolderExport_v3 to import file and folder data from explorer to CSV or staging tables. This utility exposes the contents of the file system to SQL to get the location of the file and file name for the import routine.
 
-The table MFFileImport show a history of the importing of files.
+-  Sometimes the third party system have a reference to the file and
+   location of the file. this data, combined with the record in the
+   class table will setup the loop for calling the importing routine.
 
-Refresh M-Files view or the object F5 after running procedure to show
-the updated object
+The following importing scenarios apply:
+
+-  If the file already exist for the object then the existing file in
+   M-Files will be overwritten. M-Files version control will record the
+   prior version of the record.
+
+-  If the object is new in the class table (does not yet have a objid
+   and guid) then the object will first be created in M-Files and then
+   the file will be added.
+
+-  If the object in M-Files is a multifile document with no files, then
+   the object will be converted to a single file object.
+
+-  if the object in M-files already have a file or files, then it would
+   convert to a multifile object and the additional file will be added
+
+-  If the filename or location of the file cannot be found, then a error
+   will be added in the filerror column in the MFFileImport Table.
+
+-  If the parameter option @IsFileDelete is set to 1, then the
+   originating file will be deleted. The default is to not delete.
+
+   -  The Importing of files using spMFUpdateExplorerFileToMFiles will list
+   all the files imported, or rejected in the MFMfileImport table. The
+   results of each file import is shown in the column ImportError.
+
+   |image0|
+
+The following example illustrates importing a single file to an object.
 
 .. code:: sql
 
@@ -64,31 +107,169 @@ the updated object
     DECLARE @TableName NVARCHAR(256) = 'MFOtherDocument'
     DECLARE @SQLID INT = 1
 
-
      EXEC [dbo].[spMFUpdateExplorerFileToMFiles]
      @FileName = @FileName
      ,@FileLocation = @FileLocation
+     ,@MFTableName = @TableName
      ,@SQLID = @SQLID
      ,@ProcessBatch_id = @ProcessBatch_id OUTPUT
      ,@Debug = 0
      ,@IsFileDelete = 0
 
+.. code:: sql
+
     SELECT * from [dbo].[MFFileImport] AS [mfi]
 
-In some cases the name of the file and location of the file is derived
-from another database.
-
-Contact us if you would like to know more about using a powershell
-utility to import the file names and folder locations of the files into
-SQL as a preparatory step to match the files to the objects in the class
-table.
-
-Extend importing files capability
+Importing files from a database
 ---------------------------------
 
-The Importing of files using spMFUpdateExplorerFileToMFiles will list
-all the files imported, or rejected in the MFMfileImport table. The
-results of each file import is shown in the column ImportError.
+In this use case we will illustrate how files in Blobs in a database are
+imported into M-Files.
+
+This use case is applicable in instances where where the third party
+application store files in the database in binary or Blobs formats. The
+source database can be SQL server, Oracle or any database accessible to
+the MFSQL Connector database.
+
+To perform the operation, one need to have the MFSQL Database File
+Connector module, which includes the full Connector package.
+
+In short, the process involves the following after the basic
+installation of MFSQL Connector.
+
+-  Identify the table(s) with the files in the third party Database
+
+-  Identify the table(s) with the related metadata for the files in the
+   third party Database
+
+-  Prepare a view with all the metadata to be imported and ensure that
+   the view at least contains
+
+   -  A unique reference for each file
+
+   -  The name of the file including the file extension
+
+   -  The file data
+
+-  Identify the target class(es) for the files in M-Files
+
+-  Create the Class table for the all the target classes, including the
+   depend classes. (e.g. a customer invoice would at least require the
+   class for invoice documents, and for customers.)
+
+-  Add the property ‘MFSQL\_File\_Unique\_Ref’ to the target document
+   class.
+
+-  Use standard MFSQL Connector methods (described elsewhere) to add
+   records in the Document Class Table. Ensure to complete the
+   ‘MFSQL\_File\_Unique\_Ref’ for each record which will contain a file.
+
+-  At the same time all the dependent class and valuelist records should
+   also be created in MFSQL Connector.
+
+-  After updating the new records in M-Files, set the process\_id for
+   all records to have imported file to 6
+
+-  Use spMFSyncchronizeFilesToM-Files to import the files.
+
+-  The history log of the import is saved in MFFileImport
+
+--------------
+
+Step 1: Identify third party file table and create view
+
+.. code:: sql
+
+    ALTER VIEW [scu].[vw_Filedata]
+    AS
+
+    SELECT fd.[id]
+         , fd.[GUID]
+         , fd.[FileName]
+         , fd.[FileData]
+         , fd.[Created]
+         , fd.[Modified_on]
+      ,xxx -- All the related columns to the file
+        FROM scu.filedata fd
+    INNER JOIN [scu].[accounts] AS [a]
+    ON [a].[Account_no] = fd.ACCOUNT_ID
+    INNER JOIN [scu].[Loans] AS [l]
+    ON [l].[Loan_No] = fd.loan_ID
+
+    GO
+
+Step 2: Create class table an update existing records in M-Files. In
+this case we will import files for the Drawings class.
+
+.. code:: sql
+
+    EXEC dbo.spMFCreateTable 'Drawing';
+    EXEC dbo.spMFUpdateTable 'MFDrawing', 1;
+
+Add the File unique reference column
+
+Step 3:
+
+.. code:: sql
+
+    ALTER TABLE MFDrawing
+    ADD  Mfsql_File_Unique_Ref NVARCHAR(100)
+
+Step 4: Create all the new objects in M-Files
+
+.. code:: sql
+
+    INSERT INTO dbo.MFDrawing
+    (
+        Mfsql_File_Unique_Ref,
+        Keywords,
+        Name_Or_Title,
+        Process_ID
+    )
+    SELECT vf.id,
+           'InsertFiles',
+           vf.FileName,
+           1
+    FROM Scion32.scu.vw_Filedata AS vf;
+
+    EXEC spmfupdatetable 'MFDrawing',0
+
+Step 5: Set the process\_id for records to add files to.
+
+.. code:: sql
+
+    UPDATE t
+     SET Process_ID = 6
+    FROM MFDrawing t
+    INNER JOIN Scion32.scu.vw_Filedata AS vf
+    ON t.id IS NOT null
+
+Step 6: Import the files
+
+.. code:: sql
+
+    DECLARE @ProcessBatch_id INT;
+    EXEC dbo.spMFSynchronizeFilesToMFiles @SourceTableName = 'scion32.scu.vw_Filedata',                -- varchar(100)
+                                          @FileUniqueKeyColumn = 'ID',                            -- varchar(100)
+                                          @FileNameColumn = 'FileName',                           -- varchar(100)
+                                          @FileDataColumn = 'FileData',                           -- varchar(100)
+                                         @MFTableName = 'MFDrawing',                               -- varchar(100)
+                                          @BatchSize = 500,
+               @Process_ID = 6,                                     -- int
+                                          @ProcessBatch_id = @ProcessBatch_id OUTPUT,             -- int
+                                          @Debug = 1,                                             -- int
+                                          @TargetFileUniqueKeycolumnName = 'mfsql_File_Unique_ref'; -- varchar(100)
+
+Step 7: view the results in SQL
+
+.. code:: sql
+
+    SELECT *
+    FROM dbo.MFFileImport;
+
+    SELECT id, name_or_title, MFVersion, FileCount, Single_File, Mfsql_File_Unique_Ref, Process_ID
+    FROM dbo.MFDrawing;
+
 
 Exporting of files
 ------------------
@@ -155,3 +336,5 @@ Step 4 - Review the result. :doc:`/tables/tbMFExportFileHistory`  show the outpu
 .. code:: sql
 
      SELECT * FROM [dbo].[MFExportFileHistory] AS [mefh]
+
+.. |image0| image:: img_1.png

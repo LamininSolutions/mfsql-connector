@@ -65,6 +65,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-11-25  LC         Improve logging and outcome messages
 2021-03-15  LC         Set default schema for MFmodule
 2021-01-06  LC         Debug module 2 license
 2020-12-31  LC         update message for license expired

@@ -54,7 +54,7 @@ Get M-files version installed in Connector
 
 ------
 
-Manually update the version in the Connector. Set the parameter to current installed version on the SQL server.
+Manually update the version in the Connector. Set the parameter to current installed M-Files Desktop version on the SQL server.
 
 .. code:: sql
 

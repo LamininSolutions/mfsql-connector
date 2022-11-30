@@ -44,6 +44,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-11-03  LC         Include validation that assemblies are in place
 2021-12-16  LC         Fix bug to stop continious updates when no change took place
 2021-08-11  LC         Improve control when version could not be found
 2020-10-27  LC         Improve error message
