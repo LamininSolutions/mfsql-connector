@@ -209,89 +209,56 @@
 <p>The connector provides a number of different ways to work with the file
 documents in M-Files.</p>
 <ol class="arabic simple">
-<li><p><strong>Import files into M-Files</strong> from another database where the files
-are stored as blob or from a file location in explorer.</p></li>
-<li><p>The primary focus of the connector is to work with the <strong>metadata
-related to the files</strong>.  The class table has the following columns
-specifically related to files.</p>
-<ol class="arabic simple">
-<li><p>SingleFile:  this column show if the object is a single or
-multi-file object.</p></li>
-<li><p>FileCount: This column show the number of files in the multi-file
-object</p></li>
-</ol>
+<li><p><strong>Import files into M-Files</strong> from another database where the files are stored as blob or from a file location in explorer.</p></li>
+<li><p>The primary focus of the connector is to work with the <strong>metadata related to the files</strong>.  The class table has the following columns specifically related to files.</p>
+<ul class="simple">
+<li><p>SingleFile:  this column show if the object is a single or multi-file object.</p></li>
+<li><p>FileCount: This column show the number of files in the multi-file object</p></li>
+</ul>
 </li>
-<li><p><strong>Export of files from M-Files</strong>:  Export files from any class table
-to a designated folder on the SQL server.  The MFExportFileHistory
-table references the exported files to allow for further processing
-such as using the files as an attachment to an email.  This
-functionality can be used to export files to explorer to create an
-extract of all the files in the vault.</p></li>
-<li><p><a href="#id1"><span class="problematic" id="id2">**</span></a>Use FolderExport_v3 for bulk file imports ** to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.</p></li>
-<li><p><strong>Use the properties related to files</strong> in reporting or analysis by accessing the file data and then using the</p></li>
-<li><p><strong>Show and search for files in M-Files</strong> where the files are located
-in another database using the IML connector capability.</p></li>
+<li><p><strong>Export of files from M-Files</strong>:  Export files from any class table to a designated folder on the SQL server.  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table references the exported files to allow for further processing such as using the files as an attachment to an email.  This functionality can be used to export files to explorer to create an extract of all the files in the vault.</p></li>
+<li><p><strong>Use FolderExport v3 for bulk file imports</strong> to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.</p></li>
+<li><p><strong>Use the properties related to files</strong> Export files as above and set the IsDownload parameter to 0 to only download file information without downloading the files. The data about the file (extention, file size, name) in the  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table can then be used in reporting or analysis</p></li>
+<li><p><strong>Show and search for blob files in M-Files</strong> where the files are located in another database as blobs the database file connector capability can be used to access the files from within M-Files.</p></li>
 </ol>
 <div class="section" id="importing-files-from-explorer">
 <h2>Importing files from explorer<a class="headerlink" href="#importing-files-from-explorer" title="Permalink to this headline">¶</a></h2>
 <p>The main use of this feature is create or update a record in the class
 table and associate a file or files from explorer at the same time.</p>
-<p>The procedure <a class="reference internal" href="../../procedures/spMFUpdateExplorerFileToMFiles.html"><span class="doc">spMFUpdateExplorerFileToMFiles</span></a>
-allows for importing a file or files from explorer into M-Files. In
-simple terms an explorer file is matched with the record in the class
-table and imported into M-Files.</p>
-<blockquote>
-<div><ul class="simple">
+<p>The procedure <a class="reference internal" href="../../procedures/spMFUpdateExplorerFileToMFiles.html"><span class="doc">spMFUpdateExplorerFileToMFiles</span></a> allows for importing a file or files from explorer into M-Files. In simple terms an explorer file is matched with the record in the class table and imported into M-Files. The results are logged in the <a class="reference internal" href="../../tables/tbMFFileImport.html"><span class="doc">MFFileImport</span></a> table</p>
+<ul class="simple">
 <li><p>The object can be created in M-Files using MFSQL Connector at the same time as importing the file.</p></li>
 <li><p>If another file is added to a single file object, it would automatically be converted to a multifile document</p></li>
 <li><p>If a file is added to a empty multifile document, it would automatically change it to a single file object.</p></li>
 <li><p>The file in M-Files will be overwritten If the file already exists for the specific object</p></li>
 </ul>
-</div></blockquote>
 <p>Prerequisites for the spMFUpdateExplorerFiletoMFiles routine are:</p>
-<ol class="arabic simple">
-<li><p>New or existing record in Class table - &#64;SQLID parameter refers to
-the id of the record. The record must pre-exist in the class table.
-There is no need to pre-update M-Files with a new record. This
-routine will automatically create the object in M-Files if it does
-not exist.</p></li>
-<li><p>Filename of the file to be imported - &#64;fileName</p></li>
-<li><p>folder path of the file - &#64;Filelocation. This location must be
-on the SQL server, preferably use the location c://MFSQL//FileImport with sub folders.</p></li>
-<li><p>Class table name - &#64;TableName</p></li>
-</ol>
-<p>SpMFUpdateExplorerFiletoMFiles processes one file for one record To
-process a series of files and records one would create a loop to run
-through all the records and related file references. This can be
-accomplished in different ways, the choice of which will depend on the
-source of the files and data to be imported.</p>
 <ul class="simple">
-<li><p>A Powershell utility for <span class="xref std std-doc">/getting-started/configuration-and-setup/setup-powershell-utilities/index.html?highlight=folderexport#file-importing</span>  is available in the addons of MFSQL Connector as FolderExport_v3 to import file and folder data from explorer to CSV or staging tables. This utility exposes the contents of the file system to SQL to get the location of the file and file name for the import routine.</p></li>
-<li><p>Sometimes the third party system have a reference to the file and
-location of the file. this data, combined with the record in the
+<li><p>New or existing record in Class table - &#64;SQLID parameter refers to the id of the record. The record must pre-exist in the class table.   There is no need to pre-update M-Files with a new record. This routine will automatically create the object in M-Files if it does not exist.</p></li>
+<li><p>Filename of the file to be imported - &#64;fileName</p></li>
+<li><dl class="simple">
+<dt>folder path of the file - &#64;Filelocation. This location must be</dt><dd><p>on the SQL server, preferably use the location c:/MFSQL/FileImport with sub folders.</p>
+</dd>
+</dl>
+</li>
+<li><p>Class table name - &#64;TableName</p></li>
+</ul>
+<p>The routine will use the SQL Server security context to access files on the network. Setup the SQL server to login as a service account that has access to the folders.  If the procedure is call by an agent, then the SQL Server agent login account must also have access to the folders. Alternatively certificates and proxies can be used to setup the agent security context.</p>
+<p>SpMFUpdateExplorerFiletoMFiles processes one file for one record at a time.  To process a series of files and records one would create a loop to run through all the records and related file references. This can be accomplished in different ways, the choice of which will depend on the source of the files and data to be imported.</p>
+<ul class="simple">
+<li><p>A Powershell utility for <a class="reference internal" href="../../getting-started/configuration-and-setup/setup-powershell-utilities/index.html"><span class="doc">Setup powershell utilities</span></a>  is available in the addons of MFSQL Connector as FolderExport_v3 to import file and folder data from explorer to CSV or staging tables. This utility exposes the contents of the file system to SQL to get the location of the file and file name for the import routine.</p></li>
+<li><p>Sometimes the third party system have a reference to the file and location of the file. this data, combined with the record in the
 class table will setup the loop for calling the importing routine.</p></li>
 </ul>
 <p>The following importing scenarios apply:</p>
 <ul>
-<li><p>If the file already exist for the object then the existing file in
-M-Files will be overwritten. M-Files version control will record the
-prior version of the record.</p></li>
-<li><p>If the object is new in the class table (does not yet have a objid
-and guid) then the object will first be created in M-Files and then
-the file will be added.</p></li>
-<li><p>If the object in M-Files is a multifile document with no files, then
-the object will be converted to a single file object.</p></li>
-<li><p>if the object in M-files already have a file or files, then it would
-convert to a multifile object and the additional file will be added</p></li>
-<li><p>If the filename or location of the file cannot be found, then a error
-will be added in the filerror column in the MFFileImport Table.</p></li>
-<li><p>If the parameter option &#64;IsFileDelete is set to 1, then the
-originating file will be deleted. The default is to not delete.</p>
-<ul class="simple">
-<li><p>The Importing of files using spMFUpdateExplorerFileToMFiles will list</p></li>
-</ul>
-<p>all the files imported, or rejected in the MFMfileImport table. The
-results of each file import is shown in the column ImportError.</p>
+<li><p>If the file already exist for the object then the existing file in M-Files will be overwritten. M-Files version control will record the prior version of the record.</p></li>
+<li><p>If the object is new in the class table (does not yet have a objid and guid) then the object will first be created in M-Files and then the file will be added.</p></li>
+<li><p>If the object in M-Files is a multifile document with no files, then the object will be converted to a single file object.</p></li>
+<li><p>if the object in M-files already have a file or files, then it would convert to a multifile object and the additional file will be added</p></li>
+<li><p>If the filename or location of the file cannot be found, then a error will be added in the filerror column in the MFFileImport Table.</p></li>
+<li><p>If the parameter option &#64;IsFileDelete is set to 1, then the originating file will be deleted. The default is to not delete.</p></li>
+<li><p>The Importing of files using spMFUpdateExplorerFileToMFiles will list all the files imported, or rejected in the MFMfileImport table. The results of each file import is shown in the column ImportError.</p>
 <p><img alt="image0" src="../../_images/img_12.png" /></p>
 </li>
 </ul>
@@ -318,46 +285,10 @@ results of each file import is shown in the column ImportError.</p>
 </div>
 <div class="section" id="importing-files-from-a-database">
 <h2>Importing files from a database<a class="headerlink" href="#importing-files-from-a-database" title="Permalink to this headline">¶</a></h2>
-<p>In this use case we will illustrate how files in Blobs in a database are
-imported into M-Files.</p>
-<p>This use case is applicable in instances where where the third party
-application store files in the database in binary or Blobs formats. The
-source database can be SQL server, Oracle or any database accessible to
-the MFSQL Connector database.</p>
-<p>To perform the operation, one need to have the MFSQL Database File
-Connector module, which includes the full Connector package.</p>
-<p>In short, the process involves the following after the basic
-installation of MFSQL Connector.</p>
-<ul class="simple">
-<li><p>Identify the table(s) with the files in the third party Database</p></li>
-<li><p>Identify the table(s) with the related metadata for the files in the
-third party Database</p></li>
-<li><p>Prepare a view with all the metadata to be imported and ensure that
-the view at least contains</p>
-<ul>
-<li><p>A unique reference for each file</p></li>
-<li><p>The name of the file including the file extension</p></li>
-<li><p>The file data</p></li>
-</ul>
-</li>
-<li><p>Identify the target class(es) for the files in M-Files</p></li>
-<li><p>Create the Class table for the all the target classes, including the
-depend classes. (e.g. a customer invoice would at least require the
-class for invoice documents, and for customers.)</p></li>
-<li><p>Add the property ‘MFSQL_File_Unique_Ref’ to the target document
-class.</p></li>
-<li><p>Use standard MFSQL Connector methods (described elsewhere) to add
-records in the Document Class Table. Ensure to complete the
-‘MFSQL_File_Unique_Ref’ for each record which will contain a file.</p></li>
-<li><p>At the same time all the dependent class and valuelist records should
-also be created in MFSQL Connector.</p></li>
-<li><p>After updating the new records in M-Files, set the process_id for
-all records to have imported file to 6</p></li>
-<li><p>Use spMFSyncchronizeFilesToM-Files to import the files.</p></li>
-<li><p>The history log of the import is saved in MFFileImport</p></li>
-</ul>
-<hr class="docutils" />
-<p>Step 1: Identify third party file table and create view</p>
+<p>In this use case we will illustrate how files in Blobs in a database are imported into M-Files. This use case is applicable in instances where where the third party application store files in the database in binary or Blobs formats. The source database can be SQL server, Oracle or any database accessible to the MFSQL Connector database.</p>
+<p>To perform the operation, one need to have the MFSQL Database File Connector module, which includes the full Connector package.</p>
+<p>In short, the process involves the following after the basic installation of MFSQL Connector.</p>
+<p>Step 1: Identify the table(s) with the files and related data in the third and create view to access the key columns: unique identifier (e.g. GUID), filename, and file data plus additional information to related to the data. In the example below the accounts and loan data is mapped to the filedata table where the blob is stored</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">vw_Filedata</span><span class="p">]</span>
 <span class="k">AS</span>
 
@@ -377,20 +308,19 @@ all records to have imported file to 6</p></li>
 <span class="k">GO</span>
 </pre></div>
 </div>
-<p>Step 2: Create class table an update existing records in M-Files. In
-this case we will import files for the Drawings class.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateTable</span> <span class="s1">&#39;Drawing&#39;</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateTable</span> <span class="s1">&#39;MFDrawing&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span>
+<p>Step 2: Identify the target class(es) for the files in M-Files and create class table(s). Then update the records from M-Files for all related data. (e.g. a customer account invoice would at least require the class for invoice documents, and for customers.) In this case we will import files to the Invoices class and update the customers class. Add the property ‘MFSQL_File_Unique_Ref’ to the target document class (Invoice in this case). The property for the unique reference will be used to link the imported file to the object in M-Files</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateTable</span> <span class="s1">&#39;Invoice&#39;</span><span class="p">;</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateTable</span> <span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Add the File unique reference column</p>
-<p>Step 3:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">MFDrawing</span>
+<p>Step 3: Use the Connector to add new objects in the class table. Ensure to complete the ‘MFSQL_File_Unique_Ref’ for each record which will contain a file from the external system.  Ensure that the unique reference in the external data and in the object matches. At the same time all the dependent class and valuelist records should also be created updated to complete the updating of the metadata for the file object and its related data from the external system.</p>
+<p>To add the unique reference to the class table</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">MFInvoice</span>
 <span class="k">ADD</span>  <span class="n">Mfsql_File_Unique_Ref</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Step 4: Create all the new objects in M-Files</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFDrawing</span>
+<p>To update the metadata for the Invoice</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span>
 <span class="p">(</span>
     <span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span>
     <span class="n">Keywords</span><span class="p">,</span>
@@ -403,44 +333,44 @@ this case we will import files for the Drawings class.</p>
        <span class="mi">1</span>
 <span class="k">FROM</span> <span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span> <span class="k">AS</span> <span class="n">vf</span><span class="p">;</span>
 
-<span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFDrawing&#39;</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span><span class="mi">0</span>
 </pre></div>
 </div>
-<p>Step 5: Set the process_id for records to add files to.</p>
+<p>Step 4: Set the process_id = 6 for records with files.  This is to identify the records in the class to get the file blobs from the external source</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">t</span>
  <span class="k">SET</span> <span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="k">FROM</span> <span class="n">MFDrawing</span> <span class="n">t</span>
+<span class="k">FROM</span> <span class="n">MFInvoice</span> <span class="n">t</span>
 <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span> <span class="k">AS</span> <span class="n">vf</span>
 <span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">id</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
 </pre></div>
 </div>
-<p>Step 6: Import the files</p>
+<p>Step 5: Finally,import the files using the procedure <a class="reference internal" href="../../procedures/spMFSynchronizeFilesToMFiles.html"><span class="doc">spMFSynchronizeFilesToMFiles</span></a>. The import will be performed in batches of 500</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeFilesToMFiles</span> <span class="o">@</span><span class="n">SourceTableName</span> <span class="o">=</span> <span class="s1">&#39;scion32.scu.vw_Filedata&#39;</span><span class="p">,</span>                <span class="c1">-- varchar(100)</span>
-                                      <span class="o">@</span><span class="n">FileUniqueKeyColumn</span> <span class="o">=</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span>                            <span class="c1">-- varchar(100)</span>
-                                      <span class="o">@</span><span class="n">FileNameColumn</span> <span class="o">=</span> <span class="s1">&#39;FileName&#39;</span><span class="p">,</span>                           <span class="c1">-- varchar(100)</span>
-                                      <span class="o">@</span><span class="n">FileDataColumn</span> <span class="o">=</span> <span class="s1">&#39;FileData&#39;</span><span class="p">,</span>                           <span class="c1">-- varchar(100)</span>
-                                     <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFDrawing&#39;</span><span class="p">,</span>                               <span class="c1">-- varchar(100)</span>
-                                      <span class="o">@</span><span class="n">BatchSize</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
-           <span class="o">@</span><span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>                                     <span class="c1">-- int</span>
-                                      <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span><span class="p">,</span>             <span class="c1">-- int</span>
-                                      <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>                                             <span class="c1">-- int</span>
-                                      <span class="o">@</span><span class="n">TargetFileUniqueKeycolumnName</span> <span class="o">=</span> <span class="s1">&#39;mfsql_File_Unique_ref&#39;</span><span class="p">;</span> <span class="c1">-- varchar(100)</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeFilesToMFiles</span>
+    <span class="o">@</span><span class="n">SourceTableName</span> <span class="o">=</span> <span class="s1">&#39;scion32.scu.vw_Filedata&#39;</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">FileUniqueKeyColumn</span> <span class="o">=</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">FileNameColumn</span> <span class="o">=</span> <span class="s1">&#39;FileName&#39;</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">FileDataColumn</span> <span class="o">=</span> <span class="s1">&#39;FileData&#39;</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFDrawing&#39;</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">BatchSize</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="o">@</span><span class="n">TargetFileUniqueKeycolumnName</span> <span class="o">=</span> <span class="s1">&#39;mfsql_File_Unique_ref&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Step 7: view the results in SQL</p>
+<p>Step 6: view the results in SQL in the table MFFileImport</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
 <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFFileImport</span><span class="p">;</span>
 
 <span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">name_or_title</span><span class="p">,</span> <span class="n">MFVersion</span><span class="p">,</span> <span class="n">FileCount</span><span class="p">,</span> <span class="n">Single_File</span><span class="p">,</span> <span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span> <span class="n">Process_ID</span>
-<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFDrawing</span><span class="p">;</span>
+<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exporting-of-files">
 <h2>Exporting of files<a class="headerlink" href="#exporting-of-files" title="Permalink to this headline">¶</a></h2>
-<p>Exporting files with <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> from
-M-Files allows for extracting files, and information about the files from M-Files into explorer and SQL.  An object in M-Files, including its properties, could have none or multiple files each with its own properties. This capability allows for access these files and properties.</p>
+<p>Exporting files with <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> from M-Files allows for extracting files, and information about the files from M-Files into explorer and SQL.  An object in M-Files, including its properties, could have none or multiple files each with its own properties. This capability allows for access these files and properties.</p>
 <p>The functionality is designed to address different types of use cases.</p>
 <p>Some of these use cases include:</p>
 <ul class="simple">
@@ -450,6 +380,7 @@ M-Files allows for extracting files, and information about the files from M-File
 <li><p>Get all the files related to a specific project, customer or event in explorer.</p></li>
 <li><p>Compare the versions of files on a checksum level with the same files outside of M-Files. (this use case stems from the need to legally prove that the files in M-Files did not change when compared with the originating files in explorer)</p></li>
 <li><p>Export files from M-Files when M-Files are no longer used.</p></li>
+<li><p>Use the file data to calculate total number of files, files storage, file of specific type (extention) or other statistics</p></li>
 </ul>
 <p>In principal this capability centers around matching metadata of objects in a class with the files in the object and making the information related to the objects, and the actual files available outside M-Files.  The related information in SQL is in the class table and <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>.  The files, if downloaded, is in explorer in the folders specified in the parameters.  Some of the use cases will require additional custom procedures or steps to complete the functional process of the use case. The output of this exporting procedure is however a fundamental building block in the process.</p>
 <div class="section" id="example-of-preparing-to-export-of-files">
@@ -479,13 +410,14 @@ M-Files allows for extracting files, and information about the files from M-File
                         <span class="o">@</span><span class="n">PathProperty_L1</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">PathProperty_L2</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">PathProperty_L3</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+                        <span class="o">@</span><span class="n">IsDownload</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">IncludeDocID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">Process_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
                         <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>Step 4 - Review the result. <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>  show the output of the process. If &#64;IsDownload = 1 then the files should be in the explorer folders</p>
+<p>Step 4 - Review the result. <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>  show the output of the process. If &#64;IsDownload = 1 then the files should be in the explorer folders. If &#64;IsDownloaded = 0 then the data will be in the table, but the file will not be in explorer. This is particularly useful if the objective is to perform analysis on the data about the files, rather than accessing the files.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFExportFileHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mefh</span><span class="p">]</span>
 </pre></div>
 </div>

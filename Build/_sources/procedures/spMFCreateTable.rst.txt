@@ -157,5 +157,7 @@ Date        Author     Description
 2022-09-07  LC         update after changes to classproperty table to add IsAdditional
 2022-09-07  LC         revamp and simplify procedure
 2022-09-07  LC         remove unique index on externalid
+2022-12-01  LC         improve debugging and logging
+2022-12-01  LC         improve handling of mfsql properties and indexes
 ==========  =========  ========================================================
 

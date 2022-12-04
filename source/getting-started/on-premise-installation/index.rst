@@ -132,7 +132,7 @@ If no errors are found, finish the installation of the package.
 
 **14. Configure M-Files server**
 
-In the case of selecting to option for an M-Files server installation, additional steps are required to complete the installation.
+In the case of selecting the option for an M-Files server installation, additional steps are required to complete the installation.
 Use M-Files Admin to complete the following on the M-Files Server.
 
 Access the Applications window using M-Files Admin. The following configuration should be apparent in the Vault
@@ -141,22 +141,27 @@ The Vault application: MFSQL Connector Vault App. Take the vault offline and bac
 
 |image36|
 
-**15. License to product.**
+The configuration of application is under the Other Applications. Refer to :doc:`/getting-started/configuration-and-setup/installing-the-context-menu/index` to configure the vault application for the use of Context Menu functionality.  As the minimum, the installation should show a valid license and expiry date.  If not, proceed to license the application.
+
+|image14|
+
+**15. License the product.**
 
 Refer to section on :doc:`/getting-started/configuration-and-setup/licensing-management/index` for further detail on licensing
 the applications.
 
-**16. Install contextmenu functionality**
+**16. Install content package**
 
-Activate the context menu with the :doc:`/getting-started/manual-installation-using-scripts/content-package-installation/index`
+In most cases, the content package will be automatically installed. However, refer to :doc:`/getting-started/manual-installation-using-scripts/content-package-installation/index` for more information on the content package that comes with the Connector.
 
 **17. Perform manual installation.**
 
-To perform a manual installation refer to :doc:`/getting-started/manual-installation-using-scripts/index`
+The entirre package can be installed by running scripts and adding the components manually. To perform a manual installation refer to :doc:`/getting-started/manual-installation-using-scripts/index`
 
 .. |image11| image:: img_11.png
 .. |image12| image:: img_12.png
 .. |image13| image:: img_13.png
+.. |image14| image:: img_14.png
 .. |image16| image:: img_16.png
 .. |image17| image:: img_17.png
 .. |image18| image:: img_18.png

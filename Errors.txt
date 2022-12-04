@@ -1,2 +1,1 @@
 [31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\triggers\trMFProcessBatch_UserMessage.rst: WARNING: document isn't included in any toctree[39;49;00m
-[31;01mE:\Development\Github\LamininSolutions\mfsql-connector\source\tables\tbMFClass.rst:54: WARNING: unknown document: /mfsql-integration-connector/using-and-managing-logs/error-tracing/correcting-synchronization-errors/index[39;49;00m

@@ -16,6 +16,7 @@ This implies that any upgrade to this version must include updates to both the S
 
 The changes to the Vault Application framework and Web API Service is outline in :doc:`/blogs/update-to-VAF-4-10/index`.  If your use of the Connector include the use of the MFSQL Connector menus in M-Files, or the use of workflow state change and event handler triggers for running procedures then you must follow the instructions in this section to adapt your custom code to fit the new VAF module.
 
+
 If you are not using the context menu functionality and have upgraded both SQL Server and M-Files Server with this release, then no special actions are required for upgrading this release.
 
 Key functional improvements
@@ -34,17 +35,26 @@ There are substantial functionality improvements included in this release that m
 Steps to upgrade
 ----------------
 
-Get download of latest release from website `<https://lamininsolutions.com/download-mfsql-connector/#MFSQL-download>`_
-Stop all SQL agent jobs
+Get download of latest release from website (4.10.30.74) `<https://lamininsolutions.com/download-mfsql-connector/#MFSQL-download>`_
+Stop all SQL agent jobs and scheduled powershell Add Ins if they have been used
 Make a backup of the M-Files Vault and MFSQL Connector Database
-Install the upgrade on the SQL Server first.
-In the case of a cloud installation, install the Web API Service
-Then install the upgrade on the M-Files Server.  In the case of a cloud installation, this is performed by M-Files support
-Check that the new VAF is Installed
+Install the upgrade on the SQL Server first.  Run the installation package on the SQL server. :doc:`/getting-started/on-premise-installation/index`
+In the case of a cloud installation and using context menu functionality, :doc:`/getting-started/cloud-and-hosted-installation/install-webapi/index`
+Then install the upgrade on the M-Files Server. :doc:`/getting-started/on-premise-installation/index` 
+In the case of a cloud installation, this is performed by M-Files support :doc`/getting-started/cloud-and-hosted-installation/index`
+Check that the new VAF is Installed (version 4.10.1.26)
 Restart the vault
 Check the VAF licensing is valid, if not, reinstall the MFSQL license
 Check the connection to SQL in the configurations Dashboard
-Using SSMS check the connection to the vault from SQL
-Refresh the metadata synchronization
+
+Using SSMS check the connection to the vault from SQL and refresh the metadata synchronization
+
+.. code:: sql
+
+    EXEC spMFVaultConnectionTest
+
+    EXEC dbo.spMFDropAndUpdateMetadata 
+        @IsStructureOnly = 0
+
 In the case of using context menu functionality, follow the instructions to update the custom procedures.
 Test the action buttons, workflow state changes and event handler triggers

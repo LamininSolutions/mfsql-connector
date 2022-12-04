@@ -115,6 +115,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2022-11-30  LC         resolve issue with updates by objid
 2021-12-22  LC         Update logging to monitor performance
 2021-12-22  LC         Set default for withtableupdate to 0
 2021-10-18  LC         The procedure is fundamentally rewritten
