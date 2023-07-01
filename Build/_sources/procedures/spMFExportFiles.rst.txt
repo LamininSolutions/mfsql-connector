@@ -123,6 +123,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-02-15  LC         bug to handle pipe sign in multifile document name
+2023-01-07  LC         reset filesize to bigint
 2021-01-07  LC         Change CLR to improve downloading multiple files
 2021-01-07  LC         Include parameter to restrict download of files
 2021-01-05  LC         Improve productivity and processing logic

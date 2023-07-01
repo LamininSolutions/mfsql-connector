@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the Context Menu &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>Using the Context Menu &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MFSQL Database File Connector" href="../../mfsql-database-file-connector/index.html" />
+    <link rel="next" title="MFSQL Integration Connector" href="../../mfsql-integration-connector/index.html" />
     <link rel="prev" title="Create new class table" href="../working-with-class-tables/create-new-object/index.html" /> 
 </head>
 
@@ -98,7 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installing-mfcontextmenu">Installing MFContextMenu</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#menu-and-menu-items">Menu and Menu items</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#action-buttons">Action Buttons</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workflow-state-actions">Workflow State Actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow-state-or-event-handler-actions">Workflow State or Event Handler Actions</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#updating-table-mfcontextmenu">Updating table MFContextMenu</a><ul>
@@ -120,7 +120,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
@@ -262,30 +261,29 @@ actions).</p>
 <p>Only action 3 items will be displayed.</p>
 </div>
 </div>
-<div class="section" id="workflow-state-actions">
-<h3>Workflow State Actions<a class="headerlink" href="#workflow-state-actions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="workflow-state-or-event-handler-actions">
+<h3>Workflow State or Event Handler Actions<a class="headerlink" href="#workflow-state-or-event-handler-actions" title="Permalink to this headline">¶</a></h3>
 <p>The context menu methods is also used to execute procedures for workflow
-state actions</p>
+state actions or from an event handler</p>
 <p>Action 4 and 5 items do not appear in the menu.  They are called
-directly from and action script in the workflow state.</p>
-<p>These procedures are triggered by adding a script in the workflow state.</p>
+directly from and action script in either the workflow state or event handler.</p>
+<p>The parent_id in the context menu for action 4 or 5 must be set to null as it does not relate to a heading in the context menu.</p>
 </div>
 </div>
 <div class="section" id="updating-table-mfcontextmenu">
 <h2>Updating table MFContextMenu<a class="headerlink" href="#updating-table-mfcontextmenu" title="Permalink to this headline">¶</a></h2>
-<p>The MFContextMenu table controls the
-procedures that will be executed and the type of action that will be
-performed.  Add a record to this table to setup a menu item.</p>
+<p>The MFContextMenu table controls the procedures that will be executed and the type of action that will be performed.  Add a record to this table to setup a menu item.</p>
 <p>Adding items the to table can be done using various methods</p>
 <ul class="simple">
-<li><p>Use SQL Update statement to update existing items</p></li>
-<li><p>Use SQL insert statement to insert new items</p></li>
+<li><p>Use a SQL Update script to update existing items</p></li>
+<li><p>Use SQL insert script to insert new items</p></li>
 </ul>
 <p>or</p>
 <ul class="simple">
 <li><p>Use spMFContextMenuHeadingItem to add, update, remove headings</p></li>
 <li><p>Use spMFContextMenuActionItem to add, update or remove action items</p></li>
 </ul>
+<p>Using these procedures ensures that that the related and dependent settings for each action type is correctly set.</p>
 <div class="section" id="adding-a-group-heading-for-the-menu-items">
 <h3>Adding a group heading for the menu items<a class="headerlink" href="#adding-a-group-heading-for-the-menu-items" title="Permalink to this headline">¶</a></h3>
 <p>Menu item can be grouped together by using a header.  Use the following</p>
@@ -316,13 +314,7 @@ performed.  Add a record to this table to setup a menu item.</p>
 menu types can be included. Multiple instances of the same type is
 allowed.   Each type will have different considerations and the menu
 items will behave differently for each type.</p>
-<p>Note that each procedure can be set to be either synchronous or
-asynchronous.  When the procedure is processed synchronous it will allow
-for feedback to the user on the outcome of the procedure in the context
-menu.  When the process is asynchronous, is will continue to process in
-the background and allow the user to continue with M-Files operations.
-See the section on Messaging for further guidance on providing feedback
-in different situations.</p>
+<p>All procedures will be run asynchronously and does not provide interactive feedback to the user on the completion of the process.</p>
 <p><strong>Execute Procedure</strong></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span>
   <span class="p">([</span><span class="n">ActionName</span><span class="p">]</span>
@@ -757,12 +749,14 @@ Context Menu installation.</p>
 </div>
 <p>Procedure with parameters (action type 3)</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">CMDoObjectAction</span><span class="p">]</span>
-      <span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
- <span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span>
+
+     <span class="o">@</span><span class="n">ID</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="k">Output</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">output</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">null</span> <span class="k">output</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">null</span>
 <span class="k">AS</span>
       <span class="k">BEGIN</span>
             <span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
@@ -976,12 +970,13 @@ ERP insert process and return the result of the process to
 <p>For Action Type 5</p>
 <p><strong>VB Script for State Action</strong></p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">PROCEDURE</span> <span class="p">[</span><span class="n">Custom</span><span class="p">].[</span><span class="n">CMDoObjectActionForWorkFlowState</span><span class="p">]</span>
-      <span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="n">ID</span> <span class="nb">INT</span>
-    <span class="p">,</span> <span class="o">@</span><span class="k">OutPut</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">OUTPUT</span>
- <span class="p">,</span> <span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span>
+             <span class="o">@</span><span class="n">ID</span> <span class="nb">int</span> <span class="k">not</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="k">Output</span> <span class="n">nvarchar</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span> <span class="k">output</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">null</span> <span class="k">output</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectID</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectType</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ObjectVer</span> <span class="nb">INT</span> <span class="o">=</span> <span class="k">null</span>
+     <span class="p">,</span><span class="o">@</span><span class="n">ClassID</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">null</span>
 <span class="k">AS</span>
       <span class="k">BEGIN</span>
             <span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFClassTable</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFOtherDocument&#39;</span>
@@ -1205,7 +1200,7 @@ incorporate logging as outline in <a class="reference internal" href="../../mfsq
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../mfsql-database-file-connector/index.html" class="btn btn-neutral float-right" title="MFSQL Database File Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../mfsql-integration-connector/index.html" class="btn btn-neutral float-right" title="MFSQL Integration Connector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../working-with-class-tables/create-new-object/index.html" class="btn btn-neutral float-left" title="Create new class table" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -44,6 +44,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-06-28  LC         Fix bug with assembly version
+2023-05-30  LC         Add additional logging to track process results
 2022-11-03  LC         Include validation that assemblies are in place
 2021-12-16  LC         Fix bug to stop continious updates when no change took place
 2021-08-11  LC         Improve control when version could not be found

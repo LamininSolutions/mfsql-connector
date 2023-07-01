@@ -22,7 +22,7 @@ Examples
 
 .. code:: sql
 
-    SELECT * FROM dbo.fnParseDelimitedString('A,B,C',',')
+    SELECT * FROM dbo.fnMFParseDelimitedString('A,B,C',',')
 
 Changelog
 =========

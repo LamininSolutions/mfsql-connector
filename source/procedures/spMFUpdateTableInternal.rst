@@ -38,6 +38,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-02-15  LC         Resolve bug for converting datetime incorrectly when new record is added
 2022-08-03  LC         Update debugging for error trapping
 2022-06-16  LC         Fix conflict of name value in Pivot of Tempobjectlist
 2022-03-24  LC         Add isolation levels and no lock to avoid locking

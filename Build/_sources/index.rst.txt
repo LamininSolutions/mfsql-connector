@@ -21,7 +21,6 @@ Welcome to MFSQL Connector's documentation!
    introduction/index
    getting-started/index
    mfsql-data-exchange-and-reporting-connector/index
-   mfsql-database-file-connector/index
    mfsql-integration-connector/index
    the-connector-framework/index
    version-control/index
@@ -51,7 +50,7 @@ Welcome to MFSQL Connector's documentation!
     Email your suggestions to `support <mailto:support@lamininsolutions.com>`__.
 
 
-Last Updated: 2 Dec 2022
+Last Updated: 18 April 2023
 
 
 .. |search_icon| image:: search-icon.png

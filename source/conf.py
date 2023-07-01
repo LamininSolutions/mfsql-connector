@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'MFSQL Connector'
-copyright = '2020, Laminin Solutions Ltd'
+copyright = '2023, Laminin Solutions Ltd'
 author = 'Laminin Solutions Ltd'
 
 # The full version, including alpha/beta/rc tags
-release = '4.10.30.74'
+release = '4.10.32.76'
 
 
 # -- General configuration ---------------------------------------------------

@@ -67,5 +67,6 @@ Date        Author     Description
 2020-08-22  LC         update to take account of new deleted column
 2021-03-17  LC         Set updatestatus = 1 when not matched
 2022-04-12  LC         Add logging, remove updating MFclass, add error handling
+2023-02-17  LC         Resolve bug on not updating class
 ==========  =========  ========================================================
 

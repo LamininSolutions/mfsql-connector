@@ -72,33 +72,33 @@ actions).
 
 Only action 3 items will be displayed.
 
-Workflow State Actions
-~~~~~~~~~~~~~~~~~~~~~~
+Workflow State or Event Handler Actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The context menu methods is also used to execute procedures for workflow
-state actions
+state actions or from an event handler
 
 Action 4 and 5 items do not appear in the menu.  They are called
-directly from and action script in the workflow state.
+directly from and action script in either the workflow state or event handler.
 
-These procedures are triggered by adding a script in the workflow state.
+The parent_id in the context menu for action 4 or 5 must be set to null as it does not relate to a heading in the context menu.
 
 Updating table MFContextMenu
 ----------------------------
 
-The MFContextMenu table controls the
-procedures that will be executed and the type of action that will be
-performed.  Add a record to this table to setup a menu item.
+The MFContextMenu table controls the procedures that will be executed and the type of action that will be performed.  Add a record to this table to setup a menu item.
 
 Adding items the to table can be done using various methods
 
--  Use SQL Update statement to update existing items
--  Use SQL insert statement to insert new items
+-  Use a SQL Update script to update existing items
+-  Use SQL insert script to insert new items
 
 or
 
 -  Use spMFContextMenuHeadingItem to add, update, remove headings
 -  Use spMFContextMenuActionItem to add, update or remove action items
+
+Using these procedures ensures that that the related and dependent settings for each action type is correctly set.
 
 Adding a group heading for the menu items
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,13 +135,7 @@ menu types can be included. Multiple instances of the same type is
 allowed.   Each type will have different considerations and the menu
 items will behave differently for each type.
 
-Note that each procedure can be set to be either synchronous or
-asynchronous.  When the procedure is processed synchronous it will allow
-for feedback to the user on the outcome of the procedure in the context
-menu.  When the process is asynchronous, is will continue to process in
-the background and allow the user to continue with M-Files operations. 
-See the section on Messaging for further guidance on providing feedback
-in different situations.
+All procedures will be run asynchronously and does not provide interactive feedback to the user on the completion of the process.
 
 **Execute Procedure**
 
@@ -572,12 +566,14 @@ Procedure with parameters (action type 3)
 .. code:: sql
 
     CREATE PROCEDURE [Custom].[CMDoObjectAction]
-          @ObjectID INT
-        , @ObjectType INT
-        , @ObjectVer INT
-        , @ID INT
-        , @OutPut VARCHAR(1000) OUTPUT
-     , @ClassID int
+	
+         @ID int not null
+         ,@Output nvarchar(1000) output
+         ,@ProcessBatch_ID int = null output
+         ,@ObjectID INT = null
+         ,@ObjectType INT = null
+         ,@ObjectVer INT = null
+         ,@ClassID int = null
     AS
           BEGIN
                 DECLARE @MFClassTable NVARCHAR(128)
@@ -798,12 +794,13 @@ For Action Type 5
 .. code:: sql
 
     CREATE PROCEDURE [Custom].[CMDoObjectActionForWorkFlowState]
-          @ObjectID INT
-        , @ObjectType INT
-        , @ObjectVer INT
-        , @ID INT
-        , @OutPut VARCHAR(1000) OUTPUT
-     , @ClassID int
+                 @ID int not null
+         ,@Output nvarchar(1000) output
+         ,@ProcessBatch_ID int = null output
+         ,@ObjectID INT = null
+         ,@ObjectType INT = null
+         ,@ObjectVer INT = null
+         ,@ClassID int = null
     AS
           BEGIN
                 DECLARE @MFClassTable NVARCHAR(128) = 'MFOtherDocument'

@@ -61,7 +61,7 @@ Setup database mail
     GO
     sp_configure 'Database Mail XPs', 1;
     GO
-    RECONFIGURE  GO
+    
 
 Create mail account
 

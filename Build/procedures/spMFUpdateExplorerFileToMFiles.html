@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFUpdateExplorerFileToMFiles &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFUpdateExplorerFileToMFiles &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -129,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -203,6 +203,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -374,27 +375,47 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-09-02</p></td>
+<tr class="row-even"><td><p>2023-05-19</p></td>
+<td><p>LC</p></td>
+<td><p>Resolve issue with updating changed file</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-03-28</p></td>
+<td><p>LC</p></td>
+<td><p>Allow option to set object to set object to single file</p></td>
+</tr>
+<tr class="row-even"><td><p>2023-03-27</p></td>
+<td><p>LC</p></td>
+<td><p>Improve logic for validation</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-01-23</p></td>
+<td><p>lc</p></td>
+<td><p>Fix bug setting single file to 1 when count &gt; 1</p></td>
+</tr>
+<tr class="row-even"><td><p>2022-12-07</p></td>
+<td><p>LC</p></td>
+<td><p>Improve logging messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-09-02</p></td>
 <td><p>LC</p></td>
 <td><p>Update to include RetainDeletions and DocumentCollections</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-08-03</p></td>
+<tr class="row-even"><td><p>2021-08-03</p></td>
 <td><p>LC</p></td>
 <td><p>Fix truncate string bug</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-05-21</p></td>
+<tr class="row-odd"><td><p>2021-05-21</p></td>
 <td><p>LC</p></td>
 <td><p>improve handling of files on network drive</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-12-31</p></td>
+<tr class="row-even"><td><p>2020-12-31</p></td>
 <td><p>LC</p></td>
 <td><p>Improve error handling in procedure</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-12-31</p></td>
+<tr class="row-odd"><td><p>2020-12-31</p></td>
 <td><p>LC</p></td>
 <td><p>Update datetime handling in mffileexport</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>

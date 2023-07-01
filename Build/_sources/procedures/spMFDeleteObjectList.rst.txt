@@ -104,6 +104,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-01-25  LC         Set default value for Update_ID parameter
 2022-02-10  LC         Add update ID to record deletions in history
 2021-12-20  LC         Pair connection test with accessing assembly
 2021-06-08  LC         Remove object from class table if not found

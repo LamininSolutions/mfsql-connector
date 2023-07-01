@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFCreateTable &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFCreateTable &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -145,6 +144,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -505,105 +506,25 @@ When an additional property is added in M-Files to an object the column will aut
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2015-05-23</p></td>
-<td><p>DEV2</p></td>
-<td><p>Default column ExternalID added</p></td>
-</tr>
-<tr class="row-odd"><td><p>2015-05-25</p></td>
-<td><p>DEV2</p></td>
-<td><p>Default column Update_ID added</p></td>
-</tr>
-<tr class="row-even"><td><p>2016-06-27</p></td>
+<tr class="row-even"><td><p>2023-06-06</p></td>
 <td><p>LC</p></td>
-<td><p>Automatically add includeInApp if null</p></td>
+<td><p>resolve bug for excluding some columns on create</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-08-18</p></td>
+<tr class="row-odd"><td><p>2023-04-19</p></td>
 <td><p>LC</p></td>
-<td><p>Add system columns with localized text names that is required for creating a new record</p></td>
+<td><p>improve handling of lookup columns to handle duplicate property names</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-09-10</p></td>
+<tr class="row-even"><td><p>2022-12-01</p></td>
 <td><p>LC</p></td>
-<td><p>Set process_ID default to 1 and deleted default to 0 on creating new record</p></td>
+<td><p>improve handling of mfsql properties and indexes</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-10-02</p></td>
+<tr class="row-odd"><td><p>2022-12-01</p></td>
 <td><p>LC</p></td>
-<td><p>Update multi lookup columns to nvarchar(4000)</p></td>
-</tr>
-<tr class="row-even"><td><p>2016-10-13</p></td>
-<td><p>DEV2</p></td>
-<td><p>Added Single_File Column in Class table</p></td>
-</tr>
-<tr class="row-odd"><td><p>2016-10-15</p></td>
-<td><p>LC</p></td>
-<td><p>Change Default of Single_file to 0</p></td>
-</tr>
-<tr class="row-even"><td><p>2017-07-06</p></td>
-<td><p>LC</p></td>
-<td><p>Add new default column for FileCount</p></td>
-</tr>
-<tr class="row-odd"><td><p>2017-11-29</p></td>
-<td><p>LC</p></td>
-<td><p>Add error message of file does not exist or table already exist</p></td>
-</tr>
-<tr class="row-even"><td><p>2018-04-17</p></td>
-<td><p>LC</p></td>
-<td><p>Add condition to only create trigger on table if includedinApp is set to 2 (for transaction based tables.)</p></td>
-</tr>
-<tr class="row-odd"><td><p>2018-10-30</p></td>
-<td><p>LC</p></td>
-<td><p>Add creating unique index on objid and externalid</p></td>
-</tr>
-<tr class="row-even"><td><p>2019-09-20</p></td>
-<td><p>LC</p></td>
-<td><p>allow for ID at end of name of a lookup property</p></td>
-</tr>
-<tr class="row-odd"><td><p>2019-10-14</p></td>
-<td><p>LC</p></td>
-<td><p>Resolve multilookup table data type incorrectly set</p></td>
-</tr>
-<tr class="row-even"><td><p>2019-12-01</p></td>
-<td><p>LC</p></td>
-<td><p>Resolve where duplicate columns exist and removal of ID</p></td>
-</tr>
-<tr class="row-odd"><td><p>2020-03-11</p></td>
-<td><p>LC</p></td>
-<td><p>Add check license</p></td>
-</tr>
-<tr class="row-even"><td><p>2020-03-18</p></td>
-<td><p>LC</p></td>
-<td><p>Add non clustered unique index for objid</p></td>
-</tr>
-<tr class="row-odd"><td><p>2020-03-27</p></td>
-<td><p>LC</p></td>
-<td><p>Add MFSetting to allow optional create of indexes</p></td>
-</tr>
-<tr class="row-even"><td><p>2020-04-22</p></td>
-<td><p>LC</p></td>
-<td><p>Improve naming of constraints</p></td>
-</tr>
-<tr class="row-odd"><td><p>2020-05-12</p></td>
-<td><p>LC</p></td>
-<td><p>Add index on Update_ID to improve performance</p></td>
-</tr>
-<tr class="row-even"><td><p>2020-08-18</p></td>
-<td><p>LC</p></td>
-<td><p>replace deleted column flag with property 27 (deleted)</p></td>
-</tr>
-<tr class="row-odd"><td><p>2020-11-21</p></td>
-<td><p>LC</p></td>
-<td><p>Fix bug with unique index on objid</p></td>
-</tr>
-<tr class="row-even"><td><p>2021-01-22</p></td>
-<td><p>LC</p></td>
-<td><p>set default schema to dbo</p></td>
-</tr>
-<tr class="row-odd"><td><p>2022-01-04</p></td>
-<td><p>LC</p></td>
-<td><p>update app detail logging to include assembly logging</p></td>
+<td><p>improve debugging and logging</p></td>
 </tr>
 <tr class="row-even"><td><p>2022-09-07</p></td>
 <td><p>LC</p></td>
-<td><p>update after changes to classproperty table to add IsAdditional</p></td>
+<td><p>remove unique index on externalid</p></td>
 </tr>
 <tr class="row-odd"><td><p>2022-09-07</p></td>
 <td><p>LC</p></td>
@@ -611,15 +532,103 @@ When an additional property is added in M-Files to an object the column will aut
 </tr>
 <tr class="row-even"><td><p>2022-09-07</p></td>
 <td><p>LC</p></td>
-<td><p>remove unique index on externalid</p></td>
+<td><p>update after changes to classproperty table to add IsAdditional</p></td>
 </tr>
-<tr class="row-odd"><td><p>2022-12-01</p></td>
+<tr class="row-odd"><td><p>2022-01-04</p></td>
 <td><p>LC</p></td>
-<td><p>improve debugging and logging</p></td>
+<td><p>update app detail logging to include assembly logging</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-12-01</p></td>
+<tr class="row-even"><td><p>2021-01-22</p></td>
 <td><p>LC</p></td>
-<td><p>improve handling of mfsql properties and indexes</p></td>
+<td><p>set default schema to dbo</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-11-21</p></td>
+<td><p>LC</p></td>
+<td><p>Fix bug with unique index on objid</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-08-18</p></td>
+<td><p>LC</p></td>
+<td><p>replace deleted column flag with property 27 (deleted)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-05-12</p></td>
+<td><p>LC</p></td>
+<td><p>Add index on Update_ID to improve performance</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-04-22</p></td>
+<td><p>LC</p></td>
+<td><p>Improve naming of constraints</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-03-27</p></td>
+<td><p>LC</p></td>
+<td><p>Add MFSetting to allow optional create of indexes</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-03-18</p></td>
+<td><p>LC</p></td>
+<td><p>Add non clustered unique index for objid</p></td>
+</tr>
+<tr class="row-odd"><td><p>2020-03-11</p></td>
+<td><p>LC</p></td>
+<td><p>Add check license</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-12-01</p></td>
+<td><p>LC</p></td>
+<td><p>Resolve where duplicate columns exist and removal of ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-10-14</p></td>
+<td><p>LC</p></td>
+<td><p>Resolve multilookup table data type incorrectly set</p></td>
+</tr>
+<tr class="row-even"><td><p>2019-09-20</p></td>
+<td><p>LC</p></td>
+<td><p>allow for ID at end of name of a lookup property</p></td>
+</tr>
+<tr class="row-odd"><td><p>2018-10-30</p></td>
+<td><p>LC</p></td>
+<td><p>Add creating unique index on objid and externalid</p></td>
+</tr>
+<tr class="row-even"><td><p>2018-04-17</p></td>
+<td><p>LC</p></td>
+<td><p>Add condition to only create trigger on table if includedinApp is set to 2 (for transaction based tables.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>2017-11-29</p></td>
+<td><p>LC</p></td>
+<td><p>Add error message of file does not exist or table already exist</p></td>
+</tr>
+<tr class="row-even"><td><p>2017-07-06</p></td>
+<td><p>LC</p></td>
+<td><p>Add new default column for FileCount</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-10-15</p></td>
+<td><p>LC</p></td>
+<td><p>Change Default of Single_file to 0</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-10-13</p></td>
+<td><p>DEV2</p></td>
+<td><p>Added Single_File Column in Class table</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-10-02</p></td>
+<td><p>LC</p></td>
+<td><p>Update multi lookup columns to nvarchar(4000)</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-09-10</p></td>
+<td><p>LC</p></td>
+<td><p>Set process_ID default to 1 and deleted default to 0 on creating new record</p></td>
+</tr>
+<tr class="row-odd"><td><p>2016-08-18</p></td>
+<td><p>LC</p></td>
+<td><p>Add system columns with localized text names that is required for creating a new record</p></td>
+</tr>
+<tr class="row-even"><td><p>2016-06-27</p></td>
+<td><p>LC</p></td>
+<td><p>Automatically add includeInApp if null</p></td>
+</tr>
+<tr class="row-odd"><td><p>2015-05-25</p></td>
+<td><p>DEV2</p></td>
+<td><p>Default column Update_ID added</p></td>
+</tr>
+<tr class="row-even"><td><p>2015-05-23</p></td>
+<td><p>DEV2</p></td>
+<td><p>Default column ExternalID added</p></td>
 </tr>
 </tbody>
 </table>

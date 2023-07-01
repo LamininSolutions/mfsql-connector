@@ -24,17 +24,6 @@ Purpose
 
 The purpose of this procedure is to insert user account details into MFUserAccount table.
 
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
 
 Changelog
 =========
@@ -42,6 +31,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-05-24  LC         Add vault roles
 2019-08-30  JC         Added documentation
 ==========  =========  ========================================================
 

@@ -112,6 +112,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-04-06  LC         resolve bug with creating new columns with wrong datatype
 2022-09-27  LC         update following change of additional property approach
 2021-10-08  LC         Fix missing table not identying if table deleted
 2021-09-30  LC         fix bug on multilookup data type change error 

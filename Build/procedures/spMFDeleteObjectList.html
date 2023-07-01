@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFDeleteObjectList &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFDeleteObjectList &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -137,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -204,6 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -411,51 +412,55 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-02-10</p></td>
+<tr class="row-even"><td><p>2023-01-25</p></td>
+<td><p>LC</p></td>
+<td><p>Set default value for Update_ID parameter</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-02-10</p></td>
 <td><p>LC</p></td>
 <td><p>Add update ID to record deletions in history</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-12-20</p></td>
+<tr class="row-even"><td><p>2021-12-20</p></td>
 <td><p>LC</p></td>
 <td><p>Pair connection test with accessing assembly</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-06-08</p></td>
+<tr class="row-odd"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Remove object from class table if not found</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-06-08</p></td>
+<tr class="row-even"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug to remove item on deletion from class table</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-06-08</p></td>
+<tr class="row-odd"><td><p>2021-06-08</p></td>
 <td><p>LC</p></td>
 <td><p>Fix entry in MFUpdateHistory on completion of deletion</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-12-08</p></td>
+<tr class="row-even"><td><p>2020-12-08</p></td>
 <td><p>LC</p></td>
 <td><p>Reset mfversion to -1 when deleting and destroying</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-12-03</p></td>
+<tr class="row-odd"><td><p>2020-12-03</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug when object is destroyed</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-10-06</p></td>
+<tr class="row-even"><td><p>2020-10-06</p></td>
 <td><p>LC</p></td>
 <td><p>Modified to process delete operation in batch</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-08-22</p></td>
+<tr class="row-odd"><td><p>2020-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>deleted records in class table will be removed</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-04-9</p></td>
+<tr class="row-even"><td><p>2018-04-9</p></td>
 <td><p>lc</p></td>
 <td><p>Delete object from class table after deletion.</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-6-26</p></td>
+<tr class="row-odd"><td><p>2018-6-26</p></td>
 <td><p>LC</p></td>
 <td><p>Improve return value</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-8-2</p></td>
+<tr class="row-even"><td><p>2018-8-2</p></td>
 <td><p>LC</p></td>
 <td><p>Suppress SQL error when nothing deleted</p></td>
 </tr>

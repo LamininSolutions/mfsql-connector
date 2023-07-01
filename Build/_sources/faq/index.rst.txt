@@ -37,6 +37,11 @@ The reporting functionality of the Connector does everything the reporting tool 
 
  Learn more about it in :doc:`/mfsql-data-exchange-and-reporting-connector/reporting/index`
 
+Why use MFSQL Connector for vault Archiving
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The functionality of the Connector to export files and save them to a folder allows for you to pick the properties set as the folders (up to 3 levels deep) and either copy, mark as deleted or destroy the files in the vault.
+
 Why use MFSQL Connector for integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -96,9 +101,13 @@ The column ''External_ID'' in the class table represents the display_id of the o
 What file operations can be performed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- -  :doc:`/blogs/import-files-into-m-files-from-explorer/index`
- -  :doc:`/blogs/importing-files-from-a-database/index`
- -  :doc:`/procedures/spMFExportFiles`
+:doc:`/mfsql-integration-connector/working-with-files/index` provide more detail on importing and exporting files from M-Files
+Related procedures and utilities include
+
+ -  :doc:`/procedures/spMFExportFiles`to handle exports
+ -  :doc:`/procedures/spMFSynchronizeFilesToMFiles` to handle blobs
+ -  :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to handle explorer files
+ -  :doc:`/getting-started/configuration-and-setup/setup-powershell-utilities/index` to transfer explorer file data to SQL
 
 How to count to number of objects in the vault
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

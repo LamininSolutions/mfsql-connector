@@ -78,6 +78,8 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-06-30  LC         allow for specifying date in UTC
+2023-04-05  LC         refine options for selecting default date
 2022-09-08  LC         simplify query for flag 5 to ellimate objects not in Audit table
 2022-01-28  LC         set objids datatype to max
 2022-01-08  LC         new code to deal with class changes

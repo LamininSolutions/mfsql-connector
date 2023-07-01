@@ -22,6 +22,7 @@ MFSQL Integration Connector
    working-with-object-version/index
    context-menu-queue/index
    mfsql_connector_addons/index
+   users-in-usergroups/index
 
 M-Files External Connectors
 ---------------------------

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Error tracing &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>Error tracing &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Logging execution of Process and Procedure Steps" href="../logging-execution-of-process-and-procedure-steps/index.html" />
-    <link rel="prev" title="Overview of Logging" href="../logging-overview/index.html" /> 
+    <link rel="next" title="Working with Object Version" href="../../working-with-object-version/index.html" />
+    <link rel="prev" title="Logging in custom procedures" href="../logging-in-custom-procedures/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">MFSQL Integration Connector</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../exploring-metadata/index.html">Exploring metadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../building-custom-applications-and-integrations/index.html">Building custom applications and integrations</a></li>
@@ -110,7 +109,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../tips-and-tricks-on-using-the-connector/index.html">Tips and tricks on using the Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../tips-and-tricks-on-using-the-connector/index.html#getting-deleted-objects">Getting deleted objects</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Using and managing logs</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../logging-overview/index.html">Overview of Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../the-connector-framework/connector-content/logging-tables/index.html">Logging Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../getting-started/configuration-and-setup/enabling-vaf-logging/index.html">Enabling and configuring the VAF logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../logging-in-custom-procedures/index.html">Logging in custom procedures</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Error tracing</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#error-reporting">Error reporting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#errors">Errors</a></li>
@@ -120,14 +124,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#related-topics"><strong>Related Topics</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html">Logging execution of Process and Procedure Steps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#summary-of-logging-function">Summary of logging function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#setting-switch-to-use-process-logging">Setting switch to use process logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#calling-procedure-or-executing-instruction">Calling procedure or executing instruction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#related-procedures">Related procedures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-execution-of-process-and-procedure-steps/index.html#procedures-to-update-the-logging">Procedures to update the logging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html">MFUpdateHistory for logging of class record changes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../logging-in-custom-procedures/index.html">Logging in custom procedures</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../working-with-object-version/index.html">Working with Object Version</a></li>
@@ -365,10 +361,10 @@ issue by using the MFProcessBatch and MFProcessBatchDetail tables.</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../logging-execution-of-process-and-procedure-steps/index.html" class="btn btn-neutral float-right" title="Logging execution of Process and Procedure Steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../working-with-object-version/index.html" class="btn btn-neutral float-right" title="Working with Object Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../logging-overview/index.html" class="btn btn-neutral float-left" title="Overview of Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../logging-in-custom-procedures/index.html" class="btn btn-neutral float-left" title="Logging in custom procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -17,7 +17,6 @@ Using MFSQL Connector
 -  :doc:`/blogs/considerations-for-deleted-records/index`
 -  :doc:`/blogs/considerations-for-large-volume-vault/index`
 -  :doc:`/blogs/multiselectlookups/index`
--  :doc:`/blogs/import-files-into-m-files-from-explorer/index`
 
 Reporting
 ~~~~~~~~~
@@ -48,7 +47,6 @@ Integration with third party applications
 -  :doc:`/blogs/insert-new-records-from-sql/index`
 -  :doc:`/blogs/getting-to-know-mfsql-connector/index`
 -  :doc:`/blogs/using-hyperlinks-with-mfsql-connector/index`
--  :doc:`/blogs/import-files-into-m-files-from-explorer/index`
 -  :doc:`/blogs/using-event-handler-for-sql-action/index`
 -  :doc:`/blogs/processing-scanned-documents/index`
 -  :doc:`/blogs/using-the-external_id-to-match-third-party-app-tables/index`
@@ -65,6 +63,3 @@ Building extended applications
 -  :doc:`/blogs/processing-scanned-documents/index`
 -  :doc:`/blogs/updating-only-records-that-changed/index`
 
-Working with Database files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
--  :doc:`/blogs/importing-files-from-a-database/index`

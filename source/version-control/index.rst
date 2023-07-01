@@ -6,15 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.9.29.73 2022-05-09
+Published version: 4.10.32.76 2023-06-30
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.10.30.74  2022-10-30 (Beta)
-Assemblies        4.10.30.0   2022-06-30
-Vault application 4.10.1.25   2022-09-30
-Database File VAF 4.3.0.1    2021-09-23
+SQL scripts       4.10.32.76  2023-06-30 
+Assemblies        4.10.32.0   2023-06-30
+Vault application 4.10.1.27   2023-06-06
 ================= ========== ==========
 
 Installed releases
@@ -38,6 +37,45 @@ Change control summary
 ----------------------------------------------
 
 Each procedure, table or function contains there own change control section. See each object for more detail
+
+4.10.32.76
+~~~~~~~~~~
+
+#. This release includes changes to the VAF, Assemblies and Procedures and requires installation on both SQL server and M-Files server
+#. The task processing delay in the VAF is reset from the default of 30 seconds to 1 second.
+#. Add new functionality in Assembly and procedures to get users in usergroups. New CLR procedure spMFGetUserAccounts and new procedure spMFUsersbyUserGroup is added.
+#. The search by date filter in the following procedures is explicitly set to use UTC date to bring it in line with the date format of the created, last modified and deleted dates in class table. This is an assembly change.  spMFAuditTable is also updated to respond to the change.
+#. spMFGetContextMenu is updated to correctly pick up action 4 and 5 for processing in the new VAF.  The ParentID of these actions must always be null.
+#. Bug fixing of divided by null in spMFGetProcedurePerformance
+#. spMFUpdateExplorerFileToMFiles is updated to allow an option to set object to set object to single file and to improve logic for validation
+#. spMFClassTableColumns is update to resolve bug with creating new columns with wrong datatype
+
+
+
+
+
+
+4.10.31.75
+~~~~~~~~~~
+
+#. fnMFReplaceSpecialCharacter - add pipe sign to the character exclusions
+#. spMFInsertProperty - prevent the loss of custom settings when duplicate property names are detected. Properties will not synchronize without fixing duplicate names in properties in M-Files.
+#. spMFUpdateTableInternal - Resolve bug for converting datetime incorrectly when new record is added
+#. spMFUpdateTable Rework filter processing to improve throughput and reduce locks
+#. spMFUpdateTable Change create and modified date when new to UTC instead of local time
+#. MFFileExportControl - new table for File Export Control
+#. spMFExportFilesMultiClasses - new functionality to Export files for multiple classes
+#. spMFDeleteObjectList - Set default value for Update_ID parameter
+#. spMFObjectTypeUpdateClassIndex - resolve bug for not updating some classes
+#. spMFExportFiles - bug to handle pipe sign in multifile document name; reset filesize to bigint
+#. spMFUpdateExplorerFileToMFiles - Fix bug setting single file to 1 when count > 1 ; Improve logging messages
+#. spMFInsertClassProperty - prevent loosing custom settings when duplicate property is found
+#. spMFUpdateObjectChangeHistory - remove unwanted debugging code
+#. spMFConvertTableToHtml - change colour of column headings darker
+#. spMFUpdateExplorerFileToMFiles - improvements to importing files
+#. spMFClassTableColumns - resolve bug for showing errors with duplicate properties
+#. spMFDropandUpdateTable - resolve bug with parameter to update class table columns
+#. Wrapper Assembly changes to improve file import handling
 
 4.10.30.74
 ~~~~~~~~~~
@@ -83,6 +121,9 @@ It has material implications for users of the Context Menu functionality. Consul
 #. Add ServerRoles to MFLoginAccount dataset
 #. Upgrade spMFCheckAndUpdateAssemblyVersion to include updating when assemblies failed to load.
 #. Add debugging to spMFUpdateAssemblies
+#. Improvements with XML handling in the wrapper
+#. Fix bug with localisation of Spanish and German handling of decimals
+#. Fix bug for getting M-Files version for M-Files releases after 22.9 in spMFCheckAndUpdateAssemblyVersion
 
 4.9.29.73
 ~~~~~~~~~

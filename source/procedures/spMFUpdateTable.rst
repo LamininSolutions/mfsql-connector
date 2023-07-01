@@ -169,9 +169,14 @@ Update from and to M-Files with all optional parameters set to default.
 Changelog
 =========
 
-==========  =========  ========================================================
+==========  =========  =========================================================================
 Date        Author     Description
-----------  ---------  --------------------------------------------------------
+----------  ---------  -------------------------------------------------------------------------
+2023-06-30  LC         All to change or select the last modified user
+2023-06-06  LC         fix bug when updating table for missing object in class table
+2023-04-20  LC         replacing get user id to using user account instead of login account
+2023-03-08  LC         rework filter processing to improve throughput and reduce locks
+2023-02-06  LC         Change create and modified date when new to UTC instead of local time
 2022-11-18  LC         Change formatting of float to take account of culture
 2022-09-02  LC         Add retain deletions to spMFUpdateSynchronizeError
 2022-08-03  LC         Update sync precedence to resolve issue with not updating
@@ -250,5 +255,5 @@ Date        Author     Description
 2015-04-23  DEV2       Removing Last modified & Last modified by from Update data
 2015-04-16  DEV2       Adding update table details to MFUpdateHistory table
 2015-04-08  DEV2       Deleting property value from M-Files (Task 57)
-==========  =========  ========================================================
+==========  =========  =========================================================================
 

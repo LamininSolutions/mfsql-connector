@@ -81,6 +81,11 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-05-19  LC         Resolve issue with updating changed file
+2023-03-28  LC         Allow option to set object to set object to single file
+2023-03-27  LC         Improve logic for validation
+2023-01-23  lc         Fix bug setting single file to 1 when count > 1
+2022-12-07  LC         Improve logging messages
 2022-09-02  LC         Update to include RetainDeletions and DocumentCollections
 2021-08-03  LC         Fix truncate string bug
 2021-05-21  LC         improve handling of files on network drive

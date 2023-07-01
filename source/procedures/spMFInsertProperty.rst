@@ -28,6 +28,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-03-17  LC         Move check for duplicate properties to start of process
 2019-08-30  JC         Added documentation
 2018-11-04  LC         Enhancement to deal with changes in datatype
 2017-12-28  DEV2       Change join condition at #1162

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFGetMFilesAssemblyVersion &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFGetMFilesAssemblyVersion &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -129,6 +128,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -203,6 +203,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -344,51 +345,55 @@ When the procedure to update the assemblies fail, the CLR will have been deleted
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-10-27</p></td>
+<tr class="row-even"><td><p>2023-06-28</p></td>
 <td><p>LC</p></td>
-<td><p>Show error when CLR is not found</p></td>
+<td><p>Fix return value to return new license</p></td>
 </tr>
 <tr class="row-odd"><td><p>2020-10-27</p></td>
 <td><p>LC</p></td>
+<td><p>Show error when CLR is not found</p></td>
+</tr>
+<tr class="row-even"><td><p>2020-10-27</p></td>
+<td><p>LC</p></td>
 <td><p>Improve error messages</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-06-29</p></td>
+<tr class="row-odd"><td><p>2020-06-29</p></td>
 <td><p>LC</p></td>
 <td><p>Review logic to check and update MFVersion</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-02-10</p></td>
+<tr class="row-even"><td><p>2020-02-10</p></td>
 <td><p>LC</p></td>
 <td><p>New CLR procedure to get MFVersion from local machine</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-17</p></td>
+<tr class="row-odd"><td><p>2019-09-17</p></td>
 <td><p>LC</p></td>
 <td><p>Update documentation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-09-17</p></td>
+<tr class="row-even"><td><p>2019-09-17</p></td>
 <td><p>LC</p></td>
 <td><p>Improve error trapping, add MFlog msg</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-17</p></td>
+<tr class="row-odd"><td><p>2019-09-17</p></td>
 <td><p>LC</p></td>
 <td><p>Add condition to deal with scenario where CLR has been deleted</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-05-19</p></td>
+<tr class="row-odd"><td><p>2019-05-19</p></td>
 <td><p>LC</p></td>
 <td><p>Block print of result</p></td>
 </tr>
-<tr class="row-odd"><td><p>2018-09-27</p></td>
+<tr class="row-even"><td><p>2018-09-27</p></td>
 <td><p>LC</p></td>
 <td><p>Remove licensing check. this procedure is excecuted before license is active</p></td>
 </tr>
-<tr class="row-even"><td><p>2018-04-04</p></td>
+<tr class="row-odd"><td><p>2018-04-04</p></td>
 <td><p>DEV2</p></td>
 <td><p>Added Licensing module validation code.</p></td>
 </tr>
-<tr class="row-odd"><td><p>2015-03-27</p></td>
+<tr class="row-even"><td><p>2015-03-27</p></td>
 <td><p>DEV2</p></td>
 <td><p>Create procedure</p></td>
 </tr>

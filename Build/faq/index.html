@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Frequently asked questions &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>Frequently asked questions &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#why-use-the-connector">Why use the Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-the-top-5-use-cases">What is the top 5 use cases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#why-use-mfsql-connector-for-reporting">Why use MFSQL Connector for reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-mfsql-connector-for-vault-archiving">Why use MFSQL Connector for vault Archiving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#why-use-mfsql-connector-for-integration">Why use MFSQL Connector for integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-the-rules-for-licensing">What is the rules for licensing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#is-it-compatible-with-m-files-cloud">Is it compatible with M-Files Cloud</a></li>
@@ -106,7 +107,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -220,6 +220,10 @@ with SQL Server bidirectionally without having to master the M-Files APIs.  <a c
 <p>Learn more about it in <a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/reporting/index.html"><span class="doc">Reporting</span></a></p>
 </div></blockquote>
 </div>
+<div class="section" id="why-use-mfsql-connector-for-vault-archiving">
+<h2>Why use MFSQL Connector for vault Archiving<a class="headerlink" href="#why-use-mfsql-connector-for-vault-archiving" title="Permalink to this headline">¶</a></h2>
+<p>The functionality of the Connector to export files and save them to a folder allows for you to pick the properties set as the folders (up to 3 levels deep) and either copy, mark as deleted or destroy the files in the vault.</p>
+</div>
 <div class="section" id="why-use-mfsql-connector-for-integration">
 <h2>Why use MFSQL Connector for integration<a class="headerlink" href="#why-use-mfsql-connector-for-integration" title="Permalink to this headline">¶</a></h2>
 <p>One of the core pillars of MFSQL Connector is the capability of using the tool to integrate between M-Files and any third party system using SQL as their backend.</p>
@@ -273,11 +277,14 @@ From the MFSQL database to M-Files is a HTTPS secure connection. Optionally, act
 </div>
 <div class="section" id="what-file-operations-can-be-performed">
 <h2>What file operations can be performed<a class="headerlink" href="#what-file-operations-can-be-performed" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../mfsql-integration-connector/working-with-files/index.html"><span class="doc">Working with files</span></a> provide more detail on importing and exporting files from M-Files
+Related procedures and utilities include</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="../blogs/import-files-into-m-files-from-explorer/index.html"><span class="doc">Import files into M-Files from explorer</span></a></p></li>
-<li><p><a class="reference internal" href="../blogs/importing-files-from-a-database/index.html"><span class="doc">Importing files from a database</span></a></p></li>
-<li><p><a class="reference internal" href="../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a></p></li>
+<li><p>:doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>/procedures/spMFExportFiles`to handle exports</p></li>
+<li><p><a class="reference internal" href="../procedures/spMFSynchronizeFilesToMFiles.html"><span class="doc">spMFSynchronizeFilesToMFiles</span></a> to handle blobs</p></li>
+<li><p><a class="reference internal" href="../procedures/spMFUpdateExplorerFileToMFiles.html"><span class="doc">spMFUpdateExplorerFileToMFiles</span></a> to handle explorer files</p></li>
+<li><p><a class="reference internal" href="../getting-started/configuration-and-setup/setup-powershell-utilities/index.html"><span class="doc">Setup powershell utilities</span></a> to transfer explorer file data to SQL</p></li>
 </ul>
 </div></blockquote>
 </div>

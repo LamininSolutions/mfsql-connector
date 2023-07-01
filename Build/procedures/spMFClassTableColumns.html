@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFClassTableColumns &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFClassTableColumns &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -135,6 +134,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAllClassTables.html">spMFDropAllClassTables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFDropAndUpdateMetadata.html">spMFDropAndUpdateMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFExportFiles.html">spMFExportFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -202,6 +202,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -386,63 +387,67 @@ Default is all tables are shown</p>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-09-27</p></td>
+<tr class="row-even"><td><p>2023-04-06</p></td>
+<td><p>LC</p></td>
+<td><p>resolve bug with creating new columns with wrong datatype</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-09-27</p></td>
 <td><p>LC</p></td>
 <td><p>update following change of additional property approach</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-10-08</p></td>
+<tr class="row-even"><td><p>2021-10-08</p></td>
 <td><p>LC</p></td>
 <td><p>Fix missing table not identying if table deleted</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-09-30</p></td>
+<tr class="row-odd"><td><p>2021-09-30</p></td>
 <td><p>LC</p></td>
 <td><p>fix bug on multilookup data type change error</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-01-31</p></td>
+<tr class="row-even"><td><p>2021-01-31</p></td>
 <td><p>LC</p></td>
 <td><p>update to allow for multi language default columns</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-12-31</p></td>
+<tr class="row-odd"><td><p>2020-12-31</p></td>
 <td><p>LC</p></td>
 <td><p>rework logic to show column types</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-12-10</p></td>
+<tr class="row-even"><td><p>2020-12-10</p></td>
 <td><p>LC</p></td>
 <td><p>update result to improve usage of the procedure</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-12-10</p></td>
+<tr class="row-odd"><td><p>2020-12-10</p></td>
 <td><p>LC</p></td>
 <td><p>add new parameters to aid trouble shooting</p></td>
 </tr>
-<tr class="row-odd"><td><p>2020-09-08</p></td>
+<tr class="row-even"><td><p>2020-09-08</p></td>
 <td><p>LC</p></td>
 <td><p>Set single lookup column to error when not int</p></td>
 </tr>
-<tr class="row-even"><td><p>2020-01-24</p></td>
+<tr class="row-odd"><td><p>2020-01-24</p></td>
 <td><p>LC</p></td>
 <td><p>Fix multitext column showing false error</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-11-18</p></td>
+<tr class="row-even"><td><p>2019-11-18</p></td>
 <td><p>LC</p></td>
 <td><p>Fix bug on column width for multi lookup properties</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-08-30</p></td>
+<tr class="row-odd"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-29</p></td>
+<tr class="row-even"><td><p>2019-08-29</p></td>
 <td><p>LC</p></td>
 <td><p>Add predefined or automatic column</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-06-07</p></td>
+<tr class="row-odd"><td><p>2019-06-07</p></td>
 <td><p>LC</p></td>
 <td><p>Add error for lookup column label with incorrect length</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-03-25</p></td>
+<tr class="row-even"><td><p>2019-03-25</p></td>
 <td><p>LC</p></td>
 <td><p>Add error checking for text columns that is not varchar 200</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-01-19</p></td>
+<tr class="row-odd"><td><p>2019-01-19</p></td>
 <td><p>LC</p></td>
 <td><p>Change datatype from bit to smallint for error columns</p></td>
 </tr>

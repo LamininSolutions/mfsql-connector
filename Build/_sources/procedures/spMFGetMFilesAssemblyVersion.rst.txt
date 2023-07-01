@@ -66,6 +66,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-06-28  LC         Fix return value to return new license
 2020-10-27  LC         Show error when CLR is not found
 2020-10-27  LC         Improve error messages
 2020-06-29  LC         Review logic to check and update MFVersion

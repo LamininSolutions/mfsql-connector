@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFExportFiles &mdash; MFSQL Connector 4.10.30.74 documentation</title>
+  <title>spMFExportFiles &mdash; MFSQL Connector 4.10.31.75 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="spMFGetDataExport" href="spMFGetDataExport.html" />
+    <link rel="next" title="spMFExportFilesMultiClasses" href="spMFExportFilesMultiClasses.html" />
     <link rel="prev" title="spMFDropAndUpdateMetadata" href="spMFDropAndUpdateMetadata.html" /> 
 </head>
 
@@ -91,7 +91,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Data Exchange and reporting Connector</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mfsql-database-file-connector/index.html">MFSQL Database File Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mfsql-integration-connector/index.html">MFSQL Integration Connector</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
@@ -135,6 +134,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="spMFExportFilesMultiClasses.html">spMFExportFilesMultiClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDataExport.html">spMFGetDataExport</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetDeletedObjects.html">spMFGetDeletedObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFGetHistory.html">spMFGetHistory</a></li>
@@ -202,6 +202,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_GetGroupedList.html">spMFUpdateTable_ObjIDs_GetGroupedList</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTable_ObjIDs_Grouped.html">spMFUpdateTable_ObjIDs_Grouped</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFUpdateTableinBatches.html">spMFUpdateTableinBatches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFUsersByUserGroup.html">spMFUsersByUserGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFValidateEmailProfile.html">spMFValidateEmailProfile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFVaultConnectionTest.html">spMFVaultConnectionTest</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFsettingsForDBUpdate.html">spMFsettingsForDBUpdate</a></li>
@@ -421,6 +422,14 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
+<tr class="row-even"><td><p>2023-02-15</p></td>
+<td><p>LC</p></td>
+<td><p>bug to handle pipe sign in multifile document name</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-01-07</p></td>
+<td><p>LC</p></td>
+<td><p>reset filesize to bigint</p></td>
+</tr>
 <tr class="row-even"><td><p>2021-01-07</p></td>
 <td><p>LC</p></td>
 <td><p>Change CLR to improve downloading multiple files</p></td>
@@ -482,7 +491,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="spMFGetDataExport.html" class="btn btn-neutral float-right" title="spMFGetDataExport" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="spMFExportFilesMultiClasses.html" class="btn btn-neutral float-right" title="spMFExportFilesMultiClasses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="spMFDropAndUpdateMetadata.html" class="btn btn-neutral float-left" title="spMFDropAndUpdateMetadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
