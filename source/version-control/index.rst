@@ -49,11 +49,17 @@ Each procedure, table or function contains there own change control section. See
 #. Bug fixing of divided by null in spMFGetProcedurePerformance
 #. spMFUpdateExplorerFileToMFiles is updated to allow an option to set object to set object to single file and to improve logic for validation
 #. spMFClassTableColumns is update to resolve bug with creating new columns with wrong datatype
-
-
-
-
-
+#. spMFDeploymentDetails improve logging 
+#. spMFGetMFilesAssemblyVersion fix return value to show correct version of M-Files
+#. spMFCheckAndUpdateAssemblyVersion Fix bug with assembly version and add additional logging to track process results
+#. fnMFGetCulture  Expand function to deal with USA anomolies
+#. spMFInsertClassProperty Enforce adding name_or_title to class, even if not required
+#. spMFInsertUserAccounts Add vault roles
+#. spMFUpdateTableInternal Resolve bug for converting datetime incorrectly when new record is added
+#. spMFCreateTable Resolve bug for excluding some columns on create ; Improve handling of lookup columns to handle duplicate property names
+#. spMFDropAndUpdateMetadata Improve with column reset functionality
+#. spMFUpdateTable Allow to change or select the last modified user ; Fix bug when updating table for missing object in class table; Replacing get user id to using user account instead of login account ; Rework filter processing to improve throughput and reduce locks; Change create and modified date when new to UTC instead of local time
+#. spMFTableAudit Allowing for specifying UTC date in filters
 
 4.10.31.75
 ~~~~~~~~~~

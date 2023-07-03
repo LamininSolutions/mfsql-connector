@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Version Control &mdash; MFSQL Connector 4.10.31.75 documentation</title>
+  <title>Version Control &mdash; MFSQL Connector 4.10.32.76 documentation</title>
   
 
   
@@ -264,6 +264,17 @@
 <li><p>Bug fixing of divided by null in spMFGetProcedurePerformance</p></li>
 <li><p>spMFUpdateExplorerFileToMFiles is updated to allow an option to set object to set object to single file and to improve logic for validation</p></li>
 <li><p>spMFClassTableColumns is update to resolve bug with creating new columns with wrong datatype</p></li>
+<li><p>spMFDeploymentDetails improve logging</p></li>
+<li><p>spMFGetMFilesAssemblyVersion fix return value to show correct version of M-Files</p></li>
+<li><p>spMFCheckAndUpdateAssemblyVersion Fix bug with assembly version and add additional logging to track process results</p></li>
+<li><p>fnMFGetCulture  Expand function to deal with USA anomolies</p></li>
+<li><p>spMFInsertClassProperty Enforce adding name_or_title to class, even if not required</p></li>
+<li><p>spMFInsertUserAccounts Add vault roles</p></li>
+<li><p>spMFUpdateTableInternal Resolve bug for converting datetime incorrectly when new record is added</p></li>
+<li><p>spMFCreateTable Resolve bug for excluding some columns on create ; Improve handling of lookup columns to handle duplicate property names</p></li>
+<li><p>spMFDropAndUpdateMetadata Improve with column reset functionality</p></li>
+<li><p>spMFUpdateTable Allow to change or select the last modified user ; Fix bug when updating table for missing object in class table; Replacing get user id to using user account instead of login account ; Rework filter processing to improve throughput and reduce locks; Change create and modified date when new to UTC instead of local time</p></li>
+<li><p>spMFTableAudit Allowing for specifying UTC date in filters</p></li>
 </ol>
 </div>
 <div class="section" id="id2">
@@ -713,7 +724,7 @@ After installation of the package, restart the vault.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, Laminin Solutions Ltd
+        &copy; Copyright 2023, Laminin Solutions Ltd
 
     </p>
   </div>
