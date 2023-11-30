@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reporting : Quick start &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>Reporting : Quick start &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -219,7 +219,7 @@ in SQL.</p>
 </dd>
 </dl>
 <p>All of these operations can also be configured manually. Review the result in the message tab</p>
-<p><img alt="image0" src="../../../_images/img_112.jpg" /></p>
+<p><img alt="image0" src="../../../_images/img_111.jpg" /></p>
 <p>When done, the menu would have been updated to include an action item to
 update all the tables included in the app.</p>
 <p>The menu will only display after adding the users who should have access
@@ -229,7 +229,7 @@ the app since the last change in M-files</p>
 <p>The procedure applied for this action item can be reviewed from the
 MFContextMenu table. Copy this procedure to a different name to
 customise this routine, then update this record with the new name.</p>
-<p><img alt="image1" src="../../../_images/img_210.jpg" /></p>
+<p><img alt="image1" src="../../../_images/img_29.jpg" /></p>
 <p>The tables included in the update can be reviewed in MFClass table</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
  <span class="k">WHERE</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">AND</span> <span class="n">name</span> <span class="o">&lt;&gt;</span> <span class="s1">&#39;User Messages&#39;</span>

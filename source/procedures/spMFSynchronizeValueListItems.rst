@@ -14,6 +14,7 @@ This procedure can be called with spMFSynchronizeSpecificMetadata
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-08-03  LC         Add logging and redesign approach to synchronisation
 2019-08-30  JC         Added documentation
 2018-05-26  LC         Delete valuelist items that is deleted in MF
 2018-04-04  DEV2       Added License module validation code.

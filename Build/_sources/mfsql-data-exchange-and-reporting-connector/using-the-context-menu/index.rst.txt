@@ -4,7 +4,7 @@ Using the Context Menu
 Installing MFContextMenu
 ------------------------
 
-Refer to :doc:`/getting-started/first-time-installation/installing-the-context-menu/index`
+Refer to :doc:`/getting-started/configuration-and-setup/installing-the-context-menu/index`
 to get ready.
 
 The Context Menu provides the ability for an authorised M-Files Desktop
@@ -45,6 +45,8 @@ The menu consists of:
 
 #. The action button to open the menu
 #. The menu items on display
+
+The action for a menu item must be 0 and the parent_id for a menu must also be 0 or Null.
 
 Action Buttons
 ~~~~~~~~~~~~~~

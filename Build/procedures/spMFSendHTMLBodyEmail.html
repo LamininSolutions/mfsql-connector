@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFSendHTMLBodyEmail &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>spMFSendHTMLBodyEmail &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLoginAccount.html">spMFSynchronizeLoginAccount</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
@@ -296,6 +297,8 @@
 </dd>
 <dt>&#64;CCEmail</dt><dd><p>email address of CC recipients. Delimited with ‘;’ if multiples</p>
 </dd>
+<dt>&#64;AttachementPaths</dt><dd><p>full path including file name for attachement to email. For multiple files, use semi colon as delimiter</p>
+</dd>
 <dt>&#64;Mailitem_ID  output</dt><dd><p>msdb database mail id</p>
 </dd>
 <dt>&#64;ProcessBatch_ID</dt><dd><p>will record processing in MFProcessBatch</p>
@@ -327,6 +330,7 @@
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Without an attachment</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Mailitem_ID</span> <span class="nb">INT</span><span class="p">;</span>
 <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Body</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;&lt;html&gt;  &lt;head&gt;   &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;   &lt;style type=&quot;text/css&quot;&gt;    div {line-height: 100%;}      body {-webkit-text-size-adjust:none;-ms-text-size-adjust:none;margin:0;padding:0;}     body, #body_style {min-height:1000px;font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;}    p {margin:0; padding:0; margin-bottom:0;}    h1, h2, h3, h4, h5, h6 {color: black;line-height: 100%;}      table {     border-collapse: collapse;  ??      border: 1px solid #3399FF;  ??      font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;  ??      color: black;        padding:5;        border-spacing:1;        border:0;       }    table caption {font-weight: bold;color: blue;}    table td, table th, table tr,table caption { border: 1px solid #eaeaea;border-collapse:collapse;vertical-align: top; }    table th {font-weight: bold;font-variant: small-caps;background-color: blue;color: white;vertical-align: bottom;}   &lt;/style&gt;  &lt;/head&gt;&lt;body&gt;&lt;div class=greeting&gt;&lt;p&gt;Hi &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=content&gt;&lt;p&gt; This is the body &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=signature&gt;&lt;p&gt; yours sincerely Me &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=footer&gt;&lt;p&gt;Company details&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span>
 <span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSendHTMLBodyEmail</span> <span class="o">@</span><span class="n">Body</span> <span class="o">=</span> <span class="p">,</span>
@@ -334,6 +338,21 @@
 <span class="o">@</span><span class="n">FromEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
 <span class="o">@</span><span class="n">ToEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
 <span class="o">@</span><span class="n">CCEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Mailitem_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Mailitem_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">Mailitem_ID</span>
+</pre></div>
+</div>
+<p>With an Attachment (include a test.txt file on the folder referenced below to allow this example to work)</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Mailitem_ID</span> <span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Body</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;&lt;html&gt;  &lt;head&gt;   &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;   &lt;style type=&quot;text/css&quot;&gt;    div {line-height: 100%;}      body {-webkit-text-size-adjust:none;-ms-text-size-adjust:none;margin:0;padding:0;}     body, #body_style {min-height:1000px;font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;}    p {margin:0; padding:0; margin-bottom:0;}    h1, h2, h3, h4, h5, h6 {color: black;line-height: 100%;}      table {     border-collapse: collapse;  ??      border: 1px solid #3399FF;  ??      font: 10pt Verdana, Geneva, Arial, Helvetica, sans-serif;  ??      color: black;        padding:5;        border-spacing:1;        border:0;       }    table caption {font-weight: bold;color: blue;}    table td, table th, table tr,table caption { border: 1px solid #eaeaea;border-collapse:collapse;vertical-align: top; }    table th {font-weight: bold;font-variant: small-caps;background-color: blue;color: white;vertical-align: bottom;}   &lt;/style&gt;  &lt;/head&gt;&lt;body&gt;&lt;div class=greeting&gt;&lt;p&gt;Hi &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=content&gt;&lt;p&gt; This is the body &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=signature&gt;&lt;p&gt; yours sincerely Me &lt;/p&gt;&lt;br&gt;&lt;/div&gt;&lt;div class=footer&gt;&lt;p&gt;Company details&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&#39;</span>
+<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSendHTMLBodyEmail</span> <span class="o">@</span><span class="n">Body</span> <span class="o">=</span> <span class="p">,</span>
+<span class="o">@</span><span class="n">MessageTitle</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">FromEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">ToEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">CCEmail</span> <span class="o">=</span> <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">AttachementPaths</span> <span class="o">=</span> <span class="s1">&#39;c:\test.txt;c:\test1.txt&#39;</span><span class="p">,</span>
 <span class="o">@</span><span class="n">Mailitem_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Mailitem_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
 <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
 <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span>
@@ -354,15 +373,19 @@
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2022-01-18</p></td>
+<tr class="row-even"><td><p>2023-11-16</p></td>
+<td><p>LC</p></td>
+<td><p>Add attachment as an option to email</p></td>
+</tr>
+<tr class="row-odd"><td><p>2022-01-18</p></td>
 <td><p>LC</p></td>
 <td><p>Fix cc  email bug</p></td>
 </tr>
-<tr class="row-odd"><td><p>2021-01-29</p></td>
+<tr class="row-even"><td><p>2021-01-29</p></td>
 <td><p>LC</p></td>
 <td><p>Updated to allow for setting profile in MFEmailTemplate</p></td>
 </tr>
-<tr class="row-even"><td><p>2021-01-26</p></td>
+<tr class="row-odd"><td><p>2021-01-26</p></td>
 <td><p>LC</p></td>
 <td><p>Create procedure</p></td>
 </tr>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFInsertUserAccount &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>spMFInsertUserAccount &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -170,6 +170,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLoginAccount.html">spMFSynchronizeLoginAccount</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
@@ -283,16 +284,15 @@
 </ul>
 </dd>
 <dt>Parameters</dt><dd><dl class="simple">
-<dt>&#64;Doc nvarchar(max)</dt><dd><p>fixme description</p>
+<dt>&#64;Doc nvarchar(max)</dt><dd><p>listing of user accounts</p>
 </dd>
-<dt>&#64;isFullUpdate bit</dt><dd><p>fixme description</p>
+<dt>&#64;isFullUpdate bit</dt><dd><p>always 1</p>
 </dd>
-<dt>&#64;Output int (output)</dt><dd><p>fixme description</p>
+<dt>&#64;Output int (output)</dt><dd><p>update result</p>
 </dd>
 <dt>&#64;Debug smallint (optional)</dt><dd><ul class="simple">
 <li><p>Default = 0</p></li>
 <li><p>1 = Standard Debug Mode</p></li>
-<li><p>101 = Advanced Debug Mode</p></li>
 </ul>
 </dd>
 </dl>
@@ -306,20 +306,24 @@
 <h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 13%" />
-<col style="width: 12%" />
-<col style="width: 75%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 79%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2023-05-24</p></td>
+<tr class="row-even"><td><p>2023-10-12</p></td>
+<td><p>LC</p></td>
+<td><p>Update to insert or update changes and set deleted flag for deleted items</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-05-24</p></td>
 <td><p>LC</p></td>
 <td><p>Add vault roles</p></td>
 </tr>
-<tr class="row-odd"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>

@@ -10,7 +10,6 @@ Getting Started
    high-availability-sql-servers/index
    configuration-and-setup/index
    manual-installation-using-scripts/index
-   database-file-connector-installation/index
    upgrades-and-hotfixes/index
    next-steps-after-installation/index
    common-installation-errors-and-resolutions/index  

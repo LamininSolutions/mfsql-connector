@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Working with files &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>Working with files &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -216,7 +216,7 @@ documents in M-Files.</p>
 <li><p>FileCount: This column show the number of files in the multi-file object</p></li>
 </ul>
 </li>
-<li><p><strong>Export of files from M-Files</strong>:  Export files from any class table to a designated folder on the SQL server.  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table references the exported files to allow for further processing such as using the files as an attachment to an email.  This functionality can be used to export files to explorer to create an extract of all the files in the vault.</p></li>
+<li><p><strong>Export of files from M-Files</strong>:  Export files from any class table to a designated folder on the SQL server.  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table references the exported files to allow for further processing such as using the files as an attachment to an email. (See <a class="reference internal" href="../../procedures/spMFSendHTMLBodyEmail.html"><span class="doc">spMFSendHTMLBodyEmail</span></a>)  This functionality can be used to export files to explorer to create an extract of all the files in the vault.</p></li>
 <li><p><strong>Use FolderExport v3 for bulk file imports</strong> to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.</p></li>
 <li><p><strong>Use the properties related to files</strong> Export files as above and set the IsDownload parameter to 0 to only download file information without downloading the files. The data about the file (extention, file size, name) in the  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table can then be used in reporting or analysis</p></li>
 </ol>

@@ -6,14 +6,14 @@ Version Control
 Published
 ---------
 
-Published version: 4.10.32.76 2023-06-30
+Published version: 4.11.33.77 2023-10-20
 
 ================= ========== ==========
 Component         Version    Date
 ================= ========== ==========
-SQL scripts       4.10.32.76  2023-06-30 
-Assemblies        4.10.32.0   2023-06-30
-Vault application 4.10.1.27   2023-06-06
+SQL scripts       4.11.33.77  2023-10-20 
+Assemblies        4.11.33.0   2023-10-20
+Vault application 4.11.1.29   2023-09-04
 ================= ========== ==========
 
 Installed releases
@@ -38,6 +38,38 @@ Change control summary
 
 Each procedure, table or function contains there own change control section. See each object for more detail
 
+4.11.33.78
+~~~~~~~~~~
+
+#. Add File Attachments as parameter to spMFSendHTMLBodyEmail  
+
+4.11.33.77
+~~~~~~~~~~
+
+#. This release include changes to the VAF.  See below for further details of the change.  However, cloud customers can continue to use release 4.10.1.26 until the latest release is approved by M-Files for cloud usage.
+#. Include additional debugging logging steps in the VAF to aid identifying the stages of processing
+#. This release include a change in the asseblies.  The change relates to setting the date filter of spMFUpdateTable to be converted to UTC time in the wrapper.
+#. Add functionality in spMFUpdateTable to set the LastModifiedUser in a class table as a different user than the default.  The default is set in the MFSettings table
+#. Add defaultuser for LastModified by in MFSettings table.  Set default as the Connector M-Files user.
+#. Fix bug when using windows user was the specified LastModifiedUser to update class table in spMFUpdateTable
+#. Set default date for the Lastmodified filter date in spMFUpdateTable to current date less 100 years.
+#. Add vaultroles in the table MFLoginAccount.  This is related to spMFUsersbyUserGroup that was added in the previous version
+#. Change datatype of MFVersion in MFAuditHistory from smallint to int
+#. Remove try catch block for validating expiry date in spMFGetLicense
+#. Add is incremental as a parameter in spMFObjectTypeUpdateClassIndex
+#. Set the trandate to the last modified date of the object instead of the current date in MFAuditHistory with a change to spMFAuditTable
+#. Update code to deal with null value warnings in spMFUpdateMFilesToMFSQL
+#. Resolve bug when deleting not in class records in spMFUpdateMFilesToMFSQL
+#. Update filter in spMFUpdateMFilesToMFSQL when incrementally updating objectChangeHistory to only get history when the MFVersion in the class table differs from the objectChangeHistory Table
+#. Increase property-value column to 4000 for Object change history in MFObjectChangeHistory, spMFGetHistory and spMFUpdateChangeHistory
+#. Improve logging and debugging in in spMFUpdateMFilesToMFSQL 
+#. Improve performance and consistency of updating valuelist items and workflow states with a CRUD statement for the updates rather than deleting the existing rows in MFValuelistItems and MFWorkflowStates. This change impacted on the following spMFInsertWorkflowState, spMFSynchronizeMetadata, spMFSynchronizeValueListItems, spMFSynchronizeWorkflow, spMFSynchronizeSpecificMetadata, spMFSynchronizeWorkflowsStates, spMFDropAndUpdateMetadata
+#. Reset spMFCreatePublicSharedLink to allow for the link to be created.  Updated Assemblies to create link
+#. Change format of datetime of expiry date in spMFGetLicense
+#. Change background colour of table headings to white in spMFConvertTableToHtml
+#. Change synchronization methods for login accounts and user accounts. This affected all the related procedures including: spMFInsertUserAccounts, spmfInsertLoginAccount, spMFSynchronizeMetadata, spMFSynchronizeSpecificMetadata, spMFDropAndUpdateMetadata, spMFSynchronizeLoginAccount, spMFSynchronizeUserAccount 
+#. Change VAF to allow for Context Menu Tasks to run concurrent
+
 4.10.32.76
 ~~~~~~~~~~
 
@@ -60,6 +92,7 @@ Each procedure, table or function contains there own change control section. See
 #. spMFDropAndUpdateMetadata Improve with column reset functionality
 #. spMFUpdateTable Allow to change or select the last modified user ; Fix bug when updating table for missing object in class table; Replacing get user id to using user account instead of login account ; Rework filter processing to improve throughput and reduce locks; Change create and modified date when new to UTC instead of local time
 #. spMFTableAudit Allowing for specifying UTC date in filters
+#. FolderExport 4.1 utility Add additional special characters in character exception list; Add script to run folder export only
 
 4.10.31.75
 ~~~~~~~~~~

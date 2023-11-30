@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFObjectTypeUpdateClassIndex &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>spMFObjectTypeUpdateClassIndex &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -172,6 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLoginAccount.html">spMFSynchronizeLoginAccount</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
@@ -294,6 +295,11 @@
 <li><p>Class table name to perform the update for a single table</p></li>
 </ul>
 </dd>
+<dt>&#64;isIncremental</dt><dd><ul class="simple">
+<li><p>Default = 0 (No)</p></li>
+<li><p>when set to 1 the varsions will be updated from the last date that the MFauditHistory was updated for the class</p></li>
+</ul>
+</dd>
 <dt>&#64;ProcessBatch_ID</dt><dd><ul class="simple">
 <li><p>Process batch id to manage to logging process</p></li>
 </ul>
@@ -380,6 +386,10 @@
 <tr class="row-even"><td><p>2023-02-17</p></td>
 <td><p>LC</p></td>
 <td><p>Resolve bug on not updating class</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-08-30</p></td>
+<td><p>LC</p></td>
+<td><p>Add is incremental as a parameter</p></td>
 </tr>
 </tbody>
 </table>

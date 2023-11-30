@@ -115,6 +115,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-09-07  LC         Increase size of property value column to 4000
 2023-03-21  LC         Remove debugging code
 2022-11-30  LC         resolve issue with updates by objid
 2021-12-22  LC         Update logging to monitor performance

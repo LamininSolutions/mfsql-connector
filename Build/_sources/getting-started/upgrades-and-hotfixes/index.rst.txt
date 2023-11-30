@@ -6,6 +6,7 @@ Upgrades and hotfixes
 
    setup-database/index
    update_to_4_10_30_74/index
+   update_to_4_11_33_77/index
 
 M-Files and MFSQL Connector regularly publish upgrades and hot fixes.  Lately, M-Files updates are automated and can be scheduled. MFSQL Connector
 updates are not automated and the latest available releases are published on the website.

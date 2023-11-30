@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFSynchronizeSpecificMetadata &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>spMFSynchronizeSpecificMetadata &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -166,6 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLoginAccount.html">spMFSynchronizeLoginAccount</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
@@ -314,7 +315,7 @@ only applicable for valuelistitems.  Use name of valuelist to synchronise a spec
 <li><p>LoginAccount</p></li>
 <li><p>UserAccount</p></li>
 </ul>
-<p>Using the &#64;ItemName parameter for the specifying a valuelist name, the valuelists items for a specific valuelist can be updated.</p>
+<p>Using the &#64;ItemName parameter for the specifying a valuelist name, the valuelists items for a specific valuelist can be updated; similarly, by using the workflow name the workflow states for a specific workflow can be updated</p>
 <p>Setting the &#64;IsUpdate parameter to 1 will allow for the updating of the name from SQL to M-Files.</p>
 </div>
 <div class="section" id="additional-info">
@@ -354,7 +355,7 @@ only applicable for valuelistitems.  Use name of valuelist to synchronise a spec
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFSynchronizeSpecificMetadata</span><span class="p">]</span>
 <span class="o">@</span><span class="n">Metadata</span> <span class="o">=</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="c1">--  ObjectType; Class; Property; Valuelist; ValuelistItem; Workflow; State; User; Login</span>
 <span class="o">@</span><span class="n">IsUpdate</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>  <span class="c1">-- set to 1 to push updates to M-Files</span>
-<span class="o">@</span><span class="n">ItemName</span> <span class="o">=</span> <span class="k">NULL</span> <span class="p">,</span> <span class="c1">--only application for valuelists</span>
+<span class="o">@</span><span class="n">ItemName</span> <span class="o">=</span> <span class="k">NULL</span> <span class="p">,</span> <span class="c1">--only application for valuelists, and workflow states by workflow</span>
 <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -392,31 +393,35 @@ only applicable for valuelistitems.  Use name of valuelist to synchronise a spec
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-08-30</p></td>
+<tr class="row-even"><td><p>2023-07-30</p></td>
+<td><p>LC</p></td>
+<td><p>Improve logging and productivity of procedure</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-08-30</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-08-22</p></td>
+<tr class="row-even"><td><p>2016-08-22</p></td>
 <td><p>LC</p></td>
 <td><p>Update settings index</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-09-09</p></td>
+<tr class="row-odd"><td><p>2016-09-09</p></td>
 <td><p>LC</p></td>
 <td><p>Add login accounts and user accounts</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-09-09</p></td>
+<tr class="row-even"><td><p>2016-09-09</p></td>
 <td><p>LC</p></td>
 <td><p>provide for slight differences in metadata parameter</p></td>
 </tr>
-<tr class="row-even"><td><p>2016-09-26</p></td>
+<tr class="row-odd"><td><p>2016-09-26</p></td>
 <td><p>DevTeam2</p></td>
 <td><p>Removed vault settings parameters</p></td>
 </tr>
-<tr class="row-odd"><td><p>2016-12-08</p></td>
+<tr class="row-even"><td><p>2016-12-08</p></td>
 <td><p>LC</p></td>
 <td><p>Add update as parameter</p></td>
 </tr>
-<tr class="row-even"><td><p>2015-04-08</p></td>
+<tr class="row-odd"><td><p>2015-04-08</p></td>
 <td><p>Dev1</p></td>
 <td><p>Create procedure</p></td>
 </tr>

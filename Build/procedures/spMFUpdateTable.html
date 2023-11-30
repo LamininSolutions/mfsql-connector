@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>spMFUpdateTable &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>spMFUpdateTable &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -166,6 +166,7 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFSetup_Reporting.html">spMFSetup_Reporting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeClasses.html">spMFSynchronizeClasses</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeFilesToMFiles.html">spMFSynchronizeFilesToMFiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLoginAccount.html">spMFSynchronizeLoginAccount</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeLookupColumnChange.html">spmfSynchronizeLookupColumnChange</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeMetadata.html">spMFSynchronizeMetadata</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spMFSynchronizeObjectType.html">spMFSynchronizeObjectType</a></li>
@@ -308,7 +309,7 @@
 </ul>
 </dd>
 <dt>&#64;MFLastModified (optional)</dt><dd><ul class="simple">
-<li><p>Default = 0</p></li>
+<li><p>Default = 100 years less than the current date</p></li>
 <li><p>Get objects from M-Files that has been modified in M-files later than this date.</p></li>
 </ul>
 </dd>
@@ -358,6 +359,8 @@
 - spMFUpdateAllIncludedInAppTables
 - spMFUpdateItembyItem</p>
 <p>By default the object type of the class will get the object type from the MFclass Table (using the default object type of the class).  To process Document collection objects for the class, the &#64;IsDocumentCollection must be set to 1.</p>
+<p>By default the system will use the the vault access user (per MFVaultSettings) as the LastModifiedBy and CreatedBy user in the class table.  However, if the setting DefaultUser in the MFsettings table is set to 0 then the LastModified and Created by user can be set to any valid user.  if it is not set in an update, then it would use the value of the previous version of the object.
+This setting is not class specific. If the DefaultUser is changed it will apply to all classes from that point onwards.</p>
 </div>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
@@ -376,6 +379,7 @@
 <p>This procedure will not remove destroyed objects from the class table.  Use spMFUpdateMFilestoMFSQL identify and remove destroyed object.</p>
 <p>This procedure will not remove objects from the class table where the class of the object was changed in M-Files.  Use spMFUpdateMFilestoMFSQL to identify and remove these objects from the class table.</p>
 <p>When running this procedure without setting the objids parameter will not identify if a record was deleted in M-Files. To update deleted records, use spMFUpdateMFilestoMFSQL or set the objids for the records to be updated.</p>
+<p>When updating a record from SQL To MF the MF_Last_modified_by user will be taken as the last user that modified the record. If it is a new record in SQL and last modified by is not set, it will default to the MFSQLConnector user defined in the MFSettings table.  To set or change the last modified user when a change is made in SQL then the MF_Last_modified_by_ID must be specifically set to the user that should be shown as the last modified by iser.</p>
 <p>Deleted objects will only be removed if they are included in the filter ‘Objids’.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.</p>
 <p>Deleted objects in M-Files will automatically be removed from the class table unless &#64;RetainDeletions is set to 1.</p>
 <p>When the Retaindeletions flag are used, and a deleted object’s deleted date is reset to null with the intent to undelete the object, it will not reset the deletions flag in M-Files for the object. Use the procedure spmfDeleteObject, or spMFDeleteObjectList to reset a deletions flag of an object.</p>
@@ -455,6 +459,14 @@
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>2023-08-21</p></td>
+<td><p>LC</p></td>
+<td><p>Add option based on MFSettings to set last modified by user</p></td>
+</tr>
+<tr class="row-odd"><td><p>2023-07-30</p></td>
+<td><p>LC</p></td>
+<td><p>Fix bug when using windows based account for last modified user</p></td>
 </tr>
 <tr class="row-even"><td><p>2023-06-30</p></td>
 <td><p>LC</p></td>

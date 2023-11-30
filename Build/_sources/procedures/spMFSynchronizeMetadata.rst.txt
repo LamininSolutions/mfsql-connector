@@ -50,6 +50,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-07-30  LC         Improve logging and productivity of procedure
 2018-11-15  LC         Fix processbatch_ID logging
 2018-07-25  LC         Auto create MFUserMessages
 2018-04-30  LC         Add to MFUserMessage

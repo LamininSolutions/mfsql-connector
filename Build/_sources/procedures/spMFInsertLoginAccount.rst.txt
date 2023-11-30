@@ -8,32 +8,19 @@ Return
   - -1 = Error
 Parameters
   @Doc nvarchar(max)
-    fixme description
+    listing of user accounts
   @isFullUpdate bit
-    fixme description
+    always 1
   @Output int (output)
-    fixme description
+    update result
   @Debug smallint (optional)
     - Default = 0
-    - 1 = Standard Debug Mode
-    - 101 = Advanced Debug Mode
+    - 1 = Standard Debug Mode  
 
 Purpose
 =======
 
 The purpose of this procedure is to insert Login Account details into MFLoginAccount table.
-
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
 
 Changelog
 =========
@@ -41,6 +28,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-10-12  LC         Update to insert or update changes and set deleted flag for deleted items
 2019-08-30  JC         Added documentation
 2017-08-22  LC         Add insert/update of userID as MFID column
 ==========  =========  ========================================================

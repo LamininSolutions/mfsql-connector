@@ -22,17 +22,7 @@ Purpose
 
 To insert Workflow State details into MFWorkflowState table.
 
-Additional Info
-===============
-
-Prerequisites
-=============
-
-Warnings
-========
-
-Examples
-========
+This procedure is called by other procedures
 
 Changelog
 =========
@@ -40,6 +30,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-07-29  LC         Improve logging and productivity
 2019-08-30  JC         Added documentation
 2019-03-08  DEV2       Add insert updatecolumn
 2017-07-02  LC         Change aliase datatype to varchar(100); Edit TRANS loop

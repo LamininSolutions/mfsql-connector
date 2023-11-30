@@ -19,7 +19,7 @@ Parameters
     - User_Id from MX_User_Id column
     - This is NOT the M-Files user.  It is used to set and apply a user_id for a third party system. An example is where updates from a third party system must be filtered by the third party user (e.g. placing an order)
   @MFLastModified (optional)
-    - Default = 0
+    - Default = 100 years less than the current date
     - Get objects from M-Files that has been modified in M-files later than this date.
   @ObjIDs (optional)
     - Default = null
@@ -61,6 +61,9 @@ A number of procedures is included in the Connector that use this procedure incl
 
 By default the object type of the class will get the object type from the MFclass Table (using the default object type of the class).  To process Document collection objects for the class, the @IsDocumentCollection must be set to 1.  
 
+By default the system will use the the vault access user (per MFVaultSettings) as the LastModifiedBy and CreatedBy user in the class table.  However, if the setting DefaultUser in the MFsettings table is set to 0 then the LastModified and Created by user can be set to any valid user.  if it is not set in an update, then it would use the value of the previous version of the object.
+This setting is not class specific. If the DefaultUser is changed it will apply to all classes from that point onwards.
+
 Prerequisites
 =============
 
@@ -83,6 +86,8 @@ This procedure will not remove destroyed objects from the class table.  Use spMF
 This procedure will not remove objects from the class table where the class of the object was changed in M-Files.  Use spMFUpdateMFilestoMFSQL to identify and remove these objects from the class table.
 
 When running this procedure without setting the objids parameter will not identify if a record was deleted in M-Files. To update deleted records, use spMFUpdateMFilestoMFSQL or set the objids for the records to be updated.
+
+When updating a record from SQL To MF the MF_Last_modified_by user will be taken as the last user that modified the record. If it is a new record in SQL and last modified by is not set, it will default to the MFSQLConnector user defined in the MFSettings table.  To set or change the last modified user when a change is made in SQL then the MF_Last_modified_by_ID must be specifically set to the user that should be shown as the last modified by iser.
 
 Deleted objects will only be removed if they are included in the filter 'Objids'.  Use spMFUpdateMFilestoMFSQL to identify deleted objects in general identify and update the deleted objects in the table.
 
@@ -172,6 +177,8 @@ Changelog
 ==========  =========  =========================================================================
 Date        Author     Description
 ----------  ---------  -------------------------------------------------------------------------
+2023-08-21  LC         Add option based on MFSettings to set last modified by user
+2023-07-30  LC         Fix bug when using windows based account for last modified user
 2023-06-30  LC         All to change or select the last modified user
 2023-06-06  LC         fix bug when updating table for missing object in class table
 2023-04-20  LC         replacing get user id to using user account instead of login account

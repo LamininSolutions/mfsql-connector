@@ -12,6 +12,9 @@ Parameters
     - When set to 1 it will get the object versions for all class tables
   @MFTableName
     - Class table name to perform the update for a single table
+  @isIncremental
+   - Default = 0 (No)
+   - when set to 1 the varsions will be updated from the last date that the MFauditHistory was updated for the class
   @ProcessBatch_ID
     - Process batch id to manage to logging process
   @Debug (optional)
@@ -68,5 +71,6 @@ Date        Author     Description
 2021-03-17  LC         Set updatestatus = 1 when not matched
 2022-04-12  LC         Add logging, remove updating MFclass, add error handling
 2023-02-17  LC         Resolve bug on not updating class
+2023-08-30  LC         Add is incremental as a parameter
 ==========  =========  ========================================================
 

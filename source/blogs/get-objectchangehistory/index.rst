@@ -434,16 +434,16 @@ Pull the change history
     DECLARE @Debug INT = 1
     DECLARE @Update_ID  INT
     
-    EXEC [dbo].[spMFGetHistory] @MFTableName =  @TableName   -- nvarchar(128)
-                           ,@Process_id = @Process_id    -- int
-                           ,@ColumnNames = @ColumnNames   -- nvarchar(4000)
-                           ,@SearchString = null  -- nvarchar(4000)
-                           ,@IsFullHistory = @IsFullHistory -- bit
-                           ,@NumberOFDays = @NumberOFDays  -- int
-                           ,@StartDate = @StartDate     -- datetime
-                           ,@Update_ID = @Update_ID OUTPUT                         -- int
-                           ,@ProcessBatch_id = @ProcessBatch_id OUTPUT            -- int
-                           ,@Debug = @debug         -- int
+    EXEC [dbo].[spMFGetHistory] @MFTableName =  @TableName   
+                           ,@Process_id = @Process_id  
+                           ,@ColumnNames = @ColumnNames 
+                           ,@SearchString = null  
+                           ,@IsFullHistory = @IsFullHistory
+                           ,@NumberOFDays = @NumberOFDays 
+                           ,@StartDate = @StartDate  
+                           ,@Update_ID = @Update_ID OUTPUT         
+                           ,@ProcessBatch_id = @ProcessBatch_id OUTPUT  
+                           ,@Debug = @debug   
     
     SELECT * FROM [dbo].[MFProcessBatch] AS [mpb] WHERE [mpb].[ProcessBatch_ID] = @ProcessBatch_id
     SELECT * FROM [dbo].[MFProcessBatchDetail] AS [mpbd] WHERE [mpbd].[ProcessBatch_ID] = @ProcessBatch_id

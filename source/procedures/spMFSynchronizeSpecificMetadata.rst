@@ -34,7 +34,7 @@ Procedure will synchronise the metadata for one of the following
 - LoginAccount
 - UserAccount
 
-Using the @ItemName parameter for the specifying a valuelist name, the valuelists items for a specific valuelist can be updated.
+Using the @ItemName parameter for the specifying a valuelist name, the valuelists items for a specific valuelist can be updated; similarly, by using the workflow name the workflow states for a specific workflow can be updated
 
 Setting the @IsUpdate parameter to 1 will allow for the updating of the name from SQL to M-Files.
 
@@ -79,7 +79,7 @@ Examples
     EXEC [dbo].[spMFSynchronizeSpecificMetadata]
     @Metadata = 'User', --  ObjectType; Class; Property; Valuelist; ValuelistItem; Workflow; State; User; Login
     @IsUpdate = 0,  -- set to 1 to push updates to M-Files
-    @ItemName = NULL , --only application for valuelists
+    @ItemName = NULL , --only application for valuelists, and workflow states by workflow
     @Debug = 0
 
 ------
@@ -114,6 +114,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-07-30  LC         Improve logging and productivity of procedure
 2019-08-30  JC         Added documentation
 2016-08-22  LC         Update settings index
 2016-09-09  LC         Add login accounts and user accounts

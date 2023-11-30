@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using spMFClassTableStats &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>Using spMFClassTableStats &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using the External_ID to match third party app tables" href="../using-the-external_id-to-match-third-party-app-tables/index.html" />
-    <link rel="prev" title="Using object change history to report on state changes" href="../using-object-change-history-to-report-on-state-changes/index.html" /> 
+    <link rel="prev" title="Using M-Files External Connector" href="../using-m-files-external-connector/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -113,7 +113,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../creating-multiple-related-objects-on-file-import/index.html">Creating multiple related objects on file import</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../crm-and-emailer-management/index.html">CRM and Emailer Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deleting-duplicate-objects/index.html">Deleting duplicate objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../explore-object-versions/index.html">Explore Object History Versions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../export-files-from-vault/index.html">Exporting files from a vault</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../externalid-displayid-objid/index.html">ExternalID versus DisplayID versus Objid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../get-all-objects-in-vault/index.html">Explore all the objects in the vault</a></li>
@@ -133,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../mark-for-archiving-using-class-table/index.html">Mark for Archiving using Class Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata-management/index.html">Metadata Management and data cleansing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../metadata_management_and_realignment/index.html">Metadata Management and Realignment Case Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mf-last-modified-user-in-action/index.html">MF-Last-Modified-User in action</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../moving-documents-from-one-class-to-another/index.html">Moving documents from one class to another</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../moving-metadata-from-text-properties-to-valuelist-items/index.html">Moving metadata from text properties to Valuelist items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multiselectlookups/index.html">MultiSelectLookups</a></li>
@@ -161,7 +161,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../using-event-handler-for-sql-action/index.html">Using event handler for SQL action</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../using-hyperlinks-with-mfsql-connector/index.html">Using hyperlinks with MFSQL Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../using-m-files-external-connector/index.html">Using M-Files External Connector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../using-object-change-history-to-report-on-state-changes/index.html">Using object change history to report on state changes</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using spMFClassTableStats</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#interpreting-the-result">Interpreting the result</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reconcile-the-records">Reconcile the records</a></li>
@@ -321,7 +320,6 @@ If MFNotInSQL or SQLNotInMF columns are not null then some items was detected th
 <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/image1.png" /></p>
 </div>
 <div class="section" id="using-result-in-another-procedure">
 <h2>Using result in another procedure<a class="headerlink" href="#using-result-in-another-procedure" title="Permalink to this headline">¶</a></h2>
@@ -335,7 +333,6 @@ If MFNotInSQL or SQLNotInMF columns are not null then some items was detected th
 <li><p>Producing a result for all classes</p></li>
 </ol>
 <p>When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.</p>
-<p><img alt="image2" src="../../_images/image2.png" /></p>
 </div>
 <div class="section" id="emailing-the-error-report">
 <h2>Emailing the error report<a class="headerlink" href="#emailing-the-error-report" title="Permalink to this headline">¶</a></h2>
@@ -355,7 +352,7 @@ If MFNotInSQL or SQLNotInMF columns are not null then some items was detected th
         <a href="../using-the-external_id-to-match-third-party-app-tables/index.html" class="btn btn-neutral float-right" title="Using the External_ID to match third party app tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../using-object-change-history-to-report-on-state-changes/index.html" class="btn btn-neutral float-left" title="Using object change history to report on state changes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../using-m-files-external-connector/index.html" class="btn btn-neutral float-left" title="Using M-Files External Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -135,6 +135,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-07-30  LC         Improve logging and update processing
 2023-04-19  LC         Improve with column reset functionality
 2021-09-30  LC         Update documentation regarding column fixes
 2020-09-08  LC         Add fixing column errors in datatype 9

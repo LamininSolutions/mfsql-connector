@@ -42,8 +42,4 @@ Several special MFSQL procedures can be used in this process
 
 #. use spMFupdateTable with update method 0 to update the data back into
    M-Files
-
-Note that MFSQL Connector is does not handle the importing of files. It
-only operate on the metadata of the objects.  Use the external file
-connector or the M-Files Importing Tool to import files.  Reference the
-use case about importing files.
+#  use :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to import files from explorer

@@ -10,7 +10,7 @@ documents in M-Files. 
    - SingleFile:  this column show if the object is a single or multi-file object.
    - FileCount: This column show the number of files in the multi-file object
 
-#. **Export of files from M-Files**:  Export files from any class table to a designated folder on the SQL server.  :doc:`/tables/tbMFExportFileHistory` table references the exported files to allow for further processing such as using the files as an attachment to an email.  This functionality can be used to export files to explorer to create an extract of all the files in the vault.
+#. **Export of files from M-Files**:  Export files from any class table to a designated folder on the SQL server.  :doc:`/tables/tbMFExportFileHistory` table references the exported files to allow for further processing such as using the files as an attachment to an email. (See :doc:`/procedures/spMFSendHTMLBodyEmail`)  This functionality can be used to export files to explorer to create an extract of all the files in the vault.
 #. **Use FolderExport v3 for bulk file imports** to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.
 #. **Use the properties related to files** Export files as above and set the IsDownload parameter to 0 to only download file information without downloading the files. The data about the file (extention, file size, name) in the  :doc:`/tables/tbMFExportFileHistory` table can then be used in reporting or analysis 
 

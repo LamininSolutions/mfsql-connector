@@ -118,6 +118,10 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-11-10  LC         prevent update if @objids is null
+2023-11-09  LC         remove resetting process 3 and 4
+2023-08-16  LC         resolve bug for deleting not in class records
+2023-08-15  LC         deal with null value warning 
 2022-06-06  LC         resolve issue of removal of class table objects
 2022-05-06  LC         resolve bug with nextbatch_ID
 2022-01-25  LC         allow for batch processing of audit when max object > 100000

@@ -29,6 +29,11 @@ Additional Info
 
 The table include only user accounts that is related to the specific vault. 
 
+The vaultroles column show three different types of roles
+#. Full control of vault
+#. Default roles when no special roles are select
+#. Various roles when any special roles are selected. This column does not show the individual special roles of the user
+
 Use spMFSynchronizeSpecificMetadata to update the login account or user
 account tables after making changes in M-Files.
 
@@ -52,6 +57,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-06-30  LC         Add vaultroles column
 2019-09-07  JC         Added documentation
 ==========  =========  ========================================================
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MFUserAccount &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>MFUserAccount &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -242,6 +242,10 @@
 <div class="section" id="additional-info">
 <h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
 <p>The table include only user accounts that is related to the specific vault.</p>
+<p>The vaultroles column show three different types of roles
+#. Full control of vault
+#. Default roles when no special roles are select
+#. Various roles when any special roles are selected. This column does not show the individual special roles of the user</p>
 <p>Use spMFSynchronizeSpecificMetadata to update the login account or user
 account tables after making changes in M-Files.</p>
 <p>Updating is from M-Files to SQL only.? Updating from SQL to M-Files is
@@ -269,7 +273,11 @@ currently not allowed.</p>
 <td><p>Author</p></td>
 <td><p>Description</p></td>
 </tr>
-<tr class="row-even"><td><p>2019-09-07</p></td>
+<tr class="row-even"><td><p>2023-06-30</p></td>
+<td><p>LC</p></td>
+<td><p>Add vaultroles column</p></td>
+</tr>
+<tr class="row-odd"><td><p>2019-09-07</p></td>
 <td><p>JC</p></td>
 <td><p>Added documentation</p></td>
 </tr>

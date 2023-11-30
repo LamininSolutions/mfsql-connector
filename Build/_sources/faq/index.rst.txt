@@ -104,7 +104,7 @@ What file operations can be performed
 :doc:`/mfsql-integration-connector/working-with-files/index` provide more detail on importing and exporting files from M-Files
 Related procedures and utilities include
 
- -  :doc:`/procedures/spMFExportFiles`to handle exports
+ -  :doc:`/procedures/spMFExportFiles` to handle exports
  -  :doc:`/procedures/spMFSynchronizeFilesToMFiles` to handle blobs
  -  :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to handle explorer files
  -  :doc:`/getting-started/configuration-and-setup/setup-powershell-utilities/index` to transfer explorer file data to SQL

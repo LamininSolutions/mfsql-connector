@@ -1,8 +1,7 @@
 Installing the Context Menu
 ===========================
 
-The Context Menu functionality enables actioning a SQL Procedure from
-within M-Files:
+The Context Menu functionality enables actioning a SQL Procedure from within M-Files:
 
 -  User selected action from a menu
 -  User selected context sensitive action from a menu
@@ -124,7 +123,7 @@ The operations for the context menu is dependent on access to SQL using either 
  the :doc:`/getting-started/cloud-and-hosted-installation/install-webapi/index`
 
 Configuration of connection string
-==================================
+----------------------------------
 
 **Configuration method**
 
@@ -166,7 +165,18 @@ Update the Servername, Username Password and databasename. 
    created during first installation of the Connector.
 -  The APIURL (from version 4.6.15.56) is only applicable when the Web API is used.  Leave blank if WEB API is not used. Refer to WEBAPI instructions to compile the API Url
 
-Take vault offline and back online to activate the connection string.
+Update the settings
+
+-  The settings is only relevant if the Contect Menu functionality is used to action a SQL procedure from within M-Files.
+-  Update the Maximum Queue Concurrency if tasks need to be processed concurrently. This integer value specifies the type of the queue to process the Context Menu actions. A value of one (1) defines the queue to use sequential processing: all actions will be executed one by one in the order they were actioned. A value greater than one (1) defines the queue to use concurrent processing: the maximum number of multiple actions to be processed concurrently. The default value is one (1).  The most common setting is (10). 
+
+.. Note:: Increasing the concurrency does not mean that the number of actions processed within a given time will increase – on the contrary, it could even decrease and potentially have a negative effect on the server.
+
+-  Update the Queue Polling Interval. This timespan value represents the duration of time or elapsed time measured as a positive number of hours, minutes, seconds, and fractions of a second (hh:mm:ss.fff) that can pass between the polling intervals of the Context Menu actions in the queue. The default value is one second (00:00:01.000). 
+
+.. Note:: Decreasing the timespan does not mean that the number of actions processed within a given time will increase – on the contrary, it could even decrease and potentially have a negative effect on the server.
+
+Take vault offline and back online to activate any changes to the configuration or settings
 
 Select **Dashboard** tab to validate the connection.
 

@@ -83,8 +83,6 @@ In the following example the additional tables column IncludedInApp in the MFCla
 
      EXEC [dbo].[spMFClassTableStats]
 
-|image1|
-
 Using result in another procedure
 ---------------------------------
 
@@ -100,8 +98,6 @@ The result of the procedure can be included in global temporary table ##spMFClas
 
 When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.
 
-|image2|
-
 Emailing the error report
 -------------------------
 
@@ -110,5 +106,4 @@ Using the @SendReport switch will allow for sending the output report to the sup
 The report is automatically sent when the procedure spMFUpdateAllncludedInAppTables is run.  This procedure is included in the daily update agent and the report will therefore be sent if any errors are detected in the daily update agent.
 
 .. |image0| image:: image0.png
-.. |image1| image:: image1.png
-.. |image2| image:: image2.png
+

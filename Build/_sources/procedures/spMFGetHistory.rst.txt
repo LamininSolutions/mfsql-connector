@@ -136,6 +136,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-09-07  LC         Increase size of property value column to 4000
 2021-03-12  LC         resolve bug to update multiple columns
 2020-06-25  LC         added exception if invalid column is used
 2020-03-12  LC         Revise datetime formatting

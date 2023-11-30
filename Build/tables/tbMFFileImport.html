@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MFFileImport &mdash; MFSQL Connector 4.10.32.76 documentation</title>
+  <title>MFFileImport &mdash; MFSQL Connector 4.11.33.77 documentation</title>
   
 
   
@@ -222,19 +222,19 @@
 </dd>
 <dt>CreatedOn datetime (not null)</dt><dd><p>Date of import</p>
 </dd>
-<dt>SourceName nvarchar(100)</dt><dd><p>fixme description</p>
+<dt>SourceName nvarchar(100)</dt><dd><p>source folder name of the file</p>
 </dd>
-<dt>TargetClassID int</dt><dd><p>fixme description</p>
+<dt>TargetClassID int</dt><dd><p>class of the target object</p>
 </dd>
-<dt>MFCreated datetime</dt><dd><p>fixme description</p>
+<dt>MFCreated datetime</dt><dd><p>datetime in UTC of the last modified of the object</p>
 </dd>
-<dt>MFLastModified datetime</dt><dd><p>fixme description</p>
+<dt>MFLastModified datetime</dt><dd><p>datetime in UTC of the last modified of the object</p>
 </dd>
-<dt>ObjID int</dt><dd><p>fixme description</p>
+<dt>ObjID int</dt><dd><p>objid of the imported object</p>
 </dd>
-<dt>Version int</dt><dd><p>fixme description</p>
+<dt>Version int</dt><dd><p>version of the object</p>
 </dd>
-<dt>FileObjectID int</dt><dd><p>fixme description</p>
+<dt>FileObjectID int</dt><dd><p>file id of the imported object</p>
 </dd>
 <dt>FileCheckSum nvarchar(max)</dt><dd><p>Checksum of file</p>
 </dd>
@@ -244,6 +244,7 @@
 </div>
 <div class="section" id="additional-info">
 <h2>Additional Info<a class="headerlink" href="#additional-info" title="Permalink to this headline">¶</a></h2>
+<p>The MFFileImport table is the logging table to record the results of the import routines</p>
 </div>
 <div class="section" id="used-by">
 <h2>Used By<a class="headerlink" href="#used-by" title="Permalink to this headline">¶</a></h2>

@@ -56,6 +56,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-09-07  LC         Increase size of property_value to 4000
 2020-10-11  LC         Add column for process_id
 2019-09-07  JC         Added documentation
 2017-02-10  DevTeam2   Create Table

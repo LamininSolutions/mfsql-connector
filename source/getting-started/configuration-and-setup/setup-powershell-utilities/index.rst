@@ -3,21 +3,33 @@ Setup powershell utilities
 
 Powershell utilities is provided on an as-is basis to enhance the flexibility and deployment of distinct scenarios
 
+The following utilities are available:
+  - FolderExport_V3 is a utility to aid file importing routines and is used to get the file locations in a network drive into a SQL staging table.
+  - FolderExport_V4 is an expansion of version 3 and include the ability to setup and import CSV files without the analysis and exporting of the folder structure.
+  - SQLScheduler_V3.4 is a utility to use windows scheduler to run SQL procedures.
+
 Location of powershell utilities
 --------------------------------
 
 The utilities is included in the installation package and can be found in the MFSQL Connector installation folder the 60_addOns subfolder.
-
-  - FolderExport_V3 is a utility to aid importing routines and is used to get the file locations in a network drive.
-  - SQLScheduler_V3.4 is a utility to use windows scheduler to run SQL procedures.
 
 The powershell utilities is provided as-is examples and applications to extent MFSQL Connector. We recommend to engage with us for the use and deployment of these utilities to complete the setup and running of the utilities in your environment.
 
 The utilities require Powershell 5.0 + and SQLServer module to access the SQL Server.
 To install powershell modules run \\library\\FE_Module_install in powershell as administrator in sequence.
 
+Security considerations
+-----------------------
+
+The powershell utilities are designed to run with windows integrated security.  The context of the permissions of the underlying user shouled therefore have read.write access to the folders on the network and the target database.
+
+If the powershell utility is triggered by a sql agent job, then the SQL Agent user must have permissions to the folders.  This may require setting up the agent with a certificated user. :doc:`/blogs/setup-agent-proxy/index` 
+
+SQL scheduler
+-------------
+
 Automation and scheduling of procedures for SQL Express
--------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SQL Express does not allow the use of agents.  The Powershell utility SQLScheduler_V3.4 enables scheduled procedures for SQL Express scenarios.
 
@@ -85,10 +97,14 @@ Windows task scheduler
  - Execute the bat file using the standard windows task scheduler setup.
  - Run the bat file with windows permission as outlined above.
 
-File Importing
---------------
+Folder & CSV export to SQL
+-------------~~~~~~~~~~~~~
 
-The File importing utility FolderExport_v3 is built to get the name and location of files in explorer or network drive.  A powershell utility is used to update SQL with the file and folder data from explorer.  The utility is designed to be run on the SQL server.
+The Folder export utility (V4) has two functions:  
+ -  Exporting the folder and file structure details to SQL tables
+ -  Exporting a CSV or CSVs to SQL tables
+
+The Folder exporting utility FolderExport gets the name and location of files in explorer or network drive.  A powershell utility is used to update SQL with the file and folder data from explorer.  The utility is designed to be run on the SQL server and the SQL server need access to target network folders
 
 This utility will export structured folder and file data from explorer for a specific directory to a) CSV files b) tables in an SQL database.
 
@@ -98,8 +114,8 @@ The data includes the file hash for file extensions in the setup file.  Note tha
 
 Incorporating the CSV or tables in the application is further detailed in :doc:`/mfsql-integration-connector/working-with-files/index`
 
-File import prerequisites
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Prerequisites
+~~~~~~~~~~~~~~~~~
 
  - Powershell 5.0 + is required.
  - SQLServer module is required for the export to the SQL database
@@ -111,7 +127,7 @@ Setup of security
 
 Setup a windows service account with access to the designated folders. Add the service account in SQL and assign it to the db_MFSQLConnector role in the MFSQL database.
 
-File import content of the package
+File export content of the package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - FolderExport_Main.ps1 : this is the main routine.  Use FolderExport.bat to execute.
@@ -121,7 +137,7 @@ File import content of the package
  - \\Log\\ : error and processing log. folder is created by utility and level of logging is dependent on the options selected in the bat file.
  - \\CSV\\: csv output for the folder and file listing. file name is set in configuration file.
 
-Output of File import
+Output of File export
 ~~~~~~~~~~~~~~~~~~~~~
 
 Related to files:
@@ -152,7 +168,7 @@ Related to folders
    - [FolderSize] - total of files in folder
    - [Root] -  root used in the extraction, as per setup file
 
-Setup of File Import
+Setup of File export
 ~~~~~~~~~~~~~~~~~~~~
 
  - Open FolderlistExport.xml with notepad or a xml editor.
@@ -161,10 +177,18 @@ Setup of File Import
   - modify FileImporter\\Folders\\Folder\\Root to the root filepath where the files and folders for exporting is located
   - modify FileImporter\\Folders\\Folder\\ShortName to set the name of the CSV file and Database Table name.
   - modify FileImporter\\Folders\\Folder\\HasExtensions to set the file extensions for which to include the hash. List must be comma delimited and include the period. Generating the hash for the files significantly increase the run time. Hash is used to identify duplication files.
+  - modify FileImporter\\Folders\\CSVlist\\CSVName to add a row for each CSV file to be imported(FolderExport_V4 only)
   - modify FileImporter\\TargetDB\\Server to set the target server for the SQL destination
   - modify FileImporter\\TargetDB\\Database to set the name of the Database to export to.
 
-File import Bat file
+Setup of target database
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Download the script :download:` setupDatabase.sql <setupDatabase.sql>` or in the application folder to set the permissions and users in the database.  Note this script need modifications for your specific environment and should be used as a baseline.
+
+Download the script :download: expl.ValidateDatabase.sql `<expl.ValidateDatabase.sql>` or in the application folder to update the procedure in the target database
+
+File export Bat file
 ~~~~~~~~~~~~~~~~~~~~
 
 Open FolderExport.bat with notepad. Modify the string after -Command to reference the path of the main routine.
@@ -175,3 +199,13 @@ There are three switches
  - Switch 1:  This switch are only used in exceptional cases. Should be set to $False
  - Switch 2:  Used for debugging individual file issues and produce detail record of updates when set to $True. Default is $False
  - Switch 3:  This switch will block updating SQL database tables automatically. Set this switch to $False if the csv files will be imported manually.
+ 
+
+CSV Import bat file
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open CSVImport.bat with notepad. Modify the string after -Command to reference the path of the main routine.
+
+Note this command line is set to use basic process logging (the default parameter is $false)
+
+
