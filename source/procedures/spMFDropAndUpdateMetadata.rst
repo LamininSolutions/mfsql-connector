@@ -135,6 +135,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-12-18  LC         fix error with delimiter in reset functionality
 2023-07-30  LC         Improve logging and update processing
 2023-04-19  LC         Improve with column reset functionality
 2021-09-30  LC         Update documentation regarding column fixes
