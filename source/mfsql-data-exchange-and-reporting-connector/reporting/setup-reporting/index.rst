@@ -4,7 +4,7 @@ Reporting : Quick start
 Get started with reporting from M-Files in just a few simple steps.
 
 Step 1: Install the MFSQL Connector and complete the license
-installation. Refer to :doc:`/getting-started/first-time-installation/index`
+installation. Refer to :doc:`/getting-started/configuration-and-setup/index`
 
 Step 2: Watch the overview of reporting `Reporting - Getting started <https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=f09ccfc6101abc69116618524f2c978ed7ffb69f1b3f7616c5f19164be93309c&VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7>`__
 
