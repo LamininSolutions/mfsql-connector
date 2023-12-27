@@ -196,7 +196,7 @@
 <h1>Automated update of records from M-Files<a class="headerlink" href="#automated-update-of-records-from-m-files" title="Permalink to this headline">¶</a></h1>
 <p>Updating a class table is not automatically called on a change of a record in M-Files. There are
 various methods that can be used to action or schedule an update.</p>
-<p>If SQL standard edition is used for MFSQL Connector, then use and SQL Agent job. refer to <span class="xref std std-doc">/getting-started/first-time-installation/using-agent-for-automated-updates/index</span> for more details</p>
+<p>If SQL standard edition is used for MFSQL Connector, then use and SQL Agent job. refer to <a class="reference internal" href="../../../getting-started/configuration-and-setup/using-agent-for-automated-updates/index.html"><span class="doc">Using Agent for automated updates</span></a> for more details</p>
 <p>If SQL express edition then use the powershell special add in to schedule a task.</p>
 <p>In either case the procedure <a class="reference internal" href="../../../procedures/spMFUpdateAllncludedInAppTables.html"><span class="doc">spMFUpdateAllncludedInAppTables</span></a> will allow for both incremental and full updates.</p>
 <p>We recommend to schedule an incremental update with an appropriate interval for your needs as well as a full update at least once a day.</p>

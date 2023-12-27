@@ -41,6 +41,7 @@ Welcome to MFSQL Connector's documentation!
    tables/index
    functions/index
    views/index
+   triggers/index
 
 .. note::
     Check the sidebar for various topics like 'Getting Started'.

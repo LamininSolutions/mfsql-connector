@@ -40,6 +40,8 @@ Several special MFSQL procedures can be used in this process
    valuelist columns, process\_id = 1 and minimum columns as defined in
    the Class Table section.
 
-#. use spMFupdateTable with update method 0 to update the data back into
-   M-Files
-#  use :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to import files from explorer
+#. use spMFupdateTable with update method 0 to update the data back into M-Files
+
+#.  use :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to import files from explorer
+
+

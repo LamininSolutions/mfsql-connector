@@ -398,7 +398,7 @@ Example of a valid result</p>
 </div>
 <div class="section" id="setup-the-action-in-m-files">
 <h2>Setup the action in M-Files<a class="headerlink" href="#setup-the-action-in-m-files" title="Permalink to this headline">¶</a></h2>
-<p>Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult <span class="xref std std-doc">/getting-started/first-time-installation/installing-the-context-menu/index</span> to install the context menu functionality.</p>
+<p>Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult <a class="reference internal" href="../../getting-started/configuration-and-setup/installing-the-context-menu/index.html"><span class="doc">Installing the Context Menu</span></a> to install the context menu functionality.</p>
 <p>Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu</p>
 <div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span><span class="w"></span>
 <span class="w"> </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">oProperties</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">Set</span><span class="w"> </span><span class="n">oProperties</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyOperations</span><span class="p">.</span><span class="n">GetProperties</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">)</span><span class="w"></span>
@@ -445,7 +445,7 @@ Example of a valid result</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFContextMenuQueue</span> <span class="k">AS</span> <span class="n">mcmq</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/image11.png" /></p>
+<p><img alt="image1" src="../../_images/image14.png" /></p>
 <p>The status = 1 in the above example implies that the record was that the version of the object in M-Files after checkin is the same as the version of the object in the class table after update.</p>
 <p>Status 0 implies that the action has been received from M-Files but no processing took place.
 Status -1 implies that the action has been received from M-Files but after processing, the versions are different.</p>
@@ -467,14 +467,14 @@ Status -1 implies that the action has been received from M-Files but after proce
 </pre></div>
 </div>
 <p>The image show all the instances where the specific object has been processed and the property value and version for the specific update.
-<img alt="image2" src="../../_images/image21.png" /></p>
+<img alt="image2" src="../../_images/image24.png" /></p>
 <p>The following script wlll allow you to identify the row number of the property being monitored (as in row 8 in the above example.) Inspect the xml record for one of the updates that has taken place.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">NewOrUpdatedObjectDetails</span>
 <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFUpdateHistory</span> <span class="n">uh</span>
 <span class="k">WHERE</span> <span class="n">uh</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span><span class="mi">1247</span>
 </pre></div>
 </div>
-<p><img alt="image3" src="../../_images/image3.png" /></p>
+<p><img alt="image3" src="../../_images/image34.png" /></p>
 <p>Alternatively use a script to list the properties in sequence.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">props</span> <span class="n">XML</span>
 <span class="k">DECLARE</span> <span class="o">@</span><span class="n">Hdoc</span> <span class="nb">INT</span>
@@ -514,7 +514,7 @@ Status -1 implies that the action has been received from M-Files but after proce
 <ul class="simple">
 <li><p>a sepearate event handler must point to the same procedure and MFcontextMenu item as the update procedure</p></li>
 </ul>
-<p><img alt="image4" src="../../_images/image4.png" /></p>
+<p><img alt="image4" src="../../_images/image44.png" /></p>
 </div>
 
 

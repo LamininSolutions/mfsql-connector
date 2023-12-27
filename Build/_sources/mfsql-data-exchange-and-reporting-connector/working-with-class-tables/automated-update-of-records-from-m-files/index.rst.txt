@@ -4,7 +4,7 @@ Automated update of records from M-Files
 Updating a class table is not automatically called on a change of a record in M-Files. There are
 various methods that can be used to action or schedule an update.
 
-If SQL standard edition is used for MFSQL Connector, then use and SQL Agent job. refer to :doc:`/getting-started/first-time-installation/using-agent-for-automated-updates/index` for more details
+If SQL standard edition is used for MFSQL Connector, then use and SQL Agent job. refer to :doc:`/getting-started/configuration-and-setup/using-agent-for-automated-updates/index` for more details
 
 If SQL express edition then use the powershell special add in to schedule a task.
 

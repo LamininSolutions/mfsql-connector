@@ -109,7 +109,7 @@ Related procedures and utilities include
  -  :doc:`/procedures/spMFUpdateExplorerFileToMFiles` to handle explorer files
  -  :doc:`/getting-started/configuration-and-setup/setup-powershell-utilities/index` to transfer explorer file data to SQL
 
-How to count to number of objects in the vault
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How to count the number of objects in the vault
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use :doc:`/procedures/spMFObjectTypeUpdateClassIndex` to get all the object versions in the vault, and view the result with :doc:`/views/MFvwAuditSummary`

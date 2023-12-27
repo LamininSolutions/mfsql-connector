@@ -57,6 +57,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-11-30  LC         Fix incorrect default value and upgrade to include vault roles
 2023-06-30  LC         Add vaultroles column
 2019-09-07  JC         Added documentation
 ==========  =========  ========================================================

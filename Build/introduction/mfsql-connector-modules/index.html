@@ -92,9 +92,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../purpose-and-scope/index.html">Introducing MFSQL Connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../requirements/index.html">Requirements</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">MFSQL Connector modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">MFSQL Connector Data Exchange</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">MFSQL Integration Connector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">MFSQL Database File Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfsql-connector-data-exchange">MFSQL Connector Data Exchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mfsql-integration-connector">MFSQL Integration Connector</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../functional-overview/index.html">Functional Overview</a></li>
@@ -190,8 +189,8 @@ functionality and pricing.</p>
 <p>This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.</p>
-<div class="section" id="id1">
-<h2><a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html">MFSQL Connector Data Exchange</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mfsql-connector-data-exchange">
+<h2>MFSQL Connector Data Exchange<a class="headerlink" href="#mfsql-connector-data-exchange" title="Permalink to this headline">¶</a></h2>
 <p>This  module is used where the Connector is deployed to perform only
 data exchange  with no need for extensive development of integrations
 and applications using M-Files APIs.</p>
@@ -264,8 +263,8 @@ data between M-Files and SQL</p></li>
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="id2">
-<h2><a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html">MFSQL Integration Connector</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mfsql-integration-connector">
+<h2>MFSQL Integration Connector<a class="headerlink" href="#mfsql-integration-connector" title="Permalink to this headline">¶</a></h2>
 <p>This module includes Data Exchange and additional procedures and
 functions to assist the developer to develop extensive integrations and
 applications around M-Files using SQL.</p>
@@ -301,23 +300,6 @@ third party system from within M-Files using a menu option button.</p></li>
 multiple objects using a context sensitive button in M-Files</p></li>
 <li><p>Automatically call a SQL store procedure to perform complex functions
 when a workflow state change takes place.</p></li>
-</ul>
-</div>
-<div class="section" id="id3">
-<h2><a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html">MFSQL Database File Connector</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>The Database File Connector has two distinct parts:</p>
-<ul class="simple">
-<li><p>A vault application that adds a connection of a SQL table to an
-M-Files document vault. The connector allows documents and other
-files residing in a SQL database to be viewed via the M-Files user
-interface in the same manner as other documents and objects in the
-vault.  Note that this feature requires the M-Files IML core license.</p></li>
-<li><p>Procedures to <a class="reference external" href="https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFExportFiles">export files from Database Blobs into
-M-Files</a>.
-This export will transfer both files and associated metadata from the
-external database to M-Files. This feature requires the full MFSQL
-Connector suite, but does not require the IML License. This feature
-can be used in conjunction with the Database File Connector.</p></li>
 </ul>
 </div>
 </div>

@@ -70,4 +70,4 @@ Metadata change history operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The object change history for specific properties can be read and deleted.
-The most common use case for access the object change history is to report on state changes :doc:`/blogs/using-object-change-history-to-report-on-state-changes/index`
+The most common use case for access the object change history is to report on state changes :doc:`/blogs/get-objectchangehistory/index`

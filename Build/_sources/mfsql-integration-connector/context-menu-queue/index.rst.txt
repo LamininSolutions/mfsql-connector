@@ -211,7 +211,7 @@ Example of a valid result
 Setup the action in M-Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult :doc:`/getting-started/first-time-installation/installing-the-context-menu/index` to install the context menu functionality.
+Actions are triggered in M-Files based on the application of the context menu in the Vault.  Consult :doc:`/getting-started/configuration-and-setup/installing-the-context-menu/index` to install the context menu functionality.
 
 Following is an example script for an afterCheckInChanges event handler action. Note that the action name must correlate with the action name in MFContectMenu
 

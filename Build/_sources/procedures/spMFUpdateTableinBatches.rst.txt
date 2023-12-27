@@ -20,7 +20,7 @@ Parameters
     Starting objid
   @ToObjid BIGINT
     - End objid inclusive
-    - Default = 100 000
+    - Default = 1 000 000
   @WithStats BIT
     - Default = 1 (true)
     - When true a log will be produced in the SSMS message window to show the progress
@@ -99,6 +99,7 @@ Changelog
 ==========  =========  ========================================================
 Date        Author     Description
 ----------  ---------  --------------------------------------------------------
+2023-12-08  LC         resolve issue when from to objid is used with updatemethod 0
 2022-10-27  LC         add retaindeletions to spmfupdatetable processing
 2021-08-25  LC         add output to the processbatch_id parameter
 2021-05-03  LC         Fix bug to include first record of each batch

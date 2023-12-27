@@ -137,7 +137,6 @@
 <li class="toctree-l2"><a class="reference internal" href="spMFGetMfilesLog.html">spMFGetMfilesLog</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">spMFGetObjectvers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#warning">Warning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changelog">Changelog</a></li>
 </ul>
@@ -288,7 +287,8 @@
 <dt>Parameters</dt><dd><dl class="simple">
 <dt>&#64;TableName nvarchar(100)</dt><dd><p>Class table name</p>
 </dd>
-<dt>&#64;dtModifiedDate datetime</dt><dd><p>Date from for object versions and deletions</p>
+<dt>&#64;dtModifiedDate datetime</dt><dd><p>Date from for object versions and deletions
+Default set to 1985-01-01</p>
 </dd>
 <dt>&#64;MFIDs nvarchar(4000)</dt><dd><p>comma delimited string of objids</p>
 </dd>
@@ -308,12 +308,9 @@
 <h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
 <p>To get all the object versions of the class table as XML.</p>
 <p>Deleted objects and current objects are combined in the &#64;OutputXML if MFIDs are used as a parameter
+When the MFID parameter is used, the date is ignored.
 When Last modified date are used then the &#64;outputXML will include the objects changed later than the date specified
 and the &#64;DeletedOutputXML will include the objects that was deleted since the date lastmodified date.</p>
-</div>
-<div class="section" id="warning">
-<h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
-<p>Either objids or lastmodified date must be specified. The procedure cannot be used with both filters as null.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
