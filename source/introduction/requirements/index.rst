@@ -4,25 +4,21 @@ Requirements
 Summary
 ~~~~~~~
 
-M-Files: Version 20.5 or later; On premise or Cloud; 1 Named User
+M-Files: Version 22.5 or later; On premise or Cloud; 1 Named User
 dedicated to MFSQL Connector; M-Files desktop on server
 
-From MFSQL Connector version 4.10.30.74 the minimum requirement for M-Files is 20.12.  All desktops must be on 20.12 or later versions.
-
-SQL: MS SQL 2016 to 2019; (Express or Standard); M-Files Desktop on
-server.
+SQL: MS SQL 2016 to 2022; (Express or Standard); M-Files Desktop on server.
 
 Detail
 ~~~~~~
 
 **M-Files Version**
 
- - M-Files version 20.12 and later
- - M-Files IML (Intelligent Metadata Layer) Core licence is required for the DB File Connector module
+ - M-Files version 22.5 and later
 
 **M-Files User**
 
- - The connector requires a dedicated M-Files user with admin rights to the vault.  During installation the M-Files user must have Server Admin rights
+ - The connector requires a dedicated M-Files user with admin rights to the vault. During installation the M-Files user must have Server Admin rights
  - It is recommended to assign a named user license to the user
 
 **M-Files Database**
@@ -69,7 +65,7 @@ Detail
 
  - MFSQL Connector .Net 4.6
  - MFSQL Web Services appliction .net 4.6.1
- - MFSQL Database File Connector .Net 4.6.1
+ - MFSQL Database File Connector .Net 4.6.1
  - ContextMenu Vault Application Framework .Net 4.6.1
  - Installer TLS 1.2 compliant
 
@@ -80,8 +76,7 @@ Detail
 Reserved words
 ~~~~~~~~~~~~~~
 
-MFSQL Connector has several reserved words to be aware of.  The
-following should be not be used in M-Files as names of properties
+MFSQL Connector has several reserved words to be aware of. The following should be not be used in M-Files as names of properties
 
 -  "Process" or "Process ID"
 -  GUID
@@ -96,7 +91,7 @@ state' if another property with the name 'State' is required;
 alternatively, rename the customer property to 'StateID'
 
 Class Table Names cannot be the same as any of the default list of
-tables created during installation (Such as Process) 
+tables created during installation (Such as Process)
 
 Reserved characters
 ~~~~~~~~~~~~~~~~~~~

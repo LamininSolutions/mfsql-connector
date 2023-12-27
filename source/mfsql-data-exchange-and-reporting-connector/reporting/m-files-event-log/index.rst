@@ -6,8 +6,8 @@ M-Files. 
 
 The following MFSQL Connector tables and procedures are used:
   -  :doc:`/procedures/spMFGetMfilesLog` procedure fetches the events from M-Files
-  -  :doc:`/tables/MFEventLog_OpenXML` table contains the downloaded event log in XML format
-  -  :doc:`/tables/MFilesEvents` table contains details of all the events that have previously been downloaded
+  -  :doc:`/tables/tbMFEventLog_OpenXML` table contains the downloaded event log in XML format
+  -  :doc:`/tables/tbMFilesEvents` table contains details of all the events that have previously been downloaded
 
 The events are analysed using SQL queries for the specific types of
 events.
@@ -16,7 +16,7 @@ Export the event log
 --------------------
 
 Use :doc:`/procedures/spMFGetMfilesLog` procedure to export the events
-to :doc:`/tables/MFEventLog_OpenXML` as an XML and insert new event rows in :doc:`/tables/MFilesEvents`
+to :doc:`/tables/tbMFEventLog_OpenXML` as an XML and insert new event rows in :doc:`/tables/tbMFilesEvents`
 
 For example:
 
@@ -35,7 +35,7 @@ very useful to view in this format.
 |image0|
 
 
-The :doc:`/tables/MFilesEvents` table shows a listing of each event, with the event detail as an XML file in the Events column.
+The :doc:`/tables/tbMFilesEvents` table shows a listing of each event, with the event detail as an XML file in the Events column.
 
 |image1|
 
@@ -43,7 +43,7 @@ The :doc:`/tables/MFilesEvents` table shows a listing of each event, with the ev
 Review the result
 -----------------
 
-Get a listing of the exported events from :doc:`/tables/MFilesEvents`.
+Get a listing of the exported events from :doc:`/tables/tbMFilesEvents`.
 
 .. code:: sql
 
@@ -257,6 +257,9 @@ Show duration of object operations
       where eventdate > '2021-12-08 06:24:35.680' --and cte.ID between 40461735 and 40461740
       --GROUP BY cte.ID, EventType, cte2.ProcessStart, cte2.ProcessEnd
       ;
+
+For further examples see  :download:`working with the event log <17.101.Export and use M-Files event log.sql>`
+
 
 .. |image0| image:: img_1.jpg
 .. |image1| image:: img_2.jpg

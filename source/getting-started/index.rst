@@ -13,5 +13,6 @@ Getting Started
    upgrades-and-hotfixes/index
    next-steps-after-installation/index
    common-installation-errors-and-resolutions/index  
+   example-scripts/index
 
 Consult the :doc:`/getting-started/installation-overview/index` before proceeding.

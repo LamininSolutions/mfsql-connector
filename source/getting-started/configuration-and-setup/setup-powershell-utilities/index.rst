@@ -114,6 +114,7 @@ The data includes the file hash for file extensions in the setup file.  Note tha
 
 Incorporating the CSV or tables in the application is further detailed in :doc:`/mfsql-integration-connector/working-with-files/index`
 
+<<<<<<< Updated upstream
 CSV Exporter Prerequisites
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -122,6 +123,8 @@ CSV Exporter Prerequisites
  - Run with windows credentials with access to SQL and the explorer file structure.
  - Access to SQL is based on using windows integrated security
 
+=======
+>>>>>>> Stashed changes
 Setup of security
 ~~~~~~~~~~~~~~~~~
 
@@ -184,9 +187,9 @@ Setup of File export
 Setup of target database
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Download the script :download:` setupDatabase.sql <setupDatabase.sql>` or in the application folder to set the permissions and users in the database.  Note this script need modifications for your specific environment and should be used as a baseline.
+Download the script :download:`setupDatabase <setupDatabase.sql>` or in the application folder to set the permissions and users in the database.  Note this script need modifications for your specific environment and should be used as a baseline.
 
-Download the script :download: expl.ValidateDatabase.sql `<expl.ValidateDatabase.sql>` or in the application folder to update the procedure in the target database
+Download the script :download:`expl.ValidateDatabase <expl.ValidateDatabase.sql>` or in the application folder to update the procedure in the target database
 
 File export Bat file
 ~~~~~~~~~~~~~~~~~~~~

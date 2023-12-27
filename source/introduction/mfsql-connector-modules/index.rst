@@ -11,8 +11,8 @@ This documentation describes the functionality of all the modules of
 Release 4.  Contact support if your licensed package does not include a
 specific procedure or functional element described in the documentation.
 
-`MFSQL Connector Data Exchange <https://doc.lamininsolutions.com/mfsql-connector/mfsql-data-exchange-and-reporting-connector/index.html>`_
-----------------------------------------------------------------------------------------------------------------------------------------------
+MFSQL Connector Data Exchange
+------------------------------
 
 This  module is used where the Connector is deployed to perform only
 data exchange  with no need for extensive development of integrations
@@ -53,8 +53,8 @@ When to use Data Exchange instead of M-Files External Connectors
    |                                    Multiple triggers for data update
    ==================================== ====================================================
 
-`MFSQL Integration Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-integration-connector/index.html>`_
---------------------------------------------------------------------------------------------------------------------------
+MFSQL Integration Connector 
+-----------------------------
 
 This module includes Data Exchange and additional procedures and
 functions to assist the developer to develop extensive integrations and
@@ -94,20 +94,3 @@ This Developer module add the following components:
 -  Automatically call a SQL store procedure to perform complex functions
    when a workflow state change takes place.
 
-`MFSQL Database File Connector <https://doc.lamininsolutions.com/mfsql-connector/mfsql-database-file-connector/index.html>`_
-------------------------------------------------------------------------------------------------------------------------------
-
-The Database File Connector has two distinct parts:
-
--  A vault application that adds a connection of a SQL table to an
-   M-Files document vault. The connector allows documents and other
-   files residing in a SQL database to be viewed via the M-Files user
-   interface in the same manner as other documents and objects in the
-   vault.  Note that this feature requires the M-Files IML core license.
--  Procedures to `export files from Database Blobs into
-   M-Files <https://doc.lamininsolutions.com/mfsql-connector/procedures/spMFExportFiles>`_.
-   This export will transfer both files and associated metadata from the
-   external database to M-Files. This feature requires the full MFSQL
-   Connector suite, but does not require the IML License. This feature
-   can be used in conjunction with the Database File Connector.
-   
