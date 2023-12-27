@@ -48,8 +48,8 @@ MFSQLSchedule_UpdateAllIncludedInAppTables.bat for running spMFUpdateAllIncluded
 The results of the most recent update is recorded in the processlog. \\logs\\processeslog.txt
 Any errors are recorded in the errorlog. \\logs\\errorlog.txt
 
-Prerequisites
-~~~~~~~~~~~~~
+SQL Scheduler Prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - Powershell 5.0 + is required.
  - SQLServer module is required to access the SQL Server.  Use the PS script in /library to test and install this module.
@@ -114,8 +114,8 @@ The data includes the file hash for file extensions in the setup file.  Note tha
 
 Incorporating the CSV or tables in the application is further detailed in :doc:`/mfsql-integration-connector/working-with-files/index`
 
-Prerequisites
-~~~~~~~~~~~~~~~~~
+CSV Exporter Prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  - Powershell 5.0 + is required.
  - SQLServer module is required for the export to the SQL database
