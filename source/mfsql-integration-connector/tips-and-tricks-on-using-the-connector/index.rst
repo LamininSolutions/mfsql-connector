@@ -5,8 +5,6 @@ The Connector is designed to be applied in many different ways for a
 range of different applications.  The following list highlights some of
 these applications.
 
-
-
 Multi-Class
 -----------
 
@@ -36,19 +34,20 @@ This will ensure that the table design stays in tact.
 Dynamically add additional property to class table when inserting/updating records
 ----------------------------------------------------------------------------------
 
-An additional property that is not currently in the Class table can be
-added to the record by adding the column to the class table and then
-updating the record with updatemethod 0.  Note that if a lookup property
-is added then two columns must be added, one for the property and
-another for the property_id. The datatype of the column added must
-comply with the definition of the SQL datatype as per MFDataType table
-
-Alternatively the addition property can be added to any class object in
-M-Files. When the data is syncronised the additional property column
-will automatically be added to the Class Table.
-
-
-
+The Connector will automatically add an additional property to the class table when updating the class table from M-Files to SQL with the following in place:
+ - The property was created in M-Files 
+ - spMFDropAndUpdateMetadata was processed after the property is created and before the update in the Connector is processed
+ 
+When updating objects from SQL to M-Files, and adding or using an ad hoc property to the object the following should be taken into account.
+ - Create the property in M-Files and select spMFDropAndUpdateMetadata to pull through the property into the Connector.  The property should update in the MFProperty Table.
+ - If it is an additional property on a class and not defined on the metadata card, it will not automatically be added to the class table.  
+ - If a test value is added to one object in the class and the property value is not null, and the class table is updated from M-Files to SQL, the property will automatically be added in the class table at the end of the list of columns.
+ - To add the property in the class table without first refreshing data from M-files with values in this property, care should be taken to:
+  -  Add the property as a column in the class table with the column name and datatype defined in the MFProperty table and datatype as per MFDataType table
+  -  If a lookup property is added then two columns must be added, one for the property and another for the property_id.
+  -  Add an entry in the MFClassProperty table for the property to associate the column with the class, and set the rules for handling of the additional property.
+  -  The class and property id in the MFClassProperty table references the id, and not the mfid in the MFProperty and MFClass table.  Set Required = 0 and IsAdditional = 0. RetainIfNull is set to 1 if the update from SQL to MF should add the additional property to all objects in the class..  If this column is set to 0 then the property will only by added to the metadata card of an object if the property has a value.
+ 
 View of Valuelistitems by Class 
 --------------------------------
 
