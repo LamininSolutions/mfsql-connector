@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Getting to know MFSQL Connector &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting to know MFSQL Connector &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="How to generate a quick follow up list" href="../howto-quick-follow-up-list/index.html" />
     <link rel="prev" title="Getting started with a custom application" href="../getting-started-with-a-custom-application/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -178,78 +141,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Getting to know MFSQL Connector</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Getting to know MFSQL Connector</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="getting-to-know-mfsql-connector">
-<h1>Getting to know MFSQL Connector<a class="headerlink" href="#getting-to-know-mfsql-connector" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="getting-to-know-mfsql-connector">
+<h1>Getting to know MFSQL Connector<a class="headerlink" href="#getting-to-know-mfsql-connector" title="Link to this heading"></a></h1>
 <p>MFSQL Connector is installed, so now what?</p>
 <p>Getting started could be overwhelming with the Connector’s wide range of
 capabilities and uses. This blog will guide you through the resources
@@ -259,8 +185,8 @@ product.</p>
 <p>However, it is likely that you are using the Connector to solve a
 specific use case or problem. This guide aims at helping you on the way
 to know what you need to know.</p>
-<div class="section" id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<section id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h2>
 <p>The Connector includes a range of resources to fully use the all the
 capabilities and features.</p>
 <p><strong>Prerequisites:</strong> It presumes a basic understanding of SQL. MFSQL
@@ -290,9 +216,9 @@ then the keyword in the search in explorer</p>
 <p><strong>Videos:</strong> There is a growing number of training and overview videos in
 our youtube channel</p>
 <p><a class="reference external" href="https://www.youtube.com/user/lamininsolutions/videos">https://www.youtube.com/user/lamininsolutions/videos</a></p>
-</div>
-<div class="section" id="topics-procedures-and-related-examples-to-get-started">
-<h2>Topics procedures and related examples to get started<a class="headerlink" href="#topics-procedures-and-related-examples-to-get-started" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="topics-procedures-and-related-examples-to-get-started">
+<h2>Topics procedures and related examples to get started<a class="headerlink" href="#topics-procedures-and-related-examples-to-get-started" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>check connection</strong> : spMFVaultConnectionTest : <em>01.100.Getting Started</em></p></li>
@@ -302,9 +228,9 @@ our youtube channel</p>
 <li><p><strong>Review metadata structure</strong> : MFvwMetadataStructure, MFclass, MFLoginAccount, MFUserAccount : <em>01.100.Getting Started</em></p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="topics-procedures-and-related-examples-for-reporting-and-data-exchange">
-<h2>Topics procedures and related examples for reporting and data exchange<a class="headerlink" href="#topics-procedures-and-related-examples-for-reporting-and-data-exchange" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="topics-procedures-and-related-examples-for-reporting-and-data-exchange">
+<h2>Topics procedures and related examples for reporting and data exchange<a class="headerlink" href="#topics-procedures-and-related-examples-for-reporting-and-data-exchange" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Setup reporting</strong> : MFClass, spMFCreateTable, spMFUpdateTable, spMFCreateAllMFTables, spMFUpdateAllncludedInAppTables, spMFUpdateTableinBatches, spMFClassTableStats, DoUpdateReportingData : <em>20.102.Setup Reporting, 08.101.Getting ready for reporting</em></p></li>
@@ -318,9 +244,9 @@ our youtube channel</p>
 <li><p><strong>Setup context menu</strong> : MFContextMenu, spMFContextMenuHeadingItem, spMFContextMenuActionItem : <em>01.103.InitialiseApp, 07.101.Updating the ContextMenu</em></p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="topics-procedures-and-related-examples-for-integration-and-data-management">
-<h2>Topics procedures and related examples for integration and data management<a class="headerlink" href="#topics-procedures-and-related-examples-for-integration-and-data-management" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="topics-procedures-and-related-examples-for-integration-and-data-management">
+<h2>Topics procedures and related examples for integration and data management<a class="headerlink" href="#topics-procedures-and-related-examples-for-integration-and-data-management" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Adding / updating records from SQL to M-Files</strong> : spMFUpdateTable : <em>01.120.Inserting new objects using batch mode, 03.115.Inserting new objects using lookup views</em></p></li>
@@ -348,9 +274,9 @@ our youtube channel</p>
 <li><p><strong>Sample custom procedures</strong> : <em>70.100.Example - Sync Procesure, 70.101 Example - Sync Process - Test wLogging, 70.102.Example - Sync Process - Test, 70.103.Example - Sync Process - Check Progress, 70.104.Example - Start Job Wait - Agent,80.100.Template - custom procedure</em></p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="advanced-topics-procedures-and-examples">
-<h2>Advanced topics procedures and examples<a class="headerlink" href="#advanced-topics-procedures-and-examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="advanced-topics-procedures-and-examples">
+<h2>Advanced topics procedures and examples<a class="headerlink" href="#advanced-topics-procedures-and-examples" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Get vault settings</strong> : FnMFVaultSettings : <em>01.101.Updating settings</em></p></li>
@@ -375,56 +301,38 @@ our youtube channel</p>
 <li><p><strong>Using user messages</strong> : MFUserMessages, MFProcessBatch, spMFInsertUserMessage, spMFProcessBatch_EMail, spMFResultMessageForUI : <em>15.101.Using user messaging</em></p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../howto-quick-follow-up-list/index.html" class="btn btn-neutral float-right" title="How to generate a quick follow up list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../getting-started-with-a-custom-application/index.html" class="btn btn-neutral float-left" title="Getting started with a custom application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../getting-started-with-a-custom-application/index.html" class="btn btn-neutral float-left" title="Getting started with a custom application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../howto-quick-follow-up-list/index.html" class="btn btn-neutral float-right" title="How to generate a quick follow up list" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>spMFDeleteObjectVersionList &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spMFDeleteObjectVersionList &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="spMFDeploymentDetails" href="spMFDeploymentDetails.html" />
     <link rel="prev" title="spMFDeleteObjectList" href="spMFDeleteObjectList.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started/index.html">Getting Started</a></li>
@@ -95,11 +58,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Procedures</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="spMFAddCommentForObjects.html">spMFAddCommentForObjects</a></li>
@@ -214,72 +177,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">Procedures</a> &raquo;</li>
-        
-      <li>spMFDeleteObjectVersionList</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Procedures</a></li>
+      <li class="breadcrumb-item active">spMFDeleteObjectVersionList</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="spmfdeleteobjectversionlist">
-<h1>spMFDeleteObjectVersionList<a class="headerlink" href="#spmfdeleteobjectversionlist" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="spmfdeleteobjectversionlist">
+<h1>spMFDeleteObjectVersionList<a class="headerlink" href="#spmfdeleteobjectversionlist" title="Link to this heading"></a></h1>
 <dl class="simple">
 <dt>Return</dt><dd><ul class="simple">
 <li><p>1 = Success</p></li>
@@ -316,46 +242,41 @@
 </dl>
 </dd>
 </dl>
-<div class="section" id="purpose">
-<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<section id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h2>
 <p>Procedure to delete a series of object versions from a list</p>
 <p>This procedure is mainly used to remove unwanted versions of objects, especially in scenarios where these versions where created by repetitive integrations.</p>
-</div>
-<div class="section" id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <p>Set process_id of objects to be deleted in the class table prior to running the delete procedure.</p>
 <p>This procedure use the table MFObjectChangeHistory as source.  Explore and determine the versions to be deteled using the spmfGetHistory procedure and then to update the Process_id on MFObjectChangeHistory to 1 for the object versions to be included in the deletion.</p>
-</div>
-<div class="section" id="warning">
-<h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="warning">
+<h2>Warning<a class="headerlink" href="#warning" title="Link to this heading"></a></h2>
 <p>When the version to be deleted is set to the latest version the process will fail with error status 6.</p>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--check items before setting process_id</span>
-<span class="k">SELECT</span> <span class="n">mc</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">mch</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">mc</span><span class="p">.</span><span class="n">objid</span><span class="p">,</span> <span class="n">mch</span><span class="p">.</span><span class="n">MFversion</span><span class="p">,</span> <span class="n">mc</span><span class="p">.</span><span class="n">MFVersion</span><span class="p">,</span> <span class="n">mch</span><span class="p">.[</span><span class="n">Process_ID</span><span class="p">],</span> <span class="n">mch</span><span class="p">.</span><span class="n">property_id</span><span class="p">,</span> <span class="n">mch</span><span class="p">.</span><span class="n">property_Value</span><span class="p">,</span> <span class="n">mch</span><span class="p">.</span><span class="n">LastModifiedUTC</span>
-<span class="k">FROM</span>   <span class="p">[</span><span class="n">MFCustomer</span><span class="p">]</span> <span class="n">mc</span>
-<span class="k">inner</span> <span class="k">join</span> <span class="n">MFObjectChangeHistory</span> <span class="n">mch</span>
-<span class="k">on</span> <span class="n">mc</span><span class="p">.</span><span class="n">objid</span> <span class="o">=</span> <span class="n">mch</span><span class="p">.</span><span class="n">objid</span> <span class="k">and</span> <span class="n">mc</span><span class="p">.</span><span class="n">class_id</span> <span class="o">=</span> <span class="n">mch</span><span class="p">.</span><span class="n">class_id</span>
-<span class="k">order</span> <span class="k">by</span> <span class="n">lastModifiedUTC</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">objid</span><span class="p">,</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">MFversion</span><span class="p">,</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">MFVersion</span><span class="p">,</span><span class="w"> </span><span class="n">mch</span><span class="p">.[</span><span class="n">Process_ID</span><span class="p">],</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">property_id</span><span class="p">,</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">property_Value</span><span class="p">,</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">LastModifiedUTC</span>
+<span class="k">FROM</span><span class="w">   </span><span class="p">[</span><span class="n">MFCustomer</span><span class="p">]</span><span class="w"> </span><span class="n">mc</span>
+<span class="k">inner</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">MFObjectChangeHistory</span><span class="w"> </span><span class="n">mch</span>
+<span class="k">on</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">objid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">objid</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">class_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mch</span><span class="p">.</span><span class="n">class_id</span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">lastModifiedUTC</span>
 
 <span class="c1">--set process_id object to be deleted</span>
-<span class="k">UPDATE</span> <span class="n">MFObjectChangeHistory</span>
-<span class="k">SET</span>    <span class="p">[</span><span class="n">Process_ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">WHERE</span>  <span class="p">[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">13</span>
+<span class="k">UPDATE</span><span class="w"> </span><span class="n">MFObjectChangeHistory</span>
+<span class="k">SET</span><span class="w">    </span><span class="p">[</span><span class="n">Process_ID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="k">WHERE</span><span class="w">  </span><span class="p">[</span><span class="n">ID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span>
 
 <span class="c1">--CHECK MFILES BEFORE DELETING TO SHOW DIFF</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="changelog">
-<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 12%" />
-<col style="width: 75%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Date</p></td>
 <td><p>Author</p></td>
@@ -371,56 +292,38 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="spMFDeploymentDetails.html" class="btn btn-neutral float-right" title="spMFDeploymentDetails" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="spMFDeleteObjectList.html" class="btn btn-neutral float-left" title="spMFDeleteObjectList" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spMFDeleteObjectList.html" class="btn btn-neutral float-left" title="spMFDeleteObjectList" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spMFDeploymentDetails.html" class="btn btn-neutral float-right" title="spMFDeploymentDetails" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

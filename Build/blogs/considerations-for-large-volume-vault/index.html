@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Considerations for large volume vault &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Considerations for large volume vault &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Create a scheduled pull from M-Files using SQL Server Agent" href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html" />
     <link rel="prev" title="Considerations for deleted records" href="../considerations-for-deleted-records/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -187,78 +150,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Considerations for large volume vault</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Considerations for large volume vault</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="considerations-for-large-volume-vault">
-<h1>Considerations for large volume vault<a class="headerlink" href="#considerations-for-large-volume-vault" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="considerations-for-large-volume-vault">
+<h1>Considerations for large volume vault<a class="headerlink" href="#considerations-for-large-volume-vault" title="Link to this heading"></a></h1>
 <p>The demand for managing metadata in large vaults is on the increase.
 MFSQL Connector can make a difference when the most appropriate tools
 are selected to deal with different scenarios and applications. This
@@ -280,8 +206,8 @@ case.</p>
 <li><p>Update M-Files from SQL</p></li>
 <li><p>Validate class table</p></li>
 </ol>
-<div class="section" id="initialize-class-table">
-<h2>Initialize class table<a class="headerlink" href="#initialize-class-table" title="Permalink to this headline">¶</a></h2>
+<section id="initialize-class-table">
+<h2>Initialize class table<a class="headerlink" href="#initialize-class-table" title="Link to this heading"></a></h2>
 <p>The first pull or initialization of the class table will take some time.
 As an example, our benchmark with 545000 records took approx 6 hours to
 complete. The procedure spmfUpdateTableInBatches must be used.</p>
@@ -296,82 +222,82 @@ specifying the &#64;FromObjid and &#64;ToObjid.</p>
 the fixed size of the batches and the 24 is the average processing time
 in seconds per batch. The &#64;WithStats parameter will allow you to see the
 progress of processing in SSMS.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span> <span class="n">spMFUpdateTableinBatches</span>
-<span class="o">@</span><span class="n">MFtableName</span> <span class="o">=</span> <span class="s1">&#39;MFLargeClassTable&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span><span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">WithTableAudit</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">FromObjid</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ToObjid</span> <span class="o">=</span> <span class="mi">600000</span>
-<span class="p">,</span><span class="o">@</span><span class="n">WithStats</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">exec</span><span class="w"> </span><span class="n">spMFUpdateTableinBatches</span>
+<span class="o">@</span><span class="n">MFtableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLargeClassTable&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">UpdateMethod</span><span class="w"> </span><span class="o">=</span><span class="mi">1</span>
+<span class="p">,</span><span class="o">@</span><span class="n">WithTableAudit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">,</span><span class="o">@</span><span class="n">FromObjid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ToObjid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600000</span>
+<span class="p">,</span><span class="o">@</span><span class="n">WithStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 <p><img alt="image0" src="../../_images/img_1.png" /></p>
-</div>
-<div class="section" id="update-with-recent-changes">
-<h2>Update with recent changes<a class="headerlink" href="#update-with-recent-changes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="update-with-recent-changes">
+<h2>Update with recent changes<a class="headerlink" href="#update-with-recent-changes" title="Link to this heading"></a></h2>
 <p>Regular update of the class table has two scenarios:</p>
 <ul class="simple">
 <li><p>update records where the objid is known</p></li>
 <li><p>update all records since last change in M-Files</p></li>
 <li><p>update all changed records including deletions in M-Files.</p></li>
 </ul>
-<div class="section" id="spmfupdatetable">
-<h3>spMFUpdateTable<a class="headerlink" href="#spmfupdatetable" title="Permalink to this headline">¶</a></h3>
+<section id="spmfupdatetable">
+<h3>spMFUpdateTable<a class="headerlink" href="#spmfupdatetable" title="Link to this heading"></a></h3>
 <p>Using spMFUpdateTable with parameter &#64;Objids referencing the objid or
 list of objid’s to be update is highly efficient in large volume class
 table updates.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_Volume&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="s1">&#39;80184,80313&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLarge_Volume&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">UpdateMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ObjIDs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;80184,80313&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="spmfupdatetablewithlastmodifieddate">
-<h3>spMFUpdateTableWithLastModifiedDate<a class="headerlink" href="#spmfupdatetablewithlastmodifieddate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="spmfupdatetablewithlastmodifieddate">
+<h3>spMFUpdateTableWithLastModifiedDate<a class="headerlink" href="#spmfupdatetablewithlastmodifieddate" title="Link to this heading"></a></h3>
 <p>Using spmfUpdateTableWithLastModifiedDate will get all records from
 M-Files which has changes since the last update of the class table. Use
 this procedure as the default approach when the objid of the records to
 be updated is unknown. Records deleted in M-Files is however NOT
 identified with this procedure.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Return_LastModified</span> <span class="n">DATETIME</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span>        <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID1</span>    <span class="nb">INT</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">Return_LastModified</span><span class="w"> </span><span class="n">DATETIME</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w">        </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID1</span><span class="w">    </span><span class="nb">INT</span><span class="p">;</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTableWithLastModifiedDate</span><span class="p">]</span> <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="p">,</span><span class="o">@</span><span class="n">Return_LastModified</span> <span class="o">=</span> <span class="o">@</span><span class="n">Return_LastModified</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_Volume&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID1</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTableWithLastModifiedDate</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">UpdateMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">,</span><span class="o">@</span><span class="n">Return_LastModified</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Return_LastModified</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">TableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLarge_Volume&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID1</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="k">GO</span>
 </pre></div>
 </div>
 <p>Our Benchmark show the update of a single record change in M-Files to
 class with 545000 records took approx 5 seconds.</p>
-</div>
-<div class="section" id="spmfupdatemfilestosql">
-<h3>spMFUpdateMfilesToSQL<a class="headerlink" href="#spmfupdatemfilestosql" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="spmfupdatemfilestosql">
+<h3>spMFUpdateMfilesToSQL<a class="headerlink" href="#spmfupdatemfilestosql" title="Link to this heading"></a></h3>
 <p>Using spMFUpdateMFilesToSQL is very efficient to get changed object
 versions using spMFTableAudit, and then to update the class table by
 only processing the changed objects. This elliminates exchanging large
 datasets between M-Files and SQL to determine which records had changed.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>  <span class="k">DECLARE</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="n">SMALLDATETIME</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span>     <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span>  <span class="nb">INT</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">MFLastUpdateDate</span><span class="w"> </span><span class="n">SMALLDATETIME</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w">     </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w">  </span><span class="nb">INT</span><span class="p">;</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateMFilesToMFSQL</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_volume&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFLastUpdateDate</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">UpdateTypeID</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- tinyint</span>
-<span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">debug</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateMFilesToMFSQL</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLarge_volume&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">MFLastUpdateDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">MFLastUpdateDate</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">UpdateTypeID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">-- tinyint</span>
+<span class="p">,</span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>A single record that has changed takes approx 4 seconds to update in a class table with 545 000 objects.</p>
-</div>
-</div>
-<div class="section" id="update-from-sql-to-m-files">
-<h2>Update from SQL to M-Files<a class="headerlink" href="#update-from-sql-to-m-files" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="update-from-sql-to-m-files">
+<h2>Update from SQL to M-Files<a class="headerlink" href="#update-from-sql-to-m-files" title="Link to this heading"></a></h2>
 <p>Updating updates from SQL to M-Files with large tables have two
 considerations.</p>
 <p>When update a smallish (a couple of thousand) entries into the large
@@ -388,109 +314,103 @@ approx 75 seconds for each batch of 500 to be update. Updating all 545
 000 records took approx 21 hours. The benefit of using the batch update
 method is that each batch processed can be monitored separately and if
 something happens, the process can be abandoned and restarted.</p>
-</div>
-<div class="section" id="validating-class-table">
-<h2>Validating class table<a class="headerlink" href="#validating-class-table" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="validating-class-table">
+<h2>Validating class table<a class="headerlink" href="#validating-class-table" title="Link to this heading"></a></h2>
 <p>The class table should always reflect the status of M-Files objects up
 to the last pull from M-Files. The Connector include procedures that is
 specifically geared towards validating this is the case.</p>
-<div class="section" id="spmftableaudit">
-<h3>spMFTableAudit<a class="headerlink" href="#spmftableaudit" title="Permalink to this headline">¶</a></h3>
+<section id="spmftableaudit">
+<h3>spMFTableAudit<a class="headerlink" href="#spmftableaudit" title="Link to this heading"></a></h3>
 <p>The spMFTableAudit procedure creates a separate table MFAuditHistory of
 the object version of the class. Executing this procedure will pull all
 the object versions (objid, version, class, object type) and compare it
 with the associated class table and flag each objid status.</p>
 <p>This procedure can be executed to do a full comparison, or to only pull
 object versions that changed from a certain date.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">SessionIDOut</span>    <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">NewObjectXml</span>    <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">DeletedInSQL</span>    <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">UpdateRequired</span>  <span class="nb">BIT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">OutofSync</span>       <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">ProcessErrors</span>   <span class="nb">INT</span>
-       <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">SessionIDOut</span><span class="w">    </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">NewObjectXml</span><span class="w">    </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">DeletedInSQL</span><span class="w">    </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">UpdateRequired</span><span class="w">  </span><span class="nb">BIT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">OutofSync</span><span class="w">       </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessErrors</span><span class="w">   </span><span class="nb">INT</span>
+<span class="w">       </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
 
-<span class="k">DECLARE</span>     <span class="o">@</span><span class="n">MFModifiedDate</span> <span class="n">DATETIME</span><span class="p">;</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="n">MFModifiedDate</span> <span class="o">=</span> <span class="k">MAX</span><span class="p">([</span><span class="n">mlv</span><span class="p">].[</span><span class="n">MF_Last_Modified</span><span class="p">])</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFLarge_volume</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mlv</span><span class="p">]</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="n">MFModifiedDate</span> <span class="o">=</span> <span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span>
+<span class="k">DECLARE</span><span class="w">     </span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">MAX</span><span class="p">([</span><span class="n">mlv</span><span class="p">].[</span><span class="n">MF_Last_Modified</span><span class="p">])</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFLarge_volume</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mlv</span><span class="p">]</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">ISNULL</span><span class="p">(</span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">)</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFTableAudit</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_Volume&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">MFModifiedDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">MFModifiedDate</span>
-<span class="p">,</span><span class="o">@</span><span class="n">SessionIDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">SessionIDOut</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">NewObjectXml</span> <span class="o">=</span> <span class="o">@</span><span class="n">NewObjectXml</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">DeletedInSQL</span> <span class="o">=</span> <span class="o">@</span><span class="n">DeletedInSQL</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">UpdateRequired</span> <span class="o">=</span> <span class="o">@</span><span class="n">UpdateRequired</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">OutofSync</span> <span class="o">=</span> <span class="o">@</span><span class="n">OutofSync</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ProcessErrors</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessErrors</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFTableAudit</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLarge_Volume&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">MFModifiedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">MFModifiedDate</span>
+<span class="p">,</span><span class="o">@</span><span class="n">SessionIDOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">SessionIDOut</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">NewObjectXml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">NewObjectXml</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">DeletedInSQL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">DeletedInSQL</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">UpdateRequired</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">UpdateRequired</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">OutofSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">OutofSync</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessErrors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessErrors</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>Use the view MFvwAuditSummary to provide a quick overview of the result</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFvwAuditSummary</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfas</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="p">[</span><span class="n">mfas</span><span class="p">].[</span><span class="n">TableName</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MFLarge_Volume&#39;</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFvwAuditSummary</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mfas</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">mfas</span><span class="p">].[</span><span class="n">TableName</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFLarge_Volume&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="spmfgetobjectvers">
-<h3>spMFGetObjectvers<a class="headerlink" href="#spmfgetobjectvers" title="Permalink to this headline">¶</a></h3>
+<section id="spmfgetobjectvers">
+<h3>spMFGetObjectvers<a class="headerlink" href="#spmfgetobjectvers" title="Link to this heading"></a></h3>
 <p>This procedure is used in spMFTableAudit. However, applying it on its
 own is effective to return objects in the class table that has changed
 since the last update.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">outPutXML</span>       <span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-        <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">outPutXML</span><span class="w">       </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+<span class="w">        </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
 
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">lastmodified</span> <span class="n">DATETIME</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Idoc</span> <span class="nb">int</span>
-<span class="k">SELECT</span> <span class="o">@</span><span class="n">lastmodified</span> <span class="o">=</span> <span class="k">MAX</span><span class="p">([</span><span class="n">mbs</span><span class="p">].[</span><span class="n">MF_Last_Modified</span><span class="p">])</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFBasic_singleprop</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mbs</span><span class="p">]</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">lastmodified</span><span class="w"> </span><span class="n">DATETIME</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">Idoc</span><span class="w"> </span><span class="nb">int</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">lastmodified</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">MAX</span><span class="p">([</span><span class="n">mbs</span><span class="p">].[</span><span class="n">MF_Last_Modified</span><span class="p">])</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFBasic_singleprop</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mbs</span><span class="p">]</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetObjectvers</span><span class="p">]</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="s1">&#39;MFlarge_Volume&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">dtModifiedDate</span> <span class="o">=</span> <span class="o">@</span><span class="n">lastmodified</span>
-<span class="p">,</span><span class="o">@</span><span class="n">MFIDs</span> <span class="o">=</span> <span class="s1">&#39;550000&#39;</span>
-<span class="p">,</span><span class="o">@</span><span class="n">outPutXML</span> <span class="o">=</span> <span class="o">@</span><span class="n">outPutXML</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
-<span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetObjectvers</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">TableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFlarge_Volume&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">dtModifiedDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">lastmodified</span>
+<span class="p">,</span><span class="o">@</span><span class="n">MFIDs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;550000&#39;</span>
+<span class="p">,</span><span class="o">@</span><span class="n">outPutXML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">outPutXML</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="p">,</span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 
 
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_xml_preparedocument</span><span class="p">]</span> <span class="o">@</span><span class="n">Idoc</span> <span class="k">OUTPUT</span><span class="p">,</span> <span class="o">@</span><span class="n">outPutXML</span><span class="p">;</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_xml_preparedocument</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">Idoc</span><span class="w"> </span><span class="k">OUTPUT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">outPutXML</span><span class="p">;</span>
 
-    <span class="k">WITH</span> <span class="p">[</span><span class="n">cte</span><span class="p">]</span>
-    <span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="p">[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">objId</span><span class="p">]</span>
-              <span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">MFVersion</span><span class="p">]</span>
-              <span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">GUID</span><span class="p">]</span>
-              <span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">ObjectType_ID</span><span class="p">]</span>
-        <span class="k">FROM</span>
-            <span class="n">OPENXML</span><span class="p">(</span><span class="o">@</span><span class="n">Idoc</span><span class="p">,</span> <span class="s1">&#39;/form/objVers&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="k">WITH</span>
-            <span class="p">(</span>
-                <span class="p">[</span><span class="n">objId</span><span class="p">]</span> <span class="nb">INT</span> <span class="s1">&#39;./@objectID&#39;</span>
-               <span class="p">,[</span><span class="n">MFVersion</span><span class="p">]</span> <span class="nb">INT</span> <span class="s1">&#39;./@version&#39;</span>
-               <span class="p">,[</span><span class="n">GUID</span><span class="p">]</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="s1">&#39;./@objectGUID&#39;</span>
-               <span class="p">,[</span><span class="n">ObjectType_ID</span><span class="p">]</span> <span class="nb">INT</span> <span class="s1">&#39;./@objectType&#39;</span>
-            <span class="p">)</span> <span class="p">[</span><span class="n">xmlfile</span><span class="p">])</span>
-   <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">cte</span>
+<span class="w">    </span><span class="k">WITH</span><span class="w"> </span><span class="p">[</span><span class="n">cte</span><span class="p">]</span>
+<span class="w">    </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">objId</span><span class="p">]</span>
+<span class="w">              </span><span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">MFVersion</span><span class="p">]</span>
+<span class="w">              </span><span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">GUID</span><span class="p">]</span>
+<span class="w">              </span><span class="p">,[</span><span class="n">xmlfile</span><span class="p">].[</span><span class="n">ObjectType_ID</span><span class="p">]</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">OPENXML</span><span class="p">(</span><span class="o">@</span><span class="n">Idoc</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;/form/objVers&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">WITH</span>
+<span class="w">            </span><span class="p">(</span>
+<span class="w">                </span><span class="p">[</span><span class="n">objId</span><span class="p">]</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="s1">&#39;./@objectID&#39;</span>
+<span class="w">               </span><span class="p">,[</span><span class="n">MFVersion</span><span class="p">]</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="s1">&#39;./@version&#39;</span>
+<span class="w">               </span><span class="p">,[</span><span class="n">GUID</span><span class="p">]</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;./@objectGUID&#39;</span>
+<span class="w">               </span><span class="p">,[</span><span class="n">ObjectType_ID</span><span class="p">]</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="s1">&#39;./@objectType&#39;</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="n">xmlfile</span><span class="p">])</span>
+<span class="w">   </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">cte</span>
 
-  <span class="k">EXEC</span> <span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_xml_removedocument</span><span class="p">]</span> <span class="o">@</span><span class="n">Idoc</span><span class="p">;</span>
+<span class="w">  </span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">sys</span><span class="p">].[</span><span class="n">sp_xml_removedocument</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">Idoc</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="benchmarks-with-large-volume-test-results">
-<h2>Benchmarks with large volume test results.<a class="headerlink" href="#benchmarks-with-large-volume-test-results" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="benchmarks-with-large-volume-test-results">
+<h2>Benchmarks with large volume test results.<a class="headerlink" href="#benchmarks-with-large-volume-test-results" title="Link to this heading"></a></h2>
 <p>Benchmarks are generated on separate SQL and M-Files servers; SQL 2017
 Standard Edition with 8GB memory. The tests where done one after the
 other and not concurrently. No additional vault applications (such as
 compliance kit, metadata configuration validation etc) are running.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 39%" />
-<col style="width: 7%" />
-<col style="width: 14%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Scenario</p></th>
@@ -577,56 +497,38 @@ the last class update.</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html" class="btn btn-neutral float-right" title="Create a scheduled pull from M-Files using SQL Server Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../considerations-for-deleted-records/index.html" class="btn btn-neutral float-left" title="Considerations for deleted records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../considerations-for-deleted-records/index.html" class="btn btn-neutral float-left" title="Considerations for deleted records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../create-a-scheduled-pull-from-m-files-using-sql-server-agent/index.html" class="btn btn-neutral float-right" title="Create a scheduled pull from M-Files using SQL Server Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

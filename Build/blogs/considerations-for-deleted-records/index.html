@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Considerations for deleted records &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Considerations for deleted records &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Considerations for large volume vault" href="../considerations-for-large-volume-vault/index.html" />
     <link rel="prev" title="Changing from single lookup to multi lookup" href="../changing-from-single-lookup-to-multi-lookup/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -178,78 +141,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Considerations for deleted records</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Considerations for deleted records</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="considerations-for-deleted-records">
-<h1>Considerations for deleted records<a class="headerlink" href="#considerations-for-deleted-records" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="considerations-for-deleted-records">
+<h1>Considerations for deleted records<a class="headerlink" href="#considerations-for-deleted-records" title="Link to this heading"></a></h1>
 <p>M-Files users can delete, destroy and undelete a record. MFSQL Connector
 will remove deleted objects from the class table (or optionally retain
 the record showing the date of the deletion in the deleted column) and reinstate the record in the class
@@ -258,8 +184,8 @@ records in M-Files in bulk from MFSQL Connector. This is particularly
 useful when a large number of records must be deleted in M-Files.
 M-Files user interface only allows for manual deletions in batches of
 500.</p>
-<div class="section" id="spmfupdatetable-and-deletions">
-<h2>spMFUpdateTable and deletions<a class="headerlink" href="#spmfupdatetable-and-deletions" title="Permalink to this headline">¶</a></h2>
+<section id="spmfupdatetable-and-deletions">
+<h2>spMFUpdateTable and deletions<a class="headerlink" href="#spmfupdatetable-and-deletions" title="Link to this heading"></a></h2>
 <p>When a record is deleted in M-Files and a table is updated from M-Files
 to SQL using spMFupdateTable with no filters, the deleted or destroyed
 record will automatically be removed from the class table.</p>
@@ -275,9 +201,9 @@ will reinstate the record in the class table.</p>
 <p>It is important to note that deleted object is processed into the class table when an update takes place.  If the setting is to remove deleted objects then the object is subsequently deleted from the table as part of the update routine.  This has a direct impact on the use of custom unique indexes or keys on the class table where SQL is checking for duplicates and one of the objects was deleted. In this case an error will be thrown in SQL for duplicate check, even if the deleted object is removed from the table subsequent to the updating.  It is advisable to destroy the object in &lt;-Files when removing duplicate objects from a class table where a duplicate check is done with SQL constraints.</p>
 <p>Using spMFUpdateTable on large class tables will have performance
 issues. In these cases spMFUpdateMFilestoMFSQL must be used. The option to retain deletions is available on this procedure also.</p>
-</div>
-<div class="section" id="spmfupdatemfilestomfsql">
-<h2>spMFUpdateMFilesToMFSQL<a class="headerlink" href="#spmfupdatemfilestomfsql" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="spmfupdatemfilestomfsql">
+<h2>spMFUpdateMFilesToMFSQL<a class="headerlink" href="#spmfupdatemfilestomfsql" title="Link to this heading"></a></h2>
 <p>spMFUpdateMFilestoMFSQL is used to update large class tables and should be
 used as a default for building updates into custom procedures.</p>
 <p>When a record is deleted or destroyed in M-Files, this procedure will
@@ -287,70 +213,52 @@ then only update the changed records, including deletions.</p>
 with large tables this could take considerably longer as it will have to
 process through the entire dataset to determine if a object has been
 undeleted and missing in the class table.</p>
-</div>
-<div class="section" id="mfaudithistory">
-<h2>MFAuditHistory<a class="headerlink" href="#mfaudithistory" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mfaudithistory">
+<h2>MFAuditHistory<a class="headerlink" href="#mfaudithistory" title="Link to this heading"></a></h2>
 <p>The MFAuditHistory table is autmatically maintained when the update routines (spMFUpdateMFilesToMFSSQL, spmfUpdateTable) are processed.</p>
 <p>This table show deleted objects with a statusflag of 4.</p>
 <p>spmfTableAudit updates MFAuditHistory.</p>
-</div>
-<div class="section" id="spmfgetobjectvers">
-<h2>spMFGetObjectVers<a class="headerlink" href="#spmfgetobjectvers" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="spmfgetobjectvers">
+<h2>spMFGetObjectVers<a class="headerlink" href="#spmfgetobjectvers" title="Link to this heading"></a></h2>
 <p>This procedure returns the object version of an object, including if the object is deleted.</p>
-</div>
-<div class="section" id="spmfobjecttypeupdateclassindex">
-<h2>spMFObjectTypeUpdateClassIndex<a class="headerlink" href="#spmfobjecttypeupdateclassindex" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="spmfobjecttypeupdateclassindex">
+<h2>spMFObjectTypeUpdateClassIndex<a class="headerlink" href="#spmfobjecttypeupdateclassindex" title="Link to this heading"></a></h2>
 <p>This procedure gets all the object versions in the vault and include the deleted objects. The result is in table MFObjectTypeToClassObject.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../considerations-for-large-volume-vault/index.html" class="btn btn-neutral float-right" title="Considerations for large volume vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../changing-from-single-lookup-to-multi-lookup/index.html" class="btn btn-neutral float-left" title="Changing from single lookup to multi lookup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../changing-from-single-lookup-to-multi-lookup/index.html" class="btn btn-neutral float-left" title="Changing from single lookup to multi lookup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../considerations-for-large-volume-vault/index.html" class="btn btn-neutral float-right" title="Considerations for large volume vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Logging execution of Process and Procedure Steps &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logging execution of Process and Procedure Steps &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="MFUpdateHistory for logging of class record changes" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html" />
     <link rel="prev" title="Logging Tables" href="../../../the-connector-framework/connector-content/logging-tables/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
@@ -136,86 +99,48 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">MFSQL Integration Connector</a> &raquo;</li>
-        
-          <li><a href="../index.html">Using and managing logs</a> &raquo;</li>
-        
-      <li>Logging execution of Process and Procedure Steps</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">MFSQL Integration Connector</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Using and managing logs</a></li>
+      <li class="breadcrumb-item active">Logging execution of Process and Procedure Steps</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="logging-execution-of-process-and-procedure-steps">
-<h1>Logging execution of Process and Procedure Steps<a class="headerlink" href="#logging-execution-of-process-and-procedure-steps" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="summary-of-logging-function">
-<h2>Summary of logging function<a class="headerlink" href="#summary-of-logging-function" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="logging-execution-of-process-and-procedure-steps">
+<h1>Logging execution of Process and Procedure Steps<a class="headerlink" href="#logging-execution-of-process-and-procedure-steps" title="Link to this heading"></a></h1>
+<section id="summary-of-logging-function">
+<h2>Summary of logging function<a class="headerlink" href="#summary-of-logging-function" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>When procedure is called it will assess if the it was called directly or by another procedure. Procedures with a parameter &#64;ProcessBatch_ID int = null would be a procedure that can be called by another procedures and pass through the ProcessBatch_ID. If the ProcessBatch_ID is null, then it is regarded as a new process with a separate ProcessBatch_ID, else the parameter passed through will be set as the ProcessBatch_ID for the underlying process.</p></li>
 <li><p>The calling procedure will pass through the ProcessBatch_ID.  A new ProcessBatch_ID will be created in table MFProcessBatch if no ProcessBatch_ID is passed through (the &#64;processBatch_ID is null) by calling <a class="reference internal" href="../../../procedures/spMFProcessBatch_Upsert.html"><span class="doc">spMFProcessBatch_Upsert</span></a>. This procedure will create a new log entry and return the new ProcessBatch_ID.</p></li>
@@ -225,71 +150,53 @@
 </ol>
 <p>When a context menu action is executed, the VAF will automatically create a new ProcessBatch_ID, and make an entry in both MFProcessBatch and MFProcessBatchDetail.  When the procedure is called by the action, it will pass through the ProcessBatch_ID to the called procedure, which in turn can then pass it through to any sub procedures called during the action operation. On completion of the context menu task the VAF will log a completion entry in both logging tables.</p>
 <p>When checking MFProcessBatch table for the most recent logs during processing, one can observe if a process is still running or completed successfully.  When checking the detail processes in the MFProcessBatchDetail table for the specific ProcessBatch_ID, one can review the processes completed and the result of the different sub processes.</p>
-</div>
-<div class="section" id="logging-for-standard-procedures">
-<h2>Logging for standard procedures<a class="headerlink" href="#logging-for-standard-procedures" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="logging-for-standard-procedures">
+<h2>Logging for standard procedures<a class="headerlink" href="#logging-for-standard-procedures" title="Link to this heading"></a></h2>
 <p>All the main standard procedures in the Connector is setup to log entries to the logging tables. Interpreting the logs depends on the process originating the logging. The columns and how they are used are set out in the sections <a class="reference internal" href="../../../tables/tbMFProcessBatch.html"><span class="doc">MFProcessBatch</span></a> and <a class="reference internal" href="../../../tables/tbMFProcessBatchDetail.html"><span class="doc">MFProcessBatchDetail</span></a></p>
 <p>The main purpose of the logs is to allow for backtracking on processes and to monitor and evaluate performance.  The helper procedure <a class="reference internal" href="../../../procedures/spMFGetProcedurePerformance.html"><span class="doc">spMFGetProcedurePerformance</span></a> will produce a number of analytic tables to evaluate performance for a specific processbatch_ID.</p>
-</div>
-<div class="section" id="logging-for-custom-procedures">
-<h2>Logging for custom procedures<a class="headerlink" href="#logging-for-custom-procedures" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="logging-for-custom-procedures">
+<h2>Logging for custom procedures<a class="headerlink" href="#logging-for-custom-procedures" title="Link to this heading"></a></h2>
 <p>It is recommended to apply the logging mechanism to custom procedures also.  Guidance on using the logging is in the section <a class="reference internal" href="../logging-in-custom-procedures/index.html"><span class="doc">Logging in custom procedures</span></a></p>
-</div>
-</div>
-<div class="section" id="setting-switch-to-use-process-logging">
-<h1>Setting switch to use process logging<a class="headerlink" href="#setting-switch-to-use-process-logging" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section id="setting-switch-to-use-process-logging">
+<h1>Setting switch to use process logging<a class="headerlink" href="#setting-switch-to-use-process-logging" title="Link to this heading"></a></h1>
 <p>MFSettings table contains a switch ‘App_DetailLogging’ set by default to
 0.  To enable logging to MFProcessBatch and MFProcessBatchDetail the
 switch must be set to 1.</p>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../mfupdatehistory-for-logging-of-class-record-changes/index.html" class="btn btn-neutral float-right" title="MFUpdateHistory for logging of class record changes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../../../the-connector-framework/connector-content/logging-tables/index.html" class="btn btn-neutral float-left" title="Logging Tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../../the-connector-framework/connector-content/logging-tables/index.html" class="btn btn-neutral float-left" title="Logging Tables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mfupdatehistory-for-logging-of-class-record-changes/index.html" class="btn btn-neutral float-right" title="MFUpdateHistory for logging of class record changes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

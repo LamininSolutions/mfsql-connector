@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Metadata Management and Realignment Case Study &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metadata Management and Realignment Case Study &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="MF-Last-Modified-User in action" href="../mf-last-modified-user-in-action/index.html" />
     <link rel="prev" title="Metadata Management and data cleansing" href="../metadata-management/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -189,78 +152,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Metadata Management and Realignment Case Study</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Metadata Management and Realignment Case Study</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="metadata-management-and-realignment-case-study">
-<h1>Metadata Management and Realignment Case Study<a class="headerlink" href="#metadata-management-and-realignment-case-study" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="metadata-management-and-realignment-case-study">
+<h1>Metadata Management and Realignment Case Study<a class="headerlink" href="#metadata-management-and-realignment-case-study" title="Link to this heading"></a></h1>
 <p>Brown MacFarlane, a steel merchant, selected MFSQL Connector for their integration between M-Files and Navision. Part of the project was to migrate and align the data from their previous ERP system with Navision and M-Files.</p>
 <p>Navision is used for order management, inventory control and customer and supplier control. M-Files is used for advanced control of the related inventory certificates, and document control
 around all the ERP processes.  Some business processes originates in Navision with M-Files being dependent on the data from Navision, and
@@ -275,12 +201,12 @@ certification documents.</p>
 <p>In essence data from an old stock management and ERP system was transformed to fit into the requirements of Navision.  At the same time, the data already in M-Files from the old ERP system had to be transformed to align with the new requirements. New data had to be taken on and the metadata of the files had to align to ensure that users will find the right files when working in Navision. Navision was modified to allow for a custom search and display of the related files.</p>
 <p>To achieve this, and in depth analysis of the structures in M-Files and both external systems had to be undertaken.  Thereafter the rows and columns of every related table was compared, analysed and normalised.  The new structures and changes of existing structured where applied to M-Files. Subsequently the existing data in M-Files where updated with the new structures. All of this laid the foundation for the new procedures to have a continuous update of Navision from M-Files and pull from Navision into M-Files.</p>
 <p>The following sections describe in more detail how different capabilities of MFSQL Connector were deployed to support this metadata realignment project.</p>
-<div class="section" id="understanding-what-is-in-m-files">
-<h2>Understanding what is in M-Files<a class="headerlink" href="#understanding-what-is-in-m-files" title="Permalink to this headline">¶</a></h2>
+<section id="understanding-what-is-in-m-files">
+<h2>Understanding what is in M-Files<a class="headerlink" href="#understanding-what-is-in-m-files" title="Link to this heading"></a></h2>
 <p>The following procedures and views was used the understand the metadata structure in M-Files</p>
 <p>Fetch an overview of class objects in the entire vault with <a class="reference internal" href="../../procedures/spMFObjectTypeUpdateClassIndex.html"><span class="doc">spMFObjectTypeUpdateClassIndex</span></a> and show the results with the view <a class="reference internal" href="../../views/MFvwObjectTypeSummary.html"><span class="doc">MFvwObjectTypeSummary</span></a></p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFObjectTypeUpdateClassIndex</span> <span class="o">@</span><span class="n">IsAllTables</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFvwObjectTypeSummary</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFObjectTypeUpdateClassIndex</span><span class="w"> </span><span class="o">@</span><span class="n">IsAllTables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFvwObjectTypeSummary</span>
 </pre></div>
 </div>
 <p><img alt="image0" src="../../_images/image_0.png" /></p>
@@ -299,26 +225,26 @@ certification documents.</p>
 <p>Examples of the select statement for the view are below.</p>
 <p>The main aim for this exploration is to identify all the classes and properties to be included in the survey.</p>
 </div></blockquote>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span>
 
-<span class="k">SELECT</span> <span class="n">Property</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="k">class</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
-<span class="k">Select</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">Property</span> <span class="o">=</span> <span class="s1">&#39;Customer&#39;</span>
-<span class="k">SELECT</span> <span class="k">distinct</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">ObjectType</span> <span class="o">=</span> <span class="s1">&#39;Document&#39;</span>
-<span class="k">SELECT</span> <span class="k">Class</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">WHERE</span> <span class="n">Workflow_MFID</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
-<span class="k">SELECT</span> <span class="n">Property</span><span class="p">,</span> <span class="k">class</span><span class="p">,</span>  <span class="n">Valuelist_Owner</span><span class="p">,</span><span class="n">IsObjectType</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span> <span class="k">where</span> <span class="n">Valuelist_Owner</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">Property</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Customer&#39;</span>
+<span class="k">Select</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">Property</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Customer&#39;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">distinct</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ObjectType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Document&#39;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">Class</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Workflow_MFID</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">null</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">Property</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w">  </span><span class="n">Valuelist_Owner</span><span class="p">,</span><span class="n">IsObjectType</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFvwMetadataStructure</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">Valuelist_Owner</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">null</span>
 </pre></div>
 </div>
 <p>Next, update the includedInApp column in the MFClass table for all the classes to be included in the data analysis and then create all the class tables with one instruction <a class="reference internal" href="../../procedures/spMFCreateAllMFTables.html"><span class="doc">spMFCreateAllMFTables</span></a>.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">mc</span>
-<span class="k">SET</span> <span class="n">mc</span><span class="p">.</span><span class="n">IncludeInApp</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="s1">&#39;Employment Agreement&#39;</span><span class="p">,</span><span class="s1">&#39;Purchase Invoice&#39;</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">mc</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">IncludeInApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">MFclass</span><span class="w"> </span><span class="n">mc</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Customer&#39;</span><span class="p">,</span><span class="s1">&#39;Employment Agreement&#39;</span><span class="p">,</span><span class="s1">&#39;Purchase Invoice&#39;</span><span class="p">)</span>
 
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateAllMFTables</span> <span class="o">@</span><span class="n">IncludedInApp</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateAllMFTables</span><span class="w"> </span><span class="o">@</span><span class="n">IncludedInApp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="comparing-and-analyzing-the-data-sources">
-<h2>Comparing and analyzing the data sources<a class="headerlink" href="#comparing-and-analyzing-the-data-sources" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="comparing-and-analyzing-the-data-sources">
+<h2>Comparing and analyzing the data sources<a class="headerlink" href="#comparing-and-analyzing-the-data-sources" title="Link to this heading"></a></h2>
 <p>The first step is to get access to the metadata.  With the SQL server of the external system on the same network, a link server was setup for easy access. The pull of data from the external system may include other methods such as Boomi, Talend, Jitterbit or other tools. The key is to get the data into SQL Server tables.
 The next step is to get the M-Files data. This is where MFSQL Connector comes in.  It allows for pulling metadata from M-Files without resorting to APIs.  It also goes far beyond the capabilities of M-Files External Database Connector and is much easier to debug and control.  All the related class tables have been created in the previous step, but any additional class tables can be created with
 <a class="reference internal" href="../../procedures/spMFCreateTable.html"><span class="doc">spMFCreateTable</span></a></p>
@@ -334,12 +260,12 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 </div></blockquote>
 <p>All of the above procedures has different types of switches and parameters for different scenarios. Check out the documentation of the individual procedures for further examples.</p>
 <p>The following is a list of procedures, tips and technique scripts for data analysis and exploration.</p>
-<div class="section" id="using-schemas">
-<h3>Using schemas<a class="headerlink" href="#using-schemas" title="Permalink to this headline">¶</a></h3>
+<section id="using-schemas">
+<h3>Using schemas<a class="headerlink" href="#using-schemas" title="Link to this heading"></a></h3>
 <p>The core MFSQL Connector procedures, tables, views and functions all use the default schema of dbo.  We recommend that the custom schema is used for any objects created in the database.  Any object in the schema of dbo will be replaced or overwritten when an upgrade of the Connector is performed.</p>
-</div>
-<div class="section" id="lookup-views">
-<h3>Lookup views<a class="headerlink" href="#lookup-views" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="lookup-views">
+<h3>Lookup views<a class="headerlink" href="#lookup-views" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Using the MFvaluelist and MFValuelistitem tables will require a join on the MFValuelistID to get the right MFID of the related item.  Similarly to get the MFID of the workflow state a join is required on between MFWorkflow and MFWorkflowState on the WorkflowID.  Two helper procedures supports the creation of easy to use views for valuelists and workflows to improve useability.</dt><dd><ul class="simple">
 <li><p>Create valuelist lookup view with <a class="reference internal" href="../../procedures/spMFCreateValueListLookupView.html"><span class="doc">spMFCreateValueListLookupView</span></a></p></li>
@@ -348,17 +274,17 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 </ul>
 </dd>
 </dl>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateValueListLookupView</span> <span class="o">@</span><span class="n">ValueListName</span> <span class="o">=</span> <span class="s1">&#39;Country&#39;</span><span class="p">,</span>
-  <span class="o">@</span><span class="n">ViewName</span> <span class="o">=</span> <span class="s1">&#39;vwCountry&#39;</span><span class="p">,</span>
-  <span class="o">@</span><span class="k">Schema</span> <span class="o">=</span> <span class="s1">&#39;custom&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateValueListLookupView</span><span class="w"> </span><span class="o">@</span><span class="n">ValueListName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Country&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="o">@</span><span class="n">ViewName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;vwCountry&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="o">@</span><span class="k">Schema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;custom&#39;</span>
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span>
 </pre></div>
 </div>
 <p><img alt="image1" src="../../_images/image_1.png" /></p>
-</div>
-<div class="section" id="joining-class-tables">
-<h3>Joining class tables<a class="headerlink" href="#joining-class-tables" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="joining-class-tables">
+<h3>Joining class tables<a class="headerlink" href="#joining-class-tables" title="Link to this heading"></a></h3>
 <p>Class tables have several types of lookups.  This include valuelists, valuelist items,  other class tables, workflow, and workflow states.  In each case the class table has two columns, one for the property value, and another for the ID of the property.  When updating or inserting a record into a class table, only the ID of the lookup need to be set. The property value column is only for information and ease of use in the class table.</p>
 <dl class="simple">
 <dt>The source column of the id to be used depends on the type of lookup.</dt><dd><ul class="simple">
@@ -367,36 +293,36 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 </ul>
 </dd>
 </dl>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">MFContactPerson</span> <span class="n">mcp</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">MFcustomer</span> <span class="n">mc</span>
-<span class="k">ON</span> <span class="n">mcp</span><span class="p">.</span><span class="n">customer_ID</span> <span class="o">=</span> <span class="n">mc</span><span class="p">.</span><span class="n">objid</span>
-<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span> <span class="n">vlc</span>
-<span class="k">ON</span> <span class="n">mc</span><span class="p">.</span><span class="n">country_id</span> <span class="o">=</span> <span class="n">vlc</span><span class="p">.</span><span class="n">MFID_ValuelistItems</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MFContactPerson</span><span class="w"> </span><span class="n">mcp</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">MFcustomer</span><span class="w"> </span><span class="n">mc</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">mcp</span><span class="p">.</span><span class="n">customer_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">objid</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">custom</span><span class="p">.</span><span class="n">vwCountry</span><span class="w"> </span><span class="n">vlc</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">mc</span><span class="p">.</span><span class="n">country_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vlc</span><span class="p">.</span><span class="n">MFID_ValuelistItems</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="identifying-duplicates">
-<h3>Identifying duplicates<a class="headerlink" href="#identifying-duplicates" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="identifying-duplicates">
+<h3>Identifying duplicates<a class="headerlink" href="#identifying-duplicates" title="Link to this heading"></a></h3>
 <p>Use ‘group by’ and ‘having’ method to identify duplicates</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="n">duplicateColumn</span> <span class="k">from</span> <span class="n">MFTableName</span>
-<span class="k">group</span> <span class="k">by</span> <span class="n">duplicateColumn</span>
-<span class="k">having</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="n">duplicateColumn</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFTableName</span>
+<span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">duplicateColumn</span>
+<span class="k">having</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="expand-multi-lookup-property-columns">
-<h3>Expand multi lookup property columns<a class="headerlink" href="#expand-multi-lookup-property-columns" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="expand-multi-lookup-property-columns">
+<h3>Expand multi lookup property columns<a class="headerlink" href="#expand-multi-lookup-property-columns" title="Link to this heading"></a></h3>
 <p>Use ‘cross apply’ method with MFSQL function <a class="reference internal" href="../../functions/fnMFParseDelimitedString.html"><span class="doc">fnMFParseDelimitedString</span></a> to split out a multi lookup Property to work with the individual members of the lookup.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFClassTable</span>
-<span class="k">cross</span> <span class="n">apply</span> <span class="n">fnMFParseDelimitedString</span><span class="p">(</span><span class="n">Multicolumn</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFClassTable</span>
+<span class="k">cross</span><span class="w"> </span><span class="n">apply</span><span class="w"> </span><span class="n">fnMFParseDelimitedString</span><span class="p">(</span><span class="n">Multicolumn</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="making-configuration-changes-to-m-files">
-<h2>Making configuration changes to M-Files<a class="headerlink" href="#making-configuration-changes-to-m-files" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="resetting-metadata-structure">
-<h3>Resetting metadata structure<a class="headerlink" href="#resetting-metadata-structure" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="making-configuration-changes-to-m-files">
+<h2>Making configuration changes to M-Files<a class="headerlink" href="#making-configuration-changes-to-m-files" title="Link to this heading"></a></h2>
+<section id="resetting-metadata-structure">
+<h3>Resetting metadata structure<a class="headerlink" href="#resetting-metadata-structure" title="Link to this heading"></a></h3>
 <p>It is common to make changes in M-Files admin during the process of configuring M-Files to align with the data of the system.  The metadata structure must be re-synchronized after making changes in M-Files admin.  Using <a class="reference internal" href="../../procedures/spMFDropAndUpdateMetadata.html"><span class="doc">spMFDropAndUpdateMetadata</span></a> allows for different developer utilities to help with the process.</p>
 <blockquote>
 <div><ul class="simple">
@@ -407,18 +333,18 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 </ul>
 <p>Setting these parameters is cummulative.  Normally, these switches will not be used in combination, but executed depending on the developer’s requirement.</p>
 </div></blockquote>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">IsResetAll</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span><span class="w"> </span><span class="o">@</span><span class="n">IsResetAll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">WithClassTableReset</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span><span class="w"> </span><span class="o">@</span><span class="n">WithClassTableReset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">WithColumnReset</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span><span class="w"> </span><span class="o">@</span><span class="n">WithColumnReset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span> <span class="o">@</span><span class="n">IsStructureOnly</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFDropAndUpdateMetadata</span><span class="w"> </span><span class="o">@</span><span class="n">IsStructureOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="making-configuration-changes-from-sql">
-<h3>Making configuration changes from SQL<a class="headerlink" href="#making-configuration-changes-from-sql" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="making-configuration-changes-from-sql">
+<h3>Making configuration changes from SQL<a class="headerlink" href="#making-configuration-changes-from-sql" title="Link to this heading"></a></h3>
 <p>In this use case valuelist items had to be added to M-Files in bulk to align the future data. In some cases the names and aliases for the valuelist items had to be updated. Using <a class="reference internal" href="../../procedures/spMFSynchronizeValueListItemsToMfiles.html"><span class="doc">spMFSynchronizeValueListItemsToMfiles</span></a> allows for just that.</p>
 <p>Several configuration changes can be made in SQL and updated into M-Files.</p>
 <blockquote>
@@ -427,15 +353,15 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 <li><p>Add new valuelist items</p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
-<div class="section" id="updating-the-class-tables">
-<h2>Updating the class tables<a class="headerlink" href="#updating-the-class-tables" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="updating-the-class-tables">
+<h2>Updating the class tables<a class="headerlink" href="#updating-the-class-tables" title="Link to this heading"></a></h2>
 <p>After the data from the old and new external systems have been compared with M-Files, and the new properties and structures have been created in M-Files to align with data, the data can be prepared to insert or update records in M-Files. The updates are pushed from SQL to M-Files in batch.</p>
 <p>It each case the changes is made in the respective class table such as MFCertificates. When a change is made to the data in SQL, the process_id in the table must be set to 1. When lookup columns (those with a ‘_ID’ suffix) are update, then only the id need to change, it is not necessary to update the label column of the lookup, only the id must be updated.</p>
-</div>
-<div class="section" id="updating-m-files-with-the-results">
-<h2>Updating M-Files with the results<a class="headerlink" href="#updating-m-files-with-the-results" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="updating-m-files-with-the-results">
+<h2>Updating M-Files with the results<a class="headerlink" href="#updating-m-files-with-the-results" title="Link to this heading"></a></h2>
 <p>The final step is to update the records into M-Files.  This can be done for individual records, or a batch, or a large number of records.</p>
 <p>The following procedures are used to update records:</p>
 <blockquote>
@@ -447,56 +373,38 @@ The next step is to get the M-Files data. This is where MFSQL Connector comes in
 <p>Working through the analysis of the metadata, updating when required, sharing the results and then responding to the feedback is often a iterative process as it was in this case. It involved many scenarios of data management and M-Files metadata adjustment.  Without MFSQL Connector this project would have been greatly impeded with a much less efficient and effective outcome.</p>
 <blockquote>
 <div></div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../mf-last-modified-user-in-action/index.html" class="btn btn-neutral float-right" title="MF-Last-Modified-User in action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../metadata-management/index.html" class="btn btn-neutral float-left" title="Metadata Management and data cleansing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../metadata-management/index.html" class="btn btn-neutral float-left" title="Metadata Management and data cleansing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../mf-last-modified-user-in-action/index.html" class="btn btn-neutral float-right" title="MF-Last-Modified-User in action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

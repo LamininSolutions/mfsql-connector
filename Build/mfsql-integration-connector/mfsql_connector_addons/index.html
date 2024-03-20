@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>MFSQL Connector addons and utilities &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MFSQL Connector addons and utilities &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Users in Usergroups" href="../users-in-usergroups/index.html" />
     <link rel="prev" title="Context Menu Queue" href="../context-menu-queue/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -128,149 +91,94 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
-        
-      <li>MFSQL Connector addons and utilities</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MFSQL Integration Connector</a></li>
+      <li class="breadcrumb-item active">MFSQL Connector addons and utilities</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="mfsql-connector-addons-and-utilities">
-<h1>MFSQL Connector addons and utilities<a class="headerlink" href="#mfsql-connector-addons-and-utilities" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="mfsql-connector-addons-and-utilities">
+<h1>MFSQL Connector addons and utilities<a class="headerlink" href="#mfsql-connector-addons-and-utilities" title="Link to this heading"></a></h1>
 <p>The MFSQL Connector installation folder includes the following addons and utilities.  These utilities are provided as is, and is not fully productised. Use these as examples or a starting point for your own development.</p>
 <p>The files are located in the installation folder. For example C:Program Files (x86)Laminin SolutionsMFSQL Connector Release 4YourDatabase60_Addons</p>
-<div class="section" id="excel-basic-for-sql-queries">
-<h2>Excel Basic for SQL queries<a class="headerlink" href="#excel-basic-for-sql-queries" title="Permalink to this headline">¶</a></h2>
+<section id="excel-basic-for-sql-queries">
+<h2>Excel Basic for SQL queries<a class="headerlink" href="#excel-basic-for-sql-queries" title="Link to this heading"></a></h2>
 <p>This excel workbook includes VB script to allow for connecting to MFSQL Connector and populating the excel with the contents of the tables and views.</p>
-</div>
-<div class="section" id="excel-sql-reports">
-<h2>Excel SQL reports<a class="headerlink" href="#excel-sql-reports" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="excel-sql-reports">
+<h2>Excel SQL reports<a class="headerlink" href="#excel-sql-reports" title="Link to this heading"></a></h2>
 <p>This excel is similar to the above, except that it has more advanced features.  This excel is based on the requirements for a specific customer.</p>
-</div>
-<div class="section" id="folder-export">
-<h2>Folder Export<a class="headerlink" href="#folder-export" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="folder-export">
+<h2>Folder Export<a class="headerlink" href="#folder-export" title="Link to this heading"></a></h2>
 <p>This utility is built with powershell to extract directories and files from the explorer folders into CSVs.  The columns is specifically designed to support importing the CSV filed into a database and to use in in conjunction with MFSQL Connector file importing routines. Consult the readme.txt file for more information.</p>
-</div>
-<div class="section" id="sql-scheduler">
-<h2>SQL Scheduler<a class="headerlink" href="#sql-scheduler" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sql-scheduler">
+<h2>SQL Scheduler<a class="headerlink" href="#sql-scheduler" title="Link to this heading"></a></h2>
 <p>This powershell utility is specifically designed to schedule MFSQL Connector procedures for an SQL Express installation. (Express does not allow SQL Agents). Consult the readme.txt file for setup and usage instructions.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../users-in-usergroups/index.html" class="btn btn-neutral float-right" title="Users in Usergroups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../context-menu-queue/index.html" class="btn btn-neutral float-left" title="Context Menu Queue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../context-menu-queue/index.html" class="btn btn-neutral float-left" title="Context Menu Queue" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../users-in-usergroups/index.html" class="btn btn-neutral float-right" title="Users in Usergroups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

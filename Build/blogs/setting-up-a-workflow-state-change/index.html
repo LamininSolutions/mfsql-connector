@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Setting up a workflow state change &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting up a workflow state change &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Setup Agent Proxy for MFSQLConnect" href="../setup-agent-proxy/index.html" />
     <link rel="prev" title="RPC over HTTPS setup" href="../rpc-over-https/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -171,78 +134,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Setting up a workflow state change</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Setting up a workflow state change</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="setting-up-a-workflow-state-change">
-<h1>Setting up a workflow state change<a class="headerlink" href="#setting-up-a-workflow-state-change" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="setting-up-a-workflow-state-change">
+<h1>Setting up a workflow state change<a class="headerlink" href="#setting-up-a-workflow-state-change" title="Link to this heading"></a></h1>
 <p>This use case will illustrate how to setup an action to take place in
 SQL based on a workflow state change.</p>
 <blockquote>
@@ -297,15 +223,15 @@ the object will be updated SQL to show the latest data of the object.</p>
 <p>Step 2:</p>
 <p>Update the metadata structure in SQL if any changes where made to the
 structure.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFDropAndUpdateMetadata</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFDropAndUpdateMetadata</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Step 3:</p>
 <p>Create the class table in SQL and update the table from M-Files to SQL</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFCreateTable</span><span class="p">]</span> <span class="o">@</span><span class="n">ClassName</span> <span class="o">=</span> <span class="s1">&#39;Purchase invoice&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFCreateTable</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">ClassName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Purchase invoice&#39;</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">,</span>    <span class="c1">-- nvarchar(200)</span>
-                             <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">,</span><span class="w">    </span><span class="c1">-- nvarchar(200)</span>
+<span class="w">                             </span><span class="o">@</span><span class="n">UpdateMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Step 4:</p>
@@ -320,12 +246,12 @@ the specific object.</p>
 <p>We will also introduce to use of error trapping and logging for messages
 and back tracking when setting up the procedure.</p>
 <p>First setup a select statement to review the object to be updated</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">MFVersion</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">Workflow_State</span><span class="p">],</span>
-       <span class="o">*</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFPurchaseInvoice</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mpi</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">]</span> <span class="o">=</span> <span class="mi">360</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">MFVersion</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">Workflow_State</span><span class="p">],</span>
+<span class="w">       </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFPurchaseInvoice</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mpi</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">mpi</span><span class="p">].[</span><span class="n">ObjID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">360</span>
 </pre></div>
 </div>
 <p>The result - before the update:</p>
@@ -344,23 +270,23 @@ procedure but it need to be converted to a string.</p></li>
 logging results of the process which is taking place in the
 background. This is helpful for backtracking and debugging.</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="nb">INT</span><span class="p">,</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">Objid</span> <span class="nb">INT</span><span class="p">,</span> <span class="o">@</span><span class="n">Objids_string</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="nb">INT</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">Objid</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">Objids_string</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span>
 
-<span class="k">SET</span> <span class="o">@</span><span class="n">objid</span> <span class="o">=</span> <span class="mi">360</span>
-<span class="k">SET</span> <span class="o">@</span><span class="n">objids_string</span> <span class="o">=</span> <span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">objid</span> <span class="k">AS</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">objid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">360</span>
+<span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">objids_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">objid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span> <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">,</span>
-                             <span class="o">@</span><span class="n">UpdateMethod</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                             <span class="o">@</span><span class="n">ObjIDs</span> <span class="o">=</span> <span class="o">@</span><span class="n">Objids_string</span><span class="p">,</span>
-                             <span class="o">@</span><span class="n">Update_IDOut</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span> <span class="k">OUTPUT</span><span class="p">,</span>
-                             <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateTable</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFPurchaseInvoice&#39;</span><span class="p">,</span>
+<span class="w">                             </span><span class="o">@</span><span class="n">UpdateMethod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                             </span><span class="o">@</span><span class="n">ObjIDs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Objids_string</span><span class="p">,</span>
+<span class="w">                             </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="w"> </span><span class="k">OUTPUT</span><span class="p">,</span>
+<span class="w">                             </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">OUTPUT</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateHistoryShow</span><span class="p">]</span> <span class="o">@</span><span class="n">Update_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">Update_IDOut</span><span class="p">,</span>
-                                   <span class="o">@</span><span class="n">IsSummary</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                                   <span class="o">@</span><span class="n">UpdateColumn</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateHistoryShow</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">Update_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">Update_IDOut</span><span class="p">,</span>
+<span class="w">                                   </span><span class="o">@</span><span class="n">IsSummary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                   </span><span class="o">@</span><span class="n">UpdateColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProcessBatchDetail</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mpbd</span><span class="p">]</span> <span class="k">WHERE</span> <span class="p">[</span><span class="n">mpbd</span><span class="p">].[</span><span class="n">ProcessBatch_ID</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFProcessBatchDetail</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mpbd</span><span class="p">]</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">mpbd</span><span class="p">].[</span><span class="n">ProcessBatch_ID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span>
 </pre></div>
 </div>
 <p>After the update has been performed and the operation to be actions has
@@ -407,7 +333,7 @@ achieved by changing the set value of the &#64;Output parameter in the
 section – set custom message to user.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- set custom message to user</span>
 
-                  <span class="k">SET</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">=</span> <span class="o">@</span><span class="k">OutPut</span> <span class="o">+</span> <span class="s1">&#39; Object updated &#39;</span> <span class="o">+</span> <span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">ObjectID</span> <span class="k">AS</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="w">                  </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="k">OutPut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="k">OutPut</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; Object updated &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="o">@</span><span class="n">ObjectID</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Execute the procedure to save it in the database.</p>
@@ -446,37 +372,37 @@ installation folder: C:\Program Files (x86)\Laminin Solutions\MFSQL
 Connector Release 4\[Your database]\Example Scripts</p>
 <p>Using this script you will add a context menu action item with the
 following parameters:</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFContextMenuActionItem</span><span class="p">]</span>
-<span class="o">@</span><span class="n">ActionName</span> <span class="o">=</span> <span class="s1">&#39;Approved state update for PI&#39;</span> <span class="p">,</span>
-<span class="o">@</span><span class="n">ProcedureName</span> <span class="o">=</span> <span class="s1">&#39;Custom.DoApprovedPIUpdate&#39;</span><span class="p">,</span>
-<span class="o">@</span><span class="n">Description</span> <span class="o">=</span> <span class="s1">&#39;Procedure for state action to update object&#39;</span><span class="p">,</span>
-<span class="o">@</span><span class="n">RelatedMenu</span> <span class="o">=</span> <span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
-<span class="o">@</span><span class="n">IsRemove</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span class="o">@</span><span class="n">IsObjectContext</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span class="o">@</span><span class="n">IsWeblink</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span class="o">@</span><span class="n">IsAsynchronous</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span class="o">@</span><span class="n">IsStateAction</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span class="o">@</span><span class="n">PriorAction</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
-<span class="o">@</span><span class="n">UserGroup</span> <span class="o">=</span> <span class="s1">&#39;All Internal users&#39;</span><span class="p">,</span>
-<span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFContextMenuActionItem</span><span class="p">]</span>
+<span class="o">@</span><span class="n">ActionName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Approved state update for PI&#39;</span><span class="w"> </span><span class="p">,</span>
+<span class="o">@</span><span class="n">ProcedureName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Custom.DoApprovedPIUpdate&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Procedure for state action to update object&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">RelatedMenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Asynchronous Actions&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsObjectContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsWeblink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsAsynchronous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">IsStateAction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="o">@</span><span class="n">PriorAction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="o">@</span><span class="n">UserGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;All Internal users&#39;</span><span class="p">,</span>
+<span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>The result is in the MFContextMenu</p>
 <p>The final step is to add the VB script into the workflow state. This is
 done in M-Files Admin</p>
 <p>Use the following VB script (also available in the <a class="reference internal" href="../../mfsql-data-exchange-and-reporting-connector/using-the-context-menu/index.html"><span class="doc">Using the Context Menu</span></a></p>
-<div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span><span class="w"></span>
+<div class="highlight-vbscript notranslate"><div class="highlight"><pre><span></span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
 
-<span class="kd">Dim</span><span class="w"> </span><span class="nv">ClassID</span><span class="w"></span>
-<span class="n">ClassID</span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyoperations</span><span class="p">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">).</span><span class="n">value</span><span class="p">.</span><span class="n">GetLookupID</span><span class="w"></span>
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">ClassID</span>
+<span class="n">ClassID</span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ObjectPropertyoperations</span><span class="p">.</span><span class="n">GetProperty</span><span class="p">(</span><span class="n">ObjVer</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">).</span><span class="n">value</span><span class="p">.</span><span class="n">GetLookupID</span>
 
-<span class="kd">Dim</span><span class="w"> </span><span class="nv">strInput</span><span class="w"></span>
-<span class="n">strInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{&quot;&quot;ObjectID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ObjectType&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;Objectver&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Version</span><span class="o">&amp;</span><span class="s2">&quot;,&quot;&quot;ClassID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ClassID</span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ActionName&quot;&quot;  : &quot;&quot;StateAction2&quot;&quot;, &quot;&quot;ActionTypeID&quot;&quot;: &quot;&quot;5&quot;&quot;}&quot;</span><span class="w"></span>
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">strInput</span>
+<span class="n">strInput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{&quot;&quot;ObjectID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ObjectType&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Type</span><span class="w"> </span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;Objectver&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ObjVer</span><span class="p">.</span><span class="n">Version</span><span class="o">&amp;</span><span class="s2">&quot;,&quot;&quot;ClassID&quot;&quot;  : &quot;</span><span class="o">&amp;</span><span class="n">ClassID</span><span class="o">&amp;</span><span class="s2">&quot;, &quot;&quot;ActionName&quot;&quot;  : &quot;&quot;StateAction2&quot;&quot;, &quot;&quot;ActionTypeID&quot;&quot;: &quot;&quot;5&quot;&quot;}&quot;</span>
 
-<span class="kd">Dim</span><span class="w"> </span><span class="nv">strOutput</span><span class="w"></span>
-<span class="n">strOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ExtensionMethodOperations</span><span class="p">.</span><span class="n">ExecuteVaultExtensionMethod</span><span class="p">(</span><span class="s2">&quot;PerformActionMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strInput</span><span class="p">)</span><span class="w"></span>
+<span class="kd">Dim</span><span class="w"> </span><span class="nv">strOutput</span>
+<span class="n">strOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vault</span><span class="p">.</span><span class="n">ExtensionMethodOperations</span><span class="p">.</span><span class="n">ExecuteVaultExtensionMethod</span><span class="p">(</span><span class="s2">&quot;PerformActionMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strInput</span><span class="p">)</span>
 
-<span class="c1">&#39;Err.Raise MfScriptCancel, strOutput</span><span class="w"></span>
+<span class="c1">&#39;Err.Raise MfScriptCancel, strOutput</span>
 </pre></div>
 </div>
 <p>Copy and past the script to the workflow state (Approved) / option
@@ -501,68 +427,50 @@ performed then the trigger is working fine, but the procedure failed.</p>
 </ul>
 </li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ActionName</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">Last_Executed_By</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">Last_Executed_Date</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ActionUser_ID</span><span class="p">]</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mcm</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ActionName</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">IsProcessRunning</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">Last_Executed_By</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">Last_Executed_Date</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">mcm</span><span class="p">].[</span><span class="n">ActionUser_ID</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFContextMenu</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mcm</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Possible causes for trigger that is failing:</p>
 <ul class="simple">
 <li><p>Context menu is not correctly installed, or cannot connect</p></li>
 </ul>
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../setup-agent-proxy/index.html" class="btn btn-neutral float-right" title="Setup Agent Proxy for MFSQLConnect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../rpc-over-https/index.html" class="btn btn-neutral float-left" title="RPC over HTTPS setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../rpc-over-https/index.html" class="btn btn-neutral float-left" title="RPC over HTTPS setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../setup-agent-proxy/index.html" class="btn btn-neutral float-right" title="Setup Agent Proxy for MFSQLConnect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

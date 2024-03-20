@@ -98,7 +98,7 @@ Windows task scheduler
  - Run the bat file with windows permission as outlined above.
 
 Folder & CSV export to SQL
--------------~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Folder export utility (V4) has two functions:  
  -  Exporting the folder and file structure details to SQL tables

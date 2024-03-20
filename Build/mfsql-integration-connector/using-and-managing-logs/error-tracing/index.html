@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Error tracing &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error tracing &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Working with Object Version" href="../../working-with-object-version/index.html" />
     <link rel="prev" title="Logging in custom procedures" href="../logging-in-custom-procedures/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
@@ -139,88 +102,50 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">MFSQL Integration Connector</a> &raquo;</li>
-        
-          <li><a href="../index.html">Using and managing logs</a> &raquo;</li>
-        
-      <li>Error tracing</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">MFSQL Integration Connector</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Using and managing logs</a></li>
+      <li class="breadcrumb-item active">Error tracing</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="error-tracing">
-<h1>Error tracing<a class="headerlink" href="#error-tracing" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="error-tracing">
+<h1>Error tracing<a class="headerlink" href="#error-tracing" title="Link to this heading"></a></h1>
 <p>Tracing MFSQL Errors has many different dimensions and investigating an
 error may require several steps.</p>
-<div class="section" id="error-reporting">
-<h2>Error reporting<a class="headerlink" href="#error-reporting" title="Permalink to this headline">¶</a></h2>
+<section id="error-reporting">
+<h2>Error reporting<a class="headerlink" href="#error-reporting" title="Link to this heading"></a></h2>
 <p>Errors becomes visible in different ways:</p>
 <ol class="arabic simple">
 <li><p>If Database mail was setup and the settings in MFSettings is setup
@@ -237,9 +162,9 @@ logid desc)</p></li>
 <li><p>exec spmfClassTableStats will show a listing of all class tables and
 if it has errors.</p></li>
 </ol>
-</div>
-<div class="section" id="errors">
-<h2>Errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading"></a></h2>
 <p>All error details are logging into the MFLog and error details will send
 as email to support email mentioned in the Setting table. MFLog is cross
 referenced to MFUpdateHistory. This table includes the information on
@@ -263,9 +188,9 @@ then reference to MFUpdateHistory table also will be inserting in MFLog
 table. So that you can cross check with MFUpdateHistory table and find
 the record which failed to insert/update.</p>
 <p>Errors are reported by email. See below for a sample of an email</p>
-</div>
-<div class="section" id="synchronization-errors">
-<h2>Synchronization errors<a class="headerlink" href="#synchronization-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="synchronization-errors">
+<h2>Synchronization errors<a class="headerlink" href="#synchronization-errors" title="Link to this heading"></a></h2>
 <p>A syncronisation error will result where object version in SQL is
 incompatible with the object version in M-Files. These errors can
 include</p>
@@ -281,9 +206,9 @@ object in SQL with a process_id of 2.</p>
 <p>From version 3.1.2.38 functionality is included to allow for automatic
 correction of synchronization errors.  This feature is explained in
 detail in Correcting Synchronization Errors.</p>
-</div>
-<div class="section" id="common-errors">
-<h2>Common Errors<a class="headerlink" href="#common-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="common-errors">
+<h2>Common Errors<a class="headerlink" href="#common-errors" title="Link to this heading"></a></h2>
 <p><strong>Failed to insert ObjID</strong></p>
 <p>Error message :Cannot insert the value NULL into column <em>Name of Column</em>, table <em>Name of Table</em>; column does not
 allow nulls. INSERT fails. Cause for error. It is likely that a change
@@ -306,9 +231,9 @@ connection timed out which could related to the connection between the
 SQL server and M-Files server.  It usually is sufficient to try again.
 if this issue persists then it requires deeper investigation. contact
 support.</p>
-</div>
-<div class="section" id="error-back-tracking">
-<h2>Error back tracking<a class="headerlink" href="#error-back-tracking" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="error-back-tracking">
+<h2>Error back tracking<a class="headerlink" href="#error-back-tracking" title="Link to this heading"></a></h2>
 <p>Investigating an error will depend on the nature of the error.</p>
 <ul class="simple">
 <li><p>Check the most recent entry in MFLog.  Copy and past the
@@ -321,86 +246,68 @@ issue by using the MFProcessBatch and MFProcessBatchDetail tables.</p></li>
 </ul>
 <p>The following script show the quick steps to follow to isolate an error</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--details of last errors</span>
-<span class="k">Select</span> <span class="n">top</span> <span class="mi">10</span> <span class="n">CreateDate</span><span class="p">,</span><span class="n">ErrorMessage</span><span class="p">,</span> <span class="n">spName</span><span class="p">,</span> <span class="n">ProcedureStep</span><span class="p">,</span> <span class="o">*</span> <span class="k">from</span> <span class="n">mflog</span> <span class="k">order</span> <span class="k">by</span> <span class="n">logid</span> <span class="k">desc</span>
+<span class="k">Select</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">CreateDate</span><span class="p">,</span><span class="n">ErrorMessage</span><span class="p">,</span><span class="w"> </span><span class="n">spName</span><span class="p">,</span><span class="w"> </span><span class="n">ProcedureStep</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">mflog</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">logid</span><span class="w"> </span><span class="k">desc</span>
 
 <span class="c1">--unprocessed errors in class tables (result should show none)</span>
-<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">ClassTableName</span> <span class="k">where</span> <span class="n">Process_ID</span> <span class="o">&lt;&gt;</span> <span class="mi">0</span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">ClassTableName</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">Process_ID</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mi">0</span>
 
 <span class="c1">--is flag for processes running OK: IsProcess running shouled be 0, date show last time it was called</span>
-<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFContextMenu</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFContextMenu</span>
 
 <span class="c1">--if is IsProcessRunning = 1 and the procedure has not been called in the last 30 minutes then reset this flag</span>
-<span class="k">update</span> <span class="n">MFContextMenu</span>
-<span class="k">set</span> <span class="n">IsProcessRunning</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">where</span> <span class="n">IsProcessRunning</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">update</span><span class="w"> </span><span class="n">MFContextMenu</span>
+<span class="k">set</span><span class="w"> </span><span class="n">IsProcessRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">where</span><span class="w"> </span><span class="n">IsProcessRunning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
 <span class="c1">--check outcome of processes</span>
-<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFProcessBatch</span> <span class="k">order</span> <span class="k">by</span> <span class="n">ProcessBatch_ID</span> <span class="k">desc</span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFProcessBatch</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">desc</span>
 
 <span class="c1">--inspect details of a particular process</span>
-<span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFProcessBatchDetail</span>
-<span class="k">where</span> <span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="mi">1335</span> <span class="c1">-- use result from previous script to get the number</span>
+<span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFProcessBatchDetail</span>
+<span class="k">where</span><span class="w"> </span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1335</span><span class="w"> </span><span class="c1">-- use result from previous script to get the number</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="related-topics">
-<h2><strong>Related Topics</strong><a class="headerlink" href="#related-topics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="related-topics">
+<h2><strong>Related Topics</strong><a class="headerlink" href="#related-topics" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../mfupdatehistory-for-logging-of-class-record-changes/index.html"><span class="doc">MFUpdateHistory for logging of class record changes</span></a></p></li>
 <li><p><a class="reference internal" href="../../../the-connector-framework/connector-content/logging-tables/index.html"><span class="doc">Logging Tables</span></a></p></li>
 <li><p><a class="reference internal" href="../index.html"><span class="doc">Using and managing logs</span></a></p></li>
 <li><p><a class="reference internal" href="../../../blogs/using-spmfclasstablestats/index.html"><span class="doc">Using spMFClassTableStats</span></a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../working-with-object-version/index.html" class="btn btn-neutral float-right" title="Working with Object Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../logging-in-custom-procedures/index.html" class="btn btn-neutral float-left" title="Logging in custom procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../logging-in-custom-procedures/index.html" class="btn btn-neutral float-left" title="Logging in custom procedures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../working-with-object-version/index.html" class="btn btn-neutral float-right" title="Working with Object Version" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

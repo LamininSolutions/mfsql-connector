@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Working with files &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with files &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Working with aliases" href="../working-with-aliases/index.html" />
     <link rel="prev" title="Send Bulk Email" href="../send-bulk-email/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -130,82 +93,45 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
-        
-      <li>Working with files</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MFSQL Integration Connector</a></li>
+      <li class="breadcrumb-item active">Working with files</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="working-with-files">
-<h1>Working with files<a class="headerlink" href="#working-with-files" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="working-with-files">
+<h1>Working with files<a class="headerlink" href="#working-with-files" title="Link to this heading"></a></h1>
 <p>The connector provides a number of different ways to work with the file
 documents in M-Files.</p>
 <ol class="arabic simple">
@@ -220,8 +146,8 @@ documents in M-Files.</p>
 <li><p><strong>Use FolderExport v3 for bulk file imports</strong> to generate a CSV file that can be used with M-Files Importing tool to import files and map them to the metadata with the Connector.</p></li>
 <li><p><strong>Use the properties related to files</strong> Export files as above and set the IsDownload parameter to 0 to only download file information without downloading the files. The data about the file (extention, file size, name) in the  <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a> table can then be used in reporting or analysis</p></li>
 </ol>
-<div class="section" id="importing-files-from-explorer">
-<h2>Importing files from explorer<a class="headerlink" href="#importing-files-from-explorer" title="Permalink to this headline">¶</a></h2>
+<section id="importing-files-from-explorer">
+<h2>Importing files from explorer<a class="headerlink" href="#importing-files-from-explorer" title="Link to this heading"></a></h2>
 <p>The main use of this feature is create or update a record in the class
 table and associate a file or files from explorer at the same time.</p>
 <p>The procedure <a class="reference internal" href="../../procedures/spMFUpdateExplorerFileToMFiles.html"><span class="doc">spMFUpdateExplorerFileToMFiles</span></a> allows for importing a file or files from explorer into M-Files. In simple terms an explorer file is matched with the record in the class table and imported into M-Files. The results are logged in the <a class="reference internal" href="../../tables/tbMFFileImport.html"><span class="doc">MFFileImport</span></a> table</p>
@@ -258,28 +184,28 @@ class table will setup the loop for calling the importing routine.</p></li>
 </li>
 </ul>
 <p>The following example illustrates importing a single file to an object.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span><span class="p">;</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">FileLocation</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;C:\Share\Fileimport\2\&#39;</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">FileName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;CV - Tommy Hart.docx&#39;</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">TableName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;MFOtherDocument&#39;</span>
-<span class="k">DECLARE</span> <span class="o">@</span><span class="n">SQLID</span> <span class="nb">INT</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">FileLocation</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;C:\Share\Fileimport\2\&#39;</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">FileName</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CV - Tommy Hart.docx&#39;</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">TableName</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFOtherDocument&#39;</span>
+<span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">SQLID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
- <span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateExplorerFileToMFiles</span><span class="p">]</span>
- <span class="o">@</span><span class="n">FileName</span> <span class="o">=</span> <span class="o">@</span><span class="n">FileName</span>
- <span class="p">,</span><span class="o">@</span><span class="n">FileLocation</span> <span class="o">=</span> <span class="o">@</span><span class="n">FileLocation</span>
- <span class="p">,</span><span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="o">@</span><span class="n">TableName</span>
- <span class="p">,</span><span class="o">@</span><span class="n">SQLID</span> <span class="o">=</span> <span class="o">@</span><span class="n">SQLID</span>
- <span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span>
- <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
- <span class="p">,</span><span class="o">@</span><span class="n">IsFileDelete</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="w"> </span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFUpdateExplorerFileToMFiles</span><span class="p">]</span>
+<span class="w"> </span><span class="o">@</span><span class="n">FileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">FileName</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">FileLocation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">FileLocation</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">TableName</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">SQLID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">SQLID</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="k">OUTPUT</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w"> </span><span class="p">,</span><span class="o">@</span><span class="n">IsFileDelete</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">from</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFFileImport</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mfi</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFFileImport</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mfi</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="importing-files-from-a-database">
-<h2>Importing files from a database<a class="headerlink" href="#importing-files-from-a-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="importing-files-from-a-database">
+<h2>Importing files from a database<a class="headerlink" href="#importing-files-from-a-database" title="Link to this heading"></a></h2>
 <p>In this use case we will illustrate how files in Blobs in a database are imported into M-Files. This use case is applicable in instances where the third party application store files in the database in binary or Blobs formats. This method will allow for a file that is stored in a database that is accessible as a view or table in MFSQL Connector database to be extracted and imported into M-Files.  There is a number of key elements and pre-requisites to set this up.</p>
 <blockquote>
 <div><ul class="simple">
@@ -302,87 +228,87 @@ class table will setup the loop for calling the importing routine.</p></li>
 </div></blockquote>
 <p>Following illustrate the code for the process following after the basic installation of MFSQL Connector.</p>
 <p>Step 1: Identify the table(s) with the files and related data in the third and create view to access the key columns: unique identifier (e.g. GUID), filename, and file data plus additional information to related to the data. In the example below the accounts and loan data is mapped to the filedata table where the blob is stored</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">VIEW</span> <span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">vw_Filedata</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">vw_Filedata</span><span class="p">]</span>
 <span class="k">AS</span>
 
-<span class="k">SELECT</span> <span class="n">fd</span><span class="p">.[</span><span class="n">id</span><span class="p">]</span>
-     <span class="p">,</span> <span class="n">fd</span><span class="p">.[</span><span class="n">GUID</span><span class="p">]</span>
-     <span class="p">,</span> <span class="n">fd</span><span class="p">.[</span><span class="n">FileName</span><span class="p">]</span>
-     <span class="p">,</span> <span class="n">fd</span><span class="p">.[</span><span class="n">FileData</span><span class="p">]</span>
-     <span class="p">,</span> <span class="n">fd</span><span class="p">.[</span><span class="n">Created</span><span class="p">]</span>
-     <span class="p">,</span> <span class="n">fd</span><span class="p">.[</span><span class="n">Modified_on</span><span class="p">]</span>
-  <span class="p">,</span><span class="n">xxx</span> <span class="c1">-- All the related columns to the file</span>
-    <span class="k">FROM</span> <span class="n">scu</span><span class="p">.</span><span class="n">filedata</span> <span class="n">fd</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">accounts</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
-<span class="k">ON</span> <span class="p">[</span><span class="n">a</span><span class="p">].[</span><span class="n">Account_no</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="p">.</span><span class="n">ACCOUNT_ID</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">Loans</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">l</span><span class="p">]</span>
-<span class="k">ON</span> <span class="p">[</span><span class="n">l</span><span class="p">].[</span><span class="n">Loan_No</span><span class="p">]</span> <span class="o">=</span> <span class="n">fd</span><span class="p">.</span><span class="n">loan_ID</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">id</span><span class="p">]</span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">GUID</span><span class="p">]</span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">FileName</span><span class="p">]</span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">FileData</span><span class="p">]</span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">Created</span><span class="p">]</span>
+<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">.[</span><span class="n">Modified_on</span><span class="p">]</span>
+<span class="w">  </span><span class="p">,</span><span class="n">xxx</span><span class="w"> </span><span class="c1">-- All the related columns to the file</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">scu</span><span class="p">.</span><span class="n">filedata</span><span class="w"> </span><span class="n">fd</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">accounts</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">].[</span><span class="n">Account_no</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fd</span><span class="p">.</span><span class="n">ACCOUNT_ID</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="p">[</span><span class="n">scu</span><span class="p">].[</span><span class="n">Loans</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">l</span><span class="p">]</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">l</span><span class="p">].[</span><span class="n">Loan_No</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fd</span><span class="p">.</span><span class="n">loan_ID</span>
 
 <span class="k">GO</span>
 </pre></div>
 </div>
 <p>Step 2: Identify the target class(es) for the files in M-Files and create class table(s). Then update the records from M-Files for all related data. (e.g. a customer account invoice would at least require the class for invoice documents, and for customers.) In this case we will import files to the Invoices class and update the customers class. Add the property ‘MFSQL_File_Unique_Ref’ to the target document class (Invoice in this case). The property for the unique reference will be used to link the imported file to the object in M-Files</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateTable</span> <span class="s1">&#39;Invoice&#39;</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateTable</span> <span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFCreateTable</span><span class="w"> </span><span class="s1">&#39;Invoice&#39;</span><span class="p">;</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFUpdateTable</span><span class="w"> </span><span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Step 3: Use the Connector to add new objects in the class table. Ensure to complete the ‘MFSQL_File_Unique_Ref’ for each record which will contain a file from the external system.  Ensure that the unique reference in the external data and in the object matches. At the same time all the dependent class and valuelist records should also be created updated to complete the updating of the metadata for the file object and its related data from the external system.</p>
 <p>To add the unique reference to the class table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">MFInvoice</span>
-<span class="k">ADD</span>  <span class="n">Mfsql_File_Unique_Ref</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">MFInvoice</span>
+<span class="k">ADD</span><span class="w">  </span><span class="n">Mfsql_File_Unique_Ref</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To update the metadata for the Invoice</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span>
 <span class="p">(</span>
-    <span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span>
-    <span class="n">Keywords</span><span class="p">,</span>
-    <span class="n">Name_Or_Title</span><span class="p">,</span>
-    <span class="n">Process_ID</span>
+<span class="w">    </span><span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Keywords</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Name_Or_Title</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Process_ID</span>
 <span class="p">)</span>
-<span class="k">SELECT</span> <span class="n">vf</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
-       <span class="s1">&#39;InsertFiles&#39;</span><span class="p">,</span>
-       <span class="n">vf</span><span class="p">.</span><span class="n">FileName</span><span class="p">,</span>
-       <span class="mi">1</span>
-<span class="k">FROM</span> <span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span> <span class="k">AS</span> <span class="n">vf</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">vf</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+<span class="w">       </span><span class="s1">&#39;InsertFiles&#39;</span><span class="p">,</span>
+<span class="w">       </span><span class="n">vf</span><span class="p">.</span><span class="n">FileName</span><span class="p">,</span>
+<span class="w">       </span><span class="mi">1</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">vf</span><span class="p">;</span>
 
-<span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span><span class="mi">0</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">spmfupdatetable</span><span class="w"> </span><span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>Step 4: Set the process_id = 6 for records with files.  This is to identify the records in the class to get the file blobs from the external source</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">t</span>
- <span class="k">SET</span> <span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="k">FROM</span> <span class="n">MFInvoice</span> <span class="n">t</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span> <span class="k">AS</span> <span class="n">vf</span>
-<span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">id</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">null</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">t</span>
+<span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">Process_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">MFInvoice</span><span class="w"> </span><span class="n">t</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Scion32</span><span class="p">.</span><span class="n">scu</span><span class="p">.</span><span class="n">vw_Filedata</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">vf</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">null</span>
 </pre></div>
 </div>
 <p>Step 5: Finally,import the files using the procedure <a class="reference internal" href="../../procedures/spMFSynchronizeFilesToMFiles.html"><span class="doc">spMFSynchronizeFilesToMFiles</span></a>. The import will be performed in batches of 500</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="nb">INT</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeFilesToMFiles</span>
-    <span class="o">@</span><span class="n">SourceTableName</span> <span class="o">=</span> <span class="s1">&#39;scion32.scu.vw_Filedata&#39;</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">FileUniqueKeyColumn</span> <span class="o">=</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">FileNameColumn</span> <span class="o">=</span> <span class="s1">&#39;FileName&#39;</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">FileDataColumn</span> <span class="o">=</span> <span class="s1">&#39;FileData&#39;</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">MFTableName</span> <span class="o">=</span> <span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">BatchSize</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">Process_ID</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_id</span> <span class="k">OUTPUT</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="o">@</span><span class="n">TargetFileUniqueKeycolumnName</span> <span class="o">=</span> <span class="s1">&#39;mfsql_File_Unique_ref&#39;</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">spMFSynchronizeFilesToMFiles</span>
+<span class="w">    </span><span class="o">@</span><span class="n">SourceTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;scion32.scu.vw_Filedata&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">FileUniqueKeyColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ID&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">FileNameColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FileName&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">FileDataColumn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FileData&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">MFTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFInvoice&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">BatchSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">Process_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_id</span><span class="w"> </span><span class="k">OUTPUT</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">TargetFileUniqueKeycolumnName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;mfsql_File_Unique_ref&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Step 6: view the results in SQL in the table MFFileImport</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFFileImport</span><span class="p">;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFFileImport</span><span class="p">;</span>
 
-<span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">name_or_title</span><span class="p">,</span> <span class="n">MFVersion</span><span class="p">,</span> <span class="n">FileCount</span><span class="p">,</span> <span class="n">Single_File</span><span class="p">,</span> <span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span> <span class="n">Process_ID</span>
-<span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name_or_title</span><span class="p">,</span><span class="w"> </span><span class="n">MFVersion</span><span class="p">,</span><span class="w"> </span><span class="n">FileCount</span><span class="p">,</span><span class="w"> </span><span class="n">Single_File</span><span class="p">,</span><span class="w"> </span><span class="n">Mfsql_File_Unique_Ref</span><span class="p">,</span><span class="w"> </span><span class="n">Process_ID</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFInvoice</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="exporting-of-files">
-<h2>Exporting of files<a class="headerlink" href="#exporting-of-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="exporting-of-files">
+<h2>Exporting of files<a class="headerlink" href="#exporting-of-files" title="Link to this heading"></a></h2>
 <p>Exporting files with <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> from M-Files allows for extracting files, and information about the files from M-Files into explorer and SQL.  An object in M-Files, including its properties, could have none or multiple files each with its own properties. This capability allows for access these files and properties.</p>
 <p>The functionality is designed to address different types of use cases.</p>
 <p>Some of these use cases include:</p>
@@ -396,95 +322,77 @@ class table will setup the loop for calling the importing routine.</p></li>
 <li><p>Use the file data to calculate total number of files, files storage, file of specific type (extention) or other statistics</p></li>
 </ul>
 <p>In principal this capability centers around matching metadata of objects in a class with the files in the object and making the information related to the objects, and the actual files available outside M-Files.  The related information in SQL is in the class table and <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>.  The files, if downloaded, is in explorer in the folders specified in the parameters.  Some of the use cases will require additional custom procedures or steps to complete the functional process of the use case. The output of this exporting procedure is however a fundamental building block in the process.</p>
-<div class="section" id="example-of-preparing-to-export-of-files">
-<h3>Example of preparing to export of Files<a class="headerlink" href="#example-of-preparing-to-export-of-files" title="Permalink to this headline">¶</a></h3>
+<section id="example-of-preparing-to-export-of-files">
+<h3>Example of preparing to export of Files<a class="headerlink" href="#example-of-preparing-to-export-of-files" title="Link to this heading"></a></h3>
 <p>This example use the Sales Invoice class</p>
 <p>Step 1 - create class table, review setup for export destinations.  The Root folder is set in the MFSettings table.  The base folder for the class is set in the MFClass table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span> <span class="k">EXEC</span> <span class="n">spmfcreatetable</span> <span class="s1">&#39;Sales Invoice&#39;</span> <span class="c1">--create table</span>
- <span class="k">EXEC</span> <span class="n">spmfupdatetable</span> <span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span><span class="mi">1</span>  <span class="c1">--update table</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">EXEC</span><span class="w"> </span><span class="n">spmfcreatetable</span><span class="w"> </span><span class="s1">&#39;Sales Invoice&#39;</span><span class="w"> </span><span class="c1">--create table</span>
+<span class="w"> </span><span class="k">EXEC</span><span class="w"> </span><span class="n">spmfupdatetable</span><span class="w"> </span><span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span><span class="mi">1</span><span class="w">  </span><span class="c1">--update table</span>
 
- <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mfsalesinvoice</span> <span class="c1">---review objects in table</span>
+<span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mfsalesinvoice</span><span class="w"> </span><span class="c1">---review objects in table</span>
 
- <span class="k">Update</span> <span class="n">mc</span>  <span class="c1">-- update Class table to set a custom folder for sales invoices</span>
- <span class="k">SET</span> <span class="n">FileExportFolder</span> <span class="o">=</span> <span class="s1">&#39;SalesInvoices&#39;</span>
- <span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span> <span class="k">WHERE</span> <span class="n">tablename</span> <span class="o">=</span> <span class="s1">&#39;MFSalesInvoice&#39;</span>
+<span class="w"> </span><span class="k">Update</span><span class="w"> </span><span class="n">mc</span><span class="w">  </span><span class="c1">-- update Class table to set a custom folder for sales invoices</span>
+<span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">FileExportFolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SalesInvoices&#39;</span>
+<span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MFclass</span><span class="w"> </span><span class="n">mc</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">tablename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFSalesInvoice&#39;</span>
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">mfsettings</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;RootFolder&#39;</span>  <span class="c1">-- review Root folder: all files will be exported to C:\MFSQL\FileExport\ on the SQL server</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">mfsettings</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RootFolder&#39;</span><span class="w">  </span><span class="c1">-- review Root folder: all files will be exported to C:\MFSQL\FileExport\ on the SQL server</span>
 </pre></div>
 </div>
 <p>Step 2 - Select the objects to be included in the export.  this could be for a single row, or the whole table.  Note that the column FileCount show if the object have none, or multiple files.  The Column Single_File indicate if the object is a multi document object or not.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">MFSalesInvoice</span> <span class="c1">--mark records for files to be exported by setting the process_id column</span>
-<span class="k">SET</span> <span class="n">process_Id</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">WHERE</span> <span class="n">filecount</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1">--use filters to select the appropriate records.</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">MFSalesInvoice</span><span class="w"> </span><span class="c1">--mark records for files to be exported by setting the process_id column</span>
+<span class="k">SET</span><span class="w"> </span><span class="n">process_Id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">filecount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">--use filters to select the appropriate records.</span>
 </pre></div>
 </div>
 <p>Step 3 - determine the settings for the parameters.  Refer to <a class="reference internal" href="../../procedures/spMFExportFiles.html"><span class="doc">spMFExportFiles</span></a> for more detail about the parameters</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="nb">INT</span><span class="p">;</span>
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFExportFiles</span><span class="p">]</span> <span class="o">@</span><span class="n">TableName</span> <span class="o">=</span> <span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">PathProperty_L1</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">PathProperty_L2</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">PathProperty_L3</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">IsDownload</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">IncludeDocID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">Process_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="o">=</span> <span class="o">@</span><span class="n">ProcessBatch_ID</span> <span class="k">OUTPUT</span><span class="p">,</span>
-                        <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFExportFiles</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">TableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFSalesInvoice&#39;</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">PathProperty_L1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">PathProperty_L2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">PathProperty_L3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">IsDownload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">IncludeDocID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">Process_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">ProcessBatch_ID</span><span class="w"> </span><span class="k">OUTPUT</span><span class="p">,</span>
+<span class="w">                        </span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>Step 4 - Review the result. <a class="reference internal" href="../../tables/tbMFExportFileHistory.html"><span class="doc">MFExportFileHistory</span></a>  show the output of the process. If &#64;IsDownload = 1 then the files should be in the explorer folders. If &#64;IsDownloaded = 0 then the data will be in the table, but the file will not be in explorer. This is particularly useful if the objective is to perform analysis on the data about the files, rather than accessing the files.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFExportFileHistory</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mefh</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFExportFileHistory</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mefh</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../working-with-aliases/index.html" class="btn btn-neutral float-right" title="Working with aliases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../send-bulk-email/index.html" class="btn btn-neutral float-left" title="Send Bulk Email" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../send-bulk-email/index.html" class="btn btn-neutral float-left" title="Send Bulk Email" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working-with-aliases/index.html" class="btn btn-neutral float-right" title="Working with aliases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

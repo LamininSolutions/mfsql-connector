@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Using spMFClassTableStats &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using spMFClassTableStats &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using the External_ID to match third party app tables" href="../using-the-external_id-to-match-third-party-app-tables/index.html" />
     <link rel="prev" title="Using M-Files External Connector" href="../using-m-files-external-connector/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -178,78 +141,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Using spMFClassTableStats</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Using spMFClassTableStats</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="using-spmfclasstablestats">
-<h1>Using spMFClassTableStats<a class="headerlink" href="#using-spmfclasstablestats" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="using-spmfclasstablestats">
+<h1>Using spMFClassTableStats<a class="headerlink" href="#using-spmfclasstablestats" title="Link to this heading"></a></h1>
 <p>The <a class="reference internal" href="../../procedures/spMFClassTableStats.html"><span class="doc">spMFClassTableStats</span></a> procedure is useful for</p>
 <ul class="simple">
 <li><p>getting information about a class table or class tables</p></li>
@@ -263,7 +189,7 @@
 <li><p>show the temporary table as an output</p></li>
 <li><p>not send the output in a table to the support email address</p></li>
 </ul>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>However, using the parameters the procedure could also</p>
@@ -278,8 +204,8 @@
 <p>Running this procedure could take some time to complete when the reset or &#64;withAudit parameters are set.</p>
 </div>
 <p>Refer to <a class="reference internal" href="../../procedures/spMFClassTableStats.html"><span class="doc">spMFClassTableStats</span></a> procedure for more details about the columns.</p>
-<div class="section" id="interpreting-the-result">
-<h2>Interpreting the result<a class="headerlink" href="#interpreting-the-result" title="Permalink to this headline">¶</a></h2>
+<section id="interpreting-the-result">
+<h2>Interpreting the result<a class="headerlink" href="#interpreting-the-result" title="Link to this heading"></a></h2>
 <p>The output of the procedure has significance from many angles.</p>
 <p>If all the error columns is 0 then the last processing ran successfully with no errors.
 If checkedout is not 0 then there are records excluded from processing because they are checked out. Refer to <a class="reference internal" href="../working_with_checkedout/index.html"><span class="doc">Working with checkedOut objects</span></a> for more details on working with checked out objects.
@@ -295,9 +221,9 @@ If MFNotInSQL or SQLNotInMF columns are not null then some items was detected th
 <li><p>Are there any objects where required workflow is not used?</p></li>
 <li><p>Are there any records in M-Files which has not been processed?</p></li>
 </ul>
-</div>
-<div class="section" id="reconcile-the-records">
-<h2>Reconcile the records<a class="headerlink" href="#reconcile-the-records" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reconcile-the-records">
+<h2>Reconcile the records<a class="headerlink" href="#reconcile-the-records" title="Link to this heading"></a></h2>
 <p>MFRecordCount = SQLRecordCount + Templates + Collections + Deleted</p>
 <ul class="simple">
 <li><p>The class tables does not include Templates or Collections for the same class.</p></li>
@@ -305,90 +231,72 @@ If MFNotInSQL or SQLNotInMF columns are not null then some items was detected th
 </ul>
 <p>Explore <a class="reference internal" href="../../procedures/spMFClassTableStats.html"><span class="doc">spMFClassTableStats</span></a> for more details on the options and switches.</p>
 <p><img alt="image0" src="../../_images/image0.png" /></p>
-</div>
-<div class="section" id="grouping-the-result">
-<h2>Grouping the result<a class="headerlink" href="#grouping-the-result" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="grouping-the-result">
+<h2>Grouping the result<a class="headerlink" href="#grouping-the-result" title="Link to this heading"></a></h2>
 <p>Grouping tables for use with class table stats.  This is particularly useful when there are several subsets of applications in the connector and one want to have a quick overview of a particular subset.</p>
 <p>Another use case is to Add additional tables to be included in the stats, but not included in the processing of class table updates. Set the includedInApp column to any integer above 2.</p>
 <p>In the following example the additional tables column IncludedInApp in the MFClass table is set to 4 for all classes in the object type ‘Document’ and finally execute the stats.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span> <span class="n">mc</span>
-<span class="k">SET</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="k">FROM</span> <span class="n">MFclass</span> <span class="n">mc</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFObjectType</span> <span class="n">mo</span>
-<span class="k">ON</span> <span class="p">[</span><span class="n">mo</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">MFObjectType_ID</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="n">mo</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Document&#39;</span> <span class="k">AND</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="k">IS</span> <span class="k">null</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">mc</span>
+<span class="k">SET</span><span class="w"> </span><span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">MFclass</span><span class="w"> </span><span class="n">mc</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">MFObjectType</span><span class="w"> </span><span class="n">mo</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">mo</span><span class="p">].[</span><span class="n">ID</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">MFObjectType_ID</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">mo</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Document&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">null</span>
 
-<span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
+<span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-result-in-another-procedure">
-<h2>Using result in another procedure<a class="headerlink" href="#using-result-in-another-procedure" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-result-in-another-procedure">
+<h2>Using result in another procedure<a class="headerlink" href="#using-result-in-another-procedure" title="Link to this heading"></a></h2>
 <p>The result of the procedure can be included in global temporary table ##spMFClassTableStats. Each time the procedure is run the temporary table will be reset.  Set the parameter &#64;IncludeOutput  = 1 to produce the result into the table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span> <span class="o">@</span><span class="n">ClassTableName</span> <span class="o">=</span> <span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span> <span class="o">@</span><span class="n">IncludeOutput</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFClassTableStats</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">ClassTableName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;MFCustomer&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">IncludeOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="o">##</span><span class="n">spMFClassTableStats</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">##</span><span class="n">spMFClassTableStats</span>
 </pre></div>
 </div>
 <ol class="arabic simple">
 <li><p>Producing a result for all classes</p></li>
 </ol>
 <p>When running the procedure with an output for all tables in will show the classes that is not includedInApp also. However, it will not get the number of records in M-Files for these classes.</p>
-</div>
-<div class="section" id="emailing-the-error-report">
-<h2>Emailing the error report<a class="headerlink" href="#emailing-the-error-report" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="emailing-the-error-report">
+<h2>Emailing the error report<a class="headerlink" href="#emailing-the-error-report" title="Link to this heading"></a></h2>
 <p>Using the &#64;SendReport switch will allow for sending the output report to the support email account in the MFSettings table.</p>
 <p>The report is automatically sent when the procedure spMFUpdateAllncludedInAppTables is run.  This procedure is included in the daily update agent and the report will therefore be sent if any errors are detected in the daily update agent.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../using-the-external_id-to-match-third-party-app-tables/index.html" class="btn btn-neutral float-right" title="Using the External_ID to match third party app tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../using-m-files-external-connector/index.html" class="btn btn-neutral float-left" title="Using M-Files External Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../using-m-files-external-connector/index.html" class="btn btn-neutral float-left" title="Using M-Files External Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using-the-external_id-to-match-third-party-app-tables/index.html" class="btn btn-neutral float-right" title="Using the External_ID to match third party app tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

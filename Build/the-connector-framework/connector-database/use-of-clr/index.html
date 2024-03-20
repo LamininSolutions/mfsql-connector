@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Using CLR &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using CLR &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="M-Files API version and CLR Assembly update" href="../m-files-api-version-and-clr-assembly-update/index.html" />
     <link rel="prev" title="Connector Database" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
@@ -116,84 +79,46 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">The Connector Framework</a> &raquo;</li>
-        
-          <li><a href="../index.html">Connector Database</a> &raquo;</li>
-        
-      <li>Using CLR</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">The Connector Framework</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Connector Database</a></li>
+      <li class="breadcrumb-item active">Using CLR</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="using-clr">
-<h1>Using CLR<a class="headerlink" href="#using-clr" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="using-clr">
+<h1>Using CLR<a class="headerlink" href="#using-clr" title="Link to this heading"></a></h1>
 <p>The Connector make extensive use of the <strong>Common Language
 Runtime</strong> (<strong>CLR</strong>) as part of its architecture. This virtual machine
 component of Microsoft’s .NET framework, manages the execution of .NET
@@ -218,21 +143,21 @@ When CLR integration is disabled, SQL Server stops executing all CLR
 routines and unloads all application domains. The Connector will not
 function if CLR is disabled.</p>
 <p>Learn more on the use of CLR in the Connector in the following sections</p>
-<div class="section" id="architecture-of-clr-integration">
-<h2>Architecture of CLR Integration<a class="headerlink" href="#architecture-of-clr-integration" title="Permalink to this headline">¶</a></h2>
+<section id="architecture-of-clr-integration">
+<h2>Architecture of CLR Integration<a class="headerlink" href="#architecture-of-clr-integration" title="Link to this heading"></a></h2>
 <p>The user code runs inside the CLR-hosted environment in SQL Server
 (called CLR integration). The following design goals were applied in the
 Connector:</p>
-<div class="section" id="reliability-safety">
-<h3>Reliability (Safety)<a class="headerlink" href="#reliability-safety" title="Permalink to this headline">¶</a></h3>
+<section id="reliability-safety">
+<h3>Reliability (Safety)<a class="headerlink" href="#reliability-safety" title="Link to this heading"></a></h3>
 <p>User code are not allowed to perform operations that compromise the
 integrity of the Database Engine process, such as popping a message box
 requesting a user response or exiting the process. User code
 doesoverwrite theDatabase Engine memory buffers or internal data
 structures.</p>
-</div>
-<div class="section" id="scalability">
-<h3>Scalability<a class="headerlink" href="#scalability" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="scalability">
+<h3>Scalability<a class="headerlink" href="#scalability" title="Link to this heading"></a></h3>
 <p>SQL Server and the CLR have different internal models for scheduling and
 memory management. SQL Server supports a cooperative, non-pre-emptive
 threading model in which the threads voluntarily yield execution
@@ -248,17 +173,17 @@ configurable limit.</p>
 is not compromised by user code calling application programming
 interfaces (APIs) for threading, memory, and synchronization primitives
 directly.</p>
-</div>
-<div class="section" id="performance">
-<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h3>
 <p>The managed user code running in the Database Engine have computational
 performance comparable to the same code run that outside the server. We
 have taken into account that Database access from managed user code is
 not as fast as native Transact-SQL and where appropriate use
 Transact-SQL.</p>
-</div>
-<div class="section" id="type-safety-verification">
-<h3>Type safety verification<a class="headerlink" href="#type-safety-verification" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="type-safety-verification">
+<h3>Type safety verification<a class="headerlink" href="#type-safety-verification" title="Link to this heading"></a></h3>
 <p>Type-safe code is code that accesses memory structures only in
 well-defined ways. For example, given a valid object reference,
 type-safe code can access memory at fixed offsets corresponding to
@@ -269,9 +194,9 @@ prior to the MSIL being compiled using just-in-time compilation, the
 runtime performs a verification phase that examines code to determine
 its type-safety. The managed code in the Connector is verifiably
 type-safe code.</p>
-</div>
-<div class="section" id="application-domains">
-<h3>Application domains<a class="headerlink" href="#application-domains" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="application-domains">
+<h3>Application domains<a class="headerlink" href="#application-domains" title="Link to this heading"></a></h3>
 <p>The CLR supports the notion of application domains as execution zones
 within a host process where managed code assemblies can be loaded and
 executed. The application domain boundary provides isolation between
@@ -280,9 +205,9 @@ variables and data members and the ability to call code dynamically.
 Application domains are also the mechanism for loading and unloading
 code. Code are unloaded from memory only by unloading the application
 domain.</p>
-</div>
-<div class="section" id="code-access-security-cas">
-<h3>Code Access Security(CAS)<a class="headerlink" href="#code-access-security-cas" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="code-access-security-cas">
+<h3>Code Access Security(CAS)<a class="headerlink" href="#code-access-security-cas" title="Link to this heading"></a></h3>
 <p>The CLR security system provides a way to control what kinds of
 operations managed code can perform by assigning permissions to code.
 Code access permissions are assigned based on code identity (for
@@ -298,10 +223,10 @@ permission before accessing the resource. This demand causes the CLR
 security system to trigger a comprehensive check of every unit of code
 (assembly) in the call stack. Only if the entire call chain has
 permission will access to the resource be granted.</p>
-</div>
-</div>
-<div class="section" id="application-of-clr-in-store-procedures">
-<h2>Application of CLR in store procedures<a class="headerlink" href="#application-of-clr-in-store-procedures" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="application-of-clr-in-store-procedures">
+<h2>Application of CLR in store procedures<a class="headerlink" href="#application-of-clr-in-store-procedures" title="Link to this heading"></a></h2>
 <p>The stored procedures are implemented as public static methods on a
 class in the Microsoft .NET Framework assemblies are included in the
 Connector. The static method can either be declared as void, or return
@@ -319,9 +244,9 @@ debugging and profiling support. Using CLR integration allowed the
 Connector to be integrated with stored procedures and can use triggers,
 user-defined types, user-defined functions (scalar and table-valued),
 and user-defined aggregate functions to perform its functions.</p>
-</div>
-<div class="section" id="benefits-of-using-clr">
-<h2>Benefits of using CLR<a class="headerlink" href="#benefits-of-using-clr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="benefits-of-using-clr">
+<h2>Benefits of using CLR<a class="headerlink" href="#benefits-of-using-clr" title="Link to this heading"></a></h2>
 <p>Among the major benefits of this integration are:</p>
 <ul class="simple">
 <li><p><strong>A better programming model</strong>. The .NET Framework languages are in
@@ -349,9 +274,9 @@ client-tier .NET Framework components and services.</p></li>
 situations, the .NET Framework language compilation and execution
 models deliver improved performance over Transact-SQL.</p></li>
 </ul>
-</div>
-<div class="section" id="securing-the-use-of-clr">
-<h2>Securing the use of CLR<a class="headerlink" href="#securing-the-use-of-clr" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="securing-the-use-of-clr">
+<h2>Securing the use of CLR<a class="headerlink" href="#securing-the-use-of-clr" title="Link to this heading"></a></h2>
 <p>There are risks associated with the deployment of CLR. We have adopted
 safeguarding principles and recommend the following deployment
 principles to manage and secure the use of the CLR.</p>
@@ -364,8 +289,8 @@ document.</p>
 <p>The deployment process allow both the installation and the
 upgrade/uninstall of the CLR as a DBA responsibility using standard SQL
 procedures.</p>
-<div class="section" id="clr-integration-security">
-<h3>CLR Integration Security<a class="headerlink" href="#clr-integration-security" title="Permalink to this headline">¶</a></h3>
+<section id="clr-integration-security">
+<h3>CLR Integration Security<a class="headerlink" href="#clr-integration-security" title="Link to this heading"></a></h3>
 <p>The security model of the SQL Server integration with CLR manages and
 secures access between different types of CLR and non-CLR objects
 running within SQL Server. Object external to SQL are called by the
@@ -380,57 +305,39 @@ managed code does not gain access to user data or other user code
 exernal to the database except for data in M-Files. The User-defined
 code runs under the security context of the user-session that invoked
 it, and with the correct privileges for that security context.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../m-files-api-version-and-clr-assembly-update/index.html" class="btn btn-neutral float-right" title="M-Files API version and CLR Assembly update" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="Connector Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Connector Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../m-files-api-version-and-clr-assembly-update/index.html" class="btn btn-neutral float-right" title="M-Files API version and CLR Assembly update" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

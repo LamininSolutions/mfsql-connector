@@ -1,0 +1,6 @@
+\\SJ101Z4-94753\c$\Development\GitHub\LamininSolutions\mfsql-connector\source\getting-started/configuration-and-setup/setup-powershell-utilities/index.rst:126: CRITICAL: Missing matching underline for section title overline.
+
+=======
+>>>>>>> Stashed changes
+Setup of security
+[91m\\SJ101Z4-94753\c$\Development\GitHub\LamininSolutions\mfsql-connector\source\mfsql-integration-connector/tips-and-tricks-on-using-the-connector/index.rst:46: WARNING: Bullet list ends without a blank line; unexpected unindent.[39;49;00m

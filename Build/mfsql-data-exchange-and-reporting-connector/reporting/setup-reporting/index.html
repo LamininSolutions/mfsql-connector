@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Reporting : Quick start &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reporting : Quick start &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Using Power BI for reporting" href="../using-power-bi-for-reporting/index.html" />
     <link rel="prev" title="Reporting - getting started" href="../reporting-getting-started/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started/index.html">Getting Started</a></li>
@@ -110,98 +73,60 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">MFSQL Data Exchange and reporting Connector</a> &raquo;</li>
-        
-          <li><a href="../index.html">Reporting</a> &raquo;</li>
-        
-      <li>Reporting : Quick start</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">MFSQL Data Exchange and reporting Connector</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Reporting</a></li>
+      <li class="breadcrumb-item active">Reporting : Quick start</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="reporting-quick-start">
-<h1>Reporting : Quick start<a class="headerlink" href="#reporting-quick-start" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="reporting-quick-start">
+<h1>Reporting : Quick start<a class="headerlink" href="#reporting-quick-start" title="Link to this heading"></a></h1>
 <p>Get started with reporting from M-Files in just a few simple steps.</p>
 <p>Step 1: Install the MFSQL Connector and complete the license
 installation. Refer to <a class="reference internal" href="../../../getting-started/configuration-and-setup/index.html"><span class="doc">Configuration and setup</span></a></p>
 <p>Step 2: Watch the overview of reporting <a class="reference external" href="https://m-files.lamininsolutions.com/SharedLinks.aspx?accesskey=f09ccfc6101abc69116618524f2c978ed7ffb69f1b3f7616c5f19164be93309c&amp;VaultGUID=8775C4C3-A206-4CA0-BD0B-C795800F3DF7">Reporting - Getting started</a></p>
 <p>Step 3: Prepare the class tables for Reporting for the selected classes to include in reports: Run <a class="reference internal" href="../../../procedures/spMFSetup_Reporting.html"><span class="doc">spMFSetup_Reporting</span></a>.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFSetup_Reporting</span><span class="p">]</span> <span class="o">@</span><span class="n">Classes</span> <span class="o">=</span> <span class="s1">&#39;Account, Opportunity, Campaign&#39;</span>
-                                <span class="p">,</span><span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1">-- int</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFSetup_Reporting</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">Classes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Account, Opportunity, Campaign&#39;</span>
+<span class="w">                                </span><span class="p">,</span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">   </span><span class="c1">-- int</span>
 </pre></div>
 </div>
 <p>Step 4: Use Report designer of your choice (Excel, Power BI, Visual
 Studio Report Designer, ChrystalReports etc) to access the data tables
 in SQL.</p>
-<div class="section" id="spmf-setupreporting">
-<h2>spMF_SetupReporting<a class="headerlink" href="#spmf-setupreporting" title="Permalink to this headline">¶</a></h2>
+<section id="spmf-setupreporting">
+<h2>spMF_SetupReporting<a class="headerlink" href="#spmf-setupreporting" title="Link to this heading"></a></h2>
 <p>This procedure will perform a number of operations for each class included in the parameter.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -231,8 +156,8 @@ MFContextMenu table. Copy this procedure to a different name to
 customise this routine, then update this record with the new name.</p>
 <p><img alt="image1" src="../../../_images/img_29.jpg" /></p>
 <p>The tables included in the update can be reviewed in MFClass table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mc</span><span class="p">]</span>
- <span class="k">WHERE</span> <span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">AND</span> <span class="n">name</span> <span class="o">&lt;&gt;</span> <span class="s1">&#39;User Messages&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFClass</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mc</span><span class="p">]</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">mc</span><span class="p">].[</span><span class="n">IncludeInApp</span><span class="p">]</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;User Messages&#39;</span>
 </pre></div>
 </div>
 <p>The valuelist views created depends on the valuelist references in the
@@ -242,56 +167,38 @@ a selection list based on one of the lookups.</p>
 <p>It is not necessary to create a join when using a lookup value instead
 of the id of the lookup in the report. Value is automatically included
 in the class table.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../using-power-bi-for-reporting/index.html" class="btn btn-neutral float-right" title="Using Power BI for reporting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../reporting-getting-started/index.html" class="btn btn-neutral float-left" title="Reporting - getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../reporting-getting-started/index.html" class="btn btn-neutral float-left" title="Reporting - getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using-power-bi-for-reporting/index.html" class="btn btn-neutral float-right" title="Using Power BI for reporting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Reports from the extended Event log &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports from the extended Event log &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Restore MFSQL database to a different server" href="../restore-to-a-different-database/index.html" />
     <link rel="prev" title="Report designers and the Connector" href="../report-designers-and-the-connector/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -178,78 +141,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Reports from the extended Event log</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Reports from the extended Event log</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="reports-from-the-extended-event-log">
-<h1>Reports from the extended Event log<a class="headerlink" href="#reports-from-the-extended-event-log" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="reports-from-the-extended-event-log">
+<h1>Reports from the extended Event log<a class="headerlink" href="#reports-from-the-extended-event-log" title="Link to this heading"></a></h1>
 <p>One of the hidden features of the Connector is to get the M-Files Event
 log and produce reports from it. This works with both standard and
 extended event log in M-Files. This illustration will focus on the
@@ -274,8 +200,8 @@ required in the report.</p>
 17.101.Export and use M-Files event log.</p>
 <p>The video provides and overview</p>
 <hr class="docutils" />
-<div class="section" id="exploring-the-objective">
-<h2>Exploring the objective<a class="headerlink" href="#exploring-the-objective" title="Permalink to this headline">¶</a></h2>
+<section id="exploring-the-objective">
+<h2>Exploring the objective<a class="headerlink" href="#exploring-the-objective" title="Link to this heading"></a></h2>
 <p>A good place to start is with M-Files Admin. Identify the events to be
 explored further.</p>
 <p><img alt="image0" src="../../_images/img_14.jpg" /></p>
@@ -286,17 +212,17 @@ types of data associated with the event.</p>
 <p>The properties would differ from one type of event to another.</p>
 <p>You would also be able to explore this in SQL when you start to put the
 view together.</p>
-</div>
-<div class="section" id="update-the-event-log-table-in-sql">
-<h2>Update the event log table in SQL<a class="headerlink" href="#update-the-event-log-table-in-sql" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="update-the-event-log-table-in-sql">
+<h2>Update the event log table in SQL<a class="headerlink" href="#update-the-event-log-table-in-sql" title="Link to this heading"></a></h2>
 <p>Using SSMS and the Connector the procedure: spMFGetMfilesLog the M-Files
 Event Log can be pulled into a SQL Table.</p>
 <p>Using the parameter IsClearMfilesLog will allow you to automatically
 clear the log in M-Files.</p>
 <p>If this procedure is run as an agent on a regular basis it would
 cumulatively load all of the events into the SQL table.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetMfilesLog</span><span class="p">]</span> <span class="o">@</span><span class="n">IsClearMfilesLog</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">-- bit  select 1 to delete the log in M-Files</span>
-                              <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">0</span>            <span class="c1">-- small</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXEC</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">spMFGetMfilesLog</span><span class="p">]</span><span class="w"> </span><span class="o">@</span><span class="n">IsClearMfilesLog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">-- bit  select 1 to delete the log in M-Files</span>
+<span class="w">                              </span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w">            </span><span class="c1">-- small</span>
 </pre></div>
 </div>
 <p>The extract of the events are saved in a table MFEventlog_OpenXML. The
@@ -305,130 +231,112 @@ table is updated MFilesEvents. This table can be explored and used for
 the views. The columns consist of standard columns that is the same for
 all event and an XML record for the variable data.</p>
 <p><img alt="image2" src="../../_images/img_3.jpg" /></p>
-</div>
-<div class="section" id="explore-the-events">
-<h2>Explore the events<a class="headerlink" href="#explore-the-events" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="explore-the-events">
+<h2>Explore the events<a class="headerlink" href="#explore-the-events" title="Link to this heading"></a></h2>
 <p>Double click on the XML column for an event of your choice. This will
 display the properties in XML format for the next step.</p>
 <p>Identify the properties be included in the report.</p>
 <p><img alt="image3" src="../../_images/img_4.jpg" /></p>
-</div>
-<div class="section" id="prepare-the-view">
-<h2>Prepare the view<a class="headerlink" href="#prepare-the-view" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="prepare-the-view">
+<h2>Prepare the view<a class="headerlink" href="#prepare-the-view" title="Link to this heading"></a></h2>
 <p>The sample scripts below can be used as a guide to access the correct
 elements and attributes in the XML data.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">--show object that is not system objects</span>
 
-<span class="k">SELECT</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">CausedByUser</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">NameOrTitle</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype/@id)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ObjectType_ID</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ObjectType</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Objid</span><span class="p">]</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">]</span> <span class="o">&lt;&gt;</span> <span class="s1">&#39;System&#39;</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">CausedByUser</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">NameOrTitle</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype/@id)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">ObjectType_ID</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">ObjectType</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">Objid</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;System&#39;</span><span class="p">;</span>
 
 <span class="c1">--show files downloaded</span>
 
-  <span class="k">Select</span> <span class="n">id</span>
- <span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="n">Category</span><span class="p">]</span>
- <span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="n">CausedByUser</span><span class="p">]</span>
- <span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="k">TimeStamp</span><span class="p">]</span>
-<span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">NameOrTitle</span>
-<span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/filename)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">FileName</span><span class="p">]</span>
-<span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype/@id)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ObjectType_ID</span>
-<span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ObjectType</span>
-<span class="p">,</span> <span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">Objid</span><span class="p">]</span>
-<span class="k">From</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span> <span class="n">me</span>
-<span class="k">WHERE</span> <span class="n">me</span><span class="p">.</span><span class="n">Category</span> <span class="o">=</span> <span class="s1">&#39;FileAccess&#39;</span>
+<span class="w">  </span><span class="k">Select</span><span class="w"> </span><span class="n">id</span>
+<span class="w"> </span><span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="n">Category</span><span class="p">]</span>
+<span class="w"> </span><span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="n">CausedByUser</span><span class="p">]</span>
+<span class="w"> </span><span class="p">,</span><span class="n">me</span><span class="p">.[</span><span class="k">TimeStamp</span><span class="p">]</span>
+<span class="p">,</span><span class="w"> </span><span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">NameOrTitle</span>
+<span class="p">,</span><span class="w"> </span><span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/filename)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">FileName</span><span class="p">]</span>
+<span class="p">,</span><span class="w"> </span><span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype/@id)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ObjectType_ID</span>
+<span class="p">,</span><span class="w"> </span><span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">ObjectType</span>
+<span class="p">,</span><span class="w"> </span><span class="n">Events</span><span class="p">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">Objid</span><span class="p">]</span>
+<span class="k">From</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span><span class="w"> </span><span class="n">me</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">me</span><span class="p">.</span><span class="n">Category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;FileAccess&#39;</span>
 
 <span class="c1">-- show public files downloaded</span>
-<span class="k">SELECT</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
-       <span class="k">CAST</span><span class="p">([</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">]</span> <span class="k">AS</span> <span class="n">DATETIME</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Timestamp</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">NameOrTitle</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/filename)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">FileName</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/ipaddress)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">IPAddress</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">ObjectType</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">Objid</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/version)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="k">Version</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">]</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">Type</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;File downloaded via public link&#39;</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
+<span class="w">       </span><span class="k">CAST</span><span class="p">([</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">Timestamp</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/title)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">NameOrTitle</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/filename)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">FileName</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/ipaddress)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">IPAddress</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objtype)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">ObjectType</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/objid)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">Objid</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/objectversion/objver/version)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="k">Version</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">]</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">Type</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;File downloaded via public link&#39;</span><span class="p">;</span>
 
 <span class="c1">--show items from pre-and post update types</span>
 
 
-<span class="k">SELECT</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">CausedByUser</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">],</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/@type)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">ChangeType1</span><span class="p">,</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/vlitem/@value)[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">ItemValue1</span><span class="p">,</span>
- <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/@type)[2]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">ChangeType2</span><span class="p">,</span>
-       <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/vlitem/@value)[2]&#39;</span><span class="p">,</span> <span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">ItemValue2</span>
-<span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span> <span class="p">[</span><span class="n">me</span><span class="p">]</span>
-<span class="k">WHERE</span> <span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/type/@id)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span>  <span class="o">=</span><span class="s1">&#39;ValueListItemChanged&#39;</span><span class="p">;</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">ID</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Category</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">CausedByUser</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="k">TimeStamp</span><span class="p">],</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/@type)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ChangeType1</span><span class="p">,</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/vlitem/@value)[1]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ItemValue1</span><span class="p">,</span>
+<span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/@type)[2]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ChangeType2</span><span class="p">,</span>
+<span class="w">       </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/data/structuredata/valuelistitem/vlitem/@value)[2]&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ItemValue2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFilesEvents</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">]</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">[</span><span class="n">me</span><span class="p">].[</span><span class="n">Events</span><span class="p">].[</span><span class="n">value</span><span class="p">](</span><span class="s1">&#39;(/event/type/@id)[1]&#39;</span><span class="p">,</span><span class="s1">&#39;varchar(100)&#39;</span><span class="p">)</span><span class="w">  </span><span class="o">=</span><span class="s1">&#39;ValueListItemChanged&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="access-the-view-with-the-report">
-<h2>Access the view with the report<a class="headerlink" href="#access-the-view-with-the-report" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="access-the-view-with-the-report">
+<h2>Access the view with the report<a class="headerlink" href="#access-the-view-with-the-report" title="Link to this heading"></a></h2>
 <p>The final step is to use the target script to create a view and to
 access the view using any report designer, or by setting up a ODBC data
 connection to the view in excel. Demonstrating this is beyond the scope
 of this blog.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../restore-to-a-different-database/index.html" class="btn btn-neutral float-right" title="Restore MFSQL database to a different server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../report-designers-and-the-connector/index.html" class="btn btn-neutral float-left" title="Report designers and the Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../report-designers-and-the-connector/index.html" class="btn btn-neutral float-left" title="Report designers and the Connector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../restore-to-a-different-database/index.html" class="btn btn-neutral float-right" title="Restore MFSQL database to a different server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

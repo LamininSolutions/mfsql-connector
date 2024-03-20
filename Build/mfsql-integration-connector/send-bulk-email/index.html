@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Send Bulk Email &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Send Bulk Email &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Working with files" href="../working-with-files/index.html" />
     <link rel="prev" title="Lookup Views" href="../lookup-views/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -134,88 +97,51 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">List of blogs</a></li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">MFSQL Integration Connector</a> &raquo;</li>
-        
-      <li>Send Bulk Email</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">MFSQL Integration Connector</a></li>
+      <li class="breadcrumb-item active">Send Bulk Email</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="send-bulk-email">
-<h1>Send Bulk Email<a class="headerlink" href="#send-bulk-email" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="send-bulk-email">
+<h1>Send Bulk Email<a class="headerlink" href="#send-bulk-email" title="Link to this heading"></a></h1>
 <p>Version 4.9.26.67 introduced a structured approach to send bulk emails using email templates. This allows to use data from M-Files to orchestrate sending out automatic or on demand emails using msdb database mail.</p>
 <p>This section describe how to the setup, configuration and execution of sending emails to recipients using a email template and sending it through SQL Database mail fits together.  This feature goes beyond the scope of standard M-Files notifications.  It allows for using different templates for different notifications, including place holders and the ability to include a tables. Any recipients can be included, not only users in M-Files.</p>
 <p>Example of notification with a table
 <img alt="image0" src="../../_images/img_114.png" /></p>
-<div class="section" id="components">
-<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>The capability has the following Components:</dt><dd><ul class="simple">
 <li><p><a class="reference internal" href="../../tables/tbMFEmaillog.html"><span class="doc">MFEmailLog</span></a> to track the sending of email</p></li>
@@ -225,9 +151,9 @@
 </ul>
 </dd>
 </dl>
-</div>
-<div class="section" id="use-case">
-<h2>Use case<a class="headerlink" href="#use-case" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="use-case">
+<h2>Use case<a class="headerlink" href="#use-case" title="Link to this heading"></a></h2>
 <dl>
 <dt>This feature has many potential use cases, including, but not limited to</dt><dd><ul class="simple">
 <li><p>Send notification to all customers / suppliers</p></li>
@@ -239,9 +165,9 @@
 <p>The code examples below is based on a use case of sending an email to the controller when a new account was created by M-Files in ERP</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>The following steps is required to prepare the environment</dt><dd><ul class="simple">
 <li><p>Create class tables for objects that would have the recipient email address and the triggering event to send the emails.  The trigger will be on the opportunity class when a certain state is reached. The account class will also be used.</p></li>
@@ -254,8 +180,8 @@
 </ul>
 </dd>
 </dl>
-<div class="section" id="email-template">
-<h3>Email Template<a class="headerlink" href="#email-template" title="Permalink to this headline">¶</a></h3>
+<section id="email-template">
+<h3>Email Template<a class="headerlink" href="#email-template" title="Link to this heading"></a></h3>
 <p>Design the email template format by adding a row and columns in <a class="reference internal" href="../../tables/tbMFEmailTemplate.html"><span class="doc">MFEmailTemplate</span></a> for the elements of the email for a each email template.  We recommend to prepare the email body in notepad or another scripting tool using html formatting and test the email body using a browser.</p>
 <dl class="simple">
 <dt>The various sections of the email are then inserted into the table using the following sample insert statement. Replace the sample date with your specific data. Take into account:</dt><dd><ul class="simple">
@@ -275,11 +201,11 @@
 </ul>
 </dd>
 </dl>
-</div>
-<div class="section" id="insert-template">
-<h3>Insert Template<a class="headerlink" href="#insert-template" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="insert-template">
+<h3>Insert Template<a class="headerlink" href="#insert-template" title="Link to this heading"></a></h3>
 <p>Insert a record in MFEmailTemplate for each template.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">MFEmailTemplate</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">MFEmailTemplate</span>
 <span class="p">(</span>
 <span class="n">Template_Name</span><span class="p">,</span>
 <span class="n">Channel</span><span class="p">,</span>
@@ -295,7 +221,7 @@
 <span class="n">Footer_HTML</span>
 <span class="p">)</span>
 <span class="k">VALUES</span>
-<span class="p">(</span>  <span class="s1">&#39;DemoEmail&#39;</span><span class="p">,</span>
+<span class="p">(</span><span class="w">  </span><span class="s1">&#39;DemoEmail&#39;</span><span class="p">,</span>
 <span class="s1">&#39;Telefone&#39;</span><span class="p">,</span>
 <span class="s1">&#39;noreply@lamininsolutions.com&#39;</span><span class="p">,</span>
 <span class="s1">&#39;support@lamininsolutions.com&#39;</span><span class="p">,</span>
@@ -311,16 +237,16 @@
 </pre></div>
 </div>
 <p>To review table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">dbo</span><span class="p">.</span><span class="n">MFEmailTemplate</span> <span class="k">AS</span> <span class="n">et</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MFEmailTemplate</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">et</span>
 </pre></div>
 </div>
 <p>To remove a template</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">MFEmailTemplate</span> <span class="k">where</span> <span class="n">template_Name</span> <span class="o">=</span> <span class="s1">&#39;DemoEmail&#39;</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">MFEmailTemplate</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">template_Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DemoEmail&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="custom-procedure-for-processing">
-<h3>Custom procedure for processing<a class="headerlink" href="#custom-procedure-for-processing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-procedure-for-processing">
+<h3>Custom procedure for processing<a class="headerlink" href="#custom-procedure-for-processing" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>The components is tied together with a custom procedure to stage and process the individual objects to be used in the email. This custom procedure will handle:</dt><dd><ul class="simple">
 <li><p>refresh dependent class table</p></li>
@@ -346,30 +272,30 @@
 </dd>
 </dl>
 <p>An example of a custom procedure is available in the example scripts :  C:\Program Files (x86)\Laminin Solutions\MFSQL Connector Release 4\[Your database]\Example Scripts\90.107.Custom.DoAccountConfirmationEmail.sql</p>
-</div>
-<div class="section" id="testing">
-<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h3>
 <p>Take care when testing the procedure to not send test emails to all the recipients.  Use the TestOnly parameter to test and debug the custom procedure. This will block sending emails to all the recipients and only send one email to the TestEmail in the procedure.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>         <span class="k">exec</span> <span class="n">Custom</span><span class="p">.</span><span class="n">DoAccountConfirmationEmail</span> <span class="o">@</span><span class="n">Template_ID</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">Objid</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="o">@</span><span class="n">IncludeTable</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">@</span><span class="n">Debug</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">         </span><span class="k">exec</span><span class="w"> </span><span class="n">Custom</span><span class="p">.</span><span class="n">DoAccountConfirmationEmail</span><span class="w"> </span><span class="o">@</span><span class="n">Template_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">TestOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">Objid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">94</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">IncludeTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">Debug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">To</span> <span class="n">send</span> <span class="k">to</span> <span class="k">all</span> <span class="n">recipients</span>
+<span class="k">To</span><span class="w"> </span><span class="n">send</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="n">recipients</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>          <span class="k">exec</span> <span class="n">Custom</span><span class="p">.</span><span class="n">DoAccountConfirmationEmail</span> <span class="o">@</span><span class="n">Template_ID</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="o">@</span><span class="n">TestOnly</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="o">@</span><span class="n">Objid</span> <span class="o">=</span> <span class="mi">94</span><span class="p">,</span> <span class="o">@</span><span class="n">IncludeTable</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">          </span><span class="k">exec</span><span class="w"> </span><span class="n">Custom</span><span class="p">.</span><span class="n">DoAccountConfirmationEmail</span><span class="w"> </span><span class="o">@</span><span class="n">Template_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">TestOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="o">@</span><span class="n">Objid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">94</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">IncludeTable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="k">show</span> <span class="n">the</span> <span class="n">processing</span> <span class="n">log</span>
+<span class="k">show</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">processing</span><span class="w"> </span><span class="n">log</span>
 </pre></div>
 </div>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">MFEmailLog</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">Select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">MFEmailLog</span>
 </pre></div>
 </div>
 <p>The custom procedure is designed to block the sending of repeat emails for the same template to the same recipient.  It may be necessary to release this block and resend an email to a recipient. Delete the row in MFEmailog to this end.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span> <span class="k">from</span> <span class="n">custom</span><span class="p">.</span><span class="n">emaillog</span> <span class="k">where</span> <span class="n">document_id</span> <span class="o">=</span> <span class="mi">212326</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">delete</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">custom</span><span class="p">.</span><span class="n">emaillog</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">document_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">212326</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="staging">
-<h3>Staging<a class="headerlink" href="#staging" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="staging">
+<h3>Staging<a class="headerlink" href="#staging" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>The final step is to stage the event that will trigger the notification.  This would depend on the use case but could include:</dt><dd><ul class="simple">
 <li><p>Process notifications daily in bulk based on the conditional value in a property or valuelist item. This is likely to use an agent to call the custom procedure.</p></li>
@@ -378,57 +304,39 @@
 </ul>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../working-with-files/index.html" class="btn btn-neutral float-right" title="Working with files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../lookup-views/index.html" class="btn btn-neutral float-left" title="Lookup Views" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../lookup-views/index.html" class="btn btn-neutral float-left" title="Lookup Views" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../working-with-files/index.html" class="btn btn-neutral float-right" title="Working with files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

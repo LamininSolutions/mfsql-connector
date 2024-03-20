@@ -1,92 +1,55 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Using delimiter functions &mdash; MFSQL Connector 4.11.33.77 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using delimiter functions &mdash; MFSQL Connector 4.11.33.77 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
   
     <link rel="shortcut icon" href="../../_static/MFSQL-Favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=24c0f75b"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Using event handler for SQL action" href="../using-event-handler-for-sql-action/index.html" />
     <link rel="prev" title="Updating millions of records" href="../updating_millions_of_records/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> MFSQL Connector
           
-
-          
+          <a href="../../index.html" class="icon icon-home">
+            MFSQL Connector
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">FAQ:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FAQ:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/index.html">Frequently asked questions</a></li>
 </ul>
-<p class="caption"><span class="caption-text">MFSQL Connector Guide:</span></p>
+<p class="caption" role="heading"><span class="caption-text">MFSQL Connector Guide:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction/index.html">Introduction to MFSQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started/index.html">Getting Started</a></li>
@@ -95,7 +58,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../the-connector-framework/index.html">The Connector Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../version-control/index.html">Version Control</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Blog:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Blog:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">List of blogs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../advanced-updating-of-valuelists-from-external-source/index.html">Advanced updating of Valuelists from external source</a></li>
@@ -176,125 +139,88 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">SQL Components:</span></p>
+<p class="caption" role="heading"><span class="caption-text">SQL Components:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../procedures/index.html">Procedures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tables/index.html">Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../functions/index.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../views/index.html">Views</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../triggers/index.html">Triggers</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">MFSQL Connector</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">List of blogs</a> &raquo;</li>
-        
-      <li>Using delimiter functions</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">List of blogs</a></li>
+      <li class="breadcrumb-item active">Using delimiter functions</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="using-delimiter-functions">
-<h1>Using delimiter functions<a class="headerlink" href="#using-delimiter-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="using-delimiter-functions">
+<h1>Using delimiter functions<a class="headerlink" href="#using-delimiter-functions" title="Link to this heading"></a></h1>
 <p>MFSQL Connector uses delimiter based operations, especially for multi
 lookups. These functions are useful in your custom development. This use
 case elaborate on the application of the functions.</p>
-<div class="section" id="parse-delimited-string">
-<h2>Parse Delimited String<a class="headerlink" href="#parse-delimited-string" title="Permalink to this headline">¶</a></h2>
+<section id="parse-delimited-string">
+<h2>Parse Delimited String<a class="headerlink" href="#parse-delimited-string" title="Link to this heading"></a></h2>
 <p>The function fnMFParseDelimitedString is a table based function to parse
 any string of multiple items split by any delimiter into a table with
 two columns: ID and ListItem.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span> <span class="o">@</span><span class="n">String</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="k">SET</span> <span class="o">@</span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;item1, item 2, item 3&#39;</span>
-<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">](</span><span class="o">@</span><span class="n">String</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">String</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;item1, item 2, item 3&#39;</span>
+<span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">](</span><span class="o">@</span><span class="n">String</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>The ID is the row number of the listing, and the ListItem is the value.</p>
 <p><img alt="image0" src="../../_images/img_14.png" /></p>
 <p>This function is also used to in conjunction with multi lookup columns
 in class tables to create a join with another table</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFCustomerOrder</span><span class="p">]</span> <span class="k">AS</span> <span class="p">[</span><span class="n">mco</span><span class="p">]</span>
-<span class="k">CROSS</span> <span class="n">APPLY</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">](</span><span class="n">OrderLine_ID</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
-<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">MFOrderLines</span> <span class="n">mol</span>
-<span class="k">ON</span> <span class="n">mol</span><span class="p">.</span><span class="n">objid</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmpds</span><span class="p">].</span><span class="n">listitem</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">MFCustomerOrder</span><span class="p">]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">mco</span><span class="p">]</span>
+<span class="k">CROSS</span><span class="w"> </span><span class="n">APPLY</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFParseDelimitedString</span><span class="p">](</span><span class="n">OrderLine_ID</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">[</span><span class="n">fmpds</span><span class="p">]</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">MFOrderLines</span><span class="w"> </span><span class="n">mol</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">mol</span><span class="p">.</span><span class="n">objid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">fmpds</span><span class="p">].</span><span class="n">listitem</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="split">
-<h2>Split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="split">
+<h2>Split<a class="headerlink" href="#split" title="Link to this heading"></a></h2>
 <p>The fnMFSplit function is specifically designed to parse and pair two
 delimited lists of property ids and properties. The construct is
 fnMFSplit(‘first list of items delimited’,’second list of items
 delimited’,’delimiter’) The result is a table with ID, PropertyID,
 PropertyValue</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFSplit</span><span class="p">](</span><span class="s1">&#39;0,1079&#39;</span><span class="p">,</span><span class="s1">&#39;Name of object, Customer&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="p">[</span><span class="n">fms</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].[</span><span class="n">fnMFSplit</span><span class="p">](</span><span class="s1">&#39;0,1079&#39;</span><span class="p">,</span><span class="s1">&#39;Name of object, Customer&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">fms</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><img alt="image1" src="../../_images/img_22.png" /></p>
-</div>
-<div class="section" id="split-paired-string">
-<h2>Split paired string<a class="headerlink" href="#split-paired-string" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="split-paired-string">
+<h2>Split paired string<a class="headerlink" href="#split-paired-string" title="Link to this heading"></a></h2>
 <p>The fnSplitPairedString function is similar to split, however it allows
 for including lists with inner delimiters for the two paired strings.
 The construct is fnSplitPairedString(‘first list of items with delimiter
 a’,’Second list of items with delimited a - some items are delimited
 with delimited b’,’Delimiter a’,’Delimiter b’). In the following example
 Customer_ID values is a list of items in its own right.</p>
-<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span>
-<span class="k">from</span> <span class="p">[</span><span class="n">dbo</span><span class="p">].</span><span class="n">fnMFSplitPairedString</span><span class="p">(</span><span class="s1">&#39;Customer_ID,Project_ID,Objid&#39;</span><span class="p">,</span><span class="s1">&#39;12;36;78,7,10007&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
- <span class="k">as</span> <span class="p">[</span><span class="n">fmsps</span><span class="p">]</span>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="o">*</span>
+<span class="k">from</span><span class="w"> </span><span class="p">[</span><span class="n">dbo</span><span class="p">].</span><span class="n">fnMFSplitPairedString</span><span class="p">(</span><span class="s1">&#39;Customer_ID,Project_ID,Objid&#39;</span><span class="p">,</span><span class="s1">&#39;12;36;78,7,10007&#39;</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="p">[</span><span class="n">fmsps</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><img alt="image2" src="../../_images/img_32.png" /></p>
@@ -303,56 +229,38 @@ Customer_ID values is a list of items in its own right.</p>
 <div class="line">This is similar to ParseDelimitedString</div>
 </div>
 <p>select * from [dbo].fnMFSplitString as [fmss]</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../using-event-handler-for-sql-action/index.html" class="btn btn-neutral float-right" title="Using event handler for SQL action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../updating_millions_of_records/index.html" class="btn btn-neutral float-left" title="Updating millions of records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../updating_millions_of_records/index.html" class="btn btn-neutral float-left" title="Updating millions of records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../using-event-handler-for-sql-action/index.html" class="btn btn-neutral float-right" title="Using event handler for SQL action" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2023, Laminin Solutions Ltd
-
-    </p>
+    <p>&#169; Copyright 2023, Laminin Solutions Ltd.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
