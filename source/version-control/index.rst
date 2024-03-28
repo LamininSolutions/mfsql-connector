@@ -155,7 +155,7 @@ It has material implications for users of the Context Menu functionality. Consul
 #. spMFUpdateMFilesToMFSQL resolve issue of removal of class table objects
 #. Update all example scripts for using the context menu to include ProcessBatch_ID and other changes
 #. Update the Web API to respond to the newly designed VAF.
-#. New functionality was added to allow for parameterised processing of additional properties. This has affected a range of procedures.  Refer to the guide for more details
+#. New functionality was added to allow for parameterised processing of additional properties. This has affected a range of procedures.  Refer to the guide for more details. Related procedure is SpmfSetAdditionalProperty and table MFClassProperty
 #. Add VaultRoles to MFUserAccount dataset
 #. Add ServerRoles to MFLoginAccount dataset
 #. Upgrade spMFCheckAndUpdateAssemblyVersion to include updating when assemblies failed to load.
